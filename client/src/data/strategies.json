@@ -1,0 +1,121 @@
+{
+  "indicators": [
+    {
+      "id": "six_veins",
+      "name": "六脉神剑",
+      "description": "多指标共振系统，由六个独立的技术指标组成，每个指标显示红色（多头）或绿色（空头）状态。",
+      "subIndicators": [
+        { "name": "MACD", "formula": "DIF > DEA", "meaning": "短期动能强于中期" },
+        { "name": "KDJ", "formula": "K > D", "meaning": "超买超卖指标向上" },
+        { "name": "RSI", "formula": "RSI5 > RSI13", "meaning": "短期相对强弱优于中期" },
+        { "name": "LWR", "formula": "LWR1 > LWR2", "meaning": "威廉指标变种向上" },
+        { "name": "BBI", "formula": "C > BBI", "meaning": "价格高于多空分界线" },
+        { "name": "MTM", "formula": "MTM1 > MTM2", "meaning": "短期动量强于中期" }
+      ],
+      "signals": [
+        { "type": "buy", "name": "涨买入", "condition": "六个指标首次全部变红", "action": "建仓或加仓" },
+        { "type": "hold", "name": "上涨持有", "condition": "六个指标持续全红", "action": "持股待涨" },
+        { "type": "sell", "name": "首次转绿", "condition": "六红变为非六红", "action": "减仓1/3" }
+      ]
+    },
+    {
+      "id": "buy_sell_points",
+      "name": "买卖点指标",
+      "description": "基于庄家线与散户线的交叉关系，结合吸筹指标识别主力动向。",
+      "signals": [
+        { "type": "buy", "name": "买点1", "condition": "吸筹值上穿14", "meaning": "主力开始吸筹", "position": "30%" },
+        { "type": "buy", "name": "买点2", "condition": "庄家线上穿散户线且处于低位", "meaning": "主力拉升核心信号", "position": "50%" },
+        { "type": "sell", "name": "卖点1", "condition": "庄家线下穿88", "meaning": "高位见顶", "action": "减仓50%" },
+        { "type": "sell", "name": "卖点2", "condition": "散户线上穿庄家线", "meaning": "趋势反转", "action": "清仓" }
+      ]
+    },
+    {
+      "id": "money_tree",
+      "name": "黄金摇钱树",
+      "description": "技术形态选股指标，结合顶底识别、动量交叉和KDJ变种三重过滤。",
+      "signals": [
+        { "type": "buy", "name": "摇钱树选股", "condition": "XG66 AND XG55 AND XG88", "action": "强烈买入" }
+      ]
+    },
+    {
+      "id": "chan_lun",
+      "name": "缠论买点",
+      "description": "基于笔结构识别，识别一买、二买、三买等经典买点。",
+      "signals": [
+        { "type": "buy", "name": "一买", "condition": "底分型 + 结构背驰", "risk": "高（抄底）", "position": "20%" },
+        { "type": "buy", "name": "二买", "condition": "回踩不破前低", "risk": "中", "position": "40%" },
+        { "type": "buy", "name": "三买", "condition": "回踩不破中枢", "risk": "低（追涨）", "position": "30%" }
+      ]
+    }
+  ],
+  "strategies": [
+    {
+      "id": "steady",
+      "name": "稳健型方案",
+      "tag": "中长线",
+      "period": "15-30天",
+      "buyConditions": [
+        "六脉神剑 ≥ 4红",
+        "买点2信号",
+        "缠论二买或三买"
+      ],
+      "sellConditions": [
+        "卖点1或卖点2出现",
+        "六脉神剑 ≤ 2红"
+      ],
+      "winRate": "60.0%",
+      "avgReturn": "0.12%"
+    },
+    {
+      "id": "aggressive",
+      "name": "激进型方案",
+      "tag": "短线",
+      "period": "3-7天",
+      "buyConditions": [
+        "六脉神剑首次6红",
+        "买点2信号"
+      ],
+      "sellConditions": [
+        "六脉神剑首次转为非6红",
+        "持有5天后自动卖出"
+      ],
+      "winRate": "72.7%",
+      "avgReturn": "0.55%"
+    },
+    {
+      "id": "bottom_fishing",
+      "name": "抄底型方案",
+      "tag": "熊市",
+      "period": "7-20天",
+      "buyConditions": [
+        "缠论一买信号",
+        "买点1（吸筹信号）",
+        "六脉神剑 ≥ 3红"
+      ],
+      "sellConditions": [
+        "缠论二买出现后减仓50%",
+        "缠论三买出现后清仓"
+      ],
+      "winRate": "待测",
+      "avgReturn": "待测"
+    },
+    {
+      "id": "resonance",
+      "name": "共振型方案",
+      "tag": "全能",
+      "period": "动态调整",
+      "buyConditions": [
+        "六脉神剑6红",
+        "买点2信号",
+        "摇钱树信号",
+        "缠论买点（任意）"
+      ],
+      "sellConditions": [
+        "卖点2出现",
+        "六脉神剑 ≤ 3红"
+      ],
+      "winRate": "100% (信号少)",
+      "avgReturn": "高"
+    }
+  ]
+}
