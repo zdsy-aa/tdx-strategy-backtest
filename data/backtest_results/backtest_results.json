@@ -4,37 +4,139 @@
       "name": "六脉6红",
       "stats": {
         "total": {
-          "trades": 42192,
-          "win_rate": 50.4,
-          "avg_return": 1.51,
-          "total_return": 63729.92,
-          "max_return": 89.5,
-          "min_return": -45.2
+          "trades": 40810,
+          "win_rate": 50.3,
+          "avg_return": 1.54,
+          "total_return": 63034.29,
+          "max_return": 721.92,
+          "min_return": -98.9
         },
         "yearly": {
-          "2020": {"trades": 8234, "win_rate": 51.2, "avg_return": 1.82},
-          "2021": {"trades": 9156, "win_rate": 49.8, "avg_return": 1.45},
-          "2022": {"trades": 7823, "win_rate": 48.6, "avg_return": 0.92},
-          "2023": {"trades": 8567, "win_rate": 50.1, "avg_return": 1.38},
-          "2024": {"trades": 6892, "win_rate": 52.3, "avg_return": 1.89},
-          "2025": {"trades": 1520, "win_rate": 51.8, "avg_return": 1.65}
+          "2015": {
+            "trades": 2844,
+            "win_rate": 53.1,
+            "avg_return": 3.41
+          },
+          "2016": {
+            "trades": 2920,
+            "win_rate": 51.7,
+            "avg_return": 3.92
+          },
+          "2017": {
+            "trades": 3489,
+            "win_rate": 59.3,
+            "avg_return": 3.48
+          },
+          "2018": {
+            "trades": 3435,
+            "win_rate": 39.9,
+            "avg_return": -1.89
+          },
+          "2019": {
+            "trades": 4005,
+            "win_rate": 60.0,
+            "avg_return": 3.78
+          },
+          "2020": {
+            "trades": 4150,
+            "win_rate": 54.8,
+            "avg_return": 3.8
+          },
+          "2021": {
+            "trades": 4060,
+            "win_rate": 44.9,
+            "avg_return": -0.08
+          },
+          "2022": {
+            "trades": 3875,
+            "win_rate": 44.9,
+            "avg_return": -0.8
+          },
+          "2023": {
+            "trades": 3973,
+            "win_rate": 42.0,
+            "avg_return": -0.67
+          },
+          "2024": {
+            "trades": 3695,
+            "win_rate": 49.4,
+            "avg_return": 1.44
+          },
+          "2025": {
+            "trades": 4257,
+            "win_rate": 53.4,
+            "avg_return": 1.4
+          },
+          "2026": {
+            "trades": 107,
+            "win_rate": 54.2,
+            "avg_return": 0.85
+          }
         },
         "monthly": {
-          "1月": {"trades": 3456, "win_rate": 49.2, "avg_return": 1.12},
-          "2月": {"trades": 2987, "win_rate": 50.8, "avg_return": 1.45},
-          "3月": {"trades": 3654, "win_rate": 51.2, "avg_return": 1.68},
-          "4月": {"trades": 3789, "win_rate": 50.5, "avg_return": 1.52},
-          "5月": {"trades": 3456, "win_rate": 49.8, "avg_return": 1.35},
-          "6月": {"trades": 3234, "win_rate": 48.9, "avg_return": 1.18},
-          "7月": {"trades": 3567, "win_rate": 50.2, "avg_return": 1.42},
-          "8月": {"trades": 3678, "win_rate": 51.5, "avg_return": 1.78},
-          "9月": {"trades": 3456, "win_rate": 50.8, "avg_return": 1.55},
-          "10月": {"trades": 3234, "win_rate": 49.5, "avg_return": 1.28},
-          "11月": {"trades": 3890, "win_rate": 51.8, "avg_return": 1.82},
-          "12月": {"trades": 3791, "win_rate": 50.2, "avg_return": 1.45}
+          "1月": {
+            "trades": 3075,
+            "win_rate": 56.5,
+            "avg_return": 1.98
+          },
+          "2月": {
+            "trades": 3011,
+            "win_rate": 56.4,
+            "avg_return": 3.83
+          },
+          "3月": {
+            "trades": 3447,
+            "win_rate": 51.2,
+            "avg_return": 2.83
+          },
+          "4月": {
+            "trades": 3470,
+            "win_rate": 48.0,
+            "avg_return": 0.85
+          },
+          "5月": {
+            "trades": 3256,
+            "win_rate": 52.1,
+            "avg_return": 2.46
+          },
+          "6月": {
+            "trades": 3657,
+            "win_rate": 57.2,
+            "avg_return": 3.08
+          },
+          "7月": {
+            "trades": 3777,
+            "win_rate": 46.7,
+            "avg_return": 0.24
+          },
+          "8月": {
+            "trades": 3682,
+            "win_rate": 44.1,
+            "avg_return": -1.09
+          },
+          "9月": {
+            "trades": 3184,
+            "win_rate": 47.9,
+            "avg_return": 1.95
+          },
+          "10月": {
+            "trades": 2901,
+            "win_rate": 53.9,
+            "avg_return": 2.95
+          },
+          "11月": {
+            "trades": 3511,
+            "win_rate": 43.0,
+            "avg_return": -0.28
+          },
+          "12月": {
+            "trades": 3839,
+            "win_rate": 49.2,
+            "avg_return": 0.71
+          }
         }
       },
-      "hold_days": 14
+      "default_hold_days": 14
     },
     "six_veins_5red": {
       "name": "六脉5红",
@@ -42,91 +144,471 @@
         "total": {
           "trades": 46522,
           "win_rate": 50.3,
-          "avg_return": 1.70,
-          "total_return": 79087.4,
-          "max_return": 92.3,
-          "min_return": -48.5
+          "avg_return": 1.7,
+          "total_return": 78860.47,
+          "max_return": 1202.94,
+          "min_return": -99.5
         },
         "yearly": {
-          "2020": {"trades": 9123, "win_rate": 51.5, "avg_return": 2.05},
-          "2021": {"trades": 10234, "win_rate": 49.9, "avg_return": 1.62},
-          "2022": {"trades": 8567, "win_rate": 48.2, "avg_return": 1.15},
-          "2023": {"trades": 9456, "win_rate": 50.5, "avg_return": 1.58},
-          "2024": {"trades": 7542, "win_rate": 52.1, "avg_return": 2.12},
-          "2025": {"trades": 1600, "win_rate": 51.2, "avg_return": 1.78}
+          "2015": {
+            "trades": 3311,
+            "win_rate": 55.8,
+            "avg_return": 5.18
+          },
+          "2016": {
+            "trades": 3529,
+            "win_rate": 51.0,
+            "avg_return": 3.53
+          },
+          "2017": {
+            "trades": 3902,
+            "win_rate": 58.5,
+            "avg_return": 4.34
+          },
+          "2018": {
+            "trades": 3892,
+            "win_rate": 40.2,
+            "avg_return": -1.54
+          },
+          "2019": {
+            "trades": 4438,
+            "win_rate": 59.5,
+            "avg_return": 3.64
+          },
+          "2020": {
+            "trades": 4541,
+            "win_rate": 56.4,
+            "avg_return": 3.85
+          },
+          "2021": {
+            "trades": 4602,
+            "win_rate": 45.3,
+            "avg_return": 0.02
+          },
+          "2022": {
+            "trades": 4542,
+            "win_rate": 44.2,
+            "avg_return": -0.88
+          },
+          "2023": {
+            "trades": 4512,
+            "win_rate": 41.8,
+            "avg_return": -0.63
+          },
+          "2024": {
+            "trades": 4365,
+            "win_rate": 47.4,
+            "avg_return": 1.03
+          },
+          "2025": {
+            "trades": 4785,
+            "win_rate": 54.0,
+            "avg_return": 1.42
+          },
+          "2026": {
+            "trades": 103,
+            "win_rate": 57.3,
+            "avg_return": 0.91
+          }
         },
         "monthly": {
-          "1月": {"trades": 3856, "win_rate": 49.5, "avg_return": 1.28},
-          "2月": {"trades": 3287, "win_rate": 51.2, "avg_return": 1.65},
-          "3月": {"trades": 3954, "win_rate": 51.8, "avg_return": 1.92},
-          "4月": {"trades": 4089, "win_rate": 50.2, "avg_return": 1.68},
-          "5月": {"trades": 3756, "win_rate": 49.5, "avg_return": 1.52},
-          "6月": {"trades": 3534, "win_rate": 48.5, "avg_return": 1.35},
-          "7月": {"trades": 3867, "win_rate": 50.5, "avg_return": 1.62},
-          "8月": {"trades": 3978, "win_rate": 52.1, "avg_return": 1.98},
-          "9月": {"trades": 3756, "win_rate": 51.2, "avg_return": 1.72},
-          "10月": {"trades": 3534, "win_rate": 49.2, "avg_return": 1.45},
-          "11月": {"trades": 4190, "win_rate": 52.5, "avg_return": 2.05},
-          "12月": {"trades": 4091, "win_rate": 50.5, "avg_return": 1.62}
+          "1月": {
+            "trades": 3567,
+            "win_rate": 54.5,
+            "avg_return": 1.88
+          },
+          "2月": {
+            "trades": 3183,
+            "win_rate": 55.3,
+            "avg_return": 4.53
+          },
+          "3月": {
+            "trades": 4202,
+            "win_rate": 50.0,
+            "avg_return": 2.41
+          },
+          "4月": {
+            "trades": 3917,
+            "win_rate": 48.3,
+            "avg_return": 0.91
+          },
+          "5月": {
+            "trades": 3741,
+            "win_rate": 52.2,
+            "avg_return": 2.66
+          },
+          "6月": {
+            "trades": 4024,
+            "win_rate": 55.6,
+            "avg_return": 2.86
+          },
+          "7月": {
+            "trades": 4163,
+            "win_rate": 46.7,
+            "avg_return": 0.29
+          },
+          "8月": {
+            "trades": 4259,
+            "win_rate": 44.9,
+            "avg_return": -0.64
+          },
+          "9月": {
+            "trades": 3769,
+            "win_rate": 49.3,
+            "avg_return": 2.23
+          },
+          "10月": {
+            "trades": 3234,
+            "win_rate": 55.2,
+            "avg_return": 3.01
+          },
+          "11月": {
+            "trades": 3930,
+            "win_rate": 44.4,
+            "avg_return": 0.2
+          },
+          "12月": {
+            "trades": 4533,
+            "win_rate": 49.9,
+            "avg_return": 1.14
+          }
         }
       },
-      "hold_days": 14
+      "default_hold_days": 14
+    },
+    "six_veins_4red": {
+      "name": "六脉4红",
+      "stats": {
+        "total": {
+          "trades": 46609,
+          "win_rate": 50.8,
+          "avg_return": 1.52,
+          "total_return": 70748.32,
+          "max_return": 1241.18,
+          "min_return": -97.5
+        },
+        "yearly": {
+          "2015": {
+            "trades": 3357,
+            "win_rate": 57.3,
+            "avg_return": 6.51
+          },
+          "2016": {
+            "trades": 3599,
+            "win_rate": 52.8,
+            "avg_return": 3.19
+          },
+          "2017": {
+            "trades": 3856,
+            "win_rate": 56.8,
+            "avg_return": 3.18
+          },
+          "2018": {
+            "trades": 3923,
+            "win_rate": 43.3,
+            "avg_return": -0.72
+          },
+          "2019": {
+            "trades": 4359,
+            "win_rate": 58.2,
+            "avg_return": 2.68
+          },
+          "2020": {
+            "trades": 4395,
+            "win_rate": 56.5,
+            "avg_return": 2.76
+          },
+          "2021": {
+            "trades": 4611,
+            "win_rate": 46.1,
+            "avg_return": -0.11
+          },
+          "2022": {
+            "trades": 4659,
+            "win_rate": 45.9,
+            "avg_return": -0.45
+          },
+          "2023": {
+            "trades": 4526,
+            "win_rate": 44.6,
+            "avg_return": -0.35
+          },
+          "2024": {
+            "trades": 4518,
+            "win_rate": 47.2,
+            "avg_return": 0.79
+          },
+          "2025": {
+            "trades": 4702,
+            "win_rate": 52.4,
+            "avg_return": 0.99
+          },
+          "2026": {
+            "trades": 104,
+            "win_rate": 55.8,
+            "avg_return": 0.91
+          }
+        },
+        "monthly": {
+          "1月": {
+            "trades": 3535,
+            "win_rate": 50.2,
+            "avg_return": 0.58
+          },
+          "2月": {
+            "trades": 3035,
+            "win_rate": 60.7,
+            "avg_return": 5.38
+          },
+          "3月": {
+            "trades": 4395,
+            "win_rate": 48.3,
+            "avg_return": 1.89
+          },
+          "4月": {
+            "trades": 3989,
+            "win_rate": 48.8,
+            "avg_return": 1.05
+          },
+          "5月": {
+            "trades": 3758,
+            "win_rate": 53.4,
+            "avg_return": 2.4
+          },
+          "6月": {
+            "trades": 3995,
+            "win_rate": 55.4,
+            "avg_return": 1.73
+          },
+          "7月": {
+            "trades": 4032,
+            "win_rate": 48.1,
+            "avg_return": 0.79
+          },
+          "8月": {
+            "trades": 4278,
+            "win_rate": 48.6,
+            "avg_return": 0.14
+          },
+          "9月": {
+            "trades": 3835,
+            "win_rate": 48.6,
+            "avg_return": 1.83
+          },
+          "10月": {
+            "trades": 3232,
+            "win_rate": 56.2,
+            "avg_return": 2.61
+          },
+          "11月": {
+            "trades": 3989,
+            "win_rate": 46.5,
+            "avg_return": 0.48
+          },
+          "12月": {
+            "trades": 4536,
+            "win_rate": 48.9,
+            "avg_return": 0.62
+          }
+        }
+      },
+      "default_hold_days": 10
     },
     "buy_point_2": {
       "name": "买点2",
       "stats": {
         "total": {
-          "trades": 15234,
-          "win_rate": 52.8,
-          "avg_return": 2.15,
-          "total_return": 32753.1,
-          "max_return": 78.5,
-          "min_return": -38.2
+          "trades": 5552,
+          "win_rate": 50.6,
+          "avg_return": 1.82,
+          "total_return": 10099.85,
+          "max_return": 578.63,
+          "min_return": -97.5
         },
         "yearly": {
-          "2020": {"trades": 2987, "win_rate": 53.5, "avg_return": 2.45},
-          "2021": {"trades": 3234, "win_rate": 52.2, "avg_return": 2.12},
-          "2022": {"trades": 2756, "win_rate": 51.5, "avg_return": 1.85},
-          "2023": {"trades": 3045, "win_rate": 52.8, "avg_return": 2.08},
-          "2024": {"trades": 2612, "win_rate": 54.2, "avg_return": 2.52},
-          "2025": {"trades": 600, "win_rate": 53.5, "avg_return": 2.28}
+          "2015": {
+            "trades": 372,
+            "win_rate": 51.6,
+            "avg_return": 5.32
+          },
+          "2016": {
+            "trades": 357,
+            "win_rate": 47.1,
+            "avg_return": 3.35
+          },
+          "2017": {
+            "trades": 492,
+            "win_rate": 56.3,
+            "avg_return": 3.22
+          },
+          "2018": {
+            "trades": 466,
+            "win_rate": 45.5,
+            "avg_return": -1.35
+          },
+          "2019": {
+            "trades": 493,
+            "win_rate": 58.0,
+            "avg_return": 3.2
+          },
+          "2020": {
+            "trades": 615,
+            "win_rate": 60.2,
+            "avg_return": 5.59
+          },
+          "2021": {
+            "trades": 542,
+            "win_rate": 39.9,
+            "avg_return": -1.7
+          },
+          "2022": {
+            "trades": 440,
+            "win_rate": 37.3,
+            "avg_return": -1.51
+          },
+          "2023": {
+            "trades": 545,
+            "win_rate": 43.9,
+            "avg_return": -0.32
+          },
+          "2024": {
+            "trades": 643,
+            "win_rate": 55.1,
+            "avg_return": 2.98
+          },
+          "2025": {
+            "trades": 577,
+            "win_rate": 56.5,
+            "avg_return": 1.34
+          },
+          "2026": {
+            "trades": 10,
+            "win_rate": 60.0,
+            "avg_return": 1.86
+          }
         },
         "monthly": {
-          "1月": {"trades": 1256, "win_rate": 52.2, "avg_return": 1.95},
-          "2月": {"trades": 1087, "win_rate": 53.5, "avg_return": 2.18},
-          "3月": {"trades": 1354, "win_rate": 54.2, "avg_return": 2.42},
-          "4月": {"trades": 1389, "win_rate": 52.8, "avg_return": 2.15},
-          "5月": {"trades": 1256, "win_rate": 51.5, "avg_return": 1.92},
-          "6月": {"trades": 1134, "win_rate": 50.8, "avg_return": 1.78},
-          "7月": {"trades": 1267, "win_rate": 52.5, "avg_return": 2.05},
-          "8月": {"trades": 1378, "win_rate": 54.8, "avg_return": 2.52},
-          "9月": {"trades": 1256, "win_rate": 53.2, "avg_return": 2.22},
-          "10月": {"trades": 1134, "win_rate": 51.2, "avg_return": 1.85},
-          "11月": {"trades": 1390, "win_rate": 54.5, "avg_return": 2.58},
-          "12月": {"trades": 1333, "win_rate": 52.8, "avg_return": 2.12}
+          "1月": {
+            "trades": 470,
+            "win_rate": 57.2,
+            "avg_return": 3.22
+          },
+          "2月": {
+            "trades": 416,
+            "win_rate": 56.0,
+            "avg_return": 5.29
+          },
+          "3月": {
+            "trades": 374,
+            "win_rate": 45.5,
+            "avg_return": 1.05
+          },
+          "4月": {
+            "trades": 430,
+            "win_rate": 46.5,
+            "avg_return": -0.51
+          },
+          "5月": {
+            "trades": 435,
+            "win_rate": 52.4,
+            "avg_return": 4.38
+          },
+          "6月": {
+            "trades": 449,
+            "win_rate": 58.1,
+            "avg_return": 4.14
+          },
+          "7月": {
+            "trades": 494,
+            "win_rate": 41.9,
+            "avg_return": -0.64
+          },
+          "8月": {
+            "trades": 596,
+            "win_rate": 49.3,
+            "avg_return": 0.39
+          },
+          "9月": {
+            "trades": 432,
+            "win_rate": 52.5,
+            "avg_return": 3.2
+          },
+          "10月": {
+            "trades": 468,
+            "win_rate": 53.4,
+            "avg_return": 2.62
+          },
+          "11月": {
+            "trades": 371,
+            "win_rate": 40.2,
+            "avg_return": -0.34
+          },
+          "12月": {
+            "trades": 617,
+            "win_rate": 52.2,
+            "avg_return": 0.09
+          }
         }
       },
-      "hold_days": 16
+      "default_hold_days": 16
     }
   },
   "sell_points": {
-    "1天后卖出": {"trades": 46522, "win_rate": 45.8, "avg_return": 0.09},
-    "3天后卖出": {"trades": 46522, "win_rate": 47.8, "avg_return": 0.52},
-    "5天后卖出": {"trades": 46522, "win_rate": 49.2, "avg_return": 0.85},
-    "10天后卖出": {"trades": 46522, "win_rate": 50.5, "avg_return": 1.35},
-    "14天后卖出": {"trades": 46522, "win_rate": 50.3, "avg_return": 1.70},
-    "20天后卖出": {"trades": 46522, "win_rate": 49.8, "avg_return": 1.92},
-    "30天后卖出": {"trades": 46522, "win_rate": 48.5, "avg_return": 2.15}
-  },
-  "data_info": {
-    "total_stocks": 211,
-    "data_range": {
-      "start": "1991-04-03",
-      "end": "2026-01-07"
+    "1天后卖出": {
+      "trades": 46522,
+      "win_rate": 47.8,
+      "avg_return": 0.29,
+      "total_return": 13295.54,
+      "max_return": 266.67,
+      "min_return": -66.67
     },
-    "backtest_range": {
-      "start": "2015-01-01",
-      "end": "2026-01-06"
+    "3天后卖出": {
+      "trades": 46522,
+      "win_rate": 49.8,
+      "avg_return": 0.54,
+      "total_return": 25181.74,
+      "max_return": 493.75,
+      "min_return": -99.56
+    },
+    "5天后卖出": {
+      "trades": 46522,
+      "win_rate": 49.9,
+      "avg_return": 0.76,
+      "total_return": 35576.34,
+      "max_return": 912.5,
+      "min_return": -99.56
+    },
+    "10天后卖出": {
+      "trades": 46522,
+      "win_rate": 50.9,
+      "avg_return": 1.35,
+      "total_return": 62828.31,
+      "max_return": 1241.18,
+      "min_return": -97.5
+    },
+    "14天后卖出": {
+      "trades": 46522,
+      "win_rate": 50.3,
+      "avg_return": 1.7,
+      "total_return": 78860.47,
+      "max_return": 1202.94,
+      "min_return": -99.5
+    },
+    "20天后卖出": {
+      "trades": 46522,
+      "win_rate": 51.0,
+      "avg_return": 2.55,
+      "total_return": 118577.93,
+      "max_return": 1756.41,
+      "min_return": -99.03
+    },
+    "30天后卖出": {
+      "trades": 46522,
+      "win_rate": 51.3,
+      "avg_return": 3.74,
+      "total_return": 174043.76,
+      "max_return": 1793.59,
+      "min_return": -98.87
     }
   }
 }

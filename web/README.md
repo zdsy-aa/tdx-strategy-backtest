@@ -55,7 +55,7 @@ web/
 
 ### 1. 安装依赖
 ```bash
-cd /home/ubuntu/trading-strategy-guide
+cd web
 pnpm install
 ```
 
@@ -63,6 +63,7 @@ pnpm install
 ```bash
 pnpm dev
 ```
+访问地址通常为 `http://localhost:3000`。
 
 ### 3. 构建生产版本
 ```bash
@@ -73,6 +74,14 @@ pnpm build
 ```bash
 pnpm start
 ```
+
+## 📊 数据关联
+
+网页展示的数据主要来自 `../data/backtest_results/` 目录下的 JSON 文件：
+*   `backtest_results.json`: 用于仪表盘和策略详情页。
+*   `stock_reports.json`: 用于股票明细页。
+
+请确保在运行网页前，已通过 `py_file/full_backtest.py` 生成了最新的回测数据。
 
 ## 🔧 配置说明
 
