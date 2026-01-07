@@ -3,6 +3,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, XCircle, Clock, TrendingUp, AlertTriangle } from "lucide-react";
 
+interface StrategyStats {
+  total: {
+    winRate: string;
+    avgReturn: string;
+    optimalPeriod: string;
+    trades: number;
+  };
+  yearly: Record<string, unknown>;
+  monthly: Record<string, unknown>;
+}
+
 interface StrategyProps {
   strategy: {
     id: string;
@@ -11,13 +22,20 @@ interface StrategyProps {
     period: string;
     buyConditions: string[];
     sellConditions: string[];
-    winRate: string;
-    avgReturn: string;
+    winRate?: string;
+    avgReturn?: string;
+    stats?: StrategyStats;
   };
 }
 
 export default function StrategyCard({ strategy }: StrategyProps) {
-  const isHighWinRate = parseFloat(strategy.winRate) > 60;
+  // 支持旧格式和新格式
+  const winRate = strategy.stats?.total?.winRate || strategy.winRate || "待测";
+  const avgReturn = strategy.stats?.total?.avgReturn || strategy.avgReturn || "待测";
+  const trades = strategy.stats?.total?.trades || 0;
+  
+  const winRateNum = parseFloat(winRate);
+  const isHighWinRate = !isNaN(winRateNum) && winRateNum > 60;
 
   return (
     <Card className="glass-card flex flex-col h-full hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden">
@@ -51,18 +69,25 @@ export default function StrategyCard({ strategy }: StrategyProps) {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 gap-4">
           <div className="p-3 rounded-lg bg-black/30 border border-white/5 text-center">
-            <div className="text-xs text-muted-foreground mb-1">历史胜率</div>
+            <div className="text-xs text-muted-foreground mb-1">总胜率</div>
             <div className={`text-xl font-bold ${isHighWinRate ? 'text-green-400' : 'text-foreground'}`}>
-              {strategy.winRate}
+              {winRate}
             </div>
           </div>
           <div className="p-3 rounded-lg bg-black/30 border border-white/5 text-center">
             <div className="text-xs text-muted-foreground mb-1">平均收益</div>
             <div className="text-xl font-bold text-primary">
-              {strategy.avgReturn}
+              {avgReturn}
             </div>
           </div>
         </div>
+
+        {/* Trade Count */}
+        {trades > 0 && (
+          <div className="text-center text-sm text-muted-foreground">
+            历史交易次数: <span className="text-foreground font-medium">{trades}</span>
+          </div>
+        )}
 
         {/* Conditions */}
         <div className="space-y-4">

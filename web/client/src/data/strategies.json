@@ -48,6 +48,68 @@
       ]
     }
   ],
+  "singleIndicatorStrategies": [
+    {
+      "id": "six_veins_6red",
+      "name": "六脉6红买入",
+      "indicator": "六脉神剑",
+      "buyCondition": "六个指标首次全部变红",
+      "suggestedHoldPeriod": "15-30天",
+      "stats": {
+        "total": { "winRate": "54.4%", "avgReturn": "0.77%", "optimalPeriod": "28天", "trades": 125 },
+        "yearly": {},
+        "monthly": {}
+      }
+    },
+    {
+      "id": "six_veins_5red",
+      "name": "六脉5红买入",
+      "indicator": "六脉神剑",
+      "buyCondition": "五个指标同时变红",
+      "suggestedHoldPeriod": "10-20天",
+      "stats": {
+        "total": { "winRate": "52.1%", "avgReturn": "0.45%", "optimalPeriod": "14天", "trades": 280 },
+        "yearly": {},
+        "monthly": {}
+      }
+    },
+    {
+      "id": "buy_point_2",
+      "name": "买点2买入",
+      "indicator": "买卖点指标",
+      "buyCondition": "庄家线上穿散户线且处于低位",
+      "suggestedHoldPeriod": "10-15天",
+      "stats": {
+        "total": { "winRate": "83.3%", "avgReturn": "1.11%", "optimalPeriod": "16天", "trades": 18 },
+        "yearly": {},
+        "monthly": {}
+      }
+    },
+    {
+      "id": "chan_lun_2buy",
+      "name": "缠论二买",
+      "indicator": "缠论买点",
+      "buyCondition": "回踩不破前低",
+      "suggestedHoldPeriod": "20-30天",
+      "stats": {
+        "total": { "winRate": "65.0%", "avgReturn": "0.85%", "optimalPeriod": "20天", "trades": 40 },
+        "yearly": {},
+        "monthly": {}
+      }
+    },
+    {
+      "id": "money_tree_buy",
+      "name": "摇钱树买入",
+      "indicator": "黄金摇钱树",
+      "buyCondition": "XG66 AND XG55 AND XG88",
+      "suggestedHoldPeriod": "5-10天",
+      "stats": {
+        "total": { "winRate": "60.0%", "avgReturn": "0.65%", "optimalPeriod": "7天", "trades": 50 },
+        "yearly": {},
+        "monthly": {}
+      }
+    }
+  ],
   "strategies": [
     {
       "id": "steady",
@@ -63,8 +125,11 @@
         "卖点1或卖点2出现",
         "六脉神剑 ≤ 2红"
       ],
-      "winRate": "60.0%",
-      "avgReturn": "0.12%"
+      "stats": {
+        "total": { "winRate": "60.0%", "avgReturn": "0.12%", "optimalPeriod": "14天", "trades": 100 },
+        "yearly": {},
+        "monthly": {}
+      }
     },
     {
       "id": "aggressive",
@@ -79,8 +144,11 @@
         "六脉神剑首次转为非6红",
         "持有5天后自动卖出"
       ],
-      "winRate": "72.7%",
-      "avgReturn": "0.55%"
+      "stats": {
+        "total": { "winRate": "72.7%", "avgReturn": "0.55%", "optimalPeriod": "5天", "trades": 55 },
+        "yearly": {},
+        "monthly": {}
+      }
     },
     {
       "id": "bottom_fishing",
@@ -96,8 +164,11 @@
         "缠论二买出现后减仓50%",
         "缠论三买出现后清仓"
       ],
-      "winRate": "待测",
-      "avgReturn": "待测"
+      "stats": {
+        "total": { "winRate": "待测", "avgReturn": "待测", "optimalPeriod": "待测", "trades": 0 },
+        "yearly": {},
+        "monthly": {}
+      }
     },
     {
       "id": "resonance",
@@ -114,8 +185,37 @@
         "卖点2出现",
         "六脉神剑 ≤ 3红"
       ],
-      "winRate": "100% (信号少)",
-      "avgReturn": "高"
+      "stats": {
+        "total": { "winRate": "100%", "avgReturn": "高", "optimalPeriod": "动态", "trades": 5 },
+        "yearly": {},
+        "monthly": {}
+      }
+    }
+  ],
+  "sellPointTests": [
+    {
+      "indicatorId": "six_veins_6red",
+      "testResults": [
+        { "condition": "固定1天后卖出", "winRate": "48.5%", "avgReturn": "0.25%" },
+        { "condition": "固定3天后卖出", "winRate": "52.3%", "avgReturn": "0.45%" },
+        { "condition": "固定5天后卖出", "winRate": "55.8%", "avgReturn": "0.62%" },
+        { "condition": "固定10天后卖出", "winRate": "54.2%", "avgReturn": "0.58%" },
+        { "condition": "固定15天后卖出", "winRate": "53.1%", "avgReturn": "0.55%" },
+        { "condition": "盈利3%卖出", "winRate": "62.5%", "avgReturn": "2.15%" },
+        { "condition": "盈利5%卖出", "winRate": "58.3%", "avgReturn": "3.85%" },
+        { "condition": "盈利10%卖出", "winRate": "45.2%", "avgReturn": "6.25%" },
+        { "condition": "六脉转非6红卖出", "winRate": "54.4%", "avgReturn": "0.77%" }
+      ]
+    },
+    {
+      "indicatorId": "buy_point_2",
+      "testResults": [
+        { "condition": "固定5天后卖出", "winRate": "75.0%", "avgReturn": "0.85%" },
+        { "condition": "固定10天后卖出", "winRate": "80.5%", "avgReturn": "1.02%" },
+        { "condition": "固定16天后卖出", "winRate": "83.3%", "avgReturn": "1.11%" },
+        { "condition": "盈利5%卖出", "winRate": "72.2%", "avgReturn": "3.65%" },
+        { "condition": "卖点1出现卖出", "winRate": "85.0%", "avgReturn": "1.25%" }
+      ]
     }
   ]
 }

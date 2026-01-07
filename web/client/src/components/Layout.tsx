@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Activity, BarChart2, BookOpen, Layers, Brain, Settings2, FileText, Menu, X } from "lucide-react";
+import { Activity, BarChart2, BookOpen, Layers, Brain, Settings2, FileText, Menu, X, Table2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,8 +18,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const mainNavItems = [
     { href: "/", label: "仪表盘", icon: Activity },
     { href: "/indicators", label: "指标详解", icon: BookOpen },
-    { href: "/strategies", label: "组合方案", icon: Layers },
+    { href: "/strategies", label: "指标方案", icon: Layers },
     { href: "/backtest", label: "回测数据", icon: BarChart2 },
+    { href: "/report-detail", label: "报告明细", icon: Table2 },
   ];
 
   const toolNavItems = [

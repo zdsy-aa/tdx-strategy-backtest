@@ -1,0 +1,2091 @@
+{
+  "download_time": "2026-01-07 00:37:01",
+  "total_stocks": 260,
+  "success_count": 146,
+  "failed_count": 114,
+  "total_rows": 563386,
+  "earliest_date": "1991-01-29",
+  "latest_date": "2026-01-07",
+  "stock_details": [
+    {
+      "code": "000001",
+      "success": true,
+      "rows": 8312,
+      "start_date": "1991-04-03",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000002",
+      "success": true,
+      "rows": 8327,
+      "start_date": "1991-01-29",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000063",
+      "success": true,
+      "rows": 6665,
+      "start_date": "1997-11-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000066",
+      "success": true,
+      "rows": 6604,
+      "start_date": "1997-06-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000100",
+      "success": true,
+      "rows": 4979,
+      "start_date": "2004-01-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000157",
+      "success": true,
+      "rows": 5985,
+      "start_date": "2000-10-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000333",
+      "success": true,
+      "rows": 2928,
+      "start_date": "2013-09-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000338",
+      "success": true,
+      "rows": 4482,
+      "start_date": "2007-04-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000425",
+      "success": true,
+      "rows": 6965,
+      "start_date": "1996-08-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000538",
+      "success": true,
+      "rows": 7544,
+      "start_date": "1993-12-15",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000568",
+      "success": true,
+      "rows": 7569,
+      "start_date": "1994-05-09",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000596",
+      "success": true,
+      "rows": 6886,
+      "start_date": "1996-09-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000625",
+      "success": true,
+      "rows": 6682,
+      "start_date": "1997-06-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000651",
+      "success": true,
+      "rows": 6843,
+      "start_date": "1996-11-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000661",
+      "success": true,
+      "rows": 6933,
+      "start_date": "1996-12-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000703",
+      "success": true,
+      "rows": 6798,
+      "start_date": "1997-03-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000725",
+      "success": true,
+      "rows": 5931,
+      "start_date": "2001-01-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000768",
+      "success": true,
+      "rows": 6744,
+      "start_date": "1997-06-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000776",
+      "success": true,
+      "rows": 5994,
+      "start_date": "1997-06-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000783",
+      "success": true,
+      "rows": 6590,
+      "start_date": "1997-07-31",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000858",
+      "success": true,
+      "rows": 6581,
+      "start_date": "1998-04-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000876",
+      "success": true,
+      "rows": 6503,
+      "start_date": "1998-03-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000895",
+      "success": true,
+      "rows": 5993,
+      "start_date": "1998-12-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000938",
+      "success": true,
+      "rows": 6100,
+      "start_date": "1999-11-04",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "000963",
+      "success": true,
+      "rows": 6124,
+      "start_date": "2000-01-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002001",
+      "success": true,
+      "rows": 5177,
+      "start_date": "2004-06-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002007",
+      "success": true,
+      "rows": 5161,
+      "start_date": "2004-06-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002008",
+      "success": true,
+      "rows": 5149,
+      "start_date": "2004-06-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002024",
+      "success": true,
+      "rows": 5133,
+      "start_date": "2004-07-21",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002027",
+      "success": true,
+      "rows": 5060,
+      "start_date": "2004-08-04",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002032",
+      "success": true,
+      "rows": 5094,
+      "start_date": "2004-08-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002049",
+      "success": true,
+      "rows": 4670,
+      "start_date": "2005-06-06",
+      "end_date": "2025-12-29",
+      "error": null
+    },
+    {
+      "code": "002050",
+      "success": true,
+      "rows": 4778,
+      "start_date": "2005-06-07",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002120",
+      "success": true,
+      "rows": 4454,
+      "start_date": "2007-03-06",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002129",
+      "success": true,
+      "rows": 4003,
+      "start_date": "2007-04-20",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002142",
+      "success": true,
+      "rows": 4468,
+      "start_date": "2007-07-19",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002179",
+      "success": true,
+      "rows": 4402,
+      "start_date": "2007-11-01",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002202",
+      "success": true,
+      "rows": 4351,
+      "start_date": "2007-12-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002230",
+      "success": true,
+      "rows": 4205,
+      "start_date": "2008-05-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002236",
+      "success": true,
+      "rows": 4262,
+      "start_date": "2008-05-20",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002241",
+      "success": true,
+      "rows": 4254,
+      "start_date": "2008-05-22",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002252",
+      "success": true,
+      "rows": 3769,
+      "start_date": "2008-06-23",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002271",
+      "success": true,
+      "rows": 4181,
+      "start_date": "2008-09-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002304",
+      "success": true,
+      "rows": 3917,
+      "start_date": "2009-11-06",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002311",
+      "success": true,
+      "rows": 3889,
+      "start_date": "2009-11-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002352",
+      "success": true,
+      "rows": 3808,
+      "start_date": "2010-02-05",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002371",
+      "success": true,
+      "rows": 3761,
+      "start_date": "2010-03-16",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002415",
+      "success": true,
+      "rows": 3738,
+      "start_date": "2010-05-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002460",
+      "success": true,
+      "rows": 3654,
+      "start_date": "2010-08-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002466",
+      "success": true,
+      "rows": 3569,
+      "start_date": "2010-08-31",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002475",
+      "success": true,
+      "rows": 3689,
+      "start_date": "2010-09-15",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002493",
+      "success": true,
+      "rows": 3679,
+      "start_date": "2010-11-02",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002555",
+      "success": true,
+      "rows": 3325,
+      "start_date": "2011-03-02",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002594",
+      "success": true,
+      "rows": 3517,
+      "start_date": "2011-06-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002601",
+      "success": true,
+      "rows": 3412,
+      "start_date": "2011-07-15",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002602",
+      "success": true,
+      "rows": 3038,
+      "start_date": "2011-07-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002607",
+      "success": true,
+      "rows": 3324,
+      "start_date": "2011-08-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002624",
+      "success": true,
+      "rows": 3062,
+      "start_date": "2011-10-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002714",
+      "success": true,
+      "rows": 2879,
+      "start_date": "2014-01-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002736",
+      "success": true,
+      "rows": 2663,
+      "start_date": "2014-12-29",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002841",
+      "success": true,
+      "rows": 2177,
+      "start_date": "2017-01-19",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002916",
+      "success": true,
+      "rows": 1956,
+      "start_date": "2017-12-13",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002938",
+      "success": true,
+      "rows": 1770,
+      "start_date": "2018-09-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002939",
+      "success": true,
+      "rows": 1748,
+      "start_date": "2018-10-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "002945",
+      "success": true,
+      "rows": 1691,
+      "start_date": "2019-01-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300003",
+      "success": true,
+      "rows": 3813,
+      "start_date": "2009-10-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300014",
+      "success": true,
+      "rows": 3872,
+      "start_date": "2009-10-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300015",
+      "success": true,
+      "rows": 3910,
+      "start_date": "2009-10-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300033",
+      "success": true,
+      "rows": 3874,
+      "start_date": "2009-12-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300059",
+      "success": true,
+      "rows": 3775,
+      "start_date": "2010-03-19",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300122",
+      "success": true,
+      "rows": 3635,
+      "start_date": "2010-09-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300124",
+      "success": true,
+      "rows": 3690,
+      "start_date": "2010-09-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300142",
+      "success": true,
+      "rows": 3409,
+      "start_date": "2010-11-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300144",
+      "success": true,
+      "rows": 3572,
+      "start_date": "2010-12-09",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300347",
+      "success": true,
+      "rows": 3114,
+      "start_date": "2012-08-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300408",
+      "success": true,
+      "rows": 2688,
+      "start_date": "2014-12-03",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300413",
+      "success": true,
+      "rows": 2405,
+      "start_date": "2015-01-21",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300433",
+      "success": true,
+      "rows": 2605,
+      "start_date": "2015-03-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300498",
+      "success": true,
+      "rows": 2466,
+      "start_date": "2015-11-02",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300601",
+      "success": true,
+      "rows": 2169,
+      "start_date": "2017-02-07",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300628",
+      "success": true,
+      "rows": 2141,
+      "start_date": "2017-03-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300750",
+      "success": true,
+      "rows": 1840,
+      "start_date": "2018-06-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300760",
+      "success": true,
+      "rows": 1756,
+      "start_date": "2018-10-16",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300782",
+      "success": true,
+      "rows": 1593,
+      "start_date": "2019-06-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "300896",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=0.300896&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600000",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600000&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600009",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600009&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600010",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600010&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600011",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600011&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600015",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600015&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600016",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600016&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600018",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600018&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600019",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600019&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600025",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600025&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600028",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600028&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600029",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600029&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600030",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600030&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600031",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600031&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600036",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600036&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600048",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600048&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600050",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600050&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600061",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600061&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600085",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600085&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600089",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600089&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600104",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600104&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600109",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600109&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600111",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600111&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600115",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600115&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600118",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600118&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600132",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600132&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600143",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600143&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600150",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600150&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600161",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600161&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600176",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600176&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600183",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600183&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600196",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600196&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600276",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600276&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600309",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600309&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600332",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600332&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600346",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600346&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600352",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600352&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600362",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600362&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600383",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600383&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600406",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600406&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600436",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600436&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600438",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600438&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600460",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600460&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600489",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600489&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600519",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600519&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600547",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600547&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600570",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600570&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600585",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600585&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600588",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600588&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600600",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600600&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600606",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600606&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600655",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600655&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600660",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600660&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600690",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600690&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600703",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600703&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600741",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600741&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600745",
+      "success": true,
+      "rows": 6256,
+      "start_date": "1996-08-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600760",
+      "success": true,
+      "rows": 6854,
+      "start_date": "1996-10-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600795",
+      "success": true,
+      "rows": 6812,
+      "start_date": "1997-03-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600809",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600809&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600837",
+      "success": true,
+      "rows": 6816,
+      "start_date": "1994-02-24",
+      "end_date": "2025-02-05",
+      "error": null
+    },
+    {
+      "code": "600845",
+      "success": true,
+      "rows": 7405,
+      "start_date": "1994-03-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600848",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600848&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600867",
+      "success": true,
+      "rows": 7515,
+      "start_date": "1994-08-24",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600886",
+      "success": true,
+      "rows": 6990,
+      "start_date": "1996-01-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600887",
+      "success": true,
+      "rows": 7130,
+      "start_date": "1996-03-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600893",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.600893&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "600900",
+      "success": true,
+      "rows": 4954,
+      "start_date": "2003-11-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600905",
+      "success": true,
+      "rows": 1111,
+      "start_date": "2021-06-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600919",
+      "success": true,
+      "rows": 2285,
+      "start_date": "2016-08-02",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600926",
+      "success": true,
+      "rows": 2236,
+      "start_date": "2016-10-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600958",
+      "success": true,
+      "rows": 2615,
+      "start_date": "2015-03-23",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "600989",
+      "success": true,
+      "rows": 1615,
+      "start_date": "2019-05-16",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601006",
+      "success": true,
+      "rows": 4702,
+      "start_date": "2006-08-01",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601009",
+      "success": true,
+      "rows": 4469,
+      "start_date": "2007-07-19",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601012",
+      "success": true,
+      "rows": 3300,
+      "start_date": "2012-04-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601021",
+      "success": true,
+      "rows": 2641,
+      "start_date": "2015-01-21",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601066",
+      "success": true,
+      "rows": 1834,
+      "start_date": "2018-06-20",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601088",
+      "success": true,
+      "rows": 4359,
+      "start_date": "2007-10-09",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601100",
+      "success": true,
+      "rows": 3408,
+      "start_date": "2011-10-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601108",
+      "success": true,
+      "rows": 1988,
+      "start_date": "2017-10-24",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601111",
+      "success": true,
+      "rows": 4643,
+      "start_date": "2006-08-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601117",
+      "success": true,
+      "rows": 3879,
+      "start_date": "2010-01-07",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601138",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601138&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601155",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601155&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601166",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601166&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601169",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601169&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601186",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601186&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601211",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601211&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601225",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601225&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601229",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601229&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601231",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601231&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601236",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601236&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601238",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601238&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601288",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601288&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601318",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601318&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601319",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601319&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601328",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601328&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601336",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601336&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601360",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601360&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601377",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601377&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601390",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601390&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601398",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601398&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601600",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601600&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601601",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601601&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601607",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601607&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601618",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601618&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601628",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601628&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601633",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601633&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601668",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601668&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601669",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601669&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601688",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601688&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601698",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601698&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601766",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601766&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601788",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601788&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601800",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601800&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601808",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601808&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601816",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601816&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601818",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601818&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601838",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601838&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601857",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601857&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601858",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601858&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601865",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601865&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601877",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601877&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601878",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601878&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601881",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601881&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601888",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601888&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601898",
+      "success": true,
+      "rows": 4346,
+      "start_date": "2008-02-01",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601899",
+      "success": true,
+      "rows": 4259,
+      "start_date": "2008-04-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601901",
+      "success": true,
+      "rows": 3381,
+      "start_date": "2011-08-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601916",
+      "success": true,
+      "rows": 1478,
+      "start_date": "2019-11-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601919",
+      "success": true,
+      "rows": 4320,
+      "start_date": "2007-06-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601933",
+      "success": true,
+      "rows": 3636,
+      "start_date": "2010-12-15",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601939",
+      "success": true,
+      "rows": 4428,
+      "start_date": "2007-09-25",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601985",
+      "success": true,
+      "rows": 2572,
+      "start_date": "2015-06-10",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "601988",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601988&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601989",
+      "success": true,
+      "rows": 3502,
+      "start_date": "2009-12-16",
+      "end_date": "2025-08-12",
+      "error": null
+    },
+    {
+      "code": "601995",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.601995&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "601998",
+      "success": true,
+      "rows": 4523,
+      "start_date": "2007-04-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603019",
+      "success": true,
+      "rows": 2690,
+      "start_date": "2014-11-06",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603156",
+      "success": true,
+      "rows": 1916,
+      "start_date": "2018-02-12",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603160",
+      "success": true,
+      "rows": 2234,
+      "start_date": "2016-10-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603259",
+      "success": true,
+      "rows": 1864,
+      "start_date": "2018-05-08",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603260",
+      "success": true,
+      "rows": 1990,
+      "start_date": "2017-10-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603288",
+      "success": true,
+      "rows": 2899,
+      "start_date": "2014-02-11",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603290",
+      "success": true,
+      "rows": 1441,
+      "start_date": "2020-02-04",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603369",
+      "success": true,
+      "rows": 2798,
+      "start_date": "2014-07-03",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603501",
+      "success": true,
+      "rows": 1939,
+      "start_date": "2017-05-04",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603517",
+      "success": true,
+      "rows": 2140,
+      "start_date": "2017-03-17",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603799",
+      "success": true,
+      "rows": 2625,
+      "start_date": "2015-01-29",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603833",
+      "success": true,
+      "rows": 2128,
+      "start_date": "2017-03-28",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603899",
+      "success": true,
+      "rows": 2661,
+      "start_date": "2015-01-27",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603986",
+      "success": true,
+      "rows": 2073,
+      "start_date": "2016-08-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "603993",
+      "success": true,
+      "rows": 3198,
+      "start_date": "2012-10-09",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688005",
+      "success": true,
+      "rows": 1568,
+      "start_date": "2019-07-22",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688008",
+      "success": true,
+      "rows": 1569,
+      "start_date": "2019-07-22",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688009",
+      "success": true,
+      "rows": 1569,
+      "start_date": "2019-07-22",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688012",
+      "success": true,
+      "rows": 1560,
+      "start_date": "2019-07-22",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688036",
+      "success": true,
+      "rows": 1520,
+      "start_date": "2019-09-30",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688111",
+      "success": true,
+      "rows": 1490,
+      "start_date": "2019-11-18",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688126",
+      "success": true,
+      "rows": 1378,
+      "start_date": "2020-04-20",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688169",
+      "success": true,
+      "rows": 1428,
+      "start_date": "2020-02-21",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688180",
+      "success": true,
+      "rows": 1331,
+      "start_date": "2020-07-15",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688187",
+      "success": true,
+      "rows": 1049,
+      "start_date": "2021-09-07",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688188",
+      "success": true,
+      "rows": 1556,
+      "start_date": "2019-08-08",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688223",
+      "success": true,
+      "rows": 956,
+      "start_date": "2022-01-26",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688256",
+      "success": true,
+      "rows": 1328,
+      "start_date": "2020-07-20",
+      "end_date": "2026-01-07",
+      "error": null
+    },
+    {
+      "code": "688303",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688303&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688363",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688363&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688396",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688396&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688536",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688536&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688561",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688561&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688599",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688599&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688690",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688690&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688728",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688728&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    },
+    {
+      "code": "688981",
+      "success": false,
+      "rows": 0,
+      "start_date": null,
+      "end_date": null,
+      "error": "HTTPSConnectionPool(host='push2his.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/stock/kline/get?fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61%2Cf116&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=1.688981&beg=19900101&end=20260107 (Caused by SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:992)')))"
+    }
+  ]
+}

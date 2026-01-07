@@ -43,7 +43,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link href="/strategies">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25">
-                    浏览组合方案 <ArrowRight className="ml-2 size-4" />
+                    浏览指标方案 <ArrowRight className="ml-2 size-4" />
                   </Button>
                 </Link>
                 <Link href="/indicators">

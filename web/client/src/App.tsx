@@ -12,6 +12,7 @@ import Backtest from "./pages/Backtest";
 import AIOptimizer from "./pages/AIOptimizer";
 import CustomStrategy from "./pages/CustomStrategy";
 import Reports from "./pages/Reports";
+import ReportDetail from "./pages/ReportDetail";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/ai-optimizer" component={AIOptimizer} />
       <Route path="/custom-strategy" component={CustomStrategy} />
       <Route path="/reports" component={Reports} />
+      <Route path="/report-detail" component={ReportDetail} />
       <Route component={NotFound} />
     </Switch>
   );
