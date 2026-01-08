@@ -5,17 +5,56 @@
       "name": "六脉神剑",
       "description": "多指标共振系统，由六个独立的技术指标组成，每个指标显示红色（多头）或绿色（空头）状态。",
       "subIndicators": [
-        { "name": "MACD", "formula": "DIF > DEA", "meaning": "短期动能强于中期" },
-        { "name": "KDJ", "formula": "K > D", "meaning": "超买超卖指标向上" },
-        { "name": "RSI", "formula": "RSI5 > RSI13", "meaning": "短期相对强弱优于中期" },
-        { "name": "LWR", "formula": "LWR1 > LWR2", "meaning": "威廉指标变种向上" },
-        { "name": "BBI", "formula": "C > BBI", "meaning": "价格高于多空分界线" },
-        { "name": "MTM", "formula": "MTM1 > MTM2", "meaning": "短期动量强于中期" }
+        {
+          "name": "MACD",
+          "formula": "DIF > DEA",
+          "meaning": "短期动能强于中期"
+        },
+        {
+          "name": "KDJ",
+          "formula": "K > D",
+          "meaning": "超买超卖指标向上"
+        },
+        {
+          "name": "RSI",
+          "formula": "RSI5 > RSI13",
+          "meaning": "短期相对强弱优于中期"
+        },
+        {
+          "name": "LWR",
+          "formula": "LWR1 > LWR2",
+          "meaning": "威廉指标变种向上"
+        },
+        {
+          "name": "BBI",
+          "formula": "C > BBI",
+          "meaning": "价格高于多空分界线"
+        },
+        {
+          "name": "MTM",
+          "formula": "MTM1 > MTM2",
+          "meaning": "短期动量强于中期"
+        }
       ],
       "signals": [
-        { "type": "buy", "name": "涨买入", "condition": "六个指标首次全部变红", "action": "建仓或加仓" },
-        { "type": "hold", "name": "上涨持有", "condition": "六个指标持续全红", "action": "持股待涨" },
-        { "type": "sell", "name": "首次转绿", "condition": "六红变为非六红", "action": "减仓1/3" }
+        {
+          "type": "buy",
+          "name": "涨买入",
+          "condition": "六个指标首次全部变红",
+          "action": "建仓或加仓"
+        },
+        {
+          "type": "hold",
+          "name": "上涨持有",
+          "condition": "六个指标持续全红",
+          "action": "持股待涨"
+        },
+        {
+          "type": "sell",
+          "name": "首次转绿",
+          "condition": "六红变为非六红",
+          "action": "减仓1/3"
+        }
       ]
     },
     {
@@ -23,10 +62,34 @@
       "name": "买卖点指标",
       "description": "基于庄家线与散户线的交叉关系，结合吸筹指标识别主力动向。",
       "signals": [
-        { "type": "buy", "name": "买点1", "condition": "吸筹值上穿14", "meaning": "主力开始吸筹", "position": "30%" },
-        { "type": "buy", "name": "买点2", "condition": "庄家线上穿散户线且处于低位", "meaning": "主力拉升核心信号", "position": "50%" },
-        { "type": "sell", "name": "卖点1", "condition": "庄家线下穿88", "meaning": "高位见顶", "action": "减仓50%" },
-        { "type": "sell", "name": "卖点2", "condition": "散户线上穿庄家线", "meaning": "趋势反转", "action": "清仓" }
+        {
+          "type": "buy",
+          "name": "买点1",
+          "condition": "吸筹值上穿14",
+          "meaning": "主力开始吸筹",
+          "position": "30%"
+        },
+        {
+          "type": "buy",
+          "name": "买点2",
+          "condition": "庄家线上穿散户线且处于低位",
+          "meaning": "主力拉升核心信号",
+          "position": "50%"
+        },
+        {
+          "type": "sell",
+          "name": "卖点1",
+          "condition": "庄家线下穿88",
+          "meaning": "高位见顶",
+          "action": "减仓50%"
+        },
+        {
+          "type": "sell",
+          "name": "卖点2",
+          "condition": "散户线上穿庄家线",
+          "meaning": "趋势反转",
+          "action": "清仓"
+        }
       ]
     },
     {
@@ -34,7 +97,12 @@
       "name": "黄金摇钱树",
       "description": "技术形态选股指标，结合顶底识别、动量交叉和KDJ变种三重过滤。",
       "signals": [
-        { "type": "buy", "name": "摇钱树选股", "condition": "XG66 AND XG55 AND XG88", "action": "强烈买入" }
+        {
+          "type": "buy",
+          "name": "摇钱树选股",
+          "condition": "XG66 AND XG55 AND XG88",
+          "action": "强烈买入"
+        }
       ]
     },
     {
@@ -42,9 +110,27 @@
       "name": "缠论买点",
       "description": "基于笔结构识别，识别一买、二买、三买等经典买点。",
       "signals": [
-        { "type": "buy", "name": "一买", "condition": "底分型 + 结构背驰", "risk": "高（抄底）", "position": "20%" },
-        { "type": "buy", "name": "二买", "condition": "回踩不破前低", "risk": "中", "position": "40%" },
-        { "type": "buy", "name": "三买", "condition": "回踩不破中枢", "risk": "低（追涨）", "position": "30%" }
+        {
+          "type": "buy",
+          "name": "一买",
+          "condition": "底分型 + 结构背驰",
+          "risk": "高（抄底）",
+          "position": "20%"
+        },
+        {
+          "type": "buy",
+          "name": "二买",
+          "condition": "回踩不破前低",
+          "risk": "中",
+          "position": "40%"
+        },
+        {
+          "type": "buy",
+          "name": "三买",
+          "condition": "回踩不破中枢",
+          "risk": "低（追涨）",
+          "position": "30%"
+        }
       ]
     }
   ],
@@ -56,7 +142,12 @@
       "buyCondition": "六个指标首次全部变红",
       "suggestedHoldPeriod": "15-30天",
       "stats": {
-        "total": { "winRate": "54.4%", "avgReturn": "0.77%", "optimalPeriod": "28天", "trades": 125 },
+        "total": {
+          "winRate": "54.4%",
+          "avgReturn": "0.77%",
+          "optimalPeriod": "28天",
+          "trades": 125
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -68,7 +159,12 @@
       "buyCondition": "五个指标同时变红",
       "suggestedHoldPeriod": "10-20天",
       "stats": {
-        "total": { "winRate": "52.1%", "avgReturn": "0.45%", "optimalPeriod": "14天", "trades": 280 },
+        "total": {
+          "winRate": "52.1%",
+          "avgReturn": "0.45%",
+          "optimalPeriod": "14天",
+          "trades": 280
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -80,7 +176,12 @@
       "buyCondition": "庄家线上穿散户线且处于低位",
       "suggestedHoldPeriod": "10-15天",
       "stats": {
-        "total": { "winRate": "83.3%", "avgReturn": "1.11%", "optimalPeriod": "16天", "trades": 18 },
+        "total": {
+          "winRate": "83.3%",
+          "avgReturn": "1.11%",
+          "optimalPeriod": "16天",
+          "trades": 18
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -92,7 +193,12 @@
       "buyCondition": "回踩不破前低",
       "suggestedHoldPeriod": "20-30天",
       "stats": {
-        "total": { "winRate": "65.0%", "avgReturn": "0.85%", "optimalPeriod": "20天", "trades": 40 },
+        "total": {
+          "winRate": "65.0%",
+          "avgReturn": "0.85%",
+          "optimalPeriod": "20天",
+          "trades": 40
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -104,7 +210,12 @@
       "buyCondition": "XG66 AND XG55 AND XG88",
       "suggestedHoldPeriod": "5-10天",
       "stats": {
-        "total": { "winRate": "60.0%", "avgReturn": "0.65%", "optimalPeriod": "7天", "trades": 50 },
+        "total": {
+          "winRate": "60.0%",
+          "avgReturn": "0.65%",
+          "optimalPeriod": "7天",
+          "trades": 50
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -126,7 +237,12 @@
         "六脉神剑 ≤ 2红"
       ],
       "stats": {
-        "total": { "winRate": "60.0%", "avgReturn": "0.12%", "optimalPeriod": "14天", "trades": 100 },
+        "total": {
+          "winRate": "60.0%",
+          "avgReturn": "0.12%",
+          "optimalPeriod": "14天",
+          "trades": 100
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -145,7 +261,12 @@
         "持有5天后自动卖出"
       ],
       "stats": {
-        "total": { "winRate": "72.7%", "avgReturn": "0.55%", "optimalPeriod": "5天", "trades": 55 },
+        "total": {
+          "winRate": "72.7%",
+          "avgReturn": "0.55%",
+          "optimalPeriod": "5天",
+          "trades": 55
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -165,7 +286,12 @@
         "缠论三买出现后清仓"
       ],
       "stats": {
-        "total": { "winRate": "待测", "avgReturn": "待测", "optimalPeriod": "待测", "trades": 0 },
+        "total": {
+          "winRate": "待测",
+          "avgReturn": "待测",
+          "optimalPeriod": "待测",
+          "trades": 0
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -186,7 +312,12 @@
         "六脉神剑 ≤ 3红"
       ],
       "stats": {
-        "total": { "winRate": "100%", "avgReturn": "高", "optimalPeriod": "动态", "trades": 5 },
+        "total": {
+          "winRate": "100%",
+          "avgReturn": "高",
+          "optimalPeriod": "动态",
+          "trades": 5
+        },
         "yearly": {},
         "monthly": {}
       }
@@ -196,25 +327,81 @@
     {
       "indicatorId": "six_veins_6red",
       "testResults": [
-        { "condition": "固定1天后卖出", "winRate": "48.5%", "avgReturn": "0.25%" },
-        { "condition": "固定3天后卖出", "winRate": "52.3%", "avgReturn": "0.45%" },
-        { "condition": "固定5天后卖出", "winRate": "55.8%", "avgReturn": "0.62%" },
-        { "condition": "固定10天后卖出", "winRate": "54.2%", "avgReturn": "0.58%" },
-        { "condition": "固定15天后卖出", "winRate": "53.1%", "avgReturn": "0.55%" },
-        { "condition": "盈利3%卖出", "winRate": "62.5%", "avgReturn": "2.15%" },
-        { "condition": "盈利5%卖出", "winRate": "58.3%", "avgReturn": "3.85%" },
-        { "condition": "盈利10%卖出", "winRate": "45.2%", "avgReturn": "6.25%" },
-        { "condition": "六脉转非6红卖出", "winRate": "54.4%", "avgReturn": "0.77%" }
+        {
+          "condition": "固定1天后卖出",
+          "winRate": "48.5%",
+          "avgReturn": "0.25%"
+        },
+        {
+          "condition": "固定3天后卖出",
+          "winRate": "52.3%",
+          "avgReturn": "0.45%"
+        },
+        {
+          "condition": "固定5天后卖出",
+          "winRate": "55.8%",
+          "avgReturn": "0.62%"
+        },
+        {
+          "condition": "固定10天后卖出",
+          "winRate": "54.2%",
+          "avgReturn": "0.58%"
+        },
+        {
+          "condition": "固定15天后卖出",
+          "winRate": "53.1%",
+          "avgReturn": "0.55%"
+        },
+        {
+          "condition": "盈利3%卖出",
+          "winRate": "62.5%",
+          "avgReturn": "2.15%"
+        },
+        {
+          "condition": "盈利5%卖出",
+          "winRate": "58.3%",
+          "avgReturn": "3.85%"
+        },
+        {
+          "condition": "盈利10%卖出",
+          "winRate": "45.2%",
+          "avgReturn": "6.25%"
+        },
+        {
+          "condition": "六脉转非6红卖出",
+          "winRate": "54.4%",
+          "avgReturn": "0.77%"
+        }
       ]
     },
     {
       "indicatorId": "buy_point_2",
       "testResults": [
-        { "condition": "固定5天后卖出", "winRate": "75.0%", "avgReturn": "0.85%" },
-        { "condition": "固定10天后卖出", "winRate": "80.5%", "avgReturn": "1.02%" },
-        { "condition": "固定16天后卖出", "winRate": "83.3%", "avgReturn": "1.11%" },
-        { "condition": "盈利5%卖出", "winRate": "72.2%", "avgReturn": "3.65%" },
-        { "condition": "卖点1出现卖出", "winRate": "85.0%", "avgReturn": "1.25%" }
+        {
+          "condition": "固定5天后卖出",
+          "winRate": "75.0%",
+          "avgReturn": "0.85%"
+        },
+        {
+          "condition": "固定10天后卖出",
+          "winRate": "80.5%",
+          "avgReturn": "1.02%"
+        },
+        {
+          "condition": "固定16天后卖出",
+          "winRate": "83.3%",
+          "avgReturn": "1.11%"
+        },
+        {
+          "condition": "盈利5%卖出",
+          "winRate": "72.2%",
+          "avgReturn": "3.65%"
+        },
+        {
+          "condition": "卖点1出现卖出",
+          "winRate": "85.0%",
+          "avgReturn": "1.25%"
+        }
       ]
     }
   ]
