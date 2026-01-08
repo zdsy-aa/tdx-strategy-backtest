@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "public": true,
+  "buildCommand": "cd web && pnpm install && pnpm build",
+  "outputDirectory": "web/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
