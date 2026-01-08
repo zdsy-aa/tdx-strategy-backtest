@@ -6,8 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
-import { Loader2, Plus, Trash2, Play, Settings2, BarChart3 } from "lucide-react";
-import { trpc } from "@/lib/trpc";
+import { Plus, Trash2, Play, Settings2, AlertCircle } from "lucide-react";
 
 interface Condition {
   id: string;
@@ -16,20 +15,26 @@ interface Condition {
   value: number | boolean;
 }
 
+// 静态指标列表
+const staticIndicators = [
+  { id: "six_veins_6red", name: "六脉6红" },
+  { id: "six_veins_5red", name: "六脉5红" },
+  { id: "buy_point_1", name: "买点1" },
+  { id: "buy_point_2", name: "买点2" },
+  { id: "sell_point_1", name: "卖点1" },
+  { id: "sell_point_2", name: "卖点2" },
+  { id: "chan_buy_1", name: "缠论一买" },
+  { id: "chan_buy_2", name: "缠论二买" },
+  { id: "money_tree", name: "摇钱树" },
+  { id: "macd_golden", name: "MACD金叉" },
+  { id: "kdj_golden", name: "KDJ金叉" },
+];
+
 export default function CustomStrategy() {
   const [strategyName, setStrategyName] = useState("");
   const [conditions, setConditions] = useState<Condition[]>([]);
   const [holdPeriod, setHoldPeriod] = useState(5);
   const [offsetDays, setOffsetDays] = useState(5);
-  const [result, setResult] = useState<any>(null);
-
-  const { data: indicators } = trpc.backtest.indicators.useQuery();
-
-  const backtestMutation = trpc.backtest.run.useMutation({
-    onSuccess: (data) => {
-      setResult(data);
-    },
-  });
 
   const addCondition = () => {
     setConditions([
@@ -51,27 +56,6 @@ export default function CustomStrategy() {
     setConditions(
       conditions.map((c) => (c.id === id ? { ...c, [field]: value } : c))
     );
-  };
-
-  const handleBacktest = () => {
-    if (!strategyName.trim() || conditions.length === 0) return;
-
-    const validConditions = conditions
-      .filter((c) => c.indicator)
-      .map((c) => ({
-        indicator: c.indicator,
-        operator: c.operator,
-        value: c.value,
-      }));
-
-    if (validConditions.length === 0) return;
-
-    backtestMutation.mutate({
-      name: strategyName,
-      conditions: validConditions,
-      holdPeriod,
-      offsetDays,
-    });
   };
 
   const operatorLabels: Record<string, string> = {
@@ -101,6 +85,22 @@ export default function CustomStrategy() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* 左侧：策略构建器 */}
           <div className="space-y-6">
+            {/* 功能提示 */}
+            <Card className="glass-card border-yellow-500/30">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-yellow-400 mb-1">静态部署模式</h3>
+                    <p className="text-sm text-muted-foreground">
+                      当前网站为静态部署版本，自定义策略回测功能需要后端服务支持。
+                      如需使用此功能，请在本地运行完整版本（pnpm dev）。
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* 基本信息 */}
             <Card className="glass-card">
               <CardHeader>
@@ -177,7 +177,7 @@ export default function CustomStrategy() {
                           <SelectValue placeholder="选择指标" />
                         </SelectTrigger>
                         <SelectContent>
-                          {indicators?.map((ind) => (
+                          {staticIndicators.map((ind) => (
                             <SelectItem key={ind.id} value={ind.id}>
                               {ind.name}
                             </SelectItem>
@@ -221,153 +221,59 @@ export default function CustomStrategy() {
 
             {/* 执行按钮 */}
             <Button
-              onClick={handleBacktest}
-              disabled={!strategyName.trim() || conditions.length === 0 || backtestMutation.isPending}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600"
+              disabled={true}
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 opacity-50"
               size="lg"
             >
-              {backtestMutation.isPending ? (
-                <>
-                  <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  回测中...
-                </>
-              ) : (
-                <>
-                  <Play className="w-5 h-5 mr-2" />
-                  执行回测
-                </>
-              )}
+              <Play className="w-5 h-5 mr-2" />
+              执行回测（需后端支持）
             </Button>
           </div>
 
-          {/* 右侧：回测结果 */}
+          {/* 右侧：说明 */}
           <div className="space-y-6">
-            {result ? (
-              <>
-                <Card className="glass-card border-green-500/30">
-                  <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
-                      <BarChart3 className="w-5 h-5 text-green-400" />
-                      回测结果
-                    </CardTitle>
-                    <CardDescription>
-                      策略: {result.strategyName} | 数据范围: {result.dataRange.start} 至 {result.dataRange.end}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">信号次数</div>
-                        <div className="text-2xl font-bold">{result.results.signalCount}</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">交易次数</div>
-                        <div className="text-2xl font-bold">{result.results.tradeCount}</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/30">
-                        <div className="text-sm text-muted-foreground">胜率</div>
-                        <div className="text-2xl font-bold text-green-400">{result.results.winRate}%</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/30">
-                        <div className="text-sm text-muted-foreground">平均收益</div>
-                        <div className="text-2xl font-bold text-blue-400">{result.results.avgReturn}%</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">最大收益</div>
-                        <div className="text-xl font-bold text-green-400">+{result.results.maxReturn}%</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">最大亏损</div>
-                        <div className="text-xl font-bold text-red-400">{result.results.minReturn}%</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">累计收益</div>
-                        <div className="text-xl font-bold">{result.results.totalReturn}%</div>
-                      </div>
-                      <div className="p-4 rounded-lg bg-background/50">
-                        <div className="text-sm text-muted-foreground">夏普比率</div>
-                        <div className="text-xl font-bold">{result.results.sharpeRatio}</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="glass-card">
-                  <CardHeader>
-                    <CardTitle className="text-lg">策略条件</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {result.conditions.map((c: any, i: number) => (
-                        <Badge key={i} variant="secondary">
-                          {indicators?.find((ind) => ind.id === c.indicator)?.name || c.indicator}{" "}
-                          {operatorLabels[c.operator]} {c.value}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="mt-4 text-sm text-muted-foreground">
-                      持有周期: {result.holdPeriod}天 | 信号偏移: {result.offsetDays}天
-                    </div>
-                  </CardContent>
-                </Card>
-              </>
-            ) : (
-              <Card className="glass-card">
-                <CardContent className="py-16 text-center text-muted-foreground">
-                  <BarChart3 className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                  <p>构建策略并执行回测后，结果将显示在这里</p>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* 预设策略 */}
             <Card className="glass-card">
               <CardHeader>
-                <CardTitle className="text-lg">快速预设</CardTitle>
-                <CardDescription>点击加载预设策略条件</CardDescription>
+                <CardTitle className="text-lg">功能说明</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <Button
-                  variant="outline"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    setStrategyName("六脉五红+买点2");
-                    setConditions([
-                      { id: "1", indicator: "six_veins_count", operator: "gte", value: 5 },
-                      { id: "2", indicator: "buy2", operator: "eq", value: 1 },
-                    ]);
-                    setHoldPeriod(5);
-                  }}
-                >
-                  六脉五红 + 买点2
-                </Button>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    setStrategyName("六脉六红");
-                    setConditions([
-                      { id: "1", indicator: "six_veins_count", operator: "eq", value: 6 },
-                    ]);
-                    setHoldPeriod(3);
-                  }}
-                >
-                  六脉六红 (激进)
-                </Button>
-                <Button
-                  variant="outline"
-                  className="w-full justify-start"
-                  onClick={() => {
-                    setStrategyName("缠论二买+六脉四红");
-                    setConditions([
-                      { id: "1", indicator: "chan_buy2", operator: "eq", value: 1 },
-                      { id: "2", indicator: "six_veins_count", operator: "gte", value: 4 },
-                    ]);
-                    setHoldPeriod(10);
-                  }}
-                >
-                  缠论二买 + 六脉四红 (稳健)
-                </Button>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">
+                  自定义策略功能允许您自由组合多个技术指标，构建个性化的交易策略并进行历史回测验证。
+                </p>
+                <div className="space-y-2">
+                  <h4 className="font-semibold">使用步骤：</h4>
+                  <ol className="list-decimal list-inside text-sm text-muted-foreground space-y-1">
+                    <li>输入策略名称</li>
+                    <li>设置持有周期和信号偏移</li>
+                    <li>添加买入条件（可多个）</li>
+                    <li>点击执行回测查看结果</li>
+                  </ol>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card">
+              <CardHeader>
+                <CardTitle className="text-lg">可用指标</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {staticIndicators.map((ind) => (
+                    <Badge key={ind.id} variant="secondary">{ind.name}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold mb-2">💡 策略构建技巧</h3>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• 多指标共振可提高信号可靠性</li>
+                  <li>• 短周期适合短线，长周期适合波段</li>
+                  <li>• 信号偏移可以避免追高买入</li>
+                  <li>• 建议先用少量条件测试</li>
+                </ul>
               </CardContent>
             </Card>
           </div>

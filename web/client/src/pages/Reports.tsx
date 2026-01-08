@@ -1,25 +1,87 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, FileText, Calendar, TrendingUp, ChevronRight } from "lucide-react";
-import { Streamdown } from "streamdown";
-import { trpc } from "@/lib/trpc";
+import { FileText, Calendar, TrendingUp, ChevronRight } from "lucide-react";
+import backtestData from "@/data/backtest_results.json";
+
+// 静态报告数据
+const staticReports = [
+  {
+    id: "total/overall_summary",
+    name: "策略总览报告",
+    type: "total" as const,
+    path: "total/overall_summary",
+    updatedAt: new Date().toISOString(),
+    content: generateOverallReport(),
+  },
+  {
+    id: "yearly/2025",
+    name: "2025年度报告",
+    type: "yearly" as const,
+    path: "yearly/2025",
+    updatedAt: new Date().toISOString(),
+    content: generateYearlyReport("2025"),
+  },
+  {
+    id: "yearly/2024",
+    name: "2024年度报告",
+    type: "yearly" as const,
+    path: "yearly/2024",
+    updatedAt: new Date().toISOString(),
+    content: generateYearlyReport("2024"),
+  },
+  {
+    id: "yearly/2023",
+    name: "2023年度报告",
+    type: "yearly" as const,
+    path: "yearly/2023",
+    updatedAt: new Date().toISOString(),
+    content: generateYearlyReport("2023"),
+  },
+];
+
+function generateOverallReport() {
+  const strategies = (backtestData as any).strategies || {};
+  let report = "# 策略总览报告\n\n";
+  report += "## 各策略总体表现\n\n";
+  report += "| 策略名称 | 交易次数 | 胜率 | 平均收益 | 总收益 |\n";
+  report += "|---------|---------|------|---------|-------|\n";
+  
+  for (const [key, value] of Object.entries(strategies)) {
+    const s = value as any;
+    const total = s.stats?.total || {};
+    report += `| ${s.name} | ${total.trades || 0} | ${total.win_rate || 0}% | ${total.avg_return || 0}% | ${total.total_return || 0}% |\n`;
+  }
+  
+  return report;
+}
+
+function generateYearlyReport(year: string) {
+  const strategies = (backtestData as any).strategies || {};
+  let report = `# ${year}年度回测报告\n\n`;
+  report += "## 各策略年度表现\n\n";
+  report += "| 策略名称 | 交易次数 | 胜率 | 平均收益 |\n";
+  report += "|---------|---------|------|--------|\n";
+  
+  for (const [key, value] of Object.entries(strategies)) {
+    const s = value as any;
+    const yearly = s.stats?.yearly?.[year] || {};
+    if (yearly.trades) {
+      report += `| ${s.name} | ${yearly.trades} | ${yearly.win_rate}% | ${yearly.avg_return}% |\n`;
+    }
+  }
+  
+  return report;
+}
 
 export default function Reports() {
   const [selectedReport, setSelectedReport] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState("total");
 
-  const { data: reports, isLoading: reportsLoading } = trpc.reports.list.useQuery({});
-  
-  const { data: reportContent, isLoading: contentLoading } = trpc.reports.get.useQuery(
-    { path: selectedReport! },
-    { enabled: !!selectedReport }
-  );
-
-  const filteredReports = reports?.filter((r) => r.type === activeTab) || [];
+  const filteredReports = staticReports.filter((r) => r.type === activeTab);
+  const selectedReportData = staticReports.find((r) => r.path === selectedReport);
 
   const typeLabels: Record<string, string> = {
     total: "总报告",
@@ -71,11 +133,7 @@ export default function Reports() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {reportsLoading ? (
-                  <div className="flex items-center justify-center py-8">
-                    <Loader2 className="w-6 h-6 animate-spin" />
-                  </div>
-                ) : filteredReports.length === 0 ? (
+                {filteredReports.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground">
                     暂无{typeLabels[activeTab]}
                   </div>
@@ -112,15 +170,15 @@ export default function Reports() {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">总报告</span>
-                    <span>{reports?.filter((r) => r.type === "total").length || 0}</span>
+                    <span>{staticReports.filter((r) => r.type === "total").length}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">年度报告</span>
-                    <span>{reports?.filter((r) => r.type === "yearly").length || 0}</span>
+                    <span>{staticReports.filter((r) => r.type === "yearly").length}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">月度报告</span>
-                    <span>{reports?.filter((r) => r.type === "monthly").length || 0}</span>
+                    <span>{staticReports.filter((r) => r.type === "monthly").length}</span>
                   </div>
                 </div>
               </CardContent>
@@ -129,41 +187,27 @@ export default function Reports() {
 
           {/* 右侧：报告内容 */}
           <div className="lg:col-span-2">
-            {selectedReport ? (
+            {selectedReportData ? (
               <Card className="glass-card">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className="text-lg">
-                        {reports?.find((r) => r.path === selectedReport)?.name}
+                        {selectedReportData.name}
                       </CardTitle>
                       <CardDescription>
-                        {reportContent && (
-                          <>更新于 {new Date(reportContent.updatedAt).toLocaleString()}</>
-                        )}
+                        更新于 {new Date(selectedReportData.updatedAt).toLocaleString()}
                       </CardDescription>
                     </div>
-                    <Badge variant="secondary">
-                      {reportContent?.isMarkdown ? "Markdown" : "CSV"}
-                    </Badge>
+                    <Badge variant="secondary">Markdown</Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  {contentLoading ? (
-                    <div className="flex items-center justify-center py-16">
-                      <Loader2 className="w-8 h-8 animate-spin" />
-                    </div>
-                  ) : reportContent?.isMarkdown ? (
-                    <div className="prose prose-invert max-w-none">
-                      <Streamdown>{reportContent.content}</Streamdown>
-                    </div>
-                  ) : (
-                    <div className="overflow-x-auto">
-                      <pre className="text-sm bg-background/50 p-4 rounded-lg overflow-x-auto">
-                        {reportContent?.content}
-                      </pre>
-                    </div>
-                  )}
+                  <div className="prose prose-invert max-w-none">
+                    <pre className="whitespace-pre-wrap text-sm bg-background/50 p-4 rounded-lg">
+                      {selectedReportData.content}
+                    </pre>
+                  </div>
                 </CardContent>
               </Card>
             ) : (

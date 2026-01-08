@@ -5,35 +5,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Sparkles, Brain, TrendingUp, Shield, Zap } from "lucide-react";
-import { Streamdown } from "streamdown";
-import { trpc } from "@/lib/trpc";
+import { Sparkles, Brain, TrendingUp, Shield, Zap, AlertCircle } from "lucide-react";
 
 export default function AIOptimizer() {
   const [query, setQuery] = useState("");
   const [riskLevel, setRiskLevel] = useState<"conservative" | "moderate" | "aggressive" | undefined>();
   const [holdPeriod, setHoldPeriod] = useState<"short" | "medium" | "long" | undefined>();
   const [marketCondition, setMarketCondition] = useState<"bull" | "bear" | "range" | undefined>();
-  const [result, setResult] = useState<string | null>(null);
-
-  const optimizeMutation = trpc.ai.optimize.useMutation({
-    onSuccess: (data) => {
-      setResult(data.suggestion);
-    },
-  });
-
-  const handleOptimize = () => {
-    if (!query.trim()) return;
-    
-    optimizeMutation.mutate({
-      query,
-      context: {
-        riskLevel,
-        holdPeriod,
-        marketCondition,
-      },
-    });
-  };
 
   const exampleQueries = [
     "我想在牛市中找到短线机会，风险承受能力较高",
@@ -61,6 +39,22 @@ export default function AIOptimizer() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* 左侧：输入区域 */}
           <div className="lg:col-span-2 space-y-6">
+            {/* 功能提示 */}
+            <Card className="glass-card border-yellow-500/30">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-yellow-400 mb-1">静态部署模式</h3>
+                    <p className="text-sm text-muted-foreground">
+                      当前网站为静态部署版本，AI 策略优化功能需要后端服务支持。
+                      如需使用此功能，请在本地运行完整版本（pnpm dev）。
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* 上下文设置 */}
             <Card className="glass-card">
               <CardHeader>
@@ -137,52 +131,15 @@ export default function AIOptimizer() {
                     {query.length}/2000 字符
                   </div>
                   <Button 
-                    onClick={handleOptimize}
-                    disabled={!query.trim() || optimizeMutation.isPending}
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                    disabled={true}
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 opacity-50"
                   >
-                    {optimizeMutation.isPending ? (
-                      <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        分析中...
-                      </>
-                    ) : (
-                      <>
-                        <Zap className="w-4 h-4 mr-2" />
-                        获取建议
-                      </>
-                    )}
+                    <Zap className="w-4 h-4 mr-2" />
+                    获取建议（需后端支持）
                   </Button>
                 </div>
               </CardContent>
             </Card>
-
-            {/* AI 回复 */}
-            {result && (
-              <Card className="glass-card border-purple-500/30">
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-green-400" />
-                    AI 策略建议
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="prose prose-invert max-w-none">
-                    <Streamdown>{result}</Streamdown>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {optimizeMutation.isError && (
-              <Card className="glass-card border-red-500/30">
-                <CardContent className="pt-6">
-                  <p className="text-red-400">
-                    获取建议失败：{optimizeMutation.error.message}
-                  </p>
-                </CardContent>
-              </Card>
-            )}
           </div>
 
           {/* 右侧：示例和提示 */}
