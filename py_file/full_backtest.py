@@ -24,9 +24,19 @@ OUTPUT_DIR = Path(__file__).parent.parent / "data" / "backtest_results"
 
 def load_stock_data(stock_code):
     """加载股票数据"""
-    file_path = DATA_DIR / f"{stock_code}.csv"
-    if not file_path.exists():
-        return None
+    # 尝试在子目录下查找文件
+    file_path = None
+    for market in ['sh', 'sz', 'bj']:
+        temp_path = DATA_DIR / market / f"{stock_code}.csv"
+        if temp_path.exists():
+            file_path = temp_path
+            break
+    
+    if file_path is None:
+        # 兼容旧路径
+        file_path = DATA_DIR / f"{stock_code}.csv"
+        if not file_path.exists():
+            return None
     
     df = pd.read_csv(file_path)
     # 确保日期列正确
@@ -145,7 +155,8 @@ def run_backtest(signal_type, hold_days=14):
     """运行回测"""
     all_trades = []
     
-    stock_files = list(DATA_DIR.glob("*.csv"))
+    # 递归查找所有子目录下的 csv 文件
+    stock_files = list(DATA_DIR.rglob("*.csv"))
     
     for stock_file in stock_files:
         stock_code = stock_file.stem
@@ -263,7 +274,8 @@ def generate_stock_report(end_date="2025-01-06"):
     month_start = pd.to_datetime(f"{end_dt.year}-{end_dt.month:02d}-01")
     
     stock_reports = []
-    stock_files = list(DATA_DIR.glob("*.csv"))
+    # 递归查找所有子目录下的 csv 文件
+    stock_files = list(DATA_DIR.rglob("*.csv"))
     
     for stock_file in stock_files:
         stock_code = stock_file.stem
