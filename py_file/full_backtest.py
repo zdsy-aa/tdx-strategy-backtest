@@ -21,6 +21,7 @@ from indicators import calculate_six_veins, calculate_buy_sell_points, calculate
 # 数据目录
 DATA_DIR = Path(__file__).parent.parent / "data" / "day"
 OUTPUT_DIR = Path(__file__).parent.parent / "data" / "backtest_results"
+WEB_DATA_DIR = Path(__file__).parent.parent / "web" / "client" / "src" / "data"
 
 def load_stock_data(stock_code):
     """加载股票数据"""
@@ -416,19 +417,28 @@ def main():
         print(f"  最优持有周期(胜率): {optimal_win}天")
     
     # 保存回测结果
+    if not WEB_DATA_DIR.exists():
+        WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)
+        
     output_file = OUTPUT_DIR / "full_backtest_results.json"
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, ensure_ascii=False, indent=2, default=str)
-    print(f"\n回测结果已保存到: {output_file}")
+    web_output_file = WEB_DATA_DIR / "backtest_results.json"
+    
+    for f_path in [output_file, web_output_file]:
+        with open(f_path, 'w', encoding='utf-8') as f:
+            json.dump(all_results, f, ensure_ascii=False, indent=2, default=str)
+    print(f"\n回测结果已保存到: {output_file} 和 {web_output_file}")
     
     # 生成股票报告明细
     print("\n正在生成股票报告明细...")
     stock_reports = generate_stock_report()
     
     report_file = OUTPUT_DIR / "stock_reports.json"
-    with open(report_file, 'w', encoding='utf-8') as f:
-        json.dump(stock_reports, f, ensure_ascii=False, indent=2)
-    print(f"股票报告已保存到: {report_file}")
+    web_report_file = WEB_DATA_DIR / "stock_reports.json"
+    
+    for f_path in [report_file, web_report_file]:
+        with open(f_path, 'w', encoding='utf-8') as f:
+            json.dump(stock_reports, f, ensure_ascii=False, indent=2)
+    print(f"股票报告已保存到: {report_file} 和 {web_report_file}")
     print(f"共生成 {len(stock_reports)} 只股票的报告")
     
     # 打印汇总
