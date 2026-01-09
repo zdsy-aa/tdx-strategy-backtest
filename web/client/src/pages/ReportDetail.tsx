@@ -45,6 +45,8 @@ export default function ReportDetail() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortField, setSortField] = useState<keyof StockReport>("totalWinRate");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(50);
 
   const stockReports: StockReport[] = useMemo(() => {
     const data = stockReportsData as StockReport[];
@@ -104,6 +106,18 @@ export default function ReportDetail() {
     link.download = `stock_report_${new Date().toISOString().split("T")[0]}.csv`;
     link.click();
   };
+
+  // 分页逻辑
+  const totalPages = Math.ceil(filteredReports.length / pageSize);
+  const paginatedReports = filteredReports.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+
+  // 当搜索条件变化时重置到第一页
+  useMemo(() => {
+    setCurrentPage(1);
+  }, [searchTerm, sortField, sortOrder]);
 
   const summary = useMemo(() => {
     if (filteredReports.length === 0) {
@@ -181,14 +195,14 @@ export default function ReportDetail() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filteredReports.map((report) => (
+                  {paginatedReports.map((report) => (
                     <TableRow key={report.code} className="hover:bg-white/5 border-white/10">
                       <TableCell className="font-mono">{report.code}</TableCell>
                       <TableCell className="font-medium">{report.name}</TableCell>
-                      <TableCell className={parseFloat(report.totalReturn) >= 0 ? "text-green-400" : "text-red-400"}>{report.totalReturn}</TableCell>
-                      <TableCell className={parseFloat(report.yearReturn) >= 0 ? "text-green-400" : "text-red-400"}>{report.yearReturn}</TableCell>
-                      <TableCell className={parseFloat(report.monthReturn) >= 0 ? "text-green-400" : "text-red-400"}>{report.monthReturn}</TableCell>
-                      <TableCell className="text-green-400 font-bold">{report.totalWinRate}</TableCell>
+                      <TableCell className={parseFloat(report.totalReturn) >= 0 ? "text-red-400 font-semibold" : "text-green-500"}>{report.totalReturn}</TableCell>
+                      <TableCell className={parseFloat(report.yearReturn) >= 0 ? "text-red-400" : "text-green-500"}>{report.yearReturn}</TableCell>
+                      <TableCell className={parseFloat(report.monthReturn) >= 0 ? "text-red-400" : "text-green-500"}>{report.monthReturn}</TableCell>
+                      <TableCell className="text-yellow-400 font-bold">{report.totalWinRate}</TableCell>
                       <TableCell>{report.yearWinRate}</TableCell>
                       <TableCell>{report.monthWinRate}</TableCell>
                       <TableCell>{report.totalTrades}</TableCell>
@@ -202,6 +216,64 @@ export default function ReportDetail() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+            
+            {/* 分页控件 */}
+            <div className="flex items-center justify-between px-2 py-4 border-t border-white/10">
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">
+                  显示 {(currentPage - 1) * pageSize + 1} - {Math.min(currentPage * pageSize, filteredReports.length)} 条，共 {filteredReports.length} 条
+                </span>
+                <Select value={pageSize.toString()} onValueChange={(value) => { setPageSize(Number(value)); setCurrentPage(1); }}>
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="20">20 条/页</SelectItem>
+                    <SelectItem value="50">50 条/页</SelectItem>
+                    <SelectItem value="100">100 条/页</SelectItem>
+                    <SelectItem value="200">200 条/页</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setCurrentPage(1)} 
+                  disabled={currentPage === 1}
+                >
+                  首页
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setCurrentPage(currentPage - 1)} 
+                  disabled={currentPage === 1}
+                >
+                  上一页
+                </Button>
+                <span className="text-sm text-muted-foreground px-4">
+                  第 {currentPage} / {totalPages} 页
+                </span>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setCurrentPage(currentPage + 1)} 
+                  disabled={currentPage === totalPages}
+                >
+                  下一页
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setCurrentPage(totalPages)} 
+                  disabled={currentPage === totalPages}
+                >
+                  尾页
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>

@@ -27,7 +27,7 @@ def load_stock_data(stock_code):
     for market in ['sh', 'sz', 'bj']:
         file_path = DATA_DIR / market / f"{stock_code}.csv"
         if file_path.exists():
-            df = pd.read_csv(file_path)
+            df = pd.read_csv(file_path, encoding='utf-8-sig')
             if '日期' in df.columns:
                 df['date'] = pd.to_datetime(df['日期'])
                 df = df.rename(columns={
