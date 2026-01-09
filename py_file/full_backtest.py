@@ -493,7 +493,8 @@ def main():
     output_data = {
         'strategies': all_results,
         'monthly_stats': monthly_stats,
-        'conclusions': conclusions
+        'conclusions': conclusions,
+        'last_update': datetime.now().strftime('%Y-%m-%d')
     }
     
     # 保存回测结果

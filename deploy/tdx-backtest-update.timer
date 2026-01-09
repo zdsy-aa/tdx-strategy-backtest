@@ -1,0 +1,14 @@
+[Unit]
+Description=TDX Strategy Backtest Daily Update Timer
+Requires=tdx-backtest-update.service
+
+[Timer]
+# 每天16:00执行
+OnCalendar=*-*-* 16:00:00
+# 如果错过执行时间，立即执行
+Persistent=true
+# 随机延迟0-5分钟，避免服务器负载峰值
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

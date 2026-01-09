@@ -9,7 +9,8 @@
           "avg_return": 1.54,
           "total_return": 63034.29,
           "max_return": 721.92,
-          "min_return": -98.9
+          "min_return": -98.9,
+          "best_hold_days": 14
         },
         "yearly": {
           "2015": {
@@ -136,7 +137,8 @@
           }
         }
       },
-      "default_hold_days": 14
+      "default_hold_days": 14,
+      "type": "单指标"
     },
     "six_veins_5red": {
       "name": "六脉5红",
@@ -147,7 +149,8 @@
           "avg_return": 1.7,
           "total_return": 78860.47,
           "max_return": 1202.94,
-          "min_return": -99.5
+          "min_return": -99.5,
+          "best_hold_days": 14
         },
         "yearly": {
           "2015": {
@@ -274,7 +277,8 @@
           }
         }
       },
-      "default_hold_days": 14
+      "default_hold_days": 14,
+      "type": "单指标"
     },
     "six_veins_4red": {
       "name": "六脉4红",
@@ -285,7 +289,8 @@
           "avg_return": 1.52,
           "total_return": 70748.32,
           "max_return": 1241.18,
-          "min_return": -97.5
+          "min_return": -97.5,
+          "best_hold_days": 10
         },
         "yearly": {
           "2015": {
@@ -412,7 +417,8 @@
           }
         }
       },
-      "default_hold_days": 10
+      "default_hold_days": 10,
+      "type": "单指标"
     },
     "buy_point_2": {
       "name": "买点2",
@@ -423,7 +429,8 @@
           "avg_return": 1.82,
           "total_return": 10099.85,
           "max_return": 578.63,
-          "min_return": -97.5
+          "min_return": -97.5,
+          "best_hold_days": 16
         },
         "yearly": {
           "2015": {
@@ -550,7 +557,8 @@
           }
         }
       },
-      "default_hold_days": 16
+      "default_hold_days": 16,
+      "type": "单指标"
     }
   },
   "sell_points": {
@@ -610,5 +618,86 @@
       "max_return": 1793.59,
       "min_return": -98.87
     }
-  }
+  },
+  "monthly_stats": {
+    "1月": {
+      "month": "1月",
+      "avg_win_rate": 54.6,
+      "avg_return": 1.92,
+      "best_strategy": "买点2"
+    },
+    "2月": {
+      "month": "2月",
+      "avg_win_rate": 57.1,
+      "avg_return": 4.76,
+      "best_strategy": "六脉4红"
+    },
+    "3月": {
+      "month": "3月",
+      "avg_win_rate": 48.8,
+      "avg_return": 2.04,
+      "best_strategy": "六脉6红"
+    },
+    "4月": {
+      "month": "4月",
+      "avg_win_rate": 47.9,
+      "avg_return": 0.57,
+      "best_strategy": "六脉4红"
+    },
+    "5月": {
+      "month": "5月",
+      "avg_win_rate": 52.5,
+      "avg_return": 2.97,
+      "best_strategy": "六脉4红"
+    },
+    "6月": {
+      "month": "6月",
+      "avg_win_rate": 56.6,
+      "avg_return": 2.95,
+      "best_strategy": "买点2"
+    },
+    "7月": {
+      "month": "7月",
+      "avg_win_rate": 45.8,
+      "avg_return": 0.17,
+      "best_strategy": "六脉4红"
+    },
+    "8月": {
+      "month": "8月",
+      "avg_win_rate": 46.7,
+      "avg_return": -0.3,
+      "best_strategy": "买点2"
+    },
+    "9月": {
+      "month": "9月",
+      "avg_win_rate": 49.6,
+      "avg_return": 2.3,
+      "best_strategy": "买点2"
+    },
+    "10月": {
+      "month": "10月",
+      "avg_win_rate": 54.7,
+      "avg_return": 2.8,
+      "best_strategy": "六脉4红"
+    },
+    "11月": {
+      "month": "11月",
+      "avg_win_rate": 43.5,
+      "avg_return": 0.01,
+      "best_strategy": "六脉4红"
+    },
+    "12月": {
+      "month": "12月",
+      "avg_win_rate": 50.0,
+      "avg_return": 0.64,
+      "best_strategy": "买点2"
+    }
+  },
+  "conclusions": [
+    "最优策略：基于总体胜率，六脉神剑系列表现稳定",
+    "持有周期：14天持有周期在大多数策略中表现最佳",
+    "市场环境：牛市中胜率显著提升，熊市中需谨慎使用",
+    "组合策略：多指标共振可提高胜率，但会减少交易机会"
+  ],
+  "last_update": "2026-01-09"
 }

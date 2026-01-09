@@ -8,6 +8,7 @@ import { useState, useMemo } from "react";
 import { Search, Download, ArrowUpDown } from "lucide-react";
 import Layout from "@/components/Layout";
 import stockReportsData from "@/data/stock_reports.json";
+import backtestData from "@/data/backtest_results.json";
 
 interface StockReport {
   code: string;
@@ -47,6 +48,20 @@ export default function ReportDetail() {
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(50);
+  const [marketFilter, setMarketFilter] = useState<"all" | "sh" | "sz" | "bj">("all");
+
+  // 根据股票代码识别市场
+  const getMarket = (code: string): "sh" | "sz" | "bj" => {
+    if (code.startsWith('6')) return 'sh';  // 沪市
+    if (code.startsWith('8') || code.startsWith('4')) return 'bj';  // 北交所
+    return 'sz';  // 深市
+  };
+
+  // 获取数据更新日期
+  const lastUpdateDate = useMemo(() => {
+    const data = backtestData as any;
+    return data.last_update || new Date().toISOString().split('T')[0];
+  }, []);
 
   const stockReports: StockReport[] = useMemo(() => {
     const data = stockReportsData as StockReport[];
@@ -54,10 +69,16 @@ export default function ReportDetail() {
   }, []);
 
   const filteredReports = stockReports
-    .filter(report => 
-      report.code.includes(searchTerm) || 
-      report.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    .filter(report => {
+      // 搜索筛选
+      const matchSearch = report.code.includes(searchTerm) || 
+        report.name.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      // 市场筛选
+      const matchMarket = marketFilter === "all" || getMarket(report.code) === marketFilter;
+      
+      return matchSearch && matchMarket;
+    })
     .sort((a, b) => {
       const aValue = a[sortField];
       const bValue = b[sortField];
@@ -114,10 +135,10 @@ export default function ReportDetail() {
     currentPage * pageSize
   );
 
-  // 当搜索条件变化时重置到第一页
+  // 当搜索条件或市场筛选变化时重置到第一页
   useMemo(() => {
     setCurrentPage(1);
-  }, [searchTerm, sortField, sortOrder]);
+  }, [searchTerm, sortField, sortOrder, marketFilter]);
 
   const summary = useMemo(() => {
     if (filteredReports.length === 0) {
@@ -139,7 +160,7 @@ export default function ReportDetail() {
       <div className="container py-8 space-y-6">
         <div>
           <h1 className="text-3xl font-bold">报告明细</h1>
-          <p className="text-muted-foreground">截止到2025年1月6日，所有股票的回测统计数据。包含总收益、年收益、月收益以及各维度的胜率统计。</p>
+          <p className="text-muted-foreground">截止到 {lastUpdateDate}，所有股票的回测统计数据。包含总收益、年收益、月收益以及各维度的胜率统计。</p>
         </div>
 
         <Card className="glass-card">
@@ -149,7 +170,7 @@ export default function ReportDetail() {
                 <CardTitle>股票回测明细表</CardTitle>
                 <p className="text-sm text-muted-foreground">类似Excel的数据展示，支持搜索、排序和导出</p>
               </div>
-              <div className="flex gap-2 w-full md:w-auto">
+              <div className="flex gap-2 w-full md:w-auto flex-wrap">
                 <div className="relative w-full md:w-64">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground size-4" />
                   <Input 
@@ -159,6 +180,17 @@ export default function ReportDetail() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
+                <Select value={marketFilter} onValueChange={(value) => setMarketFilter(value as "all" | "sh" | "sz" | "bj")}>
+                  <SelectTrigger className="w-[120px]">
+                    <SelectValue placeholder="市场筛选" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">全部市场</SelectItem>
+                    <SelectItem value="sh">沪市 (6开头)</SelectItem>
+                    <SelectItem value="sz">深市 (0/3开头)</SelectItem>
+                    <SelectItem value="bj">北交所 (4/8开头)</SelectItem>
+                  </SelectContent>
+                </Select>
                 <Select value={sortField} onValueChange={(value) => handleSort(value as keyof StockReport)}>
                   <SelectTrigger className="w-[120px]">
                     <SelectValue placeholder="排序方式" />

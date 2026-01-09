@@ -1,0 +1,22 @@
+[Unit]
+Description=TDX Strategy Backtest Daily Update Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/tdx-strategy-backtest/py_file
+ExecStart=/usr/bin/python3 /home/ubuntu/tdx-strategy-backtest/py_file/auto_update_daily.py
+StandardOutput=journal
+StandardError=journal
+
+# 环境变量
+Environment="PYTHONUNBUFFERED=1"
+
+# 资源限制
+MemoryLimit=4G
+CPUQuota=200%
+
+[Install]
+WantedBy=multi-user.target

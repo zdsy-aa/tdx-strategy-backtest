@@ -1,0 +1,15 @@
+# TDX Strategy Backtest 定时任务配置
+# 每天16:00执行数据更新和回测
+
+# 分 时 日 月 周 命令
+0 16 * * * cd /home/ubuntu/tdx-strategy-backtest/py_file && /usr/bin/python3 auto_update_daily.py >> /home/ubuntu/tdx-strategy-backtest/logs/cron.log 2>&1
+
+# 安装方式：
+# crontab -e
+# 然后将上面的定时任务行复制进去，保存退出
+
+# 查看定时任务：
+# crontab -l
+
+# 查看执行日志：
+# tail -f /home/ubuntu/tdx-strategy-backtest/logs/cron.log
