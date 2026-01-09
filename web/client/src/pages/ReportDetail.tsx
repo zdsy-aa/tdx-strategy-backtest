@@ -50,8 +50,8 @@ export default function ReportDetail() {
   const [pageSize, setPageSize] = useState(50);
   const [marketFilter, setMarketFilter] = useState<"all" | "sh" | "sz" | "bj">("all");
 
-  // 根据股票代码识别市场
-  const getMarket = (code: string): "sh" | "sz" | "bj" => {
+  // 根据股票代码识别市场（备用，优先使用数据中的 market 字段）
+  const getMarketFromCode = (code: string): "sh" | "sz" | "bj" => {
     if (code.startsWith('6')) return 'sh';  // 沪市
     if (code.startsWith('8') || code.startsWith('4')) return 'bj';  // 北交所
     return 'sz';  // 深市
@@ -74,8 +74,9 @@ export default function ReportDetail() {
       const matchSearch = report.code.includes(searchTerm) || 
         report.name.toLowerCase().includes(searchTerm.toLowerCase());
       
-      // 市场筛选
-      const matchMarket = marketFilter === "all" || getMarket(report.code) === marketFilter;
+      // 市场筛选（优先使用数据中的 market 字段，否则根据代码推断）
+      const reportMarket = (report as any).market || getMarketFromCode(report.code);
+      const matchMarket = marketFilter === "all" || reportMarket === marketFilter;
       
       return matchSearch && matchMarket;
     })
