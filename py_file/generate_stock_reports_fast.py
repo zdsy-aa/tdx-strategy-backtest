@@ -188,7 +188,8 @@ def generate_stock_reports(end_date='2026-01-09'):
                 'yearTrades': stats['yearTrades'],
                 'monthTrades': stats['monthTrades'],
                 'lastSignal': '无',
-                'lastSignalDate': stats['lastDate'],
+                'lastSignalDate': end_date,  # 使用统一的截止日期
+                'lastDataDate': stats['lastDate'],  # 数据文件的最后日期
                 'dataRows': stats['dataRows']
             }
             
