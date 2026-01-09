@@ -165,8 +165,12 @@ def generate_stock_reports(end_date='2026-01-09'):
                 skipped_stocks.append({'code': stock_code, 'market': market, 'reason': '统计计算失败'})
                 continue
             
-            # 获取股票名称
-            stock_name = df['名称'].iloc[0] if '名称' in df.columns and pd.notna(df['名称'].iloc[0]) else stock_code
+            # 获取股票名称（优先从 CSV 中读取，否则使用代码）
+            if '名称' in df.columns and pd.notna(df['名称'].iloc[0]):
+                stock_name = df['名称'].iloc[0]
+            else:
+                # 使用市场前缀 + 代码作为临时名称
+                stock_name = f"{get_market_name(market)}{stock_code}"
             
             # 构建报告
             report = {

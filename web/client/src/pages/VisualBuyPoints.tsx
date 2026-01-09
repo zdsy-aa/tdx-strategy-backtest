@@ -31,6 +31,7 @@ export default function VisualBuyPoints() {
   const [selectedStock, setSelectedStock] = useState<string>("");
   const [marketFilter, setMarketFilter] = useState<"all" | "sh" | "sz" | "bj">("all");
   const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
+  const [timeRange, setTimeRange] = useState<"1m" | "3m" | "6m" | "1y" | "all">("3m");
 
   // 获取股票列表
   const stockReports: StockReport[] = useMemo(() => {
@@ -106,11 +107,25 @@ export default function VisualBuyPoints() {
     return generateMockKLineData(selectedStock);
   }, [selectedStock]);
 
-  // 根据信号类型筛选K线数据
+  // 根据时间范围和信号类型筛选K线数据
   const filteredKLineData = useMemo(() => {
-    if (signalFilter === "all") return klineData;
-    return klineData.filter(item => item.signalType === signalFilter || !item.signal);
-  }, [klineData, signalFilter]);
+    let data = klineData;
+    
+    // 时间范围筛选
+    if (timeRange !== "all" && data.length > 0) {
+      const days = {
+        "1m": 30,
+        "3m": 90,
+        "6m": 180,
+        "1y": 365
+      }[timeRange] || 90;
+      
+      data = data.slice(-days);
+    }
+    
+    // 信号类型筛选（不过滤数据，只影响显示）
+    return data;
+  }, [klineData, timeRange]);
 
   // 获取选中股票的信息
   const selectedStockInfo = useMemo(() => {
@@ -209,16 +224,21 @@ export default function VisualBuyPoints() {
             <CardDescription>选择股票查看K线图和买卖点信号</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               {/* 搜索框 */}
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
-                  placeholder="搜索股票代码或名称"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 bg-gray-800 border-gray-700 text-white"
-                />
+              <Input
+                placeholder="搜索股票代码或名称"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                  }
+                }}
+                className="pl-10 bg-gray-800 border-gray-700 text-white"
+              />
               </div>
 
               {/* 市场筛选 */}
@@ -257,6 +277,20 @@ export default function VisualBuyPoints() {
                   <SelectItem value="all">全部信号</SelectItem>
                   <SelectItem value="buy">买入信号</SelectItem>
                   <SelectItem value="sell">卖出信号</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* 时间范围筛选 */}
+              <Select value={timeRange} onValueChange={(value: any) => setTimeRange(value)}>
+                <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
+                  <SelectValue placeholder="时间范围" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1m">1个月</SelectItem>
+                  <SelectItem value="3m">3个月</SelectItem>
+                  <SelectItem value="6m">6个月</SelectItem>
+                  <SelectItem value="1y">1年</SelectItem>
+                  <SelectItem value="all">全部</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -344,22 +378,30 @@ export default function VisualBuyPoints() {
                   />
                   
                   {/* 买入信号标注 */}
-                  <Scatter
-                    yAxisId="price"
-                    data={filteredKLineData.filter(d => d.signalType === 'buy')}
-                    fill="#3b82f6"
-                    shape="circle"
-                    name="买入信号"
-                  />
+                  {(signalFilter === "all" || signalFilter === "buy") && (
+                    <Scatter
+                      yAxisId="price"
+                      dataKey="close"
+                      data={filteredKLineData.filter(d => d.signalType === 'buy')}
+                      fill="#3b82f6"
+                      shape="circle"
+                      name="买入信号"
+                      r={6}
+                    />
+                  )}
                   
                   {/* 卖出信号标注 */}
-                  <Scatter
-                    yAxisId="price"
-                    data={filteredKLineData.filter(d => d.signalType === 'sell')}
-                    fill="#ef4444"
-                    shape="circle"
-                    name="卖出信号"
-                  />
+                  {(signalFilter === "all" || signalFilter === "sell") && (
+                    <Scatter
+                      yAxisId="price"
+                      dataKey="close"
+                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
+                      fill="#ef4444"
+                      shape="circle"
+                      name="卖出信号"
+                      r={6}
+                    />
+                  )}
                 </ComposedChart>
               </ResponsiveContainer>
             </CardContent>
