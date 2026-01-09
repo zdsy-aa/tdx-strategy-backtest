@@ -1,0 +1,192 @@
+{综合资金流向与趋势交易系统-优化版}
+{结合资金流向分析和趋势交易系统，优化信号显示}
+
+{==============================================}
+{            第一部分：资金流向分析            }
+{==============================================}
+
+成交额:=V*C/100,NODRAW;
+A2:=SUM((IF(((成交额/8>20) AND (CLOSE>(REF(CLOSE,1)))),成交额,0)),0);
+A3:=SUM((IF(((成交额/8>20) AND (CLOSE<(REF(CLOSE,1)))),成交额,0)),0);
+A4:=SUM((IF(((成交额/8<20) AND (CLOSE>(REF(CLOSE,1)))),成交额,0)),0);
+A5:=SUM((IF(((成交额/8<20) AND (CLOSE<(REF(CLOSE,1)))),成交额,0)),0);
+A6:=((A2+A3)+A4)+A5;
+A7:=IF((ISLASTBAR),((100*A2)/A6),0);
+A8:=IF((ISLASTBAR),((100*A3)/A6),0);
+A9:=IF((ISLASTBAR),((100*A4)/A6),0);
+A10:=IF((ISLASTBAR),((100*A5)/A6),0);
+
+{保留原变量定义，但不再显示}
+机构买:A2,NODRAW;
+机构卖:A3,NODRAW;
+机构进出:机构买-机构卖,NODRAW;
+散户买:A4,NODRAW;
+散户卖:A5,NODRAW;
+
+
+
+{资金流向强度}
+资金强度:=(机构买-机构卖)/(机构买+机构卖+0.0001)*100;
+强势资金:资金强度>20,COLORRED,NODRAW;
+弱势资金:资金强度<-20,COLORGREEN,NODRAW;
+
+{==============================================}
+{            第二部分：趋势分析系统            }
+{==============================================}
+
+SWL:(EMA(CLOSE,10)*7+EMA(CLOSE,20)*3)/10;
+SWS:DMA(EMA(CLOSE,20),MAX(1,100*(SUM(VOL,5)/(3*CAPITAL)))),COLORWHITE,DOTLINE;
+DRAWBAND(SWL,RGB(100,0,0),SWS,RGB(0,100,0));
+主力线:IF(SWL>SWS,SWL,DRAWNULL),COLORRED,LINETHICK2;
+生命线:IF(SWL<SWS,SWL,DRAWNULL),COLORGREEN,LINETHICK2;
+
+{趋势状态判断}
+上升趋势:=SWL>SWS AND C>主力线;
+下降趋势:=SWL<SWS AND C<生命线;
+
+{买卖信号系统}
+YTSL:=(3*CLOSE+LOW+OPEN+HIGH)/6;
+VAR1:=(CLOSE>REF(CLOSE,1) AND CLOSE>REF(CLOSE,2));
+VAR2:=(REF(VAR1,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR3:=(REF(VAR2,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR4:=(REF(VAR3,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR5:=(REF(VAR4,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR6:=(REF(VAR5,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR7:=(REF(VAR6,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR8:=(REF(VAR7,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR9:=(REF(VAR8,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VARA:=(REF(VAR9,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VARB:=(REF(VARA,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VARC:=(REF(VARB,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VARD:=(CLOSE<REF(CLOSE,1) AND CLOSE<REF(CLOSE,2)); 
+VARE:=(REF(VARD,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VARF:=(REF(VARE,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR10:=(REF(VARF,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR11:=(REF(VAR10,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR12:=(REF(VAR11,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR13:=(REF(VAR12,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR14:=(REF(VAR13,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR15:=(REF(VAR14,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR16:=(REF(VAR15,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR17:=(REF(VAR16,1) AND CLOSE<=REF(CLOSE,1) AND CLOSE>=REF(CLOSE,2));
+VAR18:=(REF(VAR17,1) AND CLOSE>=REF(CLOSE,1) AND CLOSE<=REF(CLOSE,2));
+VAR19:=((REF(VARD OR VARE OR VARF OR VAR10 OR VAR11 OR VAR12 OR VAR13 OR VAR14 OR VAR15 OR VAR16 OR VAR17 OR VAR18,1)) AND VAR1);
+VAR1A:=((REF(VAR1 OR VAR2 OR VAR3 OR VAR4 OR VAR5 OR VAR6 OR VAR7 OR VAR8 OR VAR9 OR VARA OR VARB OR VARC,1)) AND VARD);
+
+红色持股:VAR1 OR VAR2 OR VAR3 OR VAR4 OR VAR5 OR VAR6 OR VAR7 OR VAR8 OR VAR9 OR VARA OR VARB OR VARC,COLOR0000FF,NODRAW;
+青色观望:VARD OR VARE OR VARF OR VAR10 OR VAR11 OR VAR12 OR VAR13 OR VAR14 OR VAR15 OR VAR16 OR VAR17 OR VAR18,COLORFFFF00,NODRAW;
+短买:VAR19,COLOR33AACC,NODRAW;
+紫色离场:VAR1A,COLORFF99FF,NODRAW;
+
+{涨停板分析}
+ZTTJ:=(CLOSE>=ZTPRICE(REF(CLOSE,1),IF(FINANCE(3)=4,0.2,0.1)));
+一板:=C>REF(C,1)*1.095 AND C<REF(C,1)*1.118 AND C=H AND FINANCE(42)>20;
+二连板:=C>REF(C,1)*1.095 AND C<REF(C,1)*1.118 AND C=H AND REF(C,1)>REF(C,2)*1.095 AND REF(C,1)<REF(C,2)*1.118 AND REF(C,1)=REF(H,1);
+三连板:=C>REF(C,1)*1.095 AND C<REF(C,1)*1.118 AND C=H AND REF(C,1)>REF(C,2)*1.095 AND REF(C,1)<REF(C,2)*1.118 AND REF(C,1)=REF(H,1) AND REF(C,2)>REF(C,3)*1.095 AND REF(C,2)<REF(C,3)*1.118 AND REF(C,2)=REF(H,2);
+
+{火箭信号简化版}
+MAVOL1:=MA(V,5);
+A1:=EMA(C,14);
+A1X:=(A1-REF(A1,1))/REF(A1,1)*100;
+K:=EMA(C,2);
+K1:=EMA(K,2);
+K2:=EMA(K1,2);
+K3:=EMA(K2,2);
+快:=EMA(K1,3);
+慢:=EMA(K3,7);
+火箭:=一板 OR 二连板 OR 三连板 OR (CROSS(A1X,0) AND C>=REF(HHV(H,7),1) AND C>REF(C,1)*1.097 AND C=H AND CROSS(快,慢) AND C>=快 AND C>O);
+
+{==============================================}
+{          第三部分：综合共振信号              }
+{==============================================}
+
+{资金流向柱状图-主显示区域}
+STICKLINE(机构进出>0,0,机构进出,3,0),COLOR000066;
+STICKLINE(机构进出>0,0,机构进出,2.5,0),COLOR000088;
+STICKLINE(机构进出>0,0,机构进出,2,0),COLOR0000AA;
+STICKLINE(机构进出>0,0,机构进出,1.5,0),COLOR0000CC;
+STICKLINE(机构进出>0,0,机构进出,1,0),COLOR0000EE;
+STICKLINE(机构进出>0,0,机构进出,0.5,0),COLOR0000FF;
+
+STICKLINE(机构进出<0,0,机构进出,3,0),COLOR006600;
+STICKLINE(机构进出<0,0,机构进出,2.5,0),COLOR008800;
+STICKLINE(机构进出<0,0,机构进出,2,0),COLOR00AA00;
+STICKLINE(机构进出<0,0,机构进出,1.5,0),COLOR00CC00;
+STICKLINE(机构进出<0,0,机构进出,1,0),COLOR00EE00;
+STICKLINE(机构进出<0,0,机构进出,0.5,0),COLOR00FF00;
+
+{综合评分系统}
+趋势分:=IF(红色持股,30,IF(青色观望,0,-20));
+资金分:=IF(机构进出>0,40,IF(机构进出<0,-40,0));
+位置分:=IF(C>主力线,20,IF(C<生命线,-20,0));
+综合评分:趋势分+资金分+位置分,COLORSTICK;
+
+{共振买卖信号}
+共振买点:火箭 AND 机构进出>0 AND 机构进出>REF(机构进出,1) AND 红色持股,COLORMAGENTA;
+共振卖点:紫色离场 AND 机构进出<0 AND 机构进出<REF(机构进出,1),COLORGREEN;
+
+
+{==============================================}
+{          第四部分：优化信号标注              }
+{==============================================}
+
+{信号标注-优化版，避免重叠并提高可读性}
+
+{计算量柱区域的位置}
+量柱大部:=V*2.1;
+量柱顶部:=V*1.1;
+量柱中部:=V*0.6;
+量柱底部:=V*0.1;
+
+{共振买点-显示在量柱顶部}
+DRAWTEXT(共振买点,量柱顶部,'●共振买'),COLORRED;
+DRAWTEXT(共振买点,量柱顶部,'●'),COLORWHITE;
+
+{共振卖点-显示在量柱顶部，与买点错开位置}
+DRAWTEXT(共振卖点,量柱大部,'○共振卖'),COLORGREEN;
+DRAWTEXT(共振卖点,量柱大部,'○'),COLORWHITE;
+
+{火箭信号-显示在量柱中部}
+DRAWTEXT(火箭 AND 机构进出>0 AND NOT(共振买点),量柱中部,'↗火箭'),COLORYELLOW;
+DRAWTEXT(火箭 AND 机构进出>0 AND 共振买点,量柱中部*1.1,'↗火箭'),COLORYELLOW;
+
+{短买信号-显示在量柱底部}
+DRAWTEXT(短买 AND 机构进出>REF(机构进出,1) AND NOT(共振买点),量柱底部,'↑短买'),COLORCYAN;
+DRAWTEXT(短买 AND 机构进出>REF(机构进出,1) AND 共振买点,量柱底部*1.2,'↑短买'),COLORCYAN;
+
+{资金流警示信号-优化显示}
+资金流入条件:=机构进出>REF(机构进出,1)*1.5 AND 机构进出>1000000;
+资金流出条件:=机构进出<REF(机构进出,1)*0.5 AND 机构进出<-1000000;
+
+{资金流入显示在量柱中部偏上}
+DRAWTEXT(资金流入条件,量柱中部*1.3,'大幅流入'),COLORRED;
+{资金流出显示在量柱中部偏下}
+DRAWTEXT(资金流出条件,量柱中部*0.7,'大幅流出'),COLORGREEN;
+
+{==============================================}
+{          第五部分：支撑阻力计算              }
+{==============================================}
+
+{支撑阻力计算}
+E:=(HIGH+LOW+OPEN+2*CLOSE)/5;
+阻力:=2*E-LOW;
+支撑:=2*E-HIGH;
+明日阻力:=2*E-LOW;
+明日支撑:=2*E-HIGH;
+今日阻力:=REF(明日阻力,1);
+今日支撑:=REF(明日支撑,1);
+
+{==============================================}
+{          第六部分：信息显示系统              }
+{==============================================}
+
+{信息显示}
+DRAWTEXT_FIX(C!=0,0.02,0.02,0,STRCAT('综合评分:',CON2STR(综合评分,0))),COLORWHITE;
+DRAWTEXT_FIX(C!=0,0.10,0.02,0,STRCAT('资金强度:',CON2STR(资金强度,1))),COLORWHITE;
+DRAWTEXT_FIX(C!=0,0.20,0.02,0,STRCAT('趋势状态:',IF(上升趋势,'上升',IF(下降趋势,'下降','震荡')))),COLORWHITE;
+DRAWTEXT_FIX(C!=0,0.30,0.02,0,STRCAT('今日压力:',CON2STR(今日阻力,2))),COLORFFFF00;
+DRAWTEXT_FIX(C!=0,0.40,0.02,0,STRCAT('今日支撑:',CON2STR(今日支撑,2))),COLOR00FF00;
+
+{零轴}
+STICKLINE(1,0,0,50,1),COLORWHITE;
+

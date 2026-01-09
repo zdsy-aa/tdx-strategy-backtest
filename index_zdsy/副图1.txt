@@ -1,0 +1,125 @@
+{副图1 - 多时间框架交易系统}
+{中长线均线系统 - 使用斐波那契周期}
+WX:=MA(C,0);
+M1:MA(CLOSE,5),COLORFF0000; {5日线 - 超短线}
+M2:MA(CLOSE,13)*IF(4<2,WX,1),COLOR00FF00; {13日线 - 短线}
+M3:MA(CLOSE,21)*IF(4<3,WX,1),COLOR0000FF; {21日线 - 中线}
+M4:MA(CLOSE,34)*IF(4<4,WX,1),COLORFFFF00; {34日线 - 中线}
+M5:MA(CLOSE,55)*IF(4<5,WX,1),COLORFF00FF; {55日线 - 长线}
+M6:MA(CLOSE,89)*IF(4<6,WX,1),COLOR00FFFF; {89日线 - 长线}
+M7:MA(CLOSE,144)*IF(4<7,WX,1),COLORFFFFFF; {144日线 - 长线}
+M8:MA(CLOSE,221)*IF(4<8,WX,1),COLOR888888; {221日线 - 超长线}
+
+{轨道线系统}
+红轨道:MA(MA(CLOSE,3),1),LINETHICK1,COLORYELLOW;
+绿轨道:=MA(MA(CLOSE,3),3);
+上升:IF(红轨道>=绿轨道,绿轨道,DRAWNULL),COLORRED,LINETHICK2;
+
+{中长线交易信号}
+AA1:=3*SMA((C-LLV(L,9))/(HHV(H,9)-LLV(L,9))*100,3,1)-2*SMA(SMA((C-LLV(L,9))/(HHV(H,9)-LLV(L,9))*100,3,1),3,1);
+加仓:=IF(CROSS(AA1,REF(AA1+0.01,1)) AND LLV(AA1,2)=LLV(AA1,8) AND BETWEEN(AA1,20,60),1,0);
+
+波段底:=(3)*(SMA(((CLOSE - LLV(LOW,27))/(HHV(HIGH,27) - LLV(LOW,27)))*(100),5,1)) -
+(2)*(SMA(SMA(((CLOSE - LLV(LOW,27))/(HHV(HIGH,27) - LLV(LOW,27)))*(100),5,1),3,1));
+
+DRAWICON(加仓,L*0.97,7); {中长线加仓信号}
+DRAWICON(CROSS(波段底,3),L*0.97,1); {中长线波段底部信号}
+
+A:=(3*C+L+O+H)/6;
+X:=(20*A+19*REF(A,1)+18*REF(A,2)+17*REF(A,3)+16*REF(A,4)+15*REF(A,5)+
+14*REF(A,6)+13*REF(A,7)+12*REF(A,8)+11*REF(A,9)+10*REF(A,10)+9*REF(A,11)+8*REF(A,12)
++7*REF(A,13)+6*REF(A,14)+5*REF(A,15)+4*REF(A,16)+3*REF(A,17)+2*REF(A,18)+
+REF(A,20))/210;
+
+MTM:=C-REF(C,1);
+DX:=100*EMA(EMA(MTM,6),6)/EMA(EMA(ABS(MTM),6),6);
+CB:=EMA(X,13);
+
+卖:=IF(HHV(DX,2)=HHV(DX,7) AND COUNT(DX>50,2) AND CROSS(MA(DX,2),DX),1,0);
+DRAWTEXT(FILTER(卖=1,1),HIGH*1.02,'中卖'),COLORWHITE; {中长线卖出}
+
+买:=IF(LLV(DX,2)=LLV(DX,7) AND COUNT(DX<0,2) AND CROSS(DX,MA(DX,2)),1,0);
+DRAWTEXT(FILTER(买=1,5),LOW-0.03,'中买'),COLORRED; {中长线买入}
+
+RSV:=(C-LLV(L,9))/(HHV(H,9)-LLV(L,9))*100;
+K:=SMA(RSV,3,1);
+D:=SMA(K,3,1);
+J:=3*K-2*D;
+
+BDGD:=HHV(J,2)=HHV(J,8) AND J>80;
+注意:=IF(CROSS(REF(J-0.01,1),J) AND REF(BDGD,1),1,0);
+DRAWTEXT(注意 AND 卖!=1,HIGH*1.02,'中减'),COLORFFFF50; {中长线减仓}
+
+加仓A:=SMA(EMA((C-REF(C,1))/REF(C,1),5)*100,3,1)*10;
+DRAWTEXT(FILTER((CROSS(加仓A,0) OR CROSS(CLOSE,CB)) AND 买!=1,3),LOW-0.03,'中加'),COLOR0080FF; {中长线加仓}
+
+MA18:=MA(C,18);
+跟:=IF(MA18>=REF(MA18,3) AND CROSS(CLOSE,MA18),1,0);
+DRAWTEXT(MA18>=REF(MA18,3) AND CROSS(CLOSE,MA18),LOW*0.96,'中跟'),COLOR7F52AF; {中长线跟进}
+
+{中长线多均线排列判断 - 文字显示}
+多头排列文字: IF(M1>M2 AND M2>M3 AND M3>M4 AND M4>M5,1,0),NODRAW;
+空头排列文字: IF(M1<M2 AND M2<M3 AND M3<M4 AND M4<M5,1,0),NODRAW;
+
+DRAWTEXT(多头排列文字 AND REF(多头排列文字,1)=0, LOW*0.85, '≡多头排列≡'), COLORRED;
+DRAWTEXT(空头排列文字 AND REF(空头排列文字,1)=0, HIGH*1.15, '≡空头排列≡'), COLORGREEN;
+
+{中长线关键均线支撑压力 - 文字显示}
+支撑条件:=C>M5 AND C>M6 AND C>M7;
+压力条件:=C<M5 AND C<M6 AND C<M7;
+
+DRAWTEXT(支撑条件 AND CROSS(C,M5), M5*0.98, '●支撑●'), COLOR00FF00;
+DRAWTEXT(压力条件 AND CROSS(M5,C), M5*1.02, '●压力●'), COLORFF0000;
+
+{======================================================}
+{短线交易系统 - 独立逻辑}
+{======================================================}
+
+{短线均线系统}
+短线MA3:MA(CLOSE,3),COLORFF6600,LINETHICK1; {3日线 - 超短线}
+短线MA5:MA(CLOSE,5),COLORFF0066,LINETHICK1; {5日线 - 短线}
+短线MA8:MA(CLOSE,8),COLOR6600FF,LINETHICK1; {8日线 - 短线}
+
+{短线动量指标}
+短线RSI6:=SMA(MAX(CLOSE-REF(CLOSE,1),0),6,1)/SMA(ABS(CLOSE-REF(CLOSE,1)),6,1)*100;
+短线RSI12:=SMA(MAX(CLOSE-REF(CLOSE,1),0),12,1)/SMA(ABS(CLOSE-REF(CLOSE,1)),12,1)*100;
+
+{短线买卖信号}
+短线买入信号:=CROSS(短线MA3,短线MA5) AND 短线RSI6<70 AND 短线RSI12>30;
+短线卖出信号:=CROSS(短线MA5,短线MA3) AND 短线RSI6>30;
+
+DRAWTEXT(短线买入信号,LOW*0.98,'短买'),COLOR00FFFF; {短线买入}
+DRAWTEXT(短线卖出信号,HIGH*1.02,'短卖'),COLORFF00FF; {短线卖出}
+
+{短线突破信号}
+短线突破买入:=CROSS(CLOSE,短线MA8) AND 短线MA3>短线MA5 AND VOL>MA(VOL,20)*1.2;
+短线突破卖出:=CROSS(短线MA8,CLOSE) AND 短线MA3<短线MA5;
+
+DRAWICON(短线突破买入,LOW*0.95,1),COLOR00FFFF; {短线突破买入图标}
+DRAWICON(短线突破卖出,HIGH*1.05,2),COLORFF00FF; {短线突破卖出图标}
+
+{短线趋势判断}
+短线多头: IF(短线MA3>短线MA5 AND 短线MA5>短线MA8,1,0),COLOR00FF00,LINETHICK1,NODRAW;
+短线空头: IF(短线MA3<短线MA5 AND 短线MA5<短线MA8,0,1),COLORFF0000,LINETHICK1,NODRAW;
+
+{短线支撑阻力}
+短线支撑: IF(CLOSE>短线MA5,短线MA5,DRAWNULL),COLOR008800,LINETHICK1,NODRAW;
+短线阻力: IF(CLOSE<短线MA5,短线MA5,DRAWNULL),COLOR880000,LINETHICK1,NODRAW;
+
+{======================================================}
+{信号优先级说明}
+{======================================================}
+
+{信号颜色说明:}
+{中长线信号: 红色、深蓝色、白色 - 适合持仓周期1周以上}
+{短线信号: 黄色、粉色、青色 - 适合持仓周期1-3天}
+
+{信号优先级规则:}
+{1. 当两个时间框架信号一致时，信号强度最强}
+{2. 当中长线和短线信号一致时，可考虑加大仓位}
+{3. 当两个时间框架信号完全相反时，建议观望}
+
+{仓位管理建议:}
+{共振信号: 两个时间框架一致时可重仓}
+{单一信号: 只有一个时间框架信号时轻仓操作}
+{信号冲突: 两个时间框架不一致时空仓观望};

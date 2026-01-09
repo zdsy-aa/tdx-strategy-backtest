@@ -1,0 +1,219 @@
+{====================================================================}
+{        缠论2 原逻辑母版 + 副图信号显示（最终发布版）              }
+{====================================================================}
+{ 重要声明（请务必阅读）：
+    1、本指标完整保留《缠论2.TXT》全部计算逻辑
+    2、不删减、不合并、不重写任何买卖点或 V1 / V2 / V3
+    3、仅在“显示层”引入《缠论副图.TXT》的信号输出方式
+    4、V2 / V3 仅作为【提示标签】，不参与任何新计算
+}
+{====================================================================}
+
+
+{====================== 一、参数集中区 ==============================}
+
+确认周期 := 1;      {信号确认周期}
+MA13周期 := 13;     {短周期趋势均线}
+MA26周期 := 26;     {中周期趋势均线}
+
+时间 := 确认周期;  {副图信号确认周期，与缠论2保持一致}
+
+
+{====================== 二、缠论核心结构（锁死） ====================}
+
+TIM := TDXDLL4(100, PERIOD, H, L);   {结构初始化}
+KX  := TDXDLL4(1, H, L, C);           {去包含}
+BI  := TDXDLL4(4, H, L, C);           {笔识别}
+
+MA13 := EMA(C, MA13周期);
+MA26 := EMA(C, MA26周期);
+
+VAR1 := KX;
+VAR2 := BI;
+
+
+{====================== 三、方向判定 ================================}
+
+A1  := BARSLAST(VAR2 <> 0);
+A2  := REF(VAR2, A1);
+AA1 := REF(A1 + 1, 1);
+AA2 := -REF(A2, 1);
+
+方向 := AA2;   {1=向上笔，-1=向下笔}
+
+
+{====================== 四、高低点序列 ==============================}
+
+H1  := BARSLAST(VAR2 = 1);
+HH1 := REF(H1 + 1, 1);
+L1  := BARSLAST(VAR2 = -1);
+LL1 := REF(L1 + 1, 1);
+
+GG  := REF(H, H1);
+GG1 := REF(H, HH1);
+GG2 := REF(GG1, HH1);
+GG3 := REF(GG2, HH1);
+GG4 := REF(GG3, HH1);
+GG5 := REF(GG4, HH1);
+
+DD  := REF(L, L1);
+DD1 := REF(L, LL1);
+DD2 := REF(DD1, LL1);
+DD3 := REF(DD2, LL1);
+DD4 := REF(DD3, LL1);
+DD5 := REF(DD4, LL1);
+
+
+{====================== 五、买点逻辑（原样保留） ====================}
+
+{---------- 一买 ----------}
+一买TJ1 := 方向 = 1 AND L < MA13 AND LL1 <= 5;
+一五段下跌 := DD1 < GG1 AND DD1 < DD2 AND DD1 < DD3 AND GG1 < GG2 AND GG1 < GG3;
+一买TJA := GG1 < DD3;
+一买A   := 一买TJ1 AND 一五段下跌 AND 一买TJA;
+
+一买TJB := GG1 > DD3;
+一买KJB := GG3 - DD3 > GG1 - DD1 AND GG3 - DD3 > GG2 - DD2 AND GG2 - DD2 < GG1 - DD1;
+一买B := 一买TJ1 AND 一五段下跌 AND 一买TJB AND 一买KJB;
+
+一买1 := 一买A OR 一买B;
+
+
+{---------- 二买 ----------}
+买TJ1 := 方向 = 1 AND L < MA26 AND LL1 <= 8;
+二买TJ := DD1 < GG1 AND DD1 > DD2;
+三段下跌 := GG3 > GG2 AND DD3 > DD2;
+
+二买TJA1 := GG1 > DD3;
+二买A := 买TJ1 AND 二买TJ AND 三段下跌 AND 二买TJA1;
+
+五段下跌 := GG4 > GG3 AND GG4 > GG2 AND DD2 < DD3 AND DD2 < DD4;
+
+二买TJB1 := GG2 < DD4 AND GG1 > DD3;
+二买TJB2 := GG2 > DD4;
+
+二买B1 := 买TJ1 AND 二买TJ AND 五段下跌 AND 二买TJB1;
+二买B2 := 买TJ1 AND 二买TJ AND 五段下跌 AND 二买TJB2;
+
+二买1 := 二买A OR 二买B1 OR 二买B2;
+
+
+{---------- 三买 ----------}
+三买TJ := DD1 < GG1 AND DD1 > DD2;
+三买TJA1 := 方向 = 1 AND L < MA13 AND LL1 <= 5;
+三买TJA2 := DD1 > MIN(GG2, GG3) AND GG3 > DD2 AND DD4 < MAX(DD2, DD3) AND DD1 > DD4;
+
+三买1 := 三买TJ AND 三买TJA1 AND 三买TJA2;
+
+
+{---------- 强 / 类二买 ----------}
+强二买TJ := 方向 = 1 AND C < MA13 AND LL1 <= 8;
+强二买TJ2 := DD1 < GG1 AND DD3 < DD2 AND DD3 < DD1 AND DD3 < DD4;
+强二买KJ := GG2 - DD3 > GG2 - DD2 AND GG2 - DD3 > GG1 - DD1;
+
+强二买1 := 强二买TJ AND 强二买TJ2 AND 强二买KJ;
+类二买1 := 强二买1;
+
+
+{====================== 六、卖点逻辑（原样保留） ====================}
+
+一卖TJ1:=方向=-1 AND H>MA13 AND HH1<=5;
+一五段上涨:=GG1>GG2 AND GG1>GG3 AND DD1>DD2 AND DD1>DD3;
+一卖TJA:=DD1>GG3;
+一卖A:=一卖TJ1 AND 一五段上涨 AND 一卖TJA;
+一卖TJB:=DD1<GG3;
+一卖B:=一卖TJ1 AND 一五段上涨 AND 一卖TJB;
+一卖C:=一卖TJ1 AND GG1>GG2 AND GG2>GG3 AND GG3>GG4;
+一卖1:=一卖A OR 一卖B OR 一卖C;
+
+卖TJ1:=方向=-1 AND H>MA13 AND HH1<=8;
+二卖TJ:=GG1>DD1 AND GG1<GG2;
+三段上涨:=GG3<GG2 AND DD3<DD2;
+二卖A:=卖TJ1 AND 二卖TJ AND 三段上涨;
+二卖1:=二卖A;
+
+三卖TJ:=DD1<GG1 AND GG1<GG2;
+三卖TJA1:=方向=-1 AND H>MA13 AND HH1<=5;
+三卖TJA2:=GG1<MAX(DD2,DD3);
+三卖1:=三卖TJ AND 三卖TJA1 AND 三卖TJA2;
+
+
+{====================== 七、V1 / V2 / V3（原样保留） ================}
+
+V1_RAW := 一买1 OR 二买1 OR 三买1 OR 强二买1 OR 类二买1;
+V1 := (BARSLASTCOUNT(V1_RAW > 0)) = 确认周期;
+
+趋势允许 :=
+    MA(C, 20) >= MA(C, 60)
+ OR BARSLAST(C < MA(C, 60)) < 20;
+
+结构保持 :=
+    DD1 >= DD2
+ OR L > REF(LLV(L, 20), 1);
+
+V2 := V1 AND 趋势允许 AND 结构保持;
+
+结构离开 :=
+    C > REF(GG1, 1)
+AND HHV(H, 10) > HHV(H, 30);
+
+回踩完成 :=
+    BARSLAST(L = LLV(L, 10)) > 2
+AND L > REF(LLV(L, 30), 1);
+
+V3 := V2 AND 结构离开 AND 回踩完成;
+
+
+{====================== 八、副图倒V信号显示 ==========================}
+
+一买值 := ((BARSLASTCOUNT(一买1>0)) = 时间) * 1;
+二买值 := ((BARSLASTCOUNT(二买1>0)) = 时间) * 2;
+三买值 := ((BARSLASTCOUNT(三买1>0)) = 时间) * 3;
+
+强二买值 := ((BARSLASTCOUNT(强二买1>0)) = 时间) * 4;
+类二买值 := ((BARSLASTCOUNT(类二买1>0)) = 时间) * 5;
+
+一卖值 := ((BARSLASTCOUNT(一卖1>0)) = 时间) * 1;
+二卖值 := ((BARSLASTCOUNT(二卖1>0)) = 时间) * 2;
+三卖值 := ((BARSLASTCOUNT(三卖1>0)) = 时间) * 3;
+
+
+{---- 倒V柱 ----}
+一买:一买值, COLORRED;
+二买:二买值, COLORMAGENTA;
+三买:三买值, COLORBLUE;
+
+强二买:强二买值, COLORLIGRAY;
+类二买:类二买值, COLORYELLOW;
+
+一卖:一卖值, COLORGREEN;
+二卖:二卖值, COLORCYAN;
+三卖:三卖值, COLORYELLOW;
+
+
+{---- 原副图数字标注 ----}
+DRAWTEXT(一买值>0, 一买值/2, '1'), COLORRED;
+DRAWTEXT(二买值>0, 二买值/2, '2'), COLORMAGENTA;
+DRAWTEXT(三买值>0, 三买值/2, '3'), COLORBLUE;
+
+DRAWTEXT(强二买值>0, 强二买值/2, '4'), COLORLIGRAY;
+DRAWTEXT(类二买值>0, 类二买值/2, '5'), COLORYELLOW;
+
+DRAWTEXT(一卖值>0, 一卖值/2, '7'), COLORGREEN;
+DRAWTEXT(二卖值>0, 二卖值/2, '8'), COLORCYAN;
+DRAWTEXT(三卖值>0, 三卖值/2, '9'), COLORYELLOW;
+
+
+{====================== 九、V2 / V3 信号提示（新增显示） ============}
+
+DRAWTEXT(一买值>0 AND V2, 一买值 + 0.3, 'V2'), COLORBLUE;
+DRAWTEXT(二买值>0 AND V2, 二买值 + 0.3, 'V2'), COLORBLUE;
+DRAWTEXT(三买值>0 AND V2, 三买值 + 0.3, 'V2'), COLORBLUE;
+DRAWTEXT(强二买值>0 AND V2, 强二买值 + 0.3, 'V2'), COLORBLUE;
+DRAWTEXT(类二买值>0 AND V2, 类二买值 + 0.3, 'V2'), COLORBLUE;
+
+DRAWTEXT(一买值>0 AND V3, 一买值 + 0.8, 'V3'), COLORGREEN;
+DRAWTEXT(二买值>0 AND V3, 二买值 + 0.8, 'V3'), COLORGREEN;
+DRAWTEXT(三买值>0 AND V3, 三买值 + 0.8, 'V3'), COLORGREEN;
+DRAWTEXT(强二买值>0 AND V3, 强二买值 + 0.8, 'V3'), COLORGREEN;
+DRAWTEXT(类二买值>0 AND V3, 类二买值 + 0.8, 'V3'), COLORGREEN;
