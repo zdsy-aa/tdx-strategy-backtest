@@ -262,6 +262,88 @@ export default function VisualBuyPoints() {
     return null;
   };
 
+  // 渲染蜡烛图的自定义函数
+  const renderCandlestick = (data: KLineData[], xScale: any, yScale: any) => {
+    if (!data || data.length === 0) return null;
+    
+    return data.map((item, index) => {
+      const { date, open, close, high, low } = item;
+      
+      // 计算X坐标
+      const xPos = xScale(date);
+      const candleWidth = Math.max(xScale.bandwidth ? xScale.bandwidth() * 0.6 : 5, 2);
+      const centerX = xPos + (xScale.bandwidth ? xScale.bandwidth() / 2 : 0);
+      
+      // 计算Y坐标
+      const highY = yScale(high);
+      const lowY = yScale(low);
+      const openY = yScale(open);
+      const closeY = yScale(close);
+      
+      // 判断涨跌
+      const isRising = close >= open;
+      const color = isRising ? '#ef4444' : '#22c55e';
+      
+      const bodyTop = Math.min(openY, closeY);
+      const bodyBottom = Math.max(openY, closeY);
+      const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
+      
+      return (
+        <g key={`candle-${index}-${date}`}>
+          {/* 上影线 */}
+          <line
+            x1={centerX}
+            y1={highY}
+            x2={centerX}
+            y2={bodyTop}
+            stroke={color}
+            strokeWidth={1}
+          />
+          
+          {/* 蜡烛主体 */}
+          <rect
+            x={centerX - candleWidth / 2}
+            y={bodyTop}
+            width={candleWidth}
+            height={bodyHeight}
+            fill={color}
+            stroke={color}
+            strokeWidth={1}
+          />
+          
+          {/* 下影线 */}
+          <line
+            x1={centerX}
+            y1={bodyBottom}
+            x2={centerX}
+            y2={lowY}
+            stroke={color}
+            strokeWidth={1}
+          />
+        </g>
+      );
+    });
+  };
+
+  // 自定义蜡烛图层
+  const CandlestickLayer = (props: any) => {
+    const { xAxisMap, yAxisMap, dataPointsData } = props;
+    if (!xAxisMap || !yAxisMap || !dataPointsData) return null;
+    
+    const xScale = xAxisMap[0]?.scale;
+    const yScale = yAxisMap[0]?.scale;
+    
+    if (!xScale || !yScale) return null;
+    
+    return (
+      <g className="recharts-candlestick-layer">
+        {renderCandlestick(filteredKLineData, xScale, yScale)}
+      </g>
+    );
+  };
+    return null;
+  };
+
   return (
     <Layout>
       <div className="container mx-auto p-6 space-y-6">
@@ -556,12 +638,26 @@ export default function VisualBuyPoints() {
                     iconType="line"
                   />
                   
-                  {/* K线蜡烛图 */}
-                  <Bar 
+                  {/* 隐藏的Line用于计算Y轴域 */}
+                  <Line 
+                    type="monotone"
                     dataKey="high"
-                    shape={<CandlestickShape />}
-                    name="K线"
+                    stroke="transparent"
+                    dot={false}
+                    legendType="none"
+                    isAnimationActive={false}
                   />
+                  <Line 
+                    type="monotone"
+                    dataKey="low"
+                    stroke="transparent"
+                    dot={false}
+                    legendType="none"
+                    isAnimationActive={false}
+                  />
+                  
+                  {/* 自定义蜡烛图层 */}
+                  <CandlestickLayer />
 
                   {/* 买入信号（红色圆圈） */}
                   {(signalFilter === 'all' || signalFilter === 'buy') && (

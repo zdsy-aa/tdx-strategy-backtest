@@ -6,6 +6,8 @@ interface CandlestickShapeProps {
   width?: number;
   height?: number;
   payload?: any;
+  // Recharts会传递这些额外的props
+  [key: string]: any;
 }
 
 /**
@@ -14,17 +16,44 @@ interface CandlestickShapeProps {
  * 绿色：收盘价 < 开盘价（下跌）
  */
 export const CandlestickShape: React.FC<CandlestickShapeProps> = (props) => {
-  const { x = 0, y = 0, width = 0, height = 0, payload } = props;
+  const { x = 0, width = 0, payload, ...rest } = props;
   
+  // 检查必要的数据
   if (!payload || !payload.open || !payload.close || !payload.high || !payload.low) {
     return null;
   }
 
   const { open, close, high, low } = payload;
   
-  // 计算Y轴比例（基于图表高度和价格范围）
-  const priceRange = Math.max(high, open, close) - Math.min(low, open, close);
-  if (priceRange === 0) return null;
+  // 从props中获取yAxis的scale函数（Recharts会自动传递）
+  // 如果没有，尝试从其他props中获取
+  let yScale: any = null;
+  
+  // 尝试多种方式获取Y轴的scale
+  if (rest.yAxis) {
+    yScale = rest.yAxis.scale;
+  } else if (rest.yAxisMap) {
+    const yAxisId = rest.yAxisId || 0;
+    yScale = rest.yAxisMap[yAxisId]?.scale;
+  }
+  
+  // 如果没有yScale，尝试从其他props计算
+  if (!yScale && rest.viewBox) {
+    const { y: viewY, height: viewHeight } = rest.viewBox;
+    // 简单的线性映射
+    const domain = rest.domain || [0, 100];
+    const [minDomain, maxDomain] = domain;
+    yScale = (value: number) => {
+      const ratio = (maxDomain - value) / (maxDomain - minDomain);
+      return viewY + ratio * viewHeight;
+    };
+  }
+  
+  // 如果还是没有yScale，返回null
+  if (!yScale) {
+    console.warn('CandlestickShape: No yScale available');
+    return null;
+  }
   
   // 判断涨跌
   const isRising = close >= open;
@@ -34,32 +63,24 @@ export const CandlestickShape: React.FC<CandlestickShapeProps> = (props) => {
   const candleWidth = Math.max(width * 0.6, 2); // 蜡烛主体宽度
   const centerX = x + width / 2;
   
-  // 计算价格对应的Y坐标（需要根据图表的Y轴域来计算）
-  // 这里简化处理，使用相对位置
-  const maxPrice = Math.max(high, open, close);
-  const minPrice = Math.min(low, open, close);
-  const bodyTop = Math.max(open, close);
-  const bodyBottom = Math.min(open, close);
+  // 使用yScale计算Y坐标
+  const highY = yScale(high);
+  const lowY = yScale(low);
+  const openY = yScale(open);
+  const closeY = yScale(close);
   
-  // 计算相对高度
-  const totalHeight = height;
-  const bodyHeight = Math.max(((bodyTop - bodyBottom) / priceRange) * totalHeight, 1);
-  const topWickHeight = ((maxPrice - bodyTop) / priceRange) * totalHeight;
-  const bottomWickHeight = ((bodyBottom - minPrice) / priceRange) * totalHeight;
-  
-  // 计算Y坐标（从上到下）
-  const topWickY = y;
-  const bodyY = topWickY + topWickHeight;
-  const bottomWickY = bodyY + bodyHeight;
+  const bodyTop = Math.min(openY, closeY);
+  const bodyBottom = Math.max(openY, closeY);
+  const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
   
   return (
     <g>
       {/* 上影线 */}
       <line
         x1={centerX}
-        y1={topWickY}
+        y1={highY}
         x2={centerX}
-        y2={bodyY}
+        y2={bodyTop}
         stroke={color}
         strokeWidth={1}
       />
@@ -67,7 +88,7 @@ export const CandlestickShape: React.FC<CandlestickShapeProps> = (props) => {
       {/* 蜡烛主体 */}
       <rect
         x={centerX - candleWidth / 2}
-        y={bodyY}
+        y={bodyTop}
         width={candleWidth}
         height={bodyHeight}
         fill={color}
@@ -78,9 +99,9 @@ export const CandlestickShape: React.FC<CandlestickShapeProps> = (props) => {
       {/* 下影线 */}
       <line
         x1={centerX}
-        y1={bottomWickY}
+        y1={bodyBottom}
         x2={centerX}
-        y2={bottomWickY + bottomWickHeight}
+        y2={lowY}
         stroke={color}
         strokeWidth={1}
       />
