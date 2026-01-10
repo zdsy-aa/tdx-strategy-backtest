@@ -1,9 +1,9 @@
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import { Search, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, Brush } from 'recharts';
 import stockReportsData from "@/data/stock_reports.json";
@@ -40,8 +40,7 @@ export default function VisualBuyPoints() {
   const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
-  const [brushStartIndex, setBrushStartIndex] = useState<number | undefined>(undefined);
-  const [brushEndIndex, setBrushEndIndex] = useState<number | undefined>(undefined);
+  const [brushIndexes, setBrushIndexes] = useState<{ startIndex?: number; endIndex?: number }>({});
 
   // 获取股票列表
   const stockReports: StockReport[] = useMemo(() => {
@@ -60,7 +59,7 @@ export default function VisualBuyPoints() {
         const matchMarket = marketFilter === "all" || stock.market === marketFilter;
         return (matchCode || matchName) && matchMarket;
       })
-      .slice(0, 20); // 限制显示20个结果
+      .slice(0, 20);
   }, [stockReports, searchTerm, marketFilter]);
 
   // 模拟K线数据生成
@@ -71,7 +70,7 @@ export default function VisualBuyPoints() {
     let lastSignalIndex = -10;
     let lastSignalType: 'buy' | 'sell' | undefined;
     
-    for (let i = 0; i < 180; i++) { // 生成6个月的数据
+    for (let i = 0; i < 180; i++) {
       const date = new Date(startDate);
       date.setDate(date.getDate() + i);
       
@@ -149,11 +148,12 @@ export default function VisualBuyPoints() {
 
   // 根据 Brush 筛选数据
   const displayedKLineData = useMemo(() => {
-    if (brushStartIndex !== undefined && brushEndIndex !== undefined) {
-      return klineData.slice(brushStartIndex, brushEndIndex + 1);
+    const { startIndex, endIndex } = brushIndexes;
+    if (startIndex !== undefined && endIndex !== undefined && startIndex >= 0 && endIndex < klineData.length) {
+      return klineData.slice(startIndex, endIndex + 1);
     }
     return klineData;
-  }, [klineData, brushStartIndex, brushEndIndex]);
+  }, [klineData, brushIndexes]);
 
   // 筛选在当前显示范围内的交易对
   const displayedTradePairs = useMemo(() => {
@@ -175,14 +175,12 @@ export default function VisualBuyPoints() {
     setSelectedStock(code);
     setSearchTerm('');
     setShowSuggestions(false);
-    setBrushStartIndex(undefined);
-    setBrushEndIndex(undefined);
+    setBrushIndexes({});
   };
 
   // 重置缩放
   const handleResetZoom = () => {
-    setBrushStartIndex(undefined);
-    setBrushEndIndex(undefined);
+    setBrushIndexes({});
   };
 
   // 自定义Tooltip
@@ -200,7 +198,9 @@ export default function VisualBuyPoints() {
             <p className="text-gray-300">最低: <span className="text-white font-medium">{data.low}</span></p>
             <p className="text-gray-300">成交量: <span className="text-white font-medium">{(data.volume / 10000).toFixed(0)}万</span></p>
             {data.signal && (
-              <p className="text-yellow-400 font-semibold mt-2 pt-2 border-t border-gray-600">
+              <p className={`font-semibold mt-2 pt-2 border-t border-gray-600 ${
+                data.signalType === 'buy' ? 'text-red-400' : 'text-green-400'
+              }`}>
                 📍 {data.signal}
               </p>
             )}
@@ -230,7 +230,7 @@ export default function VisualBuyPoints() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* 搜索框（模糊搜索 + 动态下拉） */}
+              {/* 搜索框 */}
               <div className="relative md:col-span-2">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
                 <Input
@@ -314,19 +314,19 @@ export default function VisualBuyPoints() {
                   <div className="flex gap-6">
                     <div className="text-center">
                       <p className="text-gray-400 text-sm">买入信号</p>
-                      <p className="text-2xl font-bold text-blue-400">
+                      <p className="text-2xl font-bold text-red-400">
                         {klineData.filter(d => d.signalType === 'buy').length}
                       </p>
                     </div>
                     <div className="text-center">
                       <p className="text-gray-400 text-sm">卖出信号</p>
-                      <p className="text-2xl font-bold text-red-400">
+                      <p className="text-2xl font-bold text-green-400">
                         {klineData.filter(d => d.signalType === 'sell').length}
                       </p>
                     </div>
                     <div className="text-center">
                       <p className="text-gray-400 text-sm">交易对</p>
-                      <p className="text-2xl font-bold text-green-400">
+                      <p className="text-2xl font-bold text-yellow-400">
                         {tradePairs.length}
                       </p>
                     </div>
@@ -345,7 +345,7 @@ export default function VisualBuyPoints() {
                 <div>
                   <CardTitle className="text-white">K线图与信号标注</CardTitle>
                   <CardDescription>
-                    拖动底部滑块缩放时间范围 | 蓝色▲：买入 | 红色▼：卖出 | 虚线：交易路径
+                    拖动底部滑块缩放时间范围 | 红色⚪：买入 | 绿色▲：卖出 | 虚线：交易路径
                   </CardDescription>
                 </div>
                 <Button 
@@ -359,11 +359,13 @@ export default function VisualBuyPoints() {
                 </Button>
               </div>
             </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={600}>
+            <CardContent className="space-y-4">
+              {/* K线价格图 */}
+              <ResponsiveContainer width="100%" height={400}>
                 <ComposedChart 
                   data={displayedKLineData} 
-                  margin={{ top: 20, right: 30, left: 20, bottom: 80 }}
+                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                  syncId="stockChart"
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis 
@@ -371,41 +373,18 @@ export default function VisualBuyPoints() {
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
                     tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
-                    height={60}
                   />
                   <YAxis 
-                    yAxisId="price"
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    domain={['dataMin - 1', 'dataMax + 1']}
+                    domain={['auto', 'auto']}
                     label={{ value: '价格', angle: -90, position: 'insideLeft', fill: '#9ca3af' }}
                   />
-                  <YAxis 
-                    yAxisId="volume"
-                    orientation="right"
-                    stroke="#9ca3af"
-                    tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
-                    label={{ value: '成交量', angle: 90, position: 'insideRight', fill: '#9ca3af' }}
-                  />
                   <Tooltip content={<CustomTooltip />} />
-                  <Legend 
-                    wrapperStyle={{ paddingTop: '20px' }}
-                    iconType="line"
-                  />
-                  
-                  {/* 成交量柱状图 */}
-                  <Bar 
-                    yAxisId="volume"
-                    dataKey="volume" 
-                    fill="#4b5563" 
-                    opacity={0.3}
-                    name="成交量"
-                  />
+                  <Legend />
                   
                   {/* 收盘价线 */}
                   <Line 
-                    yAxisId="price"
                     type="monotone" 
                     dataKey="close" 
                     stroke="#8b5cf6" 
@@ -422,8 +401,7 @@ export default function VisualBuyPoints() {
                         { x: pair.buy.date, y: pair.buy.close },
                         { x: pair.sell.date, y: pair.sell.close }
                       ]}
-                      yAxisId="price"
-                      stroke={parseFloat(pair.profitPercent) >= 0 ? '#3b82f6' : '#ef4444'}
+                      stroke={parseFloat(pair.profitPercent) >= 0 ? '#ef4444' : '#22c55e'}
                       strokeDasharray="5 5"
                       strokeWidth={1.5}
                       label={{
@@ -436,44 +414,62 @@ export default function VisualBuyPoints() {
                     />
                   ))}
                   
-                  {/* 买入信号标注 */}
+                  {/* 买入信号标注（红色圆圈） */}
                   {(signalFilter === "all" || signalFilter === "buy") && (
                     <Scatter
-                      yAxisId="price"
                       dataKey="close"
                       data={displayedKLineData.filter(d => d.signalType === 'buy')}
                       fill="#ef4444"
-                      shape="triangle"
+                      shape="circle"
                       name="买入信号"
-                      r={8}
+                      r={6}
                     />
                   )}
                   
-                  {/* 卖出信号标注 */}
+                  {/* 卖出信号标注（绿色三角） */}
                   {(signalFilter === "all" || signalFilter === "sell") && (
                     <Scatter
-                      yAxisId="price"
                       dataKey="close"
-                      data={displayedKLineData.filter(d => d.signalType === 'sell').map(d => ({
-                        ...d,
-                        close: d.close * 1.02
-                      }))}
+                      data={displayedKLineData.filter(d => d.signalType === 'sell')}
                       fill="#22c55e"
-                      shape={(props: any) => {
-                        const { cx, cy } = props;
-                        return (
-                          <polygon
-                            points={`${cx},${cy + 8} ${cx - 8},${cy - 8} ${cx + 8},${cy - 8}`}
-                            fill="#22c55e"
-                            stroke="#fff"
-                            strokeWidth={1}
-                          />
-                        );
-                      }}
+                      shape="triangle"
                       name="卖出信号"
                       r={8}
                     />
                   )}
+                </ComposedChart>
+              </ResponsiveContainer>
+
+              {/* 成交量图 */}
+              <ResponsiveContainer width="100%" height={150}>
+                <ComposedChart 
+                  data={displayedKLineData} 
+                  margin={{ top: 5, right: 30, left: 20, bottom: 80 }}
+                  syncId="stockChart"
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                  <XAxis 
+                    dataKey="date" 
+                    stroke="#9ca3af"
+                    tick={{ fill: '#9ca3af', fontSize: 12 }}
+                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
+                    height={60}
+                  />
+                  <YAxis 
+                    stroke="#9ca3af"
+                    tick={{ fill: '#9ca3af', fontSize: 12 }}
+                    tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
+                    label={{ value: '成交量', angle: -90, position: 'insideLeft', fill: '#9ca3af' }}
+                  />
+                  <Tooltip content={<CustomTooltip />} />
+                  
+                  {/* 成交量柱状图 */}
+                  <Bar 
+                    dataKey="volume" 
+                    fill="#4b5563" 
+                    opacity={0.6}
+                    name="成交量"
+                  />
                   
                   {/* Brush 组件用于缩放 */}
                   <Brush
@@ -484,12 +480,14 @@ export default function VisualBuyPoints() {
                     tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
                     onChange={(range: any) => {
                       if (range && range.startIndex !== undefined && range.endIndex !== undefined) {
-                        setBrushStartIndex(range.startIndex);
-                        setBrushEndIndex(range.endIndex);
+                        setBrushIndexes({
+                          startIndex: range.startIndex,
+                          endIndex: range.endIndex
+                        });
                       }
                     }}
-                    startIndex={brushStartIndex}
-                    endIndex={brushEndIndex}
+                    startIndex={brushIndexes.startIndex}
+                    endIndex={brushIndexes.endIndex}
                   />
                 </ComposedChart>
               </ResponsiveContainer>
@@ -516,7 +514,7 @@ export default function VisualBuyPoints() {
                         买入: {pair.buy.date} @ ¥{pair.buy.close} | 卖出: {pair.sell.date} @ ¥{pair.sell.close}
                       </p>
                     </div>
-                    <div className={`text-right font-bold ${parseFloat(pair.profitPercent) >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                    <div className={`text-right font-bold ${parseFloat(pair.profitPercent) >= 0 ? 'text-red-400' : 'text-green-400'}`}>
                       <p className="text-lg">{pair.profitPercent}%</p>
                       <p className="text-sm">{pair.profit > 0 ? '+' : ''}¥{pair.profit}</p>
                     </div>
