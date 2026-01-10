@@ -31,9 +31,10 @@ interface TradePair {
   sell: KLineData;
   profit: number;
   profitPercent: string;
+  amount: number;
 }
 
-type DateRangeType = 'all' | '1year' | '6months' | '3months' | '1month' | 'custom';
+type DateRangeType = 'year' | 'month' | 'custom';
 
 export default function VisualBuyPoints() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,7 +43,9 @@ export default function VisualBuyPoints() {
   const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
-  const [dateRangeType, setDateRangeType] = useState<DateRangeType>('6months');
+  const [dateRangeType, setDateRangeType] = useState<DateRangeType>('month');
+  const [selectedYear, setSelectedYear] = useState<string>("");
+  const [selectedMonth, setSelectedMonth] = useState<string>("");
   const [customStartDate, setCustomStartDate] = useState("");
   const [customEndDate, setCustomEndDate] = useState("");
 
@@ -70,13 +73,16 @@ export default function VisualBuyPoints() {
   const generateMockKLineData = (stockCode: string): KLineData[] => {
     const data: KLineData[] = [];
     let basePrice = 10 + Math.random() * 20;
-    const startDate = new Date('2024-01-01');
+    const startDate = new Date('2023-01-01');
     let lastSignalIndex = -10;
     let lastSignalType: 'buy' | 'sell' | undefined;
     
-    for (let i = 0; i < 365; i++) {
+    for (let i = 0; i < 730; i++) { // 2年数据
       const date = new Date(startDate);
       date.setDate(date.getDate() + i);
+      
+      // 跳过周末
+      if (date.getDay() === 0 || date.getDay() === 6) continue;
       
       const change = (Math.random() - 0.5) * 2;
       const open = basePrice;
@@ -125,44 +131,65 @@ export default function VisualBuyPoints() {
     return generateMockKLineData(selectedStock);
   }, [selectedStock]);
 
+  // 从K线数据中提取可用的年份和月份
+  const availableYears = useMemo(() => {
+    if (klineData.length === 0) return [];
+    const years = Array.from(new Set(klineData.map(d => d.date.substring(0, 4)))).sort().reverse();
+    return years;
+  }, [klineData]);
+
+  const availableMonths = useMemo(() => {
+    if (klineData.length === 0 || !selectedYear) return [];
+    const months = Array.from(
+      new Set(
+        klineData
+          .filter(d => d.date.startsWith(selectedYear))
+          .map(d => d.date.substring(5, 7))
+      )
+    ).sort().reverse();
+    return months;
+  }, [klineData, selectedYear]);
+
+  // 初始化年月选择（选择最新的年月）
+  useMemo(() => {
+    if (availableYears.length > 0 && !selectedYear) {
+      setSelectedYear(availableYears[0]);
+    }
+  }, [availableYears, selectedYear]);
+
+  useMemo(() => {
+    if (availableMonths.length > 0 && !selectedMonth && selectedYear) {
+      setSelectedMonth(availableMonths[0]);
+    }
+  }, [availableMonths, selectedMonth, selectedYear]);
+
   // 根据日期范围筛选数据
   const filteredKLineData = useMemo(() => {
     if (klineData.length === 0) return [];
     
-    const lastDate = new Date(klineData[klineData.length - 1].date);
-    let startDate: Date;
-    
     switch (dateRangeType) {
-      case '1month':
-        startDate = new Date(lastDate);
-        startDate.setMonth(startDate.getMonth() - 1);
-        break;
-      case '3months':
-        startDate = new Date(lastDate);
-        startDate.setMonth(startDate.getMonth() - 3);
-        break;
-      case '6months':
-        startDate = new Date(lastDate);
-        startDate.setMonth(startDate.getMonth() - 6);
-        break;
-      case '1year':
-        startDate = new Date(lastDate);
-        startDate.setFullYear(startDate.getFullYear() - 1);
-        break;
+      case 'year':
+        if (selectedYear) {
+          return klineData.filter(d => d.date.startsWith(selectedYear));
+        }
+        return klineData;
+      case 'month':
+        if (selectedYear && selectedMonth) {
+          const yearMonth = `${selectedYear}-${selectedMonth}`;
+          return klineData.filter(d => d.date.startsWith(yearMonth));
+        }
+        return klineData;
       case 'custom':
         if (customStartDate && customEndDate) {
           return klineData.filter(d => d.date >= customStartDate && d.date <= customEndDate);
         }
         return klineData;
-      case 'all':
       default:
         return klineData;
     }
-    
-    return klineData.filter(d => new Date(d.date) >= startDate);
-  }, [klineData, dateRangeType, customStartDate, customEndDate]);
+  }, [klineData, dateRangeType, selectedYear, selectedMonth, customStartDate, customEndDate]);
 
-  // 买卖匹配逻辑 (FIFO)
+  // 买卖匹配逻辑 (FIFO)，修复负交易金额
   const tradePairs = useMemo(() => {
     const pairs: TradePair[] = [];
     const buyQueue: KLineData[] = [];
@@ -175,11 +202,14 @@ export default function VisualBuyPoints() {
           const buyDay = buyQueue.shift()!;
           const profit = parseFloat((day.close - buyDay.close).toFixed(2));
           const profitPercent = ((profit / buyDay.close) * 100).toFixed(2);
+          // 修复：交易金额应该是买入价格 * 100股（1手），而不是差价
+          const amount = parseFloat((buyDay.close * 100).toFixed(2));
           pairs.push({ 
             buy: buyDay, 
             sell: day,
             profit,
-            profitPercent
+            profitPercent,
+            amount
           });
         }
       }
@@ -198,6 +228,9 @@ export default function VisualBuyPoints() {
     setSelectedStock(code);
     setSearchTerm('');
     setShowSuggestions(false);
+    // 重置日期选择
+    setSelectedYear("");
+    setSelectedMonth("");
   };
 
   // 自定义Tooltip
@@ -282,21 +315,23 @@ export default function VisualBuyPoints() {
                 />
                 {/* 动态下拉建议 */}
                 {showSuggestions && searchTerm && filteredStocks.length > 0 && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-gray-800 border border-gray-700 rounded-md shadow-lg z-50 max-h-[400px] overflow-y-auto">
+                  <div className="absolute z-50 w-full mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-xl max-h-96 overflow-y-auto">
                     {filteredStocks.map((stock, index) => (
                       <div
                         key={stock.code}
-                        className={`px-4 py-3 cursor-pointer hover:bg-gray-700 transition-colors ${
-                          index === focusedIndex ? 'bg-gray-700' : ''
-                        }`}
                         onClick={() => handleStockSelect(stock.code)}
+                        className={`px-4 py-3 cursor-pointer transition-colors ${
+                          index === focusedIndex 
+                            ? 'bg-purple-600 text-white' 
+                            : 'hover:bg-gray-700 text-gray-300'
+                        } ${index !== filteredStocks.length - 1 ? 'border-b border-gray-700' : ''}`}
                       >
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="text-white font-medium">{stock.code}</div>
-                            <div className="text-gray-400 text-sm">{stock.name}</div>
+                            <span className="font-semibold">{stock.code}</span>
+                            <span className="ml-3 text-gray-400">{stock.name}</span>
                           </div>
-                          <div className="text-xs text-gray-500">{stock.marketName}</div>
+                          <span className="text-xs text-gray-500">{stock.marketName}</span>
                         </div>
                       </div>
                     ))}
@@ -309,11 +344,11 @@ export default function VisualBuyPoints() {
                 <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
                   <SelectValue placeholder="选择市场" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">全部市场</SelectItem>
-                  <SelectItem value="sh">沪市</SelectItem>
-                  <SelectItem value="sz">深市</SelectItem>
-                  <SelectItem value="bj">北交所</SelectItem>
+                <SelectContent className="bg-gray-800 border-gray-700">
+                  <SelectItem value="all" className="text-white hover:bg-gray-700">全部市场</SelectItem>
+                  <SelectItem value="sh" className="text-white hover:bg-gray-700">上海证券交易所</SelectItem>
+                  <SelectItem value="sz" className="text-white hover:bg-gray-700">深圳证券交易所</SelectItem>
+                  <SelectItem value="bj" className="text-white hover:bg-gray-700">北京证券交易所</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -365,125 +400,199 @@ export default function VisualBuyPoints() {
               <CardDescription>选择要查看的时间范围</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
-                <Button
-                  onClick={() => setDateRangeType('1month')}
-                  variant={dateRangeType === '1month' ? 'default' : 'outline'}
-                  className={dateRangeType === '1month' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  1个月
-                </Button>
-                <Button
-                  onClick={() => setDateRangeType('3months')}
-                  variant={dateRangeType === '3months' ? 'default' : 'outline'}
-                  className={dateRangeType === '3months' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  3个月
-                </Button>
-                <Button
-                  onClick={() => setDateRangeType('6months')}
-                  variant={dateRangeType === '6months' ? 'default' : 'outline'}
-                  className={dateRangeType === '6months' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  6个月
-                </Button>
-                <Button
-                  onClick={() => setDateRangeType('1year')}
-                  variant={dateRangeType === '1year' ? 'default' : 'outline'}
-                  className={dateRangeType === '1year' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  1年
-                </Button>
-                <Button
-                  onClick={() => setDateRangeType('all')}
-                  variant={dateRangeType === 'all' ? 'default' : 'outline'}
-                  className={dateRangeType === 'all' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  全部
-                </Button>
-                <Button
-                  onClick={() => setDateRangeType('custom')}
-                  variant={dateRangeType === 'custom' ? 'default' : 'outline'}
-                  className={dateRangeType === 'custom' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                >
-                  自定义
-                </Button>
-              </div>
-              
-              {/* 自定义日期选择 */}
-              {dateRangeType === 'custom' && (
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-4">
+                {/* 年月选择 */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                  {/* 年份下拉 */}
                   <div>
-                    <label className="text-gray-400 text-sm mb-2 block">开始日期</label>
-                    <Input
-                      type="date"
-                      value={customStartDate}
-                      onChange={(e) => setCustomStartDate(e.target.value)}
-                      className="bg-gray-800 border-gray-700 text-white"
-                    />
+                    <label className="text-gray-400 text-sm mb-2 block">年份</label>
+                    <Select 
+                      value={selectedYear} 
+                      onValueChange={(value) => {
+                        setSelectedYear(value);
+                        setSelectedMonth("");
+                        setDateRangeType('year');
+                      }}
+                    >
+                      <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
+                        <SelectValue placeholder="选择年份" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-gray-800 border-gray-700">
+                        {availableYears.map(year => (
+                          <SelectItem key={year} value={year} className="text-white hover:bg-gray-700">
+                            {year}年
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
+
+                  {/* 月份下拉 */}
                   <div>
-                    <label className="text-gray-400 text-sm mb-2 block">结束日期</label>
-                    <Input
-                      type="date"
-                      value={customEndDate}
-                      onChange={(e) => setCustomEndDate(e.target.value)}
-                      className="bg-gray-800 border-gray-700 text-white"
-                    />
+                    <label className="text-gray-400 text-sm mb-2 block">月份</label>
+                    <Select 
+                      value={selectedMonth} 
+                      onValueChange={(value) => {
+                        setSelectedMonth(value);
+                        setDateRangeType('month');
+                      }}
+                      disabled={!selectedYear}
+                    >
+                      <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
+                        <SelectValue placeholder="选择月份" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-gray-800 border-gray-700">
+                        {availableMonths.map(month => (
+                          <SelectItem key={month} value={month} className="text-white hover:bg-gray-700">
+                            {parseInt(month)}月
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* 自定义日期范围 */}
+                  <div className="md:col-span-2">
+                    <label className="text-gray-400 text-sm mb-2 block">自定义日期范围</label>
+                    <div className="flex gap-2">
+                      <Input
+                        type="date"
+                        value={customStartDate}
+                        onChange={(e) => {
+                          setCustomStartDate(e.target.value);
+                          if (e.target.value && customEndDate) {
+                            setDateRangeType('custom');
+                          }
+                        }}
+                        className="bg-gray-800 border-gray-700 text-white"
+                      />
+                      <span className="text-gray-400 flex items-center">至</span>
+                      <Input
+                        type="date"
+                        value={customEndDate}
+                        onChange={(e) => {
+                          setCustomEndDate(e.target.value);
+                          if (customStartDate && e.target.value) {
+                            setDateRangeType('custom');
+                          }
+                        }}
+                        className="bg-gray-800 border-gray-700 text-white"
+                      />
+                    </div>
                   </div>
                 </div>
-              )}
+
+                {/* 当前选择的日期范围提示 */}
+                <div className="text-sm text-gray-400">
+                  {dateRangeType === 'year' && selectedYear && (
+                    <span>📅 当前显示：{selectedYear}年全年数据</span>
+                  )}
+                  {dateRangeType === 'month' && selectedYear && selectedMonth && (
+                    <span>📅 当前显示：{selectedYear}年{parseInt(selectedMonth)}月数据</span>
+                  )}
+                  {dateRangeType === 'custom' && customStartDate && customEndDate && (
+                    <span>📅 当前显示：{customStartDate} 至 {customEndDate}</span>
+                  )}
+                </div>
+              </div>
             </CardContent>
           </Card>
         )}
 
-        {/* K线图区域 */}
+        {/* K线图表 */}
         {selectedStock && filteredKLineData.length > 0 && (
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
-              <CardTitle className="text-white">K线图与信号标注</CardTitle>
-              <CardDescription>
-                红色⚪：买入信号 | 绿色▲：卖出信号 | 虚线：交易路径与收益率
-              </CardDescription>
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white">K线价格图</CardTitle>
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant={signalFilter === 'all' ? 'default' : 'outline'}
+                    onClick={() => setSignalFilter('all')}
+                    className={signalFilter === 'all' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                  >
+                    全部信号
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={signalFilter === 'buy' ? 'default' : 'outline'}
+                    onClick={() => setSignalFilter('buy')}
+                    className={signalFilter === 'buy' ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                  >
+                    仅买入⚪
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={signalFilter === 'sell' ? 'default' : 'outline'}
+                    onClick={() => setSignalFilter('sell')}
+                    className={signalFilter === 'sell' ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                  >
+                    仅卖出▲
+                  </Button>
+                </div>
+              </div>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent>
               {/* K线价格图 */}
               <ResponsiveContainer width="100%" height={400}>
-                <ComposedChart 
-                  data={filteredKLineData} 
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                  syncId="stockChart"
-                >
+                <ComposedChart data={filteredKLineData} syncId="stockChart">
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis 
                     dataKey="date" 
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
+                    tickFormatter={(value) => value.substring(5)}
                   />
                   <YAxis 
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
                     domain={['auto', 'auto']}
-                    label={{ value: '价格', angle: -90, position: 'insideLeft', fill: '#9ca3af' }}
                   />
                   <Tooltip content={<CustomTooltip />} />
-                  <Legend />
+                  <Legend 
+                    wrapperStyle={{ color: '#9ca3af' }}
+                    iconType="line"
+                  />
                   
                   {/* 收盘价线 */}
                   <Line 
                     type="monotone" 
                     dataKey="close" 
-                    stroke="#8b5cf6" 
+                    stroke="#a855f7" 
                     strokeWidth={2}
                     dot={false}
                     name="收盘价"
                   />
-                  
-                  {/* 买卖连线 */}
-                  {tradePairs.map((pair, index) => (
+
+                  {/* 买入信号（红色圆圈） */}
+                  {(signalFilter === 'all' || signalFilter === 'buy') && (
+                    <Scatter
+                      dataKey="close"
+                      data={filteredKLineData.filter(d => d.signalType === 'buy')}
+                      fill="#ef4444"
+                      shape="circle"
+                      r={7}
+                      name="买入信号"
+                    />
+                  )}
+
+                  {/* 卖出信号（绿色三角） */}
+                  {(signalFilter === 'all' || signalFilter === 'sell') && (
+                    <Scatter
+                      dataKey="close"
+                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
+                      fill="#22c55e"
+                      shape="triangle"
+                      r={9}
+                      name="卖出信号"
+                    />
+                  )}
+
+                  {/* 交易对虚线 */}
+                  {signalFilter === 'all' && tradePairs.map((pair, index) => (
                     <ReferenceLine
-                      key={`trade-${index}`}
+                      key={`pair-${index}`}
                       segment={[
                         { x: pair.buy.date, y: pair.buy.close },
                         { x: pair.sell.date, y: pair.sell.close }
@@ -493,114 +602,124 @@ export default function VisualBuyPoints() {
                       strokeWidth={2}
                       label={{
                         value: `${pair.profitPercent}%`,
-                        position: 'top',
+                        position: 'center',
                         fill: parseFloat(pair.profitPercent) >= 0 ? '#ef4444' : '#22c55e',
                         fontSize: 12,
-                        fontWeight: 'bold',
-                        offset: 10
+                        fontWeight: 'bold'
                       }}
                     />
                   ))}
-                  
-                  {/* 买入信号标注（红色圆圈） */}
-                  {(signalFilter === "all" || signalFilter === "buy") && (
-                    <Scatter
-                      dataKey="close"
-                      data={filteredKLineData.filter(d => d.signalType === 'buy')}
-                      fill="#ef4444"
-                      shape="circle"
-                      name="买入信号"
-                      r={7}
-                    />
-                  )}
-                  
-                  {/* 卖出信号标注（绿色三角） */}
-                  {(signalFilter === "all" || signalFilter === "sell") && (
-                    <Scatter
-                      dataKey="close"
-                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
-                      fill="#22c55e"
-                      shape="triangle"
-                      name="卖出信号"
-                      r={9}
-                    />
-                  )}
                 </ComposedChart>
               </ResponsiveContainer>
 
               {/* 成交量图 */}
-              <ResponsiveContainer width="100%" height={150}>
-                <ComposedChart 
-                  data={filteredKLineData} 
-                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                  syncId="stockChart"
-                >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                  <XAxis 
-                    dataKey="date" 
-                    stroke="#9ca3af"
-                    tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
-                  />
-                  <YAxis 
-                    stroke="#9ca3af"
-                    tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
-                    label={{ value: '成交量', angle: -90, position: 'insideLeft', fill: '#9ca3af' }}
-                  />
-                  <Tooltip content={<CustomTooltip />} />
-                  
-                  {/* 成交量柱状图 */}
-                  <Bar 
-                    dataKey="volume" 
-                    fill="#4b5563" 
-                    opacity={0.6}
-                    name="成交量"
-                  />
-                </ComposedChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* 交易对统计 */}
-        {tradePairs.length > 0 && (
-          <Card className="bg-gray-900 border-gray-800">
-            <CardHeader>
-              <CardTitle className="text-white">交易对统计（当前显示范围）</CardTitle>
-              <CardDescription>买卖信号匹配结果（FIFO）</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2 max-h-[400px] overflow-y-auto">
-                {tradePairs.map((pair, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-750 transition-colors">
-                    <div className="flex-1">
-                      <p className="text-white font-semibold">
-                        交易 #{index + 1}
-                      </p>
-                      <p className="text-gray-400 text-sm">
-                        买入: {pair.buy.date} @ ¥{pair.buy.close} | 卖出: {pair.sell.date} @ ¥{pair.sell.close}
-                      </p>
-                    </div>
-                    <div className={`text-right font-bold ${parseFloat(pair.profitPercent) >= 0 ? 'text-red-400' : 'text-green-400'}`}>
-                      <p className="text-lg">{pair.profitPercent}%</p>
-                      <p className="text-sm">{pair.profit > 0 ? '+' : ''}¥{pair.profit}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-6">
+                <h3 className="text-white font-semibold mb-2">成交量</h3>
+                <ResponsiveContainer width="100%" height={150}>
+                  <ComposedChart data={filteredKLineData} syncId="stockChart">
+                    <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                    <XAxis 
+                      dataKey="date" 
+                      stroke="#9ca3af"
+                      tick={{ fill: '#9ca3af', fontSize: 12 }}
+                      tickFormatter={(value) => value.substring(5)}
+                    />
+                    <YAxis 
+                      stroke="#9ca3af"
+                      tick={{ fill: '#9ca3af', fontSize: 12 }}
+                      tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
+                    />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: '#1f2937', border: '1px solid #374151', borderRadius: '8px' }}
+                      labelStyle={{ color: '#fff' }}
+                      itemStyle={{ color: '#9ca3af' }}
+                      formatter={(value: any) => [`${(value / 10000).toFixed(0)}万`, '成交量']}
+                    />
+                    <Bar dataKey="volume" fill="#6b7280" />
+                  </ComposedChart>
+                </ResponsiveContainer>
               </div>
             </CardContent>
           </Card>
         )}
 
-        {/* 未选择股票提示 */}
+        {/* 交易对统计 */}
+        {selectedStock && tradePairs.length > 0 && (
+          <Card className="bg-gray-900 border-gray-800">
+            <CardHeader>
+              <CardTitle className="text-white">交易对统计</CardTitle>
+              <CardDescription>基于FIFO算法匹配的买卖交易对</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="text-left py-3 px-4 text-gray-400 font-medium">序号</th>
+                      <th className="text-left py-3 px-4 text-gray-400 font-medium">买入日期</th>
+                      <th className="text-right py-3 px-4 text-gray-400 font-medium">买入价格</th>
+                      <th className="text-left py-3 px-4 text-gray-400 font-medium">卖出日期</th>
+                      <th className="text-right py-3 px-4 text-gray-400 font-medium">卖出价格</th>
+                      <th className="text-right py-3 px-4 text-gray-400 font-medium">交易金额</th>
+                      <th className="text-right py-3 px-4 text-gray-400 font-medium">盈亏</th>
+                      <th className="text-right py-3 px-4 text-gray-400 font-medium">收益率</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tradePairs.map((pair, index) => {
+                      const isProfit = parseFloat(pair.profitPercent) >= 0;
+                      return (
+                        <tr key={index} className="border-b border-gray-800 hover:bg-gray-800 transition-colors">
+                          <td className="py-3 px-4 text-gray-300">{index + 1}</td>
+                          <td className="py-3 px-4 text-gray-300">{pair.buy.date}</td>
+                          <td className="py-3 px-4 text-right text-gray-300">¥{pair.buy.close.toFixed(2)}</td>
+                          <td className="py-3 px-4 text-gray-300">{pair.sell.date}</td>
+                          <td className="py-3 px-4 text-right text-gray-300">¥{pair.sell.close.toFixed(2)}</td>
+                          <td className="py-3 px-4 text-right text-gray-300">¥{pair.amount.toFixed(2)}</td>
+                          <td className={`py-3 px-4 text-right font-semibold ${isProfit ? 'text-red-400' : 'text-green-400'}`}>
+                            {isProfit ? '+' : ''}¥{pair.profit.toFixed(2)}
+                          </td>
+                          <td className={`py-3 px-4 text-right font-semibold ${isProfit ? 'text-red-400' : 'text-green-400'}`}>
+                            {isProfit ? '+' : ''}{pair.profitPercent}%
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                  <tfoot>
+                    <tr className="border-t-2 border-gray-700 bg-gray-800">
+                      <td colSpan={5} className="py-3 px-4 text-right text-gray-400 font-medium">总计：</td>
+                      <td className="py-3 px-4 text-right text-white font-bold">
+                        ¥{tradePairs.reduce((sum, pair) => sum + pair.amount, 0).toFixed(2)}
+                      </td>
+                      <td className={`py-3 px-4 text-right font-bold ${
+                        tradePairs.reduce((sum, pair) => sum + pair.profit, 0) >= 0 ? 'text-red-400' : 'text-green-400'
+                      }`}>
+                        {tradePairs.reduce((sum, pair) => sum + pair.profit, 0) >= 0 ? '+' : ''}
+                        ¥{tradePairs.reduce((sum, pair) => sum + pair.profit, 0).toFixed(2)}
+                      </td>
+                      <td className={`py-3 px-4 text-right font-bold ${
+                        tradePairs.reduce((sum, pair) => sum + parseFloat(pair.profitPercent), 0) >= 0 ? 'text-red-400' : 'text-green-400'
+                      }`}>
+                        {tradePairs.reduce((sum, pair) => sum + parseFloat(pair.profitPercent), 0) >= 0 ? '+' : ''}
+                        {(tradePairs.reduce((sum, pair) => sum + parseFloat(pair.profitPercent), 0) / tradePairs.length).toFixed(2)}%
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* 空状态提示 */}
         {!selectedStock && (
           <Card className="bg-gray-900 border-gray-800">
-            <CardContent className="py-20">
-              <div className="text-center text-gray-400">
+            <CardContent className="py-12">
+              <div className="text-center text-gray-500">
                 <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                <p className="text-lg">请在上方搜索框输入股票代码或名称</p>
-                <p className="text-sm mt-2">支持模糊搜索，选中后自动加载K线图</p>
+                <p className="text-lg">请先搜索并选择一只股票</p>
+                <p className="text-sm mt-2">在上方搜索框输入股票代码或名称</p>
               </div>
             </CardContent>
           </Card>
