@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, CustomShape } from 'recharts';
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, Customized } from 'recharts';
 import stockReportsData from "@/data/stock_reports.json";
 import { CandlestickShape } from "@/components/CandlestickShape";
 
@@ -347,21 +347,35 @@ export default function VisualBuyPoints() {
 
   // 自定义蜡烛图层
   const CandlestickLayer = (props: any) => {
-    const { xAxisMap, yAxisMap, dataPointsData } = props;
-    if (!xAxisMap || !yAxisMap || !dataPointsData) return null;
+    console.log('CandlestickLayer props:', Object.keys(props));
+    
+    const { xAxisMap, yAxisMap, chartWidth, chartHeight } = props;
+    
+    console.log('xAxisMap:', xAxisMap);
+    console.log('yAxisMap:', yAxisMap);
+    console.log('filteredKLineData length:', filteredKLineData.length);
+    
+    if (!xAxisMap || !yAxisMap) {
+      console.warn('CandlestickLayer: 缺少 xAxisMap 或 yAxisMap');
+      return null;
+    }
     
     const xScale = xAxisMap[0]?.scale;
     const yScale = yAxisMap[0]?.scale;
     
-    if (!xScale || !yScale) return null;
+    if (!xScale || !yScale) {
+      console.warn('CandlestickLayer: 缺少 xScale 或 yScale');
+      return null;
+    }
+    
+    console.log('xScale type:', typeof xScale);
+    console.log('yScale type:', typeof yScale);
     
     return (
       <g className="recharts-candlestick-layer">
         {renderCandlestick(filteredKLineData, xScale, yScale)}
       </g>
     );
-  };
-    return null;
   };
 
   return (
@@ -677,7 +691,7 @@ export default function VisualBuyPoints() {
                   />
                   
                   {/* 自定义蜡烛图层 */}
-                  <CandlestickLayer />
+                  <Customized component={CandlestickLayer} />
 
                   {/* 买入信号（红色圆圈） */}
                   {(signalFilter === 'all' || signalFilter === 'buy') && (
