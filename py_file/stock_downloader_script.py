@@ -210,6 +210,7 @@ def download_single_stock(stock_info, update_mode=False):
     # 尝试多个数据源
     df = None
     source = None
+    name = stock_info.get('name', '')
     
     for attempt in range(MAX_RETRIES):
         # 优先使用 efinance
@@ -229,6 +230,12 @@ def download_single_stock(stock_info, update_mode=False):
     if df is None or df.empty:
         return False, code, "下载失败"
     
+    # 插入名称列
+    if '名称' not in df.columns:
+        df.insert(0, '名称', name)
+    else:
+        df['名称'] = name
+        
     # 保存数据
     df.to_csv(file_path, index=False, encoding='utf-8-sig')
     return True, code, f"成功（{source}）"

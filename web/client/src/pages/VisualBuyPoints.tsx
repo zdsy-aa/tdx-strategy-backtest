@@ -26,6 +26,13 @@ interface KLineData {
   signalType?: 'buy' | 'sell';
 }
 
+interface TradePair {
+  buy: KLineData;
+  sell: KLineData;
+  profit: number;
+  profitPercent: string;
+}
+
 export default function VisualBuyPoints() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStock, setSelectedStock] = useState<string>("");
@@ -49,15 +56,15 @@ export default function VisualBuyPoints() {
         const matchMarket = marketFilter === "all" || stock.market === marketFilter;
         return matchSearch && matchMarket;
       })
-      .slice(0, 100); // 限制显示前100个
+      .slice(0, 100);
   }, [stockReports, searchTerm, marketFilter]);
 
-  // 模拟K线数据（实际应该从后端API获取）
+  // 模拟K线数据
   const generateMockKLineData = (stockCode: string): KLineData[] => {
     const data: KLineData[] = [];
     let basePrice = 10 + Math.random() * 20;
     const startDate = new Date('2025-10-01');
-    let lastSignalIndex = -10; // 记录上一个信号的位置
+    let lastSignalIndex = -10;
     let lastSignalType: 'buy' | 'sell' | undefined;
     
     for (let i = 0; i < 60; i++) {
@@ -71,18 +78,14 @@ export default function VisualBuyPoints() {
       const low = Math.min(open, close) - Math.random() * 1;
       const volume = Math.floor(Math.random() * 1000000) + 100000;
       
-      // 生成买卖信号：确保不在同一天，且买卖交替出现
       let signal: string | undefined;
       let signalType: 'buy' | 'sell' | undefined;
       
-      // 至少间隔3天才能生成新信号
       if (i - lastSignalIndex >= 3 && Math.random() > 0.85) {
-        // 如果上一个是买入，这次就生成卖出；否则生成买入
         if (lastSignalType === 'buy') {
           signal = "卖点１";
           signalType = "sell";
         } else {
-          // 随机选择一种买入信号
           const buySignals = ["六脉６红", "买点２", "缠论一买"];
           signal = buySignals[Math.floor(Math.random() * buySignals.length)];
           signalType = "buy";
@@ -114,11 +117,36 @@ export default function VisualBuyPoints() {
     return generateMockKLineData(selectedStock);
   }, [selectedStock]);
 
+  // 买卖匹配逻辑 (FIFO)
+  const tradePairs = useMemo(() => {
+    const pairs: TradePair[] = [];
+    const buyQueue: KLineData[] = [];
+    
+    klineData.forEach(day => {
+      if (day.signalType === 'buy') {
+        buyQueue.push(day);
+      } else if (day.signalType === 'sell') {
+        if (buyQueue.length > 0) {
+          const buyDay = buyQueue.shift()!;
+          const profit = parseFloat((sellPrice - buyDay.close).toFixed(2));
+          const profitPercent = ((profit / buyDay.close) * 100).toFixed(2);
+          pairs.push({ 
+            buy: buyDay, 
+            sell: day,
+            profit,
+            profitPercent
+          });
+        }
+      }
+    });
+    
+    return pairs;
+  }, [klineData]);
+
   // 根据时间范围筛选K线数据
   const filteredKLineData = useMemo(() => {
     let data = klineData;
     
-    // 时间范围筛选：使用日期计算而非简单截取
     if (timeRange !== "all" && data.length > 0) {
       const days = {
         "1m": 30,
@@ -128,13 +156,10 @@ export default function VisualBuyPoints() {
       }[timeRange];
       
       if (days) {
-        // 获取最后一天的日期
         const lastDate = new Date(data[data.length - 1].date);
-        // 计算截止日期
         const cutoffDate = new Date(lastDate);
         cutoffDate.setDate(cutoffDate.getDate() - days);
         
-        // 筛选出截止日期之后的数据
         data = data.filter(d => new Date(d.date) >= cutoffDate);
       }
     }
@@ -142,75 +167,33 @@ export default function VisualBuyPoints() {
     return data;
   }, [klineData, timeRange]);
 
+  // 筛选在当前时间范围内的交易对
+  const filteredTradePairs = useMemo(() => {
+    if (filteredKLineData.length === 0) return [];
+    const firstDate = new Date(filteredKLineData[0].date);
+    return tradePairs.filter(pair => new Date(pair.sell.date) >= firstDate);
+  }, [tradePairs, filteredKLineData]);
+
   // 获取选中股票的信息
   const selectedStockInfo = useMemo(() => {
     return stockReports.find(stock => stock.code === selectedStock);
   }, [stockReports, selectedStock]);
 
-  // 自定义K线形状
-  const CustomCandlestick = (props: any) => {
-    const { x, y, width, height, payload } = props;
-    const { open, close, high, low } = payload;
-    
-    const isUp = close > open;
-    const color = isUp ? "#ef4444" : "#22c55e"; // 涨红跌绿
-    
-    const bodyHeight = Math.abs(close - open);
-    const bodyY = Math.min(close, open);
-    
-    return (
-      <g>
-        {/* 上影线 */}
-        <line
-          x1={x + width / 2}
-          y1={y + (high - Math.max(open, close))}
-          x2={x + width / 2}
-          y2={y + (high - high)}
-          stroke={color}
-          strokeWidth={1}
-        />
-        {/* 下影线 */}
-        <line
-          x1={x + width / 2}
-          y1={y + (high - Math.min(open, close))}
-          x2={x + width / 2}
-          y2={y + (high - low)}
-          stroke={color}
-          strokeWidth={1}
-        />
-        {/* K线实体 */}
-        <rect
-          x={x}
-          y={y + (high - bodyY)}
-          width={width}
-          height={bodyHeight || 1}
-          fill={color}
-          stroke={color}
-        />
-      </g>
-    );
-  };
-
   // 自定义Tooltip
-  const CustomTooltip = ({ active, payload }: any) => {
+  const CustomTooltip = (props: any) => {
+    const { active, payload } = props;
     if (active && payload && payload.length) {
       const data = payload[0].payload;
-      const isUp = data.close > data.open;
-      const change = ((data.close - data.open) / data.open * 100).toFixed(2);
-      
       return (
-        <div className="bg-gray-900 border border-gray-700 p-3 rounded-lg shadow-lg">
-          <p className="text-white font-semibold mb-2">{data.date}</p>
-          <div className="space-y-1 text-sm">
-            <p className="text-gray-300">开盘: <span className="text-white">{data.open}</span></p>
-            <p className="text-gray-300">收盘: <span className={isUp ? "text-red-400" : "text-green-400"}>{data.close}</span></p>
-            <p className="text-gray-300">最高: <span className="text-white">{data.high}</span></p>
-            <p className="text-gray-300">最低: <span className="text-white">{data.low}</span></p>
-            <p className="text-gray-300">涨跌幅: <span className={isUp ? "text-red-400" : "text-green-400"}>{change}%</span></p>
-            <p className="text-gray-300">成交量: <span className="text-white">{(data.volume / 10000).toFixed(2)}万</span></p>
+        <div className="bg-gray-800 border border-gray-700 rounded-lg p-3">
+          <p className="text-white font-semibold">{data.date}</p>
+          <div className="text-sm space-y-1">
+            <p className="text-gray-300">开: {data.open}</p>
+            <p className="text-gray-300">收: {data.close}</p>
+            <p className="text-gray-300">高: {data.high}</p>
+            <p className="text-gray-300">低: {data.low}</p>
             {data.signal && (
-              <p className="text-yellow-400 font-semibold mt-2">
-                {data.signalType === 'buy' ? '🔵 ' : '🔴 '}
+              <p className="text-yellow-400 font-semibold">
                 {data.signal}
               </p>
             )}
@@ -372,6 +355,12 @@ export default function VisualBuyPoints() {
                         {klineData.filter(d => d.signalType === 'sell').length}
                       </p>
                     </div>
+                    <div className="text-center">
+                      <p className="text-gray-400 text-sm">交易对</p>
+                      <p className="text-2xl font-bold text-green-400">
+                        {filteredTradePairs.length}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,7 +373,7 @@ export default function VisualBuyPoints() {
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
               <CardTitle className="text-white">K线图与信号标注</CardTitle>
-              <CardDescription>红色为涨，绿色为跌 | 蓝色上三角：买入信号 | 红色下三角：卖出信号</CardDescription>
+              <CardDescription>红色为涨，绿色为跌 | 蓝色上三角：买入 | 红色下三角：卖出 | 虚线：买卖连线</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={500}>
@@ -394,7 +383,7 @@ export default function VisualBuyPoints() {
                     dataKey="date" 
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af' }}
-                    tickFormatter={(value) => value.slice(5)} // 只显示月-日
+                    tickFormatter={(value) => value.slice(5)}
                   />
                   <YAxis 
                     yAxisId="price"
@@ -432,7 +421,29 @@ export default function VisualBuyPoints() {
                     name="收盘价"
                   />
                   
-                  {/* 买入信号标注（蓝色上三角） */}
+                  {/* 买卖连线 */}
+                  {filteredTradePairs.map((pair, index) => (
+                    <ReferenceLine
+                      key={`trade-${index}`}
+                      x1={pair.buy.date}
+                      x2={pair.sell.date}
+                      y1={pair.buy.close}
+                      y2={pair.sell.close}
+                      yAxisId="price"
+                      stroke={parseFloat(pair.profitPercent) >= 0 ? '#3b82f6' : '#ef4444'}
+                      strokeDasharray="5 5"
+                      strokeWidth={1.5}
+                      label={{
+                        value: `${pair.profitPercent}%`,
+                        position: 'top',
+                        fill: parseFloat(pair.profitPercent) >= 0 ? '#3b82f6' : '#ef4444',
+                        fontSize: 11,
+                        offset: 5
+                      }}
+                    />
+                  ))}
+                  
+                  {/* 买入信号标注 */}
                   {(signalFilter === "all" || signalFilter === "buy") && (
                     <Scatter
                       yAxisId="price"
@@ -445,14 +456,14 @@ export default function VisualBuyPoints() {
                     />
                   )}
                   
-                  {/* 卖出信号标注（红色下三角） */}
+                  {/* 卖出信号标注 */}
                   {(signalFilter === "all" || signalFilter === "sell") && (
                     <Scatter
                       yAxisId="price"
                       dataKey="close"
                       data={filteredKLineData.filter(d => d.signalType === 'sell').map(d => ({
                         ...d,
-                        close: d.close * 1.02  // 卖出信号显示在价格上方
+                        close: d.close * 1.02
                       }))}
                       fill="#ef4444"
                       shape={(props: any) => {
@@ -476,56 +487,47 @@ export default function VisualBuyPoints() {
           </Card>
         )}
 
+        {/* 交易对统计 */}
+        {filteredTradePairs.length > 0 && (
+          <Card className="bg-gray-900 border-gray-800">
+            <CardHeader>
+              <CardTitle className="text-white">交易对统计</CardTitle>
+              <CardDescription>买卖信号匹配结果（FIFO）</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2 max-h-[400px] overflow-y-auto">
+                {filteredTradePairs.map((pair, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                    <div className="flex-1">
+                      <p className="text-white font-semibold">
+                        交易 #{index + 1}
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        买入: {pair.buy.date} @ {pair.buy.close} | 卖出: {pair.sell.date} @ {pair.sell.close}
+                      </p>
+                    </div>
+                    <div className={`text-right font-bold ${parseFloat(pair.profitPercent) >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      <p>{pair.profitPercent}%</p>
+                      <p className="text-sm">{pair.profit > 0 ? '+' : ''}{pair.profit}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* 未选择股票提示 */}
         {!selectedStock && (
           <Card className="bg-gray-900 border-gray-800">
             <CardContent className="py-20">
               <div className="text-center text-gray-400">
                 <TrendingUp className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                <p className="text-xl">请选择股票查看K线图</p>
+                <p>请选择股票查看K线图</p>
               </div>
             </CardContent>
           </Card>
         )}
-
-        {/* 信号说明 */}
-        <Card className="bg-gray-900 border-gray-800">
-          <CardHeader>
-            <CardTitle className="text-white">信号说明</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <h4 className="text-blue-400 font-semibold flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  买入信号
-                </h4>
-                <ul className="text-gray-300 space-y-1 text-sm">
-                  <li>• <span className="text-yellow-400">六脉6红</span>: 六个指标同时看多，强烈买入信号</li>
-                  <li>• <span className="text-yellow-400">六脉5红</span>: 五个指标看多，较强买入信号</li>
-                  <li>• <span className="text-yellow-400">买点1</span>: 吸筹指标上穿14，庄家建仓信号</li>
-                  <li>• <span className="text-yellow-400">买点2</span>: 庄家线上穿散户线，主力拉升信号</li>
-                  <li>• <span className="text-yellow-400">缠论一买</span>: 底分型+下跌趋势，抄底信号</li>
-                  <li>• <span className="text-yellow-400">缠论二买</span>: 回踩不破前低，确认上涨信号</li>
-                  <li>• <span className="text-yellow-400">缠论三买</span>: 回踩不破中枢，追涨信号</li>
-                </ul>
-              </div>
-              <div className="space-y-2">
-                <h4 className="text-red-400 font-semibold flex items-center gap-2">
-                  <TrendingDown className="w-4 h-4" />
-                  卖出信号
-                </h4>
-                <ul className="text-gray-300 space-y-1 text-sm">
-                  <li>• <span className="text-green-400">卖点1</span>: 庄家线高位回落，主力出货信号</li>
-                  <li>• <span className="text-green-400">卖点2</span>: 散户线上穿庄家线，散户接盘信号</li>
-                  <li>• <span className="text-green-400">缠论一卖</span>: 顶分型+上涨趋势，逃顶信号</li>
-                  <li>• <span className="text-green-400">缠论二卖</span>: 反弹不过前高，确认下跌信号</li>
-                  <li>• <span className="text-green-400">缠论三卖</span>: 反弹不过中枢，杀跌信号</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </Layout>
   );
