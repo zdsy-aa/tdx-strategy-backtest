@@ -370,7 +370,7 @@ export default function VisualBuyPoints() {
                     dataKey="date" 
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
-                    tickFormatter={(value) => value.slice(5)}
+                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
                     height={60}
                   />
                   <YAxis 
@@ -429,7 +429,7 @@ export default function VisualBuyPoints() {
                       label={{
                         value: `${pair.profitPercent}%`,
                         position: 'top',
-                        fill: parseFloat(pair.profitPercent) >= 0 ? '#3b82f6' : '#ef4444',
+                        fill: parseFloat(pair.profitPercent) >= 0 ? '#ef4444' : '#22c55e',
                         fontSize: 11,
                         offset: 5
                       }}
@@ -442,7 +442,7 @@ export default function VisualBuyPoints() {
                       yAxisId="price"
                       dataKey="close"
                       data={displayedKLineData.filter(d => d.signalType === 'buy')}
-                      fill="#3b82f6"
+                      fill="#ef4444"
                       shape="triangle"
                       name="买入信号"
                       r={8}
@@ -458,13 +458,13 @@ export default function VisualBuyPoints() {
                         ...d,
                         close: d.close * 1.02
                       }))}
-                      fill="#ef4444"
+                      fill="#22c55e"
                       shape={(props: any) => {
                         const { cx, cy } = props;
                         return (
                           <polygon
                             points={`${cx},${cy + 8} ${cx - 8},${cy - 8} ${cx + 8},${cy - 8}`}
-                            fill="#ef4444"
+                            fill="#22c55e"
                             stroke="#fff"
                             strokeWidth={1}
                           />
@@ -481,7 +481,7 @@ export default function VisualBuyPoints() {
                     height={40}
                     stroke="#8b5cf6"
                     fill="#1f2937"
-                    tickFormatter={(value) => value.slice(5)}
+                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
                     onChange={(range: any) => {
                       if (range && range.startIndex !== undefined && range.endIndex !== undefined) {
                         setBrushStartIndex(range.startIndex);
