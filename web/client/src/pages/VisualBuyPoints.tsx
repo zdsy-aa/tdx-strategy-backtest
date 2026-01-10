@@ -150,22 +150,16 @@ export default function VisualBuyPoints() {
     return months;
   }, [klineData, selectedYear]);
 
-  // 初始化年月选择（选择最新的年月）
-  useMemo(() => {
-    if (availableYears.length > 0 && !selectedYear) {
-      setSelectedYear(availableYears[0]);
-    }
-  }, [availableYears, selectedYear]);
+  // 不自动初始化年月选择，保持默认为空
 
-  useMemo(() => {
-    if (availableMonths.length > 0 && !selectedMonth && selectedYear) {
-      setSelectedMonth(availableMonths[0]);
-    }
-  }, [availableMonths, selectedMonth, selectedYear]);
-
-  // 根据日期范围筛选数据
+  // 根据日期范围筛选数据（默认不筛选，显示全部数据）
   const filteredKLineData = useMemo(() => {
     if (klineData.length === 0) return [];
+    
+    // 如果没有选择任何日期筛选条件，返回全部数据
+    if (!selectedYear && !customStartDate && !customEndDate) {
+      return klineData;
+    }
     
     switch (dateRangeType) {
       case 'year':
