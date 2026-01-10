@@ -3,9 +3,9 @@ import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, Maximize2 } from "lucide-react";
+import { Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, Brush } from 'recharts';
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter } from 'recharts';
 import stockReportsData from "@/data/stock_reports.json";
 
 interface StockReport {
@@ -33,6 +33,8 @@ interface TradePair {
   profitPercent: string;
 }
 
+type DateRangeType = 'all' | '1year' | '6months' | '3months' | '1month' | 'custom';
+
 export default function VisualBuyPoints() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStock, setSelectedStock] = useState<string>("");
@@ -40,7 +42,9 @@ export default function VisualBuyPoints() {
   const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
-  const [brushIndexes, setBrushIndexes] = useState<{ startIndex?: number; endIndex?: number }>({});
+  const [dateRangeType, setDateRangeType] = useState<DateRangeType>('6months');
+  const [customStartDate, setCustomStartDate] = useState("");
+  const [customEndDate, setCustomEndDate] = useState("");
 
   // 获取股票列表
   const stockReports: StockReport[] = useMemo(() => {
@@ -66,11 +70,11 @@ export default function VisualBuyPoints() {
   const generateMockKLineData = (stockCode: string): KLineData[] => {
     const data: KLineData[] = [];
     let basePrice = 10 + Math.random() * 20;
-    const startDate = new Date('2025-07-01');
+    const startDate = new Date('2024-01-01');
     let lastSignalIndex = -10;
     let lastSignalType: 'buy' | 'sell' | undefined;
     
-    for (let i = 0; i < 180; i++) {
+    for (let i = 0; i < 365; i++) {
       const date = new Date(startDate);
       date.setDate(date.getDate() + i);
       
@@ -84,6 +88,7 @@ export default function VisualBuyPoints() {
       let signal: string | undefined;
       let signalType: 'buy' | 'sell' | undefined;
       
+      // 确保买卖信号交替出现，且有足够间隔
       if (i - lastSignalIndex >= 5 && Math.random() > 0.88) {
         if (lastSignalType === 'buy') {
           signal = "卖点１";
@@ -120,12 +125,49 @@ export default function VisualBuyPoints() {
     return generateMockKLineData(selectedStock);
   }, [selectedStock]);
 
+  // 根据日期范围筛选数据
+  const filteredKLineData = useMemo(() => {
+    if (klineData.length === 0) return [];
+    
+    const lastDate = new Date(klineData[klineData.length - 1].date);
+    let startDate: Date;
+    
+    switch (dateRangeType) {
+      case '1month':
+        startDate = new Date(lastDate);
+        startDate.setMonth(startDate.getMonth() - 1);
+        break;
+      case '3months':
+        startDate = new Date(lastDate);
+        startDate.setMonth(startDate.getMonth() - 3);
+        break;
+      case '6months':
+        startDate = new Date(lastDate);
+        startDate.setMonth(startDate.getMonth() - 6);
+        break;
+      case '1year':
+        startDate = new Date(lastDate);
+        startDate.setFullYear(startDate.getFullYear() - 1);
+        break;
+      case 'custom':
+        if (customStartDate && customEndDate) {
+          return klineData.filter(d => d.date >= customStartDate && d.date <= customEndDate);
+        }
+        return klineData;
+      case 'all':
+      default:
+        return klineData;
+    }
+    
+    return klineData.filter(d => new Date(d.date) >= startDate);
+  }, [klineData, dateRangeType, customStartDate, customEndDate]);
+
   // 买卖匹配逻辑 (FIFO)
   const tradePairs = useMemo(() => {
     const pairs: TradePair[] = [];
     const buyQueue: KLineData[] = [];
     
-    klineData.forEach(day => {
+    filteredKLineData.forEach(day => {
       if (day.signalType === 'buy') {
         buyQueue.push(day);
       } else if (day.signalType === 'sell') {
@@ -144,26 +186,7 @@ export default function VisualBuyPoints() {
     });
     
     return pairs;
-  }, [klineData]);
-
-  // 根据 Brush 筛选数据
-  const displayedKLineData = useMemo(() => {
-    const { startIndex, endIndex } = brushIndexes;
-    if (startIndex !== undefined && endIndex !== undefined && startIndex >= 0 && endIndex < klineData.length) {
-      return klineData.slice(startIndex, endIndex + 1);
-    }
-    return klineData;
-  }, [klineData, brushIndexes]);
-
-  // 筛选在当前显示范围内的交易对
-  const displayedTradePairs = useMemo(() => {
-    if (displayedKLineData.length === 0) return [];
-    const firstDate = displayedKLineData[0].date;
-    const lastDate = displayedKLineData[displayedKLineData.length - 1].date;
-    return tradePairs.filter(pair => 
-      pair.buy.date >= firstDate && pair.sell.date <= lastDate
-    );
-  }, [tradePairs, displayedKLineData]);
+  }, [filteredKLineData]);
 
   // 获取选中股票的信息
   const selectedStockInfo = useMemo(() => {
@@ -175,12 +198,6 @@ export default function VisualBuyPoints() {
     setSelectedStock(code);
     setSearchTerm('');
     setShowSuggestions(false);
-    setBrushIndexes({});
-  };
-
-  // 重置缩放
-  const handleResetZoom = () => {
-    setBrushIndexes({});
   };
 
   // 自定义Tooltip
@@ -218,7 +235,7 @@ export default function VisualBuyPoints() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">可视化买点</h1>
-            <p className="text-gray-400">K线图展示与信号标注 | 支持缩放与拖拽</p>
+            <p className="text-gray-400">K线图展示与信号标注 | 红色⚪买入 | 绿色▲卖出</p>
           </div>
         </div>
 
@@ -315,13 +332,13 @@ export default function VisualBuyPoints() {
                     <div className="text-center">
                       <p className="text-gray-400 text-sm">买入信号</p>
                       <p className="text-2xl font-bold text-red-400">
-                        {klineData.filter(d => d.signalType === 'buy').length}
+                        {filteredKLineData.filter(d => d.signalType === 'buy').length}
                       </p>
                     </div>
                     <div className="text-center">
                       <p className="text-gray-400 text-sm">卖出信号</p>
                       <p className="text-2xl font-bold text-green-400">
-                        {klineData.filter(d => d.signalType === 'sell').length}
+                        {filteredKLineData.filter(d => d.signalType === 'sell').length}
                       </p>
                     </div>
                     <div className="text-center">
@@ -337,33 +354,103 @@ export default function VisualBuyPoints() {
           </CardContent>
         </Card>
 
-        {/* K线图区域 */}
-        {selectedStock && klineData.length > 0 && (
+        {/* 日期范围筛选 */}
+        {selectedStock && (
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle className="text-white">K线图与信号标注</CardTitle>
-                  <CardDescription>
-                    拖动底部滑块缩放时间范围 | 红色⚪：买入 | 绿色▲：卖出 | 虚线：交易路径
-                  </CardDescription>
-                </div>
-                <Button 
-                  onClick={handleResetZoom}
-                  variant="outline"
-                  size="sm"
-                  className="bg-gray-800 border-gray-700 text-white hover:bg-gray-700"
+              <CardTitle className="text-white flex items-center gap-2">
+                <Calendar className="w-5 h-5" />
+                日期范围筛选
+              </CardTitle>
+              <CardDescription>选择要查看的时间范围</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                <Button
+                  onClick={() => setDateRangeType('1month')}
+                  variant={dateRangeType === '1month' ? 'default' : 'outline'}
+                  className={dateRangeType === '1month' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
                 >
-                  <Maximize2 className="w-4 h-4 mr-2" />
-                  重置缩放
+                  1个月
+                </Button>
+                <Button
+                  onClick={() => setDateRangeType('3months')}
+                  variant={dateRangeType === '3months' ? 'default' : 'outline'}
+                  className={dateRangeType === '3months' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                >
+                  3个月
+                </Button>
+                <Button
+                  onClick={() => setDateRangeType('6months')}
+                  variant={dateRangeType === '6months' ? 'default' : 'outline'}
+                  className={dateRangeType === '6months' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                >
+                  6个月
+                </Button>
+                <Button
+                  onClick={() => setDateRangeType('1year')}
+                  variant={dateRangeType === '1year' ? 'default' : 'outline'}
+                  className={dateRangeType === '1year' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                >
+                  1年
+                </Button>
+                <Button
+                  onClick={() => setDateRangeType('all')}
+                  variant={dateRangeType === 'all' ? 'default' : 'outline'}
+                  className={dateRangeType === 'all' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                >
+                  全部
+                </Button>
+                <Button
+                  onClick={() => setDateRangeType('custom')}
+                  variant={dateRangeType === 'custom' ? 'default' : 'outline'}
+                  className={dateRangeType === 'custom' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
+                >
+                  自定义
                 </Button>
               </div>
+              
+              {/* 自定义日期选择 */}
+              {dateRangeType === 'custom' && (
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-gray-400 text-sm mb-2 block">开始日期</label>
+                    <Input
+                      type="date"
+                      value={customStartDate}
+                      onChange={(e) => setCustomStartDate(e.target.value)}
+                      className="bg-gray-800 border-gray-700 text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-gray-400 text-sm mb-2 block">结束日期</label>
+                    <Input
+                      type="date"
+                      value={customEndDate}
+                      onChange={(e) => setCustomEndDate(e.target.value)}
+                      className="bg-gray-800 border-gray-700 text-white"
+                    />
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )}
+
+        {/* K线图区域 */}
+        {selectedStock && filteredKLineData.length > 0 && (
+          <Card className="bg-gray-900 border-gray-800">
+            <CardHeader>
+              <CardTitle className="text-white">K线图与信号标注</CardTitle>
+              <CardDescription>
+                红色⚪：买入信号 | 绿色▲：卖出信号 | 虚线：交易路径与收益率
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {/* K线价格图 */}
               <ResponsiveContainer width="100%" height={400}>
                 <ComposedChart 
-                  data={displayedKLineData} 
+                  data={filteredKLineData} 
                   margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                   syncId="stockChart"
                 >
@@ -394,7 +481,7 @@ export default function VisualBuyPoints() {
                   />
                   
                   {/* 买卖连线 */}
-                  {displayedTradePairs.map((pair, index) => (
+                  {tradePairs.map((pair, index) => (
                     <ReferenceLine
                       key={`trade-${index}`}
                       segment={[
@@ -403,13 +490,14 @@ export default function VisualBuyPoints() {
                       ]}
                       stroke={parseFloat(pair.profitPercent) >= 0 ? '#ef4444' : '#22c55e'}
                       strokeDasharray="5 5"
-                      strokeWidth={1.5}
+                      strokeWidth={2}
                       label={{
                         value: `${pair.profitPercent}%`,
                         position: 'top',
                         fill: parseFloat(pair.profitPercent) >= 0 ? '#ef4444' : '#22c55e',
-                        fontSize: 11,
-                        offset: 5
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                        offset: 10
                       }}
                     />
                   ))}
@@ -418,11 +506,11 @@ export default function VisualBuyPoints() {
                   {(signalFilter === "all" || signalFilter === "buy") && (
                     <Scatter
                       dataKey="close"
-                      data={displayedKLineData.filter(d => d.signalType === 'buy')}
+                      data={filteredKLineData.filter(d => d.signalType === 'buy')}
                       fill="#ef4444"
                       shape="circle"
                       name="买入信号"
-                      r={6}
+                      r={7}
                     />
                   )}
                   
@@ -430,11 +518,11 @@ export default function VisualBuyPoints() {
                   {(signalFilter === "all" || signalFilter === "sell") && (
                     <Scatter
                       dataKey="close"
-                      data={displayedKLineData.filter(d => d.signalType === 'sell')}
+                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
                       fill="#22c55e"
                       shape="triangle"
                       name="卖出信号"
-                      r={8}
+                      r={9}
                     />
                   )}
                 </ComposedChart>
@@ -443,8 +531,8 @@ export default function VisualBuyPoints() {
               {/* 成交量图 */}
               <ResponsiveContainer width="100%" height={150}>
                 <ComposedChart 
-                  data={displayedKLineData} 
-                  margin={{ top: 5, right: 30, left: 20, bottom: 80 }}
+                  data={filteredKLineData} 
+                  margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                   syncId="stockChart"
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -453,7 +541,6 @@ export default function VisualBuyPoints() {
                     stroke="#9ca3af"
                     tick={{ fill: '#9ca3af', fontSize: 12 }}
                     tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
-                    height={60}
                   />
                   <YAxis 
                     stroke="#9ca3af"
@@ -470,25 +557,6 @@ export default function VisualBuyPoints() {
                     opacity={0.6}
                     name="成交量"
                   />
-                  
-                  {/* Brush 组件用于缩放 */}
-                  <Brush
-                    dataKey="date"
-                    height={40}
-                    stroke="#8b5cf6"
-                    fill="#1f2937"
-                    tickFormatter={(value) => typeof value === 'string' ? value.slice(5) : String(value)}
-                    onChange={(range: any) => {
-                      if (range && range.startIndex !== undefined && range.endIndex !== undefined) {
-                        setBrushIndexes({
-                          startIndex: range.startIndex,
-                          endIndex: range.endIndex
-                        });
-                      }
-                    }}
-                    startIndex={brushIndexes.startIndex}
-                    endIndex={brushIndexes.endIndex}
-                  />
                 </ComposedChart>
               </ResponsiveContainer>
             </CardContent>
@@ -496,7 +564,7 @@ export default function VisualBuyPoints() {
         )}
 
         {/* 交易对统计 */}
-        {displayedTradePairs.length > 0 && (
+        {tradePairs.length > 0 && (
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
               <CardTitle className="text-white">交易对统计（当前显示范围）</CardTitle>
@@ -504,7 +572,7 @@ export default function VisualBuyPoints() {
             </CardHeader>
             <CardContent>
               <div className="space-y-2 max-h-[400px] overflow-y-auto">
-                {displayedTradePairs.map((pair, index) => (
+                {tradePairs.map((pair, index) => (
                   <div key={index} className="flex items-center justify-between p-3 bg-gray-800 rounded-lg hover:bg-gray-750 transition-colors">
                     <div className="flex-1">
                       <p className="text-white font-semibold">
