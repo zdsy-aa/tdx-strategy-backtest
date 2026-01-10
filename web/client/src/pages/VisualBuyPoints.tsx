@@ -188,6 +188,15 @@ export default function VisualBuyPoints() {
     }
   }, [klineData, dateRangeType, selectedYear, selectedMonth, customStartDate, customEndDate]);
 
+  // 为图表数据添加信号价格字段
+  const chartData = useMemo(() => {
+    return filteredKLineData.map(d => ({
+      ...d,
+      buySignalPrice: d.signalType === 'buy' ? d.close : null,
+      sellSignalPrice: d.signalType === 'sell' ? d.close : null,
+    }));
+  }, [filteredKLineData]);
+
   // 买卖匹配逻辑 (FIFO)，使用全部数据计算交易对
   const allTradePairs = useMemo(() => {
     const pairs: TradePair[] = [];
@@ -533,7 +542,7 @@ export default function VisualBuyPoints() {
             <CardContent>
               {/* K线价格图 */}
               <ResponsiveContainer width="100%" height={400}>
-                <ComposedChart data={filteredKLineData} syncId="stockChart">
+                <ComposedChart data={chartData} syncId="stockChart">
                   <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                   <XAxis 
                     dataKey="date" 
@@ -564,23 +573,27 @@ export default function VisualBuyPoints() {
                   />
 
                   {/* 买入信号（红色圆圈） */}
-                  <Scatter
-                    dataKey="close"
-                    data={filteredKLineData.filter(d => d.signalType === 'buy')}
-                    fill="#ef4444"
-                    shape="circle"
-                    r={7}
+                  <Line
+                    type="monotone"
+                    dataKey="buySignalPrice"
+                    stroke="transparent"
+                    strokeWidth={0}
+                    dot={{ fill: '#ef4444', r: 8, strokeWidth: 2, stroke: '#fff' }}
                     name="买入信号"
+                    isAnimationActive={false}
+                    connectNulls={false}
                   />
 
                   {/* 卖出信号（绿色三角） */}
-                  <Scatter
-                    dataKey="close"
-                    data={filteredKLineData.filter(d => d.signalType === 'sell')}
-                    fill="#22c55e"
-                    shape="triangle"
-                    r={9}
+                  <Line
+                    type="monotone"
+                    dataKey="sellSignalPrice"
+                    stroke="transparent"
+                    strokeWidth={0}
+                    dot={{ fill: '#22c55e', r: 8, strokeWidth: 2, stroke: '#fff' }}
                     name="卖出信号"
+                    isAnimationActive={false}
+                    connectNulls={false}
                   />
 
                   {/* 交易对虚线 */}
@@ -610,7 +623,7 @@ export default function VisualBuyPoints() {
               <div className="mt-6">
                 <h3 className="text-white font-semibold mb-2">成交量</h3>
                 <ResponsiveContainer width="100%" height={150}>
-                  <ComposedChart data={filteredKLineData} syncId="stockChart">
+                  <ComposedChart data={chartData} syncId="stockChart">
                     <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                     <XAxis 
                       dataKey="date" 
