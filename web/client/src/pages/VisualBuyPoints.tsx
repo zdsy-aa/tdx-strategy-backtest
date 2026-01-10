@@ -32,6 +32,8 @@ export default function VisualBuyPoints() {
   const [marketFilter, setMarketFilter] = useState<"all" | "sh" | "sz" | "bj">("all");
   const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
   const [timeRange, setTimeRange] = useState<"1m" | "3m" | "6m" | "1y" | "all">("3m");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
 
   // 获取股票列表
   const stockReports: StockReport[] = useMemo(() => {
@@ -55,6 +57,8 @@ export default function VisualBuyPoints() {
     const data: KLineData[] = [];
     let basePrice = 10 + Math.random() * 20;
     const startDate = new Date('2025-10-01');
+    let lastSignalIndex = -10; // 记录上一个信号的位置
+    let lastSignalType: 'buy' | 'sell' | undefined;
     
     for (let i = 0; i < 60; i++) {
       const date = new Date(startDate);
@@ -67,21 +71,24 @@ export default function VisualBuyPoints() {
       const low = Math.min(open, close) - Math.random() * 1;
       const volume = Math.floor(Math.random() * 1000000) + 100000;
       
-      // 随机生成一些买卖信号
+      // 生成买卖信号：确保不在同一天，且买卖交替出现
       let signal: string | undefined;
       let signalType: 'buy' | 'sell' | undefined;
       
-      if (Math.random() > 0.9) {
-        if (Math.random() > 0.5) {
-          signal = "六脉6红";
-          signalType = "buy";
+      // 至少间隔3天才能生成新信号
+      if (i - lastSignalIndex >= 3 && Math.random() > 0.85) {
+        // 如果上一个是买入，这次就生成卖出；否则生成买入
+        if (lastSignalType === 'buy') {
+          signal = "卖点１";
+          signalType = "sell";
         } else {
-          signal = "买点2";
+          // 随机选择一种买入信号
+          const buySignals = ["六脉６红", "买点２", "缠论一买"];
+          signal = buySignals[Math.floor(Math.random() * buySignals.length)];
           signalType = "buy";
         }
-      } else if (Math.random() > 0.95) {
-        signal = "卖点1";
-        signalType = "sell";
+        lastSignalIndex = i;
+        lastSignalType = signalType;
       }
       
       data.push({
@@ -107,23 +114,31 @@ export default function VisualBuyPoints() {
     return generateMockKLineData(selectedStock);
   }, [selectedStock]);
 
-  // 根据时间范围和信号类型筛选K线数据
+  // 根据时间范围筛选K线数据
   const filteredKLineData = useMemo(() => {
     let data = klineData;
     
-    // 时间范围筛选
+    // 时间范围筛选：使用日期计算而非简单截取
     if (timeRange !== "all" && data.length > 0) {
       const days = {
         "1m": 30,
         "3m": 90,
         "6m": 180,
         "1y": 365
-      }[timeRange] || 90;
+      }[timeRange];
       
-      data = data.slice(-days);
+      if (days) {
+        // 获取最后一天的日期
+        const lastDate = new Date(data[data.length - 1].date);
+        // 计算截止日期
+        const cutoffDate = new Date(lastDate);
+        cutoffDate.setDate(cutoffDate.getDate() - days);
+        
+        // 筛选出截止日期之后的数据
+        data = data.filter(d => new Date(d.date) >= cutoffDate);
+      }
     }
     
-    // 信号类型筛选（不过滤数据，只影响显示）
     return data;
   }, [klineData, timeRange]);
 
@@ -225,20 +240,60 @@ export default function VisualBuyPoints() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-              {/* 搜索框 */}
+              {/* 搜索框（带动态下拉） */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                placeholder="搜索股票代码或名称"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                  }
-                }}
-                className="pl-10 bg-gray-800 border-gray-700 text-white"
-              />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 z-10" />
+                <Input
+                  placeholder="搜索股票代码或名称"
+                  value={searchTerm}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setShowSuggestions(true);
+                    setFocusedIndex(-1);
+                  }}
+                  onFocus={() => setShowSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      if (focusedIndex >= 0 && focusedIndex < filteredStocks.length) {
+                        setSelectedStock(filteredStocks[focusedIndex].code);
+                        setSearchTerm('');
+                        setShowSuggestions(false);
+                      }
+                    } else if (e.key === 'ArrowDown') {
+                      e.preventDefault();
+                      setFocusedIndex(prev => Math.min(prev + 1, filteredStocks.length - 1));
+                    } else if (e.key === 'ArrowUp') {
+                      e.preventDefault();
+                      setFocusedIndex(prev => Math.max(prev - 1, -1));
+                    } else if (e.key === 'Escape') {
+                      setShowSuggestions(false);
+                    }
+                  }}
+                  className="pl-10 bg-gray-800 border-gray-700 text-white"
+                />
+                {/* 动态下拉建议 */}
+                {showSuggestions && searchTerm && filteredStocks.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-gray-800 border border-gray-700 rounded-md shadow-lg z-50 max-h-[300px] overflow-y-auto">
+                    {filteredStocks.slice(0, 10).map((stock, index) => (
+                      <div
+                        key={stock.code}
+                        className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${
+                          index === focusedIndex ? 'bg-gray-700' : ''
+                        }`}
+                        onClick={() => {
+                          setSelectedStock(stock.code);
+                          setSearchTerm('');
+                          setShowSuggestions(false);
+                        }}
+                      >
+                        <div className="text-white font-medium">{stock.code} - {stock.name}</div>
+                        <div className="text-gray-400 text-sm">{stock.marketName}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* 市场筛选 */}
@@ -329,7 +384,7 @@ export default function VisualBuyPoints() {
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
               <CardTitle className="text-white">K线图与信号标注</CardTitle>
-              <CardDescription>红色为涨，绿色为跌 | 蓝点为买入信号，红点为卖出信号</CardDescription>
+              <CardDescription>红色为涨，绿色为跌 | 蓝色上三角：买入信号 | 红色下三角：卖出信号</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={500}>
@@ -377,29 +432,42 @@ export default function VisualBuyPoints() {
                     name="收盘价"
                   />
                   
-                  {/* 买入信号标注 */}
+                  {/* 买入信号标注（蓝色上三角） */}
                   {(signalFilter === "all" || signalFilter === "buy") && (
                     <Scatter
                       yAxisId="price"
                       dataKey="close"
                       data={filteredKLineData.filter(d => d.signalType === 'buy')}
                       fill="#3b82f6"
-                      shape="circle"
+                      shape="triangle"
                       name="买入信号"
-                      r={6}
+                      r={8}
                     />
                   )}
                   
-                  {/* 卖出信号标注 */}
+                  {/* 卖出信号标注（红色下三角） */}
                   {(signalFilter === "all" || signalFilter === "sell") && (
                     <Scatter
                       yAxisId="price"
                       dataKey="close"
-                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
+                      data={filteredKLineData.filter(d => d.signalType === 'sell').map(d => ({
+                        ...d,
+                        close: d.close * 1.02  // 卖出信号显示在价格上方
+                      }))}
                       fill="#ef4444"
-                      shape="circle"
+                      shape={(props: any) => {
+                        const { cx, cy } = props;
+                        return (
+                          <polygon
+                            points={`${cx},${cy + 8} ${cx - 8},${cy - 8} ${cx + 8},${cy - 8}`}
+                            fill="#ef4444"
+                            stroke="#fff"
+                            strokeWidth={1}
+                          />
+                        );
+                      }}
                       name="卖出信号"
-                      r={6}
+                      r={8}
                     />
                   )}
                 </ComposedChart>
