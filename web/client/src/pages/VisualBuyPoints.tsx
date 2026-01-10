@@ -266,19 +266,39 @@ export default function VisualBuyPoints() {
   const renderCandlestick = (data: KLineData[], xScale: any, yScale: any) => {
     if (!data || data.length === 0) return null;
     
+    console.log(`渲染蜡烛图: 共 ${data.length} 条数据`);
+    
     return data.map((item, index) => {
       const { date, open, close, high, low } = item;
       
+      // 验证数据有效性
+      if (!date || open == null || close == null || high == null || low == null) {
+        console.warn(`数据无效: index=${index}, date=${date}`);
+        return null;
+      }
+      
       // 计算X坐标
       const xPos = xScale(date);
-      const candleWidth = Math.max(xScale.bandwidth ? xScale.bandwidth() * 0.6 : 5, 2);
-      const centerX = xPos + (xScale.bandwidth ? xScale.bandwidth() / 2 : 0);
+      if (xPos == null || isNaN(xPos)) {
+        console.warn(`X坐标无效: date=${date}, xPos=${xPos}`);
+        return null;
+      }
+      
+      const bandwidth = xScale.bandwidth ? xScale.bandwidth() : 10;
+      const candleWidth = Math.max(bandwidth * 0.6, 2);
+      const centerX = xPos + bandwidth / 2;
       
       // 计算Y坐标
       const highY = yScale(high);
       const lowY = yScale(low);
       const openY = yScale(open);
       const closeY = yScale(close);
+      
+      // 验证Y坐标
+      if ([highY, lowY, openY, closeY].some(y => y == null || isNaN(y))) {
+        console.warn(`Y坐标无效: date=${date}, high=${high}, low=${low}, open=${open}, close=${close}`);
+        return null;
+      }
       
       // 判断涨跌
       const isRising = close >= open;
