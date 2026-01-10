@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter } from 'recharts';
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, CustomShape } from 'recharts';
 import stockReportsData from "@/data/stock_reports.json";
+import { CandlestickShape } from "@/components/CandlestickShape";
 
 interface StockReport {
   code: string;
@@ -69,57 +70,63 @@ export default function VisualBuyPoints() {
       .slice(0, 20);
   }, [stockReports, searchTerm, marketFilter]);
 
-  // 模拟K线数据生成
+  // 模拟K线数据生成（2023-2026年，共3年数据）
   const generateMockKLineData = (stockCode: string): KLineData[] => {
     const data: KLineData[] = [];
     let basePrice = 10 + Math.random() * 20;
     const startDate = new Date('2023-01-01');
+    const endDate = new Date('2026-01-10'); // 到今天
     let lastSignalIndex = -10;
     let lastSignalType: 'buy' | 'sell' | undefined;
     
-    for (let i = 0; i < 730; i++) { // 2年数据
-      const date = new Date(startDate);
-      date.setDate(date.getDate() + i);
-      
+    let currentDate = new Date(startDate);
+    let dayIndex = 0;
+    
+    while (currentDate <= endDate) {
       // 跳过周末
-      if (date.getDay() === 0 || date.getDay() === 6) continue;
-      
-      const change = (Math.random() - 0.5) * 2;
-      const open = basePrice;
-      const close = basePrice + change;
-      const high = Math.max(open, close) + Math.random() * 1;
-      const low = Math.min(open, close) - Math.random() * 1;
-      const volume = Math.floor(Math.random() * 1000000) + 100000;
-      
-      let signal: string | undefined;
-      let signalType: 'buy' | 'sell' | undefined;
-      
-      // 确保买卖信号交替出现，且有足够间隔
-      if (i - lastSignalIndex >= 5 && Math.random() > 0.88) {
-        if (lastSignalType === 'buy') {
-          signal = "卖点１";
-          signalType = "sell";
-        } else {
-          const buySignals = ["六脉６红", "买点２", "缠论一买"];
-          signal = buySignals[Math.floor(Math.random() * buySignals.length)];
-          signalType = "buy";
+      if (currentDate.getDay() !== 0 && currentDate.getDay() !== 6) {
+        // 生成当天的价格波动
+        const change = (Math.random() - 0.5) * 2;
+        const open = basePrice;
+        const close = basePrice + change;
+        const high = Math.max(open, close) + Math.random() * 1;
+        const low = Math.min(open, close) - Math.random() * 1;
+        const volume = Math.floor(Math.random() * 1000000) + 100000;
+        
+        let signal: string | undefined;
+        let signalType: 'buy' | 'sell' | undefined;
+        
+        // 确保买卖信号交替出现，且有足够间隔
+        if (dayIndex - lastSignalIndex >= 5 && Math.random() > 0.88) {
+          if (lastSignalType === 'buy') {
+            signal = "卖点１";
+            signalType = "sell";
+          } else {
+            const buySignals = ["六脉６红", "买点２", "缠论一买"];
+            signal = buySignals[Math.floor(Math.random() * buySignals.length)];
+            signalType = "buy";
+          }
+          lastSignalIndex = dayIndex;
+          lastSignalType = signalType;
         }
-        lastSignalIndex = i;
-        lastSignalType = signalType;
+        
+        data.push({
+          date: currentDate.toISOString().split('T')[0],
+          open: parseFloat(open.toFixed(2)),
+          high: parseFloat(high.toFixed(2)),
+          low: parseFloat(low.toFixed(2)),
+          close: parseFloat(close.toFixed(2)),
+          volume,
+          signal,
+          signalType
+        });
+        
+        basePrice = close;
+        dayIndex++;
       }
       
-      data.push({
-        date: date.toISOString().split('T')[0],
-        open: parseFloat(open.toFixed(2)),
-        high: parseFloat(high.toFixed(2)),
-        low: parseFloat(low.toFixed(2)),
-        close: parseFloat(close.toFixed(2)),
-        volume,
-        signal,
-        signalType
-      });
-      
-      basePrice = close;
+      // 移动到下一天
+      currentDate.setDate(currentDate.getDate() + 1);
     }
     
     return data;
@@ -549,14 +556,11 @@ export default function VisualBuyPoints() {
                     iconType="line"
                   />
                   
-                  {/* 收盘价线 */}
-                  <Line 
-                    type="monotone" 
-                    dataKey="close" 
-                    stroke="#a855f7" 
-                    strokeWidth={2}
-                    dot={false}
-                    name="收盘价"
+                  {/* K线蜡烛图 */}
+                  <Bar 
+                    dataKey="high"
+                    shape={<CandlestickShape />}
+                    name="K线"
                   />
 
                   {/* 买入信号（红色圆圈） */}
