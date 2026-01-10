@@ -5,9 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, Customized } from 'recharts';
+import { ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Scatter, Bar } from 'recharts';
 import stockReportsData from "@/data/stock_reports.json";
-import { CandlestickShape } from "@/components/CandlestickShape";
 
 interface StockReport {
   code: string;
@@ -216,6 +215,9 @@ export default function VisualBuyPoints() {
       }
     });
     
+    console.log(`交易对数量: ${pairs.length}`);
+    console.log('交易对详情:', pairs.map(p => `${p.buy.date} -> ${p.sell.date} (${p.profitPercent}%)`));
+    
     return pairs;
   }, [filteredKLineData]);
 
@@ -262,121 +264,7 @@ export default function VisualBuyPoints() {
     return null;
   };
 
-  // 渲染蜡烛图的自定义函数
-  const renderCandlestick = (data: KLineData[], xScale: any, yScale: any) => {
-    if (!data || data.length === 0) return null;
-    
-    console.log(`渲染蜡烛图: 共 ${data.length} 条数据`);
-    
-    return data.map((item, index) => {
-      const { date, open, close, high, low } = item;
-      
-      // 验证数据有效性
-      if (!date || open == null || close == null || high == null || low == null) {
-        console.warn(`数据无效: index=${index}, date=${date}`);
-        return null;
-      }
-      
-      // 计算X坐标
-      const xPos = xScale(date);
-      if (xPos == null || isNaN(xPos)) {
-        console.warn(`X坐标无效: date=${date}, xPos=${xPos}`);
-        return null;
-      }
-      
-      const bandwidth = xScale.bandwidth ? xScale.bandwidth() : 10;
-      const candleWidth = Math.max(bandwidth * 0.6, 2);
-      const centerX = xPos + bandwidth / 2;
-      
-      // 计算Y坐标
-      const highY = yScale(high);
-      const lowY = yScale(low);
-      const openY = yScale(open);
-      const closeY = yScale(close);
-      
-      // 验证Y坐标
-      if ([highY, lowY, openY, closeY].some(y => y == null || isNaN(y))) {
-        console.warn(`Y坐标无效: date=${date}, high=${high}, low=${low}, open=${open}, close=${close}`);
-        return null;
-      }
-      
-      // 判断涨跌
-      const isRising = close >= open;
-      const color = isRising ? '#ef4444' : '#22c55e';
-      
-      const bodyTop = Math.min(openY, closeY);
-      const bodyBottom = Math.max(openY, closeY);
-      const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
-      
-      return (
-        <g key={`candle-${index}-${date}`}>
-          {/* 上影线 */}
-          <line
-            x1={centerX}
-            y1={highY}
-            x2={centerX}
-            y2={bodyTop}
-            stroke={color}
-            strokeWidth={1}
-          />
-          
-          {/* 蜡烛主体 */}
-          <rect
-            x={centerX - candleWidth / 2}
-            y={bodyTop}
-            width={candleWidth}
-            height={bodyHeight}
-            fill={color}
-            stroke={color}
-            strokeWidth={1}
-          />
-          
-          {/* 下影线 */}
-          <line
-            x1={centerX}
-            y1={bodyBottom}
-            x2={centerX}
-            y2={lowY}
-            stroke={color}
-            strokeWidth={1}
-          />
-        </g>
-      );
-    });
-  };
 
-  // 自定义蜡烛图层
-  const CandlestickLayer = (props: any) => {
-    console.log('CandlestickLayer props:', Object.keys(props));
-    
-    const { xAxisMap, yAxisMap, chartWidth, chartHeight } = props;
-    
-    console.log('xAxisMap:', xAxisMap);
-    console.log('yAxisMap:', yAxisMap);
-    console.log('filteredKLineData length:', filteredKLineData.length);
-    
-    if (!xAxisMap || !yAxisMap) {
-      console.warn('CandlestickLayer: 缺少 xAxisMap 或 yAxisMap');
-      return null;
-    }
-    
-    const xScale = xAxisMap[0]?.scale;
-    const yScale = yAxisMap[0]?.scale;
-    
-    if (!xScale || !yScale) {
-      console.warn('CandlestickLayer: 缺少 xScale 或 yScale');
-      return null;
-    }
-    
-    console.log('xScale type:', typeof xScale);
-    console.log('yScale type:', typeof yScale);
-    
-    return (
-      <g className="recharts-candlestick-layer">
-        {renderCandlestick(filteredKLineData, xScale, yScale)}
-      </g>
-    );
-  };
 
   return (
     <Layout>
@@ -672,26 +560,16 @@ export default function VisualBuyPoints() {
                     iconType="line"
                   />
                   
-                  {/* 隐藏的Line用于计算Y轴域 */}
+                  {/* 收盘价折线图 */}
                   <Line 
                     type="monotone"
-                    dataKey="high"
-                    stroke="transparent"
+                    dataKey="close"
+                    stroke="#a855f7"
+                    strokeWidth={2}
                     dot={false}
-                    legendType="none"
+                    name="收盘价"
                     isAnimationActive={false}
                   />
-                  <Line 
-                    type="monotone"
-                    dataKey="low"
-                    stroke="transparent"
-                    dot={false}
-                    legendType="none"
-                    isAnimationActive={false}
-                  />
-                  
-                  {/* 自定义蜡烛图层 */}
-                  <Customized component={CandlestickLayer} />
 
                   {/* 买入信号（红色圆圈） */}
                   {(signalFilter === 'all' || signalFilter === 'buy') && (
