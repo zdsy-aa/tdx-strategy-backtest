@@ -40,7 +40,6 @@ export default function VisualBuyPoints() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStock, setSelectedStock] = useState<string>("");
   const [marketFilter, setMarketFilter] = useState<"all" | "sh" | "sz" | "bj">("all");
-  const [signalFilter, setSignalFilter] = useState<"all" | "buy" | "sell">("all");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [dateRangeType, setDateRangeType] = useState<DateRangeType>('month');
@@ -189,12 +188,13 @@ export default function VisualBuyPoints() {
     }
   }, [klineData, dateRangeType, selectedYear, selectedMonth, customStartDate, customEndDate]);
 
-  // 买卖匹配逻辑 (FIFO)，修复负交易金额
-  const tradePairs = useMemo(() => {
+  // 买卖匹配逻辑 (FIFO)，使用全部数据计算交易对
+  const allTradePairs = useMemo(() => {
     const pairs: TradePair[] = [];
     const buyQueue: KLineData[] = [];
     
-    filteredKLineData.forEach(day => {
+    // 使用全部klineData而不是filteredKLineData
+    klineData.forEach(day => {
       if (day.signalType === 'buy') {
         buyQueue.push(day);
       } else if (day.signalType === 'sell') {
@@ -215,11 +215,31 @@ export default function VisualBuyPoints() {
       }
     });
     
-    console.log(`交易对数量: ${pairs.length}`);
-    console.log('交易对详情:', pairs.map(p => `${p.buy.date} -> ${p.sell.date} (${p.profitPercent}%)`));
+    console.log(`全部交易对数量: ${pairs.length}`);
     
     return pairs;
-  }, [filteredKLineData]);
+  }, [klineData]);
+
+  // 筛选显示范围内的交易对
+  const tradePairs = useMemo(() => {
+    if (filteredKLineData.length === 0) return [];
+    
+    // 获取筛选范围的开始和结束日期
+    const startDate = filteredKLineData[0].date;
+    const endDate = filteredKLineData[filteredKLineData.length - 1].date;
+    
+    // 筛选交易对：只要买入或卖出任一在范围内，就显示该交易对
+    const filtered = allTradePairs.filter(pair => {
+      const buyInRange = pair.buy.date >= startDate && pair.buy.date <= endDate;
+      const sellInRange = pair.sell.date >= startDate && pair.sell.date <= endDate;
+      return buyInRange || sellInRange;
+    });
+    
+    console.log(`显示范围内的交易对: ${filtered.length}`);
+    console.log('交易对详情:', filtered.map(p => `${p.buy.date} -> ${p.sell.date} (${p.profitPercent}%)`));
+    
+    return filtered;
+  }, [allTradePairs, filteredKLineData]);
 
   // 获取选中股票的信息
   const selectedStockInfo = useMemo(() => {
@@ -508,35 +528,7 @@ export default function VisualBuyPoints() {
         {selectedStock && filteredKLineData.length > 0 && (
           <Card className="bg-gray-900 border-gray-800">
             <CardHeader>
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-white">K线价格图</CardTitle>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant={signalFilter === 'all' ? 'default' : 'outline'}
-                    onClick={() => setSignalFilter('all')}
-                    className={signalFilter === 'all' ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                  >
-                    全部信号
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={signalFilter === 'buy' ? 'default' : 'outline'}
-                    onClick={() => setSignalFilter('buy')}
-                    className={signalFilter === 'buy' ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                  >
-                    仅买入⚪
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant={signalFilter === 'sell' ? 'default' : 'outline'}
-                    onClick={() => setSignalFilter('sell')}
-                    className={signalFilter === 'sell' ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-800 border-gray-700 text-white hover:bg-gray-700'}
-                  >
-                    仅卖出▲
-                  </Button>
-                </div>
-              </div>
+              <CardTitle className="text-white">价格走势图</CardTitle>
             </CardHeader>
             <CardContent>
               {/* K线价格图 */}
@@ -572,31 +564,27 @@ export default function VisualBuyPoints() {
                   />
 
                   {/* 买入信号（红色圆圈） */}
-                  {(signalFilter === 'all' || signalFilter === 'buy') && (
-                    <Scatter
-                      dataKey="close"
-                      data={filteredKLineData.filter(d => d.signalType === 'buy')}
-                      fill="#ef4444"
-                      shape="circle"
-                      r={7}
-                      name="买入信号"
-                    />
-                  )}
+                  <Scatter
+                    dataKey="close"
+                    data={filteredKLineData.filter(d => d.signalType === 'buy')}
+                    fill="#ef4444"
+                    shape="circle"
+                    r={7}
+                    name="买入信号"
+                  />
 
                   {/* 卖出信号（绿色三角） */}
-                  {(signalFilter === 'all' || signalFilter === 'sell') && (
-                    <Scatter
-                      dataKey="close"
-                      data={filteredKLineData.filter(d => d.signalType === 'sell')}
-                      fill="#22c55e"
-                      shape="triangle"
-                      r={9}
-                      name="卖出信号"
-                    />
-                  )}
+                  <Scatter
+                    dataKey="close"
+                    data={filteredKLineData.filter(d => d.signalType === 'sell')}
+                    fill="#22c55e"
+                    shape="triangle"
+                    r={9}
+                    name="卖出信号"
+                  />
 
                   {/* 交易对虚线 */}
-                  {signalFilter === 'all' && tradePairs.map((pair, index) => (
+                  {tradePairs.map((pair, index) => (
                     <ReferenceLine
                       key={`pair-${index}`}
                       segment={[
