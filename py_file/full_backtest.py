@@ -92,7 +92,8 @@ def run_full_backtest():
     stock_files = list(DATA_DIR.rglob("*.csv"))
     print(f"开始全市场回测，共 {len(stock_files)} 只股票...")
     
-    num_cores = cpu_count()
+    #num_cores = cpu_count()根据CPU来开并行
+    num_cores = 6
     worker = partial(process_stock_for_strategies, strategies=strategies, hold_days=14)
     
     with Pool(num_cores) as pool:
