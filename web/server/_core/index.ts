@@ -19,12 +19,14 @@ function isPortAvailable(port: number): Promise<boolean> {
 }
 
 async function findAvailablePort(startPort: number = 3000): Promise<number> {
-  for (let port = startPort; port < startPort + 20; port++) {
+  // Try up to 100 ports
+  for (let port = startPort; port < startPort + 100; port++) {
     if (await isPortAvailable(port)) {
       return port;
     }
   }
-  throw new Error(`No available port found starting from ${startPort}`);
+  // If still not found, try a random port (0 means OS will assign one)
+  return 0; 
 }
 
 async function startServer() {
@@ -53,12 +55,13 @@ async function startServer() {
   const preferredPort = parseInt(process.env.PORT || "3000");
   const port = await findAvailablePort(preferredPort);
 
-  if (port !== preferredPort) {
-    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
-  }
-
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
+  const instance = server.listen(port, () => {
+    const actualPort = (instance.address() as net.AddressInfo).port;
+    if (actualPort !== preferredPort) {
+      console.log(`[Server] Port ${preferredPort} was busy, now running on http://localhost:${actualPort}/`);
+    } else {
+      console.log(`[Server] Running on http://localhost:${actualPort}/`);
+    }
   });
 }
 
