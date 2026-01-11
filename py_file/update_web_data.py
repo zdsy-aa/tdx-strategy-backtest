@@ -4,21 +4,23 @@ from pathlib import Path
 
 # 路径定义
 BASE_DIR = Path(__file__).parent.parent
-BACKTEST_RESULTS_FILE = BASE_DIR / "data" / "backtest_results" / "backtest_results.json"
+BACKTEST_RESULTS_FILE = BASE_DIR / "web" / "client" / "src" / "data" / "backtest_results.json"
 STRATEGIES_JSON_FILE = BASE_DIR / "web" / "client" / "src" / "data" / "strategies.json"
 
 def update_strategies():
     if not BACKTEST_RESULTS_FILE.exists():
         print(f"错误: 找不到回测结果文件 {BACKTEST_RESULTS_FILE}")
         return
-
     if not STRATEGIES_JSON_FILE.exists():
         print(f"错误: 找不到前端数据文件 {STRATEGIES_JSON_FILE}")
         return
 
-    # 读取回测结果
+    # 读取回测结果 (列表格式)
     with open(BACKTEST_RESULTS_FILE, 'r', encoding='utf-8') as f:
-        backtest_data = json.load(f)
+        backtest_list = json.load(f)
+    
+    # 转换为字典以便查找
+    backtest_data = {item['id']: item for item in backtest_list}
 
     # 读取前端 strategies.json
     with open(STRATEGIES_JSON_FILE, 'r', encoding='utf-8') as f:
@@ -34,21 +36,19 @@ def update_strategies():
         
         if mapped_id in backtest_data:
             res = backtest_data[mapped_id]
-            stats = res['stats']['total']
+            stats = res['total']
             strategy['stats']['total'] = {
-                "winRate": f"{stats['win_rate']}%",
-                "avgReturn": f"{stats['avg_return']}%",
-                "optimalPeriod": f"{res['optimal_period_win']}天",
+                "winRate": stats['win_rate'],
+                "avgReturn": stats['avg_return'],
+                "optimalPeriod": res.get('optimal_period_win', "5") + "天",
                 "trades": stats['trades']
             }
             # 更新年度和月度数据
-            strategy['stats']['yearly'] = res['stats']['yearly']
-            strategy['stats']['monthly'] = res['stats']['monthly']
+            strategy['stats']['yearly'] = res.get('yearly', {})
+            strategy['stats']['monthly'] = res.get('monthly', {})
             print(f"已更新单指标策略: {s_id}")
 
     # 2. 更新组合方案 (strategies)
-    # 注意：组合方案的数据目前在 full_backtest.py 中也有计算，但 ID 可能不同
-    # 这里我们尝试匹配
     for strategy in web_data.get('strategies', []):
         s_id = strategy['id']
         # 映射组合 ID
@@ -59,15 +59,15 @@ def update_strategies():
         
         if mapped_id and mapped_id in backtest_data:
             res = backtest_data[mapped_id]
-            stats = res['stats']['total']
+            stats = res['total']
             strategy['stats']['total'] = {
-                "winRate": f"{stats['win_rate']}%",
-                "avgReturn": f"{stats['avg_return']}%",
-                "optimalPeriod": f"{res['optimal_period_win']}天",
+                "winRate": stats['win_rate'],
+                "avgReturn": stats['avg_return'],
+                "optimalPeriod": res.get('optimal_period_win', "10") + "天",
                 "trades": stats['trades']
             }
-            strategy['stats']['yearly'] = res['stats']['yearly']
-            strategy['stats']['monthly'] = res['stats']['monthly']
+            strategy['stats']['yearly'] = res.get('yearly', {})
+            strategy['stats']['monthly'] = res.get('monthly', {})
             print(f"已更新组合方案: {s_id}")
 
     # 保存更新后的文件

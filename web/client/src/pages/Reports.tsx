@@ -43,34 +43,36 @@ const staticReports = [
 ];
 
 function generateOverallReport() {
-  const strategies = (backtestData as any).strategies || {};
+  const data = backtestData as any[];
   let report = "# 策略总览报告\n\n";
   report += "## 各策略总体表现\n\n";
   report += "| 策略名称 | 交易次数 | 胜率 | 平均收益 | 总收益 |\n";
   report += "|---------|---------|------|---------|-------|\n";
   
-  for (const [key, value] of Object.entries(strategies)) {
-    const s = value as any;
-    const total = s.stats?.total || {};
-    report += `| ${s.name} | ${total.trades || 0} | ${total.win_rate || 0}% | ${total.avg_return || 0}% | ${total.total_return || 0}% |\n`;
+  if (Array.isArray(data)) {
+    data.forEach((s: any) => {
+      const total = s.total || {};
+      report += `| ${s.name} | ${total.trades || 0} | ${total.win_rate || "0%"} | ${total.avg_return || "0%"} | ${total.total_return || "0%"} |\n`;
+    });
   }
   
   return report;
 }
 
 function generateYearlyReport(year: string) {
-  const strategies = (backtestData as any).strategies || {};
+  const data = backtestData as any[];
   let report = `# ${year}年度回测报告\n\n`;
   report += "## 各策略年度表现\n\n";
   report += "| 策略名称 | 交易次数 | 胜率 | 平均收益 |\n";
   report += "|---------|---------|------|--------|\n";
   
-  for (const [key, value] of Object.entries(strategies)) {
-    const s = value as any;
-    const yearly = s.stats?.yearly?.[year] || {};
-    if (yearly.trades) {
-      report += `| ${s.name} | ${yearly.trades} | ${yearly.win_rate}% | ${yearly.avg_return}% |\n`;
-    }
+  if (Array.isArray(data)) {
+    data.forEach((s: any) => {
+      const yearly = s.yearly?.[year] || {};
+      if (yearly.trades) {
+        report += `| ${s.name} | ${yearly.trades} | ${yearly.win_rate} | ${yearly.avg_return} |\n`;
+      }
+    });
   }
   
   return report;
