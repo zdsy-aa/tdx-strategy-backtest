@@ -1,0 +1,28 @@
+# 确保跨平台换行符一致性
+* text=auto eol=lf
+
+# 锁文件必须保持 LF 换行符，避免 Windows/Linux 冲突
+pnpm-lock.yaml text eol=lf
+
+# 其他常见文件类型
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# 二进制文件
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
