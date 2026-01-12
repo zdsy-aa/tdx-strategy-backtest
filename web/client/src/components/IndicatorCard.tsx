@@ -10,6 +10,7 @@ interface Signal {
   meaning?: string;
   position?: string;
   risk?: string;
+  formula?: string;
 }
 
 interface SubIndicator {
@@ -95,6 +96,21 @@ export default function IndicatorCard({ indicator }: IndicatorProps) {
                 <p className="text-sm text-muted-foreground mb-1">
                   <span className="text-foreground/80">条件：</span>{signal.condition}
                 </p>
+                {signal.formula && (
+                  <p className="text-xs text-muted-foreground mb-1 font-mono bg-black/30 px-2 py-1 rounded">
+                    <span className="text-cyan-400">公式：</span>{signal.formula}
+                  </p>
+                )}
+                {signal.meaning && (
+                  <p className="text-xs text-muted-foreground mb-1">
+                    <span className="text-yellow-400">含义：</span>{signal.meaning}
+                  </p>
+                )}
+                {signal.risk && (
+                  <p className="text-xs text-muted-foreground mb-1">
+                    <span className="text-orange-400">风险：</span>{signal.risk}
+                  </p>
+                )}
                 {signal.action && (
                   <p className="text-xs text-muted-foreground">
                     <span className="text-primary/80">操作：</span>{signal.action}

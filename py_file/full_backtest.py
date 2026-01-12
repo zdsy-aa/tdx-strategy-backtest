@@ -56,7 +56,7 @@ def find_signals(df, signal_type):
     if signal_type == "six_veins_6red": mask = (df['six_veins_count'] == 6) & (df['six_veins_count'].shift(1) < 6)
     elif signal_type == "six_veins_5red": mask = (df['six_veins_count'] >= 5) & (df['six_veins_count'].shift(1) < 5)
     elif signal_type == "six_veins_4red": mask = (df['six_veins_count'] >= 4) & (df['six_veins_count'].shift(1) < 4)
-    elif signal_type in ["buy_point_1", "buy_point_2", "money_tree", "chan_buy1", "chan_buy2", "chan_buy3"]:
+    elif signal_type in ["buy_point_1", "buy_point_2", "money_tree", "chan_buy1", "chan_buy2", "chan_buy3", "chan_strong_buy2", "chan_like_buy2"]:
         col = signal_type.replace("buy_point_", "buy")
         if col in df.columns: mask = df[col] == True
         else: return []
@@ -88,7 +88,12 @@ def process_stock_for_strategies(stock_file, strategies, hold_days=14):
 
 def run_full_backtest():
     """主函数：并行执行全市场回测"""
-    strategies = ['six_veins_6red', 'six_veins_5red', 'six_veins_4red', 'buy_point_1', 'buy_point_2', 'money_tree', 'chan_buy1', 'chan_buy2', 'chan_buy3']
+    # 策略列表：包含缠论5个买点（一买、二买、三买、强二买、类二买）
+    strategies = [
+        'six_veins_6red', 'six_veins_5red', 'six_veins_4red',
+        'buy_point_1', 'buy_point_2', 'money_tree',
+        'chan_buy1', 'chan_buy2', 'chan_buy3', 'chan_strong_buy2', 'chan_like_buy2'
+    ]
     stock_files = list(DATA_DIR.rglob("*.csv"))
     print(f"开始全市场回测，共 {len(stock_files)} 只股票...")
     

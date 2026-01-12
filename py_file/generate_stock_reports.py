@@ -78,7 +78,7 @@ def find_signals(df, signal_type):
         mask = (df['six_veins_count'] >= 5) & (df['six_veins_count'].shift(1) < 5)
     elif signal_type == "six_veins_4red":
         mask = (df['six_veins_count'] >= 4) & (df['six_veins_count'].shift(1) < 4)
-    elif signal_type in ["buy_point_1", "buy_point_2", "money_tree", "chan_buy1", "chan_buy2", "chan_buy3"]:
+    elif signal_type in ["buy_point_1", "buy_point_2", "money_tree", "chan_buy1", "chan_buy2", "chan_buy3", "chan_strong_buy2", "chan_like_buy2"]:
         col = signal_type.replace("buy_point_", "buy")
         if col in df.columns:
             mask = df[col] == True
@@ -142,13 +142,26 @@ def process_single_stock(stock_file, end_dt, year_start, month_start):
         
         df = calculate_all_indicators(df)
         
-        # 统计各策略信号
+        # 统计各策略信号（包含缠论5个买点）
         all_trades = []
+        chan_trades = []  # 缠论买点交易
+        
+        # 基础策略
         for stype in ['six_veins_6red', 'six_veins_5red', 'six_veins_4red', 'buy_point_1', 'buy_point_2']:
             signals = find_signals(df, stype)
             for sig in signals:
                 res = calculate_trade_result(df, sig, 14)
                 if res:
+                    all_trades.append(res)
+        
+        # 缠论5个买点
+        for stype in ['chan_buy1', 'chan_buy2', 'chan_buy3', 'chan_strong_buy2', 'chan_like_buy2']:
+            signals = find_signals(df, stype)
+            for sig in signals:
+                res = calculate_trade_result(df, sig, 14)
+                if res:
+                    res['signal_type'] = stype
+                    chan_trades.append(res)
                     all_trades.append(res)
         
         if not all_trades:
