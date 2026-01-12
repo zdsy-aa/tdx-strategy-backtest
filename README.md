@@ -41,13 +41,13 @@
 
 ### 2. 策略回测类
 *   **单指标测试 (10开头)**
-    *   `101_six_veins_test.py`: 六脉神剑策略测试。
-    *   `102_buy_sell_points_test.py`: 基础买卖点策略测试。
-    *   `103_chan_buy_point_test.py`: 缠论买点策略测试。
-    *   `104_test_sell_points.py`: 卖出点优化测试。
+    *   `101_six_veins_test.py`: 六脉神剑策略全量股票测试，计算全市场平均胜率。
+    *   `102_buy_sell_points_test.py`: 基础买卖点策略全量股票测试。
+    *   `103_chan_buy_point_test.py`: 缠论买点策略全量股票测试。
+    *   `104_test_sell_points.py`: 卖出点优化全量股票测试。
 *   **组合指标测试 (20开头)**
-    *   `201_steady_combo_test.py`: 稳健型组合策略。
-    *   `202_aggressive_combo_test.py`: 激进型组合策略。
+    *   `201_steady_combo_test.py`: 稳健型组合策略全量股票测试，计算全市场平均胜率。
+    *   `202_aggressive_combo_test.py`: 激进型组合策略全量股票测试，计算全市场平均胜率。
 *   **核心回测引擎**
     *   `full_backtest.py`: 执行所有策略的全量回测主脚本。
     *   `quick_backtest.py`: 多进程加速版回测。
