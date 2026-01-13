@@ -145,6 +145,24 @@ def download_stock_data(
 
     return df
 
+def get_market_from_code(code: str) -> str:
+    """根据股票代码返回市场标识"""
+    # 处理数字代码（如 '000001'）
+    if code.isdigit():
+        if code.startswith('6'):
+            return 'sh'
+        elif code.startswith('0') or code.startswith('3'):
+            return 'sz'
+        elif code.startswith('8') or code.startswith('4'):
+            return 'bj'
+        else:
+            return 'other'
+    # 处理带后缀的代码（如 'sz000001'）
+    elif code.startswith(('sh', 'sz', 'bj')):
+        return code[:2]
+    else:
+        return 'other'
+
 def process_stock(
     idx: int,
     total: int,
@@ -157,7 +175,10 @@ def process_stock(
     if code in skip_list:
         return
 
-    filepath = os.path.join(DATA_DIR, f"{code}.csv")
+    market = get_market_from_code(code)
+    market_dir = os.path.join(DATA_DIR, market)
+    os.makedirs(market_dir, exist_ok=True)  # 创建市场目录
+    filepath = os.path.join(market_dir, f"{code}.csv")
     start_date = EARLIEST_DATE
     old_df = pd.DataFrame()
 
