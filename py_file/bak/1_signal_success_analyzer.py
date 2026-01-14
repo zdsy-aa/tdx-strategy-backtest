@@ -3,47 +3,36 @@
 
 """
 ===============================================================================
-脚本名：1_signal_success_analyzer.py  （增强版）
+脚本名：1_signal_success_analyzer.py
 
 【脚本功能】
-    全市场「信号样本 + 标签 + 特征」生成器（same-day 买入）
+    全市场「信号 + 特征 + 标签」样本生成器（same-day 买入）
 
-【脚本职责（非常重要）】
+【核心作用】
     1. 遍历 data/day 下所有股票日线 CSV
-    2. 调用 indicators.calculate_all_signals 计算指标与买卖信号
+    2. 调用 indicators.calculate_all_signals 生成：
+        - 所有技术指标
+        - 所有买卖信号
     3. 自动识别“买点类信号”
-    4. same-day 买入，计算未来 N 日最大涨幅
-    5. 生成 success_20d 标签
-    6. 输出供脚本 2 直接使用的训练样本 CSV / Parquet
+    4. same-day 买入
+    5. 计算未来 N 日最大涨幅，生成成功标签
+    6. 输出【可直接用于机器学习】的样本 CSV
 
-【本增强版新增能力】
-    ✅ 并行进程数可调（防止 OOM）
-    ✅ 全流程步骤级日志（nohup / 重定向可见）
+【本脚本输出的 CSV = 第二阶段唯一输入】
 ===============================================================================
 """
 
 import os
-import sys
-import time
 import warnings
-from datetime import datetime
-from multiprocessing import Pool, cpu_count
+from multiprocessing import Pool
 
-import numpy as np
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 
 from indicators import calculate_all_signals
 
 warnings.simplefilter("ignore", category=FutureWarning)
-
-# =============================================================================
-# 0) 日志工具（强制 flush，确保后台可见）
-# =============================================================================
-
-def log(msg: str):
-    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{ts}] {msg}", flush=True)
 
 # =============================================================================
 # 1) 路径配置
@@ -57,21 +46,21 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "signal_samples_same_day.csv")
 
 # =============================================================================
-# 2) 可调参数（含作用说明）
+# 2) 可调研究参数（作用说明一定要看）
 # =============================================================================
 
 MIN_BARS = 80
 """
-最少历史K线数量：
-- 少于该数量的股票不参与样本生成
-- 防止新股 / 数据严重不完整
+最少历史K线数：
+- 少于该数量的股票不参与研究
+- 防止新股 / 数据残缺
 """
 
 FUTURE_DAYS = 20
 """
 未来观察窗口（交易日）：
 - same-day 买入
-- 计算 FUTURE_DAYS 内最高价
+- 向后看 FUTURE_DAYS 内的最高价
 """
 
 GAIN_THRESHOLD = 5.0
@@ -86,30 +75,12 @@ COOLDOWN = 5
 - 同一信号短期内多次触发，只保留第一个
 """
 
-# ================= 并行相关（增强点） =================
-
-NUM_WORKERS = 13
-"""
-并行进程数：
-- 强烈建议 ≤ CPU 核心数
-- 内存紧张时可调小（如 2~4）
-"""
-
-CHUNK_SIZE = 10
-"""
-Pool.imap_unordered 的 chunk size：
-- 大一点调度开销低
-- 太大不利于负载均衡
-"""
-
-FLUSH_EVERY = 300
-"""
-每累计多少只股票结果，就写一次磁盘
-- 防止内存堆积
-"""
+NUM_WORKERS = 12
+CHUNK_SIZE = 20
+FLUSH_EVERY = 100
 
 # =============================================================================
-# 3) 中文列名映射
+# 3) 中文 → 英文列名映射
 # =============================================================================
 
 CN_COL_MAP = {
@@ -128,7 +99,7 @@ CN_COL_MAP = {
 }
 
 # =============================================================================
-# 4) 输出给脚本2使用的特征列（必须保持一致）
+# 4) 机器学习特征列（★ 脚本2会直接使用 ★）
 # =============================================================================
 
 FEATURE_COLS = [
@@ -147,7 +118,6 @@ FEATURE_COLS = [
 # =============================================================================
 
 def apply_cooldown(idxs, cooldown):
-    """对信号索引应用冷却期"""
     keep, last = [], -9999
     for i in idxs:
         if i - last >= cooldown:
@@ -156,8 +126,7 @@ def apply_cooldown(idxs, cooldown):
     return keep
 
 
-def calc_future_gain(df: pd.DataFrame) -> pd.Series:
-    """计算未来 FUTURE_DAYS 内的最大涨幅（%）"""
+def calc_future_gain(df):
     future_high = (
         df["high"]
         .shift(-1)
@@ -169,16 +138,10 @@ def calc_future_gain(df: pd.DataFrame) -> pd.Series:
 
 
 # =============================================================================
-# 6) 单股票处理逻辑（worker）
+# 6) 单股票处理逻辑
 # =============================================================================
 
-def process_one(csv_path: str):
-    """
-    单股票样本生成：
-    - 读取 CSV
-    - 计算指标/信号
-    - 生成信号样本行
-    """
+def process_one(csv_path):
     try:
         df = pd.read_csv(csv_path)
         df = df.rename(columns={k: v for k, v in CN_COL_MAP.items() if k in df.columns})
@@ -192,16 +155,14 @@ def process_one(csv_path: str):
         if len(df) < MIN_BARS:
             return None
 
-        # 计算所有指标和信号
         df = calculate_all_signals(df)
 
-        # 自动识别“买点类信号”
+        # 自动识别买点信号
         signal_map = {}
         for col in df.columns:
             cl = col.lower()
             if "sell" in cl:
                 continue
-
             if df[col].dtype == bool and df[col].any():
                 signal_map[col] = df.index[df[col]].tolist()
             elif any(k in cl for k in ["buy", "six_veins", "combo"]):
@@ -209,7 +170,7 @@ def process_one(csv_path: str):
                     idxs = df.index[df[col] > 0].tolist()
                     if idxs:
                         signal_map[col] = idxs
-                except Exception:
+                except:
                     pass
 
         if not signal_map:
@@ -238,7 +199,7 @@ def process_one(csv_path: str):
                     "success_20d": df.at[i, "success_20d"],
                 }
 
-                # 写入特征列
+                # ★ 写入所有 ML 特征
                 for f in FEATURE_COLS:
                     rec[f] = df.at[i, f] if f in df.columns else np.nan
 
@@ -246,8 +207,7 @@ def process_one(csv_path: str):
 
         return pd.DataFrame(records) if records else None
 
-    except Exception as e:
-        # 单股票失败不影响整体
+    except Exception:
         return None
 
 
@@ -256,27 +216,16 @@ def process_one(csv_path: str):
 # =============================================================================
 
 def main():
-    log("信号样本生成脚本启动")
-
-    # 收集所有 CSV
-    csvs = [
-        os.path.join(r, f)
-        for r, _, fs in os.walk(DATA_DIR)
-        for f in fs if f.endswith(".csv")
-    ]
-
-    log(f"发现股票 CSV 数量: {len(csvs)}")
-    log(f"并行进程数: {NUM_WORKERS}, CHUNK_SIZE={CHUNK_SIZE}")
-
-    # 如果已有旧输出，先删除（防止误拼接）
     if os.path.exists(OUTPUT_FILE):
         os.remove(OUTPUT_FILE)
 
-    buffer = []
-    header = True
-    processed = 0
+    csvs = []
+    for r, _, fs in os.walk(DATA_DIR):
+        for f in fs:
+            if f.endswith(".csv"):
+                csvs.append(os.path.join(r, f))
 
-    log("开始并行处理股票")
+    buffer, header = [], True
 
     with Pool(NUM_WORKERS) as pool:
         for res in tqdm(
@@ -284,35 +233,22 @@ def main():
             total=len(csvs),
             desc="生成信号样本"
         ):
-            processed += 1
-
             if res is not None and not res.empty:
                 buffer.append(res)
 
             if len(buffer) >= FLUSH_EVERY:
                 pd.concat(buffer).to_csv(
-                    OUTPUT_FILE,
-                    mode="a",
-                    header=header,
-                    index=False,
-                    encoding="utf-8-sig"
+                    OUTPUT_FILE, mode="a", header=header, index=False, encoding="utf-8-sig"
                 )
                 header = False
                 buffer.clear()
-                log(f"已处理 {processed}/{len(csvs)} 股票，已写盘")
 
-    # 写最后一批
     if buffer:
         pd.concat(buffer).to_csv(
-            OUTPUT_FILE,
-            mode="a",
-            header=header,
-            index=False,
-            encoding="utf-8-sig"
+            OUTPUT_FILE, mode="a", header=header, index=False, encoding="utf-8-sig"
         )
 
-    log(f"信号样本生成完成，输出文件: {OUTPUT_FILE}")
-    log("脚本结束")
+    print(f"[OK] 输出完成：{OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
