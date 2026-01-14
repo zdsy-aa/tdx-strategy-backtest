@@ -576,9 +576,11 @@ def calculate_chan_theory(df: pd.DataFrame) -> pd.DataFrame:
     # 底分型: 中间K线低点低于左右两根K线的低点
     bottom_fractal = (REF(L, 1) < REF(L, 2)) & (REF(L, 1) < L)
     
-    df['top_fractal'] = top_fractal.shift(-1).fillna(False)
-    df['bottom_fractal'] = bottom_fractal.shift(-1).fillna(False)
-    
+    #df['top_fractal'] = top_fractal.shift(-1).fillna(False)
+    #df['bottom_fractal'] = bottom_fractal.shift(-1).fillna(False)
+    df['top_fractal'] = top_fractal.shift(-1).fillna(False).astype(bool)
+   df['bottom_fractal'] = bottom_fractal.shift(-1).fillna(False).astype(bool)
+
     # 笔方向判定: 1=向上笔, -1=向下笔
     direction = pd.Series(0, index=df.index)
     last_fractal = 0
