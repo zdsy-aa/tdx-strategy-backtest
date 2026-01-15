@@ -358,7 +358,7 @@ def scan_all_stocks(max_workers: int = None) -> pd.DataFrame:
     print("=" * 60)
     
     if max_workers is None:
-        max_workers = max(1, multiprocessing.cpu_count() - 1)
+        max_workers = max(1, multiprocessing.cpu_count() - 2)
     
     all_results = []
     processed = 0
