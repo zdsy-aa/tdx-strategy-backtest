@@ -3,58 +3,54 @@
 
 """
 ===============================================================================
-脚本 2：Walk-forward 模型评估器（优化版）
+脚本 2（内存安全版）：
+    2_jichutest_walkforward_partitioned.py
 
 【功能】
-    1. 读取脚本 1 输出的 Parquet 信号样本
-    2. 按年份做 Walk-forward 训练 / 验证
-    3. 支持多模型（Logistic / RF）
-    4. 输出预测结果 + 年度汇总 + 特征重要性 + 阈值分析
+    - Walk-forward 年度训练 / 验证
+    - 每次只加载：N 年 train + 1 年 valid
+    - 输出：每年预测结果 + 汇总
 
-【本版本优化点】
-    - 多模型结构（4.2.1）
-    - 特征重要性分析（4.2.2）
-    - 阈值敏感性分析（4.2.4）
-    - Parquet 高性能读取（4.3.1）
+【内存策略】
+    ✔ Parquet year 分区
+    ✔ 只读必要年份
+    ✔ float32 特征
 ===============================================================================
 """
 
 import os
+from datetime import datetime
 import numpy as np
 import pandas as pd
+
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+
+# =============================================================================
+# 日志
+# =============================================================================
+
+def log(msg: str):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{ts}] {msg}", flush=True)
 
 # =============================================================================
 # 路径
 # =============================================================================
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_PATH = os.path.join(PROJECT_ROOT, "output", "signal_samples_same_day.parquet")
+DATA_DIR = os.path.join(PROJECT_ROOT, "output", "signal_samples_parquet")
+
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output", "walk_forward")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # =============================================================================
-# 模型配置（4.2.1）
-# =============================================================================
-
-MODELS = {
-    "logistic": Pipeline([
-        ("scaler", StandardScaler()),
-        ("clf", LogisticRegression(max_iter=2000))
-    ]),
-    "random_forest": RandomForestClassifier(
-        n_estimators=100,
-        max_depth=5,
-        random_state=42
-    )
-}
-
-# =============================================================================
 # 参数
 # =============================================================================
+
+TRAIN_WINDOW_YEARS = 5
+LABEL_COL = "success_20d"
 
 FEATURE_COLS = [
     "close", "volume", "MA13", "MA26",
@@ -63,80 +59,87 @@ FEATURE_COLS = [
     "macd_red", "kdj_red", "rsi_red", "bbi_red",
 ]
 
-LABEL_COL = "success_20d"
-TRAIN_WINDOW_YEARS = 5
-
 # =============================================================================
-# 特征重要性分析（4.2.2）
+# 工具函数
 # =============================================================================
 
-def analyze_feature_importance(model, feature_names):
-    if hasattr(model, "coef_"):
-        importance = np.abs(model.coef_[0])
-    elif hasattr(model, "feature_importances_"):
-        importance = model.feature_importances_
-    else:
-        return None
+def read_years(years):
+    """只读取指定年份的数据"""
+    df = pd.read_parquet(
+        DATA_DIR,
+        filters=[("year", "in", years)]
+    )
 
-    return pd.DataFrame({
-        "feature": feature_names,
-        "importance": importance
-    }).sort_values("importance", ascending=False)
+    # 保证特征完整
+    for c in FEATURE_COLS:
+        if c not in df.columns:
+            df[c] = np.nan
+
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.dropna(subset=FEATURE_COLS + [LABEL_COL])
+
+    df[FEATURE_COLS] = df[FEATURE_COLS].astype("float32")
+    df[LABEL_COL] = df[LABEL_COL].astype("int8")
+
+    return df
 
 # =============================================================================
 # 主流程
 # =============================================================================
 
 def main():
-    df = pd.read_parquet(DATA_PATH)
-    df["date"] = pd.to_datetime(df["date"])
-    df["year"] = df["date"].dt.year
+    log("脚本2启动：Walk-forward（year 分区）")
 
-    years = sorted(df["year"].unique())
+    # 读取所有可用年份（轻量）
+    years = sorted([
+        int(p.split("=")[1])
+        for p in os.listdir(DATA_DIR)
+        if p.startswith("year=")
+    ])
+
+    log(f"可用年份: {years}")
+
+    model = Pipeline([
+        ("scaler", StandardScaler()),
+        ("lr", LogisticRegression(max_iter=2000))
+    ])
+
     summaries = []
 
-    for model_name, model in MODELS.items():
-        for y in years[TRAIN_WINDOW_YEARS:]:
-            train = df[df["year"] < y]
-            valid = df[df["year"] == y]
-            if len(train) < 300 or len(valid) < 100:
-                continue
+    for y in years[TRAIN_WINDOW_YEARS:]:
+        train_years = list(range(y - TRAIN_WINDOW_YEARS, y))
 
-            model.fit(train[FEATURE_COLS], train[LABEL_COL])
-            probs = model.predict_proba(valid[FEATURE_COLS])[:, 1]
+        log(f"YEAR={y} | train={train_years} valid={[y]}")
 
-            valid = valid.copy()
-            valid["prob"] = probs
+        train = read_years(train_years)
+        valid = read_years([y])
 
-            out_path = os.path.join(
-                OUTPUT_DIR, f"pred_{model_name}_{y}.parquet"
-            )
-            valid.to_parquet(out_path, index=False)
+        if len(train) < 300 or len(valid) < 100:
+            log("样本不足，跳过")
+            continue
 
-            fi = analyze_feature_importance(
-                model["clf"] if isinstance(model, Pipeline) else model,
-                FEATURE_COLS
-            )
-            if fi is not None:
-                fi.to_csv(
-                    os.path.join(OUTPUT_DIR, f"feature_importance_{model_name}_{y}.csv"),
-                    index=False
-                )
+        model.fit(train[FEATURE_COLS], train[LABEL_COL])
 
-            summaries.append({
-                "model": model_name,
-                "year": y,
-                "samples": len(valid),
-                "avg_prob": probs.mean(),
-                "success_rate": valid[LABEL_COL].mean()
-            })
+        probs = model.predict_proba(valid[FEATURE_COLS])[:, 1]
+        valid = valid.copy()
+        valid["prob"] = probs
 
-    pd.DataFrame(summaries).to_csv(
-        os.path.join(OUTPUT_DIR, "walk_forward_summary.csv"),
-        index=False
-    )
+        out_path = os.path.join(OUTPUT_DIR, f"pred_{y}.csv")
+        valid.to_csv(out_path, index=False, encoding="utf-8-sig")
 
-    print("[OK] Walk-forward 完成")
+        summaries.append({
+            "year": y,
+            "train_samples": len(train),
+            "valid_samples": len(valid),
+            "avg_prob": float(np.mean(probs)),
+            "success_rate": float(valid[LABEL_COL].mean())
+        })
+
+    summary_path = os.path.join(OUTPUT_DIR, "walk_forward_summary.csv")
+    pd.DataFrame(summaries).to_csv(summary_path, index=False, encoding="utf-8-sig")
+
+    log(f"汇总完成: {summary_path}")
+    log("脚本2结束")
 
 if __name__ == "__main__":
     main()

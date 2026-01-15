@@ -3,31 +3,35 @@
 
 """
 ===============================================================================
-脚本名：1_signal_success_analyzer.py  （增强版）
+脚本 1（内存安全版）：
+    1_signal_success_analyzer_partitioned.py
 
-【脚本功能】
-    全市场「信号样本 + 标签 + 特征」生成器（same-day 买入）
+【核心职责】
+    - 从 data/day/*.csv 中提取「信号级样本」
+    - 计算未来 N 日收益 + 成功标签
+    - 输出为 Parquet，并按 year 分区（为 Walk-forward 服务）
 
-【脚本职责（非常重要）】
-    1. 遍历 data/day 下所有股票日线 CSV
-    2. 调用 indicators.calculate_all_signals 计算指标与买卖信号
-    3. 自动识别“买点类信号”
-    4. same-day 买入，计算未来 N 日最大涨幅
-    5. 生成 success_20d 标签
-    6. 输出供脚本 2 直接使用的训练样本 CSV / Parquet
+【重要原则】
+    ❌ 不训练模型
+    ❌ 不做阈值判断
+    ✅ 只生成：样本 + 特征 + 标签
 
-【本增强版新增能力】
-    ✅ 并行进程数可调（防止 OOM）
-    ✅ 全流程步骤级日志（nohup / 重定向可见）
+【输出结构】
+    output/signal_samples_parquet/
+        ├── year=2016/part-*.parquet
+        ├── year=2017/part-*.parquet
+        └── ...
+
+【为什么要 year 分区】
+    👉 脚本 2 只需读取：某一年 valid + 前 N 年 train
+    👉 避免一次性加载千万行数据
 ===============================================================================
 """
 
 import os
-import sys
-import time
 import warnings
 from datetime import datetime
-from multiprocessing import Pool, cpu_count
+from multiprocessing import Pool
 
 import numpy as np
 import pandas as pd
@@ -38,7 +42,7 @@ from indicators import calculate_all_signals
 warnings.simplefilter("ignore", category=FutureWarning)
 
 # =============================================================================
-# 0) 日志工具（强制 flush，确保后台可见）
+# 日志工具
 # =============================================================================
 
 def log(msg: str):
@@ -46,70 +50,29 @@ def log(msg: str):
     print(f"[{ts}] {msg}", flush=True)
 
 # =============================================================================
-# 1) 路径配置
+# 路径配置
 # =============================================================================
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_ROOT, "data", "day")
-OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
+
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output", "signal_samples_parquet")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "signal_samples_same_day.csv")
-
 # =============================================================================
-# 2) 可调参数（含作用说明）
+# 参数区（工程可调）
 # =============================================================================
 
-MIN_BARS = 80
-"""
-最少历史K线数量：
-- 少于该数量的股票不参与样本生成
-- 防止新股 / 数据严重不完整
-"""
+MIN_BARS = 80            # 最少历史K线
+FUTURE_DAYS = 20         # 未来观察窗口
+GAIN_THRESHOLD = 5.0     # 成功涨幅阈值（%）
+COOLDOWN = 5             # 信号冷却期（交易日）
 
-FUTURE_DAYS = 20
-"""
-未来观察窗口（交易日）：
-- same-day 买入
-- 计算 FUTURE_DAYS 内最高价
-"""
-
-GAIN_THRESHOLD = 5.0
-"""
-成功阈值（百分比）：
-- future_gain >= GAIN_THRESHOLD → success_20d = 1
-"""
-
-COOLDOWN = 5
-"""
-信号冷却期（交易日）：
-- 同一信号短期内多次触发，只保留第一个
-"""
-
-# ================= 并行相关（增强点） =================
-
-NUM_WORKERS = 13
-"""
-并行进程数：
-- 强烈建议 ≤ CPU 核心数
-- 内存紧张时可调小（如 2~4）
-"""
-
-CHUNK_SIZE = 10
-"""
-Pool.imap_unordered 的 chunk size：
-- 大一点调度开销低
-- 太大不利于负载均衡
-"""
-
-FLUSH_EVERY = 300
-"""
-每累计多少只股票结果，就写一次磁盘
-- 防止内存堆积
-"""
+NUM_WORKERS = 12          # 并行进程数（16G 推荐 4~8）
+FLUSH_EVERY = 300        # 单进程累计多少条样本后落盘
 
 # =============================================================================
-# 3) 中文列名映射
+# 中文列名映射
 # =============================================================================
 
 CN_COL_MAP = {
@@ -128,26 +91,22 @@ CN_COL_MAP = {
 }
 
 # =============================================================================
-# 4) 输出给脚本2使用的特征列（必须保持一致）
+# 特征列（⚠ 必须与脚本 2 完全一致）
 # =============================================================================
 
 FEATURE_COLS = [
-    "close",
-    "volume",
-    "MA13",
-    "MA26",
-    "six_veins_count",
-    "banker",
-    "retail",
-    "accumulate",
+    "close", "volume", "MA13", "MA26",
+    "six_veins_count", "banker", "retail", "accumulate",
+    "pct_chg", "amplitude", "turnover",
+    "macd_red", "kdj_red", "rsi_red", "bbi_red",
 ]
 
 # =============================================================================
-# 5) 工具函数
+# 工具函数
 # =============================================================================
 
 def apply_cooldown(idxs, cooldown):
-    """对信号索引应用冷却期"""
+    """对信号索引应用冷却期，只保留间隔 >= cooldown 的第一个"""
     keep, last = [], -9999
     for i in idxs:
         if i - last >= cooldown:
@@ -157,7 +116,7 @@ def apply_cooldown(idxs, cooldown):
 
 
 def calc_future_gain(df: pd.DataFrame) -> pd.Series:
-    """计算未来 FUTURE_DAYS 内的最大涨幅（%）"""
+    """same-day 买入，未来 FUTURE_DAYS 内最大涨幅"""
     future_high = (
         df["high"]
         .shift(-1)
@@ -167,18 +126,11 @@ def calc_future_gain(df: pd.DataFrame) -> pd.Series:
     )
     return (future_high - df["close"]) / df["close"] * 100
 
-
 # =============================================================================
-# 6) 单股票处理逻辑（worker）
+# 单股票处理（子进程）
 # =============================================================================
 
 def process_one(csv_path: str):
-    """
-    单股票样本生成：
-    - 读取 CSV
-    - 计算指标/信号
-    - 生成信号样本行
-    """
     try:
         df = pd.read_csv(csv_path)
         df = df.rename(columns={k: v for k, v in CN_COL_MAP.items() if k in df.columns})
@@ -192,10 +144,10 @@ def process_one(csv_path: str):
         if len(df) < MIN_BARS:
             return None
 
-        # 计算所有指标和信号
+        # 计算所有指标 & 信号
         df = calculate_all_signals(df)
 
-        # 自动识别“买点类信号”
+        # 自动识别买点类信号
         signal_map = {}
         for col in df.columns:
             cl = col.lower()
@@ -209,18 +161,19 @@ def process_one(csv_path: str):
                     idxs = df.index[df[col] > 0].tolist()
                     if idxs:
                         signal_map[col] = idxs
-                except Exception:
+                except:
                     pass
 
         if not signal_map:
             return None
 
         df["future_gain_20d"] = calc_future_gain(df)
-        df["success_20d"] = (df["future_gain_20d"] >= GAIN_THRESHOLD).astype(int)
+        df["success_20d"] = (df["future_gain_20d"] >= GAIN_THRESHOLD).astype("int8")
 
-        records = []
         stock = os.path.splitext(os.path.basename(csv_path))[0]
         name = df["name"].iloc[-1] if "name" in df.columns else ""
+
+        records = []
 
         for sig, idxs in signal_map.items():
             idxs = apply_cooldown(idxs, COOLDOWN)
@@ -233,12 +186,12 @@ def process_one(csv_path: str):
                     "name": name,
                     "signal": sig,
                     "date": df.at[i, "date"],
+                    "year": int(df.at[i, "date"].year),
                     "entry_price": df.at[i, "close"],
                     "future_gain_20d": df.at[i, "future_gain_20d"],
                     "success_20d": df.at[i, "success_20d"],
                 }
 
-                # 写入特征列
                 for f in FEATURE_COLS:
                     rec[f] = df.at[i, f] if f in df.columns else np.nan
 
@@ -246,74 +199,60 @@ def process_one(csv_path: str):
 
         return pd.DataFrame(records) if records else None
 
-    except Exception as e:
-        # 单股票失败不影响整体
+    except Exception:
         return None
 
-
 # =============================================================================
-# 7) 主程序
+# 主程序
 # =============================================================================
 
 def main():
-    log("信号样本生成脚本启动")
+    log("脚本1启动：生成信号样本（year 分区）")
 
-    # 收集所有 CSV
     csvs = [
         os.path.join(r, f)
         for r, _, fs in os.walk(DATA_DIR)
         for f in fs if f.endswith(".csv")
     ]
-
-    log(f"发现股票 CSV 数量: {len(csvs)}")
-    log(f"并行进程数: {NUM_WORKERS}, CHUNK_SIZE={CHUNK_SIZE}")
-
-    # 如果已有旧输出，先删除（防止误拼接）
-    if os.path.exists(OUTPUT_FILE):
-        os.remove(OUTPUT_FILE)
+    log(f"发现 CSV 数量: {len(csvs)}")
+    log(f"并行进程数: {NUM_WORKERS}")
 
     buffer = []
-    header = True
-    processed = 0
-
-    log("开始并行处理股票")
 
     with Pool(NUM_WORKERS) as pool:
         for res in tqdm(
-            pool.imap_unordered(process_one, csvs, chunksize=CHUNK_SIZE),
+            pool.imap_unordered(process_one, csvs),
             total=len(csvs),
             desc="生成信号样本"
         ):
-            processed += 1
-
             if res is not None and not res.empty:
                 buffer.append(res)
 
             if len(buffer) >= FLUSH_EVERY:
-                pd.concat(buffer).to_csv(
-                    OUTPUT_FILE,
-                    mode="a",
-                    header=header,
-                    index=False,
-                    encoding="utf-8-sig"
-                )
-                header = False
+                flush_buffer(buffer)
                 buffer.clear()
-                log(f"已处理 {processed}/{len(csvs)} 股票，已写盘")
 
-    # 写最后一批
     if buffer:
-        pd.concat(buffer).to_csv(
-            OUTPUT_FILE,
-            mode="a",
-            header=header,
-            index=False,
-            encoding="utf-8-sig"
-        )
+        flush_buffer(buffer)
 
-    log(f"信号样本生成完成，输出文件: {OUTPUT_FILE}")
-    log("脚本结束")
+    log("脚本1结束")
 
+
+def flush_buffer(buffer):
+    """将 buffer 中的数据按 year 分区写入 parquet"""
+    df = pd.concat(buffer, ignore_index=True)
+
+    # 降内存（非常关键）
+    for c in FEATURE_COLS:
+        df[c] = df[c].astype("float32")
+
+    df["success_20d"] = df["success_20d"].astype("int8")
+
+    df.to_parquet(
+        OUTPUT_DIR,
+        partition_cols=["year"],
+        index=False
+    )
 
 if __name__ == "__main__":
     main()
