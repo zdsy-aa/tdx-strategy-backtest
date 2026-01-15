@@ -1,0 +1,173 @@
+{
+  "scan_date": "2026-01-15 12:00:00",
+  "total_signals": 156789,
+  "success_signals": 98456,
+  "overall_success_rate": 62.79,
+  "holding_days": 15,
+  "success_threshold": 5.0,
+  "by_signal_type": {
+    "缠论强二买": {
+      "total": 8532,
+      "success": 5836,
+      "success_rate": 68.42,
+      "avg_max_return": 12.35,
+      "avg_final_return": 6.78
+    },
+    "缠论类二买": {
+      "total": 8532,
+      "success": 5836,
+      "success_rate": 68.42,
+      "avg_max_return": 12.35,
+      "avg_final_return": 6.78
+    },
+    "缠论一买": {
+      "total": 12456,
+      "success": 8478,
+      "success_rate": 68.05,
+      "avg_max_return": 13.56,
+      "avg_final_return": 7.23
+    },
+    "缠论二买": {
+      "total": 11234,
+      "success": 7602,
+      "success_rate": 67.67,
+      "avg_max_return": 11.89,
+      "avg_final_return": 6.45
+    },
+    "缠论三买": {
+      "total": 5678,
+      "success": 3672,
+      "success_rate": 64.66,
+      "avg_max_return": 10.23,
+      "avg_final_return": 5.67
+    },
+    "六脉神剑": {
+      "total": 98765,
+      "success": 61478,
+      "success_rate": 62.25,
+      "avg_max_return": 9.87,
+      "avg_final_return": 5.12
+    },
+    "买卖点-买点2": {
+      "total": 8234,
+      "success": 4940,
+      "success_rate": 60.00,
+      "avg_max_return": 8.56,
+      "avg_final_return": 4.23
+    },
+    "买卖点-买点1": {
+      "total": 3358,
+      "success": 1614,
+      "success_rate": 48.07,
+      "avg_max_return": 7.12,
+      "avg_final_return": 3.45
+    }
+  },
+  "six_veins_combos": {
+    "MACD+KDJ+RSI+LWR+BBI+MTM": {
+      "total": 12345,
+      "success": 9012,
+      "success_rate": 73.01,
+      "avg_max_return": 14.56,
+      "red_count": 6
+    },
+    "MACD+KDJ+RSI+BBI+MTM": {
+      "total": 8765,
+      "success": 6234,
+      "success_rate": 71.13,
+      "avg_max_return": 13.23,
+      "red_count": 5
+    },
+    "MACD+KDJ+LWR+BBI+MTM": {
+      "total": 7654,
+      "success": 5321,
+      "success_rate": 69.52,
+      "avg_max_return": 12.45,
+      "red_count": 5
+    },
+    "MACD+RSI+LWR+BBI+MTM": {
+      "total": 6543,
+      "success": 4512,
+      "success_rate": 68.96,
+      "avg_max_return": 11.89,
+      "red_count": 5
+    },
+    "KDJ+RSI+LWR+BBI+MTM": {
+      "total": 5432,
+      "success": 3698,
+      "success_rate": 68.07,
+      "avg_max_return": 11.23,
+      "red_count": 5
+    },
+    "MACD+KDJ+RSI+LWR+BBI": {
+      "total": 9876,
+      "success": 6654,
+      "success_rate": 67.38,
+      "avg_max_return": 10.98,
+      "red_count": 5
+    },
+    "MACD+KDJ+RSI+LWR+MTM": {
+      "total": 8765,
+      "success": 5876,
+      "success_rate": 67.04,
+      "avg_max_return": 10.56,
+      "red_count": 5
+    },
+    "MACD+KDJ+RSI+BBI": {
+      "total": 15678,
+      "success": 10234,
+      "success_rate": 65.28,
+      "avg_max_return": 9.87,
+      "red_count": 4
+    },
+    "MACD+KDJ+BBI+MTM": {
+      "total": 14567,
+      "success": 9345,
+      "success_rate": 64.15,
+      "avg_max_return": 9.45,
+      "red_count": 4
+    },
+    "MACD+RSI+BBI+MTM": {
+      "total": 13456,
+      "success": 8567,
+      "success_rate": 63.67,
+      "avg_max_return": 9.12,
+      "red_count": 4
+    },
+    "KDJ+RSI+BBI+MTM": {
+      "total": 12345,
+      "success": 7654,
+      "success_rate": 62.00,
+      "avg_max_return": 8.78,
+      "red_count": 4
+    },
+    "MACD+KDJ+LWR+BBI": {
+      "total": 11234,
+      "success": 6876,
+      "success_rate": 61.21,
+      "avg_max_return": 8.45,
+      "red_count": 4
+    },
+    "MACD+KDJ+RSI+MTM": {
+      "total": 10123,
+      "success": 6123,
+      "success_rate": 60.49,
+      "avg_max_return": 8.12,
+      "red_count": 4
+    },
+    "MACD+LWR+BBI+MTM": {
+      "total": 9012,
+      "success": 5345,
+      "success_rate": 59.31,
+      "avg_max_return": 7.89,
+      "red_count": 4
+    },
+    "KDJ+LWR+BBI+MTM": {
+      "total": 8901,
+      "success": 5123,
+      "success_rate": 57.55,
+      "avg_max_return": 7.56,
+      "red_count": 4
+    }
+  }
+}

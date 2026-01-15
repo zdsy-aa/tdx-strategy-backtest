@@ -1,0 +1,82 @@
+{
+  "缠论一买": {
+    "total_cases": 8478,
+    "analyzed_cases": 8234,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 8234, "true_count": 4567, "true_rate": 55.46},
+      "KDJ_K>D": {"count": 8234, "true_count": 5876, "true_rate": 71.36},
+      "均线多头排列": {"count": 8234, "true_count": 2876, "true_rate": 34.93},
+      "道氏趋势一致": {"count": 8234, "true_count": 4123, "true_rate": 50.07}
+    }
+  },
+  "缠论二买": {
+    "total_cases": 7602,
+    "analyzed_cases": 7456,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 7456, "true_count": 5234, "true_rate": 70.20},
+      "KDJ_K>D": {"count": 7456, "true_count": 5678, "true_rate": 76.15},
+      "均线多头排列": {"count": 7456, "true_count": 3567, "true_rate": 47.84},
+      "道氏趋势一致": {"count": 7456, "true_count": 4234, "true_rate": 56.78}
+    }
+  },
+  "缠论三买": {
+    "total_cases": 3672,
+    "analyzed_cases": 3567,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 3567, "true_count": 2789, "true_rate": 78.19},
+      "KDJ_K>D": {"count": 3567, "true_count": 2876, "true_rate": 80.63},
+      "均线多头排列": {"count": 3567, "true_count": 2345, "true_rate": 65.74},
+      "道氏趋势一致": {"count": 3567, "true_count": 2456, "true_rate": 68.85}
+    }
+  },
+  "缠论强二买": {
+    "total_cases": 5836,
+    "analyzed_cases": 5678,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 5678, "true_count": 4123, "true_rate": 72.61},
+      "KDJ_K>D": {"count": 5678, "true_count": 4567, "true_rate": 80.43},
+      "均线多头排列": {"count": 5678, "true_count": 2987, "true_rate": 52.60},
+      "道氏趋势一致": {"count": 5678, "true_count": 3456, "true_rate": 60.87}
+    }
+  },
+  "缠论类二买": {
+    "total_cases": 5836,
+    "analyzed_cases": 5678,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 5678, "true_count": 4123, "true_rate": 72.61},
+      "KDJ_K>D": {"count": 5678, "true_count": 4567, "true_rate": 80.43},
+      "均线多头排列": {"count": 5678, "true_count": 2987, "true_rate": 52.60},
+      "道氏趋势一致": {"count": 5678, "true_count": 3456, "true_rate": 60.87}
+    }
+  },
+  "六脉神剑": {
+    "total_cases": 61478,
+    "analyzed_cases": 59876,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 59876, "true_count": 42345, "true_rate": 70.72},
+      "KDJ_K>D": {"count": 59876, "true_count": 45678, "true_rate": 76.29},
+      "均线多头排列": {"count": 59876, "true_count": 28901, "true_rate": 48.27},
+      "道氏趋势一致": {"count": 59876, "true_count": 32456, "true_rate": 54.21}
+    }
+  },
+  "买卖点-买点1": {
+    "total_cases": 1614,
+    "analyzed_cases": 1567,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 1567, "true_count": 678, "true_rate": 43.27},
+      "KDJ_K>D": {"count": 1567, "true_count": 987, "true_rate": 62.99},
+      "均线多头排列": {"count": 1567, "true_count": 456, "true_rate": 29.10},
+      "道氏趋势一致": {"count": 1567, "true_count": 623, "true_rate": 39.76}
+    }
+  },
+  "买卖点-买点2": {
+    "total_cases": 4940,
+    "analyzed_cases": 4789,
+    "key_patterns": {
+      "MACD_DIF>0": {"count": 4789, "true_count": 2876, "true_rate": 60.05},
+      "KDJ_K>D": {"count": 4789, "true_count": 3456, "true_rate": 72.17},
+      "均线多头排列": {"count": 4789, "true_count": 1987, "true_rate": 41.49},
+      "道氏趋势一致": {"count": 4789, "true_count": 2345, "true_rate": 48.97}
+    }
+  }
+}
