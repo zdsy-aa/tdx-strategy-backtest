@@ -66,6 +66,10 @@ DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'day')
 # 报告目录
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'report')
 
+# Web数据目录：存放供前端展示的JSON数据文件
+# 注意：脚本会自动将数据输出到此目录，无需手动复制
+WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
+
 # 成功案例文件
 SUCCESS_CASES_FILE = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
 
@@ -1169,19 +1173,38 @@ def main():
     report_df.to_csv(report_path, index=False, encoding='utf-8-sig')
     print(f"详细分析报告已保存: {report_path}")
     
+    # 确保Web数据目录存在
+    os.makedirs(WEB_DATA_DIR, exist_ok=True)
+    
     # 生成模式统计摘要
     summary = generate_pattern_summary(df, analysis_results)
+    
+    # 保存到report目录
     summary_path = os.path.join(REPORT_DIR, 'pattern_summary.json')
     with open(summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(f"模式统计摘要已保存: {summary_path}")
     
+    # 同时保存到Web数据目录（供前端使用）
+    web_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_summary.json')
+    with open(web_summary_path, 'w', encoding='utf-8') as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
+    print(f"模式统计摘要已保存到Web目录: {web_summary_path}")
+    
     # 生成按信号类型分类的统计
     signal_summary = generate_signal_type_summary(df, analysis_results)
+    
+    # 保存到report目录
     signal_summary_path = os.path.join(REPORT_DIR, 'pattern_analysis_by_signal.json')
     with open(signal_summary_path, 'w', encoding='utf-8') as f:
         json.dump(signal_summary, f, ensure_ascii=False, indent=2)
     print(f"按信号类型统计已保存: {signal_summary_path}")
+    
+    # 同时保存到Web数据目录（供前端使用）
+    web_signal_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_analysis_by_signal.json')
+    with open(web_signal_summary_path, 'w', encoding='utf-8') as f:
+        json.dump(signal_summary, f, ensure_ascii=False, indent=2)
+    print(f"按信号类型统计已保存到Web目录: {web_signal_summary_path}")
     
     # 打印关键发现
     print("\n" + "=" * 60)
