@@ -461,9 +461,9 @@ def scan_all_stocks(max_workers: int = None) -> pd.DataFrame:
     print(f"发现 {total_files} 个股票文件")
     print("-" * 60)
     
-    # 设置并行进程数
+    # 设置并行进程数 (cpu核数-1)
     if max_workers is None:
-        max_workers = max(1, multiprocessing.cpu_count() - 2)
+        max_workers = max(1, multiprocessing.cpu_count() - 1)
     
     all_results = []
     processed = 0

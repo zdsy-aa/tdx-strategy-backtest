@@ -148,7 +148,7 @@ def run_backtest_on_all_stocks(
     """
     # 确定进程数
     if num_processes is None:
-        num_processes = cpu_count()
+        num_processes = max(1, cpu_count() - 1)
     
     # 显示进度信息
     if show_progress:

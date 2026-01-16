@@ -441,10 +441,11 @@ def main():
     命令行入口函数
     
     用法:
-        python data_fetcher.py                  # 批量下载默认股票
-        python data_fetcher.py --today          # 只更新当天数据
-        python data_fetcher.py --stock 000001   # 下载指定股票
-        python data_fetcher.py --index sh000300 # 下载指定指数
+        python data_fetcher.py --full                           # 全量下载所有股票 (首次使用)
+        python data_fetcher.py --today                          # 只更新当天数据 (日常更新)
+        python data_fetcher.py --date 20260101 20260115         # 下载指定日期范围内的数据 (覆盖已有数据)
+        python data_fetcher.py --stock 000001                   # 下载指定股票
+        python data_fetcher.py --index sh000300                 # 下载指定指数
     """
     import argparse
     
@@ -453,29 +454,91 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-    python data_fetcher.py                  # 批量下载默认股票
-    python data_fetcher.py --today          # 只更新当天数据
-    python data_fetcher.py --stock 000001   # 下载指定股票
-    python data_fetcher.py --index sh000300 # 下载指定指数
+    python data_fetcher.py --full                           # 全量下载所有股票
+    python data_fetcher.py --today                          # 只更新当天数据
+    python data_fetcher.py --date 20260101 20260115         # 下载指定日期范围 (覆盖已有数据)
+    python data_fetcher.py --stock 000001                   # 下载指定股票
+    python data_fetcher.py --index sh000300                 # 下载指定指数
         """
     )
     
-    parser.add_argument('--today', action='store_true', help='只更新当天数据')
+    parser.add_argument('--full', action='store_true', help='全量下载所有股票数据 (首次使用时推荐)')
+    parser.add_argument('--today', action='store_true', help='只更新当天数据 (日常更新)')
+    parser.add_argument('--date', nargs=2, metavar=('START', 'END'), help='下载指定日期范围的数据 (格式: YYYYMMDD, 会覆盖已有数据)')
     parser.add_argument('--stock', type=str, help='下载指定股票代码')
     parser.add_argument('--index', type=str, help='下载指定指数代码')
-    parser.add_argument('--all', action='store_true', help='下载所有默认股票和指数')
     
     args = parser.parse_args()
     
-    if args.today:
+    if args.full:
+        # 全量下载所有股票
+        batch_download(include_indices=True)
+    elif args.today:
+        # 只更新当天数据
         download_today_data()
+    elif args.date:
+        # 下载指定日期范围的数据 (覆盖已有数据)
+        start_date, end_date = args.date
+        print(f"开始下载 {start_date} 到 {end_date} 的数据...")
+        
+        stock_files = get_all_stock_files(DATA_DIR)
+        if not stock_files:
+            print("警告: 未找到任何本地数据文件")
+            print("请先运行 'python data_fetcher.py --full' 下载全量数据")
+            return
+        
+        # 对每个股票重新下载指定日期范围的数据
+        success_count = 0
+        failed_count = 0
+        
+        for i, filepath in enumerate(stock_files, 1):
+            try:
+                # 从文件路径提取股票代码
+                filename = os.path.basename(filepath)
+                stock_code = filename.replace('.csv', '')
+                
+                # 下载指定日期范围的数据
+                df = get_stock_data(stock_code, start_date=start_date, end_date=end_date)
+                
+                if not df.empty:
+                    # 读取现有数据
+                    existing_df = pd.read_csv(filepath, parse_dates=['date'])
+                    
+                    # 移除指定日期范围内的旧数据
+                    start_dt = pd.to_datetime(start_date)
+                    end_dt = pd.to_datetime(end_date)
+                    mask = (existing_df['date'] < start_dt) | (existing_df['date'] > end_dt)
+                    existing_df = existing_df[mask]
+                    
+                    # 合并新数据
+                    combined_df = pd.concat([existing_df, df], ignore_index=True)
+                    combined_df = combined_df.drop_duplicates(subset=['date'], keep='last')
+                    combined_df = combined_df.sort_values('date')
+                    
+                    # 保存更新后的数据
+                    combined_df.to_csv(filepath, index=False, encoding='utf-8')
+                    success_count += 1
+                    
+                    if i % 100 == 0:
+                        print(f"已处理 {i} 个文件...")
+                else:
+                    failed_count += 1
+                    
+            except Exception as e:
+                failed_count += 1
+                print(f"处理 {stock_code} 失败: {str(e)}")
+        
+        print(f"\n下载完成: 成功 {success_count}, 失败 {failed_count}")
+        
     elif args.stock:
+        # 下载指定股票
         success, rows = update_stock_data(args.stock)
         if success:
             print(f"股票 {args.stock} 下载成功，共 {rows} 条数据")
         else:
             print(f"股票 {args.stock} 下载失败")
     elif args.index:
+        # 下载指定指数
         df = get_index_data(args.index)
         if not df.empty:
             save_data(df, f"{args.index}.csv")
@@ -483,7 +546,33 @@ def main():
         else:
             print(f"指数 {args.index} 下载失败")
     else:
+        # 默认行为：批量下载
+        print("未指定下载模式，使用默认的批量下载")
+        print("提示: 使用 'python data_fetcher.py --help' 查看所有可用选项")
         batch_download()
+
+
+def get_all_stock_files(data_dir: str) -> List[str]:
+    """
+    获取数据目录下所有股票CSV文件的完整路径
+    
+    参数:
+        data_dir (str): 数据目录路径
+    
+    返回:
+        List[str]: 所有CSV文件的完整路径列表
+    """
+    stock_files = []
+    
+    if not os.path.exists(data_dir):
+        return stock_files
+    
+    for root, dirs, files in os.walk(data_dir):
+        for file in files:
+            if file.endswith('.csv'):
+                stock_files.append(os.path.join(root, file))
+    
+    return sorted(stock_files)
 
 
 if __name__ == "__main__":

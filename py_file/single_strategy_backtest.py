@@ -501,8 +501,9 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     print(f"\n开始回测: {strategy_names[strategy]}")
     print(f"处理 {len(stock_files)} 个股票文件...")
     
-    # 多进程并行处理
-    with Pool(cpu_count()) as pool:
+    # 多进程并行处理 (cpu核数-1)
+    num_processes = max(1, cpu_count() - 1)
+    with Pool(num_processes) as pool:
         all_results = pool.map(backtest_func, stock_files)
     
     # 过滤空结果
