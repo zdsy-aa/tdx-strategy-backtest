@@ -45,7 +45,19 @@ def load_stock_data(file_path):
             return None
             
         # 统一价格列名
-        column_map = {'开盘': 'open', '收盘': 'close', '最高': 'high', '最低': 'low', '成交量': 'volume'}
+        column_map = {
+            '名称': 'name',
+            '开盘': 'open', 
+            '收盘': 'close', 
+            '最高': 'high', 
+            '最低': 'low', 
+            '成交量': 'volume',
+            '成交额': 'amount',
+            '振幅': 'amplitude',
+            '涨跌幅': 'pct_change',
+            '涨跌额': 'change',
+            '换手率': 'turnover'
+        }
         df = df.rename(columns={k: v for k, v in column_map.items() if k in df.columns})
         
         return df.sort_values('date').reset_index(drop=True)

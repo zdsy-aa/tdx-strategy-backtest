@@ -748,7 +748,7 @@ def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
     
     try:
         # 加载数据
-        df = pd.read_csv(filepath, encoding='utf-8')
+        df = pd.read_csv(filepath, encoding='utf-8-sig')
         
         # 标准化列名
         column_mapping = {

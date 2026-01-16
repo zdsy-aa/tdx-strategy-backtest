@@ -138,11 +138,10 @@ def load_stock_data(filepath: str) -> pd.DataFrame:
         ['name', 'date', 'open', 'close', 'high', 'low', ...]
     """
     try:
-        # 读取CSV文件，使用UTF-8编码
-        df = pd.read_csv(filepath, encoding='utf-8')
+        # 读取CSV文件，使用UTF-8-SIG编码以处理BOM
+        df = pd.read_csv(filepath, encoding='utf-8-sig')
         
         # 列名映射：将中文列名转换为英文列名
-        # 这样可以兼容不同来源的数据文件
         column_mapping = {
             '名称': 'name',
             '日期': 'date',

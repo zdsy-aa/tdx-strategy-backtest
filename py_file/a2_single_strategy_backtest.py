@@ -176,7 +176,11 @@ def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
             '最高': 'high',
             '最低': 'low',
             '成交量': 'volume',
-            '成交额': 'amount'
+            '成交额': 'amount',
+            '振幅': 'amplitude',
+            '涨跌幅': 'pct_change',
+            '涨跌额': 'change',
+            '换手率': 'turnover'
         }
         df = df.rename(columns=name_map)
         
