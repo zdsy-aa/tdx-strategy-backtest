@@ -132,14 +132,14 @@ SELL_OPTIMIZE_PERIODS = [5, 10, 15, 20, 30]
 # 导入技术指标计算模块
 # ==============================================================================
 
-from indicators_99 import (
+from a99_indicators import (
     calculate_six_veins,
     calculate_buy_sell_points,
     calculate_chan_theory,
     calculate_all_signals
 )
 
-from backtest_utils_99 import get_all_stock_files, aggregate_results
+from a99_backtest_utils import get_all_stock_files, aggregate_results
 
 
 # ==============================================================================

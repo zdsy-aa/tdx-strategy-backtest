@@ -104,8 +104,8 @@ AGGRESSIVE_HOLD_PERIODS = [5, 10, 15]
 # 导入技术指标计算模块
 # ==============================================================================
 
-from indicators_99 import calculate_all_signals
-from backtest_utils_99 import get_all_stock_files, aggregate_results
+from a99_indicators import calculate_all_signals
+from a99_backtest_utils import get_all_stock_files, aggregate_results
 
 
 # ==============================================================================

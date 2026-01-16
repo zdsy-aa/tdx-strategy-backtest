@@ -17,7 +17,7 @@
     - aggregate_results(): 汇总多只股票的回测结果
 
 使用示例:
-    from backtest_utils_99 import get_all_stock_files, run_backtest_on_all_stocks
+    from a99_backtest_utils import get_all_stock_files, run_backtest_on_all_stocks
     
     # 获取所有股票文件
     stock_files = get_all_stock_files('/path/to/data')

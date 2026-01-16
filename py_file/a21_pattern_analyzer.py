@@ -48,7 +48,7 @@ warnings.filterwarnings('ignore')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # 导入基础函数
-from indicators_99 import (
+from a99_indicators import (
     REF, MA, EMA, SMA, HHV, LLV, CROSS, COUNT, ABS, MAX, IF
 )
 
