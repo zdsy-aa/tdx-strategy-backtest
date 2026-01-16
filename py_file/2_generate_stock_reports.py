@@ -18,7 +18,7 @@ from functools import partial
 # 添加项目路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from indicators import calculate_six_veins, calculate_buy_sell_points, calculate_money_tree, calculate_chan_theory
+from indicators_99 import calculate_six_veins, calculate_buy_sell_points, calculate_money_tree, calculate_chan_theory
 
 # 配置
 PROJECT_ROOT = Path(__file__).parent.parent

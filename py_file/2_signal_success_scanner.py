@@ -94,7 +94,7 @@ MIN_RED_COUNT = 4
 # 导入技术指标计算模块
 # ==============================================================================
 
-from indicators import (
+from indicators_99 import (
     calculate_six_veins,       # 六脉神剑指标计算
     calculate_buy_sell_points, # 买卖点指标计算
     calculate_chan_theory      # 缠论指标计算

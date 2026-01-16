@@ -2,46 +2,50 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-单指标策略回测系统 (Single Strategy Backtest)
+组合策略回测系统 (Combo Strategy Backtest)
 ================================================================================
 
 功能描述:
-    本脚本整合了原101-105五个回测脚本的功能，提供统一的单指标策略回测能力。
-    支持六脉神剑、买卖点、缠论买点等多种技术指标策略的全量股票回测。
+    本脚本整合了原201-202两个回测脚本的功能，提供统一的组合策略回测能力。
+    支持稳健型和激进型两种组合策略的全量股票回测。
 
 整合的原脚本:
-    - 101_six_veins_test.py      : 六脉神剑策略回测
-    - 102_buy_sell_points_test.py : 买卖点策略回测
-    - 103_chan_buy_point_test.py  : 缠论买点策略回测（基础3买点）
-    - 104_test_sell_points.py     : 卖出点优化测试
-    - 105_chan_5buy_test.py       : 缠论5买点策略回测
+    - 201_steady_combo_test.py     : 稳健组合策略回测
+    - 202_aggressive_combo_test.py : 激进组合策略回测
 
-主要功能:
-    1. 六脉神剑策略：测试单指标和组合（4红以上）的胜率
-    2. 买卖点策略：测试买点1（吸筹）和买点2（低位金叉）
-    3. 缠论买点策略：测试5类买点（一买、二买、三买、强二买、类二买）
-    4. 卖出点优化：测试不同持仓周期对收益的影响
+组合策略说明:
+    
+    【稳健组合】
+    适合风险偏好较低的投资者，追求稳定收益。
+    买入条件：六脉≥4红 + 买点2 + (缠论二买或三买)
+    持仓周期：10, 20, 30天
+    
+    【激进组合】
+    适合风险偏好较高的投资者，追求高收益。
+    包含三种子策略：
+    - 激进1：六脉≥5红 + 买点2
+    - 激进2：六脉6红 + 摇钱树
+    - 激进3：缠论一买 + 六脉≥4红
+    持仓周期：5, 10, 15天
 
 输出文件:
-    - report/total/single_strategy_report.md       : 综合回测报告（Markdown格式）
-    - report/total/single_strategy_summary.csv     : 回测结果汇总（CSV格式）
-    - web/client/src/data/backtest_single.json     : 回测数据（供Web前端使用）
+    - report/total/combo_strategy_report.md       : 综合回测报告（Markdown格式）
+    - report/total/combo_strategy_summary.csv     : 回测结果汇总（CSV格式）
+    - web/client/src/data/backtest_combo.json     : 回测数据（供Web前端使用）
 
 使用方法:
     cd ~/tdx-strategy-backtest/py_file
     
-    # 运行所有策略回测
-    python3 single_strategy_backtest.py
+    # 运行所有组合策略回测
+    python3 combo_strategy_backtest.py
     
-    # 运行指定策略回测
-    python3 single_strategy_backtest.py --strategy six_veins
-    python3 single_strategy_backtest.py --strategy buy_sell
-    python3 single_strategy_backtest.py --strategy chan
-    python3 single_strategy_backtest.py --strategy sell_optimize
+    # 运行指定组合策略回测
+    python3 combo_strategy_backtest.py --strategy steady
+    python3 combo_strategy_backtest.py --strategy aggressive
 
 命令行参数:
     --strategy : 指定要运行的策略类型
-                 可选值: all, six_veins, buy_sell, chan, sell_optimize
+                 可选值: all, steady, aggressive
                  默认值: all（运行所有策略）
     --limit    : 限制处理的股票数量（用于测试）
                  默认值: 0（不限制，处理所有股票）
@@ -66,7 +70,6 @@ import numpy as np
 from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 from multiprocessing import Pool, cpu_count
-from itertools import combinations
 
 # ==============================================================================
 # 路径配置
@@ -91,55 +94,18 @@ WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
 # 回测参数配置
 # ==============================================================================
 
-# 六脉神剑指标列表
-SIX_VEINS_INDICATORS = ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']
+# 稳健组合持仓周期
+STEADY_HOLD_PERIODS = [10, 20, 30]
 
-# 六脉神剑指标名称映射
-INDICATOR_NAMES = {
-    'macd_red': 'MACD',
-    'kdj_red': 'KDJ',
-    'rsi_red': 'RSI',
-    'lwr_red': 'LWR',
-    'bbi_red': 'BBI',
-    'mtm_red': 'MTM'
-}
-
-# 缠论买点信号列表
-CHAN_BUY_SIGNALS = ['chan_buy1', 'chan_buy2', 'chan_buy3', 'chan_strong_buy2', 'chan_like_buy2']
-
-# 缠论买点名称映射
-CHAN_SIGNAL_NAMES = {
-    'chan_buy1': '缠论一买',
-    'chan_buy2': '缠论二买',
-    'chan_buy3': '缠论三买',
-    'chan_strong_buy2': '缠论强二买',
-    'chan_like_buy2': '缠论类二买'
-}
-
-# 买卖点信号映射
-BUY_SELL_SIGNALS = {
-    'buy1': '买点1 (吸筹)',
-    'buy2': '买点2 (低位金叉)'
-}
-
-# 默认持仓周期
-DEFAULT_HOLD_PERIODS = [5, 10, 20]
-
-# 卖出优化持仓周期
-SELL_OPTIMIZE_PERIODS = [5, 10, 15, 20, 30]
+# 激进组合持仓周期
+AGGRESSIVE_HOLD_PERIODS = [5, 10, 15]
 
 # ==============================================================================
 # 导入技术指标计算模块
 # ==============================================================================
 
-from indicators import (
-    calculate_six_veins,
-    calculate_buy_sell_points,
-    calculate_chan_theory,
-    calculate_all_signals
-)
-
-from backtest_utils import get_all_stock_files, aggregate_results
+from indicators_99 import calculate_all_signals
+from backtest_utils_99 import get_all_stock_files, aggregate_results
 
 
 # ==============================================================================
@@ -213,6 +179,8 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
             - trade_count: 有效交易数
             - win_rate: 胜率（百分比）
             - avg_return: 平均收益（百分比）
+            - max_return: 最大收益（百分比）
+            - min_return: 最小收益（百分比）
     """
     # 获取信号触发点
     signals = df[df[signal_col] == True].copy()
@@ -222,7 +190,9 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
             'signal_count': 0,
             'trade_count': 0,
             'win_rate': np.nan,
-            'avg_return': np.nan
+            'avg_return': np.nan,
+            'max_return': np.nan,
+            'min_return': np.nan
         }
     
     returns = []
@@ -243,7 +213,9 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
             'signal_count': len(signals),
             'trade_count': 0,
             'win_rate': np.nan,
-            'avg_return': np.nan
+            'avg_return': np.nan,
+            'max_return': np.nan,
+            'min_return': np.nan
         }
     
     returns = np.array(returns)
@@ -253,20 +225,23 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
         'signal_count': len(signals),
         'trade_count': len(returns),
         'win_rate': win_rate,
-        'avg_return': np.mean(returns)
+        'avg_return': np.mean(returns),
+        'max_return': np.max(returns),
+        'min_return': np.min(returns)
     }
 
 
 # ==============================================================================
-# 六脉神剑策略回测
+# 稳健组合策略回测
 # ==============================================================================
 
-def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
+def backtest_steady_single(filepath: str) -> Optional[pd.DataFrame]:
     """
-    六脉神剑策略 - 单只股票回测
+    稳健组合策略 - 单只股票回测
     
     功能说明:
-        测试六脉神剑各单指标和组合（4红以上）的表现。
+        稳健组合买入条件：六脉≥4红 + 买点2 + (缠论二买或三买)
+        该组合要求多个条件同时满足，信号较少但质量较高。
     
     参数:
         filepath (str): 股票CSV文件路径
@@ -279,183 +254,94 @@ def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
         return None
     
     try:
-        # 计算六脉神剑指标
-        df = calculate_six_veins(df)
+        # 计算所有指标
+        df = calculate_all_signals(df)
+        
+        # 稳健组合信号条件
+        # 条件1：六脉神剑达到4红以上
+        # 条件2：买点2信号（低位金叉）
+        # 条件3：缠论二买或三买信号
+        df['steady_signal'] = (
+            (df['six_veins_count'] >= 4) & 
+            df['buy2'] & 
+            (df['chan_buy2'] | df['chan_buy3'])
+        )
         
         results = []
         
-        # 1. 测试单指标
-        for indicator in SIX_VEINS_INDICATORS:
-            # 生成信号列（当天变红）
-            signal_col = f'{indicator}_signal'
-            df[signal_col] = df[indicator] & ~df[indicator].shift(1).fillna(False)
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '六脉神剑',
-                        'type': '单指标',
-                        'name': INDICATOR_NAMES[indicator],
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        # 2. 测试N红组合（4红、5红、6红）
-        for n in [4, 5, 6]:
-            signal_col = f'{n}_red_signal'
-            df[f'{n}_red'] = df['six_veins_count'] >= n
-            df[signal_col] = df[f'{n}_red'] & ~df[f'{n}_red'].shift(1).fillna(False)
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '六脉神剑',
-                        'type': '组合',
-                        'name': f'≥{n}红',
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
-        return None
-
-
-# ==============================================================================
-# 买卖点策略回测
-# ==============================================================================
-
-def backtest_buy_sell_single(filepath: str) -> Optional[pd.DataFrame]:
-    """
-    买卖点策略 - 单只股票回测
-    
-    功能说明:
-        测试买点1（吸筹）和买点2（低位金叉）的表现。
-    
-    参数:
-        filepath (str): 股票CSV文件路径
-    
-    返回:
-        pd.DataFrame: 回测结果，如果失败返回None
-    """
-    df = load_stock_data(filepath)
-    if df is None:
-        return None
-    
-    try:
-        # 计算买卖点指标
-        df = calculate_buy_sell_points(df)
-        
-        results = []
-        
-        for signal_col, signal_name in BUY_SELL_SIGNALS.items():
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '买卖点',
-                        'type': '买点',
-                        'name': signal_name,
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
-        return None
-
-
-# ==============================================================================
-# 缠论买点策略回测
-# ==============================================================================
-
-def backtest_chan_single(filepath: str) -> Optional[pd.DataFrame]:
-    """
-    缠论买点策略 - 单只股票回测
-    
-    功能说明:
-        测试缠论5类买点（一买、二买、三买、强二买、类二买）的表现。
-    
-    参数:
-        filepath (str): 股票CSV文件路径
-    
-    返回:
-        pd.DataFrame: 回测结果，如果失败返回None
-    """
-    df = load_stock_data(filepath)
-    if df is None:
-        return None
-    
-    try:
-        # 计算缠论指标
-        df = calculate_chan_theory(df)
-        
-        results = []
-        
-        for signal_col in CHAN_BUY_SIGNALS:
-            signal_name = CHAN_SIGNAL_NAMES[signal_col]
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '缠论买点',
-                        'type': '买点',
-                        'name': signal_name,
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
-        return None
-
-
-# ==============================================================================
-# 卖出点优化回测
-# ==============================================================================
-
-def backtest_sell_optimize_single(filepath: str) -> Optional[pd.DataFrame]:
-    """
-    卖出点优化 - 单只股票回测
-    
-    功能说明:
-        以六脉6红作为买入基准，测试不同持仓周期对收益的影响。
-    
-    参数:
-        filepath (str): 股票CSV文件路径
-    
-    返回:
-        pd.DataFrame: 回测结果，如果失败返回None
-    """
-    df = load_stock_data(filepath)
-    if df is None:
-        return None
-    
-    try:
-        # 计算六脉神剑指标
-        df = calculate_six_veins(df)
-        
-        # 以六脉6红作为买入信号
-        df['buy_signal'] = (df['six_veins_count'] == 6) & (df['six_veins_count'].shift(1) < 6)
-        
-        results = []
-        
-        for period in SELL_OPTIMIZE_PERIODS:
-            stats = calculate_returns(df, 'buy_signal', period)
+        for period in STEADY_HOLD_PERIODS:
+            stats = calculate_returns(df, 'steady_signal', period)
             if stats['trade_count'] > 0:
                 results.append({
-                    'strategy': '卖出优化',
-                    'type': '固定周期',
-                    'name': f'{period}天卖出',
+                    'strategy': '稳健组合',
+                    'type': '组合策略',
+                    'name': '六脉≥4红+买点2+缠论二/三买',
                     'hold_period': period,
                     **stats
                 })
+        
+        return pd.DataFrame(results) if results else None
+        
+    except Exception as e:
+        return None
+
+
+# ==============================================================================
+# 激进组合策略回测
+# ==============================================================================
+
+def backtest_aggressive_single(filepath: str) -> Optional[pd.DataFrame]:
+    """
+    激进组合策略 - 单只股票回测
+    
+    功能说明:
+        激进组合包含三种子策略：
+        - 激进1：六脉≥5红 + 买点2
+        - 激进2：六脉6红 + 摇钱树
+        - 激进3：缠论一买 + 六脉≥4红
+        
+        这些组合追求更高的收益，但风险也相对较高。
+    
+    参数:
+        filepath (str): 股票CSV文件路径
+    
+    返回:
+        pd.DataFrame: 回测结果，如果失败返回None
+    """
+    df = load_stock_data(filepath)
+    if df is None:
+        return None
+    
+    try:
+        # 计算所有指标
+        df = calculate_all_signals(df)
+        
+        # 定义激进组合策略
+        combos = {
+            '激进1 (六脉≥5红+买点2)': (df['six_veins_count'] >= 5) & df['buy2'],
+            '激进2 (六脉6红+摇钱树)': (df['six_veins_count'] == 6) & df.get('money_tree', False),
+            '激进3 (缠论一买+六脉≥4红)': df['chan_buy1'] & (df['six_veins_count'] >= 4)
+        }
+        
+        results = []
+        
+        for combo_name, signal_series in combos.items():
+            # 处理可能的布尔值（当money_tree不存在时）
+            if isinstance(signal_series, bool):
+                continue
+                
+            df[combo_name] = signal_series
+            
+            for period in AGGRESSIVE_HOLD_PERIODS:
+                stats = calculate_returns(df, combo_name, period)
+                if stats['trade_count'] > 0:
+                    results.append({
+                        'strategy': '激进组合',
+                        'type': '组合策略',
+                        'name': combo_name,
+                        'hold_period': period,
+                        **stats
+                    })
         
         return pd.DataFrame(results) if results else None
         
@@ -472,7 +358,7 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     运行指定策略的回测
     
     参数:
-        strategy (str): 策略类型
+        strategy (str): 策略类型 ('steady' 或 'aggressive')
         stock_files (List[str]): 股票文件列表
     
     返回:
@@ -480,10 +366,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     """
     # 选择回测函数
     backtest_funcs = {
-        'six_veins': backtest_six_veins_single,
-        'buy_sell': backtest_buy_sell_single,
-        'chan': backtest_chan_single,
-        'sell_optimize': backtest_sell_optimize_single
+        'steady': backtest_steady_single,
+        'aggressive': backtest_aggressive_single
     }
     
     backtest_func = backtest_funcs.get(strategy)
@@ -492,10 +376,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         return pd.DataFrame()
     
     strategy_names = {
-        'six_veins': '六脉神剑',
-        'buy_sell': '买卖点',
-        'chan': '缠论买点',
-        'sell_optimize': '卖出优化'
+        'steady': '稳健组合',
+        'aggressive': '激进组合'
     }
     
     print(f"\n开始回测: {strategy_names[strategy]}")
@@ -522,7 +404,9 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         'signal_count': 'sum',
         'trade_count': 'sum',
         'win_rate': 'mean',
-        'avg_return': 'mean'
+        'avg_return': 'mean',
+        'max_return': 'max',
+        'min_return': 'min'
     }).reset_index()
     
     print(f"  {strategy_names[strategy]}: 完成，共 {len(summary)} 条汇总记录")
@@ -546,26 +430,52 @@ def generate_markdown_report(results: pd.DataFrame, stock_count: int) -> str:
         str: Markdown格式的报告内容
     """
     report = []
-    report.append("# 单指标策略回测报告\n")
+    report.append("# 组合策略回测报告\n")
     report.append(f"**生成时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     report.append(f"**测试股票数量**: {stock_count}\n\n")
+    
+    # 策略说明
+    report.append("## 策略说明\n\n")
+    report.append("### 稳健组合\n")
+    report.append("- **买入条件**: 六脉≥4红 + 买点2 + (缠论二买或三买)\n")
+    report.append("- **适合人群**: 风险偏好较低的投资者\n")
+    report.append("- **持仓周期**: 10, 20, 30天\n\n")
+    
+    report.append("### 激进组合\n")
+    report.append("- **激进1**: 六脉≥5红 + 买点2\n")
+    report.append("- **激进2**: 六脉6红 + 摇钱树\n")
+    report.append("- **激进3**: 缠论一买 + 六脉≥4红\n")
+    report.append("- **适合人群**: 风险偏好较高的投资者\n")
+    report.append("- **持仓周期**: 5, 10, 15天\n\n")
     
     # 按策略分组输出
     for strategy in results['strategy'].unique():
         strategy_df = results[results['strategy'] == strategy]
         
-        report.append(f"## {strategy}\n\n")
-        report.append("| 类型 | 名称 | 持仓周期 | 信号数 | 交易数 | 胜率 | 平均收益 |\n")
-        report.append("| --- | --- | --- | --- | --- | --- | --- |\n")
+        report.append(f"## {strategy}回测结果\n\n")
+        report.append("| 策略名称 | 持仓周期 | 信号数 | 交易数 | 胜率 | 平均收益 | 最大收益 | 最小收益 |\n")
+        report.append("| --- | --- | --- | --- | --- | --- | --- | --- |\n")
         
-        for _, row in strategy_df.sort_values(['type', 'win_rate'], ascending=[True, False]).iterrows():
+        for _, row in strategy_df.sort_values('win_rate', ascending=False).iterrows():
             report.append(
-                f"| {row['type']} | {row['name']} | {row['hold_period']}天 | "
+                f"| {row['name']} | {row['hold_period']}天 | "
                 f"{int(row['signal_count'])} | {int(row['trade_count'])} | "
-                f"{row['win_rate']:.2f}% | {row['avg_return']:.2f}% |\n"
+                f"{row['win_rate']:.2f}% | {row['avg_return']:.2f}% | "
+                f"{row['max_return']:.2f}% | {row['min_return']:.2f}% |\n"
             )
         
         report.append("\n")
+    
+    # 结论
+    report.append("## 结论与建议\n\n")
+    
+    if not results.empty:
+        best = results.loc[results['win_rate'].idxmax()]
+        report.append(f"**最佳策略**: {best['name']} ({best['hold_period']}天持仓)\n")
+        report.append(f"- 胜率: {best['win_rate']:.2f}%\n")
+        report.append(f"- 平均收益: {best['avg_return']:.2f}%\n\n")
+    
+    report.append("**风险提示**: 历史回测结果不代表未来收益，请根据自身风险承受能力谨慎投资。\n")
     
     return ''.join(report)
 
@@ -584,38 +494,47 @@ def generate_json_data(results: pd.DataFrame, stock_count: int) -> Dict:
     data = {
         'generate_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'stock_count': stock_count,
-        'strategies': {}
+        'strategies': {
+            'steady': {
+                'name': '稳健组合',
+                'description': '六脉≥4红 + 买点2 + (缠论二买或三买)',
+                'risk_level': '低',
+                'results': []
+            },
+            'aggressive': {
+                'name': '激进组合',
+                'description': '多种高收益组合策略',
+                'risk_level': '高',
+                'results': []
+            }
+        },
+        'comparison': []
     }
     
-    for strategy in results['strategy'].unique():
-        strategy_df = results[results['strategy'] == strategy]
+    # 填充策略结果
+    for _, row in results.iterrows():
+        strategy_key = 'steady' if row['strategy'] == '稳健组合' else 'aggressive'
         
-        data['strategies'][strategy] = {
-            'summary': [],
-            'best_performers': []
-        }
-        
-        # 添加所有结果
-        for _, row in strategy_df.iterrows():
-            data['strategies'][strategy]['summary'].append({
-                'type': row['type'],
-                'name': row['name'],
-                'hold_period': int(row['hold_period']),
-                'signal_count': int(row['signal_count']),
-                'trade_count': int(row['trade_count']),
-                'win_rate': round(row['win_rate'], 2),
-                'avg_return': round(row['avg_return'], 2)
-            })
-        
-        # 添加最佳表现（按胜率排序前5）
-        top5 = strategy_df.nlargest(5, 'win_rate')
-        for _, row in top5.iterrows():
-            data['strategies'][strategy]['best_performers'].append({
-                'name': f"{row['type']}-{row['name']}",
-                'hold_period': int(row['hold_period']),
-                'win_rate': round(row['win_rate'], 2),
-                'avg_return': round(row['avg_return'], 2)
-            })
+        data['strategies'][strategy_key]['results'].append({
+            'name': row['name'],
+            'hold_period': int(row['hold_period']),
+            'signal_count': int(row['signal_count']),
+            'trade_count': int(row['trade_count']),
+            'win_rate': round(row['win_rate'], 2),
+            'avg_return': round(row['avg_return'], 2),
+            'max_return': round(row['max_return'], 2),
+            'min_return': round(row['min_return'], 2)
+        })
+    
+    # 生成对比数据（按胜率排序）
+    for _, row in results.sort_values('win_rate', ascending=False).iterrows():
+        data['comparison'].append({
+            'strategy': row['strategy'],
+            'name': row['name'],
+            'hold_period': int(row['hold_period']),
+            'win_rate': round(row['win_rate'], 2),
+            'avg_return': round(row['avg_return'], 2)
+        })
     
     return data
 
@@ -626,17 +545,17 @@ def generate_json_data(results: pd.DataFrame, stock_count: int) -> Dict:
 
 def main():
     """
-    主函数：执行单指标策略回测
+    主函数：执行组合策略回测
     
     支持通过命令行参数选择要运行的策略类型。
     """
     # 解析命令行参数
-    parser = argparse.ArgumentParser(description='单指标策略回测系统')
+    parser = argparse.ArgumentParser(description='组合策略回测系统')
     parser.add_argument(
         '--strategy',
         type=str,
         default='all',
-        choices=['all', 'six_veins', 'buy_sell', 'chan', 'sell_optimize'],
+        choices=['all', 'steady', 'aggressive'],
         help='要运行的策略类型 (默认: all)'
     )
     parser.add_argument(
@@ -649,7 +568,7 @@ def main():
     args = parser.parse_args()
     
     print("=" * 70)
-    print("单指标策略回测系统 v1.0")
+    print("组合策略回测系统 v1.0")
     print("=" * 70)
     print(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"策略选择: {args.strategy}")
@@ -675,7 +594,7 @@ def main():
     
     # 确定要运行的策略
     if args.strategy == 'all':
-        strategies = ['six_veins', 'buy_sell', 'chan', 'sell_optimize']
+        strategies = ['steady', 'aggressive']
     else:
         strategies = [args.strategy]
     
@@ -698,13 +617,13 @@ def main():
     print("生成报告...")
     
     # 保存CSV
-    csv_path = os.path.join(REPORT_DIR, 'single_strategy_summary.csv')
+    csv_path = os.path.join(REPORT_DIR, 'combo_strategy_summary.csv')
     combined_results.to_csv(csv_path, index=False, encoding='utf-8-sig')
     print(f"已保存CSV汇总: {csv_path}")
     
     # 生成并保存Markdown报告
     md_report = generate_markdown_report(combined_results, len(stock_files))
-    md_path = os.path.join(REPORT_DIR, 'single_strategy_report.md')
+    md_path = os.path.join(REPORT_DIR, 'combo_strategy_report.md')
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(md_report)
     print(f"已保存Markdown报告: {md_path}")
@@ -713,13 +632,13 @@ def main():
     json_data = generate_json_data(combined_results, len(stock_files))
     
     # 保存到report目录
-    json_path = os.path.join(REPORT_DIR, 'backtest_single.json')
+    json_path = os.path.join(REPORT_DIR, 'backtest_combo.json')
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
     print(f"已保存JSON数据: {json_path}")
     
     # 保存到Web数据目录
-    web_json_path = os.path.join(WEB_DATA_DIR, 'backtest_single.json')
+    web_json_path = os.path.join(WEB_DATA_DIR, 'backtest_combo.json')
     with open(web_json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
     print(f"已保存JSON数据到Web目录: {web_json_path}")
@@ -731,6 +650,15 @@ def main():
     print(f"测试股票数: {len(stock_files)}")
     print(f"策略数量: {len(strategies)}")
     print(f"汇总记录: {len(combined_results)}")
+    
+    # 打印最佳策略
+    if not combined_results.empty:
+        best = combined_results.loc[combined_results['win_rate'].idxmax()]
+        print(f"\n最佳策略: {best['name']}")
+        print(f"  持仓周期: {best['hold_period']}天")
+        print(f"  胜率: {best['win_rate']:.2f}%")
+        print(f"  平均收益: {best['avg_return']:.2f}%")
+    
     print("=" * 70)
 
 
