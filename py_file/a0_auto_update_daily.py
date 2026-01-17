@@ -31,6 +31,7 @@ def main():
     parser = argparse.ArgumentParser(description='每日自动更新主控脚本')
     parser.add_argument('--full', action='store_true', help='全量更新模式')
     parser.add_argument('--incremental', action='store_true', default=True, help='增量更新模式 (默认)')
+    parser.add_argument('dates', nargs='*', help='增量模式下的日期范围 (YYYYMMDD YYYYMMDD)')
     args_cmd = parser.parse_args()
     
     if args_cmd.full:
@@ -43,6 +44,9 @@ def main():
     fetcher_args = ["--today"]
     if args_cmd.full:
         fetcher_args = ["--full"]
+    elif args_cmd.incremental and len(args_cmd.dates) == 2:
+        fetcher_args = ["--date", args_cmd.dates[0], args_cmd.dates[1]]
+        log(f"指定日期范围: {args_cmd.dates[0]} - {args_cmd.dates[1]}")
         
     if not run_script("a1_data_fetcher.py", fetcher_args):
         log("数据下载失败，停止后续任务", level="ERROR")
