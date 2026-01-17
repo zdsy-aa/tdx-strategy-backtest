@@ -34,19 +34,32 @@
 经过重构，脚本结构更加清晰，功能更加集中。
 
 ### 1. 数据获取
-*   **`data_fetcher.py`**
+*   **`a1_data_fetcher.py`**
     *   **作用**：A股日线数据下载与管理模块。
     *   **核心命令**：
-        *   `python data_fetcher.py --all`: 首次使用时，下载所有A股历史数据。
-        *   `python data_fetcher.py --today`: 每日收盘后，增量更新当天数据。
+        *   `python a1_data_fetcher.py --full`: 首次使用时，下载所有A股历史数据。
+        *   `python a1_data_fetcher.py --today`: 每日收盘后，增量更新当天数据。
+        *   `python a1_data_fetcher.py --date 20250101 20250404`: 下载指定日期范围的数据。
 
 ### 2. 策略回测 (Backtesting)
-*   **`single_strategy_backtest.py`**
-    *   **作用**：整合了原101-105脚本，用于回测各类**单指标策略**。
-    *   **核心命令**：`python single_strategy_backtest.py`
-*   **`combo_strategy_backtest.py`**
-    *   **作用**：整合了原201-202脚本，用于回测**组合策略**。
-    *   **核心命令**：`python combo_strategy_backtest.py`
+*   **`a2_single_strategy_backtest.py`**
+    *   **作用**：回测各类**单指标策略**，支持增量模式。
+    *   **核心命令**：
+        *   `python a2_single_strategy_backtest.py`: 默认增量回测（仅处理更新过的股票）。
+        *   `python a2_single_strategy_backtest.py --full`: 强制全量回测。
+*   **`a3_combo_strategy_backtest.py`**
+    *   **作用**：回测**组合策略**，支持增量模式。
+    *   **核心命令**：
+        *   `python a3_combo_strategy_backtest.py`: 默认增量回测。
+        *   `python a3_combo_strategy_backtest.py --full`: 强制全量回测。
+
+### 3. 自动化主控
+*   **`a0_auto_update_daily.py`**
+    *   **作用**：一键完成数据下载、回测、分析和Web同步。
+    *   **核心命令**：
+        *   `python a0_auto_update_daily.py`: 增量更新当日数据并回测。
+        *   `python a0_auto_update_daily.py 20250101 20250404`: 下载指定日期范围数据并增量回测。
+        *   `python a0_auto_update_daily.py --full`: 全量下载并全量回测。
 
 ### 3. 信号分析 (Analysis)
 *   **`signal_success_scanner.py`**
