@@ -67,6 +67,11 @@ from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 from multiprocessing import Pool, cpu_count
 from itertools import combinations
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
 
 # ==============================================================================
 # 路径配置
@@ -492,7 +497,7 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     
     backtest_func = backtest_funcs.get(strategy)
     if backtest_func is None:
-        print(f"未知策略类型: {strategy}")
+        log(f"未知策略类型: {strategy}")
         return pd.DataFrame()
     
     strategy_names = {
@@ -502,8 +507,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         'sell_optimize': '卖出优化'
     }
     
-    print(f"\n开始回测: {strategy_names[strategy]}")
-    print(f"处理 {len(stock_files)} 个股票文件...")
+    log(f"\n开始回测: {strategy_names[strategy]}")
+    log(f"处理 {len(stock_files)} 个股票文件...")
     
     # 多进程并行处理 (cpu核数-1)
     num_processes = max(1, cpu_count() - 1)
@@ -514,7 +519,7 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     all_results = [r for r in all_results if r is not None and not r.empty]
     
     if not all_results:
-        print(f"  {strategy_names[strategy]}: 没有有效的回测结果")
+        log(f"  {strategy_names[strategy]}: 没有有效的回测结果")
         return pd.DataFrame()
     
     # 汇总结果
@@ -529,7 +534,7 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         'avg_return': 'mean'
     }).reset_index()
     
-    print(f"  {strategy_names[strategy]}: 完成，共 {len(summary)} 条汇总记录")
+    log(f"  {strategy_names[strategy]}: 完成，共 {len(summary)} 条汇总记录")
     
     return summary
 
@@ -652,12 +657,12 @@ def main():
     
     args = parser.parse_args()
     
-    print("=" * 70)
-    print("单指标策略回测系统 v1.0")
-    print("=" * 70)
-    print(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"策略选择: {args.strategy}")
-    print("=" * 70)
+    log("=" * 70)
+    log("单指标策略回测系统 v1.0")
+    log("=" * 70)
+    log(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log(f"策略选择: {args.strategy}")
+    log("=" * 70)
     
     # 创建输出目录
     os.makedirs(REPORT_DIR, exist_ok=True)
@@ -669,12 +674,12 @@ def main():
     # 限制股票数量（用于测试）
     if args.limit > 0:
         stock_files = stock_files[:args.limit]
-        print(f"注意: 已限制处理 {args.limit} 个股票文件")
+        log(f"注意: 已限制处理 {args.limit} 个股票文件")
     
-    print(f"发现 {len(stock_files)} 个股票文件")
+    log(f"发现 {len(stock_files)} 个股票文件")
     
     if not stock_files:
-        print("错误: 未找到股票数据文件")
+        log("错误: 未找到股票数据文件")
         return
     
     # 确定要运行的策略
@@ -691,27 +696,27 @@ def main():
             all_results.append(result)
     
     if not all_results:
-        print("\n没有生成任何回测结果")
+        log("\n没有生成任何回测结果")
         return
     
     # 合并所有结果
     combined_results = pd.concat(all_results, ignore_index=True)
     
     # 生成报告
-    print("\n" + "-" * 70)
-    print("生成报告...")
+    log("\n" + "-" * 70)
+    log("生成报告...")
     
     # 保存CSV
     csv_path = os.path.join(REPORT_DIR, 'single_strategy_summary.csv')
     combined_results.to_csv(csv_path, index=False, encoding='utf-8-sig')
-    print(f"已保存CSV汇总: {csv_path}")
+    log(f"已保存CSV汇总: {csv_path}")
     
     # 生成并保存Markdown报告
     md_report = generate_markdown_report(combined_results, len(stock_files))
     md_path = os.path.join(REPORT_DIR, 'single_strategy_report.md')
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(md_report)
-    print(f"已保存Markdown报告: {md_path}")
+    log(f"已保存Markdown报告: {md_path}")
     
     # 生成并保存JSON数据（供Web前端使用）
     json_data = generate_json_data(combined_results, len(stock_files))
@@ -720,22 +725,22 @@ def main():
     json_path = os.path.join(REPORT_DIR, 'backtest_single.json')
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
-    print(f"已保存JSON数据: {json_path}")
+    log(f"已保存JSON数据: {json_path}")
     
     # 保存到Web数据目录
     web_json_path = os.path.join(WEB_DATA_DIR, 'backtest_single.json')
     with open(web_json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
-    print(f"已保存JSON数据到Web目录: {web_json_path}")
+    log(f"已保存JSON数据到Web目录: {web_json_path}")
     
     # 打印摘要
-    print("\n" + "=" * 70)
-    print("回测完成！")
-    print("=" * 70)
-    print(f"测试股票数: {len(stock_files)}")
-    print(f"策略数量: {len(strategies)}")
-    print(f"汇总记录: {len(combined_results)}")
-    print("=" * 70)
+    log("\n" + "=" * 70)
+    log("回测完成！")
+    log("=" * 70)
+    log(f"测试股票数: {len(stock_files)}")
+    log(f"策略数量: {len(strategies)}")
+    log(f"汇总记录: {len(combined_results)}")
+    log("=" * 70)
 
 
 if __name__ == "__main__":

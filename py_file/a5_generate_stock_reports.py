@@ -1,3 +1,4 @@
+try:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -5,6 +6,13 @@
 功能：遍历所有股票，计算各策略表现，生成汇总 JSON 报告
 """
 
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
+
+check_memory()
 import os
 import sys
 import pandas as pd
@@ -232,13 +240,13 @@ def generate_reports(end_date=None):
     year_start = pd.to_datetime(f"{end_dt.year}-01-01")
     month_start = pd.to_datetime(f"{end_dt.year}-{end_dt.month:02d}-01")
     
-    print(f"开始生成报告，截止日期: {end_date}")
+    log(f"开始生成报告，截止日期: {end_date}")
     stock_files = list(DATA_DIR.rglob("*.csv"))
-    print(f"找到 {len(stock_files)} 只股票数据文件")
+    log(f"找到 {len(stock_files)} 只股票数据文件")
     
     # 使用进程池并行处理
     num_cores = 6
-    print(f"使用 {num_cores} 个核心进行并行计算...")
+    log(f"使用 {num_cores} 个核心进行并行计算...")
     
     worker = partial(process_single_stock, end_dt=end_dt, year_start=year_start, month_start=month_start)
     
@@ -253,10 +261,11 @@ def generate_reports(end_date=None):
     with open(STOCK_REPORTS_FILE, 'w', encoding='utf-8') as f:
         json.dump(final_reports, f, ensure_ascii=False, indent=2)
     
-    print(f"报告生成完成，共计 {len(final_reports)} 只股票，已保存至 {STOCK_REPORTS_FILE}")
+    log(f"报告生成完成，共计 {len(final_reports)} 只股票，已保存至 {STOCK_REPORTS_FILE}")
 
 if __name__ == "__main__":
     import time
+check_memory()
     start_time = time.time()
     generate_reports()
-    print(f"总耗时: {time.time() - start_time:.2f} 秒")
+    log(f"总耗时: {time.time() - start_time:.2f} 秒")

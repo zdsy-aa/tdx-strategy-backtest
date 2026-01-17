@@ -42,6 +42,12 @@ import numpy as np
 from typing import List, Callable, Dict, Optional
 from multiprocessing import Pool, cpu_count
 from functools import partial
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    # 兼容性处理
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
 
 
 # ==============================================================================
@@ -154,9 +160,16 @@ def run_backtest_on_all_stocks(
     if show_progress:
         print(f"开始全量回测，使用 {num_processes} 个进程处理 {len(stock_files)} 个文件...")
     
+    # 在开始前检查内存
+    check_memory()
+    
     # 创建进程池并执行回测
     with Pool(num_processes) as pool:
+        # 在并行任务中，我们可以通过包装函数来定期检查内存
         results = pool.map(backtest_func, stock_files)
+    
+    # 完成后再次检查
+    check_memory()
     
     # 过滤掉空结果
     valid_results = [r for r in results if r is not None]

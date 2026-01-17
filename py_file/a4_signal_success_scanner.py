@@ -1,3 +1,4 @@
+try:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -40,6 +41,13 @@
 ================================================================================
 """
 
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
+
+check_memory()
 import os
 import sys
 import json
@@ -95,6 +103,7 @@ MIN_RED_COUNT = 4
 # ==============================================================================
 
 from a99_indicators import (
+check_memory()
     calculate_six_veins,       # 六脉神剑指标计算
     calculate_buy_sell_points, # 买卖点指标计算
     calculate_chan_theory      # 缠论指标计算
@@ -134,7 +143,7 @@ def load_stock_data(filepath: str) -> pd.DataFrame:
     
     示例:
         >>> df = load_stock_data('/path/to/000001.csv')
-        >>> print(df.columns.tolist())
+        >>> log(df.columns.tolist())
         ['name', 'date', 'open', 'close', 'high', 'low', ...]
     """
     try:
@@ -457,8 +466,8 @@ def scan_all_stocks(max_workers: int = None) -> pd.DataFrame:
     stock_files = get_all_stock_files()
     total_files = len(stock_files)
     
-    print(f"发现 {total_files} 个股票文件")
-    print("-" * 60)
+    log(f"发现 {total_files} 个股票文件")
+    log("-" * 60)
     
     # 设置并行进程数 (cpu核数-1)
     if max_workers is None:
@@ -483,12 +492,12 @@ def scan_all_stocks(max_workers: int = None) -> pd.DataFrame:
                 
                 # 每处理100个文件打印一次进度
                 if processed % 100 == 0:
-                    print(f"进度: {processed}/{total_files} ({processed/total_files*100:.1f}%)")
+                    log(f"进度: {processed}/{total_files} ({processed/total_files*100:.1f}%)")
                     
             except Exception as e:
-                print(f"处理失败 {filepath}: {str(e)}")
+                log(f"处理失败 {filepath}: {str(e)}")
     
-    print(f"\n扫描完成，共发现 {len(all_results)} 条信号记录")
+    log(f"\n扫描完成，共发现 {len(all_results)} 条信号记录")
     
     if all_results:
         return pd.DataFrame(all_results)
@@ -589,13 +598,13 @@ def main():
         - report/signal_summary.json: 统计摘要（报告目录）
         - web/client/src/data/signal_summary.json: 统计摘要（Web前端）
     """
-    print("=" * 70)
-    print("信号成功案例扫描器 v2.0")
-    print("=" * 70)
-    print(f"扫描时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"持仓天数: {HOLDING_DAYS} 天")
-    print(f"成功阈值: {SUCCESS_THRESHOLD}%")
-    print("=" * 70)
+    log("=" * 70)
+    log("信号成功案例扫描器 v2.0")
+    log("=" * 70)
+    log(f"扫描时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log(f"持仓天数: {HOLDING_DAYS} 天")
+    log(f"成功阈值: {SUCCESS_THRESHOLD}%")
+    log("=" * 70)
     
     # 创建输出目录
     os.makedirs(REPORT_DIR, exist_ok=True)
@@ -605,19 +614,19 @@ def main():
     df = scan_all_stocks()
     
     if df.empty:
-        print("未发现任何信号记录")
+        log("未发现任何信号记录")
         return
     
     # 保存所有信号记录到CSV
     all_signals_path = os.path.join(REPORT_DIR, 'all_signal_records.csv')
     df.to_csv(all_signals_path, index=False, encoding='utf-8-sig')
-    print(f"\n已保存所有信号记录: {all_signals_path}")
+    log(f"\n已保存所有信号记录: {all_signals_path}")
     
     # 筛选并保存成功案例
     success_df = df[df['is_success']]
     success_path = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
     success_df.to_csv(success_path, index=False, encoding='utf-8-sig')
-    print(f"已保存成功案例 ({len(success_df)} 条): {success_path}")
+    log(f"已保存成功案例 ({len(success_df)} 条): {success_path}")
     
     # 生成统计摘要
     summary = generate_summary(df)
@@ -626,29 +635,29 @@ def main():
     report_summary_path = os.path.join(REPORT_DIR, 'signal_summary.json')
     with open(report_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
-    print(f"已保存统计摘要: {report_summary_path}")
+    log(f"已保存统计摘要: {report_summary_path}")
     
     # 保存统计摘要到Web数据目录（供前端使用）
     web_summary_path = os.path.join(WEB_DATA_DIR, 'signal_summary.json')
     with open(web_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
-    print(f"已保存统计摘要到Web目录: {web_summary_path}")
+    log(f"已保存统计摘要到Web目录: {web_summary_path}")
     
     # 打印统计摘要
-    print("\n" + "=" * 70)
-    print("统计结果")
-    print("=" * 70)
-    print(f"总信号数: {summary['total_signals']}")
-    print(f"成功信号: {summary['success_signals']}")
-    print(f"总体成功率: {summary['overall_success_rate']}%")
-    print("-" * 70)
-    print("按信号类型统计:")
+    log("\n" + "=" * 70)
+    log("统计结果")
+    log("=" * 70)
+    log(f"总信号数: {summary['total_signals']}")
+    log(f"成功信号: {summary['success_signals']}")
+    log(f"总体成功率: {summary['overall_success_rate']}%")
+    log("-" * 70)
+    log("按信号类型统计:")
     for signal_type, stats in summary['by_signal_type'].items():
-        print(f"  {signal_type}: {stats['total']}个信号, "
+        log(f"  {signal_type}: {stats['total']}个信号, "
               f"成功率{stats['success_rate']}%, "
               f"平均最大涨幅{stats['avg_max_return']}%")
-    print("=" * 70)
-    print("扫描完成！")
+    log("=" * 70)
+    log("扫描完成！")
 
 
 if __name__ == "__main__":

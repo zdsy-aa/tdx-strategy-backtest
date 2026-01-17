@@ -1,3 +1,11 @@
+try:
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
+
+check_memory()
 import json
 import os
 from pathlib import Path
@@ -9,10 +17,10 @@ STRATEGIES_JSON_FILE = BASE_DIR / "web" / "client" / "src" / "data" / "strategie
 
 def update_strategies():
     if not BACKTEST_RESULTS_FILE.exists():
-        print(f"错误: 找不到回测结果文件 {BACKTEST_RESULTS_FILE}")
+        log(f"错误: 找不到回测结果文件 {BACKTEST_RESULTS_FILE}")
         return
     if not STRATEGIES_JSON_FILE.exists():
-        print(f"错误: 找不到前端数据文件 {STRATEGIES_JSON_FILE}")
+        log(f"错误: 找不到前端数据文件 {STRATEGIES_JSON_FILE}")
         return
 
     # 读取回测结果 (列表格式)
@@ -46,7 +54,7 @@ def update_strategies():
             # 更新年度和月度数据
             strategy['stats']['yearly'] = res.get('yearly', {})
             strategy['stats']['monthly'] = res.get('monthly', {})
-            print(f"已更新单指标策略: {s_id}")
+            log(f"已更新单指标策略: {s_id}")
 
     # 2. 更新组合方案 (strategies)
     for strategy in web_data.get('strategies', []):
@@ -68,13 +76,13 @@ def update_strategies():
             }
             strategy['stats']['yearly'] = res.get('yearly', {})
             strategy['stats']['monthly'] = res.get('monthly', {})
-            print(f"已更新组合方案: {s_id}")
+            log(f"已更新组合方案: {s_id}")
 
     # 保存更新后的文件
     with open(STRATEGIES_JSON_FILE, 'w', encoding='utf-8') as f:
         json.dump(web_data, f, ensure_ascii=False, indent=2)
     
-    print(f"成功更新 {STRATEGIES_JSON_FILE}")
+    log(f"成功更新 {STRATEGIES_JSON_FILE}")
 
 if __name__ == "__main__":
     update_strategies()

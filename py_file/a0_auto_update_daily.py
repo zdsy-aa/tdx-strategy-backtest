@@ -2,6 +2,11 @@ import os
 import subprocess
 import datetime
 from pathlib import Path
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
 
 def run_script(script_name, args=None):
     script_path = Path(__file__).parent / script_name
@@ -13,20 +18,22 @@ def run_script(script_name, args=None):
     if args:
         cmd.extend(args)
     
-    print(f"正在执行: {' '.join(cmd)}")
+    log(f"正在执行: {' '.join(cmd)}")
+    # 执行前检查内存
+    check_memory()
     try:
         subprocess.run(cmd, check=True)
         return True
     except subprocess.CalledProcessError as e:
-        print(f"执行失败: {script_name}, 错误: {e}")
+        log(f"执行失败: {script_name}, 错误: {e}", level="ERROR")
         return False
 
 def main():
-    print(f"=== 每日自动更新开始: {datetime.datetime.now()} ===")
+    log("=== 每日自动更新开始 ===")
     
     # 1. 下载数据
     if not run_script("a1_data_fetcher.py", ["--today"]):
-        print("数据下载失败，停止后续任务")
+        log("数据下载失败，停止后续任务", level="ERROR")
         return
 
     # 2. 运行回测
@@ -43,7 +50,7 @@ def main():
     # 5. 更新Web元数据
     run_script("a99_update_web_data.py")
     
-    print(f"=== 每日自动更新完成: {datetime.datetime.now()} ===")
+    log("=== 每日自动更新完成 ===")
 
 if __name__ == "__main__":
     main()

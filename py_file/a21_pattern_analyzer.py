@@ -1,3 +1,4 @@
+try:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -31,6 +32,13 @@
 ================================================================================
 """
 
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
+
+check_memory()
 import os
 import sys
 import pandas as pd
@@ -805,7 +813,7 @@ def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
         return result
         
     except Exception as e:
-        print(f"分析失败 {stock_code} {signal_date}: {str(e)}")
+        log(f"分析失败 {stock_code} {signal_date}: {str(e)}")
         return {}
 
 
@@ -873,6 +881,7 @@ def calculate_statistics(analysis_results: List[Dict], field_path: str) -> Dict:
         }
     elif isinstance(values[0], str):
         from collections import Counter
+check_memory()
         counter = Counter(values)
         return {
             'count': len(values),
@@ -1076,32 +1085,32 @@ def main():
     """
     主程序入口
     """
-    print("=" * 60)
-    print("成功案例模式分析器")
-    print("=" * 60)
-    print(f"分析时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 60)
+    log("=" * 60)
+    log("成功案例模式分析器")
+    log("=" * 60)
+    log(f"分析时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log("=" * 60)
     
     # 检查成功案例文件
     if not os.path.exists(SUCCESS_CASES_FILE):
-        print(f"错误: 成功案例文件不存在: {SUCCESS_CASES_FILE}")
-        print("请先运行 signal_success_scanner.py 生成成功案例数据")
+        log(f"错误: 成功案例文件不存在: {SUCCESS_CASES_FILE}")
+        log("请先运行 signal_success_scanner.py 生成成功案例数据")
         return
     
     # 加载成功案例
     df = pd.read_csv(SUCCESS_CASES_FILE, encoding='utf-8-sig')
-    print(f"加载成功案例: {len(df)} 条")
+    log(f"加载成功案例: {len(df)} 条")
     
     if df.empty:
-        print("没有成功案例可分析")
+        log("没有成功案例可分析")
         return
     
     # 准备分析任务
     tasks = list(zip(df['stock_code'].tolist(), df['date'].tolist()))
     total_tasks = len(tasks)
     
-    print(f"\n开始分析 {total_tasks} 个成功案例...")
-    print("-" * 60)
+    log(f"\n开始分析 {total_tasks} 个成功案例...")
+    log("-" * 60)
     
     # 多进程分析
     max_workers = max(1, multiprocessing.cpu_count() - 1)
@@ -1118,11 +1127,11 @@ def main():
                 analysis_results.append(result)
                 
                 if completed % 100 == 0:
-                    print(f"进度: {completed}/{total_tasks} ({completed/total_tasks*100:.1f}%)")
+                    log(f"进度: {completed}/{total_tasks} ({completed/total_tasks*100:.1f}%)")
                     
             except Exception as e:
                 analysis_results.append({})
-                print(f"分析失败: {str(e)}")
+                log(f"分析失败: {str(e)}")
     
     # 按原始顺序排列结果
     sorted_results = [None] * len(tasks)
@@ -1134,10 +1143,10 @@ def main():
     
     analysis_results = sorted_results
     
-    print(f"\n分析完成，成功分析 {len([r for r in analysis_results if r])} 个案例")
+    log(f"\n分析完成，成功分析 {len([r for r in analysis_results if r])} 个案例")
     
     # 生成详细分析报告
-    print("\n生成分析报告...")
+    log("\n生成分析报告...")
     
     # 将分析结果展平并保存
     flat_results = []
@@ -1171,7 +1180,7 @@ def main():
     report_df = pd.DataFrame(flat_results)
     report_path = os.path.join(REPORT_DIR, 'pattern_analysis_report.csv')
     report_df.to_csv(report_path, index=False, encoding='utf-8-sig')
-    print(f"详细分析报告已保存: {report_path}")
+    log(f"详细分析报告已保存: {report_path}")
     
     # 确保Web数据目录存在
     os.makedirs(WEB_DATA_DIR, exist_ok=True)
@@ -1183,13 +1192,13 @@ def main():
     summary_path = os.path.join(REPORT_DIR, 'pattern_summary.json')
     with open(summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
-    print(f"模式统计摘要已保存: {summary_path}")
+    log(f"模式统计摘要已保存: {summary_path}")
     
     # 同时保存到Web数据目录（供前端使用）
     web_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_summary.json')
     with open(web_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
-    print(f"模式统计摘要已保存到Web目录: {web_summary_path}")
+    log(f"模式统计摘要已保存到Web目录: {web_summary_path}")
     
     # 生成按信号类型分类的统计
     signal_summary = generate_signal_type_summary(df, analysis_results)
@@ -1198,51 +1207,51 @@ def main():
     signal_summary_path = os.path.join(REPORT_DIR, 'pattern_analysis_by_signal.json')
     with open(signal_summary_path, 'w', encoding='utf-8') as f:
         json.dump(signal_summary, f, ensure_ascii=False, indent=2)
-    print(f"按信号类型统计已保存: {signal_summary_path}")
+    log(f"按信号类型统计已保存: {signal_summary_path}")
     
     # 同时保存到Web数据目录（供前端使用）
     web_signal_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_analysis_by_signal.json')
     with open(web_signal_summary_path, 'w', encoding='utf-8') as f:
         json.dump(signal_summary, f, ensure_ascii=False, indent=2)
-    print(f"按信号类型统计已保存到Web目录: {web_signal_summary_path}")
+    log(f"按信号类型统计已保存到Web目录: {web_signal_summary_path}")
     
     # 打印关键发现
-    print("\n" + "=" * 60)
-    print("关键发现摘要")
-    print("=" * 60)
+    log("\n" + "=" * 60)
+    log("关键发现摘要")
+    log("=" * 60)
     
-    print(f"\n总分析案例: {summary['analyzed_cases']}")
+    log(f"\n总分析案例: {summary['analyzed_cases']}")
     
     # 打印各指标的关键统计
-    print("\n【技术指标共性特征】")
-    print("-" * 60)
+    log("\n【技术指标共性特征】")
+    log("-" * 60)
     
     for indicator, stats in summary['indicators'].items():
-        print(f"\n{indicator}:")
+        log(f"\n{indicator}:")
         for field_name, field_stats in stats.items():
             if 'true_rate' in field_stats:
-                print(f"  {field_name}: {field_stats['true_rate']}% 的案例满足")
+                log(f"  {field_name}: {field_stats['true_rate']}% 的案例满足")
             elif 'mean' in field_stats:
-                print(f"  {field_name}: 均值={field_stats['mean']}, 中位数={field_stats['median']}")
+                log(f"  {field_name}: 均值={field_stats['mean']}, 中位数={field_stats['median']}")
             elif 'distribution' in field_stats:
-                print(f"  {field_name}: {field_stats['distribution']}")
+                log(f"  {field_name}: {field_stats['distribution']}")
     
-    print("\n【市场理论分析】")
-    print("-" * 60)
+    log("\n【市场理论分析】")
+    log("-" * 60)
     
     for theory, stats in summary['theories'].items():
-        print(f"\n{theory}:")
+        log(f"\n{theory}:")
         for field_name, field_stats in stats.items():
             if 'true_rate' in field_stats:
-                print(f"  {field_name}: {field_stats['true_rate']}% 的案例满足")
+                log(f"  {field_name}: {field_stats['true_rate']}% 的案例满足")
             elif 'distribution' in field_stats:
-                print(f"  {field_name}: {field_stats['distribution']}")
+                log(f"  {field_name}: {field_stats['distribution']}")
             elif 'mean' in field_stats:
-                print(f"  {field_name}: 均值={field_stats['mean']}")
+                log(f"  {field_name}: 均值={field_stats['mean']}")
     
-    print("\n" + "=" * 60)
-    print("分析完成!")
-    print("=" * 60)
+    log("\n" + "=" * 60)
+    log("分析完成!")
+    log("=" * 60)
 
 
 if __name__ == "__main__":

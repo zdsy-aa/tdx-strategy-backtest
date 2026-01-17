@@ -1,3 +1,4 @@
+try:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -25,6 +26,13 @@
 ================================================================================
 """
 
+try:
+    from a99_logger import log, check_memory
+except ImportError:
+    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def check_memory(t=0.9): pass
+
+check_memory()
 import os
 import sys
 import pandas as pd
@@ -38,7 +46,7 @@ from functools import partial
 try:
     import akshare as ak
 except ImportError:
-    print("错误: 请先安装 akshare 库 (pip install akshare)")
+    log("错误: 请先安装 akshare 库 (pip install akshare)")
     sys.exit(1)
 
 # ==============================================================================
@@ -79,11 +87,11 @@ def ensure_dir(path: str):
 def get_all_stock_info() -> pd.DataFrame:
     """获取所有股票的代码和名称映射"""
     try:
-        print("正在获取全市场股票列表...")
+        log("正在获取全市场股票列表...")
         df = ak.stock_zh_a_spot_em()
         return df[['代码', '名称']]
     except Exception as e:
-        print(f"获取股票列表失败: {e}")
+        log(f"获取股票列表失败: {e}")
         return pd.DataFrame()
 
 # ==============================================================================
@@ -150,11 +158,12 @@ def download_single_stock(stock_info: Dict, start_date: str, end_date: str, mode
         
         return True
     except Exception as e:
-        # print(f"下载 {stock_code} 失败: {e}")
+        # log(f"下载 {stock_code} 失败: {e}")
         return False
 
 def main():
     import argparse
+check_memory()
     parser = argparse.ArgumentParser(description='A股日线数据下载工具')
     parser.add_argument('--full', action='store_true', help='全量下载所有历史数据')
     parser.add_argument('--today', action='store_true', help='仅下载当天数据')
@@ -180,16 +189,16 @@ def main():
         start_date = '19900101'
         end_date = today_str
         mode = 'full'
-        print(f"开始全量下载 {total} 只股票历史数据...")
+        log(f"开始全量下载 {total} 只股票历史数据...")
     elif args.today:
         start_date = today_str
         end_date = today_str
         mode = 'update'
-        print(f"开始更新 {total} 只股票当日数据...")
+        log(f"开始更新 {total} 只股票当日数据...")
     elif args.date:
         start_date, end_date = args.date
         mode = 'update'
-        print(f"开始下载 {total} 只股票日期范围 {start_date} - {end_date} 数据...")
+        log(f"开始下载 {total} 只股票日期范围 {start_date} - {end_date} 数据...")
     else:
         parser.print_help()
         return
@@ -211,14 +220,14 @@ def main():
     end_time = time.time()
     duration = end_time - start_time
     
-    print("\n" + "="*50)
-    print(f"下载任务完成!")
-    print(f"总数: {total}")
-    print(f"成功: {success_count}")
-    print(f"失败: {total - success_count}")
-    print(f"耗时: {duration:.2f} 秒")
-    print(f"数据存储目录: {DATA_DIR}")
-    print("="*50)
+    log("\n" + "="*50)
+    log(f"下载任务完成!")
+    log(f"总数: {total}")
+    log(f"成功: {success_count}")
+    log(f"失败: {total - success_count}")
+    log(f"耗时: {duration:.2f} 秒")
+    log(f"数据存储目录: {DATA_DIR}")
+    log("="*50)
 
 if __name__ == "__main__":
     main()
