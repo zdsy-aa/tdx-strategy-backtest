@@ -42,12 +42,10 @@ try:
 """
 
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import os
 import sys
 import json
@@ -103,7 +101,6 @@ MIN_RED_COUNT = 4
 # ==============================================================================
 
 from a99_indicators import (
-check_memory()
     calculate_six_veins,       # 六脉神剑指标计算
     calculate_buy_sell_points, # 买卖点指标计算
     calculate_chan_theory      # 缠论指标计算

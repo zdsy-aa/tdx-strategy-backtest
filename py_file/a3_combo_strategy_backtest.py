@@ -63,12 +63,10 @@ try:
 """
 
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import os
 import sys
 import json
@@ -113,9 +111,7 @@ AGGRESSIVE_HOLD_PERIODS = [5, 10, 15]
 # ==============================================================================
 
 from a99_indicators import calculate_all_signals
-check_memory()
 from a99_backtest_utils import get_all_stock_files, aggregate_results
-check_memory()
 
 
 # ==============================================================================

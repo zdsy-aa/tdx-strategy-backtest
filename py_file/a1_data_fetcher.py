@@ -27,12 +27,10 @@ try:
 """
 
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import os
 import sys
 import pandas as pd
@@ -163,7 +161,6 @@ def download_single_stock(stock_info: Dict, start_date: str, end_date: str, mode
 
 def main():
     import argparse
-check_memory()
     parser = argparse.ArgumentParser(description='A股日线数据下载工具')
     parser.add_argument('--full', action='store_true', help='全量下载所有历史数据')
     parser.add_argument('--today', action='store_true', help='仅下载当天数据')

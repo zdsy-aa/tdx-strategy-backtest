@@ -3,10 +3,9 @@ import subprocess
 import datetime
 from pathlib import Path
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
 def run_script(script_name, args=None):
     script_path = Path(__file__).parent / script_name
@@ -20,7 +19,6 @@ def run_script(script_name, args=None):
     
     log(f"正在执行: {' '.join(cmd)}")
     # 执行前检查内存
-    check_memory()
     try:
         subprocess.run(cmd, check=True)
         return True

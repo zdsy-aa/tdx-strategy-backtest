@@ -1,11 +1,9 @@
 try:
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import json
 import os
 from pathlib import Path

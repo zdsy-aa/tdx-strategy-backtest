@@ -7,12 +7,10 @@ try:
 """
 
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import os
 import sys
 import pandas as pd
@@ -265,7 +263,6 @@ def generate_reports(end_date=None):
 
 if __name__ == "__main__":
     import time
-check_memory()
     start_time = time.time()
     generate_reports()
     log(f"总耗时: {time.time() - start_time:.2f} 秒")

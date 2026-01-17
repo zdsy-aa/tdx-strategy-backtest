@@ -33,12 +33,10 @@ try:
 """
 
 try:
-    from a99_logger import log, check_memory
+    from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
-    def check_memory(t=0.9): pass
 
-check_memory()
 import os
 import sys
 import pandas as pd
@@ -881,7 +879,6 @@ def calculate_statistics(analysis_results: List[Dict], field_path: str) -> Dict:
         }
     elif isinstance(values[0], str):
         from collections import Counter
-check_memory()
         counter = Counter(values)
         return {
             'count': len(values),
