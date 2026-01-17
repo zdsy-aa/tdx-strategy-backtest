@@ -292,7 +292,7 @@ def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
         for indicator in SIX_VEINS_INDICATORS:
             # 生成信号列（当天变红）
             signal_col = f'{indicator}_signal'
-            df[signal_col] = df[indicator] & ~df[indicator].shift(1).fillna(False)
+            df[signal_col] = df[indicator] & ~df[indicator].shift(1, fill_value=False)
             
             for period in DEFAULT_HOLD_PERIODS:
                 stats = calculate_returns(df, signal_col, period)
@@ -309,7 +309,7 @@ def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
         for n in [4, 5, 6]:
             signal_col = f'{n}_red_signal'
             df[f'{n}_red'] = df['six_veins_count'] >= n
-            df[signal_col] = df[f'{n}_red'] & ~df[f'{n}_red'].shift(1).fillna(False)
+            df[signal_col] = df[f'{n}_red'] & ~df[f'{n}_red'].shift(1, fill_value=False)
             
             for period in DEFAULT_HOLD_PERIODS:
                 stats = calculate_returns(df, signal_col, period)
