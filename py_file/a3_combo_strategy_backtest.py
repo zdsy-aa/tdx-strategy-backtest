@@ -1,4 +1,3 @@
-try:
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -96,6 +95,9 @@ REPORT_DIR = os.path.join(PROJECT_ROOT, 'report', 'total')
 # Web数据目录
 WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
 
+# 状态文件路径
+STATUS_FILE = os.path.join(PROJECT_ROOT, 'status', 'backtest_combo_status.json')
+
 # ==============================================================================
 # 回测参数配置
 # ==============================================================================
@@ -111,7 +113,7 @@ AGGRESSIVE_HOLD_PERIODS = [5, 10, 15]
 # ==============================================================================
 
 from a99_indicators import calculate_all_signals
-from a99_backtest_utils import get_all_stock_files, aggregate_results
+from a99_backtest_utils import get_all_stock_files, aggregate_results, update_backtest_status
 
 
 # ==============================================================================
@@ -574,8 +576,21 @@ def main():
         default=0,
         help='限制处理的股票数量，0表示不限制 (默认: 0)'
     )
+    parser.add_argument(
+        '--full',
+        action='store_true',
+        help='强制全量回测'
+    )
+    parser.add_argument(
+        '--incremental',
+        action='store_true',
+        default=True,
+        help='增量回测 (默认开启)'
+    )
     
     args = parser.parse_args()
+    if args.full:
+        args.incremental = False
     
     log("=" * 70)
     log("组合策略回测系统 v1.0")
@@ -588,8 +603,13 @@ def main():
     os.makedirs(REPORT_DIR, exist_ok=True)
     os.makedirs(WEB_DATA_DIR, exist_ok=True)
     
-    # 获取所有股票文件
-    stock_files = get_all_stock_files(DATA_DIR)
+    # 获取股票文件
+    if args.incremental:
+        log("模式: 增量回测")
+        stock_files = get_all_stock_files(DATA_DIR, incremental=True, status_file=STATUS_FILE)
+    else:
+        log("模式: 全量回测")
+        stock_files = get_all_stock_files(DATA_DIR, incremental=False)
     
     # 限制股票数量（用于测试）
     if args.limit > 0:
@@ -609,18 +629,31 @@ def main():
         strategies = [args.strategy]
     
     # 运行回测
-    all_results = []
+    current_results = []
     for strategy in strategies:
         result = run_backtest(strategy, stock_files)
         if not result.empty:
-            all_results.append(result)
+            current_results.append(result)
     
-    if not all_results:
-        log("\n没有生成任何回测结果")
-        return
-    
-    # 合并所有结果
-    combined_results = pd.concat(all_results, ignore_index=True)
+    if not current_results:
+        log("\n没有生成任何新的回测结果")
+        if args.incremental:
+            log("尝试加载历史结果...")
+            csv_path = os.path.join(REPORT_DIR, 'combo_strategy_summary.csv')
+            if os.path.exists(csv_path):
+                combined_results = pd.read_csv(csv_path)
+            else:
+                return
+        else:
+            return
+    else:
+        # 合并当前结果
+        new_combined = pd.concat(current_results, ignore_index=True)
+        combined_results = new_combined
+            
+    # 更新状态
+    if stock_files:
+        update_backtest_status(stock_files, STATUS_FILE)
     
     # 生成报告
     log("\n" + "-" * 70)

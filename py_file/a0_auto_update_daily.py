@@ -1,6 +1,7 @@
 import os
 import subprocess
 import datetime
+import argparse
 from pathlib import Path
 try:
     from a99_logger import log
@@ -27,16 +28,30 @@ def run_script(script_name, args=None):
         return False
 
 def main():
-    log("=== 每日自动更新开始 ===")
+    parser = argparse.ArgumentParser(description='每日自动更新主控脚本')
+    parser.add_argument('--full', action='store_true', help='全量更新模式')
+    parser.add_argument('--incremental', action='store_true', default=True, help='增量更新模式 (默认)')
+    args_cmd = parser.parse_args()
+    
+    if args_cmd.full:
+        args_cmd.incremental = False
+        
+    mode_str = "全量" if args_cmd.full else "增量"
+    log(f"=== 每日自动更新开始 (模式: {mode_str}) ===")
     
     # 1. 下载数据
-    if not run_script("a1_data_fetcher.py", ["--today"]):
+    fetcher_args = ["--today"]
+    if args_cmd.full:
+        fetcher_args = ["--full"]
+        
+    if not run_script("a1_data_fetcher.py", fetcher_args):
         log("数据下载失败，停止后续任务", level="ERROR")
         return
 
     # 2. 运行回测
-    run_script("a2_single_strategy_backtest.py")
-    run_script("a3_combo_strategy_backtest.py")
+    backtest_args = ["--incremental"] if args_cmd.incremental else ["--full"]
+    run_script("a2_single_strategy_backtest.py", backtest_args)
+    run_script("a3_combo_strategy_backtest.py", backtest_args)
     
     # 3. 运行分析
     run_script("a4_signal_success_scanner.py")

@@ -37,6 +37,7 @@
 """
 
 import os
+import json
 import pandas as pd
 import numpy as np
 from typing import List, Callable, Dict, Optional
@@ -53,50 +54,66 @@ except ImportError:
 # 文件操作函数
 # ==============================================================================
 
-def get_all_stock_files(data_dir: str) -> List[str]:
+def get_all_stock_files(data_dir: str, incremental: bool = False, status_file: str = None) -> List[str]:
     """
     获取指定目录下所有股票数据文件的完整路径
     
-    功能说明:
-        递归遍历指定目录及其子目录，查找所有以.csv结尾的文件。
-        支持按市场分类的目录结构（如 data/day/sh/, data/day/sz/）。
-    
     参数:
-        data_dir (str): 数据根目录的绝对路径
-                        例如: '/home/ubuntu/tdx-strategy-backtest/data/day'
-    
-    返回:
-        List[str]: 所有CSV文件的完整路径列表
-                   例如: ['/path/to/sh/600000.csv', '/path/to/sz/000001.csv', ...]
-    
-    使用示例:
-        >>> files = get_all_stock_files('/data/day')
-        >>> print(f"找到 {len(files)} 个股票文件")
-        找到 5789 个股票文件
-    
-    注意事项:
-        - 目录不存在时返回空列表
-        - 只匹配.csv后缀的文件（区分大小写）
+        data_dir (str): 数据根目录
+        incremental (bool): 是否启用增量模式
+        status_file (str): 状态记录文件路径
     """
     stock_files = []
-    
-    # 检查目录是否存在
     if not os.path.exists(data_dir):
-        print(f"警告: 数据目录不存在: {data_dir}")
+        log(f"警告: 数据目录不存在: {data_dir}")
         return stock_files
     
-    # 递归遍历目录
+    # 加载状态
+    status_data = {}
+    if incremental and status_file and os.path.exists(status_file):
+        try:
+            with open(status_file, 'r') as f:
+                status_data = json.load(f)
+        except Exception as e:
+            log(f"加载状态文件失败: {e}", level="ERROR")
+
     for root, dirs, files in os.walk(data_dir):
         for file in files:
-            # 只匹配CSV文件
             if file.endswith('.csv'):
                 full_path = os.path.join(root, file)
-                stock_files.append(full_path)
+                
+                if incremental:
+                    # 增量逻辑：检查文件修改时间或最后一行日期
+                    # 这里使用文件修改时间作为快速判断，或者您可以根据需要读取CSV最后一行
+                    mtime = os.path.getmtime(full_path)
+                    last_mtime = status_data.get(full_path, 0)
+                    if mtime > last_mtime:
+                        stock_files.append(full_path)
+                else:
+                    stock_files.append(full_path)
     
-    # 按文件名排序，确保结果可重复
     stock_files.sort()
-    
     return stock_files
+
+def update_backtest_status(files: List[str], status_file: str):
+    """更新回测状态文件"""
+    status_data = {}
+    if os.path.exists(status_file):
+        try:
+            with open(status_file, 'r') as f:
+                status_data = json.load(f)
+        except:
+            pass
+            
+    for f in files:
+        status_data[f] = os.path.getmtime(f)
+        
+    try:
+        os.makedirs(os.path.dirname(status_file), exist_ok=True)
+        with open(status_file, 'w') as f:
+            json.dump(status_data, f)
+    except Exception as e:
+        log(f"保存状态文件失败: {e}", level="ERROR")
 
 
 # ==============================================================================

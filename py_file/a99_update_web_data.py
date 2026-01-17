@@ -1,5 +1,4 @@
 try:
-try:
     from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
