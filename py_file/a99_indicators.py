@@ -576,8 +576,12 @@ def calculate_chan_theory(df: pd.DataFrame) -> pd.DataFrame:
     # 底分型: 中间K线低点低于左右两根K线的低点
     bottom_fractal = (REF(L, 1) < REF(L, 2)) & (REF(L, 1) < L)
     
-    df['top_fractal'] = top_fractal.shift(-1, fill_value=False)
-    df['bottom_fractal'] = bottom_fractal.shift(-1, fill_value=False)
+    # 口径A（确认日生效，禁止前视）：
+    # top_fractal / bottom_fractal 的判定本身是用“左-中-右”三根K线识别“中间K线”分型。
+    # 在第 t 根K线时，REF(X,1) 指向 t-1，因此条件为 True 表示“t-1 为分型”，但只有在 t 日收盘后才确认。
+    # 为避免把信号回写到 t-1（未来函数/前视偏差），我们将分型信号记录在确认日 t。
+    df['top_fractal'] = top_fractal.fillna(False)
+    df['bottom_fractal'] = bottom_fractal.fillna(False)
 
     # 笔方向判定: 1=向上笔, -1=向下笔
     direction = pd.Series(0, index=df.index)

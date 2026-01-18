@@ -102,6 +102,12 @@ STATUS_FILE = os.path.join(PROJECT_ROOT, 'status', 'backtest_combo_status.json')
 # 回测参数配置
 # ==============================================================================
 
+# 交易成本参数（离线CSV回测口径）
+#  - 佣金：万0.8（0.00008），买卖双边收取
+#  - 印花税：0.05%（0.0005），仅卖出收取
+COMMISSION_RATE = 0.00008
+STAMP_TAX_RATE = 0.0005
+
 # 稳健组合持仓周期
 STEADY_HOLD_PERIODS = [10, 20, 30]
 
@@ -113,7 +119,14 @@ AGGRESSIVE_HOLD_PERIODS = [5, 10, 15]
 # ==============================================================================
 
 from a99_indicators import calculate_all_signals
-from a99_backtest_utils import get_all_stock_files, aggregate_results, update_backtest_status
+from a99_backtest_utils import (
+    get_all_stock_files,
+    aggregate_results,
+    aggregate_trade_results,
+    update_backtest_status,
+    backtest_trades_fixed_hold,
+    summarize_trades,
+)
 
 
 # ==============================================================================
@@ -174,73 +187,33 @@ def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
 # ==============================================================================
 
 def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Dict:
-    """
-    计算指定信号的回测收益
-    
-    功能说明:
-        基于信号列计算持仓期间的胜率和平均收益。
-    
-    参数:
-        df (pd.DataFrame): 股票数据（包含信号列）
-        signal_col (str): 信号列名
-        hold_period (int): 持仓天数
-    
-    返回:
-        Dict: 回测统计结果
-            - signal_count: 信号总数
-            - trade_count: 有效交易数
-            - win_rate: 胜率（百分比）
-            - avg_return: 平均收益（百分比）
-            - max_return: 最大收益（百分比）
-            - min_return: 最小收益（百分比）
-    """
-    # 获取信号触发点
-    signals = df[df[signal_col] == True].copy()
-    
-    if len(signals) == 0:
+    """固定持有回测口径（确认日信号，次日开盘成交，单票单仓，计入成本）。"""
+    if df is None or df.empty or signal_col not in df.columns:
         return {
             'signal_count': 0,
             'trade_count': 0,
+            'win_count': 0,
             'win_rate': np.nan,
             'avg_return': np.nan,
+            'sum_return': 0.0,
+            'sum_profit_return': 0.0,
+            'sum_loss_return': 0.0,
             'max_return': np.nan,
-            'min_return': np.nan
+            'min_return': np.nan,
         }
-    
-    returns = []
-    
-    # 遍历每个信号计算收益
-    for idx in signals.index:
-        # 检查是否有足够的未来数据
-        if idx + hold_period < len(df):
-            entry_price = df.loc[idx, 'close']
-            exit_price = df.loc[idx + hold_period, 'close']
-            
-            if entry_price > 0:
-                ret = (exit_price - entry_price) / entry_price * 100
-                returns.append(ret)
-    
-    if len(returns) == 0:
-        return {
-            'signal_count': len(signals),
-            'trade_count': 0,
-            'win_rate': np.nan,
-            'avg_return': np.nan,
-            'max_return': np.nan,
-            'min_return': np.nan
-        }
-    
-    returns = np.array(returns)
-    win_rate = np.sum(returns > 0) / len(returns) * 100
-    
-    return {
-        'signal_count': len(signals),
-        'trade_count': len(returns),
-        'win_rate': win_rate,
-        'avg_return': np.mean(returns),
-        'max_return': np.max(returns),
-        'min_return': np.min(returns)
-    }
+
+    signal_count = int((df[signal_col] == True).sum())
+    trades = backtest_trades_fixed_hold(
+        df=df,
+        signal_col=signal_col,
+        hold_period=hold_period,
+        entry_lag=1,
+        entry_price_col='open',
+        exit_price_col='open',
+        commission_rate=COMMISSION_RATE,
+        stamp_tax_rate=STAMP_TAX_RATE,
+    )
+    return summarize_trades(trades, signal_count=signal_count)
 
 
 # ==============================================================================
@@ -410,16 +383,9 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     # 汇总结果
     combined = pd.concat(all_results, ignore_index=True)
     
-    # 按策略、类型、名称、持仓周期分组汇总
+    # 按策略、类型、名称、持仓周期分组汇总（加权口径）
     group_cols = ['strategy', 'type', 'name', 'hold_period']
-    summary = combined.groupby(group_cols).agg({
-        'signal_count': 'sum',
-        'trade_count': 'sum',
-        'win_rate': 'mean',
-        'avg_return': 'mean',
-        'max_return': 'max',
-        'min_return': 'min'
-    }).reset_index()
+    summary = aggregate_trade_results(combined, group_by_cols=group_cols)
     
     log(f"  {strategy_names[strategy]}: 完成，共 {len(summary)} 条汇总记录")
     

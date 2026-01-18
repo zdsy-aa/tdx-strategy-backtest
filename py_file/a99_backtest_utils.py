@@ -51,6 +51,184 @@ except ImportError:
 
 
 # ==============================================================================
+# 交易级回测核心（口径A：确认日触发，次日开盘成交；单票单仓；计入交易成本）
+# ==============================================================================
+
+def _safe_float(x) -> float:
+    try:
+        if pd.isna(x):
+            return float('nan')
+        return float(x)
+    except Exception:
+        return float('nan')
+
+
+def calc_net_return(
+    entry_price: float,
+    exit_price: float,
+    commission_rate: float = 0.00008,
+    stamp_tax_rate: float = 0.0005,
+) -> float:
+    """计算单笔交易净收益率（不含仓位杠杆）。
+
+    成本模型（与你给定口径一致）：
+      - 佣金：万0.8（0.00008），买卖双边收取
+      - 印花税：0.05%（0.0005），仅卖出收取
+
+    返回：净收益率（小数，例如 0.0123 表示 +1.23%）。
+    """
+    entry_price = _safe_float(entry_price)
+    exit_price = _safe_float(exit_price)
+    if not np.isfinite(entry_price) or not np.isfinite(exit_price) or entry_price <= 0:
+        return float('nan')
+
+    buy_rate = commission_rate
+    sell_rate = commission_rate + stamp_tax_rate
+
+    # 使用“按成交额计费”的近似：
+    # 买入实际成本 = entry_price * (1 + buy_rate)
+    # 卖出实际到手 = exit_price * (1 - sell_rate)
+    net = (exit_price * (1 - sell_rate)) / (entry_price * (1 + buy_rate)) - 1
+    return float(net)
+
+
+def backtest_trades_fixed_hold(
+    df: pd.DataFrame,
+    signal_col: str,
+    hold_period: int,
+    entry_lag: int = 1,
+    entry_price_col: str = 'open',
+    exit_price_col: str = 'open',
+    commission_rate: float = 0.00008,
+    stamp_tax_rate: float = 0.0005,
+) -> pd.DataFrame:
+    """逐笔回测：固定持有N天。
+
+    交易口径：
+      - 信号在 t 日收盘后确认（口径A），在 t+1 日开盘买入（entry_lag=1，entry_price_col='open'）。
+      - 固定持有 hold_period 天后，在对应出场日开盘卖出（exit_price_col='open'）。
+      - 单票单仓：持仓期间忽略后续信号。
+
+    返回：每笔交易一行的 DataFrame（空则返回空DF）。
+    """
+    if df is None or df.empty or signal_col not in df.columns:
+        return pd.DataFrame()
+    if hold_period <= 0:
+        raise ValueError('hold_period must be positive')
+
+    # 统一索引为 0..n-1，避免外部传入非连续索引导致定位异常
+    work = df.reset_index(drop=True)
+
+    records = []
+    i = 0
+    n = len(work)
+
+    while i < n:
+        sig = bool(work.at[i, signal_col]) if i < n else False
+        if not sig:
+            i += 1
+            continue
+
+        entry_i = i + entry_lag
+        if entry_i >= n:
+            break
+
+        entry_price = work.at[entry_i, entry_price_col] if entry_price_col in work.columns else np.nan
+        entry_price = _safe_float(entry_price)
+        if not np.isfinite(entry_price) or entry_price <= 0:
+            i += 1
+            continue
+
+        exit_i = entry_i + hold_period
+        if exit_i >= n:
+            break
+
+        exit_price = work.at[exit_i, exit_price_col] if exit_price_col in work.columns else np.nan
+        exit_price = _safe_float(exit_price)
+        if not np.isfinite(exit_price) or exit_price <= 0:
+            i += 1
+            continue
+
+        net_ret = calc_net_return(
+            entry_price=entry_price,
+            exit_price=exit_price,
+            commission_rate=commission_rate,
+            stamp_tax_rate=stamp_tax_rate,
+        )
+
+        records.append({
+            'signal_index': i,
+            'entry_index': entry_i,
+            'exit_index': exit_i,
+            'signal_date': work.at[i, 'date'] if 'date' in work.columns else pd.NaT,
+            'entry_date': work.at[entry_i, 'date'] if 'date' in work.columns else pd.NaT,
+            'exit_date': work.at[exit_i, 'date'] if 'date' in work.columns else pd.NaT,
+            'entry_price': entry_price,
+            'exit_price': exit_price,
+            'net_return': net_ret,  # 小数
+        })
+
+        # 单票单仓：出场次日才允许再入场
+        i = exit_i + 1
+
+    return pd.DataFrame.from_records(records)
+
+
+def summarize_trades(trades: pd.DataFrame, signal_count: int) -> Dict:
+    """将逐笔交易明细汇总为统计字段（加权口径需要的原子量）。"""
+    if trades is None or trades.empty:
+        return {
+            'signal_count': int(signal_count),
+            'trade_count': 0,
+            'win_count': 0,
+            'win_rate': np.nan,
+            'avg_return': np.nan,
+            'sum_return': 0.0,
+            'sum_profit_return': 0.0,
+            'sum_loss_return': 0.0,
+            'max_return': np.nan,
+            'min_return': np.nan,
+        }
+
+    r = trades['net_return'].astype(float)
+    r = r[np.isfinite(r)]
+    if r.empty:
+        return {
+            'signal_count': int(signal_count),
+            'trade_count': 0,
+            'win_count': 0,
+            'win_rate': np.nan,
+            'avg_return': np.nan,
+            'sum_return': 0.0,
+            'sum_profit_return': 0.0,
+            'sum_loss_return': 0.0,
+            'max_return': np.nan,
+            'min_return': np.nan,
+        }
+
+    trade_count = int(len(r))
+    win_mask = r > 0
+    win_count = int(win_mask.sum())
+
+    sum_return = float(r.sum())
+    sum_profit = float(r[win_mask].sum()) if win_count > 0 else 0.0
+    sum_loss = float(r[~win_mask].sum()) if win_count < trade_count else 0.0
+
+    return {
+        'signal_count': int(signal_count),
+        'trade_count': trade_count,
+        'win_count': win_count,
+        'win_rate': (win_count / trade_count * 100.0) if trade_count > 0 else np.nan,
+        'avg_return': (float(r.mean()) * 100.0) if trade_count > 0 else np.nan,  # 百分比
+        'sum_return': sum_return,
+        'sum_profit_return': sum_profit,
+        'sum_loss_return': sum_loss,
+        'max_return': float(r.max()) * 100.0,
+        'min_return': float(r.min()) * 100.0,
+    }
+
+
+# ==============================================================================
 # 文件操作函数
 # ==============================================================================
 
@@ -292,6 +470,52 @@ def aggregate_results(
         summary = combined_df.drop_duplicates(subset=group_by_cols)
     
     return summary
+
+
+def aggregate_trade_results(
+    combined_df: pd.DataFrame,
+    group_by_cols: List[str],
+) -> pd.DataFrame:
+    """对“交易级统计字段”进行加权汇总（推荐使用）。
+
+    预期 combined_df 至少包含：
+      - signal_count, trade_count, win_count, sum_return（小数）
+    可选包含：
+      - sum_profit_return, sum_loss_return, max_return, min_return
+
+    输出会生成：win_rate（%）, avg_return（%）等派生列。
+    """
+    if combined_df is None or combined_df.empty:
+        return pd.DataFrame()
+
+    sum_cols = [
+        'signal_count',
+        'trade_count',
+        'win_count',
+        'sum_return',
+        'sum_profit_return',
+        'sum_loss_return',
+    ]
+    existing_sum_cols = [c for c in sum_cols if c in combined_df.columns]
+
+    # max/min 对收益分布有意义，但这里按整体最大/最小聚合（不是均值）
+    agg_dict = {c: 'sum' for c in existing_sum_cols}
+    if 'max_return' in combined_df.columns:
+        agg_dict['max_return'] = 'max'
+    if 'min_return' in combined_df.columns:
+        agg_dict['min_return'] = 'min'
+
+    out = combined_df.groupby(group_by_cols).agg(agg_dict).reset_index()
+
+    # 派生指标
+    if 'trade_count' in out.columns:
+        tc = out['trade_count'].replace(0, np.nan)
+        if 'win_count' in out.columns:
+            out['win_rate'] = (out['win_count'] / tc) * 100.0
+        if 'sum_return' in out.columns:
+            out['avg_return'] = (out['sum_return'] / tc) * 100.0
+
+    return out
 
 
 # ==============================================================================
