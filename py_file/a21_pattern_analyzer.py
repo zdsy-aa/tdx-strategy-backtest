@@ -26,7 +26,7 @@
     - report/pattern_analysis_by_signal.json: 按信号类型分类的统计
 
 作者: TradeGuide System
-版本: 1.0.0
+版本: 1.0.1 (性能优化版)
 创建日期: 2026-01-15
 ================================================================================
 """
@@ -472,7 +472,11 @@ def calculate_cci(df: pd.DataFrame) -> Dict:
     # CCI计算
     N = 14
     MA_TP = MA(TP, N)
-    MD = TP.rolling(window=N).apply(lambda x: np.abs(x - x.mean()).mean())
+    def _mean_abs_dev_raw(x):
+        m = x.mean()
+        return np.mean(np.abs(x - m))
+
+    MD = TP.rolling(window=N).apply(_mean_abs_dev_raw, raw=True)
     
     CCI = (TP - MA_TP) / (MD * 0.015 + 0.0001)
     
@@ -729,95 +733,154 @@ def analyze_ma_system(df: pd.DataFrame) -> Dict:
 # 综合分析函数
 # ==============================================================================
 
-def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
-    """
-    分析单个成功案例
-    
-    参数:
-        stock_code: 股票代码 (格式: market_code, 如 sz_000001)
-        signal_date: 信号日期
-        
+def _load_stock_dataframe(stock_code: str) -> Tuple[Optional[pd.DataFrame], Optional[np.ndarray]]:
+    """加载并预处理单只股票的日线数据。
+
     返回:
-        Dict: 分析结果
+        (df, dates_array)
+        - df: 标准化后的DataFrame（已按date升序，reset_index）
+        - dates_array: df['date'] 的 numpy datetime64[ns] 数组（用于二分定位）
     """
-    # 解析股票代码
     parts = stock_code.split('_')
     if len(parts) != 2:
-        return {}
-    
+        return None, None
+
     market, code = parts
     filepath = os.path.join(DATA_DIR, market, f"{code}.csv")
-    
     if not os.path.exists(filepath):
-        return {}
-    
+        return None, None
+
+    # 只读取分析必需字段，显著降低I/O与解析开销（若源数据列缺失则自动回退全量读取）
+    required_cols_cn = {'名称','日期','开盘','收盘','最高','最低','成交量','成交额','振幅','涨跌幅','涨跌额','换手率'}
     try:
-        # 加载数据
+        df = pd.read_csv(
+            filepath,
+            encoding='utf-8-sig',
+            usecols=lambda c: c in required_cols_cn
+        )
+    except Exception:
         df = pd.read_csv(filepath, encoding='utf-8-sig')
-        
-        # 标准化列名
-        column_mapping = {
-            '名称': 'name',
-            '日期': 'date',
-            '开盘': 'open',
-            '收盘': 'close',
-            '最高': 'high',
-            '最低': 'low',
-            '成交量': 'volume',
-            '成交额': 'amount',
-            '振幅': 'amplitude',
-            '涨跌幅': 'pct_change',
-            '涨跌额': 'change',
-            '换手率': 'turnover'
-        }
-        df = df.rename(columns=column_mapping)
-        df['date'] = pd.to_datetime(df['date'])
-        df = df.sort_values('date').reset_index(drop=True)
-        
-        # 找到信号日期的位置
-        signal_dt = pd.to_datetime(signal_date)
-        signal_idx = df[df['date'] == signal_dt].index
-        
-        if len(signal_idx) == 0:
+
+    column_mapping = {
+        '名称': 'name',
+        '日期': 'date',
+        '开盘': 'open',
+        '收盘': 'close',
+        '最高': 'high',
+        '最低': 'low',
+        '成交量': 'volume',
+        '成交额': 'amount',
+        '振幅': 'amplitude',
+        '涨跌幅': 'pct_change',
+        '涨跌额': 'change',
+        '换手率': 'turnover'
+    }
+    df = df.rename(columns=column_mapping)
+
+    if 'date' not in df.columns:
+        return None, None
+
+    df['date'] = pd.to_datetime(df['date'], errors='coerce')
+    df = df.dropna(subset=['date'])
+    df = df.sort_values('date').reset_index(drop=True)
+
+    if df.empty:
+        return None, None
+
+    dates = df['date'].values  # datetime64[ns]
+    return df, dates
+
+
+def _locate_signal_index(dates: np.ndarray, signal_date: str) -> Optional[int]:
+    """用二分查找定位信号日期索引（等价于原先全表扫描，但更快）。"""
+    try:
+        signal_dt = np.datetime64(pd.to_datetime(signal_date))
+    except Exception:
+        return None
+
+    idx = int(np.searchsorted(dates, signal_dt))
+    if idx < len(dates) and dates[idx] == signal_dt:
+        return idx
+    return None
+
+
+def _analyze_from_prepared_df(df: pd.DataFrame, signal_idx: int) -> Dict:
+    """在已加载并标准化的df上，按指定索引分析（不改变原指标/判据逻辑）。"""
+    df_for_analysis = df.iloc[:signal_idx + 1]
+    if len(df_for_analysis) < 30:
+        return {}
+
+    return {
+        'macd': calculate_macd(df_for_analysis),
+        'kdj': calculate_kdj(df_for_analysis),
+        'boll': calculate_boll(df_for_analysis),
+        'rsi': calculate_rsi(df_for_analysis),
+        'dmi': calculate_dmi(df_for_analysis),
+        'dma': calculate_dma(df_for_analysis),
+        'sar': calculate_sar(df_for_analysis),
+        'bbi': calculate_bbi(df_for_analysis),
+        'obv': calculate_obv(df_for_analysis),
+        'wr': calculate_wr(df_for_analysis),
+        'cci': calculate_cci(df_for_analysis),
+        'dow_theory': analyze_dow_theory(df_for_analysis),
+        'wyckoff': analyze_wyckoff_theory(df_for_analysis),
+        'ma_system': analyze_ma_system(df_for_analysis),
+    }
+
+
+def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
+    """分析单个成功案例（保留原接口）。"""
+    try:
+        df, dates = _load_stock_dataframe(stock_code)
+        if df is None or dates is None:
             return {}
-        
-        signal_idx = signal_idx[0]
-        
-        # 截取信号日期及之前的数据用于计算指标
-        df_for_analysis = df.iloc[:signal_idx + 1].copy()
-        
-        if len(df_for_analysis) < 30:
+
+        signal_idx = _locate_signal_index(dates, signal_date)
+        if signal_idx is None:
             return {}
-        
-        # 计算各项指标
-        result = {
-            'macd': calculate_macd(df_for_analysis),
-            'kdj': calculate_kdj(df_for_analysis),
-            'boll': calculate_boll(df_for_analysis),
-            'rsi': calculate_rsi(df_for_analysis),
-            'dmi': calculate_dmi(df_for_analysis),
-            'dma': calculate_dma(df_for_analysis),
-            'sar': calculate_sar(df_for_analysis),
-            'bbi': calculate_bbi(df_for_analysis),
-            'obv': calculate_obv(df_for_analysis),
-            'wr': calculate_wr(df_for_analysis),
-            'cci': calculate_cci(df_for_analysis),
-            'dow_theory': analyze_dow_theory(df_for_analysis),
-            'wyckoff': analyze_wyckoff_theory(df_for_analysis),
-            'ma_system': analyze_ma_system(df_for_analysis),
-        }
-        
-        return result
-        
+
+        return _analyze_from_prepared_df(df, signal_idx)
+
     except Exception as e:
         log(f"分析失败 {stock_code} {signal_date}: {str(e)}")
         return {}
 
 
+def analyze_stock_cases(stock_code: str, indexed_dates: List[Tuple[int, str]]) -> List[Tuple[int, Dict]]:
+    """同一只股票的多条信号批量分析。
+
+    目的：避免对同一股票重复读CSV与重复预处理。
+
+    参数:
+        stock_code: 股票代码
+        indexed_dates: [(原始行号idx, signal_date), ...]
+
+    返回:
+        [(idx, result_dict), ...]
+    """
+    try:
+        df, dates = _load_stock_dataframe(stock_code)
+        if df is None or dates is None:
+            return [(i, {}) for i, _ in indexed_dates]
+
+        out: List[Tuple[int, Dict]] = []
+        for i, d in indexed_dates:
+            signal_idx = _locate_signal_index(dates, d)
+            if signal_idx is None:
+                out.append((i, {}))
+                continue
+            out.append((i, _analyze_from_prepared_df(df, signal_idx)))
+        return out
+
+    except Exception as e:
+        log(f"批量分析失败 {stock_code}: {str(e)}")
+        return [(i, {}) for i, _ in indexed_dates]
+
+
 def analyze_case_wrapper(args):
-    """多进程包装函数"""
-    stock_code, signal_date = args
-    return analyze_single_case(stock_code, signal_date)
+    """多进程包装函数（按股票粒度批量处理）。"""
+    stock_code, indexed_dates = args
+    return analyze_stock_cases(stock_code, indexed_dates)
 
 
 # ==============================================================================
@@ -1101,42 +1164,41 @@ def main():
         log("没有成功案例可分析")
         return
     
-    # 准备分析任务
+    # 准备分析任务（保留原始行顺序，用于回填结果）
     tasks = list(zip(df['stock_code'].tolist(), df['date'].tolist()))
     total_tasks = len(tasks)
-    
+
     log(f"\n开始分析 {total_tasks} 个成功案例...")
     log("-" * 60)
-    
+
+    # 将任务按股票分组：同一只股票只加载一次CSV，显著降低I/O与重复预处理成本
+    stock_to_items: Dict[str, List[Tuple[int, str]]] = {}
+    for i, (stock_code, signal_date) in enumerate(tasks):
+        stock_to_items.setdefault(stock_code, []).append((i, signal_date))
+
+    grouped_tasks = list(stock_to_items.items())
+
     # 多进程分析
     max_workers = max(1, multiprocessing.cpu_count() - 1)
-    analysis_results = []
-    
+    sorted_results: List[Dict] = [{} for _ in range(total_tasks)]
+
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = {executor.submit(analyze_case_wrapper, task): i for i, task in enumerate(tasks)}
-        
-        completed = 0
+        futures = [executor.submit(analyze_case_wrapper, t) for t in grouped_tasks]
+
+        completed_cases = 0
         for future in as_completed(futures):
-            completed += 1
             try:
-                result = future.result()
-                analysis_results.append(result)
-                
-                if completed % 100 == 0:
-                    log(f"进度: {completed}/{total_tasks} ({completed/total_tasks*100:.1f}%)")
-                    
+                batch_results = future.result()  # [(idx, result), ...]
+                for idx, result in batch_results:
+                    sorted_results[idx] = result if isinstance(result, dict) else {}
+                completed_cases += len(batch_results)
+
+                if completed_cases % 100 == 0 or completed_cases >= total_tasks:
+                    log(f"进度: {completed_cases}/{total_tasks} ({completed_cases/total_tasks*100:.1f}%)")
+
             except Exception as e:
-                analysis_results.append({})
                 log(f"分析失败: {str(e)}")
-    
-    # 按原始顺序排列结果
-    sorted_results = [None] * len(tasks)
-    for future, idx in futures.items():
-        try:
-            sorted_results[idx] = future.result()
-        except:
-            sorted_results[idx] = {}
-    
+
     analysis_results = sorted_results
     
     log(f"\n分析完成，成功分析 {len([r for r in analysis_results if r])} 个案例")
