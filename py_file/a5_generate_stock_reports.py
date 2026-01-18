@@ -242,7 +242,7 @@ def generate_reports(end_date=None):
     log(f"找到 {len(stock_files)} 只股票数据文件")
     
     # 使用进程池并行处理
-    num_cores = 6
+    num_cores = 12
     log(f"使用 {num_cores} 个核心进行并行计算...")
     
     worker = partial(process_single_stock, end_dt=end_dt, year_start=year_start, month_start=month_start)
