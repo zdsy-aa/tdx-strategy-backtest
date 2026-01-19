@@ -51,7 +51,7 @@ export default function ModelDashboard() {
         setDashboardData(data);
         setError(null);
       } catch (err) {
-        setError("无法加载模型仪表盘数据。请确保已运行 a6_models.py 脚本。");
+        setError("无法加载模型仪表盘数据。请确保已运行 相关 脚本。");
         console.error("Error loading dashboard:", err);
       } finally {
         setLoading(false);
