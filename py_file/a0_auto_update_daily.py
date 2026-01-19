@@ -59,7 +59,9 @@ def main():
         run_script("a3_combo_strategy_backtest.py", "全市场组合策略回测", args=["--strategy", "all"])
         # 6. 生成股票报告明细
         run_script("a5_generate_stock_reports.py", "生成所有股票的策略表现报告")
-        # 7. 更新前端展示所需的数据文件
+        # 7. 运行 AI 模型评分系统
+        run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
+        # 8. 更新前端展示所需的数据文件
         run_script("a99_update_web_data.py", "更新前端网页数据")
     else:
         log("=== 增量更新模式 ===")
@@ -77,7 +79,9 @@ def main():
         run_script("a3_combo_strategy_backtest.py", "全市场组合策略回测", args=["--strategy", "all"])
         # 6. 更新股票报告（全市场）
         run_script("a5_generate_stock_reports.py", "生成所有股票的策略表现报告")
-        # 7. 更新前端数据文件
+        # 7. 运行 AI 模型评分系统
+        run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
+        # 8. 更新前端数据文件
         run_script("a99_update_web_data.py", "更新前端网页数据")
 
     log("=" * 50)

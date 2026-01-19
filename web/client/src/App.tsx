@@ -15,6 +15,7 @@ import Reports from "./pages/Reports";
 import ReportDetail from "./pages/ReportDetail";
 import VisualBuyPoints from "./pages/VisualBuyPoints";
 import AnalysisReport from "./pages/AnalysisReport";
+import ModelDashboard from "./pages/ModelDashboard";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/report-detail" component={ReportDetail} />
       <Route path="/visual-buy-points" component={VisualBuyPoints} />
       <Route path="/analysis-report" component={AnalysisReport} />
+      <Route path="/model-dashboard" component={ModelDashboard} />
       <Route component={NotFound} />
     </Switch>
   );

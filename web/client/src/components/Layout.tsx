@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Activity, BarChart2, BookOpen, Layers, Brain, Settings2, FileText, Menu, X, Table2, TrendingUp, BarChart3 } from "lucide-react";
+import { Activity, BarChart2, BookOpen, Layers, Brain, Settings2, FileText, Menu, X, Table2, TrendingUp, BarChart3, Zap } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,12 +23,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/report-detail", label: "报告明细", icon: Table2 },
     { href: "/visual-buy-points", label: "可视化买点", icon: TrendingUp },
     { href: "/analysis-report", label: "分析报告", icon: BarChart3 },
+    { href: "/model-dashboard", label: "模型仪表盘", icon: Zap },
   ];
 
   const toolNavItems = [
     { href: "/ai-optimizer", label: "AI 策略优化", icon: Brain },
     { href: "/custom-strategy", label: "自定义策略", icon: Settings2 },
-    { href: "/reports", label: "回测报告", icon: FileText },
   ];
 
   return (
