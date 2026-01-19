@@ -1,0 +1,543 @@
+{
+  "generated_at": "2026-01-19T06:41:10.172228Z",
+  "data_root": "data/day",
+  "out_dir": "web/client/src/data",
+  "csv_columns_cn": [
+    "名称",
+    "日期",
+    "开盘",
+    "收盘",
+    "最高",
+    "最低",
+    "成交量",
+    "成交额",
+    "振幅",
+    "涨跌幅",
+    "涨跌额",
+    "换手率"
+  ],
+  "markets": {
+    "bj": {
+      "total": 292,
+      "ok": 289,
+      "fail": 3
+    },
+    "sz": {
+      "total": 3060,
+      "ok": 3054,
+      "fail": 6
+    },
+    "sh": {
+      "total": 2438,
+      "ok": 2430,
+      "fail": 8
+    }
+  },
+  "counts": {
+    "symbols_total": 5790,
+    "symbols_ok": 5773,
+    "symbols_fail": 17
+  },
+  "top": [
+    {
+      "market": "bj",
+      "code": "920680",
+      "name": "广道退",
+      "last_date": "2025-12-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000040",
+      "name": "*ST旭蓝",
+      "last_date": "2025-03-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000046",
+      "name": "*ST泛海",
+      "last_date": "2023-12-27T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000150",
+      "name": "*ST宜康",
+      "last_date": "2023-04-27T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000413",
+      "name": "ST旭电",
+      "last_date": "2024-08-14T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000535",
+      "name": "*ST猴王",
+      "last_date": "2005-04-29T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000540",
+      "name": "*ST中天",
+      "last_date": "2023-05-18T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000583",
+      "name": "S*ST托普",
+      "last_date": "2006-04-19T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000588",
+      "name": "PT粤金曼",
+      "last_date": "2001-06-01T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000622",
+      "name": "恒立退",
+      "last_date": "2025-07-15T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000667",
+      "name": "ST美置",
+      "last_date": "2023-05-25T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000671",
+      "name": "ST阳光城",
+      "last_date": "2023-06-09T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000730",
+      "name": "*ST环保",
+      "last_date": "2004-03-12T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000732",
+      "name": "ST泰禾",
+      "last_date": "2023-06-02T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000806",
+      "name": "银河退",
+      "last_date": "2023-07-05T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000827",
+      "name": "*ST长兴",
+      "last_date": "2005-04-28T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000836",
+      "name": "ST富通",
+      "last_date": "2024-06-17T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000851",
+      "name": "*ST高鸿",
+      "last_date": "2025-09-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000918",
+      "name": "*ST嘉凯",
+      "last_date": "2023-05-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000961",
+      "name": "ST中南",
+      "last_date": "2024-05-08T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000971",
+      "name": "*ST高升",
+      "last_date": "2024-06-04T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "000976",
+      "name": "*ST华铁",
+      "last_date": "2024-07-25T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002002",
+      "name": "ST鸿达",
+      "last_date": "2024-01-18T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002113",
+      "name": "*ST天润",
+      "last_date": "2023-06-12T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002118",
+      "name": "*ST紫鑫",
+      "last_date": "2023-06-15T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002280",
+      "name": "ST联络",
+      "last_date": "2024-06-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002288",
+      "name": "*ST超华",
+      "last_date": "2024-06-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002308",
+      "name": "*ST威创",
+      "last_date": "2024-08-22T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002325",
+      "name": "*ST洪涛",
+      "last_date": "2024-06-28T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002336",
+      "name": "人乐退",
+      "last_date": "2025-07-03T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002435",
+      "name": "ST长康",
+      "last_date": "2024-07-01T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002447",
+      "name": "晨鑫退",
+      "last_date": "2022-06-24T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002464",
+      "name": "众应退",
+      "last_date": "2022-06-27T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002503",
+      "name": "*ST搜特",
+      "last_date": "2023-05-22T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002504",
+      "name": "*ST弘高",
+      "last_date": "2023-06-12T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002505",
+      "name": "鹏都农牧",
+      "last_date": "2024-07-02T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002610",
+      "name": "ST爱康",
+      "last_date": "2024-06-18T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002619",
+      "name": "*ST艾格",
+      "last_date": "2022-03-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002621",
+      "name": "*ST美吉",
+      "last_date": "2024-06-13T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002665",
+      "name": "ST航高",
+      "last_date": "2024-06-27T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002699",
+      "name": "*ST美盛",
+      "last_date": "2024-04-25T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002740",
+      "name": "*ST爱迪",
+      "last_date": "2024-01-19T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002750",
+      "name": "龙津退",
+      "last_date": "2025-06-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "002776",
+      "name": "*ST柏龙",
+      "last_date": "2023-12-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300028",
+      "name": "金亚退",
+      "last_date": "2020-07-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300108",
+      "name": "*ST吉药",
+      "last_date": "2025-04-23T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300178",
+      "name": "腾邦退",
+      "last_date": "2022-06-21T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300216",
+      "name": "千山退",
+      "last_date": "2020-09-15T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300280",
+      "name": "紫天退",
+      "last_date": "2025-10-13T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300742",
+      "name": "越博退",
+      "last_date": "2024-07-19T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    }
+  ]
+}

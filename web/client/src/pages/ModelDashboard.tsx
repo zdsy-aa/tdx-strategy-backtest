@@ -42,8 +42,13 @@ export default function ModelDashboard() {
   useEffect(() => {
     const loadDashboard = async () => {
       try {
-        const response = await import("@/data/dashboard.json");
-        setDashboardData(response.default);
+        // 使用 fetch 动态加载 JSON 文件，避免构建时的文件缺失问题
+        const response = await fetch("/data/dashboard.json");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setDashboardData(data);
         setError(null);
       } catch (err) {
         setError("无法加载模型仪表盘数据。请确保已运行 a6_models.py 脚本。");
@@ -275,54 +280,58 @@ export default function ModelDashboard() {
           <TabsContent value="ranking" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>AI 评分排行 TOP 50</CardTitle>
-                <CardDescription>按综合评分从高到低排序</CardDescription>
+                <CardTitle>评分排行榜</CardTitle>
+                <CardDescription>前 20 只股票的综合评分排行</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="rounded-lg border border-white/10 overflow-hidden">
+                <ResponsiveContainer width="100%" height={400}>
+                  <BarChart data={scoreDistribution} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                    <XAxis type="number" stroke="rgba(255,255,255,0.5)" />
+                    <YAxis dataKey="name" type="category" width={150} stroke="rgba(255,255,255,0.5)" />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "rgba(0,0,0,0.8)",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                      }}
+                    />
+                    <Bar dataKey="评分" fill="#3b82f6" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>排行详情</CardTitle>
+                <CardDescription>前 50 只股票的详细信息</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto">
                   <Table>
-                    <TableHeader>
-                      <TableRow className="border-white/10 hover:bg-white/5">
-                        <TableHead className="w-12">排名</TableHead>
-                        <TableHead>市场</TableHead>
-                        <TableHead>代码</TableHead>
-                        <TableHead>名称</TableHead>
-                        <TableHead className="text-right">综合评分</TableHead>
-                        <TableHead className="text-right">策略A</TableHead>
-                        <TableHead className="text-right">策略B</TableHead>
-                        <TableHead className="text-right">信号数</TableHead>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>排名</TableCell>
+                        <TableCell>代码</TableCell>
+                        <TableCell>名称</TableCell>
+                        <TableCell>综合评分</TableCell>
+                        <TableCell>策略A</TableCell>
+                        <TableCell>策略B</TableCell>
+                        <TableCell>信号数</TableCell>
                       </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
-                      {dashboardData.top.map((stock, idx) => (
-                        <TableRow key={`${stock.market}-${stock.code}`} className="border-white/10 hover:bg-white/5">
-                          <TableCell className="font-semibold text-primary">
-                            {idx + 1}
-                          </TableCell>
+                      {dashboardData.top.slice(0, 50).map((item, idx) => (
+                        <TableRow key={idx}>
+                          <TableCell className="font-medium">{idx + 1}</TableCell>
+                          <TableCell>{item.code}</TableCell>
+                          <TableCell>{item.name}</TableCell>
                           <TableCell>
-                            <Badge variant="outline" className="uppercase">
-                              {stock.market}
-                            </Badge>
+                            <Badge variant="default">{item.final_score.toFixed(2)}</Badge>
                           </TableCell>
-                          <TableCell className="font-mono font-semibold">{stock.code}</TableCell>
-                          <TableCell>{stock.name}</TableCell>
-                          <TableCell className="text-right">
-                            <span className="inline-flex items-center gap-2">
-                              <TrendingUp className="size-4 text-green-500" />
-                              <span className="font-semibold text-green-500">
-                                {stock.final_score.toFixed(1)}
-                              </span>
-                            </span>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            <span className="text-blue-400">{stock.score_A.toFixed(1)}</span>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            <span className="text-purple-400">{stock.score_B.toFixed(1)}</span>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            <Badge variant="secondary">{stock.signals_count}</Badge>
-                          </TableCell>
+                          <TableCell>{item.score_A.toFixed(2)}</TableCell>
+                          <TableCell>{item.score_B.toFixed(2)}</TableCell>
+                          <TableCell>{item.signals_count}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
@@ -336,14 +345,14 @@ export default function ModelDashboard() {
           <TabsContent value="analysis" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>策略 A vs 策略 B 对比</CardTitle>
-                <CardDescription>前15只股票的两个策略评分对比</CardDescription>
+                <CardTitle>策略A vs 策略B</CardTitle>
+                <CardDescription>两个策略的评分对比</CardDescription>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={400}>
                   <BarChart data={strategyComparison}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="name" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
+                    <XAxis dataKey="name" stroke="rgba(255,255,255,0.5)" />
                     <YAxis stroke="rgba(255,255,255,0.5)" />
                     <Tooltip
                       contentStyle={{
@@ -353,31 +362,8 @@ export default function ModelDashboard() {
                     />
                     <Legend />
                     <Bar dataKey="策略A" fill="#3b82f6" />
-                    <Bar dataKey="策略B" fill="#a855f7" />
+                    <Bar dataKey="策略B" fill="#ef4444" />
                   </BarChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>评分分布</CardTitle>
-                <CardDescription>TOP 20 股票的综合评分分布</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={300}>
-                  <LineChart data={scoreDistribution}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="name" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
-                    <YAxis stroke="rgba(255,255,255,0.5)" domain={[0, 100]} />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "rgba(0,0,0,0.8)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                      }}
-                    />
-                    <Line type="monotone" dataKey="评分" stroke="#10b981" strokeWidth={2} dot={{ fill: "#10b981" }} />
-                  </LineChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -385,37 +371,40 @@ export default function ModelDashboard() {
 
           {/* 市场分布标签 */}
           <TabsContent value="markets" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {marketData.map((market, idx) => (
-                <Card key={idx}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{market.name} 市场</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">总数</span>
-                        <span className="font-semibold">{market.total}</span>
+            <Card>
+              <CardHeader>
+                <CardTitle>市场分布详情</CardTitle>
+                <CardDescription>各市场的股票分布情况</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-6">
+                  {marketData.map((market, idx) => (
+                    <div key={idx} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <h3 className="text-lg font-semibold">{market.name}</h3>
+                        <Badge variant="outline">{market.total} 只股票</Badge>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-green-500">成功</span>
-                        <span className="font-semibold text-green-500">{market.成功}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-red-500">失败</span>
-                        <span className="font-semibold text-red-500">{market.失败}</span>
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/20">
+                          <p className="text-sm text-muted-foreground">成功</p>
+                          <p className="text-2xl font-bold text-green-500">{market.成功}</p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                          <p className="text-sm text-muted-foreground">失败</p>
+                          <p className="text-2xl font-bold text-red-500">{market.失败}</p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                          <p className="text-sm text-muted-foreground">成功率</p>
+                          <p className="text-2xl font-bold text-blue-500">
+                            {((market.成功 / market.total) * 100).toFixed(1)}%
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="pt-4 border-t border-white/10">
-                      <div className="text-sm text-muted-foreground mb-2">成功率</div>
-                      <div className="text-2xl font-bold text-green-500">
-                        {((market.成功 / market.total) * 100).toFixed(1)}%
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>

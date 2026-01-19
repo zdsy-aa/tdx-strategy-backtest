@@ -1,0 +1,123 @@
+{
+  "errors": [
+    {
+      "market": "bj",
+      "code": "810011",
+      "file": "data/day/bj/810011.csv",
+      "error": "Not enough rows: 10 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 10 (<20)\n"
+    },
+    {
+      "market": "bj",
+      "code": "920045",
+      "file": "data/day/bj/920045.csv",
+      "error": "Not enough rows: 8 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 8 (<20)\n"
+    },
+    {
+      "market": "bj",
+      "code": "920121",
+      "file": "data/day/bj/920121.csv",
+      "error": "Not enough rows: 12 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 12 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "001325",
+      "file": "data/day/sz/001325.csv",
+      "error": "Not enough rows: 17 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 17 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "001369",
+      "file": "data/day/sz/001369.csv",
+      "error": "Not enough rows: 9 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 9 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "001396",
+      "file": "data/day/sz/001396.csv",
+      "error": "Not enough rows: 9 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 9 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "301449",
+      "file": "data/day/sz/301449.csv",
+      "error": "Not enough rows: 14 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 14 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "301667",
+      "file": "data/day/sz/301667.csv",
+      "error": "Not enough rows: 14 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 14 (<20)\n"
+    },
+    {
+      "market": "sz",
+      "code": "301687",
+      "file": "data/day/sz/301687.csv",
+      "error": "Not enough rows: 8 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 8 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "603248",
+      "file": "data/day/sh/603248.csv",
+      "error": "Not enough rows: 14 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 14 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "603402",
+      "file": "data/day/sh/603402.csv",
+      "error": "Not enough rows: 6 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 6 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "688790",
+      "file": "data/day/sh/688790.csv",
+      "error": "Not enough rows: 19 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 19 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "688802",
+      "file": "data/day/sh/688802.csv",
+      "error": "Not enough rows: 18 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 18 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "688805",
+      "file": "data/day/sh/688805.csv",
+      "error": "Not enough rows: 13 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 13 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "688807",
+      "file": "data/day/sh/688807.csv",
+      "error": "Not enough rows: 16 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 16 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "688809",
+      "file": "data/day/sh/688809.csv",
+      "error": "Not enough rows: 9 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 9 (<20)\n"
+    },
+    {
+      "market": "sh",
+      "code": "920179",
+      "file": "data/day/sh/920179.csv",
+      "error": "Not enough rows: 2 (<20)",
+      "trace": "Traceback (most recent call last):\n  File \"/home/ubuntu/tdx-strategy-backtest/py_file/a6_models.py\", line 344, in build_symbol_payload\n    raise ValueError(f\"Not enough rows: {len(df)} (<20)\")\nValueError: Not enough rows: 2 (<20)\n"
+    }
+  ]
+}
