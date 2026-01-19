@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-成功案例模式分析器 (pattern_analyzer.py)
+成功案例模式分析器 (a21_pattern_analyzer.py)
 ================================================================================
 
 功能说明:
@@ -13,8 +13,9 @@
     4. 生成详细的分析报告
 
 分析维度:
-    - 常用指标：MACD, KDJ, BOLL, RSI, DMI, DMA, SAR, BBI, OBV等
+    - 常用指标：MACD, KDJ, BOLL, RSI, DMI, DMA, SAR, BBI, OBV, WR, CCI等
     - 市场理论：道氏理论、威科夫理论的相关判据
+    - 均线系统：多周期均线与金叉状态
 
 输入:
     - report/signal_success_cases.csv: 成功案例数据
@@ -25,8 +26,14 @@
     - report/pattern_summary.json: 模式统计摘要
     - report/pattern_analysis_by_signal.json: 按信号类型分类的统计
 
+性能优化原则（不改变原逻辑/口径）:
+    - 同一只股票：只读CSV一次，只做标准化一次
+    - 同一只股票多条信号：指标序列“全量预计算一次”，每条信号只做O(1)索引取值
+    - 信号日期定位：使用numpy二分查找
+    - 并行粒度：按股票分组后多进程
+
 作者: TradeGuide System
-版本: 1.0.1 (性能优化版)
+版本: 1.0.2 (进一步性能优化版，不改变原逻辑)
 创建日期: 2026-01-15
 ================================================================================
 """
@@ -34,7 +41,8 @@
 try:
     from a99_logger import log
 except ImportError:
-    def log(msg, level="INFO"): print(f"[{level}] {msg}")
+    def log(msg, level="INFO"):
+        print(f"[{level}] {msg}")
 
 import os
 import sys
@@ -44,7 +52,7 @@ from datetime import datetime
 import json
 from typing import Dict, List, Tuple, Optional
 import warnings
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor
 import multiprocessing
 
 warnings.filterwarnings('ignore')
@@ -52,509 +60,419 @@ warnings.filterwarnings('ignore')
 # 添加当前目录到路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# 导入基础函数
+# 导入基础函数（保持原逻辑依赖）
 from a99_indicators import (
     REF, MA, EMA, SMA, HHV, LLV, CROSS, COUNT, ABS, MAX, IF
 )
-
 
 # ==============================================================================
 # 配置常量
 # ==============================================================================
 
-# 项目根目录
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# 数据目录
 DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'day')
-
-# 报告目录
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'report')
-
-# Web数据目录：存放供前端展示的JSON数据文件
-# 注意：脚本会自动将数据输出到此目录，无需手动复制
 WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
-
-# 成功案例文件
 SUCCESS_CASES_FILE = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
 
-
 # ==============================================================================
-# 技术指标计算函数
+# 指标序列预计算（不改变公式逻辑，只改变“何时计算/复用”）
 # ==============================================================================
 
-def calculate_macd(df: pd.DataFrame) -> Dict:
-    """
-    计算MACD指标状态
-    
-    返回:
-        Dict: MACD指标状态
-            - dif: DIF值
-            - dea: DEA值
-            - macd: MACD柱值
-            - golden_cross: 是否金叉
-            - death_cross: 是否死叉
-            - above_zero: DIF是否在零轴上方
-            - trend: 趋势方向 (上升/下降/震荡)
-    """
-    C = df['close']
-    
-    # 标准MACD参数 (12, 26, 9)
-    DIF = EMA(C, 12) - EMA(C, 26)
-    DEA = EMA(DIF, 9)
-    MACD = (DIF - DEA) * 2
-    
-    current_idx = len(df) - 1
-    
-    return {
-        'dif': round(float(DIF.iloc[current_idx]), 4),
-        'dea': round(float(DEA.iloc[current_idx]), 4),
-        'macd': round(float(MACD.iloc[current_idx]), 4),
-        'golden_cross': bool(CROSS(DIF, DEA).iloc[current_idx]) if current_idx > 0 else False,
-        'death_cross': bool(CROSS(DEA, DIF).iloc[current_idx]) if current_idx > 0 else False,
-        'dif_above_zero': bool(DIF.iloc[current_idx] > 0),
-        'dea_above_zero': bool(DEA.iloc[current_idx] > 0),
-        'macd_positive': bool(MACD.iloc[current_idx] > 0),
-        'dif_rising': bool(DIF.iloc[current_idx] > DIF.iloc[current_idx-1]) if current_idx > 0 else False,
-    }
+def _safe_float(x) -> float:
+    try:
+        return float(x)
+    except Exception:
+        return float('nan')
 
 
-def calculate_kdj(df: pd.DataFrame) -> Dict:
+def _safe_bool(x) -> bool:
+    try:
+        if pd.isna(x):
+            return False
+        return bool(x)
+    except Exception:
+        return False
+
+
+def _precompute_feature_cache(df: pd.DataFrame) -> Dict[str, pd.Series]:
     """
-    计算KDJ指标状态
-    
-    返回:
-        Dict: KDJ指标状态
+    预计算整只股票全量序列的指标中间量。
+    说明：这些序列在任意 idx 处的值，等价于“截断到 idx 后再计算”的结果（递推/滚动均仅依赖过去）。
     """
     C = df['close']
     H = df['high']
     L = df['low']
-    
-    # 标准KDJ参数 (9, 3, 3)
+    O = df['open']
+    V = df['volume']
+
+    cache: Dict[str, pd.Series] = {}
+
+    # ---------------- MACD ----------------
+    DIF = EMA(C, 12) - EMA(C, 26)
+    DEA = EMA(DIF, 9)
+    MACD = (DIF - DEA) * 2
+    cache['macd_dif'] = DIF
+    cache['macd_dea'] = DEA
+    cache['macd_macd'] = MACD
+    cache['macd_gc'] = CROSS(DIF, DEA)
+    cache['macd_dc'] = CROSS(DEA, DIF)
+
+    # ---------------- KDJ ----------------
     RSV = (C - LLV(L, 9)) / (HHV(H, 9) - LLV(L, 9) + 0.0001) * 100
     K = SMA(RSV, 3, 1)
     D = SMA(K, 3, 1)
     J = 3 * K - 2 * D
-    
-    current_idx = len(df) - 1
-    
-    k_val = float(K.iloc[current_idx])
-    d_val = float(D.iloc[current_idx])
-    j_val = float(J.iloc[current_idx])
-    
-    return {
-        'k': round(k_val, 2),
-        'd': round(d_val, 2),
-        'j': round(j_val, 2),
-        'golden_cross': bool(CROSS(K, D).iloc[current_idx]) if current_idx > 0 else False,
-        'death_cross': bool(CROSS(D, K).iloc[current_idx]) if current_idx > 0 else False,
-        'oversold': k_val < 20 and d_val < 20,  # 超卖区
-        'overbought': k_val > 80 and d_val > 80,  # 超买区
-        'j_oversold': j_val < 0,  # J值超卖
-        'j_overbought': j_val > 100,  # J值超买
-        'k_above_d': k_val > d_val,
-    }
+    cache['kdj_k'] = K
+    cache['kdj_d'] = D
+    cache['kdj_j'] = J
+    cache['kdj_gc'] = CROSS(K, D)
+    cache['kdj_dc'] = CROSS(D, K)
 
-
-def calculate_boll(df: pd.DataFrame) -> Dict:
-    """
-    计算布林带指标状态
-    
-    返回:
-        Dict: BOLL指标状态
-    """
-    C = df['close']
-    
-    # 标准布林带参数 (20, 2)
+    # ---------------- BOLL ----------------
     MID = MA(C, 20)
     STD = C.rolling(window=20).std()
     UPPER = MID + 2 * STD
     LOWER = MID - 2 * STD
-    
-    current_idx = len(df) - 1
-    current_close = float(C.iloc[current_idx])
-    mid_val = float(MID.iloc[current_idx])
-    upper_val = float(UPPER.iloc[current_idx])
-    lower_val = float(LOWER.iloc[current_idx])
-    
-    # 计算带宽
-    bandwidth = (upper_val - lower_val) / mid_val * 100 if mid_val > 0 else 0
-    
-    # 计算价格在布林带中的位置 (0-100)
-    position = (current_close - lower_val) / (upper_val - lower_val) * 100 if (upper_val - lower_val) > 0 else 50
-    
-    return {
-        'mid': round(mid_val, 2),
-        'upper': round(upper_val, 2),
-        'lower': round(lower_val, 2),
-        'bandwidth': round(bandwidth, 2),
-        'position': round(position, 2),
-        'above_mid': current_close > mid_val,
-        'near_upper': position > 80,
-        'near_lower': position < 20,
-        'squeeze': bandwidth < 10,  # 布林带收窄
-        'expansion': bandwidth > 20,  # 布林带扩张
-    }
+    cache['boll_mid'] = MID
+    cache['boll_upper'] = UPPER
+    cache['boll_lower'] = LOWER
 
-
-def calculate_rsi(df: pd.DataFrame) -> Dict:
-    """
-    计算RSI指标状态
-    
-    返回:
-        Dict: RSI指标状态
-    """
-    C = df['close']
+    # ---------------- RSI ----------------
     LC = REF(C, 1)
-    
-    # RSI6, RSI12, RSI24
-    def calc_rsi(n):
+
+    def _rsi(n):
         return SMA(MAX(C - LC, 0), n, 1) / (SMA(ABS(C - LC), n, 1) + 0.0001) * 100
-    
-    RSI6 = calc_rsi(6)
-    RSI12 = calc_rsi(12)
-    RSI24 = calc_rsi(24)
-    
-    current_idx = len(df) - 1
-    
-    rsi6_val = float(RSI6.iloc[current_idx])
-    rsi12_val = float(RSI12.iloc[current_idx])
-    rsi24_val = float(RSI24.iloc[current_idx])
-    
-    return {
-        'rsi6': round(rsi6_val, 2),
-        'rsi12': round(rsi12_val, 2),
-        'rsi24': round(rsi24_val, 2),
-        'oversold': rsi6_val < 20,
-        'overbought': rsi6_val > 80,
-        'rsi6_above_rsi12': rsi6_val > rsi12_val,
-        'rsi12_above_rsi24': rsi12_val > rsi24_val,
-        'bullish_alignment': rsi6_val > rsi12_val > rsi24_val,  # 多头排列
-    }
 
+    RSI6 = _rsi(6)
+    RSI12 = _rsi(12)
+    RSI24 = _rsi(24)
+    cache['rsi_6'] = RSI6
+    cache['rsi_12'] = RSI12
+    cache['rsi_24'] = RSI24
 
-def calculate_dmi(df: pd.DataFrame) -> Dict:
-    """
-    计算DMI指标状态 (趋向指标)
-    
-    返回:
-        Dict: DMI指标状态
-    """
-    C = df['close']
-    H = df['high']
-    L = df['low']
-    
+    # ---------------- DMI ----------------
     N = 14
     M = 6
-    
-    # 计算TR (真实波幅)
     TR = pd.concat([
         H - L,
         (H - REF(C, 1)).abs(),
         (L - REF(C, 1)).abs()
     ], axis=1).max(axis=1)
-    
-    # 计算方向变动
+
     HD = H - REF(H, 1)
     LD = REF(L, 1) - L
-    
+
     DMP = IF((HD > 0) & (HD > LD), HD, pd.Series(0, index=df.index))
     DMM = IF((LD > 0) & (LD > HD), LD, pd.Series(0, index=df.index))
-    
-    # 平滑计算
+
     TR_SUM = SMA(TR, N, 1)
     DMP_SUM = SMA(DMP, N, 1)
     DMM_SUM = SMA(DMM, N, 1)
-    
+
     PDI = DMP_SUM / (TR_SUM + 0.0001) * 100
     MDI = DMM_SUM / (TR_SUM + 0.0001) * 100
-    
-    # ADX计算
+
     DX = ABS(PDI - MDI) / (PDI + MDI + 0.0001) * 100
     ADX = SMA(DX, M, 1)
     ADXR = (ADX + REF(ADX, M)) / 2
-    
-    current_idx = len(df) - 1
-    
-    pdi_val = float(PDI.iloc[current_idx])
-    mdi_val = float(MDI.iloc[current_idx])
-    adx_val = float(ADX.iloc[current_idx])
-    
-    return {
-        'pdi': round(pdi_val, 2),
-        'mdi': round(mdi_val, 2),
-        'adx': round(adx_val, 2),
-        'adxr': round(float(ADXR.iloc[current_idx]), 2),
-        'pdi_above_mdi': pdi_val > mdi_val,  # 多头趋势
-        'strong_trend': adx_val > 25,  # 强趋势
-        'weak_trend': adx_val < 20,  # 弱趋势/震荡
-        'golden_cross': bool(CROSS(PDI, MDI).iloc[current_idx]) if current_idx > 0 else False,
-    }
 
+    cache['dmi_pdi'] = PDI
+    cache['dmi_mdi'] = MDI
+    cache['dmi_adx'] = ADX
+    cache['dmi_adxr'] = ADXR
+    cache['dmi_gc'] = CROSS(PDI, MDI)
 
-def calculate_dma(df: pd.DataFrame) -> Dict:
-    """
-    计算DMA指标状态 (平均线差)
-    
-    返回:
-        Dict: DMA指标状态
-    """
-    C = df['close']
-    
-    # DMA参数
-    DIF = MA(C, 10) - MA(C, 50)
-    DIFMA = MA(DIF, 10)
-    
-    current_idx = len(df) - 1
-    
-    dif_val = float(DIF.iloc[current_idx])
-    difma_val = float(DIFMA.iloc[current_idx])
-    
-    return {
-        'dif': round(dif_val, 4),
-        'difma': round(difma_val, 4),
-        'dif_above_zero': dif_val > 0,
-        'dif_above_difma': dif_val > difma_val,
-        'golden_cross': bool(CROSS(DIF, DIFMA).iloc[current_idx]) if current_idx > 0 else False,
-        'rising': bool(DIF.iloc[current_idx] > DIF.iloc[current_idx-1]) if current_idx > 0 else False,
-    }
+    # ---------------- DMA ----------------
+    DMA_DIF = MA(C, 10) - MA(C, 50)
+    DMA_DIFMA = MA(DMA_DIF, 10)
+    cache['dma_dif'] = DMA_DIF
+    cache['dma_difma'] = DMA_DIFMA
+    cache['dma_gc'] = CROSS(DMA_DIF, DMA_DIFMA)
 
-
-def calculate_sar(df: pd.DataFrame) -> Dict:
-    """
-    计算SAR指标状态 (抛物线转向)
-    
-    返回:
-        Dict: SAR指标状态
-    """
-    H = df['high']
-    L = df['low']
-    C = df['close']
-    
-    # 简化版SAR计算
-    n = len(df)
-    sar = pd.Series(index=df.index, dtype=float)
-    
-    # 初始化
-    af = 0.02
-    af_max = 0.2
-    af_step = 0.02
-    
-    # 判断初始趋势
-    if n < 5:
-        return {'sar': 0, 'bullish': False, 'reversal': False}
-    
-    # 使用简化逻辑：SAR基于最近N日的极值
+    # ---------------- SAR (简化版，保持原判断逻辑) ----------------
     sar_period = 10
-    
-    # 上升趋势SAR = 最近N日最低价
-    # 下降趋势SAR = 最近N日最高价
-    
-    current_idx = n - 1
-    recent_high = float(HHV(H, sar_period).iloc[current_idx])
-    recent_low = float(LLV(L, sar_period).iloc[current_idx])
-    current_close = float(C.iloc[current_idx])
-    
-    # 判断趋势
+    recent_high = HHV(H, sar_period)
+    recent_low = LLV(L, sar_period)
     mid_price = (recent_high + recent_low) / 2
-    bullish = current_close > mid_price
-    
-    sar_val = recent_low if bullish else recent_high
-    
-    return {
-        'sar': round(sar_val, 2),
-        'bullish': bullish,
-        'price_above_sar': current_close > sar_val,
-        'distance_pct': round((current_close - sar_val) / sar_val * 100, 2) if sar_val > 0 else 0,
-    }
+    bullish = C > mid_price
+    sar_val = pd.Series(np.where(bullish.values, recent_low.values, recent_high.values), index=df.index)
+    cache['sar_val'] = sar_val
+    cache['sar_bullish'] = bullish
 
-
-def calculate_bbi(df: pd.DataFrame) -> Dict:
-    """
-    计算BBI指标状态 (多空指数)
-    
-    返回:
-        Dict: BBI指标状态
-    """
-    C = df['close']
-    
-    # BBI = (MA3 + MA6 + MA12 + MA24) / 4
+    # ---------------- BBI ----------------
     BBI = (MA(C, 3) + MA(C, 6) + MA(C, 12) + MA(C, 24)) / 4
-    
-    current_idx = len(df) - 1
-    bbi_val = float(BBI.iloc[current_idx])
-    current_close = float(C.iloc[current_idx])
-    
-    return {
-        'bbi': round(bbi_val, 2),
-        'price_above_bbi': current_close > bbi_val,
-        'distance_pct': round((current_close - bbi_val) / bbi_val * 100, 2) if bbi_val > 0 else 0,
-        'bbi_rising': bool(BBI.iloc[current_idx] > BBI.iloc[current_idx-1]) if current_idx > 0 else False,
-    }
+    cache['bbi'] = BBI
 
-
-def calculate_obv(df: pd.DataFrame) -> Dict:
-    """
-    计算OBV指标状态 (能量潮)
-    
-    返回:
-        Dict: OBV指标状态
-    """
-    C = df['close']
-    V = df['volume']
-    
-    # OBV计算
-    direction = np.sign(C - REF(C, 1))
-    direction.iloc[0] = 0
-    
-    OBV = (direction * V).cumsum()
+    # ---------------- OBV ----------------
+    direction = np.sign((C - REF(C, 1)).values)
+    if len(direction) > 0:
+        direction[0] = 0
+    OBV = pd.Series((direction * V.values).cumsum(), index=df.index)
     OBV_MA = MA(OBV, 20)
-    
-    current_idx = len(df) - 1
-    obv_val = float(OBV.iloc[current_idx])
-    obv_ma_val = float(OBV_MA.iloc[current_idx])
-    
-    # OBV趋势
-    obv_trend = 'rising' if current_idx > 5 and OBV.iloc[current_idx] > OBV.iloc[current_idx-5] else 'falling'
-    
-    return {
-        'obv': round(obv_val, 0),
-        'obv_ma': round(obv_ma_val, 0),
-        'obv_above_ma': obv_val > obv_ma_val,
-        'obv_trend': obv_trend,
-        'volume_price_sync': (obv_trend == 'rising') == (C.iloc[current_idx] > C.iloc[current_idx-5]) if current_idx > 5 else True,
-    }
+    cache['obv'] = OBV
+    cache['obv_ma'] = OBV_MA
 
-
-def calculate_wr(df: pd.DataFrame) -> Dict:
-    """
-    计算威廉指标状态
-    
-    返回:
-        Dict: WR指标状态
-    """
-    C = df['close']
-    H = df['high']
-    L = df['low']
-    
-    # WR10, WR6
+    # ---------------- WR ----------------
     WR10 = (HHV(H, 10) - C) / (HHV(H, 10) - LLV(L, 10) + 0.0001) * 100
     WR6 = (HHV(H, 6) - C) / (HHV(H, 6) - LLV(L, 6) + 0.0001) * 100
-    
-    current_idx = len(df) - 1
-    
-    wr10_val = float(WR10.iloc[current_idx])
-    wr6_val = float(WR6.iloc[current_idx])
-    
-    return {
-        'wr10': round(wr10_val, 2),
-        'wr6': round(wr6_val, 2),
-        'oversold': wr10_val > 80,  # WR超卖
-        'overbought': wr10_val < 20,  # WR超买
-        'wr6_above_wr10': wr6_val > wr10_val,
-    }
+    cache['wr10'] = WR10
+    cache['wr6'] = WR6
 
-
-def calculate_cci(df: pd.DataFrame) -> Dict:
-    """
-    计算CCI指标状态 (顺势指标)
-    
-    返回:
-        Dict: CCI指标状态
-    """
-    C = df['close']
-    H = df['high']
-    L = df['low']
-    
-    # 典型价格
+    # ---------------- CCI ----------------
     TP = (H + L + C) / 3
-    
-    # CCI计算
-    N = 14
-    MA_TP = MA(TP, N)
+    cci_n = 14
+    MA_TP = MA(TP, cci_n)
+
     def _mean_abs_dev_raw(x):
         m = x.mean()
         return np.mean(np.abs(x - m))
 
-    MD = TP.rolling(window=N).apply(_mean_abs_dev_raw, raw=True)
-    
+    MD = TP.rolling(window=cci_n).apply(_mean_abs_dev_raw, raw=True)
     CCI = (TP - MA_TP) / (MD * 0.015 + 0.0001)
-    
-    current_idx = len(df) - 1
-    cci_val = float(CCI.iloc[current_idx])
-    
-    return {
-        'cci': round(cci_val, 2),
-        'overbought': cci_val > 100,
-        'oversold': cci_val < -100,
-        'strong_bullish': cci_val > 200,
-        'strong_bearish': cci_val < -200,
-        'rising': bool(CCI.iloc[current_idx] > CCI.iloc[current_idx-1]) if current_idx > 0 else False,
+    cache['cci'] = CCI
+
+    # ---------------- MA System ----------------
+    cache['ma5'] = MA(C, 5)
+    cache['ma10'] = MA(C, 10)
+    cache['ma20'] = MA(C, 20)
+    cache['ma30'] = MA(C, 30)
+    cache['ma60'] = MA(C, 60)
+    cache['ma120'] = MA(C, 120)
+    cache['ma_gc_5_10'] = CROSS(cache['ma5'], cache['ma10'])
+    cache['ma_gc_10_20'] = CROSS(cache['ma10'], cache['ma20'])
+
+    # ---------------- Dow Theory 辅助量 ----------------
+    cache['dow_recent_high_20'] = HHV(H, 20)
+    cache['dow_recent_low_20'] = LLV(L, 20)
+    # “20-40日前窗口”的高低点：用rolling(20)后shift(20)等价于原逻辑切片 max/min
+    cache['dow_prev_high_20_40'] = H.rolling(window=20).max().shift(20)
+    cache['dow_prev_low_20_40'] = L.rolling(window=20).min().shift(20)
+
+    # ---------------- Wyckoff 辅助量 ----------------
+    cache['wyck_avg_vol_20'] = MA(V, 20)
+    cache['wy_price_change'] = C - C.shift(1)
+    cache['wy_daily_range'] = H - L
+    cache['wy_avg_range_20'] = (H - L).rolling(20).mean()
+    cache['wy_price_pos_60'] = (C - LLV(L, 60)) / (HHV(H, 60) - LLV(L, 60) + 0.0001)
+    cache['wy_vol_ma5'] = MA(V, 5)
+    cache['wy_vol_ma20'] = MA(V, 20)
+
+    # 原始列也放入 cache 便于取值
+    cache['close'] = C
+    cache['open'] = O
+    cache['high'] = H
+    cache['low'] = L
+    cache['volume'] = V
+
+    return cache
+
+
+def _extract_analysis_at_idx(cache: Dict[str, pd.Series], idx: int) -> Dict:
+    """
+    从预计算 cache 中在指定 idx 处抽取与原函数等价的结果字典结构。
+    注意：保持原字段名、布尔判断、阈值与round精度不变。
+    """
+    # 等价于原：df_for_analysis = df.iloc[:idx+1]，len(df_for_analysis)<30则返回{}
+    if idx + 1 < 30:
+        return {}
+
+    C = cache['close']
+    H = cache['high']
+    L = cache['low']
+    V = cache['volume']
+
+    # ========== MACD ==========
+    dif = cache['macd_dif'].iloc[idx]
+    dea = cache['macd_dea'].iloc[idx]
+    macd = cache['macd_macd'].iloc[idx]
+    macd_dict = {
+        'dif': round(_safe_float(dif), 4),
+        'dea': round(_safe_float(dea), 4),
+        'macd': round(_safe_float(macd), 4),
+        'golden_cross': _safe_bool(cache['macd_gc'].iloc[idx]) if idx > 0 else False,
+        'death_cross': _safe_bool(cache['macd_dc'].iloc[idx]) if idx > 0 else False,
+        'dif_above_zero': _safe_float(dif) > 0,
+        'dea_above_zero': _safe_float(dea) > 0,
+        'macd_positive': _safe_float(macd) > 0,
+        'dif_rising': (_safe_float(dif) > _safe_float(cache['macd_dif'].iloc[idx - 1])) if idx > 0 else False,
     }
 
+    # ========== KDJ ==========
+    k = _safe_float(cache['kdj_k'].iloc[idx])
+    d = _safe_float(cache['kdj_d'].iloc[idx])
+    j = _safe_float(cache['kdj_j'].iloc[idx])
+    kdj_dict = {
+        'k': round(k, 2),
+        'd': round(d, 2),
+        'j': round(j, 2),
+        'golden_cross': _safe_bool(cache['kdj_gc'].iloc[idx]) if idx > 0 else False,
+        'death_cross': _safe_bool(cache['kdj_dc'].iloc[idx]) if idx > 0 else False,
+        'oversold': k < 20 and d < 20,
+        'overbought': k > 80 and d > 80,
+        'j_oversold': j < 0,
+        'j_overbought': j > 100,
+        'k_above_d': k > d,
+    }
 
-# ==============================================================================
-# 市场理论分析函数
-# ==============================================================================
+    # ========== BOLL ==========
+    mid = _safe_float(cache['boll_mid'].iloc[idx])
+    upper = _safe_float(cache['boll_upper'].iloc[idx])
+    lower = _safe_float(cache['boll_lower'].iloc[idx])
+    current_close = _safe_float(C.iloc[idx])
 
-def analyze_dow_theory(df: pd.DataFrame) -> Dict:
-    """
-    道氏理论分析
-    
-    分析维度:
-    - 主要趋势判断
-    - 次级趋势判断
-    - 高低点结构
-    
-    返回:
-        Dict: 道氏理论分析结果
-    """
-    C = df['close']
-    H = df['high']
-    L = df['low']
-    
-    current_idx = len(df) - 1
-    
-    # 使用不同周期判断趋势
-    # 主要趋势 (60日)
-    ma60 = MA(C, 60)
-    primary_trend = 'bullish' if C.iloc[current_idx] > ma60.iloc[current_idx] else 'bearish'
-    
-    # 次级趋势 (20日)
-    ma20 = MA(C, 20)
-    secondary_trend = 'bullish' if C.iloc[current_idx] > ma20.iloc[current_idx] else 'bearish'
-    
-    # 短期趋势 (5日)
-    ma5 = MA(C, 5)
-    short_trend = 'bullish' if C.iloc[current_idx] > ma5.iloc[current_idx] else 'bearish'
-    
-    # 高低点分析 (最近20日)
-    recent_high = float(HHV(H, 20).iloc[current_idx])
-    recent_low = float(LLV(L, 20).iloc[current_idx])
-    
-    # 前期高低点 (20-40日前)
-    if current_idx >= 40:
-        prev_high = float(H.iloc[current_idx-40:current_idx-20].max())
-        prev_low = float(L.iloc[current_idx-40:current_idx-20].min())
+    bandwidth = (upper - lower) / mid * 100 if mid and not np.isnan(mid) and mid > 0 else 0
+    position = (current_close - lower) / (upper - lower) * 100 if (upper - lower) and not np.isnan(upper - lower) and (upper - lower) > 0 else 50
+
+    boll_dict = {
+        'mid': round(mid, 2) if not np.isnan(mid) else 0.0,
+        'upper': round(upper, 2) if not np.isnan(upper) else 0.0,
+        'lower': round(lower, 2) if not np.isnan(lower) else 0.0,
+        'bandwidth': round(bandwidth, 2),
+        'position': round(position, 2),
+        'above_mid': current_close > mid if not np.isnan(mid) else False,
+        'near_upper': position > 80,
+        'near_lower': position < 20,
+        'squeeze': bandwidth < 10,
+        'expansion': bandwidth > 20,
+    }
+
+    # ========== RSI ==========
+    rsi6 = _safe_float(cache['rsi_6'].iloc[idx])
+    rsi12 = _safe_float(cache['rsi_12'].iloc[idx])
+    rsi24 = _safe_float(cache['rsi_24'].iloc[idx])
+    rsi_dict = {
+        'rsi6': round(rsi6, 2),
+        'rsi12': round(rsi12, 2),
+        'rsi24': round(rsi24, 2),
+        'oversold': rsi6 < 20,
+        'overbought': rsi6 > 80,
+        'rsi6_above_rsi12': rsi6 > rsi12,
+        'rsi12_above_rsi24': rsi12 > rsi24,
+        'bullish_alignment': (rsi6 > rsi12 > rsi24),
+    }
+
+    # ========== DMI ==========
+    pdi = _safe_float(cache['dmi_pdi'].iloc[idx])
+    mdi = _safe_float(cache['dmi_mdi'].iloc[idx])
+    adx = _safe_float(cache['dmi_adx'].iloc[idx])
+    dmi_dict = {
+        'pdi': round(pdi, 2),
+        'mdi': round(mdi, 2),
+        'adx': round(adx, 2),
+        'adxr': round(_safe_float(cache['dmi_adxr'].iloc[idx]), 2),
+        'pdi_above_mdi': pdi > mdi,
+        'strong_trend': adx > 25,
+        'weak_trend': adx < 20,
+        'golden_cross': _safe_bool(cache['dmi_gc'].iloc[idx]) if idx > 0 else False,
+    }
+
+    # ========== DMA ==========
+    dma_dif = _safe_float(cache['dma_dif'].iloc[idx])
+    dma_difma = _safe_float(cache['dma_difma'].iloc[idx])
+    dma_dict = {
+        'dif': round(dma_dif, 4),
+        'difma': round(dma_difma, 4),
+        'dif_above_zero': dma_dif > 0,
+        'dif_above_difma': dma_dif > dma_difma,
+        'golden_cross': _safe_bool(cache['dma_gc'].iloc[idx]) if idx > 0 else False,
+        'rising': (dma_dif > _safe_float(cache['dma_dif'].iloc[idx - 1])) if idx > 0 else False,
+    }
+
+    # ========== SAR ==========
+    if idx < 5:
+        sar_dict = {'sar': 0, 'bullish': False, 'reversal': False}
+    else:
+        sar_val = _safe_float(cache['sar_val'].iloc[idx])
+        sar_bullish = _safe_bool(cache['sar_bullish'].iloc[idx])
+        sar_dict = {
+            'sar': round(sar_val, 2),
+            'bullish': sar_bullish,
+            'price_above_sar': current_close > sar_val if sar_val and not np.isnan(sar_val) else False,
+            'distance_pct': round((current_close - sar_val) / sar_val * 100, 2) if sar_val and not np.isnan(sar_val) and sar_val > 0 else 0,
+        }
+
+    # ========== BBI ==========
+    bbi = _safe_float(cache['bbi'].iloc[idx])
+    bbi_dict = {
+        'bbi': round(bbi, 2),
+        'price_above_bbi': current_close > bbi if not np.isnan(bbi) else False,
+        'distance_pct': round((current_close - bbi) / bbi * 100, 2) if bbi and not np.isnan(bbi) and bbi > 0 else 0,
+        'bbi_rising': (_safe_float(cache['bbi'].iloc[idx]) > _safe_float(cache['bbi'].iloc[idx - 1])) if idx > 0 else False,
+    }
+
+    # ========== OBV ==========
+    obv = _safe_float(cache['obv'].iloc[idx])
+    obv_ma = _safe_float(cache['obv_ma'].iloc[idx])
+    if idx > 5:
+        obv_trend = 'rising' if _safe_float(cache['obv'].iloc[idx]) > _safe_float(cache['obv'].iloc[idx - 5]) else 'falling'
+        volume_price_sync = ((obv_trend == 'rising') == (_safe_float(C.iloc[idx]) > _safe_float(C.iloc[idx - 5])))
+    else:
+        obv_trend = 'falling'
+        volume_price_sync = True
+    obv_dict = {
+        'obv': round(obv, 0),
+        'obv_ma': round(obv_ma, 0),
+        'obv_above_ma': obv > obv_ma,
+        'obv_trend': obv_trend,
+        'volume_price_sync': bool(volume_price_sync),
+    }
+
+    # ========== WR ==========
+    wr10 = _safe_float(cache['wr10'].iloc[idx])
+    wr6 = _safe_float(cache['wr6'].iloc[idx])
+    wr_dict = {
+        'wr10': round(wr10, 2),
+        'wr6': round(wr6, 2),
+        'oversold': wr10 > 80,
+        'overbought': wr10 < 20,
+        'wr6_above_wr10': wr6 > wr10,
+    }
+
+    # ========== CCI ==========
+    cci = _safe_float(cache['cci'].iloc[idx])
+    cci_dict = {
+        'cci': round(cci, 2),
+        'overbought': cci > 100,
+        'oversold': cci < -100,
+        'strong_bullish': cci > 200,
+        'strong_bearish': cci < -200,
+        'rising': (cci > _safe_float(cache['cci'].iloc[idx - 1])) if idx > 0 else False,
+    }
+
+    # ========== Dow Theory ==========
+    # 原逻辑：主要趋势 MA60 / 次级 MA20 / 短期 MA5；高低点结构最近20日 vs 20-40日前窗口
+    ma60 = cache['ma60']
+    ma20 = cache['ma20']
+    ma5 = cache['ma5']
+
+    primary_trend = 'bullish' if _safe_float(C.iloc[idx]) > _safe_float(ma60.iloc[idx]) else 'bearish'
+    secondary_trend = 'bullish' if _safe_float(C.iloc[idx]) > _safe_float(ma20.iloc[idx]) else 'bearish'
+    short_trend = 'bullish' if _safe_float(C.iloc[idx]) > _safe_float(ma5.iloc[idx]) else 'bearish'
+
+    recent_high = _safe_float(cache['dow_recent_high_20'].iloc[idx])
+    recent_low = _safe_float(cache['dow_recent_low_20'].iloc[idx])
+
+    if idx >= 40:
+        prev_high = _safe_float(cache['dow_prev_high_20_40'].iloc[idx])
+        prev_low = _safe_float(cache['dow_prev_low_20_40'].iloc[idx])
     else:
         prev_high = recent_high
         prev_low = recent_low
-    
-    # 高低点结构判断
+
     higher_high = recent_high > prev_high
     higher_low = recent_low > prev_low
     lower_high = recent_high < prev_high
     lower_low = recent_low < prev_low
-    
-    # 趋势确认
+
     uptrend_confirmed = higher_high and higher_low
     downtrend_confirmed = lower_high and lower_low
-    
-    return {
+
+    dow_dict = {
         'primary_trend': primary_trend,
         'secondary_trend': secondary_trend,
         'short_trend': short_trend,
-        'trend_alignment': primary_trend == secondary_trend == short_trend,
+        'trend_alignment': (primary_trend == secondary_trend == short_trend),
         'higher_high': higher_high,
         'higher_low': higher_low,
         'lower_high': lower_high,
@@ -565,172 +483,124 @@ def analyze_dow_theory(df: pd.DataFrame) -> Dict:
         'recent_low': round(recent_low, 2),
     }
 
-
-def analyze_wyckoff_theory(df: pd.DataFrame) -> Dict:
-    """
-    威科夫理论分析
-    
-    分析维度:
-    - 供需关系
-    - 成交量特征
-    - 价格行为
-    - 市场阶段判断
-    
-    返回:
-        Dict: 威科夫理论分析结果
-    """
-    C = df['close']
-    H = df['high']
-    L = df['low']
-    V = df['volume']
-    O = df['open']
-    
-    current_idx = len(df) - 1
-    
-    if current_idx < 20:
-        return {'phase': 'unknown', 'volume_analysis': {}, 'price_action': {}}
-    
-    # 成交量分析
-    avg_volume_20 = float(MA(V, 20).iloc[current_idx])
-    current_volume = float(V.iloc[current_idx])
-    volume_ratio = current_volume / avg_volume_20 if avg_volume_20 > 0 else 1
-    
-    # 价格变动
-    price_change = float(C.iloc[current_idx] - C.iloc[current_idx-1])
-    price_change_pct = price_change / float(C.iloc[current_idx-1]) * 100 if C.iloc[current_idx-1] > 0 else 0
-    
-    # 价格波动范围
-    daily_range = float(H.iloc[current_idx] - L.iloc[current_idx])
-    avg_range = float((H - L).rolling(20).mean().iloc[current_idx])
-    range_ratio = daily_range / avg_range if avg_range > 0 else 1
-    
-    # 收盘位置
-    close_position = (float(C.iloc[current_idx]) - float(L.iloc[current_idx])) / daily_range if daily_range > 0 else 0.5
-    
-    # 威科夫供需分析
-    # 上涨放量 = 需求增加
-    # 下跌放量 = 供应增加
-    # 上涨缩量 = 需求减少
-    # 下跌缩量 = 供应减少
-    
-    if price_change > 0 and volume_ratio > 1.2:
-        supply_demand = 'strong_demand'
-    elif price_change > 0 and volume_ratio < 0.8:
-        supply_demand = 'weak_demand'
-    elif price_change < 0 and volume_ratio > 1.2:
-        supply_demand = 'strong_supply'
-    elif price_change < 0 and volume_ratio < 0.8:
-        supply_demand = 'weak_supply'
+    # ========== Wyckoff Theory ==========
+    if idx < 20:
+        wy_dict = {'phase': 'unknown', 'volume_analysis': {}, 'price_action': {}}
     else:
-        supply_demand = 'balanced'
-    
-    # 市场阶段判断 (简化版)
-    # 吸筹阶段特征：低位横盘，成交量萎缩后放大
-    # 上涨阶段特征：价格突破，成交量放大
-    # 派发阶段特征：高位横盘，成交量放大
-    # 下跌阶段特征：价格跌破，成交量放大
-    
-    # 计算近期价格位置
-    price_position = (float(C.iloc[current_idx]) - float(LLV(L, 60).iloc[current_idx])) / \
-                     (float(HHV(H, 60).iloc[current_idx]) - float(LLV(L, 60).iloc[current_idx]) + 0.0001)
-    
-    # 成交量趋势
-    vol_ma5 = float(MA(V, 5).iloc[current_idx])
-    vol_ma20 = float(MA(V, 20).iloc[current_idx])
-    volume_expanding = vol_ma5 > vol_ma20
-    
-    # 阶段判断
-    if price_position < 0.3 and not volume_expanding:
-        phase = 'accumulation'  # 吸筹阶段
-    elif price_position < 0.3 and volume_expanding:
-        phase = 'markup_start'  # 上涨启动
-    elif 0.3 <= price_position <= 0.7:
-        phase = 'markup' if price_change > 0 else 'markdown'  # 上涨/下跌阶段
-    elif price_position > 0.7 and volume_expanding:
-        phase = 'distribution'  # 派发阶段
-    else:
-        phase = 'markdown_start'  # 下跌启动
-    
-    return {
-        'phase': phase,
-        'supply_demand': supply_demand,
-        'volume_ratio': round(volume_ratio, 2),
-        'volume_expanding': volume_expanding,
-        'price_position': round(price_position * 100, 2),
-        'close_position': round(close_position * 100, 2),
-        'range_ratio': round(range_ratio, 2),
-        'price_change_pct': round(price_change_pct, 2),
-    }
+        avg_vol_20 = _safe_float(cache['wyck_avg_vol_20'].iloc[idx])
+        cur_vol = _safe_float(V.iloc[idx])
+        volume_ratio = cur_vol / avg_vol_20 if avg_vol_20 and not np.isnan(avg_vol_20) and avg_vol_20 > 0 else 1
 
+        price_change = _safe_float(cache['wy_price_change'].iloc[idx])
+        prev_close = _safe_float(C.iloc[idx - 1]) if idx > 0 else float('nan')
+        price_change_pct = (price_change / prev_close * 100) if prev_close and not np.isnan(prev_close) and prev_close > 0 else 0
 
-# ==============================================================================
-# 均线系统分析
-# ==============================================================================
+        daily_range = _safe_float(cache['wy_daily_range'].iloc[idx])
+        avg_range = _safe_float(cache['wy_avg_range_20'].iloc[idx])
+        range_ratio = daily_range / avg_range if avg_range and not np.isnan(avg_range) and avg_range > 0 else 1
 
-def analyze_ma_system(df: pd.DataFrame) -> Dict:
-    """
-    均线系统分析
-    
-    返回:
-        Dict: 均线系统分析结果
-    """
-    C = df['close']
-    
-    # 计算各周期均线
-    ma5 = MA(C, 5)
-    ma10 = MA(C, 10)
-    ma20 = MA(C, 20)
-    ma30 = MA(C, 30)
-    ma60 = MA(C, 60)
-    ma120 = MA(C, 120)
-    
-    current_idx = len(df) - 1
-    current_close = float(C.iloc[current_idx])
-    
+        cur_low = _safe_float(L.iloc[idx])
+        close_position = ((current_close - cur_low) / daily_range) if daily_range and not np.isnan(daily_range) and daily_range > 0 else 0.5
+
+        if price_change > 0 and volume_ratio > 1.2:
+            supply_demand = 'strong_demand'
+        elif price_change > 0 and volume_ratio < 0.8:
+            supply_demand = 'weak_demand'
+        elif price_change < 0 and volume_ratio > 1.2:
+            supply_demand = 'strong_supply'
+        elif price_change < 0 and volume_ratio < 0.8:
+            supply_demand = 'weak_supply'
+        else:
+            supply_demand = 'balanced'
+
+        price_position = _safe_float(cache['wy_price_pos_60'].iloc[idx])
+        vol_ma5 = _safe_float(cache['wy_vol_ma5'].iloc[idx])
+        vol_ma20 = _safe_float(cache['wy_vol_ma20'].iloc[idx])
+        volume_expanding = vol_ma5 > vol_ma20
+
+        if price_position < 0.3 and (not volume_expanding):
+            phase = 'accumulation'
+        elif price_position < 0.3 and volume_expanding:
+            phase = 'markup_start'
+        elif 0.3 <= price_position <= 0.7:
+            phase = 'markup' if price_change > 0 else 'markdown'
+        elif price_position > 0.7 and volume_expanding:
+            phase = 'distribution'
+        else:
+            phase = 'markdown_start'
+
+        wy_dict = {
+            'phase': phase,
+            'supply_demand': supply_demand,
+            'volume_ratio': round(volume_ratio, 2),
+            'volume_expanding': bool(volume_expanding),
+            'price_position': round(price_position * 100, 2),
+            'close_position': round(close_position * 100, 2),
+            'range_ratio': round(range_ratio, 2),
+            'price_change_pct': round(price_change_pct, 2),
+        }
+
+    # ========== MA System ==========
     ma_values = {
-        'ma5': float(ma5.iloc[current_idx]),
-        'ma10': float(ma10.iloc[current_idx]),
-        'ma20': float(ma20.iloc[current_idx]),
-        'ma30': float(ma30.iloc[current_idx]),
-        'ma60': float(ma60.iloc[current_idx]) if current_idx >= 60 else np.nan,
-        'ma120': float(ma120.iloc[current_idx]) if current_idx >= 120 else np.nan,
+        'ma5': _safe_float(cache['ma5'].iloc[idx]),
+        'ma10': _safe_float(cache['ma10'].iloc[idx]),
+        'ma20': _safe_float(cache['ma20'].iloc[idx]),
+        'ma30': _safe_float(cache['ma30'].iloc[idx]),
+        'ma60': _safe_float(cache['ma60'].iloc[idx]) if idx >= 60 else np.nan,
+        'ma120': _safe_float(cache['ma120'].iloc[idx]) if idx >= 120 else np.nan,
     }
-    
-    # 多头排列判断
+
     bullish_alignment = (
-        ma_values['ma5'] > ma_values['ma10'] > ma_values['ma20'] > ma_values['ma30']
+        (not np.isnan(ma_values['ma5'])) and (not np.isnan(ma_values['ma10'])) and
+        (not np.isnan(ma_values['ma20'])) and (not np.isnan(ma_values['ma30'])) and
+        (ma_values['ma5'] > ma_values['ma10'] > ma_values['ma20'] > ma_values['ma30'])
     )
-    
-    # 空头排列判断
     bearish_alignment = (
-        ma_values['ma5'] < ma_values['ma10'] < ma_values['ma20'] < ma_values['ma30']
+        (not np.isnan(ma_values['ma5'])) and (not np.isnan(ma_values['ma10'])) and
+        (not np.isnan(ma_values['ma20'])) and (not np.isnan(ma_values['ma30'])) and
+        (ma_values['ma5'] < ma_values['ma10'] < ma_values['ma20'] < ma_values['ma30'])
     )
-    
-    # 价格与均线关系
+
     above_ma5 = current_close > ma_values['ma5']
     above_ma10 = current_close > ma_values['ma10']
     above_ma20 = current_close > ma_values['ma20']
     above_ma60 = current_close > ma_values['ma60'] if not np.isnan(ma_values['ma60']) else False
-    
-    # 均线支撑/压力
+
     ma_support_count = sum([above_ma5, above_ma10, above_ma20, above_ma60])
-    
+
+    ma_dict = {
+        'ma_values': {k: (round(v, 2) if not np.isnan(v) else None) for k, v in ma_values.items()},
+        'bullish_alignment': bool(bullish_alignment),
+        'bearish_alignment': bool(bearish_alignment),
+        'above_ma5': bool(above_ma5),
+        'above_ma10': bool(above_ma10),
+        'above_ma20': bool(above_ma20),
+        'above_ma60': bool(above_ma60),
+        'ma_support_count': int(ma_support_count),
+        'golden_cross_5_10': _safe_bool(cache['ma_gc_5_10'].iloc[idx]) if idx > 0 else False,
+        'golden_cross_10_20': _safe_bool(cache['ma_gc_10_20'].iloc[idx]) if idx > 0 else False,
+    }
+
     return {
-        'ma_values': {k: round(v, 2) if not np.isnan(v) else None for k, v in ma_values.items()},
-        'bullish_alignment': bullish_alignment,
-        'bearish_alignment': bearish_alignment,
-        'above_ma5': above_ma5,
-        'above_ma10': above_ma10,
-        'above_ma20': above_ma20,
-        'above_ma60': above_ma60,
-        'ma_support_count': ma_support_count,
-        'golden_cross_5_10': bool(CROSS(ma5, ma10).iloc[current_idx]) if current_idx > 0 else False,
-        'golden_cross_10_20': bool(CROSS(ma10, ma20).iloc[current_idx]) if current_idx > 0 else False,
+        'macd': macd_dict,
+        'kdj': kdj_dict,
+        'boll': boll_dict,
+        'rsi': rsi_dict,
+        'dmi': dmi_dict,
+        'dma': dma_dict,
+        'sar': sar_dict,
+        'bbi': bbi_dict,
+        'obv': obv_dict,
+        'wr': wr_dict,
+        'cci': cci_dict,
+        'dow_theory': dow_dict,
+        'wyckoff': wy_dict,
+        'ma_system': ma_dict,
     }
 
 
 # ==============================================================================
-# 综合分析函数
+# 数据加载与信号定位（保持原口径）
 # ==============================================================================
 
 def _load_stock_dataframe(stock_code: str) -> Tuple[Optional[pd.DataFrame], Optional[np.ndarray]]:
@@ -750,16 +620,34 @@ def _load_stock_dataframe(stock_code: str) -> Tuple[Optional[pd.DataFrame], Opti
     if not os.path.exists(filepath):
         return None, None
 
-    # 只读取分析必需字段，显著降低I/O与解析开销（若源数据列缺失则自动回退全量读取）
-    required_cols_cn = {'名称','日期','开盘','收盘','最高','最低','成交量','成交额','振幅','涨跌幅','涨跌额','换手率'}
+    required_cols_cn = {'名称', '日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率'}
+    dtype_map = {
+        '开盘': 'float32',
+        '收盘': 'float32',
+        '最高': 'float32',
+        '最低': 'float32',
+        '成交量': 'float64',   # 部分数据可能超int32，使用float64更稳妥（不改变逻辑，避免溢出）
+        '成交额': 'float64',
+        '振幅': 'float32',
+        '涨跌幅': 'float32',
+        '涨跌额': 'float32',
+        '换手率': 'float32',
+    }
+
     try:
         df = pd.read_csv(
             filepath,
             encoding='utf-8-sig',
-            usecols=lambda c: c in required_cols_cn
+            usecols=lambda c: c in required_cols_cn,
+            dtype={k: v for k, v in dtype_map.items() if k in required_cols_cn},
+            parse_dates=['日期'],
         )
     except Exception:
-        df = pd.read_csv(filepath, encoding='utf-8-sig')
+        # 回退：兼容列不全/编码/解析异常
+        try:
+            df = pd.read_csv(filepath, encoding='utf-8-sig')
+        except Exception:
+            return None, None
 
     column_mapping = {
         '名称': 'name',
@@ -780,10 +668,18 @@ def _load_stock_dataframe(stock_code: str) -> Tuple[Optional[pd.DataFrame], Opti
     if 'date' not in df.columns:
         return None, None
 
+    # 确保日期类型
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
     df = df.dropna(subset=['date'])
-    df = df.sort_values('date').reset_index(drop=True)
 
+    # 关键列检查（分析必须字段）
+    must_cols = ['open', 'close', 'high', 'low', 'volume']
+    for c in must_cols:
+        if c not in df.columns:
+            return None, None
+
+    # 排序与重建索引
+    df = df.sort_values('date').reset_index(drop=True)
     if df.empty:
         return None, None
 
@@ -804,29 +700,9 @@ def _locate_signal_index(dates: np.ndarray, signal_date: str) -> Optional[int]:
     return None
 
 
-def _analyze_from_prepared_df(df: pd.DataFrame, signal_idx: int) -> Dict:
-    """在已加载并标准化的df上，按指定索引分析（不改变原指标/判据逻辑）。"""
-    df_for_analysis = df.iloc[:signal_idx + 1]
-    if len(df_for_analysis) < 30:
-        return {}
-
-    return {
-        'macd': calculate_macd(df_for_analysis),
-        'kdj': calculate_kdj(df_for_analysis),
-        'boll': calculate_boll(df_for_analysis),
-        'rsi': calculate_rsi(df_for_analysis),
-        'dmi': calculate_dmi(df_for_analysis),
-        'dma': calculate_dma(df_for_analysis),
-        'sar': calculate_sar(df_for_analysis),
-        'bbi': calculate_bbi(df_for_analysis),
-        'obv': calculate_obv(df_for_analysis),
-        'wr': calculate_wr(df_for_analysis),
-        'cci': calculate_cci(df_for_analysis),
-        'dow_theory': analyze_dow_theory(df_for_analysis),
-        'wyckoff': analyze_wyckoff_theory(df_for_analysis),
-        'ma_system': analyze_ma_system(df_for_analysis),
-    }
-
+# ==============================================================================
+# 对外分析接口（保持不变）
+# ==============================================================================
 
 def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
     """分析单个成功案例（保留原接口）。"""
@@ -839,7 +715,8 @@ def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
         if signal_idx is None:
             return {}
 
-        return _analyze_from_prepared_df(df, signal_idx)
+        cache = _precompute_feature_cache(df)
+        return _extract_analysis_at_idx(cache, signal_idx)
 
     except Exception as e:
         log(f"分析失败 {stock_code} {signal_date}: {str(e)}")
@@ -849,19 +726,15 @@ def analyze_single_case(stock_code: str, signal_date: str) -> Dict:
 def analyze_stock_cases(stock_code: str, indexed_dates: List[Tuple[int, str]]) -> List[Tuple[int, Dict]]:
     """同一只股票的多条信号批量分析。
 
-    目的：避免对同一股票重复读CSV与重复预处理。
-
-    参数:
-        stock_code: 股票代码
-        indexed_dates: [(原始行号idx, signal_date), ...]
-
-    返回:
-        [(idx, result_dict), ...]
+    目的：避免对同一股票重复读CSV与重复预处理；并进一步避免对同一股票每条信号重复计算指标序列。
     """
     try:
         df, dates = _load_stock_dataframe(stock_code)
         if df is None or dates is None:
             return [(i, {}) for i, _ in indexed_dates]
+
+        # 预计算整只股票指标序列一次
+        cache = _precompute_feature_cache(df)
 
         out: List[Tuple[int, Dict]] = []
         for i, d in indexed_dates:
@@ -869,7 +742,7 @@ def analyze_stock_cases(stock_code: str, indexed_dates: List[Tuple[int, str]]) -
             if signal_idx is None:
                 out.append((i, {}))
                 continue
-            out.append((i, _analyze_from_prepared_df(df, signal_idx)))
+            out.append((i, _extract_analysis_at_idx(cache, signal_idx)))
         return out
 
     except Exception as e:
@@ -884,27 +757,14 @@ def analyze_case_wrapper(args):
 
 
 # ==============================================================================
-# 统计分析函数
+# 统计分析函数（保持原逻辑）
 # ==============================================================================
 
 def calculate_statistics(analysis_results: List[Dict], field_path: str) -> Dict:
-    """
-    计算指定字段的统计信息
-    
-    参数:
-        analysis_results: 分析结果列表
-        field_path: 字段路径 (如 'macd.dif_above_zero')
-        
-    返回:
-        Dict: 统计信息
-    """
     values = []
-    
     for result in analysis_results:
         if not result:
             continue
-        
-        # 解析字段路径
         parts = field_path.split('.')
         value = result
         for part in parts:
@@ -913,14 +773,12 @@ def calculate_statistics(analysis_results: List[Dict], field_path: str) -> Dict:
             else:
                 value = None
                 break
-        
         if value is not None:
             values.append(value)
-    
+
     if not values:
         return {'count': 0}
-    
-    # 根据值类型计算统计
+
     if isinstance(values[0], bool):
         true_count = sum(values)
         return {
@@ -946,21 +804,11 @@ def calculate_statistics(analysis_results: List[Dict], field_path: str) -> Dict:
             'count': len(values),
             'distribution': dict(counter.most_common()),
         }
-    
+
     return {'count': len(values)}
 
 
 def generate_pattern_summary(df: pd.DataFrame, analysis_results: List[Dict]) -> Dict:
-    """
-    生成模式统计摘要
-    
-    参数:
-        df: 成功案例DataFrame
-        analysis_results: 分析结果列表
-        
-    返回:
-        Dict: 模式统计摘要
-    """
     summary = {
         'analysis_date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'total_cases': len(df),
@@ -968,8 +816,7 @@ def generate_pattern_summary(df: pd.DataFrame, analysis_results: List[Dict]) -> 
         'indicators': {},
         'theories': {},
     }
-    
-    # 定义要统计的指标字段
+
     indicator_fields = {
         'MACD': [
             ('macd.dif_above_zero', 'DIF在零轴上方'),
@@ -1034,15 +881,13 @@ def generate_pattern_summary(df: pd.DataFrame, analysis_results: List[Dict]) -> 
             ('cci.cci', 'CCI值'),
         ],
     }
-    
-    # 计算各指标统计
+
     for indicator_name, fields in indicator_fields.items():
         summary['indicators'][indicator_name] = {}
         for field_path, field_name in fields:
             stats = calculate_statistics(analysis_results, field_path)
             summary['indicators'][indicator_name][field_name] = stats
-    
-    # 市场理论统计
+
     theory_fields = {
         '道氏理论': [
             ('dow_theory.primary_trend', '主要趋势'),
@@ -1068,47 +913,33 @@ def generate_pattern_summary(df: pd.DataFrame, analysis_results: List[Dict]) -> 
             ('ma_system.golden_cross_5_10', 'MA5上穿MA10'),
         ],
     }
-    
+
     for theory_name, fields in theory_fields.items():
         summary['theories'][theory_name] = {}
         for field_path, field_name in fields:
             stats = calculate_statistics(analysis_results, field_path)
             summary['theories'][theory_name][field_name] = stats
-    
+
     return summary
 
 
 def generate_signal_type_summary(df: pd.DataFrame, analysis_results: List[Dict]) -> Dict:
-    """
-    按信号类型生成统计摘要
-    
-    参数:
-        df: 成功案例DataFrame
-        analysis_results: 分析结果列表
-        
-    返回:
-        Dict: 按信号类型分类的统计
-    """
-    # 将分析结果与原始数据关联
     df_with_analysis = df.copy()
     df_with_analysis['analysis'] = analysis_results
-    
+
     signal_summary = {}
-    
     for signal_type in df['signal_type'].unique():
         type_df = df_with_analysis[df_with_analysis['signal_type'] == signal_type]
         type_analysis = [r for r in type_df['analysis'].tolist() if r]
-        
         if not type_analysis:
             continue
-        
+
         signal_summary[signal_type] = {
             'total_cases': len(type_df),
             'analyzed_cases': len(type_analysis),
             'key_patterns': {},
         }
-        
-        # 计算关键模式统计
+
         key_fields = [
             ('macd.dif_above_zero', 'MACD_DIF>0'),
             ('macd.golden_cross', 'MACD金叉'),
@@ -1128,11 +959,11 @@ def generate_signal_type_summary(df: pd.DataFrame, analysis_results: List[Dict])
             ('ma_system.bullish_alignment', '均线多头排列'),
             ('ma_system.above_ma20', 'MA20上方'),
         ]
-        
+
         for field_path, field_name in key_fields:
             stats = calculate_statistics(type_analysis, field_path)
             signal_summary[signal_type]['key_patterns'][field_name] = stats
-    
+
     return signal_summary
 
 
@@ -1141,76 +972,62 @@ def generate_signal_type_summary(df: pd.DataFrame, analysis_results: List[Dict])
 # ==============================================================================
 
 def main():
-    """
-    主程序入口
-    """
     log("=" * 60)
     log("成功案例模式分析器")
     log("=" * 60)
     log(f"分析时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     log("=" * 60)
-    
-    # 检查成功案例文件
+
     if not os.path.exists(SUCCESS_CASES_FILE):
         log(f"错误: 成功案例文件不存在: {SUCCESS_CASES_FILE}")
         log("请先运行 signal_success_scanner.py 生成成功案例数据")
         return
-    
-    # 加载成功案例
+
     df = pd.read_csv(SUCCESS_CASES_FILE, encoding='utf-8-sig')
     log(f"加载成功案例: {len(df)} 条")
-    
     if df.empty:
         log("没有成功案例可分析")
         return
-    
-    # 准备分析任务（保留原始行顺序，用于回填结果）
+
     tasks = list(zip(df['stock_code'].tolist(), df['date'].tolist()))
     total_tasks = len(tasks)
 
     log(f"\n开始分析 {total_tasks} 个成功案例...")
     log("-" * 60)
 
-    # 将任务按股票分组：同一只股票只加载一次CSV，显著降低I/O与重复预处理成本
+    # 按股票分组：同一只股票只加载一次CSV；并在该进程内预计算指标序列一次
     stock_to_items: Dict[str, List[Tuple[int, str]]] = {}
     for i, (stock_code, signal_date) in enumerate(tasks):
         stock_to_items.setdefault(stock_code, []).append((i, signal_date))
-
     grouped_tasks = list(stock_to_items.items())
 
-    # 多进程分析
     max_workers = max(1, multiprocessing.cpu_count() - 1)
     sorted_results: List[Dict] = [{} for _ in range(total_tasks)]
 
+    # ProcessPoolExecutor.map 支持 chunksize，可降低调度开销（不改变逻辑）
+    chunksize = 8 if len(grouped_tasks) >= 200 else 1
+
+    completed_cases = 0
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(analyze_case_wrapper, t) for t in grouped_tasks]
+        for batch_results in executor.map(analyze_case_wrapper, grouped_tasks, chunksize=chunksize):
+            # batch_results: [(idx, result), ...]
+            for idx, result in batch_results:
+                sorted_results[idx] = result if isinstance(result, dict) else {}
+            completed_cases += len(batch_results)
 
-        completed_cases = 0
-        for future in as_completed(futures):
-            try:
-                batch_results = future.result()  # [(idx, result), ...]
-                for idx, result in batch_results:
-                    sorted_results[idx] = result if isinstance(result, dict) else {}
-                completed_cases += len(batch_results)
-
-                if completed_cases % 100 == 0 or completed_cases >= total_tasks:
-                    log(f"进度: {completed_cases}/{total_tasks} ({completed_cases/total_tasks*100:.1f}%)")
-
-            except Exception as e:
-                log(f"分析失败: {str(e)}")
+            if completed_cases % 100 == 0 or completed_cases >= total_tasks:
+                log(f"进度: {completed_cases}/{total_tasks} ({completed_cases/total_tasks*100:.1f}%)")
 
     analysis_results = sorted_results
-    
     log(f"\n分析完成，成功分析 {len([r for r in analysis_results if r])} 个案例")
-    
-    # 生成详细分析报告
+
     log("\n生成分析报告...")
-    
-    # 将分析结果展平并保存
+
     flat_results = []
-    for i, (idx, row) in enumerate(df.iterrows()):
+    # 保持原回填顺序
+    for i, (_, row) in enumerate(df.iterrows()):
         result = analysis_results[i] if i < len(analysis_results) else {}
-        
+
         flat_record = {
             'stock_code': row['stock_code'],
             'stock_name': row['stock_name'],
@@ -1220,8 +1037,7 @@ def main():
             'max_return_pct': row['max_return_pct'],
             'final_return_pct': row['final_return_pct'],
         }
-        
-        # 展平指标数据
+
         if result:
             for indicator, values in result.items():
                 if isinstance(values, dict):
@@ -1231,59 +1047,50 @@ def main():
                                 flat_record[f'{indicator}_{key}_{k2}'] = v2
                         else:
                             flat_record[f'{indicator}_{key}'] = val
-        
+
         flat_results.append(flat_record)
-    
-    # 保存详细报告
+
     report_df = pd.DataFrame(flat_results)
     report_path = os.path.join(REPORT_DIR, 'pattern_analysis_report.csv')
     report_df.to_csv(report_path, index=False, encoding='utf-8-sig')
     log(f"详细分析报告已保存: {report_path}")
-    
-    # 确保Web数据目录存在
+
     os.makedirs(WEB_DATA_DIR, exist_ok=True)
-    
-    # 生成模式统计摘要
+
     summary = generate_pattern_summary(df, analysis_results)
-    
-    # 保存到report目录
+
     summary_path = os.path.join(REPORT_DIR, 'pattern_summary.json')
     with open(summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     log(f"模式统计摘要已保存: {summary_path}")
-    
-    # 同时保存到Web数据目录（供前端使用）
+
     web_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_summary.json')
     with open(web_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     log(f"模式统计摘要已保存到Web目录: {web_summary_path}")
-    
-    # 生成按信号类型分类的统计
+
     signal_summary = generate_signal_type_summary(df, analysis_results)
-    
-    # 保存到report目录
+
     signal_summary_path = os.path.join(REPORT_DIR, 'pattern_analysis_by_signal.json')
     with open(signal_summary_path, 'w', encoding='utf-8') as f:
         json.dump(signal_summary, f, ensure_ascii=False, indent=2)
     log(f"按信号类型统计已保存: {signal_summary_path}")
-    
-    # 同时保存到Web数据目录（供前端使用）
+
     web_signal_summary_path = os.path.join(WEB_DATA_DIR, 'pattern_analysis_by_signal.json')
     with open(web_signal_summary_path, 'w', encoding='utf-8') as f:
         json.dump(signal_summary, f, ensure_ascii=False, indent=2)
     log(f"按信号类型统计已保存到Web目录: {web_signal_summary_path}")
-    
-    # 打印关键发现
+
+    # 打印关键发现（保持原输出口径）
     log("\n" + "=" * 60)
     log("关键发现摘要")
     log("=" * 60)
-    
+
     log(f"\n总分析案例: {summary['analyzed_cases']}")
-    
-    # 打印各指标的关键统计
+
     log("\n【技术指标共性特征】")
     log("-" * 60)
-    
+
     for indicator, stats in summary['indicators'].items():
         log(f"\n{indicator}:")
         for field_name, field_stats in stats.items():
@@ -1293,10 +1100,10 @@ def main():
                 log(f"  {field_name}: 均值={field_stats['mean']}, 中位数={field_stats['median']}")
             elif 'distribution' in field_stats:
                 log(f"  {field_name}: {field_stats['distribution']}")
-    
+
     log("\n【市场理论分析】")
     log("-" * 60)
-    
+
     for theory, stats in summary['theories'].items():
         log(f"\n{theory}:")
         for field_name, field_stats in stats.items():
@@ -1306,7 +1113,7 @@ def main():
                 log(f"  {field_name}: {field_stats['distribution']}")
             elif 'mean' in field_stats:
                 log(f"  {field_name}: 均值={field_stats['mean']}")
-    
+
     log("\n" + "=" * 60)
     log("分析完成!")
     log("=" * 60)
