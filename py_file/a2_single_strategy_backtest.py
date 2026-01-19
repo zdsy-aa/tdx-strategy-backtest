@@ -31,119 +31,27 @@
     cd ~/tdx-strategy-backtest/py_file
     
     # 运行所有策略回测
-    python3 single_strategy_backtest.py
+    python3 a2_single_strategy_backtest.py --strategy all
     
-    # 运行指定策略回测
-    python3 single_strategy_backtest.py --strategy six_veins
-    python3 single_strategy_backtest.py --strategy buy_sell
-    python3 single_strategy_backtest.py --strategy chan
-    python3 single_strategy_backtest.py --strategy sell_optimize
-
-命令行参数:
-    --strategy : 指定要运行的策略类型
-                 可选值: all, six_veins, buy_sell, chan, sell_optimize
-                 默认值: all（运行所有策略）
-    --limit    : 限制处理的股票数量（用于测试）
-                 默认值: 0（不限制，处理所有股票）
-
-依赖模块:
-    - pandas, numpy: 数据处理
-    - indicators: 技术指标计算（项目内部模块）
-    - multiprocessing: 多进程并行处理
-
-作者: TradeGuide System
-版本: 1.0.0
-创建日期: 2026-01-15
-================================================================================
+    # 仅运行六脉神剑策略回测
+    python3 a2_single_strategy_backtest.py --strategy six_veins
 """
 
-import os
-import sys
-import json
-import argparse
-import pandas as pd
-import numpy as np
-from datetime import datetime
-from typing import Dict, List, Tuple, Optional
-from multiprocessing import Pool, cpu_count
-from itertools import combinations
 try:
     from a99_logger import log
 except ImportError:
     def log(msg, level="INFO"): print(f"[{level}] {msg}")
 
-# ==============================================================================
-# 路径配置
-# ==============================================================================
+import os
+import sys
+import argparse
+import pandas as pd
+import numpy as np
+from datetime import datetime
+from typing import List, Dict
 
-# 获取项目根目录
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# 添加项目路径到系统路径
+# 添加项目路径，以便导入内部模块
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-# 数据目录
-DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'day')
-
-# 报告输出目录
-REPORT_DIR = os.path.join(PROJECT_ROOT, 'report', 'total')
-
-# Web数据目录
-WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
-
-# 状态文件路径
-STATUS_FILE = os.path.join(PROJECT_ROOT, 'status', 'backtest_single_status.json')
-
-# ==============================================================================
-# 回测参数配置
-# ==============================================================================
-
-# 交易成本参数（离线CSV回测口径）
-#  - 佣金：万0.8（0.00008），买卖双边收取
-#  - 印花税：0.05%（0.0005），仅卖出收取
-COMMISSION_RATE = 0.00008
-STAMP_TAX_RATE = 0.0005
-
-# 六脉神剑指标列表
-SIX_VEINS_INDICATORS = ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']
-
-# 六脉神剑指标名称映射
-INDICATOR_NAMES = {
-    'macd_red': 'MACD',
-    'kdj_red': 'KDJ',
-    'rsi_red': 'RSI',
-    'lwr_red': 'LWR',
-    'bbi_red': 'BBI',
-    'mtm_red': 'MTM'
-}
-
-# 缠论买点信号列表
-CHAN_BUY_SIGNALS = ['chan_buy1', 'chan_buy2', 'chan_buy3', 'chan_strong_buy2', 'chan_like_buy2']
-
-# 缠论买点名称映射
-CHAN_SIGNAL_NAMES = {
-    'chan_buy1': '缠论一买',
-    'chan_buy2': '缠论二买',
-    'chan_buy3': '缠论三买',
-    'chan_strong_buy2': '缠论强二买',
-    'chan_like_buy2': '缠论类二买'
-}
-
-# 买卖点信号映射
-BUY_SELL_SIGNALS = {
-    'buy1': '买点1 (吸筹)',
-    'buy2': '买点2 (低位金叉)'
-}
-
-# 默认持仓周期
-DEFAULT_HOLD_PERIODS = [5, 10, 20]
-
-# 卖出优化持仓周期
-SELL_OPTIMIZE_PERIODS = [5, 10, 15, 20, 30]
-
-# ==============================================================================
-# 导入技术指标计算模块
-# ==============================================================================
 
 from a99_indicators import (
     calculate_six_veins,
@@ -151,20 +59,22 @@ from a99_indicators import (
     calculate_chan_theory,
     calculate_all_signals
 )
-
 from a99_backtest_utils import (
     get_all_stock_files,
-    aggregate_results,
-    aggregate_trade_results,
-    update_backtest_status,
+    run_backtest_on_all_stocks,
     backtest_trades_fixed_hold,
     summarize_trades,
 )
 
+# 回测参数
+COMMISSION_RATE = 0.00008  # 佣金费率
+STAMP_TAX_RATE = 0.0005    # 印花税率
 
-# ==============================================================================
-# 数据加载函数
-# ==============================================================================
+# 默认持仓周期列表
+DEFAULT_HOLD_PERIODS = [5, 10, 20]
+
+# 定义六脉神剑指标列（对应 calculate_six_veins 输出的列）
+SIX_VEINS_INDICATORS = ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']
 
 def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
     """
@@ -182,42 +92,23 @@ def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
     """
     try:
         df = pd.read_csv(filepath)
-        
+        # 列名映射：将中文列名转换为英文列名
+        column_map = {
+            '日期': 'date', '开盘': 'open', '最高': 'high', '最低': 'low', '收盘': 'close', '成交量': 'volume'
+        }
+        df.rename(columns={c: column_map.get(c, c) for c in df.columns}, inplace=True)
+        if 'date' in df.columns:
+            df['date'] = pd.to_datetime(df['date'])
         # 数据量检查
         if len(df) < 100:
             return None
-        
-        # 列名映射
-        name_map = {
-            '名称': 'name',
-            '日期': 'date',
-            '开盘': 'open',
-            '收盘': 'close',
-            '最高': 'high',
-            '最低': 'low',
-            '成交量': 'volume',
-            '成交额': 'amount',
-            '振幅': 'amplitude',
-            '涨跌幅': 'pct_change',
-            '涨跌额': 'change',
-            '换手率': 'turnover'
-        }
-        df = df.rename(columns=name_map)
-        
-        # 日期处理
-        if 'date' in df.columns:
-            df['date'] = pd.to_datetime(df['date'])
-            df = df.sort_values('date').reset_index(drop=True)
-        
+        # 排序并reset索引
+        df.sort_values('date', inplace=True)
+        df.reset_index(drop=True, inplace=True)
         return df
-        
     except Exception as e:
+        log(f"数据加载失败: {filepath}, 错误: {e}", level="ERROR")
         return None
-
-
-# ==============================================================================
-# 收益计算函数
-# ==============================================================================
 
 def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Dict:
     """固定持有回测口径（推荐统一使用本函数）。
@@ -256,7 +147,6 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
     )
     return summarize_trades(trades, signal_count=signal_count)
 
-
 # ==============================================================================
 # 六脉神剑策略回测
 # ==============================================================================
@@ -277,52 +167,34 @@ def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
     df = load_stock_data(filepath)
     if df is None:
         return None
-    
-    try:
-        # 计算六脉神剑指标
-        df = calculate_six_veins(df)
-        
-        results = []
-        
-        # 1. 测试单指标
-        for indicator in SIX_VEINS_INDICATORS:
-            # 生成信号列（当天变红）
-            signal_col = f'{indicator}_signal'
-            df[signal_col] = df[indicator] & ~df[indicator].shift(1, fill_value=False)
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '六脉神剑',
-                        'type': '单指标',
-                        'name': INDICATOR_NAMES[indicator],
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        # 2. 测试N红组合（4红、5红、6红）
-        for n in [4, 5, 6]:
-            signal_col = f'{n}_red_signal'
-            df[f'{n}_red'] = df['six_veins_count'] >= n
-            df[signal_col] = df[f'{n}_red'] & ~df[f'{n}_red'].shift(1, fill_value=False)
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '六脉神剑',
-                        'type': '组合',
-                        'name': f'≥{n}红',
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
+    # 计算六脉神剑指标，并获取红色状态列
+    df = calculate_six_veins(df)
+    results = []
+    # 各单一指标的测试
+    for indicator in SIX_VEINS_INDICATORS:
+        # 生成信号列（当天变红）
+        signal_col = f'{indicator}_signal'
+        df[signal_col] = df[indicator] & ~df[indicator].shift(1, fill_value=False)
+        for period in DEFAULT_HOLD_PERIODS:
+            stats = calculate_returns(df, signal_col, period)
+            stats.update({
+                'strategy': indicator,
+                'hold_period': period
+            })
+            results.append(stats)
+    # 组合条件（4红以上）
+    signal_col = 'four_red_signal'
+    df[signal_col] = (df['six_veins_count'] >= 4) & ~(df['six_veins_count'].shift(1, fill_value=0) >= 4)
+    for period in DEFAULT_HOLD_PERIODS:
+        stats = calculate_returns(df, signal_col, period)
+        stats.update({
+            'strategy': 'four_red_plus',
+            'hold_period': period
+        })
+        results.append(stats)
+    if not results:
         return None
-
+    return pd.DataFrame(results)
 
 # ==============================================================================
 # 买卖点策略回测
@@ -344,30 +216,21 @@ def backtest_buy_sell_single(filepath: str) -> Optional[pd.DataFrame]:
     df = load_stock_data(filepath)
     if df is None:
         return None
-    
-    try:
-        # 计算买卖点指标
-        df = calculate_buy_sell_points(df)
-        
-        results = []
-        
-        for signal_col, signal_name in BUY_SELL_SIGNALS.items():
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '买卖点',
-                        'type': '买点',
-                        'name': signal_name,
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
+    # 计算买卖点指标
+    df = calculate_buy_sell_points(df)
+    results = []
+    for signal_col in ['buy1', 'buy2']:
+        df[f'{signal_col}_sig'] = df[signal_col] & ~df[signal_col].shift(1, fill_value=False)
+        for period in DEFAULT_HOLD_PERIODS:
+            stats = calculate_returns(df, f'{signal_col}_sig', period)
+            stats.update({
+                'strategy': signal_col,
+                'hold_period': period
+            })
+            results.append(stats)
+    if not results:
         return None
-
+    return pd.DataFrame(results)
 
 # ==============================================================================
 # 缠论买点策略回测
@@ -389,35 +252,25 @@ def backtest_chan_single(filepath: str) -> Optional[pd.DataFrame]:
     df = load_stock_data(filepath)
     if df is None:
         return None
-    
-    try:
-        # 计算缠论指标
-        df = calculate_chan_theory(df)
-        
-        results = []
-        
-        for signal_col in CHAN_BUY_SIGNALS:
-            signal_name = CHAN_SIGNAL_NAMES[signal_col]
-            
-            for period in DEFAULT_HOLD_PERIODS:
-                stats = calculate_returns(df, signal_col, period)
-                if stats['trade_count'] > 0:
-                    results.append({
-                        'strategy': '缠论买点',
-                        'type': '买点',
-                        'name': signal_name,
-                        'hold_period': period,
-                        **stats
-                    })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
+    # 计算缠论指标
+    df = calculate_chan_theory(df)
+    results = []
+    chan_signals = ['chan_buy1', 'chan_buy2', 'chan_buy3', 'chan_strong_buy2', 'chan_like_buy2']
+    for signal_col in chan_signals:
+        df[f'{signal_col}_sig'] = df[signal_col] & ~df[signal_col].shift(1, fill_value=False)
+        for period in DEFAULT_HOLD_PERIODS:
+            stats = calculate_returns(df, f'{signal_col}_sig', period)
+            stats.update({
+                'strategy': signal_col,
+                'hold_period': period
+            })
+            results.append(stats)
+    if not results:
         return None
-
+    return pd.DataFrame(results)
 
 # ==============================================================================
-# 卖出点优化回测
+# 卖出点优化 - 回测
 # ==============================================================================
 
 def backtest_sell_optimize_single(filepath: str) -> Optional[pd.DataFrame]:
@@ -436,35 +289,26 @@ def backtest_sell_optimize_single(filepath: str) -> Optional[pd.DataFrame]:
     df = load_stock_data(filepath)
     if df is None:
         return None
-    
-    try:
-        # 计算六脉神剑指标
-        df = calculate_six_veins(df)
-        
-        # 以六脉6红作为买入信号
-        df['buy_signal'] = (df['six_veins_count'] == 6) & (df['six_veins_count'].shift(1) < 6)
-        
-        results = []
-        
-        for period in SELL_OPTIMIZE_PERIODS:
-            stats = calculate_returns(df, 'buy_signal', period)
-            if stats['trade_count'] > 0:
-                results.append({
-                    'strategy': '卖出优化',
-                    'type': '固定周期',
-                    'name': f'{period}天卖出',
-                    'hold_period': period,
-                    **stats
-                })
-        
-        return pd.DataFrame(results) if results else None
-        
-    except Exception as e:
+    # 计算所有指标信号，使用六脉神剑6红信号作为买入点
+    df = calculate_all_signals(df)
+    if 'six_veins_buy' not in df.columns:
         return None
-
+    df['entry_signal'] = df['six_veins_buy'] & ~df['six_veins_buy'].shift(1, fill_value=False)
+    results = []
+    # 测试1至20日的持仓周期
+    for hold_period in range(1, 21):
+        stats = calculate_returns(df, 'entry_signal', hold_period)
+        stats.update({
+            'strategy': 'sell_opt',
+            'hold_period': hold_period
+        })
+        results.append(stats)
+    if not results:
+        return None
+    return pd.DataFrame(results)
 
 # ==============================================================================
-# 综合回测函数
+# 回测执行主函数
 # ==============================================================================
 
 def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
@@ -483,52 +327,30 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         'six_veins': backtest_six_veins_single,
         'buy_sell': backtest_buy_sell_single,
         'chan': backtest_chan_single,
-        'sell_optimize': backtest_sell_optimize_single
+        'sell_opt': backtest_sell_optimize_single,
     }
-    
-    backtest_func = backtest_funcs.get(strategy)
-    if backtest_func is None:
-        log(f"未知策略类型: {strategy}")
-        return pd.DataFrame()
-    
-    strategy_names = {
-        'six_veins': '六脉神剑',
-        'buy_sell': '买卖点',
-        'chan': '缠论买点',
-        'sell_optimize': '卖出优化'
-    }
-    
-    log(f"\n开始回测: {strategy_names[strategy]}")
-    log(f"处理 {len(stock_files)} 个股票文件...")
-    
-    # 多进程并行处理 (cpu核数-1)
-    num_processes = max(1, cpu_count() - 1)
-    with Pool(num_processes) as pool:
-        all_results = pool.map(backtest_func, stock_files)
-    
-    # 过滤空结果
-    all_results = [r for r in all_results if r is not None and not r.empty]
-    
-    if not all_results:
-        log(f"  {strategy_names[strategy]}: 没有有效的回测结果")
-        return pd.DataFrame()
-    
-    # 汇总结果
-    combined = pd.concat(all_results, ignore_index=True)
-    
-    # 按策略、类型、名称、持仓周期分组汇总（加权口径）
-    # 说明：win_rate / avg_return 不能对单股票结果直接取 mean，必须基于交易数加权。
-    group_cols = ['strategy', 'type', 'name', 'hold_period']
-    summary = aggregate_trade_results(combined, group_by_cols=group_cols)
-    
-    log(f"  {strategy_names[strategy]}: 完成，共 {len(summary)} 条汇总记录")
-    
-    return summary
-
-
-# ==============================================================================
-# 报告生成函数
-# ==============================================================================
+    # 'all' 模式顺序运行所有策略
+    results_list = []
+    if strategy == 'all':
+        for strat_key, func in backtest_funcs.items():
+            log(f"开始回测策略: {strat_key}")
+            res = run_backtest_on_all_stocks(stock_files, func)
+            if res:
+                df_res = pd.concat(res, ignore_index=True)
+                df_res['strategy_type'] = strat_key
+                results_list.append(df_res)
+        if not results_list:
+            return pd.DataFrame()
+        return pd.concat(results_list, ignore_index=True)
+    else:
+        if strategy not in backtest_funcs:
+            log(f"无效的策略类型: {strategy}", level="ERROR")
+            return pd.DataFrame()
+        log(f"开始回测策略: {strategy}")
+        res = run_backtest_on_all_stocks(stock_files, backtest_funcs[strategy])
+        if not res:
+            return pd.DataFrame()
+        return pd.concat(res, ignore_index=True)
 
 def generate_markdown_report(results: pd.DataFrame, stock_count: int) -> str:
     """
@@ -543,28 +365,17 @@ def generate_markdown_report(results: pd.DataFrame, stock_count: int) -> str:
     """
     report = []
     report.append("# 单指标策略回测报告\n")
-    report.append(f"**生成时间**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-    report.append(f"**测试股票数量**: {stock_count}\n\n")
-    
-    # 按策略分组输出
-    for strategy in results['strategy'].unique():
-        strategy_df = results[results['strategy'] == strategy]
-        
-        report.append(f"## {strategy}\n\n")
-        report.append("| 类型 | 名称 | 持仓周期 | 信号数 | 交易数 | 胜率 | 平均收益 |\n")
-        report.append("| --- | --- | --- | --- | --- | --- | --- |\n")
-        
-        for _, row in strategy_df.sort_values(['type', 'win_rate'], ascending=[True, False]).iterrows():
-            report.append(
-                f"| {row['type']} | {row['name']} | {row['hold_period']}天 | "
-                f"{int(row['signal_count'])} | {int(row['trade_count'])} | "
-                f"{row['win_rate']:.2f}% | {row['avg_return']:.2f}% |\n"
-            )
-        
-        report.append("\n")
-    
-    return ''.join(report)
-
+    report.append(f"- 测试股票数量: **{stock_count}**")
+    report.append(f"- 测试时间: **{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}**\n")
+    for strat_type, df in results.groupby('strategy_type'):
+        report.append(f"## 策略类型: {strat_type}\n")
+        for strategy, sdf in df.groupby('strategy'):
+            avg_win_rate = sdf['win_rate'].mean()
+            avg_return = sdf['avg_return'].mean()
+            report.append(f"**策略 {strategy}:** 平均胜率 {avg_win_rate:.2f}%, 平均收益率 {avg_return:.2f}%")
+            # 可根据需要添加更多统计信息
+        report.append("")  # 空行
+    return "\n".join(report)
 
 def generate_json_data(results: pd.DataFrame, stock_count: int) -> Dict:
     """
@@ -582,190 +393,58 @@ def generate_json_data(results: pd.DataFrame, stock_count: int) -> Dict:
         'stock_count': stock_count,
         'strategies': {}
     }
-    
-    for strategy in results['strategy'].unique():
-        strategy_df = results[results['strategy'] == strategy]
-        
-        data['strategies'][strategy] = {
-            'summary': [],
-            'best_performers': []
-        }
-        
-        # 添加所有结果
-        for _, row in strategy_df.iterrows():
-            data['strategies'][strategy]['summary'].append({
-                'type': row['type'],
-                'name': row['name'],
-                'hold_period': int(row['hold_period']),
-                'signal_count': int(row['signal_count']),
-                'trade_count': int(row['trade_count']),
-                'win_rate': round(row['win_rate'], 2),
-                'avg_return': round(row['avg_return'], 2)
-            })
-        
-        # 添加最佳表现（按胜率排序前5）
-        top5 = strategy_df.nlargest(5, 'win_rate')
-        for _, row in top5.iterrows():
-            data['strategies'][strategy]['best_performers'].append({
-                'name': f"{row['type']}-{row['name']}",
-                'hold_period': int(row['hold_period']),
-                'win_rate': round(row['win_rate'], 2),
-                'avg_return': round(row['avg_return'], 2)
-            })
-    
+    for strategy, sdf in results.groupby('strategy'):
+        strat_data = {}
+        # 最优胜率对应的持仓期
+        best = sdf.loc[sdf['win_rate'].idxmax()]
+        strat_data['optimal_period_win'] = str(int(best['hold_period']))
+        strat_data['win_rate'] = round(float(sdf['win_rate'].mean()), 2)
+        strat_data['avg_return'] = round(float(sdf['avg_return'].mean()), 2)
+        strat_data['trades'] = int(sdf['trade_count'].sum())
+        data['strategies'][strategy] = strat_data
     return data
 
-
-# ==============================================================================
-# 主程序
-# ==============================================================================
-
 def main():
-    """
-    主函数：执行单指标策略回测
-    
-    支持通过命令行参数选择要运行的策略类型。
-    """
-    # 解析命令行参数
     parser = argparse.ArgumentParser(description='单指标策略回测系统')
     parser.add_argument(
         '--strategy',
         type=str,
         default='all',
-        choices=['all', 'six_veins', 'buy_sell', 'chan', 'sell_optimize'],
-        help='要运行的策略类型 (默认: all)'
+        choices=['all', 'six_veins', 'buy_sell', 'chan', 'sell_opt'],
+        help='要运行的策略类型 (all=全部)'
     )
-    parser.add_argument(
-        '--limit',
-        type=int,
-        default=0,
-        help='限制处理的股票数量，0表示不限制 (默认: 0)'
-    )
-    parser.add_argument(
-        '--full',
-        action='store_true',
-        help='强制全量回测'
-    )
-    parser.add_argument(
-        '--incremental',
-        action='store_true',
-        default=True,
-        help='增量回测 (默认开启)'
-    )
-    
     args = parser.parse_args()
-    # 如果指定了 --full，则关闭增量模式
-    if args.full:
-        args.incremental = False
-    
-    log("=" * 70)
-    log("单指标策略回测系统 v1.0")
-    log("=" * 70)
-    log(f"运行时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    log(f"策略选择: {args.strategy}")
-    log("=" * 70)
-    
-    # 创建输出目录
-    os.makedirs(REPORT_DIR, exist_ok=True)
-    os.makedirs(WEB_DATA_DIR, exist_ok=True)
-    
-    # 获取股票文件
-    if args.incremental:
-        log("模式: 增量回测")
-        stock_files = get_all_stock_files(DATA_DIR, incremental=True, status_file=STATUS_FILE)
-    else:
-        log("模式: 全量回测")
-        stock_files = get_all_stock_files(DATA_DIR, incremental=False)
-    
-    # 限制股票数量（用于测试）
-    if args.limit > 0:
-        stock_files = stock_files[:args.limit]
-        log(f"注意: 已限制处理 {args.limit} 个股票文件")
-    
-    log(f"发现 {len(stock_files)} 个股票文件")
-    
+
+    # 获取所有股票文件
+    stock_files = get_all_stock_files(os.path.join(os.path.dirname(PROJECT_ROOT), 'data', 'day'))
+
     if not stock_files:
-        log("错误: 未找到股票数据文件")
+        log("未找到股票数据文件，请检查 data/day 目录。", level="ERROR")
         return
-    
-    # 确定要运行的策略
-    if args.strategy == 'all':
-        strategies = ['six_veins', 'buy_sell', 'chan', 'sell_optimize']
-    else:
-        strategies = [args.strategy]
-    
-    # 运行回测
-    current_results = []
-    for strategy in strategies:
-        result = run_backtest(strategy, stock_files)
-        if not result.empty:
-            current_results.append(result)
-    
-    if not current_results:
-        log("\n没有生成任何新的回测结果")
-        if args.incremental:
-            log("尝试加载历史结果...")
-            csv_path = os.path.join(REPORT_DIR, 'single_strategy_summary.csv')
-            if os.path.exists(csv_path):
-                combined_results = pd.read_csv(csv_path)
-            else:
-                return
-        else:
-            return
-    else:
-        # 合并当前结果
-        new_combined = pd.concat(current_results, ignore_index=True)
-        
-        # 如果是增量模式，由于汇总结果是聚合后的，增量更新需要重新考虑。
-        # 为了简单起见，目前增量模式下如果产生了新结果，我们直接使用新结果。
-        # 注意：真正的增量回测应该保存每只股票的原始结果，然后重新聚合。
-        # 这里先实现基础的增量跳过逻辑。
-        combined_results = new_combined
-            
-    # 更新状态
-    if stock_files:
-        update_backtest_status(stock_files, STATUS_FILE)
-    
-    # 生成报告
-    log("\n" + "-" * 70)
-    log("生成报告...")
-    
-    # 保存CSV
-    csv_path = os.path.join(REPORT_DIR, 'single_strategy_summary.csv')
-    combined_results.to_csv(csv_path, index=False, encoding='utf-8-sig')
-    log(f"已保存CSV汇总: {csv_path}")
-    
+
+    results_df = run_backtest(args.strategy, stock_files)
+    if results_df.empty:
+        log("回测无有效结果。", level="WARNING")
+        return
+
+    # 保存结果汇总CSV
+    summary_csv_path = os.path.join(PROJECT_ROOT, 'report', 'total', 'single_strategy_summary.csv')
+    results_df.to_csv(summary_csv_path, index=False, encoding='utf-8-sig')
+    log(f"回测结果汇总已保存: {summary_csv_path}")
+
     # 生成并保存Markdown报告
-    md_report = generate_markdown_report(combined_results, len(stock_files))
-    md_path = os.path.join(REPORT_DIR, 'single_strategy_report.md')
+    md_report = generate_markdown_report(results_df, stock_count=len(stock_files))
+    md_path = os.path.join(PROJECT_ROOT, 'report', 'total', 'single_strategy_report.md')
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(md_report)
     log(f"已保存Markdown报告: {md_path}")
     
     # 生成并保存JSON数据（供Web前端使用）
-    json_data = generate_json_data(combined_results, len(stock_files))
-    
-    # 保存到report目录
-    json_path = os.path.join(REPORT_DIR, 'backtest_single.json')
+    json_data = generate_json_data(results_df, stock_count=len(stock_files))
+    json_path = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data', 'backtest_single.json')
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
-    log(f"已保存JSON数据: {json_path}")
-    
-    # 保存到Web数据目录
-    web_json_path = os.path.join(WEB_DATA_DIR, 'backtest_single.json')
-    with open(web_json_path, 'w', encoding='utf-8') as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=2)
-    log(f"已保存JSON数据到Web目录: {web_json_path}")
-    
-    # 打印摘要
-    log("\n" + "=" * 70)
-    log("回测完成！")
-    log("=" * 70)
-    log(f"测试股票数: {len(stock_files)}")
-    log(f"策略数量: {len(strategies)}")
-    log(f"汇总记录: {len(combined_results)}")
-    log("=" * 70)
-
+    log(f"Web前端数据已保存: {json_path}")
 
 if __name__ == "__main__":
     main()
