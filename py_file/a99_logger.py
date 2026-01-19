@@ -22,4 +22,5 @@ def log(message, level="INFO"):
     格式: [YYYY-MM-DD HH:MM:SS] [LEVEL] MESSAGE
     """
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{timestamp}] [{level}] {message}")
+    print(f"[{timestamp}] [{level}] {message}", flush=True)
+
