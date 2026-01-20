@@ -1,0 +1,12 @@
+{
+  "code": "600006",
+  "name": "东风股份",
+  "latest_close": 7.3,
+  "kalman_price": 7.2587009633273745,
+  "particle_price": 7.297167005136867,
+  "market_state": 1,
+  "ensemble_forecast": 7.282300000000001,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

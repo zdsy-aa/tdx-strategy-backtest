@@ -1,0 +1,12 @@
+{
+  "code": "600087",
+  "name": "退市长油",
+  "latest_close": 0.79,
+  "kalman_price": 0.7975554072390766,
+  "particle_price": 0.7910383932349377,
+  "market_state": 0,
+  "ensemble_forecast": 0.8018000000000004,
+  "forecast_change_pct": 1.49,
+  "confidence": 0.85,
+  "analysis_date": "2014-06-04"
+}

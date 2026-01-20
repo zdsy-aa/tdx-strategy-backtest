@@ -1,0 +1,12 @@
+{
+  "code": "600051",
+  "name": "宁波联合",
+  "latest_close": 7.59,
+  "kalman_price": 7.55642873206369,
+  "particle_price": 7.5833749248029445,
+  "market_state": 2,
+  "ensemble_forecast": 7.6036,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

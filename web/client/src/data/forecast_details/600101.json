@@ -1,0 +1,12 @@
+{
+  "code": "600101",
+  "name": "明星电力",
+  "latest_close": 9.51,
+  "kalman_price": 9.493531225231143,
+  "particle_price": 9.505289122171108,
+  "market_state": 1,
+  "ensemble_forecast": 9.435400000000001,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

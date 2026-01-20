@@ -1,0 +1,12 @@
+{
+  "code": "600076",
+  "name": "康欣新材",
+  "latest_close": 3.64,
+  "kalman_price": 3.6694642909660002,
+  "particle_price": 3.612547576433219,
+  "market_state": 2,
+  "ensemble_forecast": 3.6675999999999984,
+  "forecast_change_pct": 0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

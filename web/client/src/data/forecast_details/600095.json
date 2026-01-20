@@ -1,0 +1,12 @@
+{
+  "code": "600095",
+  "name": "湘财股份",
+  "latest_close": 11.62,
+  "kalman_price": 11.50742904479656,
+  "particle_price": 11.585431306025326,
+  "market_state": 1,
+  "ensemble_forecast": 11.47,
+  "forecast_change_pct": -1.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13"
+}

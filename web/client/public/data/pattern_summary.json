@@ -1,0 +1,93 @@
+{
+  "analysis_date": "2026-01-15 12:30:00",
+  "total_cases": 98456,
+  "analyzed_cases": 95678,
+  "indicators": {
+    "MACD": {
+      "DIF在零轴上方": {"count": 95678, "true_count": 62456, "true_rate": 65.28},
+      "DEA在零轴上方": {"count": 95678, "true_count": 58234, "true_rate": 60.87},
+      "MACD柱为正": {"count": 95678, "true_count": 67890, "true_rate": 70.96},
+      "金叉": {"count": 95678, "true_count": 23456, "true_rate": 24.52},
+      "DIF上升": {"count": 95678, "true_count": 71234, "true_rate": 74.45}
+    },
+    "KDJ": {
+      "K线在D线上方": {"count": 95678, "true_count": 68901, "true_rate": 72.01},
+      "超卖区": {"count": 95678, "true_count": 18234, "true_rate": 19.06},
+      "超买区": {"count": 95678, "true_count": 12345, "true_rate": 12.90},
+      "金叉": {"count": 95678, "true_count": 28901, "true_rate": 30.21},
+      "K值": {"count": 95678, "mean": 52.34, "median": 54.12, "std": 18.56}
+    },
+    "BOLL": {
+      "价格在中轨上方": {"count": 95678, "true_count": 58901, "true_rate": 61.56},
+      "接近下轨": {"count": 95678, "true_count": 21234, "true_rate": 22.19},
+      "接近上轨": {"count": 95678, "true_count": 15678, "true_rate": 16.39},
+      "布林带收窄": {"count": 95678, "true_count": 34567, "true_rate": 36.13},
+      "布林带位置": {"count": 95678, "mean": 48.67, "median": 51.23, "std": 22.34}
+    },
+    "RSI": {
+      "RSI超卖": {"count": 95678, "true_count": 14567, "true_rate": 15.23},
+      "RSI超买": {"count": 95678, "true_count": 8901, "true_rate": 9.30},
+      "多头排列": {"count": 95678, "true_count": 54321, "true_rate": 56.78},
+      "RSI6值": {"count": 95678, "mean": 51.23, "median": 52.45, "std": 16.78}
+    },
+    "DMI": {
+      "PDI>MDI": {"count": 95678, "true_count": 61234, "true_rate": 64.00},
+      "强趋势": {"count": 95678, "true_count": 43210, "true_rate": 45.16},
+      "弱趋势": {"count": 95678, "true_count": 32456, "true_rate": 33.92},
+      "ADX值": {"count": 95678, "mean": 24.56, "median": 22.34, "std": 12.45}
+    },
+    "DMA": {
+      "DIF>0": {"count": 95678, "true_count": 58765, "true_rate": 61.42},
+      "DIF>DIFMA": {"count": 95678, "true_count": 65432, "true_rate": 68.39},
+      "金叉": {"count": 95678, "true_count": 21098, "true_rate": 22.05}
+    },
+    "SAR": {
+      "多头": {"count": 95678, "true_count": 62345, "true_rate": 65.16},
+      "价格在SAR上方": {"count": 95678, "true_count": 64321, "true_rate": 67.22}
+    },
+    "BBI": {
+      "价格在BBI上方": {"count": 95678, "true_count": 59876, "true_rate": 62.58},
+      "BBI上升": {"count": 95678, "true_count": 67890, "true_rate": 70.96}
+    },
+    "OBV": {
+      "OBV在均线上方": {"count": 95678, "true_count": 56789, "true_rate": 59.35},
+      "OBV趋势": {"count": 95678, "distribution": {"rising": 58234, "falling": 37444}},
+      "量价同步": {"count": 95678, "true_count": 71234, "true_rate": 74.45}
+    },
+    "WR": {
+      "WR超卖": {"count": 95678, "true_count": 23456, "true_rate": 24.52},
+      "WR超买": {"count": 95678, "true_count": 12345, "true_rate": 12.90}
+    },
+    "CCI": {
+      "CCI超卖": {"count": 95678, "true_count": 18765, "true_rate": 19.61},
+      "CCI超买": {"count": 95678, "true_count": 21098, "true_rate": 22.05},
+      "CCI上升": {"count": 95678, "true_count": 65432, "true_rate": 68.39},
+      "CCI值": {"count": 95678, "mean": 45.67, "median": 42.34, "std": 78.90}
+    }
+  },
+  "theories": {
+    "道氏理论": {
+      "主要趋势": {"count": 95678, "distribution": {"bullish": 58234, "bearish": 37444}},
+      "次级趋势": {"count": 95678, "distribution": {"bullish": 54321, "bearish": 41357}},
+      "趋势一致": {"count": 95678, "true_count": 48765, "true_rate": 50.97},
+      "上升趋势确认": {"count": 95678, "true_count": 42345, "true_rate": 44.26},
+      "更高的高点": {"count": 95678, "true_count": 56789, "true_rate": 59.35},
+      "更高的低点": {"count": 95678, "true_count": 61234, "true_rate": 64.00}
+    },
+    "威科夫理论": {
+      "市场阶段": {"count": 95678, "distribution": {"accumulation": 28901, "markup": 34567, "distribution": 18765, "markdown": 13445}},
+      "供需关系": {"count": 95678, "distribution": {"strong_demand": 32456, "weak_demand": 28901, "balanced": 21098, "weak_supply": 8234, "strong_supply": 4989}},
+      "成交量扩张": {"count": 95678, "true_count": 45678, "true_rate": 47.74},
+      "成交量比率": {"count": 95678, "mean": 1.23, "median": 1.08, "std": 0.67},
+      "价格位置": {"count": 95678, "mean": 45.67, "median": 43.21, "std": 25.34}
+    },
+    "均线系统": {
+      "多头排列": {"count": 95678, "true_count": 38901, "true_rate": 40.66},
+      "空头排列": {"count": 95678, "true_count": 21098, "true_rate": 22.05},
+      "价格在MA20上方": {"count": 95678, "true_count": 58765, "true_rate": 61.42},
+      "价格在MA60上方": {"count": 95678, "true_count": 52345, "true_rate": 54.71},
+      "均线支撑数量": {"count": 95678, "mean": 2.34, "median": 2.00, "std": 1.23},
+      "MA5上穿MA10": {"count": 95678, "true_count": 18765, "true_rate": 19.61}
+    }
+  }
+}

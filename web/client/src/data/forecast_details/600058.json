@@ -1,0 +1,12 @@
+{
+  "code": "600058",
+  "name": "五矿发展",
+  "latest_close": 10.38,
+  "kalman_price": 10.219757342363991,
+  "particle_price": 10.323427441826434,
+  "market_state": 0,
+  "ensemble_forecast": 11.105300000000009,
+  "forecast_change_pct": 6.99,
+  "confidence": 0.75,
+  "analysis_date": "2025-12-29"
+}

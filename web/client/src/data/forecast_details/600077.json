@@ -1,0 +1,12 @@
+{
+  "code": "600077",
+  "name": "*ST宋都",
+  "latest_close": 0.41,
+  "kalman_price": 0.40120108753775857,
+  "particle_price": 0.4150671451331387,
+  "market_state": 1,
+  "ensemble_forecast": 0.44769999999999965,
+  "forecast_change_pct": 9.2,
+  "confidence": 0.75,
+  "analysis_date": "2023-06-13"
+}

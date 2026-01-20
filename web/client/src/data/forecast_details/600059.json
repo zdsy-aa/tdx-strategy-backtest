@@ -1,0 +1,12 @@
+{
+  "code": "600059",
+  "name": "古越龙山",
+  "latest_close": 9.32,
+  "kalman_price": 9.281359731136751,
+  "particle_price": 9.32543004406591,
+  "market_state": 0,
+  "ensemble_forecast": 9.299600000000002,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

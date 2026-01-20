@@ -1,0 +1,12 @@
+{
+  "code": "600102",
+  "name": "莱钢股份",
+  "latest_close": 7.1,
+  "kalman_price": 7.124261172587346,
+  "particle_price": 7.096935747102435,
+  "market_state": 2,
+  "ensemble_forecast": 7.083000000000006,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2012-02-08"
+}

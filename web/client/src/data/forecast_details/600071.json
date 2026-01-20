@@ -1,0 +1,12 @@
+{
+  "code": "600071",
+  "name": "凤凰光学",
+  "latest_close": 22.05,
+  "kalman_price": 21.84327006637307,
+  "particle_price": 21.975654831365954,
+  "market_state": 0,
+  "ensemble_forecast": 22.040699999999994,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

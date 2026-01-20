@@ -1,0 +1,12 @@
+{
+  "code": "600011",
+  "name": "华能国际",
+  "latest_close": 7.38,
+  "kalman_price": 7.309176614580798,
+  "particle_price": 7.380582476832002,
+  "market_state": 0,
+  "ensemble_forecast": 7.286000000000005,
+  "forecast_change_pct": -1.27,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13"
+}

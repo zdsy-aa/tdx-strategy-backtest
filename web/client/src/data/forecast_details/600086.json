@@ -1,0 +1,12 @@
+{
+  "code": "600086",
+  "name": "退市金钰",
+  "latest_close": 0.16,
+  "kalman_price": 0.15972770151872148,
+  "particle_price": 0.15863210093568264,
+  "market_state": 0,
+  "ensemble_forecast": 0.1615000000000001,
+  "forecast_change_pct": 0.94,
+  "confidence": 0.95,
+  "analysis_date": "2021-03-10"
+}

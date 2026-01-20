@@ -1,0 +1,12 @@
+{
+  "code": "600001",
+  "name": "邯郸钢铁",
+  "latest_close": 5.21,
+  "kalman_price": 5.296355953586981,
+  "particle_price": 5.211311311677933,
+  "market_state": 0,
+  "ensemble_forecast": 5.199799999999998,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2009-12-15"
+}

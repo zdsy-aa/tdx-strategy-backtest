@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlertCircle, TrendingUp, Target, Zap } from "lucide-react";
 import Layout from "@/components/Layout";
+import forecastSummaryRaw from "@/data/forecast_summary.json";
 
 interface ForecastData {
   code: string;
@@ -29,55 +30,18 @@ interface SummaryData {
 }
 
 export default function ForecastDashboard() {
-  const [summaryData, setSummaryData] = useState<SummaryData | null>(null);
-  const [selectedStock, setSelectedStock] = useState<ForecastData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const summaryData = forecastSummaryRaw as unknown as SummaryData;
+  const [selectedStock, setSelectedStock] = useState<ForecastData | null>(
+    summaryData?.top_predictions?.[0] || null
+  );
 
-  useEffect(() => {
-    const loadForecastData = async () => {
-      try {
-        const response = await fetch("/data/forecast_summary.json");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setSummaryData(data);
-        if (data.top_predictions && data.top_predictions.length > 0) {
-          setSelectedStock(data.top_predictions[0]);
-        }
-        setError(null);
-      } catch (err) {
-        setError("无法加载预测数据。请确保已运行 a7_advanced_forecast.py 脚本。");
-        console.error("Error loading forecast data:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadForecastData();
-  }, []);
-
-  if (loading) {
-    return (
-      <Layout>
-        <div className="flex items-center justify-center h-96">
-          <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
-            <p className="text-muted-foreground">加载预测数据中...</p>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  if (error || !summaryData) {
+  if (!summaryData) {
     return (
       <Layout>
         <div className="space-y-6">
           <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/20">
             <AlertCircle className="size-5 text-red-500" />
-            <p className="text-red-500">{error || "无法加载数据"}</p>
+            <p className="text-red-500">无法加载预测数据。请确保已运行 a7_advanced_forecast.py 脚本。</p>
           </div>
         </div>
       </Layout>

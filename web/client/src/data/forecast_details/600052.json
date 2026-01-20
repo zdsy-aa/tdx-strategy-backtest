@@ -1,0 +1,12 @@
+{
+  "code": "600052",
+  "name": "东望时代",
+  "latest_close": 4.77,
+  "kalman_price": 4.732175621052738,
+  "particle_price": 4.776759668412962,
+  "market_state": 0,
+  "ensemble_forecast": 4.776100000000002,
+  "forecast_change_pct": 0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

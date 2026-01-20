@@ -1,0 +1,12 @@
+{
+  "code": "600025",
+  "name": "华能水电",
+  "latest_close": 9.16,
+  "kalman_price": 9.126229042684022,
+  "particle_price": 9.165360950542144,
+  "market_state": 2,
+  "ensemble_forecast": 9.194700000000001,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

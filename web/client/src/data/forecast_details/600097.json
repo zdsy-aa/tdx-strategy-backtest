@@ -1,0 +1,12 @@
+{
+  "code": "600097",
+  "name": "开创国际",
+  "latest_close": 11.75,
+  "kalman_price": 11.7065596406775,
+  "particle_price": 11.738505571147089,
+  "market_state": 0,
+  "ensemble_forecast": 11.687299999999999,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

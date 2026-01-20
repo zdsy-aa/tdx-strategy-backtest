@@ -1,0 +1,12 @@
+{
+  "code": "600038",
+  "name": "中直股份",
+  "latest_close": 37.63,
+  "kalman_price": 37.9968382365664,
+  "particle_price": 37.65660996164988,
+  "market_state": 0,
+  "ensemble_forecast": 36.89870000000003,
+  "forecast_change_pct": -1.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13"
+}

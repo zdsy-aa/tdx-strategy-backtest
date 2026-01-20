@@ -1,0 +1,12 @@
+{
+  "code": "600061",
+  "name": "国投资本",
+  "latest_close": 7.85,
+  "kalman_price": 7.827472058382648,
+  "particle_price": 7.8171934461168355,
+  "market_state": 2,
+  "ensemble_forecast": 7.817199999999999,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

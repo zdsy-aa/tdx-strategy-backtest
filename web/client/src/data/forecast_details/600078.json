@@ -1,0 +1,12 @@
+{
+  "code": "600078",
+  "name": "澄星股份",
+  "latest_close": 10.16,
+  "kalman_price": 10.310268403454566,
+  "particle_price": 10.15325470155644,
+  "market_state": 2,
+  "ensemble_forecast": 10.187500000000002,
+  "forecast_change_pct": 0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

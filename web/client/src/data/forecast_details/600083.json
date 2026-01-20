@@ -1,0 +1,12 @@
+{
+  "code": "600083",
+  "name": "*ST博信",
+  "latest_close": 0.92,
+  "kalman_price": 0.9015054087025426,
+  "particle_price": 0.910289094481184,
+  "market_state": 2,
+  "ensemble_forecast": 0.9948000000000001,
+  "forecast_change_pct": 8.13,
+  "confidence": 0.75,
+  "analysis_date": "2025-01-16"
+}

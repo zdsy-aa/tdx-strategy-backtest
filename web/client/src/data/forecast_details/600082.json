@@ -1,0 +1,12 @@
+{
+  "code": "600082",
+  "name": "海泰发展",
+  "latest_close": 4.19,
+  "kalman_price": 4.207473686087899,
+  "particle_price": 4.1951712942642025,
+  "market_state": 0,
+  "ensemble_forecast": 4.228399999999997,
+  "forecast_change_pct": 0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13"
+}

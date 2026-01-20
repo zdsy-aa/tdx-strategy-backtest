@@ -1,0 +1,12 @@
+{
+  "code": "600010",
+  "name": "包钢股份",
+  "latest_close": 2.61,
+  "kalman_price": 2.615186149462338,
+  "particle_price": 2.6212234908152725,
+  "market_state": 2,
+  "ensemble_forecast": 2.579099999999999,
+  "forecast_change_pct": -1.18,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13"
+}

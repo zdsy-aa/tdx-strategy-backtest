@@ -1,0 +1,12 @@
+{
+  "code": "600092",
+  "name": "S*ST精密",
+  "latest_close": 0.93,
+  "kalman_price": 0.9156106379513724,
+  "particle_price": 0.909129949055461,
+  "market_state": 2,
+  "ensemble_forecast": 0.9331000000000002,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2006-08-31"
+}

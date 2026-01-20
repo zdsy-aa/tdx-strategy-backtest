@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlertCircle, TrendingUp, Activity, AlertTriangle } from "lucide-react";
 import Layout from "@/components/Layout";
+import dashboardDataRaw from "@/data/dashboard.json";
 
 interface DashboardData {
   generated_at: string;
@@ -35,52 +36,15 @@ interface DashboardData {
 }
 
 export default function ModelDashboard() {
-  const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const dashboardData = dashboardDataRaw as unknown as DashboardData;
 
-  useEffect(() => {
-    const loadDashboard = async () => {
-      try {
-        // 使用 fetch 动态加载 JSON 文件，避免构建时的文件缺失问题
-        const response = await fetch("/data/dashboard.json");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setDashboardData(data);
-        setError(null);
-      } catch (err) {
-        setError("无法加载模型仪表盘数据。请确保已运行 相关 脚本。");
-        console.error("Error loading dashboard:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadDashboard();
-  }, []);
-
-  if (loading) {
-    return (
-      <Layout>
-        <div className="flex items-center justify-center h-96">
-          <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-4"></div>
-            <p className="text-muted-foreground">加载模型数据中...</p>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-
-  if (error || !dashboardData) {
+  if (!dashboardData) {
     return (
       <Layout>
         <div className="space-y-6">
           <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/20">
             <AlertCircle className="size-5 text-red-500" />
-            <p className="text-red-500">{error || "无法加载数据"}</p>
+            <p className="text-red-500">无法加载模型仪表盘数据。请确保已运行 a6_models.py 脚本。</p>
           </div>
         </div>
       </Layout>
