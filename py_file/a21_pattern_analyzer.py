@@ -562,3 +562,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print("a21_pattern_analyzer.py 脚本执行完毕")

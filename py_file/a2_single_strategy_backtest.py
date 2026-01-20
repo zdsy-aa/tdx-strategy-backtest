@@ -448,3 +448,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print("a2_single_strategy_backtest.py 脚本执行完毕")

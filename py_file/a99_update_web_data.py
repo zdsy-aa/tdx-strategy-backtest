@@ -83,3 +83,5 @@ def update_strategies():
 
 if __name__ == "__main__":
     update_strategies()
+
+print("a99_update_web_data.py 脚本执行完毕")

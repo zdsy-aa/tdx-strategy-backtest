@@ -264,3 +264,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print("a4_signal_success_scanner.py 脚本执行完毕")

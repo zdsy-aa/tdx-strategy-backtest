@@ -94,3 +94,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print("a0_auto_update_daily.py 脚本执行完毕")

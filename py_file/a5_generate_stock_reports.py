@@ -265,3 +265,5 @@ if __name__ == "__main__":
     start_time = time.time()
     generate_reports()
     log(f"总耗时: {time.time() - start_time:.2f} 秒")
+
+print("a5_generate_stock_reports.py 脚本执行完毕")

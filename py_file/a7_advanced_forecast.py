@@ -405,3 +405,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+print("a7_advanced_forecast.py 脚本执行完毕")
