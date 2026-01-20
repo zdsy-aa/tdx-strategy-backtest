@@ -356,7 +356,8 @@ def build_symbol_payload(
             df = df.iloc[-recent_bars:].copy()
 
         if len(df) < 20:
-            raise ValueError(f"Not enough rows: {len(df)} (<20)")
+            # 静默跳过数据不足 20 天的股票，不抛出异常
+            return None, None
 
         name = None
         if "name" in df.columns and df["name"].notna().any():
@@ -493,6 +494,11 @@ def main() -> int:
             include_series=cfg.include_series,
             series_bars=cfg.series_bars,
         )
+        
+        # 如果 payload 和 err 都为 None，说明是静默跳过（如数据不足 20 天）
+        if payload is None and err is None:
+            continue
+
         if err is not None:
             market_stats[market]["fail"] += 1
             errors.append(err)
