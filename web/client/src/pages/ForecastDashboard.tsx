@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from "recharts";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertCircle, TrendingUp, Target, Zap } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { AlertCircle, Search, Calendar, TrendingUp, Target, Zap } from "lucide-react";
 import Layout from "@/components/Layout";
 import forecastSummaryRaw from "@/data/forecast_summary.json";
 
@@ -19,6 +21,7 @@ interface ForecastData {
   forecast_change_pct: number;
   confidence: number;
   analysis_date: string;
+  forecast_date: string;
 }
 
 interface SummaryData {
@@ -26,14 +29,35 @@ interface SummaryData {
   total_stocks: number;
   successful: number;
   failed: number;
-  top_predictions: ForecastData[];
+  all_predictions: ForecastData[];
 }
 
 export default function ForecastDashboard() {
   const summaryData = forecastSummaryRaw as unknown as SummaryData;
+  
+  // 状态管理
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateFilter, setDateFilter] = useState("all");
   const [selectedStock, setSelectedStock] = useState<ForecastData | null>(
-    summaryData?.top_predictions?.[0] || null
+    summaryData?.all_predictions?.[0] || null
   );
+
+  // 获取所有可用日期
+  const availableDates = useMemo(() => {
+    if (!summaryData?.all_predictions) return [];
+    const dates = Array.from(new Set(summaryData.all_predictions.map(p => p.analysis_date)));
+    return dates.sort((a, b) => b.localeCompare(a));
+  }, [summaryData]);
+
+  // 过滤后的数据
+  const filteredData = useMemo(() => {
+    if (!summaryData?.all_predictions) return [];
+    return summaryData.all_predictions.filter(item => {
+      const matchesSearch = item.code.includes(searchTerm) || item.name.includes(searchTerm);
+      const matchesDate = dateFilter === "all" || item.analysis_date === dateFilter;
+      return matchesSearch && matchesDate;
+    });
+  }, [summaryData, searchTerm, dateFilter]);
 
   if (!summaryData) {
     return (
@@ -48,24 +72,26 @@ export default function ForecastDashboard() {
     );
   }
 
-  // 准备图表数据
-  const forecastComparison = summaryData.top_predictions.slice(0, 20).map((item) => ({
+  // 准备图表数据 (基于过滤后的前20条)
+  const chartData = filteredData.slice(0, 20);
+  
+  const forecastComparison = chartData.map((item) => ({
     code: item.code,
     当前价格: item.latest_close,
-    预测价格: item.ensemble_forecast,
+    次日预测: item.ensemble_forecast,
     变化幅度: item.forecast_change_pct,
   }));
 
-  const confidenceData = summaryData.top_predictions.slice(0, 15).map((item) => ({
-    code: `${item.code}-${item.name}`,
+  const confidenceData = chartData.slice(0, 15).map((item) => ({
+    code: `${item.code}`,
     置信度: (item.confidence * 100).toFixed(0),
     变化幅度: item.forecast_change_pct,
   }));
 
   const marketStateDistribution = [
-    { state: "牛市", count: summaryData.top_predictions.filter((p) => p.market_state === 0).length },
-    { state: "熊市", count: summaryData.top_predictions.filter((p) => p.market_state === 1).length },
-    { state: "震荡", count: summaryData.top_predictions.filter((p) => p.market_state === 2).length },
+    { state: "牛市", count: filteredData.filter((p) => p.market_state === 0).length },
+    { state: "熊市", count: filteredData.filter((p) => p.market_state === 1).length },
+    { state: "震荡", count: filteredData.filter((p) => p.market_state === 2).length },
   ];
 
   const successRate = ((summaryData.successful / summaryData.total_stocks) * 100).toFixed(2);
@@ -84,11 +110,40 @@ export default function ForecastDashboard() {
     <Layout>
       <div className="space-y-8">
         {/* 页面标题 */}
-        <div>
-          <h1 className="text-4xl font-bold mb-2">📊 高级预测分析</h1>
-          <p className="text-muted-foreground">
-            基于卡尔曼滤波、粒子滤波、HMM 和随机森林的多模型集成预测 | 最后更新: {new Date(summaryData.generated_at).toLocaleString()}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-bold mb-2">📊 次日价格预测</h1>
+            <p className="text-muted-foreground">
+              基于多模型集成预测最新数据日期的次日表现 | 最后更新: {new Date(summaryData.generated_at).toLocaleString()}
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="relative w-64">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+              <Input 
+                placeholder="搜索代码或名称..." 
+                className="pl-9"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <Calendar className="size-4 text-muted-foreground" />
+              <Select value={dateFilter} onValueChange={setDateFilter}>
+                <SelectTrigger className="w-40">
+                  <SelectValue placeholder="选择日期" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">全部日期</SelectItem>
+                  {availableDates.map(date => (
+                    <SelectItem key={date} value={date}>{date}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
         </div>
 
         {/* 统计卡片 */}
@@ -115,11 +170,11 @@ export default function ForecastDashboard() {
 
           <Card className="bg-gradient-to-br from-red-500/10 to-red-600/5 border-red-500/20">
             <CardHeader className="pb-3">
-              <CardTitle className="text-sm font-medium text-muted-foreground">预测失败</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">当前筛选</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-red-500">{summaryData.failed}</div>
-              <p className="text-xs text-muted-foreground mt-1">需要检查</p>
+              <div className="text-3xl font-bold text-red-500">{filteredData.length.toLocaleString()}</div>
+              <p className="text-xs text-muted-foreground mt-1">符合条件的股票</p>
             </CardContent>
           </Card>
 
@@ -130,25 +185,132 @@ export default function ForecastDashboard() {
             <CardContent>
               <div className="text-3xl font-bold text-purple-500">
                 {(
-                  (summaryData.top_predictions.reduce((sum, p) => sum + p.confidence, 0) /
-                    summaryData.top_predictions.length) *
+                  (filteredData.slice(0, 100).reduce((sum, p) => sum + p.confidence, 0) /
+                    Math.max(1, Math.min(100, filteredData.length))) *
                   100
                 ).toFixed(1)}
                 %
               </div>
-              <p className="text-xs text-muted-foreground mt-1">预测可靠性</p>
+              <p className="text-xs text-muted-foreground mt-1">前100只平均值</p>
             </CardContent>
           </Card>
         </div>
 
         {/* 标签页面 */}
-        <Tabs defaultValue="overview" className="w-full">
+        <Tabs defaultValue="predictions" className="w-full">
           <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">概览</TabsTrigger>
             <TabsTrigger value="predictions">预测排行</TabsTrigger>
-            <TabsTrigger value="analysis">预测分析</TabsTrigger>
+            <TabsTrigger value="analysis">次日预测分析</TabsTrigger>
+            <TabsTrigger value="overview">市场概览</TabsTrigger>
             <TabsTrigger value="details">详细信息</TabsTrigger>
           </TabsList>
+
+          {/* 预测排行标签 */}
+          <TabsContent value="predictions" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>预测排行榜</CardTitle>
+                <CardDescription>按预测涨幅排序的股票列表 (当前筛选: {filteredData.length} 只)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-16">排名</TableHead>
+                        <TableHead className="w-24">代码</TableHead>
+                        <TableHead className="w-32">名称</TableHead>
+                        <TableHead className="text-right">当前价格</TableHead>
+                        <TableHead className="text-right">次日预测</TableHead>
+                        <TableHead className="text-center">预测涨幅</TableHead>
+                        <TableHead className="text-center">置信度</TableHead>
+                        <TableHead className="text-center">市场状态</TableHead>
+                        <TableHead className="text-right">分析日期</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredData.slice(0, 100).map((item, idx) => (
+                        <TableRow key={idx} className="cursor-pointer hover:bg-white/5" onClick={() => setSelectedStock(item)}>
+                          <TableCell className="font-medium">{idx + 1}</TableCell>
+                          <TableCell>{item.code}</TableCell>
+                          <TableCell>{item.name}</TableCell>
+                          <TableCell className="text-right font-mono">¥{item.latest_close.toFixed(2)}</TableCell>
+                          <TableCell className="text-right font-mono text-primary">¥{item.ensemble_forecast.toFixed(2)}</TableCell>
+                          <TableCell className="text-center">
+                            <Badge variant={item.forecast_change_pct > 0 ? "default" : "secondary"} className={item.forecast_change_pct > 0 ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"}>
+                              {item.forecast_change_pct > 0 ? "+" : ""}
+                              {item.forecast_change_pct.toFixed(2)}%
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="text-center">
+                            <Badge variant="outline">{(item.confidence * 100).toFixed(0)}%</Badge>
+                          </TableCell>
+                          <TableCell className={`text-center font-medium ${getMarketStateColor(item.market_state)}`}>
+                            {getMarketStateLabel(item.market_state)}
+                          </TableCell>
+                          <TableCell className="text-right text-muted-foreground text-xs">{item.analysis_date}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  {filteredData.length > 100 && (
+                    <p className="text-center text-sm text-muted-foreground mt-4">仅显示前 100 条结果，请使用搜索或日期过滤缩小范围</p>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* 预测分析标签 */}
+          <TabsContent value="analysis" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>次日预测价格对比</CardTitle>
+                <CardDescription>当前筛选前 20 只股票的价格对比</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={400}>
+                  <BarChart data={forecastComparison}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                    <XAxis dataKey="code" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
+                    <YAxis stroke="rgba(255,255,255,0.5)" />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "rgba(0,0,0,0.8)",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                      }}
+                    />
+                    <Legend />
+                    <Bar dataKey="当前价格" fill="#3b82f6" />
+                    <Bar dataKey="次日预测" fill="#10b981" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>次日预测涨幅分布</CardTitle>
+                <CardDescription>预测变化百分比</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={forecastComparison}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                    <XAxis dataKey="code" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
+                    <YAxis stroke="rgba(255,255,255,0.5)" />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "rgba(0,0,0,0.8)",
+                        border: "1px solid rgba(255,255,255,0.2)",
+                      }}
+                    />
+                    <Bar dataKey="变化幅度" fill="#f59e0b" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
           {/* 概览标签 */}
           <TabsContent value="overview" className="space-y-6">
@@ -156,7 +318,7 @@ export default function ForecastDashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle>市场状态分布</CardTitle>
-                  <CardDescription>当前市场各状态的股票数量</CardDescription>
+                  <CardDescription>当前筛选范围内的市场状态统计</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -178,8 +340,8 @@ export default function ForecastDashboard() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>预测置信度分布</CardTitle>
-                  <CardDescription>前 15 只股票的置信度对比</CardDescription>
+                  <CardTitle>预测置信度对比</CardTitle>
+                  <CardDescription>前 15 只股票的置信度</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
@@ -199,142 +361,17 @@ export default function ForecastDashboard() {
                 </CardContent>
               </Card>
             </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>当前价格 vs 预测价格</CardTitle>
-                <CardDescription>前 20 只股票的价格对比</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={400}>
-                  <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="当前价格" stroke="rgba(255,255,255,0.5)" />
-                    <YAxis dataKey="预测价格" stroke="rgba(255,255,255,0.5)" />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "rgba(0,0,0,0.8)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                      }}
-                    />
-                    <Scatter name="预测" data={forecastComparison} fill="#3b82f6" />
-                  </ScatterChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* 预测排行标签 */}
-          <TabsContent value="predictions" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>预测排行榜</CardTitle>
-                <CardDescription>按预测涨幅排序的前 50 只股票</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="overflow-x-auto">
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>排名</TableCell>
-                        <TableCell>代码</TableCell>
-                        <TableCell>名称</TableCell>
-                        <TableCell>当前价格</TableCell>
-                        <TableCell>预测价格</TableCell>
-                        <TableCell>预测涨幅</TableCell>
-                        <TableCell>置信度</TableCell>
-                        <TableCell>市场状态</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {summaryData.top_predictions.slice(0, 50).map((item, idx) => (
-                        <TableRow key={idx} className="cursor-pointer hover:bg-white/5" onClick={() => setSelectedStock(item)}>
-                          <TableCell className="font-medium">{idx + 1}</TableCell>
-                          <TableCell>{item.code}</TableCell>
-                          <TableCell>{item.name}</TableCell>
-                          <TableCell>¥{item.latest_close.toFixed(2)}</TableCell>
-                          <TableCell>¥{item.ensemble_forecast.toFixed(2)}</TableCell>
-                          <TableCell>
-                            <Badge variant={item.forecast_change_pct > 0 ? "default" : "secondary"}>
-                              {item.forecast_change_pct > 0 ? "+" : ""}
-                              {item.forecast_change_pct.toFixed(2)}%
-                            </Badge>
-                          </TableCell>
-                          <TableCell>
-                            <Badge variant="outline">{(item.confidence * 100).toFixed(0)}%</Badge>
-                          </TableCell>
-                          <TableCell className={getMarketStateColor(item.market_state)}>
-                            {getMarketStateLabel(item.market_state)}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* 预测分析标签 */}
-          <TabsContent value="analysis" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>预测价格对比</CardTitle>
-                <CardDescription>前 20 只股票的当前价格与预测价格对比</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={400}>
-                  <BarChart data={forecastComparison}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="code" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
-                    <YAxis stroke="rgba(255,255,255,0.5)" />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "rgba(0,0,0,0.8)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                      }}
-                    />
-                    <Legend />
-                    <Bar dataKey="当前价格" fill="#3b82f6" />
-                    <Bar dataKey="预测价格" fill="#10b981" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>预测变化幅度分析</CardTitle>
-                <CardDescription>预测涨幅分布情况</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={forecastComparison}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                    <XAxis dataKey="code" stroke="rgba(255,255,255,0.5)" angle={-45} textAnchor="end" height={80} />
-                    <YAxis stroke="rgba(255,255,255,0.5)" />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "rgba(0,0,0,0.8)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                      }}
-                    />
-                    <Bar dataKey="变化幅度" fill="#f59e0b" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card>
           </TabsContent>
 
           {/* 详细信息标签 */}
           <TabsContent value="details" className="space-y-6">
-            {selectedStock && (
+            {selectedStock ? (
               <Card>
                 <CardHeader>
                   <CardTitle>
                     {selectedStock.code} - {selectedStock.name}
                   </CardTitle>
-                  <CardDescription>分析日期: {selectedStock.analysis_date}</CardDescription>
+                  <CardDescription>分析日期: {selectedStock.analysis_date} | 预测目标日期: {selectedStock.forecast_date}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -343,95 +380,59 @@ export default function ForecastDashboard() {
                       <p className="text-2xl font-bold text-blue-500">¥{selectedStock.latest_close.toFixed(2)}</p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
-                      <p className="text-sm text-muted-foreground">卡尔曼平滑价</p>
-                      <p className="text-2xl font-bold text-purple-500">¥{selectedStock.kalman_price.toFixed(2)}</p>
-                    </div>
-
-                    <div className="p-4 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
-                      <p className="text-sm text-muted-foreground">粒子滤波预测</p>
-                      <p className="text-2xl font-bold text-cyan-500">¥{selectedStock.particle_price.toFixed(2)}</p>
-                    </div>
-
                     <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                      <p className="text-sm text-muted-foreground">集成模型预测</p>
+                      <p className="text-sm text-muted-foreground">次日预测价</p>
                       <p className="text-2xl font-bold text-green-500">¥{selectedStock.ensemble_forecast.toFixed(2)}</p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-orange-500/10 border border-orange-500/20">
-                      <p className="text-sm text-muted-foreground">预测涨幅</p>
+                    <div className="p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                      <p className="text-sm text-muted-foreground">预测涨跌幅</p>
                       <p className={`text-2xl font-bold ${selectedStock.forecast_change_pct > 0 ? "text-green-500" : "text-red-500"}`}>
-                        {selectedStock.forecast_change_pct > 0 ? "+" : ""}
-                        {selectedStock.forecast_change_pct.toFixed(2)}%
+                        {selectedStock.forecast_change_pct > 0 ? "+" : ""}{selectedStock.forecast_change_pct.toFixed(2)}%
                       </p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-                      <p className="text-sm text-muted-foreground">预测置信度</p>
-                      <p className="text-2xl font-bold text-indigo-500">{(selectedStock.confidence * 100).toFixed(0)}%</p>
+                    <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-sm text-muted-foreground">卡尔曼平滑价</p>
+                      <p className="text-xl font-semibold">¥{selectedStock.kalman_price.toFixed(2)}</p>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-pink-500/10 border border-pink-500/20 md:col-span-2 lg:col-span-1">
-                      <p className="text-sm text-muted-foreground">市场状态</p>
-                      <p className={`text-2xl font-bold ${getMarketStateColor(selectedStock.market_state)}`}>
+                    <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-sm text-muted-foreground">粒子滤波预测</p>
+                      <p className="text-xl font-semibold">¥{selectedStock.particle_price.toFixed(2)}</p>
+                    </div>
+
+                    <div className="p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-sm text-muted-foreground">市场状态 (HMM)</p>
+                      <p className={`text-xl font-semibold ${getMarketStateColor(selectedStock.market_state)}`}>
                         {getMarketStateLabel(selectedStock.market_state)}
                       </p>
                     </div>
                   </div>
-
-                  <div className="mt-6 p-4 rounded-lg bg-white/5 border border-white/10">
-                    <h3 className="font-semibold mb-3">预测模型说明</h3>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>
-                        <strong>卡尔曼滤波：</strong>
-                        通过递归算法平滑价格曲线，减少市场噪声，提供更清晰的价格趋势
-                      </li>
-                      <li>
-                        <strong>粒子滤波：</strong>
-                        处理非高斯分布的市场数据，通过粒子群模拟价格运动，预测下一时刻价格
-                      </li>
-                      <li>
-                        <strong>隐马尔可夫模型 (HMM)：</strong>
-                        识别市场的隐藏状态（牛市、熊市、震荡），捕捉市场的周期性特征
-                      </li>
-                      <li>
-                        <strong>随机森林集成：</strong>
-                        结合多种技术指标和滤波结果，通过集成学习进行最终价格预测
-                      </li>
-                    </ul>
+                  
+                  <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Target className="size-5 text-primary" />
+                      <h4 className="font-semibold">预测置信度分析</h4>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      该预测基于随机森林集成模型，结合了卡尔曼滤波平滑、粒子滤波趋势以及隐马尔可夫市场状态识别。
+                      当前置信度为 <span className="font-bold text-primary">{(selectedStock.confidence * 100).toFixed(0)}%</span>。
+                    </p>
+                    <div className="w-full bg-white/10 rounded-full h-2">
+                      <div 
+                        className="bg-primary h-2 rounded-full transition-all" 
+                        style={{ width: `${selectedStock.confidence * 100}%` }}
+                      ></div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
+            ) : (
+              <div className="text-center py-12 text-muted-foreground">
+                请在排行列表中选择一只股票查看详细预测分析
+              </div>
             )}
-
-            <Card>
-              <CardHeader>
-                <CardTitle>其他预测结果</CardTitle>
-                <CardDescription>点击选择查看详细信息</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {summaryData.top_predictions.slice(0, 30).map((item, idx) => (
-                    <div
-                      key={idx}
-                      className={`p-3 rounded-lg border cursor-pointer transition-all ${
-                        selectedStock?.code === item.code
-                          ? "bg-blue-500/20 border-blue-500"
-                          : "bg-white/5 border-white/10 hover:bg-white/10"
-                      }`}
-                      onClick={() => setSelectedStock(item)}
-                    >
-                      <p className="font-semibold">{item.code}</p>
-                      <p className="text-sm text-muted-foreground">{item.name}</p>
-                      <p className={`text-sm font-medium ${item.forecast_change_pct > 0 ? "text-green-500" : "text-red-500"}`}>
-                        {item.forecast_change_pct > 0 ? "+" : ""}
-                        {item.forecast_change_pct.toFixed(2)}%
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
           </TabsContent>
         </Tabs>
       </div>
