@@ -470,10 +470,12 @@ def main() -> int:
         top_n=int(args.top_n),
     )
 
+    logger.info("Step 1: Discovering CSV files in %s...", cfg.data_root)
     items = discover_csv_files(cfg.data_root)
     if not items:
         logger.error("No CSV found under %s (expect bj/sz/sh)", cfg.data_root)
         return 2
+    logger.info("Found %d CSV files to process.", len(items))
 
     symbols_dir = cfg.out_dir / "symbols"
     symbols_dir.mkdir(parents=True, exist_ok=True)
@@ -483,7 +485,12 @@ def main() -> int:
 
     market_stats = {m: {"total": 0, "ok": 0, "fail": 0} for m in ("bj", "sz", "sh")}
 
-    for market, code, csv_path in items:
+    logger.info("Step 2: Processing symbols and generating JSON payloads...")
+    total_count = len(items)
+    for i, (market, code, csv_path) in enumerate(items, 1):
+        if i % 100 == 0 or i == total_count:
+            logger.info("Progress: [%d/%d] Processing %s.%s", i, total_count, market, code)
+            
         market_stats[market]["total"] += 1
 
         payload, err = build_symbol_payload(
@@ -519,6 +526,7 @@ def main() -> int:
             "signals_count": len(payload.get("signals", [])),
         })
 
+    logger.info("Step 3: Sorting dashboard rows and finalizing results...")
     dashboard_rows.sort(key=lambda x: (x["final_score"], x["signals_count"]), reverse=True)
 
     dashboard = {
