@@ -550,6 +550,8 @@ def main() -> int:
                 cfg.out_dir / "dashboard.json",
                 symbols_dir,
                 cfg.out_dir / "errors.json")
+    
+    logger.info("a6_models.py 脚本执行完毕")
     return 0
 
 
