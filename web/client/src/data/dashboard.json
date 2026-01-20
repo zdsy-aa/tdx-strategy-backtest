@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-01-19T06:41:10.172228Z",
-  "data_root": "data/day",
-  "out_dir": "web/client/src/data",
+  "generated_at": "2026-01-20T05:47:30.836970Z",
+  "data_root": "D:\\GitHub\\tdx-strategy-backtest\\data\\day",
+  "out_dir": "D:\\GitHub\\tdx-strategy-backtest\\web\\client\\src\\data",
   "csv_columns_cn": [
     "名称",
     "日期",
@@ -20,23 +20,23 @@
     "bj": {
       "total": 292,
       "ok": 289,
-      "fail": 3
+      "fail": 0
     },
     "sz": {
       "total": 3060,
       "ok": 3054,
-      "fail": 6
+      "fail": 0
     },
     "sh": {
-      "total": 2438,
+      "total": 2657,
       "ok": 2430,
-      "fail": 8
+      "fail": 0
     }
   },
   "counts": {
-    "symbols_total": 5790,
+    "symbols_total": 6009,
     "symbols_ok": 5773,
-    "symbols_fail": 17
+    "symbols_fail": 0
   },
   "top": [
     {
@@ -538,6 +538,1506 @@
       "score_A": 0.0,
       "score_B": 70.0,
       "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600070",
+      "name": "*ST富润",
+      "last_date": "2025-04-10T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600077",
+      "name": "*ST宋都",
+      "last_date": "2023-06-13T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600083",
+      "name": "*ST博信",
+      "last_date": "2025-01-16T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600090",
+      "name": "退市济堂",
+      "last_date": "2022-06-30T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600122",
+      "name": "*ST宏图",
+      "last_date": "2023-05-26T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600146",
+      "name": "退市环球",
+      "last_date": "2022-06-23T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600220",
+      "name": "ST阳光",
+      "last_date": "2024-06-13T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600247",
+      "name": "*ST成城",
+      "last_date": "2021-02-24T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600277",
+      "name": "ST亿利",
+      "last_date": "2024-06-21T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600286",
+      "name": "S*ST国瓷",
+      "last_date": "2006-04-28T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600290",
+      "name": "*ST华仪",
+      "last_date": "2023-12-25T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600311",
+      "name": "*ST荣华",
+      "last_date": "2023-03-02T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600393",
+      "name": "ST粤泰",
+      "last_date": "2023-06-08T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600466",
+      "name": "*ST蓝光",
+      "last_date": "2023-05-09T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600555",
+      "name": "退市海创",
+      "last_date": "2022-07-06T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600669",
+      "name": "*ST鞍成",
+      "last_date": "2004-03-18T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600672",
+      "name": "*ST华圣",
+      "last_date": "2005-04-27T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600677",
+      "name": "*ST航通",
+      "last_date": "2020-04-29T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600762",
+      "name": "S*ST金荔",
+      "last_date": "2006-04-28T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600772",
+      "name": "S*ST龙昌",
+      "last_date": "2006-08-31T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600799",
+      "name": "*ST龙科",
+      "last_date": "2005-04-29T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600804",
+      "name": "退市鹏博",
+      "last_date": "2025-06-30T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600811",
+      "name": "*ST东方",
+      "last_date": "2025-04-14T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600823",
+      "name": "*ST世茂",
+      "last_date": "2024-05-15T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600836",
+      "name": "*ST易连",
+      "last_date": "2024-06-17T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600852",
+      "name": "*ST中川",
+      "last_date": "2005-04-22T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600878",
+      "name": "*ST北科",
+      "last_date": "2004-04-16T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600898",
+      "name": "*ST美讯",
+      "last_date": "2025-01-10T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "600978",
+      "name": "*ST宜生",
+      "last_date": "2021-02-22T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "601258",
+      "name": "*ST庞大",
+      "last_date": "2023-05-24T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "603963",
+      "name": "*ST大药",
+      "last_date": "2025-02-07T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "688086",
+      "name": "退市紫晶",
+      "last_date": "2023-06-30T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sh",
+      "code": "688555",
+      "name": "退市泽达",
+      "last_date": "2023-06-30T00:00:00",
+      "final_score": 70.0,
+      "score_A": 0.0,
+      "score_B": 70.0,
+      "signals_count": 2
+    },
+    {
+      "market": "bj",
+      "code": "920575",
+      "name": "康乐卫士",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 66.0,
+      "score_A": 60.0,
+      "score_B": 30.0,
+      "signals_count": 2
+    },
+    {
+      "market": "sz",
+      "code": "300169",
+      "name": "天晟新材",
+      "last_date": "2026-01-08T00:00:00",
+      "final_score": 66.0,
+      "score_A": 60.0,
+      "score_B": 30.0,
+      "signals_count": 2
+    },
+    {
+      "market": "bj",
+      "code": "833874",
+      "name": "泰祥股份",
+      "last_date": "2021-11-05T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920037",
+      "name": "广信科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920087",
+      "name": "秋乐种业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920106",
+      "name": "林泰新材",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920108",
+      "name": "宏海科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920223",
+      "name": "荣亿精密",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920273",
+      "name": "一致魔芋",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920278",
+      "name": "鹿得医疗",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920299",
+      "name": "灿能电力",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920305",
+      "name": "*ST云创",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920351",
+      "name": "华光源海",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920419",
+      "name": "路斯股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920422",
+      "name": "润普食品",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920429",
+      "name": "康比特",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920726",
+      "name": "朱老六",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920748",
+      "name": "路桥信息",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920957",
+      "name": "汉维科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000428",
+      "name": "华天酒店",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000530",
+      "name": "冰山冷热",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000539",
+      "name": "粤电力Ａ",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000558",
+      "name": "天府文旅",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000601",
+      "name": "韶能股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000692",
+      "name": "惠天热电",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000701",
+      "name": "厦门信达",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000705",
+      "name": "浙江震元",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000739",
+      "name": "普洛药业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000759",
+      "name": "中百集团",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000860",
+      "name": "顺鑫农业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "001234",
+      "name": "泰慕士",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "001259",
+      "name": "利仁科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "001296",
+      "name": "长江材料",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "001368",
+      "name": "通达创智",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002066",
+      "name": "瑞泰科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002110",
+      "name": "三钢闽光",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002186",
+      "name": "全 聚 德",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002198",
+      "name": "嘉应制药",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002238",
+      "name": "天威视讯",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002251",
+      "name": "步步高",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002398",
+      "name": "垒知集团",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002443",
+      "name": "金洲管道",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002508",
+      "name": "老板电器",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002521",
+      "name": "齐峰新材",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002581",
+      "name": "ST未名",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002685",
+      "name": "华东重机",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002711",
+      "name": "欧浦退",
+      "last_date": "2021-07-14T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002723",
+      "name": "小崧股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002737",
+      "name": "葵花药业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002769",
+      "name": "普路通",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002791",
+      "name": "坚朗五金",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002862",
+      "name": "实丰文化",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "002893",
+      "name": "京能热力",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300111",
+      "name": "向日葵",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300121",
+      "name": "阳谷华泰",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300128",
+      "name": "锦富技术",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300210",
+      "name": "森远股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300350",
+      "name": "华鹏飞",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300382",
+      "name": "斯莱克",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300427",
+      "name": "红相股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300560",
+      "name": "中富通",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300736",
+      "name": "百邦科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300841",
+      "name": "康华生物",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300849",
+      "name": "锦盛新材",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300889",
+      "name": "爱克股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300932",
+      "name": "三友联众",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300945",
+      "name": "曼卡龙",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "300964",
+      "name": "本川智能",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "301017",
+      "name": "漱玉平民",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "301498",
+      "name": "乖宝宠物",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600065",
+      "name": "*ST联谊",
+      "last_date": "2006-02-21T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600084",
+      "name": "中信尼雅",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600116",
+      "name": "三峡水利",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600119",
+      "name": "长江投资",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600189",
+      "name": "泉阳泉",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600272",
+      "name": "开开实业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600300",
+      "name": "维维股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600333",
+      "name": "长春燃气",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600354",
+      "name": "敦煌种业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600396",
+      "name": "华电辽能",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600408",
+      "name": "安泰集团",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600428",
+      "name": "中远海特",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600432",
+      "name": "退市吉恩",
+      "last_date": "2018-07-11T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600561",
+      "name": "江西长运",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600607",
+      "name": "上实医药",
+      "last_date": "2010-02-03T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600664",
+      "name": "哈药股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600702",
+      "name": "舍得酒业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600734",
+      "name": "实达集团",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600791",
+      "name": "京能置业",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600827",
+      "name": "百联股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600858",
+      "name": "银座股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "600928",
+      "name": "西安银行",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "601579",
+      "name": "会稽山",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603056",
+      "name": "德邦股份",
+      "last_date": "2026-01-09T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603214",
+      "name": "爱婴室",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603313",
+      "name": "梦百合",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603322",
+      "name": "超讯通信",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603330",
+      "name": "天洋新材",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603385",
+      "name": "惠达卫浴",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603708",
+      "name": "家家悦",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603815",
+      "name": "交建股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603883",
+      "name": "老百姓",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "603990",
+      "name": "麦迪科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "605056",
+      "name": "咸亨国际",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "605136",
+      "name": "丽人丽妆",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "605299",
+      "name": "舒华体育",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688036",
+      "name": "传音控股",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688198",
+      "name": "佰仁医疗",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688428",
+      "name": "诺诚健华-U",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688506",
+      "name": "百利天恒",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688646",
+      "name": "ST逸飞",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sh",
+      "code": "688671",
+      "name": "碧兴物联",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 60.0,
+      "score_A": 60.0,
+      "score_B": 0.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920029",
+      "name": "开发科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 40.0,
+      "score_A": 0.0,
+      "score_B": 40.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920392",
+      "name": "佳合科技",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 40.0,
+      "score_A": 0.0,
+      "score_B": 40.0,
+      "signals_count": 1
+    },
+    {
+      "market": "bj",
+      "code": "920717",
+      "name": "瑞星股份",
+      "last_date": "2026-01-13T00:00:00",
+      "final_score": 40.0,
+      "score_A": 0.0,
+      "score_B": 40.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000405",
+      "name": "ST鑫光",
+      "last_date": "2003-04-25T00:00:00",
+      "final_score": 40.0,
+      "score_A": 0.0,
+      "score_B": 40.0,
+      "signals_count": 1
+    },
+    {
+      "market": "sz",
+      "code": "000412",
+      "name": "ST五环",
+      "last_date": "2003-04-25T00:00:00",
+      "final_score": 40.0,
+      "score_A": 0.0,
+      "score_B": 40.0,
+      "signals_count": 1
     }
   ]
 }
