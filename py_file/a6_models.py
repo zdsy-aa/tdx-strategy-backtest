@@ -75,8 +75,23 @@ NUMERIC_EN = [
 
 
 def normalize_path(p: str) -> Path:
-    # 兼容 Windows 反斜杠；Linux/WSL 下自动替换
-    return Path(p.replace("\\", "/"))
+    """
+    标准化路径：
+    1. 兼容 Windows 反斜杠。
+    2. 如果是相对路径，则相对于项目根目录（py_file 的父目录）。
+    """
+    p_str = p.replace("\\", "/")
+    path = Path(p_str)
+    
+    if not path.is_absolute():
+        # 获取当前脚本所在目录的父目录作为项目根目录
+        project_root = Path(__file__).resolve().parent.parent
+        # 如果路径以 / 开头（在 Windows 下可能被误认为绝对路径），去掉它
+        if p_str.startswith("/"):
+            p_str = p_str.lstrip("/")
+        path = project_root / p_str
+        
+    return path
 
 
 def _to_jsonable(x: Any) -> Any:
@@ -431,8 +446,8 @@ class RunConfig:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Offline CSV -> Signals(A+B) -> JSON for web")
-    parser.add_argument("--data-root", type=str, default=r"\data\day", help=r"Root dir containing bj/sz/sh")
-    parser.add_argument("--out-dir", type=str, default=r"\web\client\src\data", help=r"JSON output dir for web")
+    parser.add_argument("--data-root", type=str, default="data/day", help="Root dir containing bj/sz/sh (relative to project root)")
+    parser.add_argument("--out-dir", type=str, default="web/client/src/data", help="JSON output dir for web (relative to project root)")
     parser.add_argument("--recent-bars", type=int, default=300, help="Per symbol read last N rows (0=all)")
     parser.add_argument("--include-series", action="store_true", help="Include series[] for chart display")
     parser.add_argument("--series-bars", type=int, default=240, help="Series last N bars (0=all)")
