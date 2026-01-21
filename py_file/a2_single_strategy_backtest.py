@@ -113,12 +113,19 @@ def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
 def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Dict:
     """固定持有回测口径（推荐统一使用本函数）。
 
-    交易口径（与你确认一致）：
-      - 口径A：信号在 t 日收盘后确认；成交在 t+1 日开盘（next open）
-      - 单票单仓：持仓期间忽略后续信号
-      - 计入成本：佣金万0.8（买卖双边）+ 印花税0.05%（仅卖出）
+    交易口径（统一标准）：
+      - 信号确认：t日收盘后确认
+      - 成交时间：t+1日开盘（entry_lag=1）
+      - 持有周期：hold_period个交易日
+      - 卖出时间：t+1+hold_period日开盘
+      - 成本计算：
+        * 买入成本 = 成交价 × (1 + 佣金率)
+        * 卖出收入 = 成交价 × (1 - 佣金率 - 印花税率)
+        * 收益率 = (卖出收入 - 买入成本) / 买入成本
 
-    返回字段为“交易级统计原子量”+ 常用派生指标，便于后续加权汇总。
+    返回字段为"交易级统计原子量"+ 常用派生指标，便于后续加权汇总。
+    
+    重要：signal_count使用实际交易数，避免信号密集时被稀释。
     """
     if df is None or df.empty or signal_col not in df.columns:
         return {
@@ -134,7 +141,6 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
             'min_return': np.nan,
         }
 
-    signal_count = int((df[signal_col] == True).sum())
     trades = backtest_trades_fixed_hold(
         df=df,
         signal_col=signal_col,
@@ -145,7 +151,8 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
         commission_rate=COMMISSION_RATE,
         stamp_tax_rate=STAMP_TAX_RATE,
     )
-    return summarize_trades(trades, signal_count=signal_count)
+    # 使用实际交易数作为signal_count，避免信号密集时被稀释
+    return summarize_trades(trades, signal_count=len(trades))
 
 # ==============================================================================
 # 六脉神剑策略回测

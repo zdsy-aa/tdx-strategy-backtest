@@ -106,7 +106,8 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
         commission_rate=COMMISSION_RATE,
         stamp_tax_rate=STAMP_TAX_RATE,
     )
-    stats = summarize_trades(trades, signal_count=int(df[signal_col].sum()))
+    # 使用实际交易数作为signal_count，避免信号密集时被稀释
+    stats = summarize_trades(trades, signal_count=len(trades))
     return stats
 
 def backtest_steady_single(filepath: str) -> Optional[pd.DataFrame]:

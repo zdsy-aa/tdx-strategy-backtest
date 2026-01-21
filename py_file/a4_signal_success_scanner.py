@@ -95,6 +95,10 @@ SUCCESS_THRESHOLD = 5.0
 # 说明：4红以上被认为是较强的多头信号
 MIN_RED_COUNT = 4
 
+# 佣金和印花税参数（与回测系统统一）
+COMMISSION_RATE = 0.00008  # 佣金费率（万0.8，双边）
+STAMP_TAX_RATE = 0.0005    # 印花税率（0.05%，仅卖出）
+
 # ==============================================================================
 # 导入技术指标计算模块
 # ==============================================================================
@@ -136,7 +140,21 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
         df = calculate_chan_theory(df)
 
         # 计算未来HOLDING_DAYS日的涨幅百分比
-        df['future_return'] = (df['close'].shift(-HOLDING_DAYS) - df['close']) / df['close'] * 100
+        # 统一口径：t+1日开盘买入，t+1+HOLDING_DAYS日开盘卖出
+        # 计算方式：
+        # 1. 买入成本 = open[i+1] * (1 + 佣金率)
+        # 2. 卖出收入 = open[i+1+HOLDING_DAYS] * (1 - 佣金率 - 印花税率)
+        # 3. 收益率 = (卖出收入 - 买入成本) / 买入成本 * 100
+        
+        future_open = df['open'].shift(-HOLDING_DAYS)
+        entry_open = df['open'].shift(-1)  # t+1
+        
+        # 计算成本
+        buy_cost = entry_open * (1 + COMMISSION_RATE)
+        sell_revenue = future_open * (1 - COMMISSION_RATE - STAMP_TAX_RATE)
+        
+        # 网收益率（含成本）
+        df['future_return'] = (sell_revenue - buy_cost) / buy_cost * 100
 
         records = []
         for i in range(len(df) - HOLDING_DAYS):

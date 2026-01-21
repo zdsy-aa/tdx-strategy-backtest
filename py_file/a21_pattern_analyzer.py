@@ -73,7 +73,12 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'day')
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'report')
 WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
+# 重要：改为使用所有信号（包括失败的），而不是仅成功案例
+# 这样可以避免幸存者偏差，找到真正的成功因素
+ALL_SIGNALS_FILE = os.path.join(REPORT_DIR, 'all_signal_records.csv')
 SUCCESS_CASES_FILE = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
+# 优先使用所有信号，如果不存在则使用成功案例
+SIGNAL_INPUT_FILE = ALL_SIGNALS_FILE if os.path.exists(ALL_SIGNALS_FILE) else SUCCESS_CASES_FILE
 
 # ==============================================================================
 # 指标序列预计算（不改变公式逻辑，只改变“何时计算/复用”）
@@ -378,9 +383,10 @@ def analyze_stock_cases(item: Tuple[str, List[pd.Timestamp]]) -> List[Tuple[int,
 def main():
     # 读取成功案例列表
     try:
-        df = pd.read_csv(SUCCESS_CASES_FILE, encoding='utf-8-sig', parse_dates=['date'])
+        df = pd.read_csv(SIGNAL_INPUT_FILE, encoding='utf-8-sig', parse_dates=['date'])
+        log(f"已加载信号文件: {SIGNAL_INPUT_FILE}")
     except Exception as e:
-        log(f"无法读取成功案例文件: {e}", level="ERROR")
+        log(f"无法读取信号文件: {e}", level="ERROR")
         return
     if df.empty:
         log("没有成功案例数据可供分析。")
