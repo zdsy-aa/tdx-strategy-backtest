@@ -137,9 +137,9 @@ export default function ModelDashboard() {
     if (!dashboardData?.top || dashboardData.top.length === 0) return [];
     const total = dashboardData.top.length;
     return [
-      { name: "策略A", value: Math.round((stocksWithSignals.strategyA / total) * 100) },
-      { name: "策略B", value: Math.round((stocksWithSignals.strategyB / total) * 100) },
-      { name: "策略C", value: Math.round((stocksWithSignals.strategyC / total) * 100) }
+      { name: "MA交叉", value: Math.round((stocksWithSignals.strategyA / total) * 100) },
+      { name: "RSI超卖", value: Math.round((stocksWithSignals.strategyB / total) * 100) },
+      { name: "高级指标", value: Math.round((stocksWithSignals.strategyC / total) * 100) }
     ];
   }, [dashboardData, stocksWithSignals]);
 
@@ -199,9 +199,9 @@ export default function ModelDashboard() {
                   <div className="space-y-2">
                     <p className="text-xs font-semibold text-gray-600">信号类型：</p>
                     {info.signals.map((sig, idx) => (
-                      <div key={idx} className="text-xs bg-gray-50 p-2 rounded">
-                        <span className="font-semibold">{sig.name}</span>
-                        {sig.priority && <Badge variant="outline" className="ml-2 text-xs">{sig.priority}</Badge>}
+                      <div key={idx} className="text-xs border-l-2 pl-2 py-1" style={{ borderLeftColor: info.color, backgroundColor: 'transparent' }}>
+                        <span className="font-semibold" style={{ color: info.color }}>{sig.name}</span>
+                        {sig.priority && <Badge variant="outline" className="ml-2 text-xs" style={{ color: info.color, borderColor: info.color }}>{sig.priority}</Badge>}
                         <p className="text-gray-600 mt-1">{sig.desc}</p>
                       </div>
                     ))}
@@ -226,31 +226,31 @@ export default function ModelDashboard() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-blue-600">策略A信号</CardTitle>
+              <CardTitle className="text-sm font-medium text-blue-600">MA交叉信号</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-blue-600">{stocksWithSignals.strategyA}</div>
-              <p className="text-xs text-gray-500 mt-1">MA交叉</p>
+              <p className="text-xs text-gray-500 mt-1">趋势跟踪</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-red-600">策略B信号</CardTitle>
+              <CardTitle className="text-sm font-medium text-red-600">RSI超卖信号</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-red-600">{stocksWithSignals.strategyB}</div>
-              <p className="text-xs text-gray-500 mt-1">RSI超卖</p>
+              <p className="text-xs text-gray-500 mt-1">反弹機会</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-purple-600">策略C信号</CardTitle>
+              <CardTitle className="text-sm font-medium text-purple-600">高级指标信号</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-purple-600">{stocksWithSignals.strategyC}</div>
-              <p className="text-xs text-gray-500 mt-1">高级指标</p>
+              <p className="text-xs text-gray-500 mt-1">综合共振</p>
             </CardContent>
           </Card>
 
@@ -281,41 +281,43 @@ export default function ModelDashboard() {
             <CardTitle>信号列表</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-              <div className="relative">
-                <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
-                <Input
-                  placeholder="搜索代码或名称..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <Select value={marketFilter} onValueChange={setMarketFilter}>
-                <SelectTrigger>
-                  <SelectValue placeholder="选择市场" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">全部市场</SelectItem>
-                  <SelectItem value="sh">上海</SelectItem>
-                  <SelectItem value="sz">深圳</SelectItem>
-                  <SelectItem value="bj">北京</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select value={scoreFilter} onValueChange={setScoreFilter}>
-                <SelectTrigger>
-                  <SelectValue placeholder="选择信号强度" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">全部</SelectItem>
-                  <SelectItem value="high">强信号 (150+)</SelectItem>
-                  <SelectItem value="medium">中等 (50-149)</SelectItem>
-                  <SelectItem value="low">弱信号 (1-49)</SelectItem>
-                  <SelectItem value="none">无信号</SelectItem>
-                </SelectContent>
-              </Select>
-              <div className="text-sm text-gray-600 flex items-center">
-                共 {filteredData.length} 只股票
+            <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="relative">
+                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+                  <Input
+                    placeholder="搜索代码或名称..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+                <Select value={marketFilter} onValueChange={setMarketFilter}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="选择市场" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">全部市场</SelectItem>
+                    <SelectItem value="sh">上海</SelectItem>
+                    <SelectItem value="sz">深圳</SelectItem>
+                    <SelectItem value="bj">北京</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Select value={scoreFilter} onValueChange={setScoreFilter}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="选择信号强度" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">全部</SelectItem>
+                    <SelectItem value="high">强信号 (150+)</SelectItem>
+                    <SelectItem value="medium">中等 (50-149)</SelectItem>
+                    <SelectItem value="low">弱信号 (1-49)</SelectItem>
+                    <SelectItem value="none">无信号</SelectItem>
+                  </SelectContent>
+                </Select>
+                <div className="text-sm text-gray-600 flex items-center px-3 py-2 bg-gray-50 rounded border">
+                  共 {filteredData.length} 只股票
+                </div>
               </div>
             </div>
 
@@ -355,13 +357,13 @@ export default function ModelDashboard() {
                         </span>
                       </TableCell>
                       <TableCell className="text-center">
-                        {stock.score_A > 0 ? <Badge variant="outline" className="bg-blue-50">{stock.score_A.toFixed(0)}</Badge> : "-"}
+                        {stock.score_A > 0 ? <Badge variant="outline" className="bg-blue-50 text-blue-700">MA{stock.score_A.toFixed(0)}</Badge> : "-"}
                       </TableCell>
                       <TableCell className="text-center">
-                        {stock.score_B > 0 ? <Badge variant="outline" className="bg-red-50">{stock.score_B.toFixed(0)}</Badge> : "-"}
+                        {stock.score_B > 0 ? <Badge variant="outline" className="bg-red-50 text-red-700">RSI{stock.score_B.toFixed(0)}</Badge> : "-"}
                       </TableCell>
                       <TableCell className="text-center">
-                        {(stock.score_C ?? 0) > 0 ? <Badge variant="outline" className="bg-purple-50">{(stock.score_C ?? 0).toFixed(0)}</Badge> : "-"}
+                        {(stock.score_C ?? 0) > 0 ? <Badge variant="outline" className="bg-purple-50 text-purple-700">C{(stock.score_C ?? 0).toFixed(0)}</Badge> : "-"}
                       </TableCell>
                       <TableCell>
                         {stock.final_score >= 100 && <Badge className="bg-green-600">极强</Badge>}
