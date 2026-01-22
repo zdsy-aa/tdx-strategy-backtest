@@ -293,7 +293,7 @@ export default function ModelDashboard() {
                   />
                 </div>
                 <Select value={marketFilter} onValueChange={setMarketFilter}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full bg-white text-gray-900 border border-gray-300">
                     <SelectValue placeholder="选择市场" />
                   </SelectTrigger>
                   <SelectContent>
@@ -304,7 +304,7 @@ export default function ModelDashboard() {
                   </SelectContent>
                 </Select>
                 <Select value={scoreFilter} onValueChange={setScoreFilter}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full bg-white text-gray-900 border border-gray-300">
                     <SelectValue placeholder="选择信号强度" />
                   </SelectTrigger>
                   <SelectContent>
@@ -330,9 +330,9 @@ export default function ModelDashboard() {
                     <TableHead className="w-24">代码</TableHead>
                     <TableHead className="w-32">名称</TableHead>
                     <TableHead className="w-24">综合评分</TableHead>
-                    <TableHead className="w-20">策略A</TableHead>
-                    <TableHead className="w-20">策略B</TableHead>
-                    <TableHead className="w-20">策略C</TableHead>
+                    <TableHead className="w-20">MA交叉</TableHead>
+                    <TableHead className="w-20">RSI超卖</TableHead>
+                    <TableHead className="w-20">高级指标</TableHead>
                     <TableHead className="w-32">信号强度</TableHead>
                     <TableHead className="w-24">数据日期</TableHead>
                   </TableRow>
@@ -456,15 +456,15 @@ export default function ModelDashboard() {
               </div>
               <div className="grid grid-cols-3 gap-4 pt-4 border-t">
                 <div className="text-center">
-                  <p className="text-sm text-gray-600">策略A评分</p>
+                  <p className="text-sm text-gray-600">MA交叉评分</p>
                   <p className="text-2xl font-bold text-blue-600">{selectedStock.score_A.toFixed(0)}</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-sm text-gray-600">策略B评分</p>
+                  <p className="text-sm text-gray-600">RSI超卖评分</p>
                   <p className="text-2xl font-bold text-red-600">{selectedStock.score_B.toFixed(0)}</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-sm text-gray-600">策略C评分</p>
+                  <p className="text-sm text-gray-600">高级指标评分</p>
                   <p className="text-2xl font-bold text-purple-600">{(selectedStock.score_C ?? 0).toFixed(0)}</p>
                 </div>
               </div>
