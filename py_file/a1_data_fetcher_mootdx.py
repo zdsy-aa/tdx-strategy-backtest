@@ -6,7 +6,7 @@
 
 功能说明:
     本模块使用优化后的 mootdx 库从通达信行情服务器获取 A 股日线数据。
-    支持自动加载项目 external 目录下的 mootdx 和 tdxpy 源码。
+    支持自动加载项目 external 目录下的所有依赖源码（mootdx, tdxpy, httpx 等）。
 
 ================================================================================
 """
@@ -29,19 +29,19 @@ def load_local_modules():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(current_dir)
     
-    # 1. 加载 external/mootdx
-    local_mootdx_path = os.path.join(base_dir, "external", "mootdx")
-    if os.path.exists(local_mootdx_path):
-        if local_mootdx_path not in sys.path:
-            sys.path.insert(0, local_mootdx_path)
+    # 1. 加载 external 目录下的所有源码包
+    local_ext_path = os.path.join(base_dir, "external")
+    if os.path.exists(local_ext_path):
+        # 将 external 目录加入 sys.path，这样可以直接导入其中的子文件夹作为包
+        if local_ext_path not in sys.path:
+            sys.path.insert(0, local_ext_path)
             
-    # 2. 加载 external/tdxpy (支持离线环境)
-    local_tdxpy_path = os.path.join(base_dir, "external")
-    if os.path.exists(os.path.join(local_tdxpy_path, "tdxpy")):
-        if local_tdxpy_path not in sys.path:
-            sys.path.insert(0, local_tdxpy_path)
-            
-    # 3. 加载 py_file (为了 a99_logger 等)
+        # 针对 mootdx 的特殊路径处理（如果它在 external/mootdx/mootdx 结构下）
+        mootdx_nested = os.path.join(local_ext_path, "mootdx")
+        if os.path.exists(mootdx_nested) and mootdx_nested not in sys.path:
+            sys.path.insert(0, mootdx_nested)
+
+    # 2. 加载 py_file (为了 a99_logger 等)
     if current_dir not in sys.path:
         sys.path.append(current_dir)
 
@@ -55,7 +55,7 @@ try:
     mootdx_logger.setLevel(logging.INFO)
 except ImportError as e:
     print(f"[ERROR] 导入失败: {e}")
-    print("[INFO] 请确保项目 external 目录下存在 mootdx 和 tdxpy 源码")
+    print("[INFO] 请确保项目 external 目录下存在必要的依赖源码 (mootdx, tdxpy, httpx 等)")
     sys.exit(1)
 
 def log(msg, level="INFO"):
