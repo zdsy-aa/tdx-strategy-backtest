@@ -1,4 +1,4 @@
-﻿# 通达信指标回测系统 - Python 依赖
+# 通达信指标回测系统 - Python 依赖
 # 安装命令: pip install -r requirements.txt
 
 # 数据处理

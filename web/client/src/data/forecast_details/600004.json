@@ -3,10 +3,11 @@
   "name": "白云机场",
   "latest_close": 9.48,
   "kalman_price": 9.43516524116631,
-  "particle_price": 9.487007318538332,
+  "particle_price": 9.45994094679412,
   "market_state": 0,
-  "ensemble_forecast": 9.469599999999998,
+  "ensemble_forecast": 9.469699999999996,
   "forecast_change_pct": -0.11,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

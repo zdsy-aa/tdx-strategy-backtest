@@ -3,10 +3,11 @@
   "name": "ST东北高",
   "latest_close": 3.86,
   "kalman_price": 3.7949444089584756,
-  "particle_price": 3.840381660951203,
+  "particle_price": 3.8367985757031438,
   "market_state": 0,
-  "ensemble_forecast": 3.767699999999997,
-  "forecast_change_pct": -2.39,
+  "ensemble_forecast": 3.760999999999998,
+  "forecast_change_pct": -2.56,
   "confidence": 0.85,
-  "analysis_date": "2009-03-13"
+  "analysis_date": "2009-03-13",
+  "forecast_date": "2009-03-16"
 }
