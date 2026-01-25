@@ -1,0 +1,13 @@
+{
+  "code": "300680",
+  "name": "隆盛科技",
+  "latest_close": 52.66,
+  "kalman_price": 53.538883896947816,
+  "particle_price": 52.92862164649675,
+  "market_state": 1,
+  "ensemble_forecast": 52.844599999999986,
+  "forecast_change_pct": 0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

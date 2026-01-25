@@ -3,10 +3,11 @@
   "name": "XD上港集",
   "latest_close": 5.42,
   "kalman_price": 5.407328486105008,
-  "particle_price": 5.421375853429317,
-  "market_state": 0,
-  "ensemble_forecast": 5.3995999999999995,
-  "forecast_change_pct": -0.38,
+  "particle_price": 5.4163772630637395,
+  "market_state": 1,
+  "ensemble_forecast": 5.408200000000003,
+  "forecast_change_pct": -0.22,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

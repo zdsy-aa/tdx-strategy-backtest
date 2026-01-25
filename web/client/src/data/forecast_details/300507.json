@@ -1,0 +1,13 @@
+{
+  "code": "300507",
+  "name": "苏奥传感",
+  "latest_close": 9.77,
+  "kalman_price": 9.736720054118024,
+  "particle_price": 9.764056045272724,
+  "market_state": 1,
+  "ensemble_forecast": 9.474500000000004,
+  "forecast_change_pct": -3.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

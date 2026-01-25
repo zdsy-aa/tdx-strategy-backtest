@@ -1,0 +1,13 @@
+{
+  "code": "002409",
+  "name": "雅克科技",
+  "latest_close": 88.51,
+  "kalman_price": 88.51416161417593,
+  "particle_price": 73.14445455070022,
+  "market_state": 0,
+  "ensemble_forecast": 87.66580000000003,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

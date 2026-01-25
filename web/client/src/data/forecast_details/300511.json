@@ -1,0 +1,13 @@
+{
+  "code": "300511",
+  "name": "雪榕生物",
+  "latest_close": 6.34,
+  "kalman_price": 6.274127340576086,
+  "particle_price": 6.326674303506167,
+  "market_state": 1,
+  "ensemble_forecast": 6.396900000000003,
+  "forecast_change_pct": 0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

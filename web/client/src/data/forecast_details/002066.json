@@ -1,0 +1,13 @@
+{
+  "code": "002066",
+  "name": "瑞泰科技",
+  "latest_close": 19.59,
+  "kalman_price": 18.98849931931438,
+  "particle_price": 19.044077970771944,
+  "market_state": 1,
+  "ensemble_forecast": 19.020900000000005,
+  "forecast_change_pct": -2.91,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

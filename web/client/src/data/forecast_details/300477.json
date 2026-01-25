@@ -1,0 +1,13 @@
+{
+  "code": "300477",
+  "name": "ST合纵",
+  "latest_close": 2.6,
+  "kalman_price": 2.608890986076328,
+  "particle_price": 2.6128906425284777,
+  "market_state": 1,
+  "ensemble_forecast": 2.550100000000001,
+  "forecast_change_pct": -1.92,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

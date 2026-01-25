@@ -1,0 +1,13 @@
+{
+  "code": "603272",
+  "name": "联翔股份",
+  "latest_close": 21.03,
+  "kalman_price": 20.916547427340152,
+  "particle_price": 20.954411602649504,
+  "market_state": 2,
+  "ensemble_forecast": 21.157200000000003,
+  "forecast_change_pct": 0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301256",
+  "name": "华融化学",
+  "latest_close": 17.33,
+  "kalman_price": 17.237577374024436,
+  "particle_price": 17.238497919818737,
+  "market_state": 0,
+  "ensemble_forecast": 16.696700000000007,
+  "forecast_change_pct": -3.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

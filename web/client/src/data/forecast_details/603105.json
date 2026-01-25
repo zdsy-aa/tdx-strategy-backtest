@@ -1,0 +1,13 @@
+{
+  "code": "603105",
+  "name": "芯能科技",
+  "latest_close": 9.7,
+  "kalman_price": 9.592443317828817,
+  "particle_price": 9.685970271102569,
+  "market_state": 0,
+  "ensemble_forecast": 9.608500000000003,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

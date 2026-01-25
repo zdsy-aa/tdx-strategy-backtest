@@ -1,0 +1,13 @@
+{
+  "code": "920489",
+  "name": "佳先股份",
+  "latest_close": 19.51,
+  "kalman_price": 19.221801206433028,
+  "particle_price": 19.440658707284115,
+  "market_state": 1,
+  "ensemble_forecast": 19.34360000000001,
+  "forecast_change_pct": -0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301207",
+  "name": "华兰疫苗",
+  "latest_close": 19.8,
+  "kalman_price": 19.602579174807257,
+  "particle_price": 19.78297867927259,
+  "market_state": 2,
+  "ensemble_forecast": 19.635199999999994,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

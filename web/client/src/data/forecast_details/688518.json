@@ -1,0 +1,13 @@
+{
+  "code": "688518",
+  "name": "联赢激光",
+  "latest_close": 27.5,
+  "kalman_price": 27.754545225455594,
+  "particle_price": 27.43592701477333,
+  "market_state": 2,
+  "ensemble_forecast": 27.30160000000001,
+  "forecast_change_pct": -0.72,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

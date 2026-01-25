@@ -1,0 +1,13 @@
+{
+  "code": "603866",
+  "name": "桃李面包",
+  "latest_close": 5.34,
+  "kalman_price": 5.331611175523402,
+  "particle_price": 5.331738143349799,
+  "market_state": 1,
+  "ensemble_forecast": 5.316199999999997,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

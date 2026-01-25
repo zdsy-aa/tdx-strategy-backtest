@@ -1,0 +1,13 @@
+{
+  "code": "600121",
+  "name": "郑州煤电",
+  "latest_close": 4.44,
+  "kalman_price": 4.481035484516327,
+  "particle_price": 4.44727798512554,
+  "market_state": 1,
+  "ensemble_forecast": 4.406499999999999,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

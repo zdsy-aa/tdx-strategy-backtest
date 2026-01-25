@@ -1,0 +1,13 @@
+{
+  "code": "600229",
+  "name": "城市传媒",
+  "latest_close": 6.88,
+  "kalman_price": 6.702197609338553,
+  "particle_price": 6.87096323146034,
+  "market_state": 0,
+  "ensemble_forecast": 6.892799999999997,
+  "forecast_change_pct": 0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600495",
+  "name": "晋西车轴",
+  "latest_close": 4.94,
+  "kalman_price": 4.93795095377466,
+  "particle_price": 4.933973898744815,
+  "market_state": 1,
+  "ensemble_forecast": 4.899399999999998,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

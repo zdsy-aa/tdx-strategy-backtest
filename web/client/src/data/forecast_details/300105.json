@@ -1,0 +1,13 @@
+{
+  "code": "300105",
+  "name": "龙源技术",
+  "latest_close": 7.3,
+  "kalman_price": 7.277289392980027,
+  "particle_price": 7.3053136820309215,
+  "market_state": 0,
+  "ensemble_forecast": 7.330900000000003,
+  "forecast_change_pct": 0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

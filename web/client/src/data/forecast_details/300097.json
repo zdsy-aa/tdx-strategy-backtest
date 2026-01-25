@@ -1,0 +1,13 @@
+{
+  "code": "300097",
+  "name": "ST智云",
+  "latest_close": 7.07,
+  "kalman_price": 7.069493386843075,
+  "particle_price": 7.065424648788415,
+  "market_state": 1,
+  "ensemble_forecast": 7.140499999999999,
+  "forecast_change_pct": 1.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

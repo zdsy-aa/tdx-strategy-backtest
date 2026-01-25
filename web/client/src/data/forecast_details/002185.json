@@ -1,0 +1,13 @@
+{
+  "code": "002185",
+  "name": "华天科技",
+  "latest_close": 11.76,
+  "kalman_price": 11.723129311468806,
+  "particle_price": 11.743100218488955,
+  "market_state": 1,
+  "ensemble_forecast": 11.696199999999997,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

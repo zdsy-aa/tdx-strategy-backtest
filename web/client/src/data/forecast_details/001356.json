@@ -1,0 +1,13 @@
+{
+  "code": "001356",
+  "name": "富岭股份",
+  "latest_close": 13.34,
+  "kalman_price": 13.2577585251412,
+  "particle_price": 13.327399558495058,
+  "market_state": 2,
+  "ensemble_forecast": 13.364199999999993,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

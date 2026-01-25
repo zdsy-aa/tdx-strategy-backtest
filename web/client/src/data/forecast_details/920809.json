@@ -1,0 +1,13 @@
+{
+  "code": "920809",
+  "name": "安达科技",
+  "latest_close": 7.31,
+  "kalman_price": 7.176043200432042,
+  "particle_price": 7.309178154390196,
+  "market_state": 0,
+  "ensemble_forecast": 7.3679,
+  "forecast_change_pct": 0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

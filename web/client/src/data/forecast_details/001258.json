@@ -1,0 +1,13 @@
+{
+  "code": "001258",
+  "name": "立新能源",
+  "latest_close": 7.32,
+  "kalman_price": 7.3047606831677285,
+  "particle_price": 7.312992773277806,
+  "market_state": 0,
+  "ensemble_forecast": 7.255900000000001,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

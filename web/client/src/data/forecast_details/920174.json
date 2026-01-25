@@ -1,0 +1,13 @@
+{
+  "code": "920174",
+  "name": "五新隧装",
+  "latest_close": 48.81,
+  "kalman_price": 48.72875507457789,
+  "particle_price": 48.75152805900082,
+  "market_state": 0,
+  "ensemble_forecast": 49.04469999999999,
+  "forecast_change_pct": 0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

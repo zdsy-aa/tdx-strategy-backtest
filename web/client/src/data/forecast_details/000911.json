@@ -1,0 +1,13 @@
+{
+  "code": "000911",
+  "name": "广农糖业",
+  "latest_close": 7.51,
+  "kalman_price": 7.448597987617835,
+  "particle_price": 7.509294482559373,
+  "market_state": 0,
+  "ensemble_forecast": 7.4685000000000015,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

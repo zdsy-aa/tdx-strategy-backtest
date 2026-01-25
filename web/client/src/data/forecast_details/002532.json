@@ -1,0 +1,13 @@
+{
+  "code": "002532",
+  "name": "天山铝业",
+  "latest_close": 17.65,
+  "kalman_price": 17.894358391781907,
+  "particle_price": 17.617646491825532,
+  "market_state": 0,
+  "ensemble_forecast": 17.487200000000016,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

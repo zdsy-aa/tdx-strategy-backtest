@@ -1,0 +1,13 @@
+{
+  "code": "002758",
+  "name": "浙农股份",
+  "latest_close": 10.1,
+  "kalman_price": 10.041305964577672,
+  "particle_price": 10.112857298189782,
+  "market_state": 0,
+  "ensemble_forecast": 10.0838,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

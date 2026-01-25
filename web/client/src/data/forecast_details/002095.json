@@ -1,0 +1,13 @@
+{
+  "code": "002095",
+  "name": "生 意 宝",
+  "latest_close": 19.38,
+  "kalman_price": 18.983164765186523,
+  "particle_price": 19.30035763874348,
+  "market_state": 0,
+  "ensemble_forecast": 19.61229999999999,
+  "forecast_change_pct": 1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

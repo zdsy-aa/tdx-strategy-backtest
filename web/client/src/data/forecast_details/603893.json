@@ -1,0 +1,13 @@
+{
+  "code": "603893",
+  "name": "瑞芯微",
+  "latest_close": 188.76,
+  "kalman_price": 188.38618047537574,
+  "particle_price": 103.14796744329277,
+  "market_state": 0,
+  "ensemble_forecast": 185.5905000000001,
+  "forecast_change_pct": -1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

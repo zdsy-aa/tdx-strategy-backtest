@@ -1,0 +1,13 @@
+{
+  "code": "600132",
+  "name": "重庆啤酒",
+  "latest_close": 52.4,
+  "kalman_price": 52.23465894273312,
+  "particle_price": 52.39105542652194,
+  "market_state": 0,
+  "ensemble_forecast": 52.138299999999965,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

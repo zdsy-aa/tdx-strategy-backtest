@@ -1,0 +1,13 @@
+{
+  "code": "000511",
+  "name": "烯碳退",
+  "latest_close": 0.6,
+  "kalman_price": 0.6500507497978817,
+  "particle_price": 0.6030690992580579,
+  "market_state": 1,
+  "ensemble_forecast": 0.5464999999999999,
+  "forecast_change_pct": -8.92,
+  "confidence": 0.75,
+  "analysis_date": "2018-07-17",
+  "forecast_date": "2018-07-18"
+}

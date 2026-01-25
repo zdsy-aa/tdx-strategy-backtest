@@ -1,0 +1,13 @@
+{
+  "code": "000663",
+  "name": "永安林业",
+  "latest_close": 7.65,
+  "kalman_price": 7.507409973916235,
+  "particle_price": 7.624673423888627,
+  "market_state": 0,
+  "ensemble_forecast": 7.568499999999998,
+  "forecast_change_pct": -1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

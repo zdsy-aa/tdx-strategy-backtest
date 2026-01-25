@@ -1,0 +1,13 @@
+{
+  "code": "300295",
+  "name": "三六五网",
+  "latest_close": 13.7,
+  "kalman_price": 13.429462596389511,
+  "particle_price": 13.617053481192112,
+  "market_state": 1,
+  "ensemble_forecast": 13.80409999999999,
+  "forecast_change_pct": 0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

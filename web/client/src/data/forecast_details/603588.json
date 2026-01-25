@@ -1,0 +1,13 @@
+{
+  "code": "603588",
+  "name": "高能环境",
+  "latest_close": 8.88,
+  "kalman_price": 9.028412647220984,
+  "particle_price": 8.870371893021685,
+  "market_state": 0,
+  "ensemble_forecast": 8.809899999999999,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

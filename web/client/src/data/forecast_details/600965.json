@@ -1,0 +1,13 @@
+{
+  "code": "600965",
+  "name": "福成股份",
+  "latest_close": 6.38,
+  "kalman_price": 6.013632061986332,
+  "particle_price": 6.345467077390674,
+  "market_state": 2,
+  "ensemble_forecast": 6.274200000000003,
+  "forecast_change_pct": -1.66,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

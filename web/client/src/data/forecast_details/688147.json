@@ -1,0 +1,13 @@
+{
+  "code": "688147",
+  "name": "微导纳米",
+  "latest_close": 69.85,
+  "kalman_price": 70.98916288885461,
+  "particle_price": 64.39293037604726,
+  "market_state": 0,
+  "ensemble_forecast": 69.34000000000005,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

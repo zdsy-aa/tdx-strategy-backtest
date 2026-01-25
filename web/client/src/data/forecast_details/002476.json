@@ -1,0 +1,13 @@
+{
+  "code": "002476",
+  "name": "宝莫股份",
+  "latest_close": 7.09,
+  "kalman_price": 7.183537209973437,
+  "particle_price": 7.090699370061876,
+  "market_state": 0,
+  "ensemble_forecast": 6.966800000000004,
+  "forecast_change_pct": -1.74,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

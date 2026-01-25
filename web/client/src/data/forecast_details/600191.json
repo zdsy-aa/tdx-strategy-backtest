@@ -1,0 +1,13 @@
+{
+  "code": "600191",
+  "name": "华资实业",
+  "latest_close": 12.05,
+  "kalman_price": 12.092518686384848,
+  "particle_price": 12.053263406534734,
+  "market_state": 0,
+  "ensemble_forecast": 12.065800000000008,
+  "forecast_change_pct": 0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

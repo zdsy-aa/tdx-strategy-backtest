@@ -1,0 +1,13 @@
+{
+  "code": "600595",
+  "name": "中孚实业",
+  "latest_close": 8.51,
+  "kalman_price": 8.517772297465395,
+  "particle_price": 8.48631888341821,
+  "market_state": 2,
+  "ensemble_forecast": 8.535799999999993,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

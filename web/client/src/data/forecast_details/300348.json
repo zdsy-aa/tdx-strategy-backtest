@@ -1,0 +1,13 @@
+{
+  "code": "300348",
+  "name": "长亮科技",
+  "latest_close": 15.55,
+  "kalman_price": 15.250386746013909,
+  "particle_price": 15.46921863635222,
+  "market_state": 0,
+  "ensemble_forecast": 15.4717,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

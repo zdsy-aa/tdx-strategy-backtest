@@ -1,0 +1,13 @@
+{
+  "code": "600870",
+  "name": "退市厦华",
+  "latest_close": 0.52,
+  "kalman_price": 0.5688249371829496,
+  "particle_price": 0.5246039822082857,
+  "market_state": 0,
+  "ensemble_forecast": 0.5673000000000007,
+  "forecast_change_pct": 9.1,
+  "confidence": 0.75,
+  "analysis_date": "2022-06-23",
+  "forecast_date": "2022-06-24"
+}

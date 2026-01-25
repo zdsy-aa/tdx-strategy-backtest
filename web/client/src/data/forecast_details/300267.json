@@ -1,0 +1,13 @@
+{
+  "code": "300267",
+  "name": "尔康制药",
+  "latest_close": 3.81,
+  "kalman_price": 3.6691825762547814,
+  "particle_price": 3.7489326516419004,
+  "market_state": 0,
+  "ensemble_forecast": 4.115099999999999,
+  "forecast_change_pct": 8.01,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

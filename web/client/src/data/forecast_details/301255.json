@@ -1,0 +1,13 @@
+{
+  "code": "301255",
+  "name": "通力科技",
+  "latest_close": 29.25,
+  "kalman_price": 29.217933693253887,
+  "particle_price": 29.24472520873443,
+  "market_state": 0,
+  "ensemble_forecast": 29.0371,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

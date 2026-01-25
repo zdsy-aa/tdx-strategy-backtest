@@ -1,0 +1,13 @@
+{
+  "code": "920522",
+  "name": "纳科诺尔",
+  "latest_close": 67.3,
+  "kalman_price": 68.40118914010797,
+  "particle_price": 61.432729668901715,
+  "market_state": 0,
+  "ensemble_forecast": 68.03870000000002,
+  "forecast_change_pct": 1.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

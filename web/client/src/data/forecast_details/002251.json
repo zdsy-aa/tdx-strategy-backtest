@@ -1,0 +1,13 @@
+{
+  "code": "002251",
+  "name": "步步高",
+  "latest_close": 5.6,
+  "kalman_price": 5.51493767172658,
+  "particle_price": 5.595279285444322,
+  "market_state": 2,
+  "ensemble_forecast": 5.526600000000002,
+  "forecast_change_pct": -1.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

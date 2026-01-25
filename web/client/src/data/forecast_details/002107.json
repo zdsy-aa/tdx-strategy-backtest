@@ -1,0 +1,13 @@
+{
+  "code": "002107",
+  "name": "沃华医药",
+  "latest_close": 7.3,
+  "kalman_price": 7.3188806995255336,
+  "particle_price": 7.2966525950771945,
+  "market_state": 2,
+  "ensemble_forecast": 7.256,
+  "forecast_change_pct": -0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

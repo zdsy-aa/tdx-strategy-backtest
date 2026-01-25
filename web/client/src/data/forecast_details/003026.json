@@ -1,0 +1,13 @@
+{
+  "code": "003026",
+  "name": "中晶科技",
+  "latest_close": 31.6,
+  "kalman_price": 31.86106099001537,
+  "particle_price": 31.624268411643264,
+  "market_state": 0,
+  "ensemble_forecast": 31.582300000000014,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

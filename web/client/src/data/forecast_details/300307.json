@@ -1,0 +1,13 @@
+{
+  "code": "300307",
+  "name": "慈星股份",
+  "latest_close": 7.34,
+  "kalman_price": 7.292517381500863,
+  "particle_price": 7.323757710977489,
+  "market_state": 1,
+  "ensemble_forecast": 7.2768,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

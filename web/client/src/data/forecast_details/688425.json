@@ -1,0 +1,13 @@
+{
+  "code": "688425",
+  "name": "铁建重工",
+  "latest_close": 5.33,
+  "kalman_price": 5.326999604663369,
+  "particle_price": 5.334896020405919,
+  "market_state": 0,
+  "ensemble_forecast": 5.2933,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

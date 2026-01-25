@@ -1,0 +1,13 @@
+{
+  "code": "002602",
+  "name": "世纪华通",
+  "latest_close": 19.56,
+  "kalman_price": 19.428006439473876,
+  "particle_price": 19.509426975907438,
+  "market_state": 1,
+  "ensemble_forecast": 19.367300000000004,
+  "forecast_change_pct": -0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920021",
+  "name": "流金科技",
+  "latest_close": 11.0,
+  "kalman_price": 8.86265525182368,
+  "particle_price": 7.727008328375353,
+  "market_state": 1,
+  "ensemble_forecast": 9.15860000000001,
+  "forecast_change_pct": -16.74,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

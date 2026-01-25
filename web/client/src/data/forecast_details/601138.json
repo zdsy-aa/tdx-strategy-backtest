@@ -1,0 +1,13 @@
+{
+  "code": "601138",
+  "name": "工业富联",
+  "latest_close": 60.05,
+  "kalman_price": 59.89864344112007,
+  "particle_price": 60.03514476531262,
+  "market_state": 0,
+  "ensemble_forecast": 59.88400000000004,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

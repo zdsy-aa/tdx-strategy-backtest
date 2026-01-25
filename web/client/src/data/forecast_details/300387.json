@@ -1,0 +1,13 @@
+{
+  "code": "300387",
+  "name": "富邦科技",
+  "latest_close": 8.73,
+  "kalman_price": 8.69882119850138,
+  "particle_price": 8.724672135857784,
+  "market_state": 2,
+  "ensemble_forecast": 8.7814,
+  "forecast_change_pct": 0.59,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

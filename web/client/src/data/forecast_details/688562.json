@@ -1,0 +1,13 @@
+{
+  "code": "688562",
+  "name": "航天软件",
+  "latest_close": 25.83,
+  "kalman_price": 26.26384195547858,
+  "particle_price": 25.0937312552753,
+  "market_state": 1,
+  "ensemble_forecast": 25.63599999999998,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600552",
+  "name": "凯盛科技",
+  "latest_close": 14.28,
+  "kalman_price": 14.219265494478167,
+  "particle_price": 14.200804611036887,
+  "market_state": 2,
+  "ensemble_forecast": 13.678600000000003,
+  "forecast_change_pct": -4.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301533",
+  "name": "威马农机",
+  "latest_close": 39.91,
+  "kalman_price": 39.53483433288071,
+  "particle_price": 39.896959829519034,
+  "market_state": 2,
+  "ensemble_forecast": 39.97900000000001,
+  "forecast_change_pct": 0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

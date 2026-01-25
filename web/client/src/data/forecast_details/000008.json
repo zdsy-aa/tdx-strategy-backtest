@@ -1,0 +1,13 @@
+{
+  "code": "000008",
+  "name": "神州高铁",
+  "latest_close": 3.1,
+  "kalman_price": 3.0942561758673937,
+  "particle_price": 3.0817251964979904,
+  "market_state": 0,
+  "ensemble_forecast": 3.0557000000000003,
+  "forecast_change_pct": -1.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

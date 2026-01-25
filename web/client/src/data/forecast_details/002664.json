@@ -1,0 +1,13 @@
+{
+  "code": "002664",
+  "name": "信质集团",
+  "latest_close": 23.86,
+  "kalman_price": 23.988382572619052,
+  "particle_price": 23.884494296034823,
+  "market_state": 0,
+  "ensemble_forecast": 23.981699999999996,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

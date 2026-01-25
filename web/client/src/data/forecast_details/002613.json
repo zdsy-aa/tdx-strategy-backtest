@@ -1,0 +1,13 @@
+{
+  "code": "002613",
+  "name": "北玻股份",
+  "latest_close": 3.76,
+  "kalman_price": 3.75875438165254,
+  "particle_price": 3.7487989445037164,
+  "market_state": 1,
+  "ensemble_forecast": 3.724199999999998,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

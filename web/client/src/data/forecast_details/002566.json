@@ -1,0 +1,13 @@
+{
+  "code": "002566",
+  "name": "益盛药业",
+  "latest_close": 7.86,
+  "kalman_price": 7.831196131359748,
+  "particle_price": 7.876211766328535,
+  "market_state": 1,
+  "ensemble_forecast": 7.895200000000005,
+  "forecast_change_pct": 0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

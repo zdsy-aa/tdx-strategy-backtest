@@ -1,0 +1,13 @@
+{
+  "code": "000798",
+  "name": "中水渔业",
+  "latest_close": 11.54,
+  "kalman_price": 11.607273298719441,
+  "particle_price": 11.563040055523151,
+  "market_state": 2,
+  "ensemble_forecast": 11.3617,
+  "forecast_change_pct": -1.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

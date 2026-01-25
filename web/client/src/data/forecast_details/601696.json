@@ -1,0 +1,13 @@
+{
+  "code": "601696",
+  "name": "中银证券",
+  "latest_close": 14.88,
+  "kalman_price": 14.830255311102915,
+  "particle_price": 14.864498957587564,
+  "market_state": 0,
+  "ensemble_forecast": 14.786799999999994,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

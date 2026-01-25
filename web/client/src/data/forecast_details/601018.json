@@ -1,0 +1,13 @@
+{
+  "code": "601018",
+  "name": "宁波港",
+  "latest_close": 3.68,
+  "kalman_price": 3.667904413108084,
+  "particle_price": 3.6787392170208717,
+  "market_state": 0,
+  "ensemble_forecast": 3.650800000000004,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

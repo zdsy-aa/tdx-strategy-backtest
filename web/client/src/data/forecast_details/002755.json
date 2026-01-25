@@ -1,0 +1,13 @@
+{
+  "code": "002755",
+  "name": "奥赛康",
+  "latest_close": 18.63,
+  "kalman_price": 18.513949818035556,
+  "particle_price": 18.608476227059015,
+  "market_state": 0,
+  "ensemble_forecast": 19.07490000000001,
+  "forecast_change_pct": 2.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

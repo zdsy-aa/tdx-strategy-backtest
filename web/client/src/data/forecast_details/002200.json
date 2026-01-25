@@ -1,0 +1,13 @@
+{
+  "code": "002200",
+  "name": "*ST交投",
+  "latest_close": 7.39,
+  "kalman_price": 7.399431973636386,
+  "particle_price": 7.40355364800029,
+  "market_state": 2,
+  "ensemble_forecast": 7.373300000000003,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601928",
+  "name": "凤凰传媒",
+  "latest_close": 10.29,
+  "kalman_price": 10.136997021247746,
+  "particle_price": 10.285068256646412,
+  "market_state": 0,
+  "ensemble_forecast": 10.322999999999997,
+  "forecast_change_pct": 0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

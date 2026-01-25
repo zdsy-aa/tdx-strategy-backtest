@@ -1,0 +1,13 @@
+{
+  "code": "688683",
+  "name": "莱尔科技",
+  "latest_close": 31.68,
+  "kalman_price": 32.04747388474811,
+  "particle_price": 31.685473275446235,
+  "market_state": 0,
+  "ensemble_forecast": 31.629699999999985,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

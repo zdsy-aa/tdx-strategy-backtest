@@ -1,0 +1,13 @@
+{
+  "code": "688383",
+  "name": "新益昌",
+  "latest_close": 76.16,
+  "kalman_price": 77.07091938498344,
+  "particle_price": 71.04905090512426,
+  "market_state": 0,
+  "ensemble_forecast": 73.99279999999999,
+  "forecast_change_pct": -2.85,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

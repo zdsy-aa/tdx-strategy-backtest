@@ -1,0 +1,13 @@
+{
+  "code": "688081",
+  "name": "兴图新科",
+  "latest_close": 38.13,
+  "kalman_price": 39.02134826603049,
+  "particle_price": 31.86098372158164,
+  "market_state": 2,
+  "ensemble_forecast": 34.05640000000004,
+  "forecast_change_pct": -10.68,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

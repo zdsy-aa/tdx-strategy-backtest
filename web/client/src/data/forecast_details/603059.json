@@ -1,0 +1,13 @@
+{
+  "code": "603059",
+  "name": "倍加洁",
+  "latest_close": 33.25,
+  "kalman_price": 32.69044254489642,
+  "particle_price": 32.46788926537664,
+  "market_state": 2,
+  "ensemble_forecast": 34.11909999999999,
+  "forecast_change_pct": 2.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

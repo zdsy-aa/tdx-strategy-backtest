@@ -1,0 +1,13 @@
+{
+  "code": "000096",
+  "name": "广聚能源",
+  "latest_close": 10.65,
+  "kalman_price": 10.562671892505598,
+  "particle_price": 10.618513713906161,
+  "market_state": 0,
+  "ensemble_forecast": 10.590100000000005,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

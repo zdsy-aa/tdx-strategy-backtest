@@ -1,0 +1,13 @@
+{
+  "code": "000721",
+  "name": "西安饮食",
+  "latest_close": 9.17,
+  "kalman_price": 9.131028429449318,
+  "particle_price": 9.163900831292098,
+  "market_state": 0,
+  "ensemble_forecast": 9.083999999999998,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

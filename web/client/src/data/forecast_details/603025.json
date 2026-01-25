@@ -1,0 +1,13 @@
+{
+  "code": "603025",
+  "name": "大豪科技",
+  "latest_close": 18.7,
+  "kalman_price": 18.500457392092198,
+  "particle_price": 18.619637055072047,
+  "market_state": 0,
+  "ensemble_forecast": 18.56739999999999,
+  "forecast_change_pct": -0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

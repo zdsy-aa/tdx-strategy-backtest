@@ -1,0 +1,13 @@
+{
+  "code": "300804",
+  "name": "广康生化",
+  "latest_close": 35.66,
+  "kalman_price": 35.548244577806784,
+  "particle_price": 35.63438380497499,
+  "market_state": 1,
+  "ensemble_forecast": 35.580199999999984,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

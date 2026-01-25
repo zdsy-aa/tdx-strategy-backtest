@@ -1,0 +1,13 @@
+{
+  "code": "300135",
+  "name": "宝利国际",
+  "latest_close": 4.1,
+  "kalman_price": 4.1115694651930985,
+  "particle_price": 4.0917175617744075,
+  "market_state": 2,
+  "ensemble_forecast": 4.044699999999999,
+  "forecast_change_pct": -1.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603169",
+  "name": "兰石重装",
+  "latest_close": 12.35,
+  "kalman_price": 12.57119560622597,
+  "particle_price": 12.397193329459121,
+  "market_state": 0,
+  "ensemble_forecast": 11.746599999999994,
+  "forecast_change_pct": -4.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600672",
+  "name": "*ST华圣",
+  "latest_close": 0.66,
+  "kalman_price": 0.6632757375241727,
+  "particle_price": 0.6745915700853178,
+  "market_state": 2,
+  "ensemble_forecast": 0.6630999999999999,
+  "forecast_change_pct": 0.47,
+  "confidence": 0.95,
+  "analysis_date": "2005-04-27",
+  "forecast_date": "2005-04-28"
+}

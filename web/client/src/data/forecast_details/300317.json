@@ -1,0 +1,13 @@
+{
+  "code": "300317",
+  "name": "珈伟新能",
+  "latest_close": 3.97,
+  "kalman_price": 3.955591300222731,
+  "particle_price": 3.94951933056963,
+  "market_state": 2,
+  "ensemble_forecast": 3.9424000000000006,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

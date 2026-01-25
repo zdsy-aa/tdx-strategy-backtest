@@ -1,0 +1,13 @@
+{
+  "code": "600458",
+  "name": "时代新材",
+  "latest_close": 13.95,
+  "kalman_price": 14.029181548302011,
+  "particle_price": 13.963199039116224,
+  "market_state": 0,
+  "ensemble_forecast": 13.898600000000004,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

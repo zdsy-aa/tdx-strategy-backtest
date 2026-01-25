@@ -1,0 +1,13 @@
+{
+  "code": "301183",
+  "name": "东田微",
+  "latest_close": 151.0,
+  "kalman_price": 151.73497647372758,
+  "particle_price": 83.10667431910764,
+  "market_state": 2,
+  "ensemble_forecast": 154.72289999999984,
+  "forecast_change_pct": 2.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

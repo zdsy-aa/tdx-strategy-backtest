@@ -1,0 +1,13 @@
+{
+  "code": "300725",
+  "name": "药石科技",
+  "latest_close": 46.9,
+  "kalman_price": 44.67291619476051,
+  "particle_price": 40.786755083014945,
+  "market_state": 0,
+  "ensemble_forecast": 48.50929999999998,
+  "forecast_change_pct": 3.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

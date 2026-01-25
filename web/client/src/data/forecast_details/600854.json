@@ -1,0 +1,13 @@
+{
+  "code": "600854",
+  "name": "春兰股份",
+  "latest_close": 5.06,
+  "kalman_price": 5.0156990592528805,
+  "particle_price": 5.055635601193816,
+  "market_state": 2,
+  "ensemble_forecast": 5.007099999999997,
+  "forecast_change_pct": -1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

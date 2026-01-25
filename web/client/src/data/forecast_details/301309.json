@@ -1,0 +1,13 @@
+{
+  "code": "301309",
+  "name": "万得凯",
+  "latest_close": 29.02,
+  "kalman_price": 28.88199218820787,
+  "particle_price": 28.975443731881555,
+  "market_state": 0,
+  "ensemble_forecast": 28.39830000000001,
+  "forecast_change_pct": -2.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

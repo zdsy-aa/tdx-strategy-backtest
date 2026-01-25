@@ -1,0 +1,13 @@
+{
+  "code": "001339",
+  "name": "智微智能",
+  "latest_close": 54.02,
+  "kalman_price": 54.52429452128373,
+  "particle_price": 53.589111110501584,
+  "market_state": 1,
+  "ensemble_forecast": 54.10299999999998,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600456",
+  "name": "宝钛股份",
+  "latest_close": 38.69,
+  "kalman_price": 39.46566348139925,
+  "particle_price": 38.96706484488273,
+  "market_state": 0,
+  "ensemble_forecast": 37.661700000000025,
+  "forecast_change_pct": -2.66,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

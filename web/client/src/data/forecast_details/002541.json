@@ -1,0 +1,13 @@
+{
+  "code": "002541",
+  "name": "鸿路钢构",
+  "latest_close": 20.02,
+  "kalman_price": 20.14528267713708,
+  "particle_price": 19.879872667133426,
+  "market_state": 0,
+  "ensemble_forecast": 19.89549999999998,
+  "forecast_change_pct": -0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

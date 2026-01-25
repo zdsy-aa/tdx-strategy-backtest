@@ -1,0 +1,13 @@
+{
+  "code": "002618",
+  "name": "丹邦退",
+  "latest_close": 1.17,
+  "kalman_price": 1.1181484808791418,
+  "particle_price": 1.178460023328165,
+  "market_state": 2,
+  "ensemble_forecast": 1.1423000000000005,
+  "forecast_change_pct": -2.37,
+  "confidence": 0.85,
+  "analysis_date": "2022-06-21",
+  "forecast_date": "2022-06-22"
+}

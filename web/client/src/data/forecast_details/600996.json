@@ -1,0 +1,13 @@
+{
+  "code": "600996",
+  "name": "贵广网络",
+  "latest_close": 10.11,
+  "kalman_price": 10.0139831586852,
+  "particle_price": 10.105735315501674,
+  "market_state": 2,
+  "ensemble_forecast": 10.116200000000003,
+  "forecast_change_pct": 0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

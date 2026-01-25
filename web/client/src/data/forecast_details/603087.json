@@ -1,0 +1,13 @@
+{
+  "code": "603087",
+  "name": "甘李药业",
+  "latest_close": 69.7,
+  "kalman_price": 70.06321580843763,
+  "particle_price": 69.67454814888842,
+  "market_state": 1,
+  "ensemble_forecast": 69.87079999999999,
+  "forecast_change_pct": 0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

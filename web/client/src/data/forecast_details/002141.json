@@ -1,0 +1,13 @@
+{
+  "code": "002141",
+  "name": "贤丰控股",
+  "latest_close": 3.68,
+  "kalman_price": 3.6929813098872613,
+  "particle_price": 3.6871085938224093,
+  "market_state": 2,
+  "ensemble_forecast": 3.7218,
+  "forecast_change_pct": 1.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300351",
+  "name": "永贵电器",
+  "latest_close": 18.57,
+  "kalman_price": 18.504195133154496,
+  "particle_price": 18.57607541808714,
+  "market_state": 0,
+  "ensemble_forecast": 17.98660000000001,
+  "forecast_change_pct": -3.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

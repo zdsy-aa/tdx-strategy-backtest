@@ -1,0 +1,13 @@
+{
+  "code": "300926",
+  "name": "博俊科技",
+  "latest_close": 32.6,
+  "kalman_price": 32.715948324154574,
+  "particle_price": 32.575285741102334,
+  "market_state": 2,
+  "ensemble_forecast": 32.509399999999985,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

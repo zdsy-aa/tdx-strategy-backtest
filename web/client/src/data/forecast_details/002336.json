@@ -1,0 +1,13 @@
+{
+  "code": "002336",
+  "name": "人乐退",
+  "latest_close": 0.35,
+  "kalman_price": 0.3367734601132238,
+  "particle_price": 0.3459396430175026,
+  "market_state": 2,
+  "ensemble_forecast": 0.36630000000000057,
+  "forecast_change_pct": 4.66,
+  "confidence": 0.85,
+  "analysis_date": "2025-07-03",
+  "forecast_date": "2025-07-04"
+}

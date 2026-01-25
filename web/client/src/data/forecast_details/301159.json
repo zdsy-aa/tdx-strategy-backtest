@@ -1,0 +1,13 @@
+{
+  "code": "301159",
+  "name": "三维天地",
+  "latest_close": 50.12,
+  "kalman_price": 44.14386079937096,
+  "particle_price": 37.7454429846148,
+  "market_state": 2,
+  "ensemble_forecast": 54.0796,
+  "forecast_change_pct": 7.9,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

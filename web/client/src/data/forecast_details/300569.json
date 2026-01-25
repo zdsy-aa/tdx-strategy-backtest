@@ -1,0 +1,13 @@
+{
+  "code": "300569",
+  "name": "天能重工",
+  "latest_close": 6.01,
+  "kalman_price": 6.031239205254204,
+  "particle_price": 5.997679706951959,
+  "market_state": 1,
+  "ensemble_forecast": 5.9761000000000015,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

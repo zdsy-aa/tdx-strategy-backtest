@@ -1,0 +1,13 @@
+{
+  "code": "301203",
+  "name": "国泰环保",
+  "latest_close": 33.94,
+  "kalman_price": 33.88537932132423,
+  "particle_price": 33.925611979585966,
+  "market_state": 0,
+  "ensemble_forecast": 33.54470000000002,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

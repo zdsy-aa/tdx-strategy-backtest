@@ -1,0 +1,13 @@
+{
+  "code": "000058",
+  "name": "深 赛 格",
+  "latest_close": 9.64,
+  "kalman_price": 9.628289136606544,
+  "particle_price": 9.645735097433082,
+  "market_state": 0,
+  "ensemble_forecast": 9.607100000000003,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

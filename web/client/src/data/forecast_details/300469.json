@@ -1,0 +1,13 @@
+{
+  "code": "300469",
+  "name": "信息发展",
+  "latest_close": 69.58,
+  "kalman_price": 68.30211662831205,
+  "particle_price": 65.86403802602943,
+  "market_state": 0,
+  "ensemble_forecast": 70.93930000000002,
+  "forecast_change_pct": 1.95,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

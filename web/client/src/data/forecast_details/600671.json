@@ -1,0 +1,13 @@
+{
+  "code": "600671",
+  "name": "天目药业",
+  "latest_close": 17.41,
+  "kalman_price": 17.406619902415148,
+  "particle_price": 17.41373620590207,
+  "market_state": 2,
+  "ensemble_forecast": 17.307399999999994,
+  "forecast_change_pct": -0.59,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

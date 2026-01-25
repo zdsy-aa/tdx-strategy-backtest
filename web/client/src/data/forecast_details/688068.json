@@ -1,0 +1,13 @@
+{
+  "code": "688068",
+  "name": "热景生物",
+  "latest_close": 180.87,
+  "kalman_price": 188.2729655784547,
+  "particle_price": 81.8172590972748,
+  "market_state": 0,
+  "ensemble_forecast": 179.09790000000015,
+  "forecast_change_pct": -0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

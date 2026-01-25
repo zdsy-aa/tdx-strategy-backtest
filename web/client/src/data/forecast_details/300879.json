@@ -1,0 +1,13 @@
+{
+  "code": "300879",
+  "name": "大叶股份",
+  "latest_close": 30.15,
+  "kalman_price": 29.90499508142379,
+  "particle_price": 30.101170769161552,
+  "market_state": 0,
+  "ensemble_forecast": 29.76189999999998,
+  "forecast_change_pct": -1.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

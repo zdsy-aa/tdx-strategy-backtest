@@ -1,0 +1,13 @@
+{
+  "code": "603237",
+  "name": "五芳斋",
+  "latest_close": 16.92,
+  "kalman_price": 16.894605911284074,
+  "particle_price": 16.90294030829179,
+  "market_state": 1,
+  "ensemble_forecast": 16.926200000000016,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

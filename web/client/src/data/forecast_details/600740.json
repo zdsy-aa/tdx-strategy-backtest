@@ -1,0 +1,13 @@
+{
+  "code": "600740",
+  "name": "山西焦化",
+  "latest_close": 3.93,
+  "kalman_price": 3.959461254764344,
+  "particle_price": 3.931128067583872,
+  "market_state": 0,
+  "ensemble_forecast": 3.9097999999999966,
+  "forecast_change_pct": -0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

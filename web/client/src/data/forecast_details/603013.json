@@ -1,0 +1,13 @@
+{
+  "code": "603013",
+  "name": "亚普股份",
+  "latest_close": 25.48,
+  "kalman_price": 25.04177703164049,
+  "particle_price": 25.20962343793336,
+  "market_state": 2,
+  "ensemble_forecast": 24.64190000000001,
+  "forecast_change_pct": -3.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

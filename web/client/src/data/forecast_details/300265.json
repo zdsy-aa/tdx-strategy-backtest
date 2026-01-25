@@ -1,0 +1,13 @@
+{
+  "code": "300265",
+  "name": "通光线缆",
+  "latest_close": 14.51,
+  "kalman_price": 14.799251593100601,
+  "particle_price": 14.634409733353834,
+  "market_state": 2,
+  "ensemble_forecast": 13.742999999999995,
+  "forecast_change_pct": -5.29,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

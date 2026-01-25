@@ -1,0 +1,13 @@
+{
+  "code": "603816",
+  "name": "顾家家居",
+  "latest_close": 31.01,
+  "kalman_price": 31.075774250457176,
+  "particle_price": 31.000899373402603,
+  "market_state": 2,
+  "ensemble_forecast": 30.993800000000007,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

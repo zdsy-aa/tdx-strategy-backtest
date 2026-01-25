@@ -1,0 +1,13 @@
+{
+  "code": "301378",
+  "name": "通达海",
+  "latest_close": 44.88,
+  "kalman_price": 36.98989151803196,
+  "particle_price": 29.344397754372917,
+  "market_state": 2,
+  "ensemble_forecast": 43.281399999999984,
+  "forecast_change_pct": -3.56,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

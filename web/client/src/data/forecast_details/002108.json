@@ -1,0 +1,13 @@
+{
+  "code": "002108",
+  "name": "沧州明珠",
+  "latest_close": 5.05,
+  "kalman_price": 5.02816440088729,
+  "particle_price": 5.0609830660506026,
+  "market_state": 0,
+  "ensemble_forecast": 5.055199999999999,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

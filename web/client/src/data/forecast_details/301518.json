@@ -1,0 +1,13 @@
+{
+  "code": "301518",
+  "name": "长华化学",
+  "latest_close": 37.24,
+  "kalman_price": 37.20486531291028,
+  "particle_price": 37.129039028139374,
+  "market_state": 0,
+  "ensemble_forecast": 37.29099999999996,
+  "forecast_change_pct": 0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

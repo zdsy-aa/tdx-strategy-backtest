@@ -1,0 +1,13 @@
+{
+  "code": "000592",
+  "name": "平潭发展",
+  "latest_close": 15.46,
+  "kalman_price": 15.153128586664312,
+  "particle_price": 15.125073863497796,
+  "market_state": 2,
+  "ensemble_forecast": 14.933699999999993,
+  "forecast_change_pct": -3.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688619",
+  "name": "罗普特",
+  "latest_close": 14.53,
+  "kalman_price": 14.240238136606083,
+  "particle_price": 14.481244672573574,
+  "market_state": 2,
+  "ensemble_forecast": 14.5409,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

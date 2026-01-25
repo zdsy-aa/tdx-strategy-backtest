@@ -1,0 +1,13 @@
+{
+  "code": "301032",
+  "name": "新柴股份",
+  "latest_close": 12.64,
+  "kalman_price": 12.595114823008393,
+  "particle_price": 12.627686677843585,
+  "market_state": 2,
+  "ensemble_forecast": 12.615399999999992,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

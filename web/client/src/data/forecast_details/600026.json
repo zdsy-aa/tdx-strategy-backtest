@@ -3,10 +3,11 @@
   "name": "中远海能",
   "latest_close": 13.43,
   "kalman_price": 13.056958635561454,
-  "particle_price": 13.386550589477952,
-  "market_state": 0,
-  "ensemble_forecast": 13.477200000000005,
-  "forecast_change_pct": 0.35,
+  "particle_price": 13.357100648444467,
+  "market_state": 1,
+  "ensemble_forecast": 13.405800000000001,
+  "forecast_change_pct": -0.18,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

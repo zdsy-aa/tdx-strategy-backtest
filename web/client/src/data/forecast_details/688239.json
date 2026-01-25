@@ -1,0 +1,13 @@
+{
+  "code": "688239",
+  "name": "航宇科技",
+  "latest_close": 66.68,
+  "kalman_price": 68.32296321581694,
+  "particle_price": 61.27758318664605,
+  "market_state": 2,
+  "ensemble_forecast": 66.71310000000005,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

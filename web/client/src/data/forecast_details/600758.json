@@ -1,0 +1,13 @@
+{
+  "code": "600758",
+  "name": "辽宁能源",
+  "latest_close": 3.76,
+  "kalman_price": 3.767292096717454,
+  "particle_price": 3.759679248385388,
+  "market_state": 2,
+  "ensemble_forecast": 3.7541999999999995,
+  "forecast_change_pct": -0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

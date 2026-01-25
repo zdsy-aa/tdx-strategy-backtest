@@ -1,0 +1,13 @@
+{
+  "code": "688087",
+  "name": "英科再生",
+  "latest_close": 30.61,
+  "kalman_price": 30.416411388212012,
+  "particle_price": 30.51885633591265,
+  "market_state": 0,
+  "ensemble_forecast": 30.387199999999986,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

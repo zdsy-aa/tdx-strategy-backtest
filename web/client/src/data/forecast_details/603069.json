@@ -1,0 +1,13 @@
+{
+  "code": "603069",
+  "name": "海汽集团",
+  "latest_close": 24.21,
+  "kalman_price": 23.847328457781117,
+  "particle_price": 24.238620929761954,
+  "market_state": 2,
+  "ensemble_forecast": 24.042799999999975,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

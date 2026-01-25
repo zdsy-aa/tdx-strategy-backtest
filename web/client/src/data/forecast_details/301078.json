@@ -1,0 +1,13 @@
+{
+  "code": "301078",
+  "name": "孩子王",
+  "latest_close": 11.49,
+  "kalman_price": 11.12562480461741,
+  "particle_price": 11.423627196585178,
+  "market_state": 1,
+  "ensemble_forecast": 11.42970000000001,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

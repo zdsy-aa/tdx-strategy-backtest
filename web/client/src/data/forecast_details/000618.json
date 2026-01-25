@@ -1,0 +1,13 @@
+{
+  "code": "000618",
+  "name": "吉林化工",
+  "latest_close": 5.1,
+  "kalman_price": 5.176072531972346,
+  "particle_price": 5.116297328042534,
+  "market_state": 1,
+  "ensemble_forecast": 5.143000000000002,
+  "forecast_change_pct": 0.84,
+  "confidence": 0.95,
+  "analysis_date": "2006-02-10",
+  "forecast_date": "2006-02-13"
+}

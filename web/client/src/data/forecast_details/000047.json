@@ -1,0 +1,13 @@
+{
+  "code": "000047",
+  "name": "ST中侨",
+  "latest_close": 7.81,
+  "kalman_price": 7.671593166295014,
+  "particle_price": 7.795713431069354,
+  "market_state": 0,
+  "ensemble_forecast": 7.722599999999996,
+  "forecast_change_pct": -1.12,
+  "confidence": 0.85,
+  "analysis_date": "2002-04-29",
+  "forecast_date": "2002-04-30"
+}

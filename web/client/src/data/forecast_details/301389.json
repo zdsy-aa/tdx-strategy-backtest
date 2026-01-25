@@ -1,0 +1,13 @@
+{
+  "code": "301389",
+  "name": "隆扬电子",
+  "latest_close": 51.06,
+  "kalman_price": 51.235482243940766,
+  "particle_price": 51.21628498818225,
+  "market_state": 0,
+  "ensemble_forecast": 49.76650000000001,
+  "forecast_change_pct": -2.53,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

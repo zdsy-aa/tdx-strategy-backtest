@@ -1,0 +1,13 @@
+{
+  "code": "003002",
+  "name": "壶化股份",
+  "latest_close": 29.9,
+  "kalman_price": 30.13285936255979,
+  "particle_price": 29.91781377789813,
+  "market_state": 0,
+  "ensemble_forecast": 29.923599999999993,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

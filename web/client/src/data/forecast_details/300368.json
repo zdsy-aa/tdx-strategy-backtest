@@ -1,0 +1,13 @@
+{
+  "code": "300368",
+  "name": "汇金股份",
+  "latest_close": 15.16,
+  "kalman_price": 14.99482066052549,
+  "particle_price": 15.057689158743251,
+  "market_state": 0,
+  "ensemble_forecast": 14.798299999999992,
+  "forecast_change_pct": -2.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

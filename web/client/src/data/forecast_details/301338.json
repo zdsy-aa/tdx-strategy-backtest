@@ -1,0 +1,13 @@
+{
+  "code": "301338",
+  "name": "凯格精机",
+  "latest_close": 85.67,
+  "kalman_price": 87.2278681102245,
+  "particle_price": 65.36817506113331,
+  "market_state": 2,
+  "ensemble_forecast": 85.39309999999995,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

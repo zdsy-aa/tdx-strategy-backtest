@@ -1,0 +1,13 @@
+{
+  "code": "300732",
+  "name": "设研院",
+  "latest_close": 7.77,
+  "kalman_price": 7.7489195193130165,
+  "particle_price": 7.760588777133725,
+  "market_state": 1,
+  "ensemble_forecast": 7.7907,
+  "forecast_change_pct": 0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

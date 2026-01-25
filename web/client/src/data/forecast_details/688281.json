@@ -1,0 +1,13 @@
+{
+  "code": "688281",
+  "name": "华秦科技",
+  "latest_close": 93.16,
+  "kalman_price": 88.7725201625783,
+  "particle_price": 73.88404561202327,
+  "market_state": 2,
+  "ensemble_forecast": 91.68430000000001,
+  "forecast_change_pct": -1.58,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

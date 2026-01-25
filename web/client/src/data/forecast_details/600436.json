@@ -1,0 +1,13 @@
+{
+  "code": "600436",
+  "name": "片仔癀",
+  "latest_close": 172.1,
+  "kalman_price": 171.67469236659915,
+  "particle_price": 176.30832607228845,
+  "market_state": 0,
+  "ensemble_forecast": 170.89040000000023,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

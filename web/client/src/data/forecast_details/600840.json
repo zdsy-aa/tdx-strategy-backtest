@@ -1,0 +1,13 @@
+{
+  "code": "600840",
+  "name": "新湖创业",
+  "latest_close": 22.63,
+  "kalman_price": 22.391429339107468,
+  "particle_price": 22.55795543806791,
+  "market_state": 0,
+  "ensemble_forecast": 22.45730000000002,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2009-07-31",
+  "forecast_date": "2009-08-03"
+}

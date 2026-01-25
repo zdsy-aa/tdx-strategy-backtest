@@ -1,0 +1,13 @@
+{
+  "code": "002760",
+  "name": "凤形股份",
+  "latest_close": 21.71,
+  "kalman_price": 21.814284898631577,
+  "particle_price": 21.710540227591043,
+  "market_state": 2,
+  "ensemble_forecast": 21.751900000000006,
+  "forecast_change_pct": 0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

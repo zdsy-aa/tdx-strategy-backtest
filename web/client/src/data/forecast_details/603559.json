@@ -1,0 +1,13 @@
+{
+  "code": "603559",
+  "name": "ST通脉",
+  "latest_close": 6.58,
+  "kalman_price": 6.51050297757695,
+  "particle_price": 6.579517324460343,
+  "market_state": 0,
+  "ensemble_forecast": 6.675200000000002,
+  "forecast_change_pct": 1.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000576",
+  "name": "甘化科工",
+  "latest_close": 10.84,
+  "kalman_price": 10.936002565080827,
+  "particle_price": 10.851781054272232,
+  "market_state": 2,
+  "ensemble_forecast": 10.655999999999995,
+  "forecast_change_pct": -1.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002982",
+  "name": "湘佳股份",
+  "latest_close": 14.01,
+  "kalman_price": 13.868595369122364,
+  "particle_price": 13.9882394168075,
+  "market_state": 0,
+  "ensemble_forecast": 13.817499999999997,
+  "forecast_change_pct": -1.37,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

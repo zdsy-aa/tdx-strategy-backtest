@@ -1,0 +1,13 @@
+{
+  "code": "002333",
+  "name": "罗普斯金",
+  "latest_close": 5.83,
+  "kalman_price": 5.923491745552979,
+  "particle_price": 5.865275911650996,
+  "market_state": 0,
+  "ensemble_forecast": 5.849499999999999,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

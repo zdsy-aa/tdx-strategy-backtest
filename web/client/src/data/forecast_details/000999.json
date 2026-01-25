@@ -1,0 +1,13 @@
+{
+  "code": "000999",
+  "name": "华润三九",
+  "latest_close": 28.8,
+  "kalman_price": 28.811340026694698,
+  "particle_price": 28.797150347002702,
+  "market_state": 0,
+  "ensemble_forecast": 28.789300000000008,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

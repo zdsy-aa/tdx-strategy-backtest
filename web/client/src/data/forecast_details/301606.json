@@ -1,0 +1,13 @@
+{
+  "code": "301606",
+  "name": "绿联科技",
+  "latest_close": 61.65,
+  "kalman_price": 61.5191935958504,
+  "particle_price": 60.7180355967302,
+  "market_state": 1,
+  "ensemble_forecast": 60.16470000000003,
+  "forecast_change_pct": -2.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

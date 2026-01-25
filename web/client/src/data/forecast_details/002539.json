@@ -1,0 +1,13 @@
+{
+  "code": "002539",
+  "name": "云图控股",
+  "latest_close": 11.93,
+  "kalman_price": 12.011906192640629,
+  "particle_price": 11.909831374586082,
+  "market_state": 0,
+  "ensemble_forecast": 11.865499999999992,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

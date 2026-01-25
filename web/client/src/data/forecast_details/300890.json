@@ -1,0 +1,13 @@
+{
+  "code": "300890",
+  "name": "翔丰华",
+  "latest_close": 31.05,
+  "kalman_price": 30.958306347456197,
+  "particle_price": 31.00622007645371,
+  "market_state": 0,
+  "ensemble_forecast": 30.072000000000024,
+  "forecast_change_pct": -3.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000605",
+  "name": "渤海股份",
+  "latest_close": 6.83,
+  "kalman_price": 6.813412048986816,
+  "particle_price": 6.824729176881241,
+  "market_state": 0,
+  "ensemble_forecast": 6.846000000000006,
+  "forecast_change_pct": 0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

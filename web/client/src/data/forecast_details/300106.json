@@ -1,0 +1,13 @@
+{
+  "code": "300106",
+  "name": "西部牧业",
+  "latest_close": 11.14,
+  "kalman_price": 10.941679844526243,
+  "particle_price": 11.11735345190488,
+  "market_state": 0,
+  "ensemble_forecast": 11.109600000000006,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

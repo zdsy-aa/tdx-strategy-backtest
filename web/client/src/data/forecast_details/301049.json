@@ -1,0 +1,13 @@
+{
+  "code": "301049",
+  "name": "超越科技",
+  "latest_close": 21.88,
+  "kalman_price": 21.728041493073057,
+  "particle_price": 21.854963584781064,
+  "market_state": 0,
+  "ensemble_forecast": 22.3934,
+  "forecast_change_pct": 2.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

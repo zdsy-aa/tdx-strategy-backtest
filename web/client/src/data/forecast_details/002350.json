@@ -1,0 +1,13 @@
+{
+  "code": "002350",
+  "name": "北京科锐",
+  "latest_close": 8.58,
+  "kalman_price": 8.680144525211482,
+  "particle_price": 8.588507335195393,
+  "market_state": 0,
+  "ensemble_forecast": 8.624500000000003,
+  "forecast_change_pct": 0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

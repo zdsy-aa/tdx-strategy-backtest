@@ -1,0 +1,13 @@
+{
+  "code": "603607",
+  "name": "京华激光",
+  "latest_close": 26.89,
+  "kalman_price": 27.420243907237847,
+  "particle_price": 26.96892779606682,
+  "market_state": 0,
+  "ensemble_forecast": 26.69760000000001,
+  "forecast_change_pct": -0.72,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

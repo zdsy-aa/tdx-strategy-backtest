@@ -1,0 +1,13 @@
+{
+  "code": "301393",
+  "name": "昊帆生物",
+  "latest_close": 53.92,
+  "kalman_price": 53.43898946963977,
+  "particle_price": 53.643063759869854,
+  "market_state": 0,
+  "ensemble_forecast": 54.054100000000005,
+  "forecast_change_pct": 0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

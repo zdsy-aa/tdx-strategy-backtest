@@ -1,0 +1,13 @@
+{
+  "code": "300274",
+  "name": "阳光电源",
+  "latest_close": 162.01,
+  "kalman_price": 162.72215297855558,
+  "particle_price": 88.20153731537329,
+  "market_state": 0,
+  "ensemble_forecast": 163.25499999999994,
+  "forecast_change_pct": 0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

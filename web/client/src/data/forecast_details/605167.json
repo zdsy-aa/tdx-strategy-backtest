@@ -1,0 +1,13 @@
+{
+  "code": "605167",
+  "name": "利柏特",
+  "latest_close": 15.3,
+  "kalman_price": 15.892377831656574,
+  "particle_price": 15.332703234941722,
+  "market_state": 0,
+  "ensemble_forecast": 15.483899999999984,
+  "forecast_change_pct": 1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

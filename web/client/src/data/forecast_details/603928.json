@@ -1,0 +1,13 @@
+{
+  "code": "603928",
+  "name": "兴业股份",
+  "latest_close": 17.19,
+  "kalman_price": 17.34624934089353,
+  "particle_price": 17.192240732310793,
+  "market_state": 0,
+  "ensemble_forecast": 16.848800000000008,
+  "forecast_change_pct": -1.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

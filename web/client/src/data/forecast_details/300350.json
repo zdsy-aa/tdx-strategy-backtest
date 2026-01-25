@@ -1,0 +1,13 @@
+{
+  "code": "300350",
+  "name": "华鹏飞",
+  "latest_close": 6.56,
+  "kalman_price": 6.481708899203003,
+  "particle_price": 6.543320840093364,
+  "market_state": 2,
+  "ensemble_forecast": 6.5186,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

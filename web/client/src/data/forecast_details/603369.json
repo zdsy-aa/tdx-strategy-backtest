@@ -1,0 +1,13 @@
+{
+  "code": "603369",
+  "name": "今世缘",
+  "latest_close": 35.58,
+  "kalman_price": 35.42891104319072,
+  "particle_price": 35.56053433377849,
+  "market_state": 1,
+  "ensemble_forecast": 35.33399999999999,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

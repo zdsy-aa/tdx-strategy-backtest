@@ -1,0 +1,13 @@
+{
+  "code": "601995",
+  "name": "中金公司",
+  "latest_close": 35.93,
+  "kalman_price": 35.77742734328556,
+  "particle_price": 35.895327645165786,
+  "market_state": 0,
+  "ensemble_forecast": 35.99479999999997,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

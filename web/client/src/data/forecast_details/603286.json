@@ -1,0 +1,13 @@
+{
+  "code": "603286",
+  "name": "日盈电子",
+  "latest_close": 73.99,
+  "kalman_price": 71.67031916187194,
+  "particle_price": 55.67627300228133,
+  "market_state": 2,
+  "ensemble_forecast": 71.8264999999999,
+  "forecast_change_pct": -2.92,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

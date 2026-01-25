@@ -1,0 +1,13 @@
+{
+  "code": "002563",
+  "name": "森马服饰",
+  "latest_close": 5.47,
+  "kalman_price": 5.417390398512863,
+  "particle_price": 5.4561268221321875,
+  "market_state": 2,
+  "ensemble_forecast": 5.437100000000003,
+  "forecast_change_pct": -0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

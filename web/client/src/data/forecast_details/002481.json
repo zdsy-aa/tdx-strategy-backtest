@@ -1,0 +1,13 @@
+{
+  "code": "002481",
+  "name": "双塔食品",
+  "latest_close": 5.18,
+  "kalman_price": 5.154403759851823,
+  "particle_price": 5.180092979813225,
+  "market_state": 1,
+  "ensemble_forecast": 5.135700000000002,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

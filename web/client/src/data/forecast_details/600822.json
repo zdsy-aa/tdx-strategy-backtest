@@ -1,0 +1,13 @@
+{
+  "code": "600822",
+  "name": "上海物贸",
+  "latest_close": 11.27,
+  "kalman_price": 11.211791733122531,
+  "particle_price": 11.254255744821078,
+  "market_state": 2,
+  "ensemble_forecast": 11.161000000000007,
+  "forecast_change_pct": -0.97,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

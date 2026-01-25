@@ -1,0 +1,13 @@
+{
+  "code": "003011",
+  "name": "海象新材",
+  "latest_close": 22.3,
+  "kalman_price": 21.904944512506496,
+  "particle_price": 22.199670547992643,
+  "market_state": 1,
+  "ensemble_forecast": 22.18289999999999,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

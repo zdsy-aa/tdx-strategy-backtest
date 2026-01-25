@@ -1,0 +1,13 @@
+{
+  "code": "601886",
+  "name": "江河集团",
+  "latest_close": 8.75,
+  "kalman_price": 8.83438848568438,
+  "particle_price": 8.73911511756885,
+  "market_state": 2,
+  "ensemble_forecast": 8.626599999999991,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

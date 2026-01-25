@@ -1,0 +1,13 @@
+{
+  "code": "002123",
+  "name": "梦网科技",
+  "latest_close": 13.63,
+  "kalman_price": 13.446865681458881,
+  "particle_price": 13.609784155140032,
+  "market_state": 2,
+  "ensemble_forecast": 13.595300000000003,
+  "forecast_change_pct": -0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

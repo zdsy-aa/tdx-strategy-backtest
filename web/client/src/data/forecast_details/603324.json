@@ -1,0 +1,13 @@
+{
+  "code": "603324",
+  "name": "盛剑科技",
+  "latest_close": 26.1,
+  "kalman_price": 26.29752453507719,
+  "particle_price": 26.134169553808373,
+  "market_state": 2,
+  "ensemble_forecast": 26.632999999999985,
+  "forecast_change_pct": 2.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301202",
+  "name": "朗威股份",
+  "latest_close": 42.25,
+  "kalman_price": 41.855529534059805,
+  "particle_price": 42.219411645440736,
+  "market_state": 1,
+  "ensemble_forecast": 42.47690000000005,
+  "forecast_change_pct": 0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

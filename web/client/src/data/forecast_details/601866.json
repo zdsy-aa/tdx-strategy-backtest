@@ -1,0 +1,13 @@
+{
+  "code": "601866",
+  "name": "中远海发",
+  "latest_close": 2.55,
+  "kalman_price": 2.534534833463303,
+  "particle_price": 2.545470627707894,
+  "market_state": 0,
+  "ensemble_forecast": 2.528900000000002,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

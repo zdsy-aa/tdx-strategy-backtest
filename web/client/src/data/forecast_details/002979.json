@@ -1,0 +1,13 @@
+{
+  "code": "002979",
+  "name": "雷赛智能",
+  "latest_close": 43.8,
+  "kalman_price": 43.12046534325244,
+  "particle_price": 42.74173230075791,
+  "market_state": 2,
+  "ensemble_forecast": 43.67540000000001,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920670",
+  "name": "数字人",
+  "latest_close": 21.9,
+  "kalman_price": 19.522445299607142,
+  "particle_price": 17.583057646193236,
+  "market_state": 2,
+  "ensemble_forecast": 21.3144,
+  "forecast_change_pct": -2.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300444",
+  "name": "双杰电气",
+  "latest_close": 10.38,
+  "kalman_price": 10.37652922409066,
+  "particle_price": 10.3794923576645,
+  "market_state": 0,
+  "ensemble_forecast": 10.157599999999999,
+  "forecast_change_pct": -2.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

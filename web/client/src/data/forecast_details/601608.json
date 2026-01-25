@@ -1,0 +1,13 @@
+{
+  "code": "601608",
+  "name": "中信重工",
+  "latest_close": 7.41,
+  "kalman_price": 7.458535254793631,
+  "particle_price": 7.409648856971178,
+  "market_state": 2,
+  "ensemble_forecast": 7.2064999999999975,
+  "forecast_change_pct": -2.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

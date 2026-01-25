@@ -1,0 +1,13 @@
+{
+  "code": "688306",
+  "name": "均普智能",
+  "latest_close": 11.7,
+  "kalman_price": 11.695058625823625,
+  "particle_price": 11.656118878465584,
+  "market_state": 2,
+  "ensemble_forecast": 11.570699999999995,
+  "forecast_change_pct": -1.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

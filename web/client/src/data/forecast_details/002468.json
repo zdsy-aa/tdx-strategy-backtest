@@ -1,0 +1,13 @@
+{
+  "code": "002468",
+  "name": "申通快递",
+  "latest_close": 13.61,
+  "kalman_price": 13.37973445182914,
+  "particle_price": 13.581211674532858,
+  "market_state": 2,
+  "ensemble_forecast": 13.374499999999989,
+  "forecast_change_pct": -1.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

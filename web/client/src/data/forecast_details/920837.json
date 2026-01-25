@@ -1,0 +1,13 @@
+{
+  "code": "920837",
+  "name": "华原股份",
+  "latest_close": 15.26,
+  "kalman_price": 15.090222622063667,
+  "particle_price": 15.258915370465708,
+  "market_state": 0,
+  "ensemble_forecast": 15.056699999999996,
+  "forecast_change_pct": -1.33,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

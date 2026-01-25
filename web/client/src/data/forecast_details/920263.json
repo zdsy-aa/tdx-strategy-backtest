@@ -1,0 +1,13 @@
+{
+  "code": "920263",
+  "name": "中航泰达",
+  "latest_close": 13.98,
+  "kalman_price": 13.613786713146544,
+  "particle_price": 13.909306617036806,
+  "market_state": 2,
+  "ensemble_forecast": 13.972200000000004,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

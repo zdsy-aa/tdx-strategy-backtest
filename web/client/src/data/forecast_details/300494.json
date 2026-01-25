@@ -1,0 +1,13 @@
+{
+  "code": "300494",
+  "name": "盛天网络",
+  "latest_close": 13.89,
+  "kalman_price": 13.422588620477837,
+  "particle_price": 13.77133848291203,
+  "market_state": 0,
+  "ensemble_forecast": 13.89089999999999,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

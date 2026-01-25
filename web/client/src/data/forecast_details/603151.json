@@ -1,0 +1,13 @@
+{
+  "code": "603151",
+  "name": "邦基科技",
+  "latest_close": 18.85,
+  "kalman_price": 18.876108379019094,
+  "particle_price": 18.82759698630828,
+  "market_state": 2,
+  "ensemble_forecast": 18.8556,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

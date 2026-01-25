@@ -1,0 +1,13 @@
+{
+  "code": "000860",
+  "name": "顺鑫农业",
+  "latest_close": 14.92,
+  "kalman_price": 14.845573984678952,
+  "particle_price": 14.897673800731724,
+  "market_state": 2,
+  "ensemble_forecast": 14.862600000000011,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

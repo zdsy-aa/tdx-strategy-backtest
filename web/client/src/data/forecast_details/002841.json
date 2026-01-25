@@ -1,0 +1,13 @@
+{
+  "code": "002841",
+  "name": "视源股份",
+  "latest_close": 41.84,
+  "kalman_price": 41.18936373952472,
+  "particle_price": 41.057353196153024,
+  "market_state": 0,
+  "ensemble_forecast": 41.0009,
+  "forecast_change_pct": -2.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

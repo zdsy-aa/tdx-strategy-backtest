@@ -1,0 +1,13 @@
+{
+  "code": "300888",
+  "name": "稳健医疗",
+  "latest_close": 39.34,
+  "kalman_price": 39.1886015799437,
+  "particle_price": 39.33071815889036,
+  "market_state": 1,
+  "ensemble_forecast": 39.097600000000014,
+  "forecast_change_pct": -0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

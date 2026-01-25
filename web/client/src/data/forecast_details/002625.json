@@ -1,0 +1,13 @@
+{
+  "code": "002625",
+  "name": "光启技术",
+  "latest_close": 54.28,
+  "kalman_price": 53.51191640227965,
+  "particle_price": 50.472142236533145,
+  "market_state": 2,
+  "ensemble_forecast": 52.55570000000002,
+  "forecast_change_pct": -3.18,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

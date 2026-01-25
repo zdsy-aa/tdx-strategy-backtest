@@ -3,10 +3,11 @@
   "name": "退市保千",
   "latest_close": 0.17,
   "kalman_price": 0.16563829840510497,
-  "particle_price": 0.18083757679793813,
+  "particle_price": 0.1493969182818888,
   "market_state": 2,
-  "ensemble_forecast": 0.16570000000000004,
-  "forecast_change_pct": -2.53,
+  "ensemble_forecast": 0.16649999999999998,
+  "forecast_change_pct": -2.06,
   "confidence": 0.85,
-  "analysis_date": "2020-05-26"
+  "analysis_date": "2020-05-26",
+  "forecast_date": "2020-05-27"
 }

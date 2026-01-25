@@ -1,0 +1,13 @@
+{
+  "code": "603885",
+  "name": "吉祥航空",
+  "latest_close": 14.95,
+  "kalman_price": 15.045514291017737,
+  "particle_price": 14.960497183082229,
+  "market_state": 0,
+  "ensemble_forecast": 14.817000000000007,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

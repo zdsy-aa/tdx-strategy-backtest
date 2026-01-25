@@ -1,0 +1,13 @@
+{
+  "code": "300301",
+  "name": "ST长方",
+  "latest_close": 2.3,
+  "kalman_price": 2.3088531674908683,
+  "particle_price": 2.2968289063152763,
+  "market_state": 0,
+  "ensemble_forecast": 2.294500000000003,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

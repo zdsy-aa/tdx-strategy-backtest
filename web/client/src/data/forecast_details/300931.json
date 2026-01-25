@@ -1,0 +1,13 @@
+{
+  "code": "300931",
+  "name": "通用电梯",
+  "latest_close": 11.09,
+  "kalman_price": 10.970060127446596,
+  "particle_price": 11.0681359961743,
+  "market_state": 2,
+  "ensemble_forecast": 11.1919,
+  "forecast_change_pct": 0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

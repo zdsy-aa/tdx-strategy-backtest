@@ -1,0 +1,13 @@
+{
+  "code": "920082",
+  "name": "方正阀门",
+  "latest_close": 18.45,
+  "kalman_price": 18.271707485558156,
+  "particle_price": 18.386239475634532,
+  "market_state": 0,
+  "ensemble_forecast": 18.966900000000017,
+  "forecast_change_pct": 2.8,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

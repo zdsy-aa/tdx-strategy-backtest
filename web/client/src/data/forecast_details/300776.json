@@ -1,0 +1,13 @@
+{
+  "code": "300776",
+  "name": "帝尔激光",
+  "latest_close": 71.19,
+  "kalman_price": 70.55981856221757,
+  "particle_price": 62.89916330054285,
+  "market_state": 2,
+  "ensemble_forecast": 70.99630000000009,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

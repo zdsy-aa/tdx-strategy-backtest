@@ -1,0 +1,13 @@
+{
+  "code": "920799",
+  "name": "艾融软件",
+  "latest_close": 52.0,
+  "kalman_price": 49.7563154102855,
+  "particle_price": 48.064555309824,
+  "market_state": 2,
+  "ensemble_forecast": 51.94330000000001,
+  "forecast_change_pct": -0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

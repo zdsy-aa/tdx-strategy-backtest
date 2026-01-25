@@ -1,0 +1,13 @@
+{
+  "code": "301152",
+  "name": "天力锂能",
+  "latest_close": 31.33,
+  "kalman_price": 31.181561686051595,
+  "particle_price": 31.288290236437557,
+  "market_state": 1,
+  "ensemble_forecast": 31.337400000000002,
+  "forecast_change_pct": 0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

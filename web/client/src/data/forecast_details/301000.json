@@ -1,0 +1,13 @@
+{
+  "code": "301000",
+  "name": "肇民科技",
+  "latest_close": 40.3,
+  "kalman_price": 39.59170501994578,
+  "particle_price": 39.625534790594045,
+  "market_state": 0,
+  "ensemble_forecast": 39.32269999999997,
+  "forecast_change_pct": -2.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

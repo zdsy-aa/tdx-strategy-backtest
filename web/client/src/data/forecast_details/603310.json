@@ -1,0 +1,13 @@
+{
+  "code": "603310",
+  "name": "巍华新材",
+  "latest_close": 17.14,
+  "kalman_price": 17.127763857344995,
+  "particle_price": 17.126939333407464,
+  "market_state": 2,
+  "ensemble_forecast": 17.08790000000001,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

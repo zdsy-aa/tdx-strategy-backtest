@@ -1,0 +1,13 @@
+{
+  "code": "601399",
+  "name": "国机重装",
+  "latest_close": 6.02,
+  "kalman_price": 6.056181485524414,
+  "particle_price": 6.018653153270496,
+  "market_state": 0,
+  "ensemble_forecast": 6.037799999999992,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

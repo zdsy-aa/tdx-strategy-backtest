@@ -1,0 +1,13 @@
+{
+  "code": "600405",
+  "name": "动力源",
+  "latest_close": 5.49,
+  "kalman_price": 5.5524354961841675,
+  "particle_price": 5.505115893145813,
+  "market_state": 2,
+  "ensemble_forecast": 5.4012,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300335",
+  "name": "迪森股份",
+  "latest_close": 5.92,
+  "kalman_price": 5.89717531178851,
+  "particle_price": 5.914779368336557,
+  "market_state": 1,
+  "ensemble_forecast": 5.9144000000000005,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

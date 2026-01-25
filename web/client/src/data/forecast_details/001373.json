@@ -1,0 +1,13 @@
+{
+  "code": "001373",
+  "name": "翔腾新材",
+  "latest_close": 37.43,
+  "kalman_price": 37.00649954493878,
+  "particle_price": 35.1189185263468,
+  "market_state": 2,
+  "ensemble_forecast": 37.08170000000002,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600596",
+  "name": "新安股份",
+  "latest_close": 12.02,
+  "kalman_price": 12.166351625767241,
+  "particle_price": 12.022753243628967,
+  "market_state": 0,
+  "ensemble_forecast": 12.041799999999999,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

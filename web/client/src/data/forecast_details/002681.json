@@ -1,0 +1,13 @@
+{
+  "code": "002681",
+  "name": "奋达科技",
+  "latest_close": 6.82,
+  "kalman_price": 6.785673799242186,
+  "particle_price": 6.799985927293313,
+  "market_state": 2,
+  "ensemble_forecast": 6.793199999999993,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300711",
+  "name": "广哈通信",
+  "latest_close": 31.05,
+  "kalman_price": 27.099552242439334,
+  "particle_price": 24.324294648722745,
+  "market_state": 2,
+  "ensemble_forecast": 28.271799999999995,
+  "forecast_change_pct": -8.95,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

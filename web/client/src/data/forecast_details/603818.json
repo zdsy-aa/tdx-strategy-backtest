@@ -1,0 +1,13 @@
+{
+  "code": "603818",
+  "name": "曲美家居",
+  "latest_close": 3.68,
+  "kalman_price": 3.679102994773794,
+  "particle_price": 3.6823963389448027,
+  "market_state": 2,
+  "ensemble_forecast": 3.6930000000000023,
+  "forecast_change_pct": 0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

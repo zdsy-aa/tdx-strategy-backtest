@@ -1,0 +1,13 @@
+{
+  "code": "300611",
+  "name": "美力科技",
+  "latest_close": 28.1,
+  "kalman_price": 28.21223756047907,
+  "particle_price": 28.05854468627963,
+  "market_state": 0,
+  "ensemble_forecast": 28.383999999999983,
+  "forecast_change_pct": 1.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

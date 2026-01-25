@@ -3,10 +3,11 @@
   "name": "招商银行",
   "latest_close": 41.06,
   "kalman_price": 41.09649323003862,
-  "particle_price": 41.05680995804827,
+  "particle_price": 41.05928857615723,
   "market_state": 0,
-  "ensemble_forecast": 40.777300000000025,
-  "forecast_change_pct": -0.69,
+  "ensemble_forecast": 40.805500000000016,
+  "forecast_change_pct": -0.62,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

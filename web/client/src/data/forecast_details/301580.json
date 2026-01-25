@@ -1,0 +1,13 @@
+{
+  "code": "301580",
+  "name": "爱迪特",
+  "latest_close": 48.8,
+  "kalman_price": 48.67295506353657,
+  "particle_price": 48.37561993357866,
+  "market_state": 0,
+  "ensemble_forecast": 48.85460000000003,
+  "forecast_change_pct": 0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

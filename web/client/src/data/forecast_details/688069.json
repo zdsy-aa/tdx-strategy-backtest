@@ -1,0 +1,13 @@
+{
+  "code": "688069",
+  "name": "德林海",
+  "latest_close": 23.1,
+  "kalman_price": 23.307626938412657,
+  "particle_price": 23.09251258270039,
+  "market_state": 2,
+  "ensemble_forecast": 23.1354,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

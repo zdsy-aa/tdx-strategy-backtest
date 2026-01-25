@@ -1,0 +1,13 @@
+{
+  "code": "300296",
+  "name": "利亚德",
+  "latest_close": 6.93,
+  "kalman_price": 6.875068618738556,
+  "particle_price": 6.923462323647722,
+  "market_state": 0,
+  "ensemble_forecast": 6.7778000000000045,
+  "forecast_change_pct": -2.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600242",
+  "name": "退市中昌",
+  "latest_close": 0.23,
+  "kalman_price": 0.22050730178333283,
+  "particle_price": 0.21882998081492946,
+  "market_state": 2,
+  "ensemble_forecast": 0.22960000000000022,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2023-06-20",
+  "forecast_date": "2023-06-21"
+}

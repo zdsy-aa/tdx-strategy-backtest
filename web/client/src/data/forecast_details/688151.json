@@ -1,0 +1,13 @@
+{
+  "code": "688151",
+  "name": "华强科技",
+  "latest_close": 21.24,
+  "kalman_price": 21.391035944804837,
+  "particle_price": 21.25843990624372,
+  "market_state": 0,
+  "ensemble_forecast": 21.274300000000004,
+  "forecast_change_pct": 0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

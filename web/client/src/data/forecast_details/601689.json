@@ -1,0 +1,13 @@
+{
+  "code": "601689",
+  "name": "拓普集团",
+  "latest_close": 73.15,
+  "kalman_price": 73.90913988849928,
+  "particle_price": 73.15142960931468,
+  "market_state": 2,
+  "ensemble_forecast": 73.86329999999991,
+  "forecast_change_pct": 0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

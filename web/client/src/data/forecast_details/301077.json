@@ -1,0 +1,13 @@
+{
+  "code": "301077",
+  "name": "星华新材",
+  "latest_close": 31.0,
+  "kalman_price": 29.65339022499814,
+  "particle_price": 28.181781724201535,
+  "market_state": 0,
+  "ensemble_forecast": 29.824000000000005,
+  "forecast_change_pct": -3.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

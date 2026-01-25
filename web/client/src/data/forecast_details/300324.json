@@ -1,0 +1,13 @@
+{
+  "code": "300324",
+  "name": "旋极信息",
+  "latest_close": 6.62,
+  "kalman_price": 6.619970448725348,
+  "particle_price": 6.614921385866817,
+  "market_state": 0,
+  "ensemble_forecast": 6.522800000000001,
+  "forecast_change_pct": -1.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

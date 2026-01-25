@@ -1,0 +1,13 @@
+{
+  "code": "002859",
+  "name": "洁美科技",
+  "latest_close": 30.13,
+  "kalman_price": 29.708751317400885,
+  "particle_price": 30.068057056732865,
+  "market_state": 0,
+  "ensemble_forecast": 29.3501,
+  "forecast_change_pct": -2.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

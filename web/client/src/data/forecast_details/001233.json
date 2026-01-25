@@ -1,0 +1,13 @@
+{
+  "code": "001233",
+  "name": "海安集团",
+  "latest_close": 67.18,
+  "kalman_price": 66.52182329545596,
+  "particle_price": 64.33946226472546,
+  "market_state": 2,
+  "ensemble_forecast": 65.28990000000007,
+  "forecast_change_pct": -2.81,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

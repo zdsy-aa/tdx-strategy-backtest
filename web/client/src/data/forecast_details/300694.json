@@ -1,0 +1,13 @@
+{
+  "code": "300694",
+  "name": "蠡湖股份",
+  "latest_close": 12.21,
+  "kalman_price": 12.183026588830822,
+  "particle_price": 12.218025009344611,
+  "market_state": 0,
+  "ensemble_forecast": 12.125899999999996,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

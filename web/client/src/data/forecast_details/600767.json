@@ -1,0 +1,13 @@
+{
+  "code": "600767",
+  "name": "退市运盛",
+  "latest_close": 0.42,
+  "kalman_price": 0.401301087499828,
+  "particle_price": 0.41390461112483906,
+  "market_state": 2,
+  "ensemble_forecast": 0.41650000000000026,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2023-06-20",
+  "forecast_date": "2023-06-21"
+}

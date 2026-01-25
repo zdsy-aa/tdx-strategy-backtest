@@ -1,0 +1,13 @@
+{
+  "code": "605218",
+  "name": "伟时电子",
+  "latest_close": 19.24,
+  "kalman_price": 19.193894889583234,
+  "particle_price": 19.22259818344387,
+  "market_state": 2,
+  "ensemble_forecast": 19.1389,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "003029",
+  "name": "吉大正元",
+  "latest_close": 28.02,
+  "kalman_price": 27.74633401588332,
+  "particle_price": 27.976050424176144,
+  "market_state": 2,
+  "ensemble_forecast": 27.561100000000007,
+  "forecast_change_pct": -1.64,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

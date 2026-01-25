@@ -3,10 +3,11 @@
   "name": "三一重工",
   "latest_close": 22.33,
   "kalman_price": 22.137846426794606,
-  "particle_price": 22.327265763586574,
+  "particle_price": 22.292409870295383,
   "market_state": 0,
-  "ensemble_forecast": 22.1671,
-  "forecast_change_pct": -0.73,
+  "ensemble_forecast": 22.1803,
+  "forecast_change_pct": -0.67,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

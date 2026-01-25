@@ -1,0 +1,13 @@
+{
+  "code": "000780",
+  "name": "ST平能",
+  "latest_close": 10.52,
+  "kalman_price": 10.92162855479957,
+  "particle_price": 10.56630352615861,
+  "market_state": 2,
+  "ensemble_forecast": 10.5681,
+  "forecast_change_pct": 0.46,
+  "confidence": 0.95,
+  "analysis_date": "2021-12-16",
+  "forecast_date": "2021-12-17"
+}

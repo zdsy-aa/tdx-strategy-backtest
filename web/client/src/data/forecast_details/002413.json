@@ -1,0 +1,13 @@
+{
+  "code": "002413",
+  "name": "雷科防务",
+  "latest_close": 18.12,
+  "kalman_price": 18.553910003438794,
+  "particle_price": 13.432487405599103,
+  "market_state": 0,
+  "ensemble_forecast": 17.334499999999995,
+  "forecast_change_pct": -4.33,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

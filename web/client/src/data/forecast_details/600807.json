@@ -1,0 +1,13 @@
+{
+  "code": "600807",
+  "name": "济高发展",
+  "latest_close": 3.52,
+  "kalman_price": 3.360876710826171,
+  "particle_price": 3.4972552459356576,
+  "market_state": 2,
+  "ensemble_forecast": 3.5578999999999996,
+  "forecast_change_pct": 1.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

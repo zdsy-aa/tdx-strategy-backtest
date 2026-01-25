@@ -1,0 +1,13 @@
+{
+  "code": "603019",
+  "name": "中科曙光",
+  "latest_close": 93.04,
+  "kalman_price": 92.91894562452946,
+  "particle_price": 92.22163189572338,
+  "market_state": 1,
+  "ensemble_forecast": 93.42120000000004,
+  "forecast_change_pct": 0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

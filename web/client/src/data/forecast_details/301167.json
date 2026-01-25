@@ -1,0 +1,13 @@
+{
+  "code": "301167",
+  "name": "建研设计",
+  "latest_close": 16.66,
+  "kalman_price": 16.488544886115744,
+  "particle_price": 16.633986330866286,
+  "market_state": 1,
+  "ensemble_forecast": 16.781999999999986,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

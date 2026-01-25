@@ -1,0 +1,13 @@
+{
+  "code": "920046",
+  "name": "亿能电力",
+  "latest_close": 14.26,
+  "kalman_price": 14.07193775141305,
+  "particle_price": 14.18116014257129,
+  "market_state": 0,
+  "ensemble_forecast": 14.315000000000007,
+  "forecast_change_pct": 0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

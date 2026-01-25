@@ -1,0 +1,13 @@
+{
+  "code": "301015",
+  "name": "百洋医药",
+  "latest_close": 24.78,
+  "kalman_price": 24.803812358189695,
+  "particle_price": 24.749599277630715,
+  "market_state": 0,
+  "ensemble_forecast": 24.78579999999999,
+  "forecast_change_pct": 0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

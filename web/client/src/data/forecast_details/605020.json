@@ -1,0 +1,13 @@
+{
+  "code": "605020",
+  "name": "永和股份",
+  "latest_close": 26.7,
+  "kalman_price": 26.81139476053649,
+  "particle_price": 26.68765641000312,
+  "market_state": 0,
+  "ensemble_forecast": 26.471600000000002,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

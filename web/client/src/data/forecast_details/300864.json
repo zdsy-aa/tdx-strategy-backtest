@@ -1,0 +1,13 @@
+{
+  "code": "300864",
+  "name": "南大环境",
+  "latest_close": 20.23,
+  "kalman_price": 20.131029785813634,
+  "particle_price": 20.217169334870224,
+  "market_state": 2,
+  "ensemble_forecast": 20.651800000000016,
+  "forecast_change_pct": 2.09,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

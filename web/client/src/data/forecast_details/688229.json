@@ -1,0 +1,13 @@
+{
+  "code": "688229",
+  "name": "博睿数据",
+  "latest_close": 81.1,
+  "kalman_price": 75.77750120029746,
+  "particle_price": 61.26661959294765,
+  "market_state": 2,
+  "ensemble_forecast": 81.30899999999993,
+  "forecast_change_pct": 0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "605168",
+  "name": "三人行",
+  "latest_close": 42.88,
+  "kalman_price": 43.26976442814032,
+  "particle_price": 37.299504661770555,
+  "market_state": 2,
+  "ensemble_forecast": 42.78420000000001,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

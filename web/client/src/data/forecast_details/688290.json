@@ -1,0 +1,13 @@
+{
+  "code": "688290",
+  "name": "景业智能",
+  "latest_close": 62.3,
+  "kalman_price": 63.04180857574477,
+  "particle_price": 62.07041298658018,
+  "market_state": 0,
+  "ensemble_forecast": 61.15739999999997,
+  "forecast_change_pct": -1.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

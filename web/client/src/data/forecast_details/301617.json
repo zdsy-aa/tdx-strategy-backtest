@@ -1,0 +1,13 @@
+{
+  "code": "301617",
+  "name": "博苑股份",
+  "latest_close": 85.26,
+  "kalman_price": 85.7973475801734,
+  "particle_price": 62.511729111200694,
+  "market_state": 0,
+  "ensemble_forecast": 83.1257,
+  "forecast_change_pct": -2.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

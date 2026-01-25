@@ -1,0 +1,13 @@
+{
+  "code": "301085",
+  "name": "亚康股份",
+  "latest_close": 58.2,
+  "kalman_price": 57.8072811755674,
+  "particle_price": 55.142809608106546,
+  "market_state": 0,
+  "ensemble_forecast": 57.75880000000002,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

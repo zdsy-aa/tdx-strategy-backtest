@@ -1,0 +1,13 @@
+{
+  "code": "002219",
+  "name": "新里程",
+  "latest_close": 2.43,
+  "kalman_price": 2.2896989205318588,
+  "particle_price": 2.389480723275126,
+  "market_state": 1,
+  "ensemble_forecast": 2.4157999999999986,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

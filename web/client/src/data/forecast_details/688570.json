@@ -1,0 +1,13 @@
+{
+  "code": "688570",
+  "name": "天玛智控",
+  "latest_close": 19.28,
+  "kalman_price": 19.056617695632447,
+  "particle_price": 19.227297109479224,
+  "market_state": 2,
+  "ensemble_forecast": 19.139299999999977,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

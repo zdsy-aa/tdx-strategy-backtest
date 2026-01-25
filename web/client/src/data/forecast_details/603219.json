@@ -1,0 +1,13 @@
+{
+  "code": "603219",
+  "name": "富佳股份",
+  "latest_close": 17.34,
+  "kalman_price": 17.556460804528022,
+  "particle_price": 17.367215392882347,
+  "market_state": 2,
+  "ensemble_forecast": 17.0999,
+  "forecast_change_pct": -1.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

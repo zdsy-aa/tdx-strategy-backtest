@@ -1,0 +1,13 @@
+{
+  "code": "601228",
+  "name": "广州港",
+  "latest_close": 3.55,
+  "kalman_price": 3.3906128242633855,
+  "particle_price": 3.5280978627751534,
+  "market_state": 1,
+  "ensemble_forecast": 3.5453000000000015,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

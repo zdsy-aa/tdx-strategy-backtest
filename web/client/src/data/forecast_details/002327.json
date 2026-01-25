@@ -1,0 +1,13 @@
+{
+  "code": "002327",
+  "name": "富安娜",
+  "latest_close": 6.74,
+  "kalman_price": 6.700080150881267,
+  "particle_price": 6.73931496787421,
+  "market_state": 0,
+  "ensemble_forecast": 6.717200000000008,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "001325",
+  "name": "元创股份",
+  "latest_close": 50.0,
+  "kalman_price": 49.82975008826528,
+  "particle_price": 63.4254812046736,
+  "market_state": 2,
+  "ensemble_forecast": 49.97919999999997,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

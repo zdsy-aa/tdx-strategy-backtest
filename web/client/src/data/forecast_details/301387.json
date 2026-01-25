@@ -1,0 +1,13 @@
+{
+  "code": "301387",
+  "name": "光大同创",
+  "latest_close": 57.66,
+  "kalman_price": 57.47722435177452,
+  "particle_price": 47.52070541701524,
+  "market_state": 0,
+  "ensemble_forecast": 56.23710000000003,
+  "forecast_change_pct": -2.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

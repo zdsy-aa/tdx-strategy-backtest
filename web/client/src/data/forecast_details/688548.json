@@ -1,0 +1,13 @@
+{
+  "code": "688548",
+  "name": "广钢气体",
+  "latest_close": 18.4,
+  "kalman_price": 18.570067987668274,
+  "particle_price": 18.27739310094773,
+  "market_state": 0,
+  "ensemble_forecast": 17.991800000000012,
+  "forecast_change_pct": -2.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

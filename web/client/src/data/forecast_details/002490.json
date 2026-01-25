@@ -1,0 +1,13 @@
+{
+  "code": "002490",
+  "name": "山东墨龙",
+  "latest_close": 7.41,
+  "kalman_price": 7.540504130886246,
+  "particle_price": 7.407795614192182,
+  "market_state": 2,
+  "ensemble_forecast": 7.489999999999998,
+  "forecast_change_pct": 1.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

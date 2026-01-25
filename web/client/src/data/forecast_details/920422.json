@@ -1,0 +1,13 @@
+{
+  "code": "920422",
+  "name": "润普食品",
+  "latest_close": 13.81,
+  "kalman_price": 13.564404848023639,
+  "particle_price": 13.738850528094556,
+  "market_state": 0,
+  "ensemble_forecast": 13.731100000000003,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

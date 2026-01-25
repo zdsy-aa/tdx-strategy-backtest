@@ -1,0 +1,13 @@
+{
+  "code": "600267",
+  "name": "海正药业",
+  "latest_close": 10.56,
+  "kalman_price": 10.543450672219615,
+  "particle_price": 10.538627847623996,
+  "market_state": 1,
+  "ensemble_forecast": 10.501900000000003,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

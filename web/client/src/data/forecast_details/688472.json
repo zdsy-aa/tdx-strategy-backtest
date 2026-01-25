@@ -1,0 +1,13 @@
+{
+  "code": "688472",
+  "name": "阿特斯",
+  "latest_close": 15.03,
+  "kalman_price": 15.150742456587155,
+  "particle_price": 15.063139135437513,
+  "market_state": 0,
+  "ensemble_forecast": 14.892099999999989,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

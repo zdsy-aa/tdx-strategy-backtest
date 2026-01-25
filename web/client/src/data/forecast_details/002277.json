@@ -1,0 +1,13 @@
+{
+  "code": "002277",
+  "name": "友阿股份",
+  "latest_close": 8.02,
+  "kalman_price": 7.984804459666733,
+  "particle_price": 8.017268927805585,
+  "market_state": 1,
+  "ensemble_forecast": 7.799599999999998,
+  "forecast_change_pct": -2.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

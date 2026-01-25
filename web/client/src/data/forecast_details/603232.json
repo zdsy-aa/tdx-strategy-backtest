@@ -1,0 +1,13 @@
+{
+  "code": "603232",
+  "name": "格尔软件",
+  "latest_close": 25.51,
+  "kalman_price": 24.91651115145099,
+  "particle_price": 24.9210599563807,
+  "market_state": 0,
+  "ensemble_forecast": 25.2583,
+  "forecast_change_pct": -0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

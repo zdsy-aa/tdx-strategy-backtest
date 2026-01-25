@@ -1,0 +1,13 @@
+{
+  "code": "601838",
+  "name": "成都银行",
+  "latest_close": 16.07,
+  "kalman_price": 16.059380948540866,
+  "particle_price": 16.075748072648814,
+  "market_state": 0,
+  "ensemble_forecast": 16.179699999999997,
+  "forecast_change_pct": 0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

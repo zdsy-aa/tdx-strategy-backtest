@@ -1,0 +1,13 @@
+{
+  "code": "002419",
+  "name": "天虹股份",
+  "latest_close": 6.08,
+  "kalman_price": 5.871956791248749,
+  "particle_price": 6.06573691253004,
+  "market_state": 0,
+  "ensemble_forecast": 5.953899999999994,
+  "forecast_change_pct": -2.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

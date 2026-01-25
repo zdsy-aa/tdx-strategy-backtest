@@ -1,0 +1,13 @@
+{
+  "code": "000956",
+  "name": "中原油气",
+  "latest_close": 11.85,
+  "kalman_price": 11.950954324811825,
+  "particle_price": 11.883704005474284,
+  "market_state": 1,
+  "ensemble_forecast": 11.861500000000001,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2006-04-06",
+  "forecast_date": "2006-04-07"
+}

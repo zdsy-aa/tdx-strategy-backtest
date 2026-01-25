@@ -1,0 +1,13 @@
+{
+  "code": "300018",
+  "name": "中元股份",
+  "latest_close": 12.1,
+  "kalman_price": 12.386862080701016,
+  "particle_price": 12.123148121671283,
+  "market_state": 0,
+  "ensemble_forecast": 12.347100000000003,
+  "forecast_change_pct": 2.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

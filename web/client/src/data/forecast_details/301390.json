@@ -1,0 +1,13 @@
+{
+  "code": "301390",
+  "name": "经纬股份",
+  "latest_close": 35.47,
+  "kalman_price": 35.056464169736714,
+  "particle_price": 35.32061452691353,
+  "market_state": 1,
+  "ensemble_forecast": 35.621,
+  "forecast_change_pct": 0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

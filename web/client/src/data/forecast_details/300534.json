@@ -1,0 +1,13 @@
+{
+  "code": "300534",
+  "name": "陇神戎发",
+  "latest_close": 9.81,
+  "kalman_price": 9.740270829762407,
+  "particle_price": 9.80043925008863,
+  "market_state": 0,
+  "ensemble_forecast": 9.975900000000003,
+  "forecast_change_pct": 1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

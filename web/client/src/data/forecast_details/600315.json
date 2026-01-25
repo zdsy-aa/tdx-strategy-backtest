@@ -1,0 +1,13 @@
+{
+  "code": "600315",
+  "name": "上海家化",
+  "latest_close": 23.41,
+  "kalman_price": 23.35508178664482,
+  "particle_price": 23.392481212345356,
+  "market_state": 0,
+  "ensemble_forecast": 23.27619999999999,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

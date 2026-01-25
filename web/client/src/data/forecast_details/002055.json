@@ -1,0 +1,13 @@
+{
+  "code": "002055",
+  "name": "ST得润",
+  "latest_close": 5.67,
+  "kalman_price": 5.508792315244144,
+  "particle_price": 5.659018642883147,
+  "market_state": 0,
+  "ensemble_forecast": 5.676500000000001,
+  "forecast_change_pct": 0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

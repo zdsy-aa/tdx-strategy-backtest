@@ -1,0 +1,13 @@
+{
+  "code": "688380",
+  "name": "中微半导",
+  "latest_close": 34.28,
+  "kalman_price": 34.47910675320337,
+  "particle_price": 34.2580035533766,
+  "market_state": 2,
+  "ensemble_forecast": 33.44850000000001,
+  "forecast_change_pct": -2.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

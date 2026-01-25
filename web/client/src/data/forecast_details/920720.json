@@ -1,0 +1,13 @@
+{
+  "code": "920720",
+  "name": "吉冈精密",
+  "latest_close": 14.7,
+  "kalman_price": 14.481421910801952,
+  "particle_price": 14.698763037327252,
+  "market_state": 0,
+  "ensemble_forecast": 14.671299999999999,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

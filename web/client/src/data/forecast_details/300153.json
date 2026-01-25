@@ -1,0 +1,13 @@
+{
+  "code": "300153",
+  "name": "科泰电源",
+  "latest_close": 34.11,
+  "kalman_price": 34.15583957128881,
+  "particle_price": 32.65873681696533,
+  "market_state": 2,
+  "ensemble_forecast": 33.734700000000004,
+  "forecast_change_pct": -1.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301123",
+  "name": "奕东电子",
+  "latest_close": 66.71,
+  "kalman_price": 67.67480713162603,
+  "particle_price": 47.48463617244185,
+  "market_state": 2,
+  "ensemble_forecast": 67.32799999999999,
+  "forecast_change_pct": 0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

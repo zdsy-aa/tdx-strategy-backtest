@@ -1,0 +1,13 @@
+{
+  "code": "920273",
+  "name": "一致魔芋",
+  "latest_close": 34.66,
+  "kalman_price": 33.95504004345635,
+  "particle_price": 33.98300902959816,
+  "market_state": 0,
+  "ensemble_forecast": 34.69450000000001,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

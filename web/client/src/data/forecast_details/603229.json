@@ -1,0 +1,13 @@
+{
+  "code": "603229",
+  "name": "奥翔药业",
+  "latest_close": 10.21,
+  "kalman_price": 10.244482563977574,
+  "particle_price": 10.199266497784912,
+  "market_state": 1,
+  "ensemble_forecast": 10.319000000000003,
+  "forecast_change_pct": 1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

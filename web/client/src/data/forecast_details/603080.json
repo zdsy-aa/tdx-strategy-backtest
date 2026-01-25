@@ -1,0 +1,13 @@
+{
+  "code": "603080",
+  "name": "新疆火炬",
+  "latest_close": 24.38,
+  "kalman_price": 24.732050185328276,
+  "particle_price": 24.428206774564583,
+  "market_state": 0,
+  "ensemble_forecast": 23.976899999999986,
+  "forecast_change_pct": -1.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

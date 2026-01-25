@@ -1,0 +1,13 @@
+{
+  "code": "605186",
+  "name": "健麾信息",
+  "latest_close": 20.94,
+  "kalman_price": 20.526315883009193,
+  "particle_price": 20.76488200877265,
+  "market_state": 2,
+  "ensemble_forecast": 21.289799999999996,
+  "forecast_change_pct": 1.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

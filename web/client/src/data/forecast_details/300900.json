@@ -1,0 +1,13 @@
+{
+  "code": "300900",
+  "name": "广联航空",
+  "latest_close": 37.23,
+  "kalman_price": 40.27105702522574,
+  "particle_price": 24.475365322547617,
+  "market_state": 1,
+  "ensemble_forecast": 38.53650000000002,
+  "forecast_change_pct": 3.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

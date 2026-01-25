@@ -1,0 +1,13 @@
+{
+  "code": "002850",
+  "name": "科达利",
+  "latest_close": 160.89,
+  "kalman_price": 158.0709311786199,
+  "particle_price": 141.75101519186668,
+  "market_state": 0,
+  "ensemble_forecast": 159.55679999999995,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

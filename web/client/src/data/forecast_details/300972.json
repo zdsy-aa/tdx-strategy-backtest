@@ -1,0 +1,13 @@
+{
+  "code": "300972",
+  "name": "万辰集团",
+  "latest_close": 195.0,
+  "kalman_price": 197.84698254745547,
+  "particle_price": 92.59239295248935,
+  "market_state": 1,
+  "ensemble_forecast": 193.41349999999994,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

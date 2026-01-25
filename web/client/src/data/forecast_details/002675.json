@@ -1,0 +1,13 @@
+{
+  "code": "002675",
+  "name": "东诚药业",
+  "latest_close": 14.55,
+  "kalman_price": 14.529755721716885,
+  "particle_price": 14.518007127974009,
+  "market_state": 0,
+  "ensemble_forecast": 14.594800000000006,
+  "forecast_change_pct": 0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

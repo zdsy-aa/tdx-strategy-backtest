@@ -1,0 +1,13 @@
+{
+  "code": "300336",
+  "name": "新文退",
+  "latest_close": 0.23,
+  "kalman_price": 0.23379036016622137,
+  "particle_price": 0.23434185676760058,
+  "market_state": 0,
+  "ensemble_forecast": 0.23170000000000018,
+  "forecast_change_pct": 0.74,
+  "confidence": 0.95,
+  "analysis_date": "2023-07-04",
+  "forecast_date": "2023-07-05"
+}

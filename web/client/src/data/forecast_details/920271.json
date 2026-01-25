@@ -1,0 +1,13 @@
+{
+  "code": "920271",
+  "name": "邦德股份",
+  "latest_close": 16.63,
+  "kalman_price": 16.5357522805742,
+  "particle_price": 16.586464425463696,
+  "market_state": 0,
+  "ensemble_forecast": 16.714300000000005,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

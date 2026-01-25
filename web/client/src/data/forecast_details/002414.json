@@ -1,0 +1,13 @@
+{
+  "code": "002414",
+  "name": "高德红外",
+  "latest_close": 16.06,
+  "kalman_price": 16.294713369996867,
+  "particle_price": 16.067247084492855,
+  "market_state": 2,
+  "ensemble_forecast": 15.995899999999995,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

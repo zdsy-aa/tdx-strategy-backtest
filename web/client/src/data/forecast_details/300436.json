@@ -1,0 +1,13 @@
+{
+  "code": "300436",
+  "name": "广生堂",
+  "latest_close": 91.59,
+  "kalman_price": 91.01225796672053,
+  "particle_price": 65.10948762238964,
+  "market_state": 0,
+  "ensemble_forecast": 94.30380000000005,
+  "forecast_change_pct": 2.96,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

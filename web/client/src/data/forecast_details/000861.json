@@ -1,0 +1,13 @@
+{
+  "code": "000861",
+  "name": "海印股份",
+  "latest_close": 0.62,
+  "kalman_price": 0.7071916208607122,
+  "particle_price": 0.6207938191927349,
+  "market_state": 0,
+  "ensemble_forecast": 0.5718999999999999,
+  "forecast_change_pct": -7.76,
+  "confidence": 0.75,
+  "analysis_date": "2024-08-05",
+  "forecast_date": "2024-08-06"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300171",
+  "name": "东富龙",
+  "latest_close": 17.59,
+  "kalman_price": 17.351831680308646,
+  "particle_price": 17.53012101822275,
+  "market_state": 0,
+  "ensemble_forecast": 18.074900000000003,
+  "forecast_change_pct": 2.76,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

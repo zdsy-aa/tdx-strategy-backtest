@@ -1,0 +1,13 @@
+{
+  "code": "300684",
+  "name": "中石科技",
+  "latest_close": 48.27,
+  "kalman_price": 47.95167163428186,
+  "particle_price": 48.19046050758673,
+  "market_state": 0,
+  "ensemble_forecast": 48.17160000000004,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601187",
+  "name": "厦门银行",
+  "latest_close": 7.22,
+  "kalman_price": 7.088337825355558,
+  "particle_price": 7.215786968417564,
+  "market_state": 0,
+  "ensemble_forecast": 7.187799999999999,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300854",
+  "name": "中兰环保",
+  "latest_close": 17.71,
+  "kalman_price": 17.51097505611633,
+  "particle_price": 17.671143731478804,
+  "market_state": 1,
+  "ensemble_forecast": 17.601900000000004,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

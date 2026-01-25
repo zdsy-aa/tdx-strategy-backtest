@@ -1,0 +1,13 @@
+{
+  "code": "688029",
+  "name": "南微医学",
+  "latest_close": 87.15,
+  "kalman_price": 86.63889356417246,
+  "particle_price": 83.13939460137243,
+  "market_state": 0,
+  "ensemble_forecast": 88.15030000000004,
+  "forecast_change_pct": 1.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

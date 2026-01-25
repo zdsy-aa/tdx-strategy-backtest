@@ -1,0 +1,13 @@
+{
+  "code": "603797",
+  "name": "联泰环保",
+  "latest_close": 4.82,
+  "kalman_price": 4.834684826502951,
+  "particle_price": 4.812415171467354,
+  "market_state": 0,
+  "ensemble_forecast": 4.793500000000002,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

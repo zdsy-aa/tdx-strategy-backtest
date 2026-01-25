@@ -1,0 +1,13 @@
+{
+  "code": "600290",
+  "name": "*ST华仪",
+  "latest_close": 0.37,
+  "kalman_price": 0.364636048426003,
+  "particle_price": 0.3703993508172034,
+  "market_state": 2,
+  "ensemble_forecast": 0.41449999999999965,
+  "forecast_change_pct": 12.03,
+  "confidence": 0.65,
+  "analysis_date": "2023-12-25",
+  "forecast_date": "2023-12-26"
+}

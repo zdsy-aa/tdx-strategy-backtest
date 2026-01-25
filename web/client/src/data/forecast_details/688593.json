@@ -1,0 +1,13 @@
+{
+  "code": "688593",
+  "name": "新相微",
+  "latest_close": 21.6,
+  "kalman_price": 21.592392024158947,
+  "particle_price": 21.388926238821384,
+  "market_state": 0,
+  "ensemble_forecast": 21.294700000000002,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

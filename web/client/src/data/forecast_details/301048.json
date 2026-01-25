@@ -1,0 +1,13 @@
+{
+  "code": "301048",
+  "name": "金鹰重工",
+  "latest_close": 11.74,
+  "kalman_price": 11.711323356761811,
+  "particle_price": 11.727880439210304,
+  "market_state": 2,
+  "ensemble_forecast": 11.586600000000006,
+  "forecast_change_pct": -1.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

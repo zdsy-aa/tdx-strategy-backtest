@@ -1,0 +1,13 @@
+{
+  "code": "300077",
+  "name": "国民技术",
+  "latest_close": 22.05,
+  "kalman_price": 21.679975493352266,
+  "particle_price": 21.891827441001627,
+  "market_state": 0,
+  "ensemble_forecast": 21.83859999999999,
+  "forecast_change_pct": -0.96,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

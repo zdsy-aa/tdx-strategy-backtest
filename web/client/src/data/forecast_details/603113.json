@@ -1,0 +1,13 @@
+{
+  "code": "603113",
+  "name": "金能科技",
+  "latest_close": 6.43,
+  "kalman_price": 6.451895456895427,
+  "particle_price": 6.433483145830803,
+  "market_state": 0,
+  "ensemble_forecast": 6.410499999999997,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

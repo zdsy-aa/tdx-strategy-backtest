@@ -1,0 +1,13 @@
+{
+  "code": "603176",
+  "name": "汇通集团",
+  "latest_close": 5.43,
+  "kalman_price": 5.401931763628266,
+  "particle_price": 5.4340563640923305,
+  "market_state": 0,
+  "ensemble_forecast": 5.392899999999998,
+  "forecast_change_pct": -0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

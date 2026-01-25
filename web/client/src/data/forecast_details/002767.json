@@ -1,0 +1,13 @@
+{
+  "code": "002767",
+  "name": "先锋电子",
+  "latest_close": 21.94,
+  "kalman_price": 21.85498597882433,
+  "particle_price": 21.91136003097588,
+  "market_state": 2,
+  "ensemble_forecast": 22.250500000000002,
+  "forecast_change_pct": 1.42,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

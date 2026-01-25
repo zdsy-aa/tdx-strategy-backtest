@@ -1,0 +1,13 @@
+{
+  "code": "002293",
+  "name": "罗莱生活",
+  "latest_close": 9.51,
+  "kalman_price": 9.43183751633477,
+  "particle_price": 9.507626853065874,
+  "market_state": 0,
+  "ensemble_forecast": 9.538199999999996,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

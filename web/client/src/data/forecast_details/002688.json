@@ -1,0 +1,13 @@
+{
+  "code": "002688",
+  "name": "金河生物",
+  "latest_close": 6.16,
+  "kalman_price": 6.1414383443683835,
+  "particle_price": 6.159919596073685,
+  "market_state": 2,
+  "ensemble_forecast": 6.162800000000001,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

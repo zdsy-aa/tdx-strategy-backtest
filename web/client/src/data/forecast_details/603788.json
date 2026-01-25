@@ -1,0 +1,13 @@
+{
+  "code": "603788",
+  "name": "宁波高发",
+  "latest_close": 16.42,
+  "kalman_price": 16.4930061123175,
+  "particle_price": 16.410831873784012,
+  "market_state": 2,
+  "ensemble_forecast": 16.391400000000008,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

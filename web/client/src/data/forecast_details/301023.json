@@ -1,0 +1,13 @@
+{
+  "code": "301023",
+  "name": "奕帆传动",
+  "latest_close": 41.88,
+  "kalman_price": 41.864099439416364,
+  "particle_price": 41.86405310847963,
+  "market_state": 0,
+  "ensemble_forecast": 41.85670000000001,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603388",
+  "name": "*ST元成",
+  "latest_close": 0.58,
+  "kalman_price": 0.5699682015059656,
+  "particle_price": 0.5958020255888423,
+  "market_state": 2,
+  "ensemble_forecast": 0.6080999999999993,
+  "forecast_change_pct": 4.84,
+  "confidence": 0.85,
+  "analysis_date": "2025-11-10",
+  "forecast_date": "2025-11-11"
+}

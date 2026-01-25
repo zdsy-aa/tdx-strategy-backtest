@@ -1,0 +1,13 @@
+{
+  "code": "301098",
+  "name": "金埔园林",
+  "latest_close": 8.77,
+  "kalman_price": 8.713820873315273,
+  "particle_price": 8.779504973930363,
+  "market_state": 1,
+  "ensemble_forecast": 8.796800000000001,
+  "forecast_change_pct": 0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

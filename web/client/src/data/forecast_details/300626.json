@@ -1,0 +1,13 @@
+{
+  "code": "300626",
+  "name": "华瑞股份",
+  "latest_close": 17.34,
+  "kalman_price": 16.714619352030226,
+  "particle_price": 15.904332030162802,
+  "market_state": 1,
+  "ensemble_forecast": 17.2499,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300276",
+  "name": "三丰智能",
+  "latest_close": 9.72,
+  "kalman_price": 9.717376097167886,
+  "particle_price": 9.716948442746006,
+  "market_state": 2,
+  "ensemble_forecast": 9.598099999999995,
+  "forecast_change_pct": -1.25,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

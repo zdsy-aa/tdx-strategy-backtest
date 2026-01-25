@@ -1,0 +1,13 @@
+{
+  "code": "601588",
+  "name": "北辰实业",
+  "latest_close": 1.76,
+  "kalman_price": 1.7612572996042775,
+  "particle_price": 1.7586187645220557,
+  "market_state": 0,
+  "ensemble_forecast": 1.7578000000000005,
+  "forecast_change_pct": -0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

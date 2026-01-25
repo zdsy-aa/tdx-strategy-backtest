@@ -1,0 +1,13 @@
+{
+  "code": "600792",
+  "name": "云煤能源",
+  "latest_close": 4.04,
+  "kalman_price": 4.062698299232146,
+  "particle_price": 4.055250227353754,
+  "market_state": 1,
+  "ensemble_forecast": 4.002799999999999,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

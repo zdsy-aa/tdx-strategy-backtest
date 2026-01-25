@@ -1,0 +1,13 @@
+{
+  "code": "601113",
+  "name": "华鼎股份",
+  "latest_close": 4.66,
+  "kalman_price": 4.67355664961453,
+  "particle_price": 4.657405651800024,
+  "market_state": 0,
+  "ensemble_forecast": 4.6633,
+  "forecast_change_pct": 0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

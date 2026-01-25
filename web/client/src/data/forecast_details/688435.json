@@ -1,0 +1,13 @@
+{
+  "code": "688435",
+  "name": "英方软件",
+  "latest_close": 55.0,
+  "kalman_price": 52.09516084657587,
+  "particle_price": 48.50307844496844,
+  "market_state": 1,
+  "ensemble_forecast": 52.22480000000002,
+  "forecast_change_pct": -5.05,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920496",
+  "name": "许昌智能",
+  "latest_close": 10.64,
+  "kalman_price": 10.454761464797734,
+  "particle_price": 10.623018228840985,
+  "market_state": 0,
+  "ensemble_forecast": 10.674699999999994,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

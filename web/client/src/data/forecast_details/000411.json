@@ -1,0 +1,13 @@
+{
+  "code": "000411",
+  "name": "英特集团",
+  "latest_close": 12.74,
+  "kalman_price": 12.794170868865635,
+  "particle_price": 12.723000573187031,
+  "market_state": 1,
+  "ensemble_forecast": 12.619100000000001,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

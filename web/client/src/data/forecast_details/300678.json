@@ -1,0 +1,13 @@
+{
+  "code": "300678",
+  "name": "中科信息",
+  "latest_close": 35.91,
+  "kalman_price": 35.601294167031135,
+  "particle_price": 35.448265752714974,
+  "market_state": 2,
+  "ensemble_forecast": 35.51730000000002,
+  "forecast_change_pct": -1.09,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

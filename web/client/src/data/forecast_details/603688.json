@@ -1,0 +1,13 @@
+{
+  "code": "603688",
+  "name": "石英股份",
+  "latest_close": 38.63,
+  "kalman_price": 39.09551066596498,
+  "particle_price": 38.6600606350068,
+  "market_state": 0,
+  "ensemble_forecast": 38.49280000000001,
+  "forecast_change_pct": -0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300115",
+  "name": "长盈精密",
+  "latest_close": 43.05,
+  "kalman_price": 44.14364558774671,
+  "particle_price": 43.15326126625311,
+  "market_state": 2,
+  "ensemble_forecast": 43.48920000000001,
+  "forecast_change_pct": 1.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

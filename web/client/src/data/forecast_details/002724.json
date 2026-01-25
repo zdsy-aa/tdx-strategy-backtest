@@ -1,0 +1,13 @@
+{
+  "code": "002724",
+  "name": "海洋王",
+  "latest_close": 6.95,
+  "kalman_price": 6.946219453924868,
+  "particle_price": 6.954458542003266,
+  "market_state": 0,
+  "ensemble_forecast": 6.865300000000003,
+  "forecast_change_pct": -1.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

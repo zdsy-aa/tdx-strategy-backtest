@@ -1,0 +1,13 @@
+{
+  "code": "002690",
+  "name": "美亚光电",
+  "latest_close": 21.37,
+  "kalman_price": 21.28488238757032,
+  "particle_price": 21.36222459577641,
+  "market_state": 0,
+  "ensemble_forecast": 21.1905,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

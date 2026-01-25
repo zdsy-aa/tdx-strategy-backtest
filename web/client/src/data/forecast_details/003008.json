@@ -1,0 +1,13 @@
+{
+  "code": "003008",
+  "name": "开普检测",
+  "latest_close": 22.21,
+  "kalman_price": 21.999831621647797,
+  "particle_price": 22.172483563297725,
+  "market_state": 1,
+  "ensemble_forecast": 22.114799999999995,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

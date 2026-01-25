@@ -1,0 +1,13 @@
+{
+  "code": "000812",
+  "name": "陕西金叶",
+  "latest_close": 4.75,
+  "kalman_price": 4.710485326382036,
+  "particle_price": 4.748943214735915,
+  "market_state": 0,
+  "ensemble_forecast": 4.748799999999998,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

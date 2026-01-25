@@ -1,0 +1,13 @@
+{
+  "code": "001221",
+  "name": "悍高集团",
+  "latest_close": 58.72,
+  "kalman_price": 58.40838680860395,
+  "particle_price": 58.58779621974522,
+  "market_state": 0,
+  "ensemble_forecast": 58.6837,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

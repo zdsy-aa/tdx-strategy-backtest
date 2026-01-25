@@ -1,0 +1,13 @@
+{
+  "code": "002548",
+  "name": "金新农",
+  "latest_close": 6.07,
+  "kalman_price": 6.204025990713896,
+  "particle_price": 6.095833681445065,
+  "market_state": 0,
+  "ensemble_forecast": 6.2953,
+  "forecast_change_pct": 3.71,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

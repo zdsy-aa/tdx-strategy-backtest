@@ -1,0 +1,13 @@
+{
+  "code": "688015",
+  "name": "交控科技",
+  "latest_close": 23.72,
+  "kalman_price": 23.69872812968868,
+  "particle_price": 23.7026236224836,
+  "market_state": 1,
+  "ensemble_forecast": 23.70860000000001,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

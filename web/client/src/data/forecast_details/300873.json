@@ -1,0 +1,13 @@
+{
+  "code": "300873",
+  "name": "海晨股份",
+  "latest_close": 23.4,
+  "kalman_price": 22.84456887377097,
+  "particle_price": 23.049732146982333,
+  "market_state": 0,
+  "ensemble_forecast": 23.2385,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

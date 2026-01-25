@@ -1,0 +1,13 @@
+{
+  "code": "920123",
+  "name": "芭薇股份",
+  "latest_close": 16.17,
+  "kalman_price": 15.681904381014308,
+  "particle_price": 16.028234210882943,
+  "market_state": 1,
+  "ensemble_forecast": 15.910699999999997,
+  "forecast_change_pct": -1.6,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301273",
+  "name": "瑞晨环保",
+  "latest_close": 27.06,
+  "kalman_price": 26.85985673598474,
+  "particle_price": 27.054114276349843,
+  "market_state": 1,
+  "ensemble_forecast": 27.037399999999987,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

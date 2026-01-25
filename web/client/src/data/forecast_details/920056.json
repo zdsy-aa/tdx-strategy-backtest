@@ -1,0 +1,13 @@
+{
+  "code": "920056",
+  "name": "能之光",
+  "latest_close": 26.11,
+  "kalman_price": 25.83619390061877,
+  "particle_price": 26.075334320741504,
+  "market_state": 0,
+  "ensemble_forecast": 26.104600000000005,
+  "forecast_change_pct": -0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000716",
+  "name": "黑芝麻",
+  "latest_close": 6.29,
+  "kalman_price": 6.221905311410314,
+  "particle_price": 6.2648189073233,
+  "market_state": 0,
+  "ensemble_forecast": 6.260599999999999,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

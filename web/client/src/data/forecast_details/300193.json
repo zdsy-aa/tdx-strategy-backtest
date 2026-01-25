@@ -1,0 +1,13 @@
+{
+  "code": "300193",
+  "name": "佳士科技",
+  "latest_close": 9.1,
+  "kalman_price": 9.094347126890984,
+  "particle_price": 9.098771082318713,
+  "market_state": 2,
+  "ensemble_forecast": 9.176800000000005,
+  "forecast_change_pct": 0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

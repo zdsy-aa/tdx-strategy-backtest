@@ -1,0 +1,13 @@
+{
+  "code": "688783",
+  "name": "西安奕材-U",
+  "latest_close": 25.35,
+  "kalman_price": 25.869071528194635,
+  "particle_price": 25.43644644813905,
+  "market_state": 0,
+  "ensemble_forecast": 24.906799999999993,
+  "forecast_change_pct": -1.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

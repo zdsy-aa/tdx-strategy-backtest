@@ -1,0 +1,13 @@
+{
+  "code": "301629",
+  "name": "矽电股份",
+  "latest_close": 268.0,
+  "kalman_price": 271.66611376338614,
+  "particle_price": 169.47989983096966,
+  "market_state": 0,
+  "ensemble_forecast": 266.59770000000003,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300197",
+  "name": "节能铁汉",
+  "latest_close": 1.84,
+  "kalman_price": 1.8349247205354153,
+  "particle_price": 1.8552229204814297,
+  "market_state": 0,
+  "ensemble_forecast": 1.8505000000000016,
+  "forecast_change_pct": 0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

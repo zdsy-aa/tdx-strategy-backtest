@@ -1,0 +1,13 @@
+{
+  "code": "603127",
+  "name": "昭衍新药",
+  "latest_close": 40.62,
+  "kalman_price": 41.026338166666356,
+  "particle_price": 36.61019064759548,
+  "market_state": 2,
+  "ensemble_forecast": 40.772399999999976,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

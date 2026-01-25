@@ -1,0 +1,13 @@
+{
+  "code": "301170",
+  "name": "锡南科技",
+  "latest_close": 29.02,
+  "kalman_price": 29.037671185311048,
+  "particle_price": 28.987625265273095,
+  "market_state": 0,
+  "ensemble_forecast": 28.912900000000004,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

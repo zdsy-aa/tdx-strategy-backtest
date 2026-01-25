@@ -1,0 +1,13 @@
+{
+  "code": "688311",
+  "name": "盟升电子",
+  "latest_close": 51.58,
+  "kalman_price": 53.48933652236817,
+  "particle_price": 42.96671198093951,
+  "market_state": 0,
+  "ensemble_forecast": 50.5377,
+  "forecast_change_pct": -2.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

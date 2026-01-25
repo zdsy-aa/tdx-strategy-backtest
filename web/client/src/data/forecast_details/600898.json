@@ -1,0 +1,13 @@
+{
+  "code": "600898",
+  "name": "*ST美讯",
+  "latest_close": 0.74,
+  "kalman_price": 0.7257964518826826,
+  "particle_price": 0.7478393062233936,
+  "market_state": 0,
+  "ensemble_forecast": 0.7669,
+  "forecast_change_pct": 3.64,
+  "confidence": 0.85,
+  "analysis_date": "2025-01-10",
+  "forecast_date": "2025-01-13"
+}

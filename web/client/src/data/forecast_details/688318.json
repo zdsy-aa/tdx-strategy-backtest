@@ -1,0 +1,13 @@
+{
+  "code": "688318",
+  "name": "财富趋势",
+  "latest_close": 152.52,
+  "kalman_price": 148.3702789507786,
+  "particle_price": 131.62767667205864,
+  "market_state": 0,
+  "ensemble_forecast": 149.6307000000001,
+  "forecast_change_pct": -1.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002634",
+  "name": "棒杰股份",
+  "latest_close": 6.07,
+  "kalman_price": 6.112166216629208,
+  "particle_price": 6.068992073596259,
+  "market_state": 0,
+  "ensemble_forecast": 6.014100000000001,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002308",
+  "name": "*ST威创",
+  "latest_close": 0.37,
+  "kalman_price": 0.36475351629018815,
+  "particle_price": 0.3556160540429364,
+  "market_state": 2,
+  "ensemble_forecast": 0.3941999999999999,
+  "forecast_change_pct": 6.54,
+  "confidence": 0.75,
+  "analysis_date": "2024-08-22",
+  "forecast_date": "2024-08-23"
+}

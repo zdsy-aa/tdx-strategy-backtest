@@ -1,0 +1,13 @@
+{
+  "code": "688556",
+  "name": "高测股份",
+  "latest_close": 13.37,
+  "kalman_price": 13.449851924364319,
+  "particle_price": 13.367090058435684,
+  "market_state": 0,
+  "ensemble_forecast": 13.328399999999997,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

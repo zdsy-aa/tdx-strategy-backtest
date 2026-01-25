@@ -1,0 +1,13 @@
+{
+  "code": "000762",
+  "name": "西藏矿业",
+  "latest_close": 28.6,
+  "kalman_price": 28.316954302285765,
+  "particle_price": 28.42855991584443,
+  "market_state": 1,
+  "ensemble_forecast": 28.618399999999983,
+  "forecast_change_pct": 0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "003816",
+  "name": "中国广核",
+  "latest_close": 3.89,
+  "kalman_price": 3.879946585509931,
+  "particle_price": 3.877519967832616,
+  "market_state": 0,
+  "ensemble_forecast": 3.879199999999996,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

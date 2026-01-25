@@ -1,0 +1,13 @@
+{
+  "code": "301359",
+  "name": "东南电子",
+  "latest_close": 19.74,
+  "kalman_price": 19.53402703707087,
+  "particle_price": 19.720763343816895,
+  "market_state": 0,
+  "ensemble_forecast": 19.692000000000007,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

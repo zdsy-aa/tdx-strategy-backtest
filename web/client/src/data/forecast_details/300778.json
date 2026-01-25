@@ -1,0 +1,13 @@
+{
+  "code": "300778",
+  "name": "新城市",
+  "latest_close": 13.57,
+  "kalman_price": 13.609728697988416,
+  "particle_price": 13.575372096458242,
+  "market_state": 1,
+  "ensemble_forecast": 13.540900000000004,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603313",
+  "name": "梦百合",
+  "latest_close": 9.43,
+  "kalman_price": 9.321250480655507,
+  "particle_price": 9.4280619993693,
+  "market_state": 0,
+  "ensemble_forecast": 9.48299999999999,
+  "forecast_change_pct": 0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

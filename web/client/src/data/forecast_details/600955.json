@@ -1,0 +1,13 @@
+{
+  "code": "600955",
+  "name": "维远股份",
+  "latest_close": 17.45,
+  "kalman_price": 17.533682606976132,
+  "particle_price": 17.382725437346227,
+  "market_state": 0,
+  "ensemble_forecast": 17.5904,
+  "forecast_change_pct": 0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

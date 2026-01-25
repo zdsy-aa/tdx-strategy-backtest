@@ -1,0 +1,13 @@
+{
+  "code": "601236",
+  "name": "红塔证券",
+  "latest_close": 8.5,
+  "kalman_price": 8.462004242294858,
+  "particle_price": 8.496835088505375,
+  "market_state": 0,
+  "ensemble_forecast": 8.465300000000001,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

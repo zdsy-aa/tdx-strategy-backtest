@@ -1,0 +1,13 @@
+{
+  "code": "301199",
+  "name": "迈赫股份",
+  "latest_close": 24.39,
+  "kalman_price": 24.38673933352511,
+  "particle_price": 24.387639968268342,
+  "market_state": 1,
+  "ensemble_forecast": 24.5534,
+  "forecast_change_pct": 0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

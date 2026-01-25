@@ -1,0 +1,13 @@
+{
+  "code": "002657",
+  "name": "中科金财",
+  "latest_close": 30.0,
+  "kalman_price": 29.652621537926766,
+  "particle_price": 29.79901148825484,
+  "market_state": 2,
+  "ensemble_forecast": 29.760900000000003,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

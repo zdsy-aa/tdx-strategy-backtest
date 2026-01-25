@@ -1,0 +1,13 @@
+{
+  "code": "300264",
+  "name": "佳创视讯",
+  "latest_close": 7.14,
+  "kalman_price": 7.238243802904859,
+  "particle_price": 7.157778561290874,
+  "market_state": 0,
+  "ensemble_forecast": 7.3347000000000016,
+  "forecast_change_pct": 2.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

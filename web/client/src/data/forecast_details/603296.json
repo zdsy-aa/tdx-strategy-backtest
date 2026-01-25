@@ -1,0 +1,13 @@
+{
+  "code": "603296",
+  "name": "华勤技术",
+  "latest_close": 96.31,
+  "kalman_price": 95.25784396434459,
+  "particle_price": 94.22856114870032,
+  "market_state": 0,
+  "ensemble_forecast": 93.32150000000006,
+  "forecast_change_pct": -3.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

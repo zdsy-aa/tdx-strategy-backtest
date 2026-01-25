@@ -1,0 +1,13 @@
+{
+  "code": "603306",
+  "name": "华懋科技",
+  "latest_close": 62.04,
+  "kalman_price": 62.799649555108026,
+  "particle_price": 55.69155089855535,
+  "market_state": 2,
+  "ensemble_forecast": 62.58430000000002,
+  "forecast_change_pct": 0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300674",
+  "name": "宇信科技",
+  "latest_close": 25.39,
+  "kalman_price": 24.66103395024063,
+  "particle_price": 25.1684001774647,
+  "market_state": 2,
+  "ensemble_forecast": 25.189999999999987,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

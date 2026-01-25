@@ -1,0 +1,13 @@
+{
+  "code": "002709",
+  "name": "天赐材料",
+  "latest_close": 43.3,
+  "kalman_price": 43.758694159655164,
+  "particle_price": 43.28410684897083,
+  "market_state": 2,
+  "ensemble_forecast": 42.5814,
+  "forecast_change_pct": -1.66,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

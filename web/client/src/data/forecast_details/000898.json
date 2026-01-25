@@ -1,0 +1,13 @@
+{
+  "code": "000898",
+  "name": "鞍钢股份",
+  "latest_close": 2.56,
+  "kalman_price": 2.556339296192067,
+  "particle_price": 2.565517598693202,
+  "market_state": 1,
+  "ensemble_forecast": 2.573800000000002,
+  "forecast_change_pct": 0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

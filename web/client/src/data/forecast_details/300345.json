@@ -1,0 +1,13 @@
+{
+  "code": "300345",
+  "name": "华民股份",
+  "latest_close": 6.5,
+  "kalman_price": 6.413399820174335,
+  "particle_price": 6.500310056399452,
+  "market_state": 0,
+  "ensemble_forecast": 6.369099999999999,
+  "forecast_change_pct": -2.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

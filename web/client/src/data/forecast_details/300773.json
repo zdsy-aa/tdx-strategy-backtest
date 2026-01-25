@@ -1,0 +1,13 @@
+{
+  "code": "300773",
+  "name": "拉卡拉",
+  "latest_close": 27.1,
+  "kalman_price": 27.236161817325932,
+  "particle_price": 27.080561561275633,
+  "market_state": 2,
+  "ensemble_forecast": 26.392600000000012,
+  "forecast_change_pct": -2.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

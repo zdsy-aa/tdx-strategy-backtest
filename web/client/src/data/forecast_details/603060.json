@@ -1,0 +1,13 @@
+{
+  "code": "603060",
+  "name": "国检集团",
+  "latest_close": 6.29,
+  "kalman_price": 6.232517108152505,
+  "particle_price": 6.269847925108457,
+  "market_state": 1,
+  "ensemble_forecast": 6.242799999999994,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

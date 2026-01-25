@@ -1,0 +1,13 @@
+{
+  "code": "300816",
+  "name": "艾可蓝",
+  "latest_close": 68.8,
+  "kalman_price": 58.55811920593512,
+  "particle_price": 46.40014659709519,
+  "market_state": 1,
+  "ensemble_forecast": 69.33270000000003,
+  "forecast_change_pct": 0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

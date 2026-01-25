@@ -1,0 +1,13 @@
+{
+  "code": "688529",
+  "name": "豪森智能",
+  "latest_close": 19.55,
+  "kalman_price": 19.4427076735149,
+  "particle_price": 19.476871144921876,
+  "market_state": 0,
+  "ensemble_forecast": 19.622000000000003,
+  "forecast_change_pct": 0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920651",
+  "name": "天罡股份",
+  "latest_close": 41.5,
+  "kalman_price": 41.518288621712806,
+  "particle_price": 41.523258335781826,
+  "market_state": 0,
+  "ensemble_forecast": 40.76680000000002,
+  "forecast_change_pct": -1.77,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

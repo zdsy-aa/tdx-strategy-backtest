@@ -1,0 +1,13 @@
+{
+  "code": "688778",
+  "name": "厦钨新能",
+  "latest_close": 82.66,
+  "kalman_price": 82.34597687175034,
+  "particle_price": 76.66937667477204,
+  "market_state": 2,
+  "ensemble_forecast": 82.10979999999998,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

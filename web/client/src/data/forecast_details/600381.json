@@ -1,0 +1,13 @@
+{
+  "code": "600381",
+  "name": "*ST春天",
+  "latest_close": 3.87,
+  "kalman_price": 3.857876699226059,
+  "particle_price": 3.8616040073300546,
+  "market_state": 2,
+  "ensemble_forecast": 3.9604000000000013,
+  "forecast_change_pct": 2.34,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

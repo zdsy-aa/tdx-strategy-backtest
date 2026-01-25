@@ -1,0 +1,13 @@
+{
+  "code": "600650",
+  "name": "锦江在线",
+  "latest_close": 15.79,
+  "kalman_price": 15.894082516522237,
+  "particle_price": 15.787804830562001,
+  "market_state": 0,
+  "ensemble_forecast": 15.982900000000013,
+  "forecast_change_pct": 1.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300808",
+  "name": "久量股份",
+  "latest_close": 28.76,
+  "kalman_price": 28.618491276529074,
+  "particle_price": 28.810426897760628,
+  "market_state": 1,
+  "ensemble_forecast": 28.59890000000001,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

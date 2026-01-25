@@ -1,0 +1,13 @@
+{
+  "code": "688130",
+  "name": "晶华微",
+  "latest_close": 22.83,
+  "kalman_price": 22.642229570285775,
+  "particle_price": 22.75361532066196,
+  "market_state": 1,
+  "ensemble_forecast": 22.801299999999998,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

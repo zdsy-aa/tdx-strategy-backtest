@@ -1,0 +1,13 @@
+{
+  "code": "002380",
+  "name": "科远智慧",
+  "latest_close": 31.0,
+  "kalman_price": 30.172490362417694,
+  "particle_price": 29.677404750397248,
+  "market_state": 0,
+  "ensemble_forecast": 30.588,
+  "forecast_change_pct": -1.33,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

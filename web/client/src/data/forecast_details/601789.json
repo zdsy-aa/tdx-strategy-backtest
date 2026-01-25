@@ -1,0 +1,13 @@
+{
+  "code": "601789",
+  "name": "宁波建工",
+  "latest_close": 5.23,
+  "kalman_price": 5.170877872021671,
+  "particle_price": 5.212373096140026,
+  "market_state": 0,
+  "ensemble_forecast": 5.145399999999999,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

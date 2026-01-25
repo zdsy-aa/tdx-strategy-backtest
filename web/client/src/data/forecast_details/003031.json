@@ -1,0 +1,13 @@
+{
+  "code": "003031",
+  "name": "中瓷电子",
+  "latest_close": 76.58,
+  "kalman_price": 76.32258146840213,
+  "particle_price": 57.0738613138327,
+  "market_state": 2,
+  "ensemble_forecast": 76.0061,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

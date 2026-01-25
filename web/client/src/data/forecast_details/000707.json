@@ -1,0 +1,13 @@
+{
+  "code": "000707",
+  "name": "双环科技",
+  "latest_close": 6.25,
+  "kalman_price": 6.2426202567415325,
+  "particle_price": 6.249222996642033,
+  "market_state": 2,
+  "ensemble_forecast": 6.201900000000002,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

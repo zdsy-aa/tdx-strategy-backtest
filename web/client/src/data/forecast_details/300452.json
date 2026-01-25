@@ -1,0 +1,13 @@
+{
+  "code": "300452",
+  "name": "山河药辅",
+  "latest_close": 13.82,
+  "kalman_price": 13.720421679730736,
+  "particle_price": 13.775949690605511,
+  "market_state": 2,
+  "ensemble_forecast": 13.838,
+  "forecast_change_pct": 0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

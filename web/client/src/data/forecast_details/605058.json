@@ -1,0 +1,13 @@
+{
+  "code": "605058",
+  "name": "澳弘电子",
+  "latest_close": 30.86,
+  "kalman_price": 30.687707558884416,
+  "particle_price": 30.834320842045457,
+  "market_state": 1,
+  "ensemble_forecast": 31.137299999999986,
+  "forecast_change_pct": 0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

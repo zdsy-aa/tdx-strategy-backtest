@@ -1,0 +1,13 @@
+{
+  "code": "300932",
+  "name": "三友联众",
+  "latest_close": 12.45,
+  "kalman_price": 12.405821257345066,
+  "particle_price": 12.472168102999996,
+  "market_state": 0,
+  "ensemble_forecast": 12.436600000000006,
+  "forecast_change_pct": -0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600699",
+  "name": "均胜电子",
+  "latest_close": 30.3,
+  "kalman_price": 30.832652942254704,
+  "particle_price": 30.336838276893907,
+  "market_state": 0,
+  "ensemble_forecast": 29.293000000000017,
+  "forecast_change_pct": -3.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

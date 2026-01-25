@@ -1,0 +1,13 @@
+{
+  "code": "600638",
+  "name": "新黄浦",
+  "latest_close": 6.73,
+  "kalman_price": 6.7787347167264285,
+  "particle_price": 6.71705414113955,
+  "market_state": 2,
+  "ensemble_forecast": 6.7413,
+  "forecast_change_pct": 0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

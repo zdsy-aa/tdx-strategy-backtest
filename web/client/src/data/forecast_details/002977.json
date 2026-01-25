@@ -1,0 +1,13 @@
+{
+  "code": "002977",
+  "name": "天箭科技",
+  "latest_close": 36.46,
+  "kalman_price": 36.1250490901289,
+  "particle_price": 37.52374898351496,
+  "market_state": 2,
+  "ensemble_forecast": 36.01060000000001,
+  "forecast_change_pct": -1.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002630",
+  "name": "ST华西",
+  "latest_close": 2.6,
+  "kalman_price": 2.6015771067118245,
+  "particle_price": 2.598726384424224,
+  "market_state": 0,
+  "ensemble_forecast": 2.582900000000001,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

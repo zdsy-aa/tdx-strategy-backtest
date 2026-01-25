@@ -1,0 +1,13 @@
+{
+  "code": "300446",
+  "name": "航天智造",
+  "latest_close": 26.66,
+  "kalman_price": 27.2384306701251,
+  "particle_price": 26.694949708140573,
+  "market_state": 2,
+  "ensemble_forecast": 25.309300000000004,
+  "forecast_change_pct": -5.07,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

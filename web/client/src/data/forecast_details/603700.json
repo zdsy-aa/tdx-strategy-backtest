@@ -1,0 +1,13 @@
+{
+  "code": "603700",
+  "name": "宁水集团",
+  "latest_close": 13.7,
+  "kalman_price": 13.671888328253809,
+  "particle_price": 13.697653880748112,
+  "market_state": 0,
+  "ensemble_forecast": 13.823500000000003,
+  "forecast_change_pct": 0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

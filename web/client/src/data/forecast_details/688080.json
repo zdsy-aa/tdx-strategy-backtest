@@ -1,0 +1,13 @@
+{
+  "code": "688080",
+  "name": "映翰通",
+  "latest_close": 57.7,
+  "kalman_price": 57.19324135434503,
+  "particle_price": 53.02450709654939,
+  "market_state": 2,
+  "ensemble_forecast": 57.512300000000025,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

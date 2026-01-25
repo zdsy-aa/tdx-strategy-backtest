@@ -1,0 +1,13 @@
+{
+  "code": "301161",
+  "name": "唯万密封",
+  "latest_close": 36.69,
+  "kalman_price": 37.759987372320545,
+  "particle_price": 36.962095116894595,
+  "market_state": 0,
+  "ensemble_forecast": 35.807600000000036,
+  "forecast_change_pct": -2.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

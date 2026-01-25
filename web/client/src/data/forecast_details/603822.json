@@ -1,0 +1,13 @@
+{
+  "code": "603822",
+  "name": "ST嘉澳",
+  "latest_close": 110.11,
+  "kalman_price": 116.21586427050543,
+  "particle_price": 88.4989948716926,
+  "market_state": 0,
+  "ensemble_forecast": 109.28459999999994,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

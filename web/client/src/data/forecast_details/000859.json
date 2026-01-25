@@ -1,0 +1,13 @@
+{
+  "code": "000859",
+  "name": "国风新材",
+  "latest_close": 12.53,
+  "kalman_price": 12.96384295875343,
+  "particle_price": 12.53813417305001,
+  "market_state": 0,
+  "ensemble_forecast": 12.521499999999998,
+  "forecast_change_pct": -0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

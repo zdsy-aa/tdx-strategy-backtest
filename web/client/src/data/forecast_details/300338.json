@@ -1,0 +1,13 @@
+{
+  "code": "300338",
+  "name": "ST开元",
+  "latest_close": 3.56,
+  "kalman_price": 3.533891864730104,
+  "particle_price": 3.557216657200814,
+  "market_state": 0,
+  "ensemble_forecast": 3.5436000000000005,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

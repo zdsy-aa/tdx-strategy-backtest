@@ -1,0 +1,13 @@
+{
+  "code": "603637",
+  "name": "镇海股份",
+  "latest_close": 11.35,
+  "kalman_price": 11.364688570845955,
+  "particle_price": 11.355778357598796,
+  "market_state": 2,
+  "ensemble_forecast": 11.2919,
+  "forecast_change_pct": -0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

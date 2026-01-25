@@ -1,0 +1,13 @@
+{
+  "code": "603325",
+  "name": "博隆技术",
+  "latest_close": 84.0,
+  "kalman_price": 82.8656368154745,
+  "particle_price": 81.55878039344553,
+  "market_state": 2,
+  "ensemble_forecast": 84.24230000000001,
+  "forecast_change_pct": 0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

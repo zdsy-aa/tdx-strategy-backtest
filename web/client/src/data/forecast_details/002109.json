@@ -1,0 +1,13 @@
+{
+  "code": "002109",
+  "name": "兴化股份",
+  "latest_close": 3.84,
+  "kalman_price": 3.8014628862314193,
+  "particle_price": 3.815934210436721,
+  "market_state": 2,
+  "ensemble_forecast": 3.7920000000000003,
+  "forecast_change_pct": -1.25,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

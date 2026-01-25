@@ -1,0 +1,13 @@
+{
+  "code": "600759",
+  "name": "洲际油气",
+  "latest_close": 3.53,
+  "kalman_price": 3.4608679239533893,
+  "particle_price": 3.527132916081445,
+  "market_state": 0,
+  "ensemble_forecast": 3.5109999999999975,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

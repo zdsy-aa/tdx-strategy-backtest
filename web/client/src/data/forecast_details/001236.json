@@ -1,0 +1,13 @@
+{
+  "code": "001236",
+  "name": "弘业期货",
+  "latest_close": 10.9,
+  "kalman_price": 10.795708518114058,
+  "particle_price": 10.851780963084899,
+  "market_state": 0,
+  "ensemble_forecast": 10.833599999999992,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

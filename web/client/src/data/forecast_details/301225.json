@@ -1,0 +1,13 @@
+{
+  "code": "301225",
+  "name": "恒勃股份",
+  "latest_close": 148.23,
+  "kalman_price": 151.7588992573141,
+  "particle_price": 93.73831017950948,
+  "market_state": 0,
+  "ensemble_forecast": 146.28349999999995,
+  "forecast_change_pct": -1.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

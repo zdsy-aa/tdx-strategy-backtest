@@ -1,0 +1,13 @@
+{
+  "code": "603032",
+  "name": "德新科技",
+  "latest_close": 19.72,
+  "kalman_price": 19.570425507966426,
+  "particle_price": 19.70382137947382,
+  "market_state": 0,
+  "ensemble_forecast": 19.724999999999987,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

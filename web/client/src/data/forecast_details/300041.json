@@ -1,0 +1,13 @@
+{
+  "code": "300041",
+  "name": "回天新材",
+  "latest_close": 11.88,
+  "kalman_price": 11.844004346288346,
+  "particle_price": 11.866872878504463,
+  "market_state": 0,
+  "ensemble_forecast": 11.621599999999995,
+  "forecast_change_pct": -2.18,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300907",
+  "name": "康平科技",
+  "latest_close": 30.1,
+  "kalman_price": 30.10989836430639,
+  "particle_price": 30.09318945558963,
+  "market_state": 0,
+  "ensemble_forecast": 29.9578,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300209",
+  "name": "有棵树",
+  "latest_close": 5.52,
+  "kalman_price": 5.464977648530571,
+  "particle_price": 5.53424469019707,
+  "market_state": 0,
+  "ensemble_forecast": 5.456399999999999,
+  "forecast_change_pct": -1.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

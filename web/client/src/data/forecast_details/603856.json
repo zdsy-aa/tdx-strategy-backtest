@@ -1,0 +1,13 @@
+{
+  "code": "603856",
+  "name": "东宏股份",
+  "latest_close": 12.7,
+  "kalman_price": 12.690086821821794,
+  "particle_price": 12.701776430994432,
+  "market_state": 2,
+  "ensemble_forecast": 12.514500000000005,
+  "forecast_change_pct": -1.46,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

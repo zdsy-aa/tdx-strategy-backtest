@@ -1,0 +1,13 @@
+{
+  "code": "300585",
+  "name": "奥联电子",
+  "latest_close": 18.63,
+  "kalman_price": 18.62489267218254,
+  "particle_price": 18.73944032112089,
+  "market_state": 2,
+  "ensemble_forecast": 18.3525,
+  "forecast_change_pct": -1.49,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

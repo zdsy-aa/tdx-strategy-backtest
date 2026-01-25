@@ -1,0 +1,13 @@
+{
+  "code": "605006",
+  "name": "山东玻纤",
+  "latest_close": 7.22,
+  "kalman_price": 7.186278737415307,
+  "particle_price": 7.203159987089796,
+  "market_state": 1,
+  "ensemble_forecast": 7.199699999999999,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

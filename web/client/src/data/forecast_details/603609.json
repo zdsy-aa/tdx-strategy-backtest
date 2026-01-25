@@ -1,0 +1,13 @@
+{
+  "code": "603609",
+  "name": "禾丰股份",
+  "latest_close": 7.26,
+  "kalman_price": 7.24867044693949,
+  "particle_price": 7.259716134568329,
+  "market_state": 0,
+  "ensemble_forecast": 7.228299999999998,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

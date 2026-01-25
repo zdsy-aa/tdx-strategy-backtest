@@ -1,0 +1,13 @@
+{
+  "code": "301526",
+  "name": "国际复材",
+  "latest_close": 7.01,
+  "kalman_price": 7.163860989318001,
+  "particle_price": 7.034899314979576,
+  "market_state": 1,
+  "ensemble_forecast": 6.892100000000003,
+  "forecast_change_pct": -1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

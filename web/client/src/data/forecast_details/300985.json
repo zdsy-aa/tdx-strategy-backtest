@@ -1,0 +1,13 @@
+{
+  "code": "300985",
+  "name": "致远新能",
+  "latest_close": 18.59,
+  "kalman_price": 18.599476656559766,
+  "particle_price": 18.58708867076335,
+  "market_state": 0,
+  "ensemble_forecast": 18.554100000000005,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

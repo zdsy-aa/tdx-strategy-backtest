@@ -1,0 +1,13 @@
+{
+  "code": "300621",
+  "name": "维业股份",
+  "latest_close": 8.6,
+  "kalman_price": 8.530459126844491,
+  "particle_price": 8.592625178789271,
+  "market_state": 1,
+  "ensemble_forecast": 8.615100000000007,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

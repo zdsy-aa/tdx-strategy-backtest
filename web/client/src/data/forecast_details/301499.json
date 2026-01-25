@@ -1,0 +1,13 @@
+{
+  "code": "301499",
+  "name": "维科精密",
+  "latest_close": 30.51,
+  "kalman_price": 30.374202800934757,
+  "particle_price": 30.482388303044527,
+  "market_state": 0,
+  "ensemble_forecast": 30.005899999999993,
+  "forecast_change_pct": -1.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

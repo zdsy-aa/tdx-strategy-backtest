@@ -1,0 +1,13 @@
+{
+  "code": "300761",
+  "name": "立华股份",
+  "latest_close": 20.75,
+  "kalman_price": 20.845259432693044,
+  "particle_price": 20.776485564455108,
+  "market_state": 0,
+  "ensemble_forecast": 20.484400000000004,
+  "forecast_change_pct": -1.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

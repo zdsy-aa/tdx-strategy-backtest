@@ -1,0 +1,13 @@
+{
+  "code": "301129",
+  "name": "瑞纳智能",
+  "latest_close": 25.82,
+  "kalman_price": 25.406260232697367,
+  "particle_price": 25.655962749977864,
+  "market_state": 0,
+  "ensemble_forecast": 25.7376,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002957",
+  "name": "科瑞技术",
+  "latest_close": 22.38,
+  "kalman_price": 22.74596679214915,
+  "particle_price": 22.392998379618486,
+  "market_state": 0,
+  "ensemble_forecast": 21.93289999999999,
+  "forecast_change_pct": -2.0,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

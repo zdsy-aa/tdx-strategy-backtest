@@ -1,0 +1,13 @@
+{
+  "code": "300481",
+  "name": "濮阳惠成",
+  "latest_close": 16.21,
+  "kalman_price": 16.374333751744672,
+  "particle_price": 16.246307859822203,
+  "market_state": 0,
+  "ensemble_forecast": 16.253700000000002,
+  "forecast_change_pct": 0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

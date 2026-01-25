@@ -1,0 +1,13 @@
+{
+  "code": "000498",
+  "name": "山东路桥",
+  "latest_close": 6.06,
+  "kalman_price": 6.04835947684306,
+  "particle_price": 6.063939871427217,
+  "market_state": 1,
+  "ensemble_forecast": 6.035699999999997,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

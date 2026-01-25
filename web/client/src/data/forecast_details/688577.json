@@ -1,0 +1,13 @@
+{
+  "code": "688577",
+  "name": "浙海德曼",
+  "latest_close": 89.51,
+  "kalman_price": 90.63612886425759,
+  "particle_price": 76.4403938994176,
+  "market_state": 0,
+  "ensemble_forecast": 88.06739999999992,
+  "forecast_change_pct": -1.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

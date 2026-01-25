@@ -1,0 +1,13 @@
+{
+  "code": "300119",
+  "name": "瑞普生物",
+  "latest_close": 19.92,
+  "kalman_price": 19.801960818199223,
+  "particle_price": 19.90776895482939,
+  "market_state": 1,
+  "ensemble_forecast": 19.795399999999994,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

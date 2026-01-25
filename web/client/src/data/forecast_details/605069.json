@@ -1,0 +1,13 @@
+{
+  "code": "605069",
+  "name": "正和生态",
+  "latest_close": 14.2,
+  "kalman_price": 15.008183775780166,
+  "particle_price": 14.350120730086108,
+  "market_state": 1,
+  "ensemble_forecast": 14.337899999999992,
+  "forecast_change_pct": 0.97,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

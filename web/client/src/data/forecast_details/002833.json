@@ -1,0 +1,13 @@
+{
+  "code": "002833",
+  "name": "弘亚数控",
+  "latest_close": 16.47,
+  "kalman_price": 16.54188786281073,
+  "particle_price": 16.47143486596132,
+  "market_state": 0,
+  "ensemble_forecast": 16.37890000000001,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

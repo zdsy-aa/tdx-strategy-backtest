@@ -1,0 +1,13 @@
+{
+  "code": "603334",
+  "name": "丰倍生物",
+  "latest_close": 48.21,
+  "kalman_price": 47.4057157901906,
+  "particle_price": 51.4237903643443,
+  "market_state": 2,
+  "ensemble_forecast": 47.26699999999998,
+  "forecast_change_pct": -1.96,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

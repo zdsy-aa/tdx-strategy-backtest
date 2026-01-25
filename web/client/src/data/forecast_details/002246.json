@@ -1,0 +1,13 @@
+{
+  "code": "002246",
+  "name": "北化股份",
+  "latest_close": 19.4,
+  "kalman_price": 20.013636934265474,
+  "particle_price": 19.50070236105874,
+  "market_state": 0,
+  "ensemble_forecast": 18.965399999999992,
+  "forecast_change_pct": -2.24,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

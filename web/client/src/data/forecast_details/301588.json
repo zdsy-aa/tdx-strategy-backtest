@@ -1,0 +1,13 @@
+{
+  "code": "301588",
+  "name": "美新科技",
+  "latest_close": 19.41,
+  "kalman_price": 18.991004613106302,
+  "particle_price": 19.287655614990033,
+  "market_state": 2,
+  "ensemble_forecast": 19.515500000000003,
+  "forecast_change_pct": 0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

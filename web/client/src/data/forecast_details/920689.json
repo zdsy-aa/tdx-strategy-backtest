@@ -1,0 +1,13 @@
+{
+  "code": "920689",
+  "name": "克莱特",
+  "latest_close": 33.46,
+  "kalman_price": 32.90893401578616,
+  "particle_price": 33.12651193441337,
+  "market_state": 2,
+  "ensemble_forecast": 32.8266,
+  "forecast_change_pct": -1.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000761",
+  "name": "本钢板材",
+  "latest_close": 3.36,
+  "kalman_price": 3.342744709783321,
+  "particle_price": 3.341287691204774,
+  "market_state": 1,
+  "ensemble_forecast": 3.3536000000000015,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002583",
+  "name": "海能达",
+  "latest_close": 11.96,
+  "kalman_price": 11.930684495304243,
+  "particle_price": 11.95016444550465,
+  "market_state": 0,
+  "ensemble_forecast": 11.881400000000006,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

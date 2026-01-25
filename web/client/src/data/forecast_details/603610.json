@@ -1,0 +1,13 @@
+{
+  "code": "603610",
+  "name": "麒盛科技",
+  "latest_close": 18.94,
+  "kalman_price": 19.00483416135195,
+  "particle_price": 18.959835483594976,
+  "market_state": 0,
+  "ensemble_forecast": 18.771600000000007,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

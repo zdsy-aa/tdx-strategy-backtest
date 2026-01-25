@@ -1,0 +1,13 @@
+{
+  "code": "605060",
+  "name": "联德股份",
+  "latest_close": 35.86,
+  "kalman_price": 35.57595636145236,
+  "particle_price": 35.85820398054936,
+  "market_state": 1,
+  "ensemble_forecast": 35.80570000000003,
+  "forecast_change_pct": -0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301223",
+  "name": "中荣股份",
+  "latest_close": 18.82,
+  "kalman_price": 18.679349320425718,
+  "particle_price": 18.77670139384918,
+  "market_state": 1,
+  "ensemble_forecast": 18.764299999999995,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

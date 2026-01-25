@@ -1,0 +1,13 @@
+{
+  "code": "603966",
+  "name": "法兰泰克",
+  "latest_close": 13.41,
+  "kalman_price": 13.356039782644366,
+  "particle_price": 13.386813321817316,
+  "market_state": 1,
+  "ensemble_forecast": 13.227800000000009,
+  "forecast_change_pct": -1.36,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

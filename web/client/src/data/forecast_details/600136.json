@@ -1,0 +1,13 @@
+{
+  "code": "600136",
+  "name": "ST明诚",
+  "latest_close": 1.69,
+  "kalman_price": 1.6952902387677178,
+  "particle_price": 1.6822059635688038,
+  "market_state": 0,
+  "ensemble_forecast": 1.6783999999999992,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600159",
+  "name": "大龙地产",
+  "latest_close": 2.83,
+  "kalman_price": 2.8165189920019085,
+  "particle_price": 2.8497613525285015,
+  "market_state": 0,
+  "ensemble_forecast": 2.828000000000001,
+  "forecast_change_pct": -0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

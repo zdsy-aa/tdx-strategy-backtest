@@ -1,0 +1,13 @@
+{
+  "code": "688392",
+  "name": "骄成超声",
+  "latest_close": 138.0,
+  "kalman_price": 132.60872573926767,
+  "particle_price": 106.77639116432056,
+  "market_state": 0,
+  "ensemble_forecast": 134.75070000000002,
+  "forecast_change_pct": -2.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -3,10 +3,11 @@
   "name": "中船科技",
   "latest_close": 12.03,
   "kalman_price": 12.018605391533258,
-  "particle_price": 12.0389966968044,
-  "market_state": 2,
-  "ensemble_forecast": 11.955799999999996,
-  "forecast_change_pct": -0.62,
+  "particle_price": 12.041082306697474,
+  "market_state": 1,
+  "ensemble_forecast": 11.951699999999995,
+  "forecast_change_pct": -0.65,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

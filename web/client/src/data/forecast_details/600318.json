@@ -1,0 +1,13 @@
+{
+  "code": "600318",
+  "name": "新力金融",
+  "latest_close": 9.26,
+  "kalman_price": 9.209312309702335,
+  "particle_price": 9.256481200415946,
+  "market_state": 0,
+  "ensemble_forecast": 9.172100000000004,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920641",
+  "name": "格利尔",
+  "latest_close": 22.02,
+  "kalman_price": 21.796962403475398,
+  "particle_price": 18.470739319952333,
+  "market_state": 1,
+  "ensemble_forecast": 20.643499999999996,
+  "forecast_change_pct": -6.25,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

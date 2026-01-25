@@ -1,0 +1,13 @@
+{
+  "code": "600786",
+  "name": "东方锅炉",
+  "latest_close": 81.32,
+  "kalman_price": 80.21449119881709,
+  "particle_price": 83.4761827239425,
+  "market_state": 1,
+  "ensemble_forecast": 80.66960000000002,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2008-01-25",
+  "forecast_date": "2008-01-28"
+}

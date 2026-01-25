@@ -1,0 +1,13 @@
+{
+  "code": "002877",
+  "name": "智能自控",
+  "latest_close": 9.43,
+  "kalman_price": 9.371405159497751,
+  "particle_price": 9.441540202753,
+  "market_state": 0,
+  "ensemble_forecast": 9.266700000000007,
+  "forecast_change_pct": -1.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

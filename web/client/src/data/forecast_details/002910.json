@@ -1,0 +1,13 @@
+{
+  "code": "002910",
+  "name": "庄园牧场",
+  "latest_close": 11.81,
+  "kalman_price": 11.420929812124225,
+  "particle_price": 11.756693172876622,
+  "market_state": 0,
+  "ensemble_forecast": 11.759100000000004,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

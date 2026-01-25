@@ -1,0 +1,13 @@
+{
+  "code": "600337",
+  "name": "美克家居",
+  "latest_close": 3.4,
+  "kalman_price": 3.7781252520130444,
+  "particle_price": 3.4390375545376215,
+  "market_state": 2,
+  "ensemble_forecast": 3.411500000000001,
+  "forecast_change_pct": 0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

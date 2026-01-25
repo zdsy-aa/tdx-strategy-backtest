@@ -1,0 +1,13 @@
+{
+  "code": "920139",
+  "name": "华岭股份",
+  "latest_close": 22.39,
+  "kalman_price": 22.212115010520037,
+  "particle_price": 22.27673366959122,
+  "market_state": 0,
+  "ensemble_forecast": 22.338,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

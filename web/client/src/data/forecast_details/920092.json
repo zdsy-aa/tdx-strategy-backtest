@@ -1,0 +1,13 @@
+{
+  "code": "920092",
+  "name": "汉鑫科技",
+  "latest_close": 45.34,
+  "kalman_price": 44.51845232074522,
+  "particle_price": 38.10903713198479,
+  "market_state": 0,
+  "ensemble_forecast": 44.606299999999976,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

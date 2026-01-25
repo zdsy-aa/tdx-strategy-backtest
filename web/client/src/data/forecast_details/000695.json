@@ -1,0 +1,13 @@
+{
+  "code": "000695",
+  "name": "滨海能源",
+  "latest_close": 13.24,
+  "kalman_price": 13.437250598066678,
+  "particle_price": 13.247854688484773,
+  "market_state": 0,
+  "ensemble_forecast": 12.860700000000001,
+  "forecast_change_pct": -2.86,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

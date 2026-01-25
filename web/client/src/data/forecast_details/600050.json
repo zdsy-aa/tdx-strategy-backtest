@@ -3,10 +3,11 @@
   "name": "中国联通",
   "latest_close": 5.39,
   "kalman_price": 5.352493949568317,
-  "particle_price": 5.38054750996841,
-  "market_state": 2,
-  "ensemble_forecast": 5.331199999999999,
-  "forecast_change_pct": -1.09,
+  "particle_price": 5.3965888825332184,
+  "market_state": 0,
+  "ensemble_forecast": 5.336,
+  "forecast_change_pct": -1.0,
   "confidence": 0.85,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

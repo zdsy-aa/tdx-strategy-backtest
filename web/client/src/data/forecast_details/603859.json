@@ -1,0 +1,13 @@
+{
+  "code": "603859",
+  "name": "能科科技",
+  "latest_close": 51.0,
+  "kalman_price": 49.59719530872738,
+  "particle_price": 44.88237895749987,
+  "market_state": 1,
+  "ensemble_forecast": 51.17240000000001,
+  "forecast_change_pct": 0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601121",
+  "name": "宝地矿业",
+  "latest_close": 7.63,
+  "kalman_price": 7.649734087518964,
+  "particle_price": 7.62404274330493,
+  "market_state": 0,
+  "ensemble_forecast": 7.5855,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

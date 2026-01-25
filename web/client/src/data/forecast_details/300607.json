@@ -1,0 +1,13 @@
+{
+  "code": "300607",
+  "name": "拓斯达",
+  "latest_close": 33.25,
+  "kalman_price": 33.18814455185112,
+  "particle_price": 33.201399638270445,
+  "market_state": 0,
+  "ensemble_forecast": 32.950700000000005,
+  "forecast_change_pct": -0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

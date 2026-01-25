@@ -1,0 +1,13 @@
+{
+  "code": "002890",
+  "name": "弘宇股份",
+  "latest_close": 14.48,
+  "kalman_price": 14.478100395310932,
+  "particle_price": 14.494375173281682,
+  "market_state": 2,
+  "ensemble_forecast": 14.433000000000009,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

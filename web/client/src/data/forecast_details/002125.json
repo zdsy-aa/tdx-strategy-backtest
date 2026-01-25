@@ -1,0 +1,13 @@
+{
+  "code": "002125",
+  "name": "湘潭电化",
+  "latest_close": 14.75,
+  "kalman_price": 14.43143804756067,
+  "particle_price": 14.63035861415126,
+  "market_state": 1,
+  "ensemble_forecast": 14.664299999999999,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002963",
+  "name": "豪尔赛",
+  "latest_close": 14.78,
+  "kalman_price": 14.739545903939096,
+  "particle_price": 14.780558542217891,
+  "market_state": 0,
+  "ensemble_forecast": 14.802399999999993,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

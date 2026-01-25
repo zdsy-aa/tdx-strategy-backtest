@@ -1,0 +1,13 @@
+{
+  "code": "603858",
+  "name": "步长制药",
+  "latest_close": 16.62,
+  "kalman_price": 16.500183665653847,
+  "particle_price": 16.599890196831364,
+  "market_state": 1,
+  "ensemble_forecast": 16.63539999999999,
+  "forecast_change_pct": 0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

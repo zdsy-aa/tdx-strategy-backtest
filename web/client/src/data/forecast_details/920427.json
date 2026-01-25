@@ -1,0 +1,13 @@
+{
+  "code": "920427",
+  "name": "华维设计",
+  "latest_close": 13.73,
+  "kalman_price": 13.849861626285287,
+  "particle_price": 13.734296334075042,
+  "market_state": 2,
+  "ensemble_forecast": 13.898599999999995,
+  "forecast_change_pct": 1.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920006",
+  "name": "晟楠科技",
+  "latest_close": 28.8,
+  "kalman_price": 28.828194581836552,
+  "particle_price": 28.86431428883655,
+  "market_state": 2,
+  "ensemble_forecast": 28.4729,
+  "forecast_change_pct": -1.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

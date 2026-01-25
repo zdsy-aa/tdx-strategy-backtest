@@ -1,0 +1,13 @@
+{
+  "code": "300248",
+  "name": "新开普",
+  "latest_close": 14.68,
+  "kalman_price": 13.709817874582354,
+  "particle_price": 13.585853339098007,
+  "market_state": 2,
+  "ensemble_forecast": 14.5602,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

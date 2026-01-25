@@ -1,0 +1,13 @@
+{
+  "code": "300603",
+  "name": "立昂技术",
+  "latest_close": 10.54,
+  "kalman_price": 10.388493212939027,
+  "particle_price": 10.52809508458869,
+  "market_state": 0,
+  "ensemble_forecast": 10.530200000000002,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

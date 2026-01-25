@@ -1,0 +1,13 @@
+{
+  "code": "603948",
+  "name": "建业股份",
+  "latest_close": 28.2,
+  "kalman_price": 28.321433104147655,
+  "particle_price": 28.196161245207584,
+  "market_state": 2,
+  "ensemble_forecast": 28.325699999999994,
+  "forecast_change_pct": 0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

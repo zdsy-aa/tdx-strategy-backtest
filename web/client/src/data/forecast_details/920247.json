@@ -1,0 +1,13 @@
+{
+  "code": "920247",
+  "name": "华密新材",
+  "latest_close": 28.14,
+  "kalman_price": 27.850401728887753,
+  "particle_price": 28.0723733677373,
+  "market_state": 1,
+  "ensemble_forecast": 27.9396,
+  "forecast_change_pct": -0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

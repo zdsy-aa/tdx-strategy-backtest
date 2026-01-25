@@ -1,0 +1,13 @@
+{
+  "code": "601989",
+  "name": "中国重工",
+  "latest_close": 4.9,
+  "kalman_price": 4.987152564531266,
+  "particle_price": 4.92011977649363,
+  "market_state": 2,
+  "ensemble_forecast": 5.002000000000001,
+  "forecast_change_pct": 2.08,
+  "confidence": 0.85,
+  "analysis_date": "2025-08-12",
+  "forecast_date": "2025-08-13"
+}

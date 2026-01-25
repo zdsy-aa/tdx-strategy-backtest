@@ -1,0 +1,13 @@
+{
+  "code": "002317",
+  "name": "众生药业",
+  "latest_close": 21.58,
+  "kalman_price": 21.82506103051222,
+  "particle_price": 21.57255040807155,
+  "market_state": 0,
+  "ensemble_forecast": 21.657199999999985,
+  "forecast_change_pct": 0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

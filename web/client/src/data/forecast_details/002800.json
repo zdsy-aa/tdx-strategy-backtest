@@ -1,0 +1,13 @@
+{
+  "code": "002800",
+  "name": "天顺股份",
+  "latest_close": 16.36,
+  "kalman_price": 16.025500138200673,
+  "particle_price": 16.29411182409109,
+  "market_state": 0,
+  "ensemble_forecast": 16.289800000000003,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

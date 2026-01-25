@@ -1,0 +1,13 @@
+{
+  "code": "600808",
+  "name": "马钢股份",
+  "latest_close": 4.01,
+  "kalman_price": 4.024545827300231,
+  "particle_price": 4.001810155423323,
+  "market_state": 0,
+  "ensemble_forecast": 3.9517000000000007,
+  "forecast_change_pct": -1.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

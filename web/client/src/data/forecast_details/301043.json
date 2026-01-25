@@ -1,0 +1,13 @@
+{
+  "code": "301043",
+  "name": "绿岛风",
+  "latest_close": 61.0,
+  "kalman_price": 59.2509053244261,
+  "particle_price": 58.4983334901578,
+  "market_state": 2,
+  "ensemble_forecast": 61.16570000000002,
+  "forecast_change_pct": 0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

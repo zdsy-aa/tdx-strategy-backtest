@@ -1,0 +1,13 @@
+{
+  "code": "600288",
+  "name": "大恒科技",
+  "latest_close": 15.68,
+  "kalman_price": 15.592840002311348,
+  "particle_price": 15.616829842392,
+  "market_state": 0,
+  "ensemble_forecast": 15.548800000000005,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

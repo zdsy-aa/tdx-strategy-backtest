@@ -1,0 +1,13 @@
+{
+  "code": "300609",
+  "name": "汇纳科技",
+  "latest_close": 43.6,
+  "kalman_price": 43.57592301277065,
+  "particle_price": 43.39372128281332,
+  "market_state": 0,
+  "ensemble_forecast": 43.278400000000005,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

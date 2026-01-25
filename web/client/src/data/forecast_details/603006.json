@@ -1,0 +1,13 @@
+{
+  "code": "603006",
+  "name": "联明股份",
+  "latest_close": 13.28,
+  "kalman_price": 13.210464745671322,
+  "particle_price": 13.2585365658606,
+  "market_state": 2,
+  "ensemble_forecast": 13.294199999999995,
+  "forecast_change_pct": 0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

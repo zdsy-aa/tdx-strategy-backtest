@@ -1,0 +1,13 @@
+{
+  "code": "002749",
+  "name": "国光股份",
+  "latest_close": 13.21,
+  "kalman_price": 13.128874053574323,
+  "particle_price": 13.219898279478096,
+  "market_state": 2,
+  "ensemble_forecast": 13.196699999999998,
+  "forecast_change_pct": -0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

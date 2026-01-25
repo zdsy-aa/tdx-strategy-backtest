@@ -1,0 +1,13 @@
+{
+  "code": "001896",
+  "name": "豫能控股",
+  "latest_close": 5.96,
+  "kalman_price": 5.637583211081225,
+  "particle_price": 5.873675243685983,
+  "market_state": 2,
+  "ensemble_forecast": 5.912299999999999,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

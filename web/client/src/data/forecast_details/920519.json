@@ -1,0 +1,13 @@
+{
+  "code": "920519",
+  "name": "万德股份",
+  "latest_close": 12.87,
+  "kalman_price": 12.65515080819382,
+  "particle_price": 12.817705376313025,
+  "market_state": 1,
+  "ensemble_forecast": 12.836899999999991,
+  "forecast_change_pct": -0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

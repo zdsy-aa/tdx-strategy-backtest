@@ -1,0 +1,13 @@
+{
+  "code": "002520",
+  "name": "日发精机",
+  "latest_close": 6.28,
+  "kalman_price": 6.315321993121901,
+  "particle_price": 6.280926893297614,
+  "market_state": 2,
+  "ensemble_forecast": 6.228299999999997,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

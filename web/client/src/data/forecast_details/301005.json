@@ -1,0 +1,13 @@
+{
+  "code": "301005",
+  "name": "超捷股份",
+  "latest_close": 171.8,
+  "kalman_price": 175.37506235542276,
+  "particle_price": 55.74392957273737,
+  "market_state": 2,
+  "ensemble_forecast": 171.48969999999986,
+  "forecast_change_pct": -0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

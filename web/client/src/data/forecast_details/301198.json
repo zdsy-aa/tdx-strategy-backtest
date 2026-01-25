@@ -1,0 +1,13 @@
+{
+  "code": "301198",
+  "name": "喜悦智行",
+  "latest_close": 13.28,
+  "kalman_price": 13.380731927420214,
+  "particle_price": 13.269826077174576,
+  "market_state": 0,
+  "ensemble_forecast": 13.5028,
+  "forecast_change_pct": 1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

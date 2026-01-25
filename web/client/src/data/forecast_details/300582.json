@@ -1,0 +1,13 @@
+{
+  "code": "300582",
+  "name": "英飞特",
+  "latest_close": 17.03,
+  "kalman_price": 17.385878948939826,
+  "particle_price": 17.067731698267185,
+  "market_state": 0,
+  "ensemble_forecast": 16.59510000000001,
+  "forecast_change_pct": -2.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

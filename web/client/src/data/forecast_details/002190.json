@@ -1,0 +1,13 @@
+{
+  "code": "002190",
+  "name": "成飞集成",
+  "latest_close": 38.9,
+  "kalman_price": 39.131196720667376,
+  "particle_price": 38.55179480224771,
+  "market_state": 0,
+  "ensemble_forecast": 38.191100000000034,
+  "forecast_change_pct": -1.82,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600604",
+  "name": "市北高新",
+  "latest_close": 6.0,
+  "kalman_price": 6.072370965446237,
+  "particle_price": 5.994616906397127,
+  "market_state": 0,
+  "ensemble_forecast": 5.954899999999998,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

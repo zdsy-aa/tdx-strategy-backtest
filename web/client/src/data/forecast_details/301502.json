@@ -1,0 +1,13 @@
+{
+  "code": "301502",
+  "name": "华阳智能",
+  "latest_close": 45.13,
+  "kalman_price": 45.031369601096586,
+  "particle_price": 45.11762054102394,
+  "market_state": 0,
+  "ensemble_forecast": 44.73340000000002,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

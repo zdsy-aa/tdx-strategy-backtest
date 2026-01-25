@@ -1,0 +1,13 @@
+{
+  "code": "603662",
+  "name": "柯力传感",
+  "latest_close": 68.86,
+  "kalman_price": 69.37202475106805,
+  "particle_price": 68.83513399954113,
+  "market_state": 2,
+  "ensemble_forecast": 67.84259999999995,
+  "forecast_change_pct": -1.48,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

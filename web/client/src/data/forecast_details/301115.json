@@ -1,0 +1,13 @@
+{
+  "code": "301115",
+  "name": "联检科技",
+  "latest_close": 16.65,
+  "kalman_price": 16.552063404740316,
+  "particle_price": 16.631719568635177,
+  "market_state": 1,
+  "ensemble_forecast": 16.712799999999994,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

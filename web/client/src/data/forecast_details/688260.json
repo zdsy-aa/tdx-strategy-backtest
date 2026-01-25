@@ -1,0 +1,13 @@
+{
+  "code": "688260",
+  "name": "昀冢科技",
+  "latest_close": 34.12,
+  "kalman_price": 32.06848360923449,
+  "particle_price": 30.682180376972198,
+  "market_state": 2,
+  "ensemble_forecast": 32.39330000000001,
+  "forecast_change_pct": -5.06,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

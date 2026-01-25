@@ -1,0 +1,13 @@
+{
+  "code": "601268",
+  "name": "*ST二重",
+  "latest_close": 2.21,
+  "kalman_price": 2.2354793577859677,
+  "particle_price": 2.214123124503126,
+  "market_state": 0,
+  "ensemble_forecast": 2.248100000000001,
+  "forecast_change_pct": 1.72,
+  "confidence": 0.85,
+  "analysis_date": "2014-04-28",
+  "forecast_date": "2014-04-29"
+}

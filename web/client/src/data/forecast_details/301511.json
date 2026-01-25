@@ -1,0 +1,13 @@
+{
+  "code": "301511",
+  "name": "德福科技",
+  "latest_close": 30.5,
+  "kalman_price": 31.646178825935507,
+  "particle_price": 34.3853117453372,
+  "market_state": 1,
+  "ensemble_forecast": 30.574699999999996,
+  "forecast_change_pct": 0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

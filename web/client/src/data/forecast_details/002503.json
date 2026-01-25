@@ -1,0 +1,13 @@
+{
+  "code": "002503",
+  "name": "*ST搜特",
+  "latest_close": 0.42,
+  "kalman_price": 0.40912875990691744,
+  "particle_price": 0.4266267920864641,
+  "market_state": 2,
+  "ensemble_forecast": 0.4622000000000003,
+  "forecast_change_pct": 10.05,
+  "confidence": 0.65,
+  "analysis_date": "2023-05-22",
+  "forecast_date": "2023-05-23"
+}

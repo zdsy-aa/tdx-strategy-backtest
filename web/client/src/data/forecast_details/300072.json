@@ -1,0 +1,13 @@
+{
+  "code": "300072",
+  "name": "海新能科",
+  "latest_close": 5.12,
+  "kalman_price": 5.174313191493529,
+  "particle_price": 5.11295306077808,
+  "market_state": 2,
+  "ensemble_forecast": 5.0819,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

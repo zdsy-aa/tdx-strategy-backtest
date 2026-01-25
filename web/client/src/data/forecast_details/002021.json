@@ -1,0 +1,13 @@
+{
+  "code": "002021",
+  "name": "中捷资源",
+  "latest_close": 2.8,
+  "kalman_price": 2.7736380184268374,
+  "particle_price": 2.7977180842804894,
+  "market_state": 1,
+  "ensemble_forecast": 2.8021000000000003,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

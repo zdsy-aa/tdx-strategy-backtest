@@ -1,0 +1,13 @@
+{
+  "code": "300194",
+  "name": "福安药业",
+  "latest_close": 4.51,
+  "kalman_price": 4.477480030709162,
+  "particle_price": 4.506046705227144,
+  "market_state": 0,
+  "ensemble_forecast": 4.542799999999996,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

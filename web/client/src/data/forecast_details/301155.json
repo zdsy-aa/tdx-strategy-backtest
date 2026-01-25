@@ -1,0 +1,13 @@
+{
+  "code": "301155",
+  "name": "海力风电",
+  "latest_close": 77.04,
+  "kalman_price": 78.05223458956642,
+  "particle_price": 78.5183221566563,
+  "market_state": 2,
+  "ensemble_forecast": 76.34790000000001,
+  "forecast_change_pct": -0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

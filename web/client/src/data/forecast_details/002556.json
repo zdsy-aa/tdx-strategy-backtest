@@ -1,0 +1,13 @@
+{
+  "code": "002556",
+  "name": "辉隆股份",
+  "latest_close": 6.04,
+  "kalman_price": 6.035420297625888,
+  "particle_price": 6.043062534176568,
+  "market_state": 1,
+  "ensemble_forecast": 6.025500000000002,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

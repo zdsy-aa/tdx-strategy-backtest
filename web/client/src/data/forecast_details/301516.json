@@ -1,0 +1,13 @@
+{
+  "code": "301516",
+  "name": "中远通",
+  "latest_close": 16.37,
+  "kalman_price": 16.34298811216027,
+  "particle_price": 16.3617876976921,
+  "market_state": 0,
+  "ensemble_forecast": 16.319599999999998,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

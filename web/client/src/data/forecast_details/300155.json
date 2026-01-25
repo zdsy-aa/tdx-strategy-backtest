@@ -1,0 +1,13 @@
+{
+  "code": "300155",
+  "name": "安居宝",
+  "latest_close": 6.9,
+  "kalman_price": 6.854687260922404,
+  "particle_price": 6.877304539451273,
+  "market_state": 0,
+  "ensemble_forecast": 6.9480999999999975,
+  "forecast_change_pct": 0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

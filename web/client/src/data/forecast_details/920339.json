@@ -1,0 +1,13 @@
+{
+  "code": "920339",
+  "name": "恒太照明",
+  "latest_close": 9.92,
+  "kalman_price": 9.872558529259855,
+  "particle_price": 9.910879999938725,
+  "market_state": 1,
+  "ensemble_forecast": 9.921299999999993,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

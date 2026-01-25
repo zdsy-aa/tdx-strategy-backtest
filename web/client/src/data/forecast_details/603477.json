@@ -1,0 +1,13 @@
+{
+  "code": "603477",
+  "name": "巨星农牧",
+  "latest_close": 17.49,
+  "kalman_price": 17.448574695330958,
+  "particle_price": 17.485511443628923,
+  "market_state": 2,
+  "ensemble_forecast": 17.392900000000008,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

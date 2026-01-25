@@ -1,0 +1,13 @@
+{
+  "code": "002436",
+  "name": "兴森科技",
+  "latest_close": 21.91,
+  "kalman_price": 22.243253553158592,
+  "particle_price": 22.00149490046358,
+  "market_state": 0,
+  "ensemble_forecast": 21.916499999999996,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300799",
+  "name": "左江退",
+  "latest_close": 1.08,
+  "kalman_price": 0.9508385280865013,
+  "particle_price": 105.52279695878967,
+  "market_state": 0,
+  "ensemble_forecast": 1.0681000000000003,
+  "forecast_change_pct": -1.1,
+  "confidence": 0.85,
+  "analysis_date": "2024-07-26",
+  "forecast_date": "2024-07-29"
+}

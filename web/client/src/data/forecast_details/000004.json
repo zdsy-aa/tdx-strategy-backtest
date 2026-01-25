@@ -1,0 +1,13 @@
+{
+  "code": "000004",
+  "name": "*ST国华",
+  "latest_close": 10.52,
+  "kalman_price": 10.469590289889645,
+  "particle_price": 10.517963452432536,
+  "market_state": 1,
+  "ensemble_forecast": 10.829500000000003,
+  "forecast_change_pct": 2.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688031",
+  "name": "星环科技-U",
+  "latest_close": 169.52,
+  "kalman_price": 163.084382250188,
+  "particle_price": 63.81238931276071,
+  "market_state": 0,
+  "ensemble_forecast": 159.21840000000006,
+  "forecast_change_pct": -6.08,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

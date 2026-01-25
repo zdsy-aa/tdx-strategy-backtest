@@ -1,0 +1,13 @@
+{
+  "code": "300165",
+  "name": "ST天瑞",
+  "latest_close": 4.84,
+  "kalman_price": 4.846864720400465,
+  "particle_price": 4.830649078576801,
+  "market_state": 1,
+  "ensemble_forecast": 4.800599999999998,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

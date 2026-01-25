@@ -1,0 +1,13 @@
+{
+  "code": "002385",
+  "name": "大北农",
+  "latest_close": 4.07,
+  "kalman_price": 4.059863448602454,
+  "particle_price": 4.071125700296494,
+  "market_state": 0,
+  "ensemble_forecast": 4.060499999999999,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

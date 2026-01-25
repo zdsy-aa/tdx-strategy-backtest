@@ -1,0 +1,13 @@
+{
+  "code": "002483",
+  "name": "润邦股份",
+  "latest_close": 7.08,
+  "kalman_price": 7.105135165634333,
+  "particle_price": 7.087556912439053,
+  "market_state": 0,
+  "ensemble_forecast": 7.046600000000001,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

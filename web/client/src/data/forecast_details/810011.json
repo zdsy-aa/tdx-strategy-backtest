@@ -1,0 +1,13 @@
+{
+  "code": "810011",
+  "name": "优机定转",
+  "latest_close": 100.5,
+  "kalman_price": 100.1135066055645,
+  "particle_price": 100.3737950515354,
+  "market_state": 2,
+  "ensemble_forecast": 100.5,
+  "forecast_change_pct": 0.0,
+  "confidence": 0.95,
+  "analysis_date": "2025-11-27",
+  "forecast_date": "2025-11-28"
+}

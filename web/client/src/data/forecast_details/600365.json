@@ -1,0 +1,13 @@
+{
+  "code": "600365",
+  "name": "ST通葡",
+  "latest_close": 3.17,
+  "kalman_price": 3.190842812114847,
+  "particle_price": 3.171419917345725,
+  "market_state": 0,
+  "ensemble_forecast": 3.1480999999999995,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

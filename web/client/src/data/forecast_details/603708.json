@@ -1,0 +1,13 @@
+{
+  "code": "603708",
+  "name": "家家悦",
+  "latest_close": 13.3,
+  "kalman_price": 12.438339120564283,
+  "particle_price": 12.403407595653372,
+  "market_state": 2,
+  "ensemble_forecast": 12.9752,
+  "forecast_change_pct": -2.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

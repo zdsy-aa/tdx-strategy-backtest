@@ -1,0 +1,13 @@
+{
+  "code": "601577",
+  "name": "长沙银行",
+  "latest_close": 9.44,
+  "kalman_price": 9.416995683044627,
+  "particle_price": 9.441849579676349,
+  "market_state": 2,
+  "ensemble_forecast": 9.440200000000006,
+  "forecast_change_pct": 0.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

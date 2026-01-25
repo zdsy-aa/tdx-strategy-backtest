@@ -1,0 +1,13 @@
+{
+  "code": "603520",
+  "name": "司太立",
+  "latest_close": 10.24,
+  "kalman_price": 10.122866908469101,
+  "particle_price": 10.177452244836454,
+  "market_state": 0,
+  "ensemble_forecast": 10.234799999999991,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

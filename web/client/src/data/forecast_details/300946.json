@@ -1,0 +1,13 @@
+{
+  "code": "300946",
+  "name": "恒而达",
+  "latest_close": 56.91,
+  "kalman_price": 57.118997326929296,
+  "particle_price": 56.779114623457296,
+  "market_state": 0,
+  "ensemble_forecast": 56.004499999999965,
+  "forecast_change_pct": -1.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

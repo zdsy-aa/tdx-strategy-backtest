@@ -1,0 +1,13 @@
+{
+  "code": "920564",
+  "name": "天润科技",
+  "latest_close": 32.8,
+  "kalman_price": 28.79957356499748,
+  "particle_price": 23.458806464540505,
+  "market_state": 1,
+  "ensemble_forecast": 29.481500000000025,
+  "forecast_change_pct": -10.12,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

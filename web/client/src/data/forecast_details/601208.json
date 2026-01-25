@@ -1,0 +1,13 @@
+{
+  "code": "601208",
+  "name": "东材科技",
+  "latest_close": 26.26,
+  "kalman_price": 26.345882327046343,
+  "particle_price": 26.29148805201878,
+  "market_state": 0,
+  "ensemble_forecast": 26.482400000000016,
+  "forecast_change_pct": 0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

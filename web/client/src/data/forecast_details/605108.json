@@ -1,0 +1,13 @@
+{
+  "code": "605108",
+  "name": "同庆楼",
+  "latest_close": 19.7,
+  "kalman_price": 19.559798622162823,
+  "particle_price": 19.68639271315643,
+  "market_state": 0,
+  "ensemble_forecast": 19.631299999999996,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

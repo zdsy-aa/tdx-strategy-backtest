@@ -1,0 +1,13 @@
+{
+  "code": "002225",
+  "name": "濮耐股份",
+  "latest_close": 6.01,
+  "kalman_price": 6.082268103824348,
+  "particle_price": 6.014965653830005,
+  "market_state": 2,
+  "ensemble_forecast": 5.9605000000000015,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

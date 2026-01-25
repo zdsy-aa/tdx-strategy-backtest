@@ -1,0 +1,13 @@
+{
+  "code": "605066",
+  "name": "天正电气",
+  "latest_close": 7.82,
+  "kalman_price": 7.738574157560683,
+  "particle_price": 7.806042373739753,
+  "market_state": 1,
+  "ensemble_forecast": 7.7460999999999975,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

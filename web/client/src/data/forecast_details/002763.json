@@ -1,0 +1,13 @@
+{
+  "code": "002763",
+  "name": "汇洁股份",
+  "latest_close": 7.55,
+  "kalman_price": 7.429439087159544,
+  "particle_price": 7.554164269836309,
+  "market_state": 0,
+  "ensemble_forecast": 7.552999999999998,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

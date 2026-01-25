@@ -1,0 +1,13 @@
+{
+  "code": "301313",
+  "name": "凡拓数创",
+  "latest_close": 30.17,
+  "kalman_price": 29.706666057794806,
+  "particle_price": 29.687273375182066,
+  "market_state": 1,
+  "ensemble_forecast": 29.95139999999999,
+  "forecast_change_pct": -0.72,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

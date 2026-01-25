@@ -1,0 +1,13 @@
+{
+  "code": "603117",
+  "name": "万林物流",
+  "latest_close": 4.81,
+  "kalman_price": 4.827624912317095,
+  "particle_price": 4.8103669733317,
+  "market_state": 0,
+  "ensemble_forecast": 4.740200000000001,
+  "forecast_change_pct": -1.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

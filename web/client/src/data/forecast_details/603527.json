@@ -1,0 +1,13 @@
+{
+  "code": "603527",
+  "name": "众源新材",
+  "latest_close": 11.24,
+  "kalman_price": 11.159119369312524,
+  "particle_price": 11.211240785324042,
+  "market_state": 2,
+  "ensemble_forecast": 11.176200000000009,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

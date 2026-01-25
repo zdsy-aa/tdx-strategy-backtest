@@ -1,0 +1,13 @@
+{
+  "code": "300839",
+  "name": "博汇股份",
+  "latest_close": 12.17,
+  "kalman_price": 12.090137523433063,
+  "particle_price": 12.158960016791513,
+  "market_state": 0,
+  "ensemble_forecast": 12.248600000000001,
+  "forecast_change_pct": 0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

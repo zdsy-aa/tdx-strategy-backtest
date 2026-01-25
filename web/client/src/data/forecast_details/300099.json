@@ -1,0 +1,13 @@
+{
+  "code": "300099",
+  "name": "尤洛卡",
+  "latest_close": 7.98,
+  "kalman_price": 8.157504178284078,
+  "particle_price": 7.996645637416063,
+  "market_state": 0,
+  "ensemble_forecast": 7.9645999999999955,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

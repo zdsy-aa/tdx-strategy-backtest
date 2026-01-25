@@ -1,0 +1,13 @@
+{
+  "code": "600831",
+  "name": "广电网络",
+  "latest_close": 4.47,
+  "kalman_price": 4.413004144804778,
+  "particle_price": 4.452198530505628,
+  "market_state": 0,
+  "ensemble_forecast": 4.481199999999998,
+  "forecast_change_pct": 0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

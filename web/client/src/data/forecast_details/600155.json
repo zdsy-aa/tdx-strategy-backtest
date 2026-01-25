@@ -1,0 +1,13 @@
+{
+  "code": "600155",
+  "name": "华创云信",
+  "latest_close": 6.98,
+  "kalman_price": 6.9162708774509145,
+  "particle_price": 6.9789325340348,
+  "market_state": 2,
+  "ensemble_forecast": 6.965199999999999,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

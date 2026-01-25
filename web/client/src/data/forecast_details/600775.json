@@ -1,0 +1,13 @@
+{
+  "code": "600775",
+  "name": "南京熊猫",
+  "latest_close": 17.59,
+  "kalman_price": 18.225436382775907,
+  "particle_price": 16.697193757372347,
+  "market_state": 1,
+  "ensemble_forecast": 16.9394,
+  "forecast_change_pct": -3.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

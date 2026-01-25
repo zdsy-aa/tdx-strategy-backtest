@@ -1,0 +1,13 @@
+{
+  "code": "600592",
+  "name": "龙溪股份",
+  "latest_close": 26.41,
+  "kalman_price": 26.811482853753954,
+  "particle_price": 26.608036107599137,
+  "market_state": 1,
+  "ensemble_forecast": 26.355099999999982,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

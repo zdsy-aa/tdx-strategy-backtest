@@ -1,0 +1,13 @@
+{
+  "code": "603206",
+  "name": "嘉环科技",
+  "latest_close": 18.12,
+  "kalman_price": 17.95540945847139,
+  "particle_price": 18.10150242913012,
+  "market_state": 2,
+  "ensemble_forecast": 18.179499999999994,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

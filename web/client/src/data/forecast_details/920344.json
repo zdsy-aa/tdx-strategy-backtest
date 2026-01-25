@@ -1,0 +1,13 @@
+{
+  "code": "920344",
+  "name": "三元基因",
+  "latest_close": 25.7,
+  "kalman_price": 25.211820931318954,
+  "particle_price": 25.554728506805514,
+  "market_state": 0,
+  "ensemble_forecast": 28.143799999999995,
+  "forecast_change_pct": 9.51,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

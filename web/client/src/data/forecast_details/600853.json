@@ -1,0 +1,13 @@
+{
+  "code": "600853",
+  "name": "龙建股份",
+  "latest_close": 4.53,
+  "kalman_price": 4.523337724062343,
+  "particle_price": 4.538039496908918,
+  "market_state": 0,
+  "ensemble_forecast": 4.399199999999998,
+  "forecast_change_pct": -2.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

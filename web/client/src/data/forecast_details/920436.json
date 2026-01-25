@@ -1,0 +1,13 @@
+{
+  "code": "920436",
+  "name": "大地电气",
+  "latest_close": 18.07,
+  "kalman_price": 17.774832554320476,
+  "particle_price": 17.962969462496872,
+  "market_state": 0,
+  "ensemble_forecast": 17.993700000000004,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

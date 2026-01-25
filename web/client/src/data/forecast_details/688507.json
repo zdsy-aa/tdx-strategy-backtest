@@ -1,0 +1,13 @@
+{
+  "code": "688507",
+  "name": "索辰科技",
+  "latest_close": 118.85,
+  "kalman_price": 118.62690954301343,
+  "particle_price": 93.12837007127726,
+  "market_state": 2,
+  "ensemble_forecast": 118.13490000000006,
+  "forecast_change_pct": -0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

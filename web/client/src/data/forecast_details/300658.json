@@ -1,0 +1,13 @@
+{
+  "code": "300658",
+  "name": "延江股份",
+  "latest_close": 13.14,
+  "kalman_price": 13.097453139846449,
+  "particle_price": 13.114434416084624,
+  "market_state": 0,
+  "ensemble_forecast": 13.828300000000008,
+  "forecast_change_pct": 5.24,
+  "confidence": 0.75,
+  "analysis_date": "2025-12-31",
+  "forecast_date": "2026-01-01"
+}

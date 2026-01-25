@@ -1,0 +1,13 @@
+{
+  "code": "600810",
+  "name": "神马股份",
+  "latest_close": 9.16,
+  "kalman_price": 9.148916585637195,
+  "particle_price": 9.148665698623326,
+  "market_state": 0,
+  "ensemble_forecast": 9.151700000000002,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

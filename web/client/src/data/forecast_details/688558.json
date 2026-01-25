@@ -1,0 +1,13 @@
+{
+  "code": "688558",
+  "name": "国盛智科",
+  "latest_close": 32.12,
+  "kalman_price": 31.84684223790345,
+  "particle_price": 32.05755550784108,
+  "market_state": 2,
+  "ensemble_forecast": 31.42699999999997,
+  "forecast_change_pct": -2.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "001218",
+  "name": "丽臣实业",
+  "latest_close": 23.11,
+  "kalman_price": 23.100153500444893,
+  "particle_price": 23.10304224478909,
+  "market_state": 1,
+  "ensemble_forecast": 23.27819999999999,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

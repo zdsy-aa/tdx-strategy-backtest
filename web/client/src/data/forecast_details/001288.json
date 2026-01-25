@@ -1,0 +1,13 @@
+{
+  "code": "001288",
+  "name": "运机集团",
+  "latest_close": 30.49,
+  "kalman_price": 31.095641270746615,
+  "particle_price": 30.6884919773887,
+  "market_state": 0,
+  "ensemble_forecast": 30.719200000000015,
+  "forecast_change_pct": 0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

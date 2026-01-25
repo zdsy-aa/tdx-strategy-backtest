@@ -1,0 +1,13 @@
+{
+  "code": "002849",
+  "name": "威星智能",
+  "latest_close": 17.73,
+  "kalman_price": 17.235435906322927,
+  "particle_price": 17.4989788863565,
+  "market_state": 0,
+  "ensemble_forecast": 17.52489999999999,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

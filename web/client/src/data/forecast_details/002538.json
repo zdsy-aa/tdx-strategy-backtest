@@ -1,0 +1,13 @@
+{
+  "code": "002538",
+  "name": "司尔特",
+  "latest_close": 6.44,
+  "kalman_price": 6.514155425749313,
+  "particle_price": 6.443742194809581,
+  "market_state": 0,
+  "ensemble_forecast": 6.4645,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

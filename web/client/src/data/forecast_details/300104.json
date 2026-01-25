@@ -1,0 +1,13 @@
+{
+  "code": "300104",
+  "name": "乐视退",
+  "latest_close": 0.17,
+  "kalman_price": 0.16668272099866693,
+  "particle_price": 0.16282991703292854,
+  "market_state": 2,
+  "ensemble_forecast": 0.17230000000000004,
+  "forecast_change_pct": 1.35,
+  "confidence": 0.85,
+  "analysis_date": "2020-07-20",
+  "forecast_date": "2020-07-21"
+}

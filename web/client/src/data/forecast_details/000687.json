@@ -1,0 +1,13 @@
+{
+  "code": "000687",
+  "name": "华讯退",
+  "latest_close": 0.27,
+  "kalman_price": 0.2749512039442457,
+  "particle_price": 0.2607763024810886,
+  "market_state": 0,
+  "ensemble_forecast": 0.2754,
+  "forecast_change_pct": 2.0,
+  "confidence": 0.85,
+  "analysis_date": "2022-06-16",
+  "forecast_date": "2022-06-17"
+}

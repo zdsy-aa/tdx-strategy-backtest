@@ -1,0 +1,13 @@
+{
+  "code": "000948",
+  "name": "南天信息",
+  "latest_close": 18.63,
+  "kalman_price": 18.685075833217226,
+  "particle_price": 18.638696746575395,
+  "market_state": 0,
+  "ensemble_forecast": 18.559899999999992,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

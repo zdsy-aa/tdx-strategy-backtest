@@ -1,0 +1,13 @@
+{
+  "code": "301075",
+  "name": "多瑞医药",
+  "latest_close": 55.71,
+  "kalman_price": 55.80955463487308,
+  "particle_price": 55.573492615264755,
+  "market_state": 1,
+  "ensemble_forecast": 55.53410000000001,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

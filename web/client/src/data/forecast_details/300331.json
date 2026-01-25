@@ -1,0 +1,13 @@
+{
+  "code": "300331",
+  "name": "苏大维格",
+  "latest_close": 41.02,
+  "kalman_price": 41.38935421357528,
+  "particle_price": 32.585501716529045,
+  "market_state": 2,
+  "ensemble_forecast": 39.48980000000004,
+  "forecast_change_pct": -3.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

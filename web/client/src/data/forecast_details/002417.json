@@ -1,0 +1,13 @@
+{
+  "code": "002417",
+  "name": "深南退",
+  "latest_close": 0.4,
+  "kalman_price": 0.39431721782364537,
+  "particle_price": 0.4028119525483594,
+  "market_state": 2,
+  "ensemble_forecast": 0.4047999999999995,
+  "forecast_change_pct": 1.2,
+  "confidence": 0.85,
+  "analysis_date": "2023-07-07",
+  "forecast_date": "2023-07-10"
+}

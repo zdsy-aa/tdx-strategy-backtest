@@ -1,0 +1,13 @@
+{
+  "code": "002739",
+  "name": "万达电影",
+  "latest_close": 11.49,
+  "kalman_price": 11.494719672917357,
+  "particle_price": 11.482766047116366,
+  "market_state": 1,
+  "ensemble_forecast": 11.476999999999999,
+  "forecast_change_pct": -0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

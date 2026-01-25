@@ -1,0 +1,13 @@
+{
+  "code": "603639",
+  "name": "海利尔",
+  "latest_close": 12.87,
+  "kalman_price": 12.907283656459835,
+  "particle_price": 12.868309462652649,
+  "market_state": 1,
+  "ensemble_forecast": 12.803999999999995,
+  "forecast_change_pct": -0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

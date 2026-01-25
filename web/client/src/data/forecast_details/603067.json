@@ -1,0 +1,13 @@
+{
+  "code": "603067",
+  "name": "振华股份",
+  "latest_close": 35.7,
+  "kalman_price": 35.45524532361187,
+  "particle_price": 30.745639534412398,
+  "market_state": 0,
+  "ensemble_forecast": 35.25139999999998,
+  "forecast_change_pct": -1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

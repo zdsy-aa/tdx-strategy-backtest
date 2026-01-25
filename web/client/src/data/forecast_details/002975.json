@@ -1,0 +1,13 @@
+{
+  "code": "002975",
+  "name": "博杰股份",
+  "latest_close": 78.1,
+  "kalman_price": 78.60982257040823,
+  "particle_price": 78.04350075874568,
+  "market_state": 1,
+  "ensemble_forecast": 77.51710000000004,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

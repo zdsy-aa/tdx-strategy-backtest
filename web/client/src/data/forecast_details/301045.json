@@ -1,0 +1,13 @@
+{
+  "code": "301045",
+  "name": "天禄科技",
+  "latest_close": 32.3,
+  "kalman_price": 31.346016045786445,
+  "particle_price": 28.52783145410442,
+  "market_state": 2,
+  "ensemble_forecast": 32.47790000000005,
+  "forecast_change_pct": 0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

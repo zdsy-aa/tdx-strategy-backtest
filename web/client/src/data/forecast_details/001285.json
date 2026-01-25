@@ -1,0 +1,13 @@
+{
+  "code": "001285",
+  "name": "瑞立科密",
+  "latest_close": 60.11,
+  "kalman_price": 61.706087370428826,
+  "particle_price": 58.13564979827366,
+  "market_state": 0,
+  "ensemble_forecast": 60.79509999999996,
+  "forecast_change_pct": 1.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

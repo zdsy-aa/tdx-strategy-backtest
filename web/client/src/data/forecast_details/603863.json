@@ -1,0 +1,13 @@
+{
+  "code": "603863",
+  "name": "松炀资源",
+  "latest_close": 19.21,
+  "kalman_price": 18.898317754267012,
+  "particle_price": 19.185731338963983,
+  "market_state": 1,
+  "ensemble_forecast": 18.877299999999995,
+  "forecast_change_pct": -1.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

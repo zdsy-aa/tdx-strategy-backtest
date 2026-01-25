@@ -1,0 +1,13 @@
+{
+  "code": "603408",
+  "name": "建霖家居",
+  "latest_close": 12.86,
+  "kalman_price": 12.813637593586773,
+  "particle_price": 12.867054057252682,
+  "market_state": 0,
+  "ensemble_forecast": 12.829200000000004,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

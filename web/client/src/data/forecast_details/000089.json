@@ -1,0 +1,13 @@
+{
+  "code": "000089",
+  "name": "深圳机场",
+  "latest_close": 7.01,
+  "kalman_price": 6.969215333108726,
+  "particle_price": 7.004788001447139,
+  "market_state": 0,
+  "ensemble_forecast": 6.8967000000000045,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

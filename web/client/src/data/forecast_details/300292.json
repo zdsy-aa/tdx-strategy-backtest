@@ -1,0 +1,13 @@
+{
+  "code": "300292",
+  "name": "吴通控股",
+  "latest_close": 4.81,
+  "kalman_price": 4.718217409119573,
+  "particle_price": 4.796635801054122,
+  "market_state": 2,
+  "ensemble_forecast": 4.7666999999999975,
+  "forecast_change_pct": -0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

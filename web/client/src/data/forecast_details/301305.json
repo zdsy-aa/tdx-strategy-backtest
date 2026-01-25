@@ -1,0 +1,13 @@
+{
+  "code": "301305",
+  "name": "朗坤科技",
+  "latest_close": 25.03,
+  "kalman_price": 25.219524125280525,
+  "particle_price": 24.832100579224115,
+  "market_state": 1,
+  "ensemble_forecast": 24.779700000000002,
+  "forecast_change_pct": -1.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

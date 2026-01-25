@@ -1,0 +1,13 @@
+{
+  "code": "002734",
+  "name": "利民股份",
+  "latest_close": 16.73,
+  "kalman_price": 16.739570243249222,
+  "particle_price": 16.722554789935355,
+  "market_state": 2,
+  "ensemble_forecast": 16.599999999999987,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

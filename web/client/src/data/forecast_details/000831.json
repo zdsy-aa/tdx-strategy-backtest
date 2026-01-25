@@ -1,0 +1,13 @@
+{
+  "code": "000831",
+  "name": "中国稀土",
+  "latest_close": 52.5,
+  "kalman_price": 52.004978055748914,
+  "particle_price": 49.80528961851443,
+  "market_state": 1,
+  "ensemble_forecast": 52.66270000000003,
+  "forecast_change_pct": 0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

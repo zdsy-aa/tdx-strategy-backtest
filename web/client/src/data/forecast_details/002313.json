@@ -1,0 +1,13 @@
+{
+  "code": "002313",
+  "name": "日海智能",
+  "latest_close": 10.72,
+  "kalman_price": 10.620182022973408,
+  "particle_price": 10.70587889983006,
+  "market_state": 0,
+  "ensemble_forecast": 10.569300000000007,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

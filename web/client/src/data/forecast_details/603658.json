@@ -1,0 +1,13 @@
+{
+  "code": "603658",
+  "name": "安图生物",
+  "latest_close": 37.24,
+  "kalman_price": 37.0178174156819,
+  "particle_price": 37.20967620643159,
+  "market_state": 0,
+  "ensemble_forecast": 37.236200000000004,
+  "forecast_change_pct": -0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

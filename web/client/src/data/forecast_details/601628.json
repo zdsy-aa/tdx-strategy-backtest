@@ -1,0 +1,13 @@
+{
+  "code": "601628",
+  "name": "中国人寿",
+  "latest_close": 49.25,
+  "kalman_price": 49.078375676841716,
+  "particle_price": 48.812215172018675,
+  "market_state": 2,
+  "ensemble_forecast": 50.30380000000003,
+  "forecast_change_pct": 2.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

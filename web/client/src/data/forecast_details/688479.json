@@ -1,0 +1,13 @@
+{
+  "code": "688479",
+  "name": "友车科技",
+  "latest_close": 20.22,
+  "kalman_price": 19.835549152393575,
+  "particle_price": 20.20458063634406,
+  "market_state": 0,
+  "ensemble_forecast": 20.184900000000006,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

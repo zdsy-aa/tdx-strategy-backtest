@@ -1,0 +1,13 @@
+{
+  "code": "002562",
+  "name": "兄弟科技",
+  "latest_close": 6.8,
+  "kalman_price": 6.816664703357459,
+  "particle_price": 6.793699397773826,
+  "market_state": 0,
+  "ensemble_forecast": 6.695700000000003,
+  "forecast_change_pct": -1.53,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

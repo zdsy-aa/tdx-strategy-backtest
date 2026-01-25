@@ -1,0 +1,13 @@
+{
+  "code": "301217",
+  "name": "铜冠铜箔",
+  "latest_close": 33.63,
+  "kalman_price": 33.56775115373144,
+  "particle_price": 33.63812217336152,
+  "market_state": 2,
+  "ensemble_forecast": 33.17620000000001,
+  "forecast_change_pct": -1.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

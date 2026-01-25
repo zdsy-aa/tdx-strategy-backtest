@@ -1,0 +1,13 @@
+{
+  "code": "300321",
+  "name": "同大股份",
+  "latest_close": 40.39,
+  "kalman_price": 41.109345339343214,
+  "particle_price": 42.03567916609038,
+  "market_state": 2,
+  "ensemble_forecast": 39.04040000000004,
+  "forecast_change_pct": -3.34,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

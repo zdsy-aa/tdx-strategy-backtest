@@ -1,0 +1,13 @@
+{
+  "code": "002349",
+  "name": "精华制药",
+  "latest_close": 7.66,
+  "kalman_price": 7.540545935334135,
+  "particle_price": 7.643961018368474,
+  "market_state": 0,
+  "ensemble_forecast": 7.7163,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

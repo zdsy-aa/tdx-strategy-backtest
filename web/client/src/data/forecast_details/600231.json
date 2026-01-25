@@ -1,0 +1,13 @@
+{
+  "code": "600231",
+  "name": "凌钢股份",
+  "latest_close": 2.15,
+  "kalman_price": 2.148445740109364,
+  "particle_price": 2.149884924108618,
+  "market_state": 0,
+  "ensemble_forecast": 2.143799999999999,
+  "forecast_change_pct": -0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

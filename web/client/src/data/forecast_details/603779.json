@@ -1,0 +1,13 @@
+{
+  "code": "603779",
+  "name": "威龙股份",
+  "latest_close": 6.55,
+  "kalman_price": 6.5096677656251005,
+  "particle_price": 6.540328625888809,
+  "market_state": 0,
+  "ensemble_forecast": 6.533499999999996,
+  "forecast_change_pct": -0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

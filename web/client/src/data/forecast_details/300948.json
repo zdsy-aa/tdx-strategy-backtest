@@ -1,0 +1,13 @@
+{
+  "code": "300948",
+  "name": "冠中生态",
+  "latest_close": 25.3,
+  "kalman_price": 25.280719026899668,
+  "particle_price": 25.29203906459377,
+  "market_state": 1,
+  "ensemble_forecast": 25.231000000000005,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

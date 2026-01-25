@@ -1,0 +1,13 @@
+{
+  "code": "920725",
+  "name": "惠丰钻石",
+  "latest_close": 35.22,
+  "kalman_price": 34.98152868295183,
+  "particle_price": 35.19056433657468,
+  "market_state": 0,
+  "ensemble_forecast": 34.6248,
+  "forecast_change_pct": -1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

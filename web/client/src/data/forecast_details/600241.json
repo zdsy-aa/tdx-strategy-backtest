@@ -1,0 +1,13 @@
+{
+  "code": "600241",
+  "name": "时代万恒",
+  "latest_close": 8.44,
+  "kalman_price": 8.346811749736679,
+  "particle_price": 8.428519017259426,
+  "market_state": 0,
+  "ensemble_forecast": 8.498599999999996,
+  "forecast_change_pct": 0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

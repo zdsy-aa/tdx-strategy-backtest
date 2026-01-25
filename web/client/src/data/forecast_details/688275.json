@@ -1,0 +1,13 @@
+{
+  "code": "688275",
+  "name": "万润新能",
+  "latest_close": 72.51,
+  "kalman_price": 72.80272803124912,
+  "particle_price": 72.8559634650642,
+  "market_state": 2,
+  "ensemble_forecast": 72.11670000000004,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

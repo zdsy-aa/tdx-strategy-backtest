@@ -1,0 +1,13 @@
+{
+  "code": "301071",
+  "name": "力量钻石",
+  "latest_close": 37.92,
+  "kalman_price": 37.90220142892697,
+  "particle_price": 37.907638382103684,
+  "market_state": 1,
+  "ensemble_forecast": 37.785400000000024,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

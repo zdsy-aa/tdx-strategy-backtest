@@ -1,0 +1,13 @@
+{
+  "code": "600909",
+  "name": "华安证券",
+  "latest_close": 7.21,
+  "kalman_price": 7.251105875253814,
+  "particle_price": 7.216388710630143,
+  "market_state": 2,
+  "ensemble_forecast": 7.2161,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

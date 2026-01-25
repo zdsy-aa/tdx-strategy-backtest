@@ -1,0 +1,13 @@
+{
+  "code": "688681",
+  "name": "科汇股份",
+  "latest_close": 18.64,
+  "kalman_price": 18.391020682416332,
+  "particle_price": 18.608837931056136,
+  "market_state": 2,
+  "ensemble_forecast": 18.624499999999998,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

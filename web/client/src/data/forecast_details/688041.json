@@ -1,0 +1,13 @@
+{
+  "code": "688041",
+  "name": "海光信息",
+  "latest_close": 238.33,
+  "kalman_price": 237.52235386622115,
+  "particle_price": 146.73655310050475,
+  "market_state": 1,
+  "ensemble_forecast": 233.33480000000006,
+  "forecast_change_pct": -2.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

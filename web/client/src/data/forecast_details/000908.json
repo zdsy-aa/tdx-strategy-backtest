@@ -1,0 +1,13 @@
+{
+  "code": "000908",
+  "name": "*ST景峰",
+  "latest_close": 7.78,
+  "kalman_price": 7.7890210583625805,
+  "particle_price": 7.779857944258952,
+  "market_state": 2,
+  "ensemble_forecast": 8.081500000000004,
+  "forecast_change_pct": 3.88,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000779",
+  "name": "甘咨询",
+  "latest_close": 8.5,
+  "kalman_price": 8.471874200919153,
+  "particle_price": 8.501046210750816,
+  "market_state": 1,
+  "ensemble_forecast": 8.471000000000004,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

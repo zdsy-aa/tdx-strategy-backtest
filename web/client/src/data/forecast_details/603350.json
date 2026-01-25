@@ -1,0 +1,13 @@
+{
+  "code": "603350",
+  "name": "安乃达",
+  "latest_close": 38.42,
+  "kalman_price": 38.38380896967026,
+  "particle_price": 38.405535524053754,
+  "market_state": 0,
+  "ensemble_forecast": 38.149500000000025,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300486",
+  "name": "东杰智能",
+  "latest_close": 21.0,
+  "kalman_price": 20.515475672412464,
+  "particle_price": 19.86679616292146,
+  "market_state": 2,
+  "ensemble_forecast": 20.52979999999999,
+  "forecast_change_pct": -2.24,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

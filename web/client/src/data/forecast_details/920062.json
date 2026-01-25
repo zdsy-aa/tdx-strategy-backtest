@@ -1,0 +1,13 @@
+{
+  "code": "920062",
+  "name": "科润智控",
+  "latest_close": 10.52,
+  "kalman_price": 10.378629571357267,
+  "particle_price": 10.484961585565246,
+  "market_state": 0,
+  "ensemble_forecast": 10.570700000000004,
+  "forecast_change_pct": 0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

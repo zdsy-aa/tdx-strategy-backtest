@@ -1,0 +1,13 @@
+{
+  "code": "002394",
+  "name": "联发股份",
+  "latest_close": 18.89,
+  "kalman_price": 18.290108726389757,
+  "particle_price": 17.747635588789006,
+  "market_state": 0,
+  "ensemble_forecast": 18.379700000000017,
+  "forecast_change_pct": -2.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

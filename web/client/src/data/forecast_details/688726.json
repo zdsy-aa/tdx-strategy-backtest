@@ -1,0 +1,13 @@
+{
+  "code": "688726",
+  "name": "拉普拉斯",
+  "latest_close": 39.04,
+  "kalman_price": 38.618027275657035,
+  "particle_price": 38.890268201562236,
+  "market_state": 2,
+  "ensemble_forecast": 38.79549999999999,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

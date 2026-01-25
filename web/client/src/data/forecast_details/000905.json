@@ -1,0 +1,13 @@
+{
+  "code": "000905",
+  "name": "厦门港务",
+  "latest_close": 14.06,
+  "kalman_price": 13.945650669630862,
+  "particle_price": 14.043231228811482,
+  "market_state": 1,
+  "ensemble_forecast": 14.364599999999998,
+  "forecast_change_pct": 2.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

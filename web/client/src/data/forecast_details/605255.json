@@ -1,0 +1,13 @@
+{
+  "code": "605255",
+  "name": "天普股份",
+  "latest_close": 176.6,
+  "kalman_price": 194.74069317527062,
+  "particle_price": 32.5843840871051,
+  "market_state": 2,
+  "ensemble_forecast": 181.74380000000005,
+  "forecast_change_pct": 2.91,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

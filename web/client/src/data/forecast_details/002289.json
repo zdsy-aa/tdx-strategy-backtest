@@ -1,0 +1,13 @@
+{
+  "code": "002289",
+  "name": "*ST宇顺",
+  "latest_close": 27.9,
+  "kalman_price": 28.418924828557763,
+  "particle_price": 28.296594998983025,
+  "market_state": 2,
+  "ensemble_forecast": 27.269099999999998,
+  "forecast_change_pct": -2.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

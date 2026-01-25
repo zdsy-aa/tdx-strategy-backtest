@@ -1,0 +1,13 @@
+{
+  "code": "688001",
+  "name": "华兴源创",
+  "latest_close": 31.57,
+  "kalman_price": 31.381814451479407,
+  "particle_price": 31.46677716394053,
+  "market_state": 0,
+  "ensemble_forecast": 31.58109999999999,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

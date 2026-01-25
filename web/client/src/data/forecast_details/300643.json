@@ -1,0 +1,13 @@
+{
+  "code": "300643",
+  "name": "万通智控",
+  "latest_close": 19.86,
+  "kalman_price": 19.661349513601618,
+  "particle_price": 19.819319335570587,
+  "market_state": 2,
+  "ensemble_forecast": 19.639800000000008,
+  "forecast_change_pct": -1.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

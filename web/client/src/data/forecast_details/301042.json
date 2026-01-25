@@ -1,0 +1,13 @@
+{
+  "code": "301042",
+  "name": "安联锐视",
+  "latest_close": 78.61,
+  "kalman_price": 77.83676646422028,
+  "particle_price": 73.6419219565864,
+  "market_state": 1,
+  "ensemble_forecast": 78.87149999999997,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

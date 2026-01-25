@@ -1,0 +1,13 @@
+{
+  "code": "688580",
+  "name": "伟思医疗",
+  "latest_close": 64.16,
+  "kalman_price": 66.74953288859182,
+  "particle_price": 48.54718173454118,
+  "market_state": 2,
+  "ensemble_forecast": 64.59919999999995,
+  "forecast_change_pct": 0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300638",
+  "name": "广和通",
+  "latest_close": 32.58,
+  "kalman_price": 31.70981788858962,
+  "particle_price": 30.006473730379412,
+  "market_state": 0,
+  "ensemble_forecast": 32.60139999999999,
+  "forecast_change_pct": 0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

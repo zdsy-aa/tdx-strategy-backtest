@@ -1,0 +1,13 @@
+{
+  "code": "600151",
+  "name": "航天机电",
+  "latest_close": 20.51,
+  "kalman_price": 20.784221925247,
+  "particle_price": 20.38334587651458,
+  "market_state": 1,
+  "ensemble_forecast": 20.3311,
+  "forecast_change_pct": -0.87,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

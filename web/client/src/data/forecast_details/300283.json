@@ -1,0 +1,13 @@
+{
+  "code": "300283",
+  "name": "温州宏丰",
+  "latest_close": 8.1,
+  "kalman_price": 7.971404744141248,
+  "particle_price": 8.06311806105154,
+  "market_state": 2,
+  "ensemble_forecast": 7.831,
+  "forecast_change_pct": -3.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

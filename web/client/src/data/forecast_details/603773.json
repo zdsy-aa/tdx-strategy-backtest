@@ -1,0 +1,13 @@
+{
+  "code": "603773",
+  "name": "沃格光电",
+  "latest_close": 35.0,
+  "kalman_price": 36.00119834462116,
+  "particle_price": 34.98794392255976,
+  "market_state": 0,
+  "ensemble_forecast": 34.33539999999998,
+  "forecast_change_pct": -1.9,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

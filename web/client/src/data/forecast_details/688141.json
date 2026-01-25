@@ -1,0 +1,13 @@
+{
+  "code": "688141",
+  "name": "杰华特",
+  "latest_close": 46.36,
+  "kalman_price": 48.13341030958743,
+  "particle_price": 41.99254273167548,
+  "market_state": 2,
+  "ensemble_forecast": 45.3093,
+  "forecast_change_pct": -2.27,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

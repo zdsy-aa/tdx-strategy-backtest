@@ -1,0 +1,13 @@
+{
+  "code": "002506",
+  "name": "协鑫集成",
+  "latest_close": 2.85,
+  "kalman_price": 2.8742059810620786,
+  "particle_price": 2.8382099214483367,
+  "market_state": 2,
+  "ensemble_forecast": 2.8105000000000007,
+  "forecast_change_pct": -1.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

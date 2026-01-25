@@ -1,0 +1,13 @@
+{
+  "code": "300173",
+  "name": "ST福能",
+  "latest_close": 4.37,
+  "kalman_price": 4.390534937216027,
+  "particle_price": 4.358612136655941,
+  "market_state": 0,
+  "ensemble_forecast": 4.339200000000004,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

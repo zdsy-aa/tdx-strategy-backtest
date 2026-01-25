@@ -1,0 +1,13 @@
+{
+  "code": "300082",
+  "name": "奥克股份",
+  "latest_close": 10.44,
+  "kalman_price": 10.517737835808127,
+  "particle_price": 10.449437636121301,
+  "market_state": 1,
+  "ensemble_forecast": 10.3504,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

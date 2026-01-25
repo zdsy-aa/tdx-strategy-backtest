@@ -1,0 +1,13 @@
+{
+  "code": "603667",
+  "name": "五洲新春",
+  "latest_close": 74.74,
+  "kalman_price": 79.42291954668991,
+  "particle_price": 51.443994173847024,
+  "market_state": 2,
+  "ensemble_forecast": 74.19409999999998,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

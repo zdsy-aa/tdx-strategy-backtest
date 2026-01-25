@@ -1,0 +1,13 @@
+{
+  "code": "300618",
+  "name": "寒锐钴业",
+  "latest_close": 47.75,
+  "kalman_price": 48.0009635025199,
+  "particle_price": 47.693632877696544,
+  "market_state": 0,
+  "ensemble_forecast": 47.38919999999999,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

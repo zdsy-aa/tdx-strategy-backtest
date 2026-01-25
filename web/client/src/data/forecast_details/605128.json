@@ -1,0 +1,13 @@
+{
+  "code": "605128",
+  "name": "上海沿浦",
+  "latest_close": 38.68,
+  "kalman_price": 38.864469253199374,
+  "particle_price": 38.657786017333855,
+  "market_state": 2,
+  "ensemble_forecast": 38.13540000000002,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

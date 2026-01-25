@@ -1,0 +1,13 @@
+{
+  "code": "002817",
+  "name": "黄山胶囊",
+  "latest_close": 7.76,
+  "kalman_price": 7.709244600902181,
+  "particle_price": 7.763344105625131,
+  "market_state": 0,
+  "ensemble_forecast": 7.7507,
+  "forecast_change_pct": -0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

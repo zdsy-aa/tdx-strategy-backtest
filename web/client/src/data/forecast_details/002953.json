@@ -1,0 +1,13 @@
+{
+  "code": "002953",
+  "name": "日丰股份",
+  "latest_close": 11.97,
+  "kalman_price": 11.979975160784788,
+  "particle_price": 11.969021487991169,
+  "market_state": 0,
+  "ensemble_forecast": 11.666500000000008,
+  "forecast_change_pct": -2.54,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

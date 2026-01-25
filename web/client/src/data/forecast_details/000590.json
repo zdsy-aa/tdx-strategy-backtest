@@ -1,0 +1,13 @@
+{
+  "code": "000590",
+  "name": "古汉医药",
+  "latest_close": 11.5,
+  "kalman_price": 11.577571591476028,
+  "particle_price": 11.499183257081155,
+  "market_state": 2,
+  "ensemble_forecast": 11.521499999999996,
+  "forecast_change_pct": 0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

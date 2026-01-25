@@ -1,0 +1,13 @@
+{
+  "code": "603618",
+  "name": "杭电股份",
+  "latest_close": 8.29,
+  "kalman_price": 8.323323286548904,
+  "particle_price": 8.30970217971631,
+  "market_state": 0,
+  "ensemble_forecast": 8.157000000000004,
+  "forecast_change_pct": -1.6,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000958",
+  "name": "电投产融",
+  "latest_close": 6.57,
+  "kalman_price": 6.582680958347507,
+  "particle_price": 6.574918201646697,
+  "market_state": 0,
+  "ensemble_forecast": 6.457999999999998,
+  "forecast_change_pct": -1.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

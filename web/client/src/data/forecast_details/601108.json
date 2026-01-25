@@ -1,0 +1,13 @@
+{
+  "code": "601108",
+  "name": "财通证券",
+  "latest_close": 9.01,
+  "kalman_price": 8.897131854246867,
+  "particle_price": 8.96818020375851,
+  "market_state": 0,
+  "ensemble_forecast": 9.001899999999996,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

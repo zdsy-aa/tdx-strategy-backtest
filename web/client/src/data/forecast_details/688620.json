@@ -1,0 +1,13 @@
+{
+  "code": "688620",
+  "name": "安凯微",
+  "latest_close": 12.76,
+  "kalman_price": 12.819416212108406,
+  "particle_price": 12.759033984323226,
+  "market_state": 0,
+  "ensemble_forecast": 12.702000000000009,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

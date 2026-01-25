@@ -1,0 +1,13 @@
+{
+  "code": "688662",
+  "name": "富信科技",
+  "latest_close": 54.69,
+  "kalman_price": 56.55774467222871,
+  "particle_price": 51.6966890655058,
+  "market_state": 1,
+  "ensemble_forecast": 54.14370000000001,
+  "forecast_change_pct": -1.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

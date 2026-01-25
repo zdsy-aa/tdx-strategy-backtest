@@ -1,0 +1,13 @@
+{
+  "code": "300982",
+  "name": "苏文电能",
+  "latest_close": 22.59,
+  "kalman_price": 23.19879091981325,
+  "particle_price": 22.58136554253658,
+  "market_state": 2,
+  "ensemble_forecast": 21.966100000000004,
+  "forecast_change_pct": -2.76,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

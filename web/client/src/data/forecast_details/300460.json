@@ -1,0 +1,13 @@
+{
+  "code": "300460",
+  "name": "ST惠伦",
+  "latest_close": 8.68,
+  "kalman_price": 8.3484350305589,
+  "particle_price": 8.630627700614077,
+  "market_state": 2,
+  "ensemble_forecast": 8.724000000000004,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

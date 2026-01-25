@@ -1,0 +1,13 @@
+{
+  "code": "603159",
+  "name": "上海亚虹",
+  "latest_close": 26.0,
+  "kalman_price": 26.108316191019583,
+  "particle_price": 26.03447022763297,
+  "market_state": 0,
+  "ensemble_forecast": 25.521999999999995,
+  "forecast_change_pct": -1.84,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301272",
+  "name": "英华特",
+  "latest_close": 40.95,
+  "kalman_price": 40.76539270706996,
+  "particle_price": 40.90721772031883,
+  "market_state": 1,
+  "ensemble_forecast": 41.217700000000015,
+  "forecast_change_pct": 0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

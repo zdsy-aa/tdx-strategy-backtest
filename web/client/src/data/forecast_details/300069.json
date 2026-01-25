@@ -1,0 +1,13 @@
+{
+  "code": "300069",
+  "name": "金利华电",
+  "latest_close": 18.58,
+  "kalman_price": 18.33637772845497,
+  "particle_price": 18.480468346127783,
+  "market_state": 2,
+  "ensemble_forecast": 17.7947,
+  "forecast_change_pct": -4.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

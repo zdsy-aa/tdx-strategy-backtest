@@ -1,0 +1,13 @@
+{
+  "code": "002555",
+  "name": "三七互娱",
+  "latest_close": 29.29,
+  "kalman_price": 28.466108143010672,
+  "particle_price": 26.799697606885328,
+  "market_state": 2,
+  "ensemble_forecast": 29.424599999999977,
+  "forecast_change_pct": 0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301632",
+  "name": "广东建科",
+  "latest_close": 25.1,
+  "kalman_price": 24.89457976501168,
+  "particle_price": 24.99470894448653,
+  "market_state": 1,
+  "ensemble_forecast": 24.993900000000004,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

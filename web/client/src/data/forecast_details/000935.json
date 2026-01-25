@@ -1,0 +1,13 @@
+{
+  "code": "000935",
+  "name": "四川双马",
+  "latest_close": 27.65,
+  "kalman_price": 27.506533008687864,
+  "particle_price": 27.55931207730951,
+  "market_state": 0,
+  "ensemble_forecast": 27.297900000000023,
+  "forecast_change_pct": -1.27,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

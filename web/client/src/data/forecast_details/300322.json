@@ -1,0 +1,13 @@
+{
+  "code": "300322",
+  "name": "硕贝德",
+  "latest_close": 29.0,
+  "kalman_price": 30.263985241152046,
+  "particle_price": 28.698550866792097,
+  "market_state": 1,
+  "ensemble_forecast": 28.9459,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

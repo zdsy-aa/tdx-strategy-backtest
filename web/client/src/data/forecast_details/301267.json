@@ -1,0 +1,13 @@
+{
+  "code": "301267",
+  "name": "华厦眼科",
+  "latest_close": 19.11,
+  "kalman_price": 18.82927587808486,
+  "particle_price": 18.999410191046515,
+  "market_state": 0,
+  "ensemble_forecast": 19.230599999999992,
+  "forecast_change_pct": 0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

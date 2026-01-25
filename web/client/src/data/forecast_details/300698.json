@@ -1,0 +1,13 @@
+{
+  "code": "300698",
+  "name": "万马科技",
+  "latest_close": 45.06,
+  "kalman_price": 45.18457535505797,
+  "particle_price": 45.00987398059479,
+  "market_state": 0,
+  "ensemble_forecast": 44.296699999999994,
+  "forecast_change_pct": -1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

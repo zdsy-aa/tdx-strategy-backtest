@@ -1,0 +1,13 @@
+{
+  "code": "002493",
+  "name": "荣盛石化",
+  "latest_close": 11.35,
+  "kalman_price": 11.533254820398394,
+  "particle_price": 11.351088934411823,
+  "market_state": 2,
+  "ensemble_forecast": 11.368999999999996,
+  "forecast_change_pct": 0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

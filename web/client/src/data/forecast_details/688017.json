@@ -1,0 +1,13 @@
+{
+  "code": "688017",
+  "name": "绿的谐波",
+  "latest_close": 195.0,
+  "kalman_price": 196.13506283407173,
+  "particle_price": 152.45375260441412,
+  "market_state": 0,
+  "ensemble_forecast": 192.19040000000007,
+  "forecast_change_pct": -1.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

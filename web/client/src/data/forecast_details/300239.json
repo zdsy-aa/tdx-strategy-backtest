@@ -1,0 +1,13 @@
+{
+  "code": "300239",
+  "name": "东宝生物",
+  "latest_close": 6.5,
+  "kalman_price": 6.1946188481199025,
+  "particle_price": 6.362482926338143,
+  "market_state": 2,
+  "ensemble_forecast": 6.4034,
+  "forecast_change_pct": -1.49,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

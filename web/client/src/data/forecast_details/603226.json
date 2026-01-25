@@ -1,0 +1,13 @@
+{
+  "code": "603226",
+  "name": "菲林格尔",
+  "latest_close": 29.96,
+  "kalman_price": 29.918131517207616,
+  "particle_price": 29.921465790827728,
+  "market_state": 1,
+  "ensemble_forecast": 29.990300000000005,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

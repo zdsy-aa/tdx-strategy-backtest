@@ -1,0 +1,13 @@
+{
+  "code": "300447",
+  "name": "全信股份",
+  "latest_close": 20.8,
+  "kalman_price": 19.969697210470745,
+  "particle_price": 20.605889329769614,
+  "market_state": 0,
+  "ensemble_forecast": 21.003200000000007,
+  "forecast_change_pct": 0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -3,10 +3,11 @@
   "name": "齐鲁石化",
   "latest_close": 10.01,
   "kalman_price": 10.061255710675287,
-  "particle_price": 10.019619218624523,
-  "market_state": 0,
-  "ensemble_forecast": 10.07510000000001,
-  "forecast_change_pct": 0.65,
+  "particle_price": 10.038524030375806,
+  "market_state": 1,
+  "ensemble_forecast": 10.084400000000011,
+  "forecast_change_pct": 0.74,
   "confidence": 0.95,
-  "analysis_date": "2006-04-06"
+  "analysis_date": "2006-04-06",
+  "forecast_date": "2006-04-07"
 }

@@ -1,0 +1,13 @@
+{
+  "code": "300297",
+  "name": "蓝盾退",
+  "latest_close": 0.21,
+  "kalman_price": 0.21104077522807432,
+  "particle_price": 0.20966837090864102,
+  "market_state": 0,
+  "ensemble_forecast": 0.20980000000000046,
+  "forecast_change_pct": -0.1,
+  "confidence": 0.95,
+  "analysis_date": "2023-07-28",
+  "forecast_date": "2023-07-31"
+}

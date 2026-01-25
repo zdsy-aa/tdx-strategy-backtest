@@ -1,0 +1,13 @@
+{
+  "code": "301235",
+  "name": "华康洁净",
+  "latest_close": 38.77,
+  "kalman_price": 37.949070061573266,
+  "particle_price": 38.49079679446242,
+  "market_state": 2,
+  "ensemble_forecast": 39.3064,
+  "forecast_change_pct": 1.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-15",
+  "forecast_date": "2026-01-16"
+}

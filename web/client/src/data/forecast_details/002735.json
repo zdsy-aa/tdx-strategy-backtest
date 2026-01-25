@@ -1,0 +1,13 @@
+{
+  "code": "002735",
+  "name": "王子新材",
+  "latest_close": 20.93,
+  "kalman_price": 21.3252248068728,
+  "particle_price": 20.89222012821685,
+  "market_state": 1,
+  "ensemble_forecast": 20.74920000000002,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600876",
+  "name": "凯盛新能",
+  "latest_close": 9.94,
+  "kalman_price": 9.94895142545425,
+  "particle_price": 9.960102374788619,
+  "market_state": 2,
+  "ensemble_forecast": 9.9026,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

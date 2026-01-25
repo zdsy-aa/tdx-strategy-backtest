@@ -1,0 +1,13 @@
+{
+  "code": "603615",
+  "name": "茶花股份",
+  "latest_close": 24.25,
+  "kalman_price": 24.39056448731348,
+  "particle_price": 24.25012011175143,
+  "market_state": 0,
+  "ensemble_forecast": 24.196799999999985,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

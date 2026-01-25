@@ -1,0 +1,13 @@
+{
+  "code": "600237",
+  "name": "铜峰电子",
+  "latest_close": 9.2,
+  "kalman_price": 9.282402741610266,
+  "particle_price": 9.208502642570295,
+  "market_state": 2,
+  "ensemble_forecast": 9.035300000000001,
+  "forecast_change_pct": -1.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002465",
+  "name": "海格通信",
+  "latest_close": 22.5,
+  "kalman_price": 21.896189819371617,
+  "particle_price": 20.367417211526654,
+  "market_state": 0,
+  "ensemble_forecast": 20.98449999999998,
+  "forecast_change_pct": -6.74,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

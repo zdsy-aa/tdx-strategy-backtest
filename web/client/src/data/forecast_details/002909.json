@@ -1,0 +1,13 @@
+{
+  "code": "002909",
+  "name": "集泰股份",
+  "latest_close": 7.14,
+  "kalman_price": 7.097869399724703,
+  "particle_price": 7.149673723414109,
+  "market_state": 1,
+  "ensemble_forecast": 7.087499999999993,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301039",
+  "name": "中集车辆",
+  "latest_close": 9.28,
+  "kalman_price": 9.20508676440846,
+  "particle_price": 9.291508736614258,
+  "market_state": 0,
+  "ensemble_forecast": 9.273099999999998,
+  "forecast_change_pct": -0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

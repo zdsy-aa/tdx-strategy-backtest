@@ -1,0 +1,13 @@
+{
+  "code": "603400",
+  "name": "华之杰",
+  "latest_close": 54.81,
+  "kalman_price": 54.59637952861149,
+  "particle_price": 54.6756330269557,
+  "market_state": 1,
+  "ensemble_forecast": 55.814299999999974,
+  "forecast_change_pct": 1.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

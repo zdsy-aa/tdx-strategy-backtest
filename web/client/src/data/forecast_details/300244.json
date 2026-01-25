@@ -1,0 +1,13 @@
+{
+  "code": "300244",
+  "name": "迪安诊断",
+  "latest_close": 30.36,
+  "kalman_price": 25.59382692375739,
+  "particle_price": 17.463044289586094,
+  "market_state": 0,
+  "ensemble_forecast": 30.30989999999999,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002785",
+  "name": "万里石",
+  "latest_close": 36.1,
+  "kalman_price": 36.25724849015127,
+  "particle_price": 36.136212649268096,
+  "market_state": 2,
+  "ensemble_forecast": 35.911799999999985,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

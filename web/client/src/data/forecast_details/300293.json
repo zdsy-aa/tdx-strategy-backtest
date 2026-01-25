@@ -1,0 +1,13 @@
+{
+  "code": "300293",
+  "name": "蓝英装备",
+  "latest_close": 22.57,
+  "kalman_price": 22.611048913685668,
+  "particle_price": 22.56758796356843,
+  "market_state": 0,
+  "ensemble_forecast": 22.266400000000004,
+  "forecast_change_pct": -1.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

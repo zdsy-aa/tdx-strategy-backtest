@@ -1,0 +1,13 @@
+{
+  "code": "002752",
+  "name": "昇兴股份",
+  "latest_close": 7.03,
+  "kalman_price": 6.881260447882924,
+  "particle_price": 7.01367349184816,
+  "market_state": 0,
+  "ensemble_forecast": 6.960700000000003,
+  "forecast_change_pct": -0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

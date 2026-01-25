@@ -1,0 +1,13 @@
+{
+  "code": "601882",
+  "name": "海天精工",
+  "latest_close": 20.3,
+  "kalman_price": 20.22963397406894,
+  "particle_price": 20.273505851760394,
+  "market_state": 0,
+  "ensemble_forecast": 20.51679999999998,
+  "forecast_change_pct": 1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688102",
+  "name": "斯瑞新材",
+  "latest_close": 45.85,
+  "kalman_price": 45.9841444312263,
+  "particle_price": 30.680317587597603,
+  "market_state": 2,
+  "ensemble_forecast": 44.46570000000001,
+  "forecast_change_pct": -3.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

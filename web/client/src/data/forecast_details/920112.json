@@ -1,0 +1,13 @@
+{
+  "code": "920112",
+  "name": "巴兰仕",
+  "latest_close": 38.38,
+  "kalman_price": 38.2207345190922,
+  "particle_price": 38.3225386423427,
+  "market_state": 2,
+  "ensemble_forecast": 38.53850000000002,
+  "forecast_change_pct": 0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

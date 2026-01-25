@@ -1,0 +1,13 @@
+{
+  "code": "300367",
+  "name": "网力退",
+  "latest_close": 0.27,
+  "kalman_price": 0.2559979398815953,
+  "particle_price": 0.2647530752238715,
+  "market_state": 2,
+  "ensemble_forecast": 0.26419999999999993,
+  "forecast_change_pct": -2.15,
+  "confidence": 0.85,
+  "analysis_date": "2022-06-29",
+  "forecast_date": "2022-06-30"
+}

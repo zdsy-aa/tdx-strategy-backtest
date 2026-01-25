@@ -1,0 +1,13 @@
+{
+  "code": "688248",
+  "name": "南网科技",
+  "latest_close": 52.71,
+  "kalman_price": 51.0113871715675,
+  "particle_price": 48.26155496226515,
+  "market_state": 2,
+  "ensemble_forecast": 51.9734,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

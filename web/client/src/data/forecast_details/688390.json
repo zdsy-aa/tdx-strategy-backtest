@@ -1,0 +1,13 @@
+{
+  "code": "688390",
+  "name": "固德威",
+  "latest_close": 69.88,
+  "kalman_price": 72.45590008168958,
+  "particle_price": 57.81127946173522,
+  "market_state": 2,
+  "ensemble_forecast": 68.7886,
+  "forecast_change_pct": -1.56,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

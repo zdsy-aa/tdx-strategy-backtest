@@ -1,0 +1,13 @@
+{
+  "code": "688292",
+  "name": "浩瀚深度",
+  "latest_close": 29.96,
+  "kalman_price": 28.68504345174894,
+  "particle_price": 28.37733153558699,
+  "market_state": 0,
+  "ensemble_forecast": 29.798799999999996,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300827",
+  "name": "上能电气",
+  "latest_close": 37.85,
+  "kalman_price": 38.40923941371538,
+  "particle_price": 37.57493932620575,
+  "market_state": 0,
+  "ensemble_forecast": 36.43039999999997,
+  "forecast_change_pct": -3.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

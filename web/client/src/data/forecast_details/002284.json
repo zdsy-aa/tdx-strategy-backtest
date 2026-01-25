@@ -1,0 +1,13 @@
+{
+  "code": "002284",
+  "name": "亚太股份",
+  "latest_close": 16.22,
+  "kalman_price": 15.792580991512986,
+  "particle_price": 16.018899351114776,
+  "market_state": 2,
+  "ensemble_forecast": 15.336699999999999,
+  "forecast_change_pct": -5.45,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

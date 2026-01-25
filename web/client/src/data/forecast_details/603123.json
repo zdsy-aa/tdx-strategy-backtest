@@ -1,0 +1,13 @@
+{
+  "code": "603123",
+  "name": "翠微股份",
+  "latest_close": 14.82,
+  "kalman_price": 14.853361163491437,
+  "particle_price": 14.840838283714739,
+  "market_state": 2,
+  "ensemble_forecast": 14.07950000000001,
+  "forecast_change_pct": -5.0,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

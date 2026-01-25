@@ -1,0 +1,13 @@
+{
+  "code": "920662",
+  "name": "方盛股份",
+  "latest_close": 30.82,
+  "kalman_price": 30.218900948604013,
+  "particle_price": 30.422675092545923,
+  "market_state": 0,
+  "ensemble_forecast": 30.198700000000002,
+  "forecast_change_pct": -2.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

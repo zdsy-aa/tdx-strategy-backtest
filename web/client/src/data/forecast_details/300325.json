@@ -1,0 +1,13 @@
+{
+  "code": "300325",
+  "name": "德威退",
+  "latest_close": 0.23,
+  "kalman_price": 0.22753907115282196,
+  "particle_price": 0.23370977606129634,
+  "market_state": 1,
+  "ensemble_forecast": 0.2380000000000002,
+  "forecast_change_pct": 3.48,
+  "confidence": 0.85,
+  "analysis_date": "2022-06-27",
+  "forecast_date": "2022-06-28"
+}

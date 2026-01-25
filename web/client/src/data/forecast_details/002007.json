@@ -1,0 +1,13 @@
+{
+  "code": "002007",
+  "name": "华兰生物",
+  "latest_close": 15.55,
+  "kalman_price": 15.541086536096806,
+  "particle_price": 15.544839400969682,
+  "market_state": 0,
+  "ensemble_forecast": 15.588200000000006,
+  "forecast_change_pct": 0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

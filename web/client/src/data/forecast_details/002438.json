@@ -1,0 +1,13 @@
+{
+  "code": "002438",
+  "name": "江苏神通",
+  "latest_close": 16.12,
+  "kalman_price": 16.292960608348512,
+  "particle_price": 16.188997116991295,
+  "market_state": 0,
+  "ensemble_forecast": 16.094100000000005,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

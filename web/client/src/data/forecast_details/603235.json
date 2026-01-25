@@ -1,0 +1,13 @@
+{
+  "code": "603235",
+  "name": "天新药业",
+  "latest_close": 26.99,
+  "kalman_price": 26.85741932313323,
+  "particle_price": 26.959492497379156,
+  "market_state": 2,
+  "ensemble_forecast": 27.005600000000012,
+  "forecast_change_pct": 0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

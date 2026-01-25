@@ -1,0 +1,13 @@
+{
+  "code": "002772",
+  "name": "众兴菌业",
+  "latest_close": 14.68,
+  "kalman_price": 14.99950895507275,
+  "particle_price": 14.720065106163508,
+  "market_state": 0,
+  "ensemble_forecast": 14.844799999999996,
+  "forecast_change_pct": 1.12,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

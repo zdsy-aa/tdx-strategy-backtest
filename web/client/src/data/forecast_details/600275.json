@@ -1,0 +1,13 @@
+{
+  "code": "600275",
+  "name": "退市昌鱼",
+  "latest_close": 0.39,
+  "kalman_price": 0.3772928047217449,
+  "particle_price": 0.39505737845128375,
+  "market_state": 2,
+  "ensemble_forecast": 0.37669999999999987,
+  "forecast_change_pct": -3.41,
+  "confidence": 0.85,
+  "analysis_date": "2022-06-15",
+  "forecast_date": "2022-06-16"
+}

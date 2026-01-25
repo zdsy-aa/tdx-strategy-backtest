@@ -1,0 +1,13 @@
+{
+  "code": "600841",
+  "name": "动力新科",
+  "latest_close": 6.29,
+  "kalman_price": 6.297265884849584,
+  "particle_price": 6.291780508909261,
+  "market_state": 0,
+  "ensemble_forecast": 6.2978000000000005,
+  "forecast_change_pct": 0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

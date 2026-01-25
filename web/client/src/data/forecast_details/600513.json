@@ -1,0 +1,13 @@
+{
+  "code": "600513",
+  "name": "联环药业",
+  "latest_close": 20.89,
+  "kalman_price": 20.439066381429885,
+  "particle_price": 20.778435362047244,
+  "market_state": 2,
+  "ensemble_forecast": 20.893400000000014,
+  "forecast_change_pct": 0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

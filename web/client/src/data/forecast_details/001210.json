@@ -1,0 +1,13 @@
+{
+  "code": "001210",
+  "name": "金房能源",
+  "latest_close": 20.48,
+  "kalman_price": 21.114221973279477,
+  "particle_price": 20.4658204329176,
+  "market_state": 1,
+  "ensemble_forecast": 20.7071,
+  "forecast_change_pct": 1.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

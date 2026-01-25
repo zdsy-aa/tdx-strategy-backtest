@@ -1,0 +1,13 @@
+{
+  "code": "688091",
+  "name": "上海谊众",
+  "latest_close": 59.76,
+  "kalman_price": 57.49924280765469,
+  "particle_price": 47.2079857245803,
+  "market_state": 0,
+  "ensemble_forecast": 59.846599999999995,
+  "forecast_change_pct": 0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

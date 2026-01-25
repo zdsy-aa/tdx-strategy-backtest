@@ -1,0 +1,13 @@
+{
+  "code": "600520",
+  "name": "三佳科技",
+  "latest_close": 26.06,
+  "kalman_price": 25.800922440895754,
+  "particle_price": 26.05945258593817,
+  "market_state": 0,
+  "ensemble_forecast": 25.94400000000001,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

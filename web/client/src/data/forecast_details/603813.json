@@ -1,0 +1,13 @@
+{
+  "code": "603813",
+  "name": "*ST原尚",
+  "latest_close": 43.5,
+  "kalman_price": 42.472724341096566,
+  "particle_price": 39.54944042715997,
+  "market_state": 2,
+  "ensemble_forecast": 43.20719999999999,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

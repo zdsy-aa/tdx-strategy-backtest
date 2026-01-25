@@ -1,0 +1,13 @@
+{
+  "code": "300118",
+  "name": "东方日升",
+  "latest_close": 17.2,
+  "kalman_price": 17.33604910336238,
+  "particle_price": 17.18987256606655,
+  "market_state": 1,
+  "ensemble_forecast": 17.292000000000005,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

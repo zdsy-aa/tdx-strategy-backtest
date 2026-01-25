@@ -1,0 +1,13 @@
+{
+  "code": "002155",
+  "name": "湖南黄金",
+  "latest_close": 22.05,
+  "kalman_price": 22.01020875970247,
+  "particle_price": 22.024210708185553,
+  "market_state": 0,
+  "ensemble_forecast": 22.244799999999994,
+  "forecast_change_pct": 0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-09",
+  "forecast_date": "2026-01-12"
+}

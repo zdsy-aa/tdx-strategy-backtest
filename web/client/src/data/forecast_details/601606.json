@@ -1,0 +1,13 @@
+{
+  "code": "601606",
+  "name": "长城军工",
+  "latest_close": 49.0,
+  "kalman_price": 49.632015384347234,
+  "particle_price": 49.02341574011178,
+  "market_state": 0,
+  "ensemble_forecast": 48.426100000000034,
+  "forecast_change_pct": -1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

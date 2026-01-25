@@ -1,0 +1,13 @@
+{
+  "code": "601133",
+  "name": "柏诚股份",
+  "latest_close": 16.5,
+  "kalman_price": 16.718088447857333,
+  "particle_price": 16.50971248446188,
+  "market_state": 2,
+  "ensemble_forecast": 16.267500000000002,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

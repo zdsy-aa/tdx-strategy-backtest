@@ -1,0 +1,13 @@
+{
+  "code": "300407",
+  "name": "凯发电气",
+  "latest_close": 12.38,
+  "kalman_price": 12.076512627676545,
+  "particle_price": 12.294259380338845,
+  "market_state": 0,
+  "ensemble_forecast": 12.251900000000003,
+  "forecast_change_pct": -1.03,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000856",
+  "name": "冀东装备",
+  "latest_close": 10.36,
+  "kalman_price": 10.278990739933795,
+  "particle_price": 10.35710531871336,
+  "market_state": 2,
+  "ensemble_forecast": 10.343,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

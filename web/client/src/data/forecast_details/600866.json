@@ -1,0 +1,13 @@
+{
+  "code": "600866",
+  "name": "星湖科技",
+  "latest_close": 7.11,
+  "kalman_price": 7.130967128950248,
+  "particle_price": 7.125881275497624,
+  "market_state": 0,
+  "ensemble_forecast": 7.105999999999999,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

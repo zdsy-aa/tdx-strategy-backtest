@@ -1,0 +1,13 @@
+{
+  "code": "300904",
+  "name": "威力传动",
+  "latest_close": 64.7,
+  "kalman_price": 64.84669230874914,
+  "particle_price": 64.64497188989162,
+  "market_state": 2,
+  "ensemble_forecast": 64.7787,
+  "forecast_change_pct": 0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

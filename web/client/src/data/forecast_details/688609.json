@@ -1,0 +1,13 @@
+{
+  "code": "688609",
+  "name": "九联科技",
+  "latest_close": 10.13,
+  "kalman_price": 10.158653596021958,
+  "particle_price": 10.125181752933472,
+  "market_state": 0,
+  "ensemble_forecast": 10.120399999999997,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

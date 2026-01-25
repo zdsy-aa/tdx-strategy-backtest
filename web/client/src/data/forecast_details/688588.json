@@ -1,0 +1,13 @@
+{
+  "code": "688588",
+  "name": "凌志软件",
+  "latest_close": 15.8,
+  "kalman_price": 15.387826702091914,
+  "particle_price": 15.670594543991989,
+  "market_state": 0,
+  "ensemble_forecast": 16.248500000000007,
+  "forecast_change_pct": 2.84,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

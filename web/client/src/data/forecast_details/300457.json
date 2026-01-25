@@ -1,0 +1,13 @@
+{
+  "code": "300457",
+  "name": "赢合科技",
+  "latest_close": 28.88,
+  "kalman_price": 29.303875964976527,
+  "particle_price": 28.833987541383593,
+  "market_state": 0,
+  "ensemble_forecast": 28.258899999999997,
+  "forecast_change_pct": -2.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

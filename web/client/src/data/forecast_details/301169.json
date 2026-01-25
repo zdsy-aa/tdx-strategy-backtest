@@ -1,0 +1,13 @@
+{
+  "code": "301169",
+  "name": "零点有数",
+  "latest_close": 61.5,
+  "kalman_price": 60.1973383636541,
+  "particle_price": 51.764879667670414,
+  "market_state": 0,
+  "ensemble_forecast": 59.9828,
+  "forecast_change_pct": -2.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

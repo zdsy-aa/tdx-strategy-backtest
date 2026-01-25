@@ -1,0 +1,13 @@
+{
+  "code": "603566",
+  "name": "普莱柯",
+  "latest_close": 12.93,
+  "kalman_price": 12.834523369893617,
+  "particle_price": 12.917262020659185,
+  "market_state": 1,
+  "ensemble_forecast": 12.969899999999997,
+  "forecast_change_pct": 0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

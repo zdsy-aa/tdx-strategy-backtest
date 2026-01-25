@@ -1,0 +1,13 @@
+{
+  "code": "301560",
+  "name": "众捷汽车",
+  "latest_close": 34.55,
+  "kalman_price": 34.53247111282265,
+  "particle_price": 34.552286871350574,
+  "market_state": 0,
+  "ensemble_forecast": 34.652300000000004,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603125",
+  "name": "常青科技",
+  "latest_close": 18.58,
+  "kalman_price": 18.64364815954609,
+  "particle_price": 18.579679521324977,
+  "market_state": 0,
+  "ensemble_forecast": 18.321399999999993,
+  "forecast_change_pct": -1.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

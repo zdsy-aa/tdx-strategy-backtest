@@ -1,0 +1,13 @@
+{
+  "code": "002611",
+  "name": "东方精工",
+  "latest_close": 19.32,
+  "kalman_price": 19.57968783596834,
+  "particle_price": 19.357396081678544,
+  "market_state": 0,
+  "ensemble_forecast": 19.09440000000001,
+  "forecast_change_pct": -1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

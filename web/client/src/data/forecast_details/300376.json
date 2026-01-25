@@ -1,0 +1,13 @@
+{
+  "code": "300376",
+  "name": "ST易事特",
+  "latest_close": 6.85,
+  "kalman_price": 6.613524185243332,
+  "particle_price": 6.751066903563453,
+  "market_state": 2,
+  "ensemble_forecast": 7.086,
+  "forecast_change_pct": 3.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-12",
+  "forecast_date": "2026-01-13"
+}

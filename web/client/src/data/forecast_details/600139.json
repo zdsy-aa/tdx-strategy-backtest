@@ -1,0 +1,13 @@
+{
+  "code": "600139",
+  "name": "*ST西源",
+  "latest_close": 0.74,
+  "kalman_price": 0.7957823131831709,
+  "particle_price": 0.7418795150786003,
+  "market_state": 0,
+  "ensemble_forecast": 0.7028999999999995,
+  "forecast_change_pct": -5.01,
+  "confidence": 0.75,
+  "analysis_date": "2023-02-27",
+  "forecast_date": "2023-02-28"
+}

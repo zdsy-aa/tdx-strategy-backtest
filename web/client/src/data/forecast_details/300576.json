@@ -1,0 +1,13 @@
+{
+  "code": "300576",
+  "name": "容大感光",
+  "latest_close": 43.22,
+  "kalman_price": 43.59908919651662,
+  "particle_price": 41.05300872350879,
+  "market_state": 0,
+  "ensemble_forecast": 42.398599999999995,
+  "forecast_change_pct": -1.9,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

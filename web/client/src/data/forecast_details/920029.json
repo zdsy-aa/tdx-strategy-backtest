@@ -1,0 +1,13 @@
+{
+  "code": "920029",
+  "name": "开发科技",
+  "latest_close": 89.61,
+  "kalman_price": 89.34023936237685,
+  "particle_price": 89.685891696768,
+  "market_state": 1,
+  "ensemble_forecast": 89.48809999999996,
+  "forecast_change_pct": -0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

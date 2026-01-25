@@ -1,0 +1,13 @@
+{
+  "code": "300421",
+  "name": "力星股份",
+  "latest_close": 34.0,
+  "kalman_price": 35.159087239814475,
+  "particle_price": 31.27491383890728,
+  "market_state": 2,
+  "ensemble_forecast": 34.42700000000003,
+  "forecast_change_pct": 1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

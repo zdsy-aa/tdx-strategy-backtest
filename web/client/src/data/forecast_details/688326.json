@@ -1,0 +1,13 @@
+{
+  "code": "688326",
+  "name": "经纬恒润-W",
+  "latest_close": 128.47,
+  "kalman_price": 126.69010149051799,
+  "particle_price": 100.28696216083235,
+  "market_state": 1,
+  "ensemble_forecast": 127.52899999999993,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

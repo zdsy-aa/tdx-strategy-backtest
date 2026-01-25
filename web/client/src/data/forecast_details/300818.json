@@ -1,0 +1,13 @@
+{
+  "code": "300818",
+  "name": "耐普矿机",
+  "latest_close": 38.08,
+  "kalman_price": 38.50057164075026,
+  "particle_price": 38.101462963437676,
+  "market_state": 1,
+  "ensemble_forecast": 37.88179999999999,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000040",
+  "name": "*ST旭蓝",
+  "latest_close": 0.49,
+  "kalman_price": 0.49447268630935165,
+  "particle_price": 0.4998186661170386,
+  "market_state": 2,
+  "ensemble_forecast": 0.5290000000000001,
+  "forecast_change_pct": 7.96,
+  "confidence": 0.75,
+  "analysis_date": "2025-03-31",
+  "forecast_date": "2025-04-01"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002716",
+  "name": "湖南白银",
+  "latest_close": 8.37,
+  "kalman_price": 8.250499902759167,
+  "particle_price": 8.275607284586027,
+  "market_state": 2,
+  "ensemble_forecast": 8.525399999999992,
+  "forecast_change_pct": 1.86,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

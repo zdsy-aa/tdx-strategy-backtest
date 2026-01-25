@@ -1,0 +1,13 @@
+{
+  "code": "600612",
+  "name": "老凤祥",
+  "latest_close": 46.39,
+  "kalman_price": 46.11001300967084,
+  "particle_price": 46.25790086285846,
+  "market_state": 0,
+  "ensemble_forecast": 46.1826,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

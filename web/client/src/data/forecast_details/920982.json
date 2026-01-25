@@ -1,0 +1,13 @@
+{
+  "code": "920982",
+  "name": "锦波生物",
+  "latest_close": 232.51,
+  "kalman_price": 231.54775220468784,
+  "particle_price": 193.88447759043612,
+  "market_state": 2,
+  "ensemble_forecast": 234.24630000000008,
+  "forecast_change_pct": 0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

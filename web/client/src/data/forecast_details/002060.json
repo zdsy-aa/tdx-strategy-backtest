@@ -1,0 +1,13 @@
+{
+  "code": "002060",
+  "name": "广东建工",
+  "latest_close": 3.67,
+  "kalman_price": 3.6533711999843335,
+  "particle_price": 3.6794425090956167,
+  "market_state": 1,
+  "ensemble_forecast": 3.665599999999999,
+  "forecast_change_pct": -0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300395",
+  "name": "菲利华",
+  "latest_close": 91.99,
+  "kalman_price": 91.35010414858495,
+  "particle_price": 82.98625433334094,
+  "market_state": 2,
+  "ensemble_forecast": 90.47499999999997,
+  "forecast_change_pct": -1.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

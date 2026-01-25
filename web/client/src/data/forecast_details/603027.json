@@ -1,0 +1,13 @@
+{
+  "code": "603027",
+  "name": "千禾味业",
+  "latest_close": 10.26,
+  "kalman_price": 10.227775937126793,
+  "particle_price": 10.231687914891497,
+  "market_state": 0,
+  "ensemble_forecast": 10.253599999999995,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688218",
+  "name": "江苏北人",
+  "latest_close": 23.08,
+  "kalman_price": 23.20146205504417,
+  "particle_price": 23.084641916439146,
+  "market_state": 2,
+  "ensemble_forecast": 23.447400000000002,
+  "forecast_change_pct": 1.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

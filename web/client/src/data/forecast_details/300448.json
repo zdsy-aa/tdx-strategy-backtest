@@ -1,0 +1,13 @@
+{
+  "code": "300448",
+  "name": "浩云科技",
+  "latest_close": 8.81,
+  "kalman_price": 8.580017045980336,
+  "particle_price": 8.802515070574394,
+  "market_state": 0,
+  "ensemble_forecast": 8.846699999999997,
+  "forecast_change_pct": 0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

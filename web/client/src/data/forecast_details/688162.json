@@ -1,0 +1,13 @@
+{
+  "code": "688162",
+  "name": "巨一科技",
+  "latest_close": 32.4,
+  "kalman_price": 32.290892685350144,
+  "particle_price": 32.32962218853852,
+  "market_state": 0,
+  "ensemble_forecast": 32.465299999999985,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000978",
+  "name": "桂林旅游",
+  "latest_close": 7.17,
+  "kalman_price": 7.141911380248615,
+  "particle_price": 7.1760910763569425,
+  "market_state": 0,
+  "ensemble_forecast": 7.142700000000002,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

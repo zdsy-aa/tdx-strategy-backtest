@@ -1,0 +1,13 @@
+{
+  "code": "002088",
+  "name": "鲁阳节能",
+  "latest_close": 11.74,
+  "kalman_price": 11.372082056568825,
+  "particle_price": 11.72479288328619,
+  "market_state": 0,
+  "ensemble_forecast": 11.588899999999994,
+  "forecast_change_pct": -1.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

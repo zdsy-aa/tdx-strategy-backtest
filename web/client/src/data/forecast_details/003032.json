@@ -1,0 +1,13 @@
+{
+  "code": "003032",
+  "name": "*ST传智",
+  "latest_close": 6.42,
+  "kalman_price": 6.448028586874814,
+  "particle_price": 6.4290327059511965,
+  "market_state": 2,
+  "ensemble_forecast": 6.418099999999998,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

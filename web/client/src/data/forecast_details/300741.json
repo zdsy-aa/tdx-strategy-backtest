@@ -1,0 +1,13 @@
+{
+  "code": "300741",
+  "name": "华宝股份",
+  "latest_close": 18.9,
+  "kalman_price": 18.80444687904985,
+  "particle_price": 18.893231943036948,
+  "market_state": 0,
+  "ensemble_forecast": 19.003699999999988,
+  "forecast_change_pct": 0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

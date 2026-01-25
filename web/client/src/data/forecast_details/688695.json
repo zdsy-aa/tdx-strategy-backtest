@@ -1,0 +1,13 @@
+{
+  "code": "688695",
+  "name": "中创股份",
+  "latest_close": 29.23,
+  "kalman_price": 28.830559226880666,
+  "particle_price": 29.057299612205668,
+  "market_state": 2,
+  "ensemble_forecast": 29.479400000000002,
+  "forecast_change_pct": 0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

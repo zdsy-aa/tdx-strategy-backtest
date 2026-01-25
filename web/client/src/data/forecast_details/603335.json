@@ -1,0 +1,13 @@
+{
+  "code": "603335",
+  "name": "迪生力",
+  "latest_close": 5.53,
+  "kalman_price": 5.503386059517104,
+  "particle_price": 5.52052706451838,
+  "market_state": 0,
+  "ensemble_forecast": 5.491700000000001,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

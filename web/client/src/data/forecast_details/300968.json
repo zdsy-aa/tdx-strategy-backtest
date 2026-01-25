@@ -1,0 +1,13 @@
+{
+  "code": "300968",
+  "name": "格林精密",
+  "latest_close": 15.43,
+  "kalman_price": 15.30820459522765,
+  "particle_price": 15.406470529501533,
+  "market_state": 0,
+  "ensemble_forecast": 14.969999999999992,
+  "forecast_change_pct": -2.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

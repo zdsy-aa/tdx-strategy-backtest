@@ -1,0 +1,13 @@
+{
+  "code": "600928",
+  "name": "西安银行",
+  "latest_close": 3.75,
+  "kalman_price": 3.7281658961020354,
+  "particle_price": 3.7464366289258173,
+  "market_state": 1,
+  "ensemble_forecast": 3.7744000000000018,
+  "forecast_change_pct": 0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

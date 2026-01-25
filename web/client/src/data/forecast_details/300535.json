@@ -1,0 +1,13 @@
+{
+  "code": "300535",
+  "name": "达威股份",
+  "latest_close": 18.4,
+  "kalman_price": 18.312164998789445,
+  "particle_price": 18.388447872128395,
+  "market_state": 2,
+  "ensemble_forecast": 18.470000000000013,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

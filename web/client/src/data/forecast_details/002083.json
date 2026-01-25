@@ -1,0 +1,13 @@
+{
+  "code": "002083",
+  "name": "孚日股份",
+  "latest_close": 12.68,
+  "kalman_price": 13.355061027565165,
+  "particle_price": 12.829128578013739,
+  "market_state": 2,
+  "ensemble_forecast": 12.920099999999989,
+  "forecast_change_pct": 1.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

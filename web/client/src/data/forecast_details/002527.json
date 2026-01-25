@@ -1,0 +1,13 @@
+{
+  "code": "002527",
+  "name": "新时达",
+  "latest_close": 16.56,
+  "kalman_price": 16.778566348526994,
+  "particle_price": 16.595964400595136,
+  "market_state": 2,
+  "ensemble_forecast": 16.62369999999999,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

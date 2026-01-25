@@ -1,0 +1,13 @@
+{
+  "code": "002131",
+  "name": "利欧股份",
+  "latest_close": 9.03,
+  "kalman_price": 8.349247240098597,
+  "particle_price": 7.796192687890988,
+  "market_state": 0,
+  "ensemble_forecast": 8.45819999999999,
+  "forecast_change_pct": -6.33,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

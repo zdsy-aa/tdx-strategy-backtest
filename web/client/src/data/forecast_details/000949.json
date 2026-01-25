@@ -1,0 +1,13 @@
+{
+  "code": "000949",
+  "name": "新乡化纤",
+  "latest_close": 6.07,
+  "kalman_price": 6.05564056982558,
+  "particle_price": 6.034278791970091,
+  "market_state": 2,
+  "ensemble_forecast": 6.033700000000005,
+  "forecast_change_pct": -0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

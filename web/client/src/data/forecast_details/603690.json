@@ -1,0 +1,13 @@
+{
+  "code": "603690",
+  "name": "至纯科技",
+  "latest_close": 31.81,
+  "kalman_price": 32.47432867793344,
+  "particle_price": 31.906121806185027,
+  "market_state": 2,
+  "ensemble_forecast": 31.6354,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

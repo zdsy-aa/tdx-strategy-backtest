@@ -1,0 +1,13 @@
+{
+  "code": "300536",
+  "name": "农尚环境",
+  "latest_close": 8.73,
+  "kalman_price": 8.607268350155858,
+  "particle_price": 8.721586955543744,
+  "market_state": 1,
+  "ensemble_forecast": 8.466000000000008,
+  "forecast_change_pct": -3.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

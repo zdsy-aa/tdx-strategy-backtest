@@ -1,0 +1,13 @@
+{
+  "code": "002151",
+  "name": "北斗星通",
+  "latest_close": 60.21,
+  "kalman_price": 62.05330233079754,
+  "particle_price": 35.44316130333562,
+  "market_state": 0,
+  "ensemble_forecast": 58.23609999999998,
+  "forecast_change_pct": -3.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

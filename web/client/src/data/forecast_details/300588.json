@@ -1,0 +1,13 @@
+{
+  "code": "300588",
+  "name": "熙菱信息",
+  "latest_close": 28.16,
+  "kalman_price": 27.215550018627614,
+  "particle_price": 27.457044374151568,
+  "market_state": 2,
+  "ensemble_forecast": 28.114399999999993,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

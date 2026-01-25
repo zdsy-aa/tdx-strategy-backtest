@@ -1,0 +1,13 @@
+{
+  "code": "300547",
+  "name": "川环科技",
+  "latest_close": 38.53,
+  "kalman_price": 38.3017926950613,
+  "particle_price": 38.524005521876646,
+  "market_state": 2,
+  "ensemble_forecast": 37.833600000000004,
+  "forecast_change_pct": -1.81,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300371",
+  "name": "汇中股份",
+  "latest_close": 12.91,
+  "kalman_price": 12.833087104363557,
+  "particle_price": 12.872782951565297,
+  "market_state": 2,
+  "ensemble_forecast": 12.688100000000002,
+  "forecast_change_pct": -1.72,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

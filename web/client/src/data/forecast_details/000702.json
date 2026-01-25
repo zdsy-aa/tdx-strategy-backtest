@@ -1,0 +1,13 @@
+{
+  "code": "000702",
+  "name": "正虹科技",
+  "latest_close": 6.76,
+  "kalman_price": 6.69167341879826,
+  "particle_price": 6.735930126770807,
+  "market_state": 1,
+  "ensemble_forecast": 6.765499999999994,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

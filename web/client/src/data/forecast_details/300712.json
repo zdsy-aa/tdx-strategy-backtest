@@ -1,0 +1,13 @@
+{
+  "code": "300712",
+  "name": "永福股份",
+  "latest_close": 27.41,
+  "kalman_price": 27.320259745938497,
+  "particle_price": 27.408831291253055,
+  "market_state": 2,
+  "ensemble_forecast": 27.30530000000001,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

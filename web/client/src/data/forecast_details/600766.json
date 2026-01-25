@@ -1,0 +1,13 @@
+{
+  "code": "600766",
+  "name": "退市园城",
+  "latest_close": 0.38,
+  "kalman_price": 0.36624834566264786,
+  "particle_price": 6.094484661611769,
+  "market_state": 1,
+  "ensemble_forecast": 0.38509999999999983,
+  "forecast_change_pct": 1.34,
+  "confidence": 0.85,
+  "analysis_date": "2024-06-26",
+  "forecast_date": "2024-06-27"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688021",
+  "name": "奥福科技",
+  "latest_close": 19.42,
+  "kalman_price": 19.011601662294623,
+  "particle_price": 19.36515352254623,
+  "market_state": 1,
+  "ensemble_forecast": 19.553499999999996,
+  "forecast_change_pct": 0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

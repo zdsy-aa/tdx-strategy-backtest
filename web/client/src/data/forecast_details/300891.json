@@ -1,0 +1,13 @@
+{
+  "code": "300891",
+  "name": "惠云钛业",
+  "latest_close": 9.26,
+  "kalman_price": 9.235961663787885,
+  "particle_price": 9.24420394866575,
+  "market_state": 2,
+  "ensemble_forecast": 9.21010000000001,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

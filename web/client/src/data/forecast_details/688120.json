@@ -1,0 +1,13 @@
+{
+  "code": "688120",
+  "name": "华海清科",
+  "latest_close": 172.8,
+  "kalman_price": 174.46964522392747,
+  "particle_price": 135.10427919210784,
+  "market_state": 2,
+  "ensemble_forecast": 172.28449999999978,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

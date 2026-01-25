@@ -1,0 +1,13 @@
+{
+  "code": "300176",
+  "name": "鸿特科技",
+  "latest_close": 6.77,
+  "kalman_price": 6.7432062558221,
+  "particle_price": 6.755147986109953,
+  "market_state": 2,
+  "ensemble_forecast": 6.778199999999999,
+  "forecast_change_pct": 0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

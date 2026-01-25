@@ -1,0 +1,13 @@
+{
+  "code": "920091",
+  "name": "大鹏工业",
+  "latest_close": 84.01,
+  "kalman_price": 84.27525995257962,
+  "particle_price": 41.28539495668667,
+  "market_state": 0,
+  "ensemble_forecast": 82.3494,
+  "forecast_change_pct": -1.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

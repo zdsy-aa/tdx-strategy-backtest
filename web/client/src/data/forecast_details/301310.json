@@ -1,0 +1,13 @@
+{
+  "code": "301310",
+  "name": "鑫宏业",
+  "latest_close": 41.64,
+  "kalman_price": 41.51802651056838,
+  "particle_price": 41.623914041045495,
+  "market_state": 0,
+  "ensemble_forecast": 41.40329999999995,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

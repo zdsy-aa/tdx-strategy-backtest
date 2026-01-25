@@ -1,0 +1,13 @@
+{
+  "code": "002728",
+  "name": "特一药业",
+  "latest_close": 11.63,
+  "kalman_price": 11.588580763619445,
+  "particle_price": 11.616741121767934,
+  "market_state": 2,
+  "ensemble_forecast": 11.694799999999997,
+  "forecast_change_pct": 0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

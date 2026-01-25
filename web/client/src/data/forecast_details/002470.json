@@ -1,0 +1,13 @@
+{
+  "code": "002470",
+  "name": "金正大",
+  "latest_close": 1.79,
+  "kalman_price": 1.7829669942766362,
+  "particle_price": 1.7849387754734185,
+  "market_state": 2,
+  "ensemble_forecast": 1.7817000000000005,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

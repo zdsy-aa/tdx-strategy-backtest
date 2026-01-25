@@ -1,0 +1,13 @@
+{
+  "code": "002061",
+  "name": "浙江交科",
+  "latest_close": 4.04,
+  "kalman_price": 4.027407255807801,
+  "particle_price": 4.035132149689245,
+  "market_state": 1,
+  "ensemble_forecast": 4.008399999999998,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

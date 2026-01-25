@@ -1,0 +1,13 @@
+{
+  "code": "688381",
+  "name": "帝奥微",
+  "latest_close": 24.51,
+  "kalman_price": 24.27691895855425,
+  "particle_price": 24.485669837168018,
+  "market_state": 2,
+  "ensemble_forecast": 24.42420000000002,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

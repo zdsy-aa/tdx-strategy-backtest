@@ -1,0 +1,13 @@
+{
+  "code": "300664",
+  "name": "鹏鹞环保",
+  "latest_close": 5.58,
+  "kalman_price": 5.566056318018488,
+  "particle_price": 5.589211183886055,
+  "market_state": 2,
+  "ensemble_forecast": 5.5812,
+  "forecast_change_pct": 0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

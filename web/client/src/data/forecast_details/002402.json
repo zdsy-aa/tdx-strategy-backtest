@@ -1,0 +1,13 @@
+{
+  "code": "002402",
+  "name": "和而泰",
+  "latest_close": 40.32,
+  "kalman_price": 39.96854445790958,
+  "particle_price": 40.05446467031975,
+  "market_state": 0,
+  "ensemble_forecast": 39.21900000000002,
+  "forecast_change_pct": -2.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

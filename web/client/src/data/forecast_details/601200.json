@@ -1,0 +1,13 @@
+{
+  "code": "601200",
+  "name": "上海环境",
+  "latest_close": 8.14,
+  "kalman_price": 8.13548415193434,
+  "particle_price": 8.147216842669335,
+  "market_state": 0,
+  "ensemble_forecast": 8.1047,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

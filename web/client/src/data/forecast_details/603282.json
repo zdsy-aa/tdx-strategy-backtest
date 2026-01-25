@@ -1,0 +1,13 @@
+{
+  "code": "603282",
+  "name": "亚光股份",
+  "latest_close": 20.8,
+  "kalman_price": 20.688597618968277,
+  "particle_price": 20.732791502474246,
+  "market_state": 2,
+  "ensemble_forecast": 20.47709999999999,
+  "forecast_change_pct": -1.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

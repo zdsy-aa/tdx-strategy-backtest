@@ -1,0 +1,13 @@
+{
+  "code": "300964",
+  "name": "本川智能",
+  "latest_close": 58.01,
+  "kalman_price": 57.07819348418108,
+  "particle_price": 55.72926881336774,
+  "market_state": 0,
+  "ensemble_forecast": 56.555499999999995,
+  "forecast_change_pct": -2.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

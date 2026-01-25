@@ -1,0 +1,13 @@
+{
+  "code": "603656",
+  "name": "泰禾智能",
+  "latest_close": 22.83,
+  "kalman_price": 23.086253463982107,
+  "particle_price": 22.892675849682856,
+  "market_state": 0,
+  "ensemble_forecast": 22.9356,
+  "forecast_change_pct": 0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

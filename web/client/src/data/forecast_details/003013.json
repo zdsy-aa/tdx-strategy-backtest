@@ -1,0 +1,13 @@
+{
+  "code": "003013",
+  "name": "地铁设计",
+  "latest_close": 14.64,
+  "kalman_price": 14.500209306276606,
+  "particle_price": 14.612993830863179,
+  "market_state": 0,
+  "ensemble_forecast": 14.575399999999997,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

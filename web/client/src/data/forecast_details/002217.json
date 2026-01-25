@@ -1,0 +1,13 @@
+{
+  "code": "002217",
+  "name": "合力泰",
+  "latest_close": 3.18,
+  "kalman_price": 3.1367438546368707,
+  "particle_price": 3.1795999092956246,
+  "market_state": 0,
+  "ensemble_forecast": 3.119199999999999,
+  "forecast_change_pct": -1.91,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

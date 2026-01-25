@@ -1,0 +1,13 @@
+{
+  "code": "603556",
+  "name": "海兴电力",
+  "latest_close": 36.26,
+  "kalman_price": 35.70173247112531,
+  "particle_price": 35.3470038946307,
+  "market_state": 2,
+  "ensemble_forecast": 36.16049999999999,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

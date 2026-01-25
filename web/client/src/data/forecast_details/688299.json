@@ -1,0 +1,13 @@
+{
+  "code": "688299",
+  "name": "长阳科技",
+  "latest_close": 17.96,
+  "kalman_price": 17.971334472467202,
+  "particle_price": 17.95931448060528,
+  "market_state": 0,
+  "ensemble_forecast": 17.823399999999985,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

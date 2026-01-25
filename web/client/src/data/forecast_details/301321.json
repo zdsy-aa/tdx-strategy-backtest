@@ -1,0 +1,13 @@
+{
+  "code": "301321",
+  "name": "翰博高新",
+  "latest_close": 19.13,
+  "kalman_price": 19.06833258826255,
+  "particle_price": 19.119969084636384,
+  "market_state": 1,
+  "ensemble_forecast": 18.959400000000013,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

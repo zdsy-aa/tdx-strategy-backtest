@@ -1,0 +1,13 @@
+{
+  "code": "301102",
+  "name": "兆讯传媒",
+  "latest_close": 12.02,
+  "kalman_price": 11.511752818808107,
+  "particle_price": 11.701051776578227,
+  "market_state": 2,
+  "ensemble_forecast": 12.126199999999999,
+  "forecast_change_pct": 0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "001229",
+  "name": "魅视科技",
+  "latest_close": 40.9,
+  "kalman_price": 41.53145027919285,
+  "particle_price": 40.96766483308612,
+  "market_state": 0,
+  "ensemble_forecast": 40.99660000000003,
+  "forecast_change_pct": 0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

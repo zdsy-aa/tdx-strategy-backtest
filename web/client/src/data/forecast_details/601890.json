@@ -1,0 +1,13 @@
+{
+  "code": "601890",
+  "name": "亚星锚链",
+  "latest_close": 10.73,
+  "kalman_price": 10.833375656594148,
+  "particle_price": 10.765083756849622,
+  "market_state": 1,
+  "ensemble_forecast": 10.667000000000012,
+  "forecast_change_pct": -0.59,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

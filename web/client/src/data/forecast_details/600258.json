@@ -1,0 +1,13 @@
+{
+  "code": "600258",
+  "name": "首旅酒店",
+  "latest_close": 17.16,
+  "kalman_price": 17.04703406459109,
+  "particle_price": 17.131898278343336,
+  "market_state": 0,
+  "ensemble_forecast": 17.126300000000004,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

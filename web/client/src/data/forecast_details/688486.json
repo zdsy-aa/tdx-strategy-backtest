@@ -1,0 +1,13 @@
+{
+  "code": "688486",
+  "name": "龙迅股份",
+  "latest_close": 80.68,
+  "kalman_price": 81.98603788339803,
+  "particle_price": 76.0950099390868,
+  "market_state": 2,
+  "ensemble_forecast": 79.55190000000015,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

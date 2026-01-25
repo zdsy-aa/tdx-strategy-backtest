@@ -1,0 +1,13 @@
+{
+  "code": "002756",
+  "name": "永兴材料",
+  "latest_close": 54.82,
+  "kalman_price": 54.64785181532293,
+  "particle_price": 54.60979438127725,
+  "market_state": 0,
+  "ensemble_forecast": 55.4186,
+  "forecast_change_pct": 1.09,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

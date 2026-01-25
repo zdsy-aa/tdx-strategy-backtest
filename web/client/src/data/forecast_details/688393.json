@@ -1,0 +1,13 @@
+{
+  "code": "688393",
+  "name": "安必平",
+  "latest_close": 33.73,
+  "kalman_price": 31.99276387131786,
+  "particle_price": 26.028044054921835,
+  "market_state": 0,
+  "ensemble_forecast": 35.49119999999999,
+  "forecast_change_pct": 5.22,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

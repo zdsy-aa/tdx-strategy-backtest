@@ -1,0 +1,13 @@
+{
+  "code": "600428",
+  "name": "中远海特",
+  "latest_close": 7.35,
+  "kalman_price": 7.151967443705505,
+  "particle_price": 7.290588175577951,
+  "market_state": 2,
+  "ensemble_forecast": 7.269999999999999,
+  "forecast_change_pct": -1.09,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

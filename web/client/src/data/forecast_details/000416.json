@@ -1,0 +1,13 @@
+{
+  "code": "000416",
+  "name": "*ST民控",
+  "latest_close": 0.43,
+  "kalman_price": 0.4084619793357753,
+  "particle_price": 0.4427595242900293,
+  "market_state": 2,
+  "ensemble_forecast": 0.41930000000000023,
+  "forecast_change_pct": -2.49,
+  "confidence": 0.85,
+  "analysis_date": "2024-04-24",
+  "forecast_date": "2024-04-25"
+}

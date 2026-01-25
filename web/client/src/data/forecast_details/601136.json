@@ -1,0 +1,13 @@
+{
+  "code": "601136",
+  "name": "首创证券",
+  "latest_close": 19.38,
+  "kalman_price": 19.3350605457497,
+  "particle_price": 19.364418309408705,
+  "market_state": 0,
+  "ensemble_forecast": 19.35259999999999,
+  "forecast_change_pct": -0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

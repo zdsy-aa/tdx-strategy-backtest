@@ -1,0 +1,13 @@
+{
+  "code": "300138",
+  "name": "晨光生物",
+  "latest_close": 12.92,
+  "kalman_price": 12.962408695218217,
+  "particle_price": 12.916172404119797,
+  "market_state": 1,
+  "ensemble_forecast": 12.956000000000001,
+  "forecast_change_pct": 0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

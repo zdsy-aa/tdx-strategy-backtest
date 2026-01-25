@@ -1,0 +1,13 @@
+{
+  "code": "000797",
+  "name": "中国武夷",
+  "latest_close": 3.5,
+  "kalman_price": 3.585560340210461,
+  "particle_price": 3.5369561018466147,
+  "market_state": 1,
+  "ensemble_forecast": 3.4152000000000005,
+  "forecast_change_pct": -2.42,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

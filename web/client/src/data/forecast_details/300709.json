@@ -1,0 +1,13 @@
+{
+  "code": "300709",
+  "name": "精研科技",
+  "latest_close": 47.56,
+  "kalman_price": 47.89953966258013,
+  "particle_price": 47.61433272084016,
+  "market_state": 1,
+  "ensemble_forecast": 47.07290000000001,
+  "forecast_change_pct": -1.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

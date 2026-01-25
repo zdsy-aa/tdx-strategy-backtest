@@ -1,0 +1,13 @@
+{
+  "code": "301285",
+  "name": "鸿日达",
+  "latest_close": 70.85,
+  "kalman_price": 70.10126851998425,
+  "particle_price": 61.99947897451193,
+  "market_state": 0,
+  "ensemble_forecast": 69.48320000000011,
+  "forecast_change_pct": -1.93,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

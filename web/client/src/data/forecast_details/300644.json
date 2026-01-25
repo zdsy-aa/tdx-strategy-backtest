@@ -1,0 +1,13 @@
+{
+  "code": "300644",
+  "name": "南京聚隆",
+  "latest_close": 36.57,
+  "kalman_price": 36.90911653461342,
+  "particle_price": 36.61905351486509,
+  "market_state": 0,
+  "ensemble_forecast": 36.408700000000024,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688067",
+  "name": "爱威科技",
+  "latest_close": 26.6,
+  "kalman_price": 26.347421292676906,
+  "particle_price": 26.487858910920128,
+  "market_state": 2,
+  "ensemble_forecast": 26.847700000000028,
+  "forecast_change_pct": 0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

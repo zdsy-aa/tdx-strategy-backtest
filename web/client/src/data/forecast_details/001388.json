@@ -1,0 +1,13 @@
+{
+  "code": "001388",
+  "name": "信通电子",
+  "latest_close": 43.85,
+  "kalman_price": 43.83285465524428,
+  "particle_price": 43.84781472603069,
+  "market_state": 0,
+  "ensemble_forecast": 43.06469999999996,
+  "forecast_change_pct": -1.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

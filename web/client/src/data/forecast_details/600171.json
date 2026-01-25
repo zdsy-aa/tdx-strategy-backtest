@@ -1,0 +1,13 @@
+{
+  "code": "600171",
+  "name": "上海贝岭",
+  "latest_close": 32.38,
+  "kalman_price": 32.642854574640175,
+  "particle_price": 32.424179920374165,
+  "market_state": 0,
+  "ensemble_forecast": 32.26380000000002,
+  "forecast_change_pct": -0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

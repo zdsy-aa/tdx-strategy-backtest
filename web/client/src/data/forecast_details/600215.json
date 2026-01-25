@@ -1,0 +1,13 @@
+{
+  "code": "600215",
+  "name": "派斯林",
+  "latest_close": 8.13,
+  "kalman_price": 7.9995028427734285,
+  "particle_price": 8.121574433573135,
+  "market_state": 0,
+  "ensemble_forecast": 8.016100000000002,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

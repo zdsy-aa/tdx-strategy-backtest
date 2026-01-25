@@ -1,0 +1,13 @@
+{
+  "code": "300056",
+  "name": "中创环保",
+  "latest_close": 8.47,
+  "kalman_price": 8.404344875897381,
+  "particle_price": 8.463728679432911,
+  "market_state": 0,
+  "ensemble_forecast": 8.441899999999999,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

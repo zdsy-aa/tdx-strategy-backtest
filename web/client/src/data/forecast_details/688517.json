@@ -1,0 +1,13 @@
+{
+  "code": "688517",
+  "name": "金冠电气",
+  "latest_close": 16.41,
+  "kalman_price": 16.393724819095905,
+  "particle_price": 16.39508822651038,
+  "market_state": 2,
+  "ensemble_forecast": 16.300000000000008,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

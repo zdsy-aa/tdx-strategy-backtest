@@ -1,0 +1,13 @@
+{
+  "code": "000676",
+  "name": "智度股份",
+  "latest_close": 9.9,
+  "kalman_price": 9.548118451525049,
+  "particle_price": 9.764991932738232,
+  "market_state": 2,
+  "ensemble_forecast": 9.738499999999995,
+  "forecast_change_pct": -1.63,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

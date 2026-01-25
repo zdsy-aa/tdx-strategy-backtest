@@ -1,0 +1,13 @@
+{
+  "code": "601985",
+  "name": "XD中国核",
+  "latest_close": 9.0,
+  "kalman_price": 8.986724720249988,
+  "particle_price": 8.977701637381363,
+  "market_state": 0,
+  "ensemble_forecast": 8.854299999999999,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

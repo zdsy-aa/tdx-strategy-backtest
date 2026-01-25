@@ -1,0 +1,13 @@
+{
+  "code": "688630",
+  "name": "芯碁微装",
+  "latest_close": 146.56,
+  "kalman_price": 144.21067223560993,
+  "particle_price": 108.48375827337694,
+  "market_state": 2,
+  "ensemble_forecast": 146.2035999999999,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

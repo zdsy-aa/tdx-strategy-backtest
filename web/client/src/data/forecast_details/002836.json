@@ -1,0 +1,13 @@
+{
+  "code": "002836",
+  "name": "新宏泽",
+  "latest_close": 15.31,
+  "kalman_price": 15.609237357922852,
+  "particle_price": 15.442509617297581,
+  "market_state": 1,
+  "ensemble_forecast": 15.386199999999997,
+  "forecast_change_pct": 0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

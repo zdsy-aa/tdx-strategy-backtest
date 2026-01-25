@@ -1,0 +1,13 @@
+{
+  "code": "300763",
+  "name": "锦浪科技",
+  "latest_close": 73.35,
+  "kalman_price": 74.15031802616727,
+  "particle_price": 73.34865820023902,
+  "market_state": 0,
+  "ensemble_forecast": 72.24620000000007,
+  "forecast_change_pct": -1.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

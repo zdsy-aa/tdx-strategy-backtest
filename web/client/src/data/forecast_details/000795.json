@@ -1,0 +1,13 @@
+{
+  "code": "000795",
+  "name": "英洛华",
+  "latest_close": 10.28,
+  "kalman_price": 10.27046275225171,
+  "particle_price": 10.281526076066903,
+  "market_state": 2,
+  "ensemble_forecast": 10.166199999999998,
+  "forecast_change_pct": -1.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

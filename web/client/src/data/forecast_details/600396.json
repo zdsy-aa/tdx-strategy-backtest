@@ -1,0 +1,13 @@
+{
+  "code": "600396",
+  "name": "华电辽能",
+  "latest_close": 2.95,
+  "kalman_price": 2.9234907357681985,
+  "particle_price": 2.9322480995575866,
+  "market_state": 1,
+  "ensemble_forecast": 2.928499999999999,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

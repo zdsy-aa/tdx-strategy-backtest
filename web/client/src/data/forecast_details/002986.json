@@ -1,0 +1,13 @@
+{
+  "code": "002986",
+  "name": "宇新股份",
+  "latest_close": 11.07,
+  "kalman_price": 11.089588130528591,
+  "particle_price": 11.054856677832834,
+  "market_state": 2,
+  "ensemble_forecast": 10.993999999999994,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

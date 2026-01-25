@@ -1,0 +1,13 @@
+{
+  "code": "301024",
+  "name": "霍普股份",
+  "latest_close": 36.23,
+  "kalman_price": 36.32622296357549,
+  "particle_price": 36.24573116626725,
+  "market_state": 1,
+  "ensemble_forecast": 36.38979999999998,
+  "forecast_change_pct": 0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

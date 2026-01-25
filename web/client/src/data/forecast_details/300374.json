@@ -1,0 +1,13 @@
+{
+  "code": "300374",
+  "name": "中铁装配",
+  "latest_close": 16.26,
+  "kalman_price": 16.170470492942577,
+  "particle_price": 16.254109863055472,
+  "market_state": 0,
+  "ensemble_forecast": 16.0568,
+  "forecast_change_pct": -1.25,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

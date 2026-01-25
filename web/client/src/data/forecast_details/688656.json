@@ -1,0 +1,13 @@
+{
+  "code": "688656",
+  "name": "浩欧博",
+  "latest_close": 157.02,
+  "kalman_price": 155.00702741363202,
+  "particle_price": 91.17361899394348,
+  "market_state": 0,
+  "ensemble_forecast": 156.20960000000014,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

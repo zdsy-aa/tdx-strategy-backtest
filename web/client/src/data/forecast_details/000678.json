@@ -1,0 +1,13 @@
+{
+  "code": "000678",
+  "name": "襄阳轴承",
+  "latest_close": 15.22,
+  "kalman_price": 15.445636029506323,
+  "particle_price": 15.279732129312944,
+  "market_state": 0,
+  "ensemble_forecast": 14.903099999999993,
+  "forecast_change_pct": -2.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

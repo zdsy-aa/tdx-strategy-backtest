@@ -1,0 +1,13 @@
+{
+  "code": "300578",
+  "name": "会畅科技",
+  "latest_close": 25.88,
+  "kalman_price": 23.897180196947243,
+  "particle_price": 20.617034399710434,
+  "market_state": 2,
+  "ensemble_forecast": 25.438800000000004,
+  "forecast_change_pct": -1.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

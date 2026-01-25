@@ -1,0 +1,13 @@
+{
+  "code": "688602",
+  "name": "康鹏科技",
+  "latest_close": 9.1,
+  "kalman_price": 9.121440075279342,
+  "particle_price": 9.0984299332959,
+  "market_state": 0,
+  "ensemble_forecast": 9.022500000000006,
+  "forecast_change_pct": -0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

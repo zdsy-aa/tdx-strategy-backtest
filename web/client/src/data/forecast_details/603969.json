@@ -1,0 +1,13 @@
+{
+  "code": "603969",
+  "name": "银龙股份",
+  "latest_close": 10.75,
+  "kalman_price": 10.624347747297321,
+  "particle_price": 10.731188544926985,
+  "market_state": 0,
+  "ensemble_forecast": 10.352200000000003,
+  "forecast_change_pct": -3.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300826",
+  "name": "测绘股份",
+  "latest_close": 16.88,
+  "kalman_price": 16.81262381427197,
+  "particle_price": 16.881533973566537,
+  "market_state": 0,
+  "ensemble_forecast": 16.915200000000013,
+  "forecast_change_pct": 0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

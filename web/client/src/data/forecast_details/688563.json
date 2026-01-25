@@ -1,0 +1,13 @@
+{
+  "code": "688563",
+  "name": "航材股份",
+  "latest_close": 62.85,
+  "kalman_price": 62.61819717530908,
+  "particle_price": 59.22700326424291,
+  "market_state": 0,
+  "ensemble_forecast": 62.296200000000034,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

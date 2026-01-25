@@ -1,0 +1,13 @@
+{
+  "code": "300999",
+  "name": "金龙鱼",
+  "latest_close": 29.64,
+  "kalman_price": 29.53693368860544,
+  "particle_price": 29.60848893363543,
+  "market_state": 2,
+  "ensemble_forecast": 29.68579999999999,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

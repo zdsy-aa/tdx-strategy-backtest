@@ -1,0 +1,13 @@
+{
+  "code": "002639",
+  "name": "雪人集团",
+  "latest_close": 27.11,
+  "kalman_price": 25.311941430034736,
+  "particle_price": 20.608863702288822,
+  "market_state": 1,
+  "ensemble_forecast": 25.576199999999986,
+  "forecast_change_pct": -5.66,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

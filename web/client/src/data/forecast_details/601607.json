@@ -1,0 +1,13 @@
+{
+  "code": "601607",
+  "name": "上海医药",
+  "latest_close": 17.85,
+  "kalman_price": 17.851024212984942,
+  "particle_price": 17.841178184837695,
+  "market_state": 0,
+  "ensemble_forecast": 17.910899999999998,
+  "forecast_change_pct": 0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

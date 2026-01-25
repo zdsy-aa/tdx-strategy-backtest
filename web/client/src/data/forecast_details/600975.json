@@ -1,0 +1,13 @@
+{
+  "code": "600975",
+  "name": "新五丰",
+  "latest_close": 5.95,
+  "kalman_price": 5.929635165918029,
+  "particle_price": 5.941116687233104,
+  "market_state": 1,
+  "ensemble_forecast": 5.9056000000000015,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

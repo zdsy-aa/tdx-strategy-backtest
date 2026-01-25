@@ -1,0 +1,13 @@
+{
+  "code": "603266",
+  "name": "天龙股份",
+  "latest_close": 22.92,
+  "kalman_price": 22.627193895608382,
+  "particle_price": 22.859184440403094,
+  "market_state": 0,
+  "ensemble_forecast": 22.866400000000016,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

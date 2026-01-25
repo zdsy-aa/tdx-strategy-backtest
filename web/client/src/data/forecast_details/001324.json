@@ -1,0 +1,13 @@
+{
+  "code": "001324",
+  "name": "长青科技",
+  "latest_close": 18.77,
+  "kalman_price": 18.82522703967406,
+  "particle_price": 18.766918528604958,
+  "market_state": 0,
+  "ensemble_forecast": 18.630100000000002,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

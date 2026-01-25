@@ -1,0 +1,13 @@
+{
+  "code": "600929",
+  "name": "雪天盐业",
+  "latest_close": 5.63,
+  "kalman_price": 5.596506555984089,
+  "particle_price": 5.6296642375929835,
+  "market_state": 2,
+  "ensemble_forecast": 5.607700000000001,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

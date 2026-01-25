@@ -1,0 +1,13 @@
+{
+  "code": "002471",
+  "name": "中超控股",
+  "latest_close": 8.25,
+  "kalman_price": 8.460648857483983,
+  "particle_price": 8.248992975750852,
+  "market_state": 0,
+  "ensemble_forecast": 8.3324,
+  "forecast_change_pct": 1.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

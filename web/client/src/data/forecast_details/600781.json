@@ -1,0 +1,13 @@
+{
+  "code": "600781",
+  "name": "退市辅仁",
+  "latest_close": 0.74,
+  "kalman_price": 0.7463588314716656,
+  "particle_price": 0.7423879091327337,
+  "market_state": 2,
+  "ensemble_forecast": 0.6234999999999999,
+  "forecast_change_pct": -15.74,
+  "confidence": 0.65,
+  "analysis_date": "2023-06-19",
+  "forecast_date": "2023-06-20"
+}

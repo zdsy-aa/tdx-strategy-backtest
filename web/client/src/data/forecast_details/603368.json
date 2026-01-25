@@ -1,0 +1,13 @@
+{
+  "code": "603368",
+  "name": "柳药集团",
+  "latest_close": 18.54,
+  "kalman_price": 18.529191392900014,
+  "particle_price": 18.533272650743672,
+  "market_state": 0,
+  "ensemble_forecast": 18.49039999999999,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

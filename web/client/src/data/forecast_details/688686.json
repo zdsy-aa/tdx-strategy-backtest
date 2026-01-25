@@ -1,0 +1,13 @@
+{
+  "code": "688686",
+  "name": "奥普特",
+  "latest_close": 131.12,
+  "kalman_price": 128.6323620252674,
+  "particle_price": 117.9094840960859,
+  "market_state": 2,
+  "ensemble_forecast": 130.94430000000008,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

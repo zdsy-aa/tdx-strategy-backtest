@@ -1,0 +1,13 @@
+{
+  "code": "002941",
+  "name": "新疆交建",
+  "latest_close": 16.73,
+  "kalman_price": 16.678528534363092,
+  "particle_price": 16.722039239439148,
+  "market_state": 1,
+  "ensemble_forecast": 16.47819999999999,
+  "forecast_change_pct": -1.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

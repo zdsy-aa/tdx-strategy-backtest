@@ -1,0 +1,13 @@
+{
+  "code": "301150",
+  "name": "中一科技",
+  "latest_close": 44.43,
+  "kalman_price": 44.406237471238526,
+  "particle_price": 44.05077419085891,
+  "market_state": 2,
+  "ensemble_forecast": 43.686399999999956,
+  "forecast_change_pct": -1.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

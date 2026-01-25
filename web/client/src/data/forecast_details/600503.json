@@ -1,0 +1,13 @@
+{
+  "code": "600503",
+  "name": "华丽家族",
+  "latest_close": 2.75,
+  "kalman_price": 2.739220995957965,
+  "particle_price": 2.7450745092239908,
+  "market_state": 2,
+  "ensemble_forecast": 2.798000000000003,
+  "forecast_change_pct": 1.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

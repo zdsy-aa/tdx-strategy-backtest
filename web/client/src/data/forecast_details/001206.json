@@ -1,0 +1,13 @@
+{
+  "code": "001206",
+  "name": "依依股份",
+  "latest_close": 28.21,
+  "kalman_price": 28.132620500422103,
+  "particle_price": 28.207525227940998,
+  "market_state": 0,
+  "ensemble_forecast": 27.784599999999983,
+  "forecast_change_pct": -1.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

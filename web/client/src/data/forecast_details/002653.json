@@ -1,0 +1,13 @@
+{
+  "code": "002653",
+  "name": "海思科",
+  "latest_close": 53.53,
+  "kalman_price": 53.66167926254035,
+  "particle_price": 52.50561019301543,
+  "market_state": 2,
+  "ensemble_forecast": 53.703599999999994,
+  "forecast_change_pct": 0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

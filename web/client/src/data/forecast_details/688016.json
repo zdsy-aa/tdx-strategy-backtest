@@ -1,0 +1,13 @@
+{
+  "code": "688016",
+  "name": "心脉医疗",
+  "latest_close": 98.18,
+  "kalman_price": 97.90233186959426,
+  "particle_price": 93.36085942332268,
+  "market_state": 0,
+  "ensemble_forecast": 98.12680000000005,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

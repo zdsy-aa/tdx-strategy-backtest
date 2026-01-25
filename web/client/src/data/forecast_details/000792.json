@@ -1,0 +1,13 @@
+{
+  "code": "000792",
+  "name": "盐湖股份",
+  "latest_close": 32.4,
+  "kalman_price": 32.35319634186158,
+  "particle_price": 32.37228687035238,
+  "market_state": 0,
+  "ensemble_forecast": 32.974599999999995,
+  "forecast_change_pct": 1.77,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

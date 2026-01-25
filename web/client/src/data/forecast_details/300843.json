@@ -1,0 +1,13 @@
+{
+  "code": "300843",
+  "name": "胜蓝股份",
+  "latest_close": 48.6,
+  "kalman_price": 48.229916320747385,
+  "particle_price": 48.62306370633993,
+  "market_state": 2,
+  "ensemble_forecast": 47.96129999999998,
+  "forecast_change_pct": -1.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

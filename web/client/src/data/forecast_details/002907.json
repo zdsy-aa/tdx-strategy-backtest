@@ -1,0 +1,13 @@
+{
+  "code": "002907",
+  "name": "华森制药",
+  "latest_close": 15.39,
+  "kalman_price": 15.353732908966494,
+  "particle_price": 15.384884122088067,
+  "market_state": 1,
+  "ensemble_forecast": 15.651900000000005,
+  "forecast_change_pct": 1.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

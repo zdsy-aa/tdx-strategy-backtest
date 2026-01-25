@@ -1,0 +1,13 @@
+{
+  "code": "300294",
+  "name": "博雅生物",
+  "latest_close": 23.5,
+  "kalman_price": 23.40548281427909,
+  "particle_price": 23.48951650847749,
+  "market_state": 1,
+  "ensemble_forecast": 23.637200000000018,
+  "forecast_change_pct": 0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

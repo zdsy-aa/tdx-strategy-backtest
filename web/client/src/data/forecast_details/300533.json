@@ -1,0 +1,13 @@
+{
+  "code": "300533",
+  "name": "冰川网络",
+  "latest_close": 39.53,
+  "kalman_price": 38.194696906355624,
+  "particle_price": 36.83257975564972,
+  "market_state": 2,
+  "ensemble_forecast": 39.0083,
+  "forecast_change_pct": -1.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

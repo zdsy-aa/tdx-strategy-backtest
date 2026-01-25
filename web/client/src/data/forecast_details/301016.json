@@ -1,0 +1,13 @@
+{
+  "code": "301016",
+  "name": "雷尔伟",
+  "latest_close": 23.15,
+  "kalman_price": 24.083564245692855,
+  "particle_price": 23.31583814173051,
+  "market_state": 0,
+  "ensemble_forecast": 21.880699999999987,
+  "forecast_change_pct": -5.48,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600936",
+  "name": "北投科技",
+  "latest_close": 4.48,
+  "kalman_price": 4.599418941548048,
+  "particle_price": 4.490065320196127,
+  "market_state": 0,
+  "ensemble_forecast": 4.5533,
+  "forecast_change_pct": 1.64,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

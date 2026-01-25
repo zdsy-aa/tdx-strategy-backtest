@@ -1,0 +1,13 @@
+{
+  "code": "600508",
+  "name": "上海能源",
+  "latest_close": 12.28,
+  "kalman_price": 12.287863793600803,
+  "particle_price": 12.29096061656727,
+  "market_state": 0,
+  "ensemble_forecast": 12.125599999999993,
+  "forecast_change_pct": -1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

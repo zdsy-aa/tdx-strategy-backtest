@@ -1,0 +1,13 @@
+{
+  "code": "301165",
+  "name": "锐捷网络",
+  "latest_close": 83.6,
+  "kalman_price": 84.3589596299142,
+  "particle_price": 83.88607989711947,
+  "market_state": 0,
+  "ensemble_forecast": 82.4664,
+  "forecast_change_pct": -1.36,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

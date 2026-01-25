@@ -1,0 +1,13 @@
+{
+  "code": "601127",
+  "name": "赛力斯",
+  "latest_close": 123.78,
+  "kalman_price": 124.32853471568616,
+  "particle_price": 123.77432107913862,
+  "market_state": 2,
+  "ensemble_forecast": 120.81649999999996,
+  "forecast_change_pct": -2.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

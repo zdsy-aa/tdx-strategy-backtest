@@ -1,0 +1,13 @@
+{
+  "code": "688496",
+  "name": "清越科技",
+  "latest_close": 6.15,
+  "kalman_price": 6.050584716305557,
+  "particle_price": 6.155594412544633,
+  "market_state": 0,
+  "ensemble_forecast": 6.078799999999993,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

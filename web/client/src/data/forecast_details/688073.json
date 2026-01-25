@@ -1,0 +1,13 @@
+{
+  "code": "688073",
+  "name": "毕得医药",
+  "latest_close": 69.86,
+  "kalman_price": 67.92641581040422,
+  "particle_price": 64.89021811162726,
+  "market_state": 2,
+  "ensemble_forecast": 74.39470000000007,
+  "forecast_change_pct": 6.49,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

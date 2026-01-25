@@ -1,0 +1,13 @@
+{
+  "code": "301603",
+  "name": "乔锋智能",
+  "latest_close": 75.88,
+  "kalman_price": 76.6735394866797,
+  "particle_price": 75.95657078144751,
+  "market_state": 2,
+  "ensemble_forecast": 75.52920000000009,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

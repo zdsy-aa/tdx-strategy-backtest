@@ -1,0 +1,13 @@
+{
+  "code": "688636",
+  "name": "智明达",
+  "latest_close": 52.5,
+  "kalman_price": 51.475983837088826,
+  "particle_price": 42.58698419036655,
+  "market_state": 0,
+  "ensemble_forecast": 51.42169999999997,
+  "forecast_change_pct": -2.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

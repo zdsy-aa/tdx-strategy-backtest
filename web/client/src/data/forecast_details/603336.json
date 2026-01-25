@@ -1,0 +1,13 @@
+{
+  "code": "603336",
+  "name": "宏辉果蔬",
+  "latest_close": 8.73,
+  "kalman_price": 8.818597914505093,
+  "particle_price": 8.748325977371003,
+  "market_state": 0,
+  "ensemble_forecast": 8.679400000000005,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

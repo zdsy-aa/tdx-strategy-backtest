@@ -1,0 +1,13 @@
+{
+  "code": "301468",
+  "name": "博盈特焊",
+  "latest_close": 54.0,
+  "kalman_price": 55.50677780108714,
+  "particle_price": 52.5248056203398,
+  "market_state": 1,
+  "ensemble_forecast": 53.70839999999999,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

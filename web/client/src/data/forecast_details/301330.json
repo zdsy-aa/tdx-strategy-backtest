@@ -1,0 +1,13 @@
+{
+  "code": "301330",
+  "name": "熵基科技",
+  "latest_close": 45.2,
+  "kalman_price": 44.52859515201164,
+  "particle_price": 30.67485845833286,
+  "market_state": 2,
+  "ensemble_forecast": 41.50250000000001,
+  "forecast_change_pct": -8.18,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

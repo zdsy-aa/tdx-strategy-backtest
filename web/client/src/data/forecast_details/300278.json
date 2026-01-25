@@ -1,0 +1,13 @@
+{
+  "code": "300278",
+  "name": "华昌达",
+  "latest_close": 6.4,
+  "kalman_price": 6.261263573630885,
+  "particle_price": 6.363581484774426,
+  "market_state": 2,
+  "ensemble_forecast": 6.255999999999998,
+  "forecast_change_pct": -2.25,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

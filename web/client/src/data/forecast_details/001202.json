@@ -1,0 +1,13 @@
+{
+  "code": "001202",
+  "name": "炬申股份",
+  "latest_close": 18.56,
+  "kalman_price": 17.050795553472337,
+  "particle_price": 16.037247026099124,
+  "market_state": 2,
+  "ensemble_forecast": 17.2956,
+  "forecast_change_pct": -6.81,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

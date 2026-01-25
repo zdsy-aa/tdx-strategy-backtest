@@ -1,0 +1,13 @@
+{
+  "code": "603790",
+  "name": "雅运股份",
+  "latest_close": 19.46,
+  "kalman_price": 19.41075963995661,
+  "particle_price": 19.458433666263183,
+  "market_state": 0,
+  "ensemble_forecast": 19.652400000000004,
+  "forecast_change_pct": 0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

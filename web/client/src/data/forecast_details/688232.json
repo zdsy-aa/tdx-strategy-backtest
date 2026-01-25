@@ -1,0 +1,13 @@
+{
+  "code": "688232",
+  "name": "新点软件",
+  "latest_close": 29.53,
+  "kalman_price": 27.786043873480214,
+  "particle_price": 26.017774747551474,
+  "market_state": 2,
+  "ensemble_forecast": 33.7025,
+  "forecast_change_pct": 14.13,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

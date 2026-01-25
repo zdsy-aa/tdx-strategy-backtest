@@ -1,0 +1,13 @@
+{
+  "code": "300429",
+  "name": "强力新材",
+  "latest_close": 15.71,
+  "kalman_price": 15.852621491840818,
+  "particle_price": 15.67407230209205,
+  "market_state": 0,
+  "ensemble_forecast": 15.290700000000006,
+  "forecast_change_pct": -2.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

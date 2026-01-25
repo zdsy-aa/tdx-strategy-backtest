@@ -1,0 +1,13 @@
+{
+  "code": "002009",
+  "name": "天奇股份",
+  "latest_close": 21.5,
+  "kalman_price": 22.118979825107534,
+  "particle_price": 21.5978976618275,
+  "market_state": 0,
+  "ensemble_forecast": 21.472600000000003,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

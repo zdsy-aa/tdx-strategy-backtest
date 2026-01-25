@@ -1,0 +1,13 @@
+{
+  "code": "002999",
+  "name": "天禾股份",
+  "latest_close": 6.88,
+  "kalman_price": 6.818257596614626,
+  "particle_price": 6.8720672174069275,
+  "market_state": 0,
+  "ensemble_forecast": 6.880799999999999,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

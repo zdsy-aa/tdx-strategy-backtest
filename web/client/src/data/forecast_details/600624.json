@@ -1,0 +1,13 @@
+{
+  "code": "600624",
+  "name": "ST复华",
+  "latest_close": 5.28,
+  "kalman_price": 5.325787485958587,
+  "particle_price": 5.293794190641249,
+  "market_state": 2,
+  "ensemble_forecast": 5.302599999999999,
+  "forecast_change_pct": 0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

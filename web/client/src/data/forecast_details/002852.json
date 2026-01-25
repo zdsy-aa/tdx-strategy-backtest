@@ -1,0 +1,13 @@
+{
+  "code": "002852",
+  "name": "道道全",
+  "latest_close": 11.03,
+  "kalman_price": 10.976835689980915,
+  "particle_price": 11.025570507424487,
+  "market_state": 2,
+  "ensemble_forecast": 11.045199999999998,
+  "forecast_change_pct": 0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

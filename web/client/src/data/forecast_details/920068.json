@@ -1,0 +1,13 @@
+{
+  "code": "920068",
+  "name": "天工股份",
+  "latest_close": 20.2,
+  "kalman_price": 20.212350897130968,
+  "particle_price": 20.23562519122598,
+  "market_state": 0,
+  "ensemble_forecast": 20.064900000000005,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

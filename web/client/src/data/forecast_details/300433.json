@@ -1,0 +1,13 @@
+{
+  "code": "300433",
+  "name": "蓝思科技",
+  "latest_close": 39.24,
+  "kalman_price": 38.482810260338965,
+  "particle_price": 33.33243109035255,
+  "market_state": 2,
+  "ensemble_forecast": 37.58619999999995,
+  "forecast_change_pct": -4.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

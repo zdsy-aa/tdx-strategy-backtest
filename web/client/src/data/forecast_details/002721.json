@@ -1,0 +1,13 @@
+{
+  "code": "002721",
+  "name": "金一文化",
+  "latest_close": 3.3,
+  "kalman_price": 3.204427228279485,
+  "particle_price": 3.277324338592477,
+  "market_state": 0,
+  "ensemble_forecast": 3.2667999999999977,
+  "forecast_change_pct": -1.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

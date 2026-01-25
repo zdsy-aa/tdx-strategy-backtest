@@ -1,0 +1,13 @@
+{
+  "code": "000406",
+  "name": "石油大明",
+  "latest_close": 10.06,
+  "kalman_price": 10.14163933115153,
+  "particle_price": 10.06283927655865,
+  "market_state": 0,
+  "ensemble_forecast": 9.972900000000003,
+  "forecast_change_pct": -0.87,
+  "confidence": 0.95,
+  "analysis_date": "2006-04-06",
+  "forecast_date": "2006-04-07"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000822",
+  "name": "山东海化",
+  "latest_close": 5.45,
+  "kalman_price": 5.50510758279851,
+  "particle_price": 5.452280801936175,
+  "market_state": 2,
+  "ensemble_forecast": 5.445799999999998,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

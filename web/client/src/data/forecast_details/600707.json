@@ -1,0 +1,13 @@
+{
+  "code": "600707",
+  "name": "彩虹股份",
+  "latest_close": 6.75,
+  "kalman_price": 6.877808591996108,
+  "particle_price": 6.754585621743437,
+  "market_state": 2,
+  "ensemble_forecast": 6.730699999999996,
+  "forecast_change_pct": -0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

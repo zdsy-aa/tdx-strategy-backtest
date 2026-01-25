@@ -1,0 +1,13 @@
+{
+  "code": "603001",
+  "name": "奥康国际",
+  "latest_close": 8.41,
+  "kalman_price": 8.400539957735962,
+  "particle_price": 8.398638020823086,
+  "market_state": 0,
+  "ensemble_forecast": 8.445499999999996,
+  "forecast_change_pct": 0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

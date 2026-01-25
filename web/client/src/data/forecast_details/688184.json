@@ -1,0 +1,13 @@
+{
+  "code": "688184",
+  "name": "ST帕瓦",
+  "latest_close": 9.45,
+  "kalman_price": 9.431324359578047,
+  "particle_price": 9.45063719749065,
+  "market_state": 0,
+  "ensemble_forecast": 9.4208,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

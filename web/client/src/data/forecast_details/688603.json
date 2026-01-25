@@ -1,0 +1,13 @@
+{
+  "code": "688603",
+  "name": "天承科技",
+  "latest_close": 82.6,
+  "kalman_price": 82.53935310670929,
+  "particle_price": 77.35427885848638,
+  "market_state": 0,
+  "ensemble_forecast": 80.277,
+  "forecast_change_pct": -2.81,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

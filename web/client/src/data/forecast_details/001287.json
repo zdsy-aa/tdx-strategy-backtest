@@ -1,0 +1,13 @@
+{
+  "code": "001287",
+  "name": "中电港",
+  "latest_close": 23.39,
+  "kalman_price": 23.519234977937867,
+  "particle_price": 23.396595854429332,
+  "market_state": 0,
+  "ensemble_forecast": 23.18100000000002,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

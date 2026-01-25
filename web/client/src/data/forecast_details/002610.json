@@ -1,0 +1,13 @@
+{
+  "code": "002610",
+  "name": "ST爱康",
+  "latest_close": 0.37,
+  "kalman_price": 0.36473926502244347,
+  "particle_price": 0.39171722181826435,
+  "market_state": 2,
+  "ensemble_forecast": 0.3958999999999999,
+  "forecast_change_pct": 7.0,
+  "confidence": 0.75,
+  "analysis_date": "2024-06-18",
+  "forecast_date": "2024-06-19"
+}

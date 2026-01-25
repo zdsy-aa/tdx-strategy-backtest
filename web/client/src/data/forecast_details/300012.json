@@ -1,0 +1,13 @@
+{
+  "code": "300012",
+  "name": "华测检测",
+  "latest_close": 14.66,
+  "kalman_price": 14.621879259201569,
+  "particle_price": 14.63813199373186,
+  "market_state": 2,
+  "ensemble_forecast": 14.599300000000007,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

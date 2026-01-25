@@ -1,0 +1,13 @@
+{
+  "code": "688543",
+  "name": "国科军工",
+  "latest_close": 71.24,
+  "kalman_price": 70.23673273801603,
+  "particle_price": 59.94133136947342,
+  "market_state": 2,
+  "ensemble_forecast": 69.87419999999996,
+  "forecast_change_pct": -1.92,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301557",
+  "name": "常友科技",
+  "latest_close": 123.69,
+  "kalman_price": 120.49104782689213,
+  "particle_price": 101.80875733024648,
+  "market_state": 0,
+  "ensemble_forecast": 122.77159999999999,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

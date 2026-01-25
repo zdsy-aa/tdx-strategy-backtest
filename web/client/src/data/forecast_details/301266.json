@@ -1,0 +1,13 @@
+{
+  "code": "301266",
+  "name": "宇邦新材",
+  "latest_close": 37.88,
+  "kalman_price": 38.03125398792854,
+  "particle_price": 37.88817274791262,
+  "market_state": 1,
+  "ensemble_forecast": 38.011400000000016,
+  "forecast_change_pct": 0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

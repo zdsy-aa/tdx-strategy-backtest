@@ -1,0 +1,13 @@
+{
+  "code": "300473",
+  "name": "德尔股份",
+  "latest_close": 31.46,
+  "kalman_price": 31.20568341076513,
+  "particle_price": 31.396784099157003,
+  "market_state": 0,
+  "ensemble_forecast": 31.752400000000012,
+  "forecast_change_pct": 0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

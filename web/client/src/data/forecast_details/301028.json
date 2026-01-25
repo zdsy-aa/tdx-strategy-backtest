@@ -1,0 +1,13 @@
+{
+  "code": "301028",
+  "name": "东亚机械",
+  "latest_close": 15.37,
+  "kalman_price": 15.316335232709225,
+  "particle_price": 15.36723962053776,
+  "market_state": 2,
+  "ensemble_forecast": 14.915200000000002,
+  "forecast_change_pct": -2.96,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

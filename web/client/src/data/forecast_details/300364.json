@@ -1,0 +1,13 @@
+{
+  "code": "300364",
+  "name": "中文在线",
+  "latest_close": 37.5,
+  "kalman_price": 32.3036466201061,
+  "particle_price": 25.874983822444708,
+  "market_state": 0,
+  "ensemble_forecast": 39.56440000000001,
+  "forecast_change_pct": 5.51,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

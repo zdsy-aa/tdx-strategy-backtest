@@ -1,0 +1,13 @@
+{
+  "code": "601137",
+  "name": "博威合金",
+  "latest_close": 22.39,
+  "kalman_price": 22.258707125557216,
+  "particle_price": 22.36542148864123,
+  "market_state": 1,
+  "ensemble_forecast": 22.283500000000007,
+  "forecast_change_pct": -0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920145",
+  "name": "恒合股份",
+  "latest_close": 19.83,
+  "kalman_price": 20.264579868932664,
+  "particle_price": 19.8627759188193,
+  "market_state": 1,
+  "ensemble_forecast": 19.92090000000002,
+  "forecast_change_pct": 0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

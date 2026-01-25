@@ -1,0 +1,13 @@
+{
+  "code": "603909",
+  "name": "建发合诚",
+  "latest_close": 11.53,
+  "kalman_price": 11.405978320311918,
+  "particle_price": 11.506858335846244,
+  "market_state": 2,
+  "ensemble_forecast": 11.546999999999992,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

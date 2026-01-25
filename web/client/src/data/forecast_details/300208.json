@@ -1,0 +1,13 @@
+{
+  "code": "300208",
+  "name": "中程退",
+  "latest_close": 0.27,
+  "kalman_price": 0.29639522884820946,
+  "particle_price": 0.2665216095268925,
+  "market_state": 1,
+  "ensemble_forecast": 0.306,
+  "forecast_change_pct": 13.33,
+  "confidence": 0.65,
+  "analysis_date": "2025-07-18",
+  "forecast_date": "2025-07-21"
+}

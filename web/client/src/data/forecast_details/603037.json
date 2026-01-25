@@ -1,0 +1,13 @@
+{
+  "code": "603037",
+  "name": "凯众股份",
+  "latest_close": 16.1,
+  "kalman_price": 16.40803829501413,
+  "particle_price": 16.15450724309043,
+  "market_state": 2,
+  "ensemble_forecast": 15.91169999999999,
+  "forecast_change_pct": -1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

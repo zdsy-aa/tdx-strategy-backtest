@@ -1,0 +1,13 @@
+{
+  "code": "300866",
+  "name": "安克创新",
+  "latest_close": 105.15,
+  "kalman_price": 104.29097872224733,
+  "particle_price": 109.9131744069972,
+  "market_state": 0,
+  "ensemble_forecast": 104.51039999999999,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

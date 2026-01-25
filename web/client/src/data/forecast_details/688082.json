@@ -1,0 +1,13 @@
+{
+  "code": "688082",
+  "name": "盛美上海",
+  "latest_close": 190.3,
+  "kalman_price": 193.0127345776396,
+  "particle_price": 134.8966889602304,
+  "market_state": 0,
+  "ensemble_forecast": 187.4119999999999,
+  "forecast_change_pct": -1.52,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600467",
+  "name": "好当家",
+  "latest_close": 2.67,
+  "kalman_price": 2.66512383696257,
+  "particle_price": 2.6726581039755795,
+  "market_state": 0,
+  "ensemble_forecast": 2.651599999999998,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

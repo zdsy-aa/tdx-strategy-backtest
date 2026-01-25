@@ -1,0 +1,13 @@
+{
+  "code": "603626",
+  "name": "科森科技",
+  "latest_close": 19.4,
+  "kalman_price": 20.02912024016642,
+  "particle_price": 19.42242212519764,
+  "market_state": 1,
+  "ensemble_forecast": 19.725100000000012,
+  "forecast_change_pct": 1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

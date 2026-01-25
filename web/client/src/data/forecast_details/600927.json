@@ -1,0 +1,13 @@
+{
+  "code": "600927",
+  "name": "永安期货",
+  "latest_close": 16.0,
+  "kalman_price": 15.9917492703848,
+  "particle_price": 15.996313825889283,
+  "market_state": 1,
+  "ensemble_forecast": 16.08159999999999,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

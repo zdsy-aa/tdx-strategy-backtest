@@ -1,0 +1,13 @@
+{
+  "code": "603739",
+  "name": "蔚蓝生物",
+  "latest_close": 15.17,
+  "kalman_price": 14.965824992460995,
+  "particle_price": 15.16168013240471,
+  "market_state": 0,
+  "ensemble_forecast": 16.28939999999999,
+  "forecast_change_pct": 7.38,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

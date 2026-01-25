@@ -1,0 +1,13 @@
+{
+  "code": "002668",
+  "name": "TCL智家",
+  "latest_close": 10.21,
+  "kalman_price": 10.103288970618344,
+  "particle_price": 10.211551038624513,
+  "market_state": 0,
+  "ensemble_forecast": 10.189900000000005,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

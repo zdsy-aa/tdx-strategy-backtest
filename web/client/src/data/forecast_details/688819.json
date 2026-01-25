@@ -1,0 +1,13 @@
+{
+  "code": "688819",
+  "name": "天能股份",
+  "latest_close": 33.6,
+  "kalman_price": 33.678759815574544,
+  "particle_price": 33.620157626534954,
+  "market_state": 0,
+  "ensemble_forecast": 33.26970000000001,
+  "forecast_change_pct": -0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

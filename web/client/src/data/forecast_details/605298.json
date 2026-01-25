@@ -1,0 +1,13 @@
+{
+  "code": "605298",
+  "name": "必得科技",
+  "latest_close": 43.85,
+  "kalman_price": 42.98241527882604,
+  "particle_price": 41.02834160627119,
+  "market_state": 2,
+  "ensemble_forecast": 43.64950000000001,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

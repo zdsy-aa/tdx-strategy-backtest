@@ -1,0 +1,13 @@
+{
+  "code": "603333",
+  "name": "尚纬股份",
+  "latest_close": 8.59,
+  "kalman_price": 8.649305546104328,
+  "particle_price": 8.621845994204394,
+  "market_state": 2,
+  "ensemble_forecast": 8.445099999999995,
+  "forecast_change_pct": -1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

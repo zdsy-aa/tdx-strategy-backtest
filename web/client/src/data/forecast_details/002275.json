@@ -1,0 +1,13 @@
+{
+  "code": "002275",
+  "name": "桂林三金",
+  "latest_close": 14.5,
+  "kalman_price": 14.401017292968621,
+  "particle_price": 14.499031617470646,
+  "market_state": 0,
+  "ensemble_forecast": 14.436499999999999,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

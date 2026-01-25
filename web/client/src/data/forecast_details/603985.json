@@ -1,0 +1,13 @@
+{
+  "code": "603985",
+  "name": "恒润股份",
+  "latest_close": 15.86,
+  "kalman_price": 15.792012075994158,
+  "particle_price": 15.844693332274431,
+  "market_state": 2,
+  "ensemble_forecast": 15.812399999999993,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

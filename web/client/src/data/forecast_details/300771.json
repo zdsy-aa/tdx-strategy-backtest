@@ -1,0 +1,13 @@
+{
+  "code": "300771",
+  "name": "智莱科技",
+  "latest_close": 16.06,
+  "kalman_price": 16.07418422048155,
+  "particle_price": 16.07529219121311,
+  "market_state": 0,
+  "ensemble_forecast": 16.047900000000006,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

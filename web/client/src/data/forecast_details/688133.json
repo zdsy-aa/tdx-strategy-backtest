@@ -1,0 +1,13 @@
+{
+  "code": "688133",
+  "name": "泰坦科技",
+  "latest_close": 28.7,
+  "kalman_price": 26.6095589029915,
+  "particle_price": 23.38935247727884,
+  "market_state": 2,
+  "ensemble_forecast": 28.600699999999996,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301668",
+  "name": "昊创瑞通",
+  "latest_close": 50.44,
+  "kalman_price": 50.420310303276025,
+  "particle_price": 50.36196107687744,
+  "market_state": 2,
+  "ensemble_forecast": 50.34069999999998,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

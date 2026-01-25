@@ -1,0 +1,13 @@
+{
+  "code": "002515",
+  "name": "金字火腿",
+  "latest_close": 6.17,
+  "kalman_price": 6.1762751044990125,
+  "particle_price": 6.165039759763425,
+  "market_state": 1,
+  "ensemble_forecast": 6.138499999999998,
+  "forecast_change_pct": -0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

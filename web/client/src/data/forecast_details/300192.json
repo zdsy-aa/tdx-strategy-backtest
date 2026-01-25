@@ -1,0 +1,13 @@
+{
+  "code": "300192",
+  "name": "科德教育",
+  "latest_close": 22.81,
+  "kalman_price": 22.653965333733012,
+  "particle_price": 22.81627126733863,
+  "market_state": 2,
+  "ensemble_forecast": 23.681299999999997,
+  "forecast_change_pct": 3.82,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

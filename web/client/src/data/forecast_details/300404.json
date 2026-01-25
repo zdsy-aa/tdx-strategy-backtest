@@ -1,0 +1,13 @@
+{
+  "code": "300404",
+  "name": "博济医药",
+  "latest_close": 11.01,
+  "kalman_price": 10.756468679410503,
+  "particle_price": 10.870874337757135,
+  "market_state": 2,
+  "ensemble_forecast": 12.206499999999995,
+  "forecast_change_pct": 10.87,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

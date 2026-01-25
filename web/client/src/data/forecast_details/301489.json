@@ -1,0 +1,13 @@
+{
+  "code": "301489",
+  "name": "思泉新材",
+  "latest_close": 171.0,
+  "kalman_price": 171.52302176539163,
+  "particle_price": 73.94744980465575,
+  "market_state": 2,
+  "ensemble_forecast": 169.45989999999995,
+  "forecast_change_pct": -0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

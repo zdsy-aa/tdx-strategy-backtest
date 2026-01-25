@@ -1,0 +1,13 @@
+{
+  "code": "000970",
+  "name": "中科三环",
+  "latest_close": 13.97,
+  "kalman_price": 14.033231278237443,
+  "particle_price": 13.95728497207221,
+  "market_state": 0,
+  "ensemble_forecast": 13.71609999999999,
+  "forecast_change_pct": -1.82,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300025",
+  "name": "华星创业",
+  "latest_close": 6.18,
+  "kalman_price": 6.104923829867931,
+  "particle_price": 6.163415666538949,
+  "market_state": 0,
+  "ensemble_forecast": 6.1523,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

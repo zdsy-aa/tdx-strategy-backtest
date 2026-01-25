@@ -1,0 +1,13 @@
+{
+  "code": "002326",
+  "name": "永太科技",
+  "latest_close": 25.33,
+  "kalman_price": 25.455717488620973,
+  "particle_price": 25.343831706889702,
+  "market_state": 0,
+  "ensemble_forecast": 25.142999999999994,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

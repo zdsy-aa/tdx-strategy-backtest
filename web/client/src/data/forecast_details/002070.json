@@ -1,0 +1,13 @@
+{
+  "code": "002070",
+  "name": "众和退",
+  "latest_close": 0.61,
+  "kalman_price": 0.5940730223771963,
+  "particle_price": 0.6102365298049325,
+  "market_state": 2,
+  "ensemble_forecast": 0.5897000000000002,
+  "forecast_change_pct": -3.33,
+  "confidence": 0.85,
+  "analysis_date": "2019-07-08",
+  "forecast_date": "2019-07-09"
+}

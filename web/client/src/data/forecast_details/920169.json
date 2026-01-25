@@ -1,0 +1,13 @@
+{
+  "code": "920169",
+  "name": "七丰精工",
+  "latest_close": 35.26,
+  "kalman_price": 34.46010839652998,
+  "particle_price": 34.16453903543974,
+  "market_state": 0,
+  "ensemble_forecast": 33.39999999999999,
+  "forecast_change_pct": -5.28,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688718",
+  "name": "唯赛勃",
+  "latest_close": 13.65,
+  "kalman_price": 13.508001969765958,
+  "particle_price": 13.627239732828185,
+  "market_state": 0,
+  "ensemble_forecast": 13.567099999999998,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

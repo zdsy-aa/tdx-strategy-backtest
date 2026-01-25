@@ -1,0 +1,13 @@
+{
+  "code": "605399",
+  "name": "晨光新材",
+  "latest_close": 13.9,
+  "kalman_price": 13.964143688152367,
+  "particle_price": 13.903348784219743,
+  "market_state": 0,
+  "ensemble_forecast": 13.800799999999992,
+  "forecast_change_pct": -0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

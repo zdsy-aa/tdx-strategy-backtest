@@ -1,0 +1,13 @@
+{
+  "code": "301126",
+  "name": "达嘉维康",
+  "latest_close": 13.43,
+  "kalman_price": 13.37474832217931,
+  "particle_price": 13.41586899904476,
+  "market_state": 2,
+  "ensemble_forecast": 13.493200000000003,
+  "forecast_change_pct": 0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

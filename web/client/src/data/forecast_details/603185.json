@@ -1,0 +1,13 @@
+{
+  "code": "603185",
+  "name": "弘元绿能",
+  "latest_close": 26.81,
+  "kalman_price": 27.869875817210534,
+  "particle_price": 30.61227847587803,
+  "market_state": 0,
+  "ensemble_forecast": 26.842999999999996,
+  "forecast_change_pct": 0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

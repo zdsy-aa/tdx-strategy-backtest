@@ -1,0 +1,13 @@
+{
+  "code": "601595",
+  "name": "上海电影",
+  "latest_close": 31.59,
+  "kalman_price": 30.372436970609748,
+  "particle_price": 29.190539867677742,
+  "market_state": 0,
+  "ensemble_forecast": 31.4405,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

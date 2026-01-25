@@ -1,0 +1,13 @@
+{
+  "code": "300026",
+  "name": "红日药业",
+  "latest_close": 3.67,
+  "kalman_price": 3.6444213971680823,
+  "particle_price": 3.654211720506142,
+  "market_state": 1,
+  "ensemble_forecast": 3.696000000000002,
+  "forecast_change_pct": 0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

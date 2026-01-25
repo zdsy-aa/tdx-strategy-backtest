@@ -1,0 +1,13 @@
+{
+  "code": "000983",
+  "name": "山西焦煤",
+  "latest_close": 6.93,
+  "kalman_price": 6.995692275223378,
+  "particle_price": 6.915414840416933,
+  "market_state": 2,
+  "ensemble_forecast": 6.8862,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

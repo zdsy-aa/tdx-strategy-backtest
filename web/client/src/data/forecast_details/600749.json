@@ -1,0 +1,13 @@
+{
+  "code": "600749",
+  "name": "西藏旅游",
+  "latest_close": 17.36,
+  "kalman_price": 17.28879778057082,
+  "particle_price": 17.349674665625955,
+  "market_state": 1,
+  "ensemble_forecast": 17.24049999999998,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300360",
+  "name": "炬华科技",
+  "latest_close": 17.81,
+  "kalman_price": 17.75274124805339,
+  "particle_price": 17.813408534943992,
+  "market_state": 0,
+  "ensemble_forecast": 17.3719,
+  "forecast_change_pct": -2.46,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

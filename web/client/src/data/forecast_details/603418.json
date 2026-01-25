@@ -1,0 +1,13 @@
+{
+  "code": "603418",
+  "name": "友升股份",
+  "latest_close": 58.65,
+  "kalman_price": 59.102983112292996,
+  "particle_price": 58.64567483968829,
+  "market_state": 0,
+  "ensemble_forecast": 58.52189999999996,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

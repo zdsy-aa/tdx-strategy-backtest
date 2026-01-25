@@ -1,0 +1,13 @@
+{
+  "code": "600444",
+  "name": "国机通用",
+  "latest_close": 19.22,
+  "kalman_price": 19.25462138334948,
+  "particle_price": 19.229852204280185,
+  "market_state": 2,
+  "ensemble_forecast": 19.14460000000001,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688522",
+  "name": "纳睿雷达",
+  "latest_close": 44.08,
+  "kalman_price": 43.7387264718864,
+  "particle_price": 40.63190602355257,
+  "market_state": 0,
+  "ensemble_forecast": 43.613799999999976,
+  "forecast_change_pct": -1.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

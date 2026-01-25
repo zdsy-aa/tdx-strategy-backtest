@@ -1,0 +1,13 @@
+{
+  "code": "688201",
+  "name": "信安世纪",
+  "latest_close": 15.28,
+  "kalman_price": 15.237838336553544,
+  "particle_price": 15.241069584698137,
+  "market_state": 1,
+  "ensemble_forecast": 14.949500000000015,
+  "forecast_change_pct": -2.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

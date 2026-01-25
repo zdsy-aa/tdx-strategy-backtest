@@ -1,0 +1,13 @@
+{
+  "code": "920075",
+  "name": "柏星龙",
+  "latest_close": 30.6,
+  "kalman_price": 28.845468844491474,
+  "particle_price": 28.02985679976105,
+  "market_state": 2,
+  "ensemble_forecast": 29.4021,
+  "forecast_change_pct": -3.91,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

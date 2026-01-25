@@ -1,0 +1,13 @@
+{
+  "code": "600586",
+  "name": "金晶科技",
+  "latest_close": 6.26,
+  "kalman_price": 6.127952582307498,
+  "particle_price": 6.222674446947163,
+  "market_state": 1,
+  "ensemble_forecast": 5.927899999999999,
+  "forecast_change_pct": -5.31,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

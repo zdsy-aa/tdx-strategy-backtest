@@ -1,0 +1,13 @@
+{
+  "code": "000056",
+  "name": "皇庭国际",
+  "latest_close": 2.08,
+  "kalman_price": 2.069533316722466,
+  "particle_price": 2.0681209189877348,
+  "market_state": 0,
+  "ensemble_forecast": 2.0746,
+  "forecast_change_pct": -0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

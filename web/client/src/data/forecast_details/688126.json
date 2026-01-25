@@ -1,0 +1,13 @@
+{
+  "code": "688126",
+  "name": "沪硅产业",
+  "latest_close": 23.1,
+  "kalman_price": 23.528570306229824,
+  "particle_price": 23.15334345631684,
+  "market_state": 0,
+  "ensemble_forecast": 22.483499999999996,
+  "forecast_change_pct": -2.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

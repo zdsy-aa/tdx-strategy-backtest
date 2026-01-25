@@ -1,0 +1,13 @@
+{
+  "code": "002345",
+  "name": "潮宏基",
+  "latest_close": 12.9,
+  "kalman_price": 12.450058359164263,
+  "particle_price": 12.769294539406237,
+  "market_state": 0,
+  "ensemble_forecast": 12.829699999999994,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

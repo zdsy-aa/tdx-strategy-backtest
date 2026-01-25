@@ -1,0 +1,13 @@
+{
+  "code": "603515",
+  "name": "欧普照明",
+  "latest_close": 18.64,
+  "kalman_price": 18.5216094852259,
+  "particle_price": 18.572583635470778,
+  "market_state": 0,
+  "ensemble_forecast": 18.691299999999984,
+  "forecast_change_pct": 0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

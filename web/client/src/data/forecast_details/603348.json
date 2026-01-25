@@ -1,0 +1,13 @@
+{
+  "code": "603348",
+  "name": "文灿股份",
+  "latest_close": 20.62,
+  "kalman_price": 20.526028027670865,
+  "particle_price": 20.59445756478738,
+  "market_state": 0,
+  "ensemble_forecast": 20.427500000000006,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

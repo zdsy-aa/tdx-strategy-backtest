@@ -1,0 +1,13 @@
+{
+  "code": "301335",
+  "name": "天元宠物",
+  "latest_close": 30.23,
+  "kalman_price": 29.55840840407941,
+  "particle_price": 30.135464129665074,
+  "market_state": 2,
+  "ensemble_forecast": 30.042099999999973,
+  "forecast_change_pct": -0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

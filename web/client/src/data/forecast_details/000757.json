@@ -1,0 +1,13 @@
+{
+  "code": "000757",
+  "name": "浩物股份",
+  "latest_close": 4.93,
+  "kalman_price": 4.886388168722562,
+  "particle_price": 4.930166854127178,
+  "market_state": 2,
+  "ensemble_forecast": 4.954299999999999,
+  "forecast_change_pct": 0.49,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

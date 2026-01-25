@@ -1,0 +1,13 @@
+{
+  "code": "603617",
+  "name": "君禾股份",
+  "latest_close": 7.71,
+  "kalman_price": 7.746501043286316,
+  "particle_price": 7.710635942961816,
+  "market_state": 0,
+  "ensemble_forecast": 7.622399999999998,
+  "forecast_change_pct": -1.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

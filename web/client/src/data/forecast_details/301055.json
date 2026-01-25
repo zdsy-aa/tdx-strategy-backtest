@@ -1,0 +1,13 @@
+{
+  "code": "301055",
+  "name": "张小泉",
+  "latest_close": 22.01,
+  "kalman_price": 21.410644956788893,
+  "particle_price": 21.92935227338875,
+  "market_state": 2,
+  "ensemble_forecast": 22.252000000000013,
+  "forecast_change_pct": 1.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

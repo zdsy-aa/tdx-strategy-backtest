@@ -1,0 +1,13 @@
+{
+  "code": "300835",
+  "name": "龙磁科技",
+  "latest_close": 65.05,
+  "kalman_price": 64.28216102835826,
+  "particle_price": 64.83381630227636,
+  "market_state": 1,
+  "ensemble_forecast": 65.00060000000002,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

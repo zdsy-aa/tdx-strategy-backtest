@@ -1,0 +1,13 @@
+{
+  "code": "920806",
+  "name": "云星宇",
+  "latest_close": 15.03,
+  "kalman_price": 14.637330821188606,
+  "particle_price": 14.928868704791778,
+  "market_state": 2,
+  "ensemble_forecast": 14.913500000000004,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

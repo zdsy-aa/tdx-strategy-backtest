@@ -1,0 +1,13 @@
+{
+  "code": "600750",
+  "name": "江中药业",
+  "latest_close": 22.89,
+  "kalman_price": 22.694565893919556,
+  "particle_price": 22.87588063134609,
+  "market_state": 0,
+  "ensemble_forecast": 22.83250000000003,
+  "forecast_change_pct": -0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

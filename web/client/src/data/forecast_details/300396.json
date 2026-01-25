@@ -1,0 +1,13 @@
+{
+  "code": "300396",
+  "name": "迪瑞医疗",
+  "latest_close": 13.68,
+  "kalman_price": 13.512376342285375,
+  "particle_price": 13.650998463507355,
+  "market_state": 1,
+  "ensemble_forecast": 13.681400000000004,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

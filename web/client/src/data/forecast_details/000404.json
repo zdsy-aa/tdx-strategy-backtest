@@ -1,0 +1,13 @@
+{
+  "code": "000404",
+  "name": "长虹华意",
+  "latest_close": 6.9,
+  "kalman_price": 6.880544759348623,
+  "particle_price": 6.890093197333341,
+  "market_state": 0,
+  "ensemble_forecast": 6.891699999999993,
+  "forecast_change_pct": -0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

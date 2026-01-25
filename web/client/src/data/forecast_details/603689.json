@@ -1,0 +1,13 @@
+{
+  "code": "603689",
+  "name": "皖天然气",
+  "latest_close": 8.29,
+  "kalman_price": 8.254672256297496,
+  "particle_price": 8.288480013339603,
+  "market_state": 1,
+  "ensemble_forecast": 8.282199999999996,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

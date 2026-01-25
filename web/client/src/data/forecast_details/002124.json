@@ -1,0 +1,13 @@
+{
+  "code": "002124",
+  "name": "天邦食品",
+  "latest_close": 2.73,
+  "kalman_price": 2.730183115077072,
+  "particle_price": 2.727254999758466,
+  "market_state": 2,
+  "ensemble_forecast": 2.7291,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

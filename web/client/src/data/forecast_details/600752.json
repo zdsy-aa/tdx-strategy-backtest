@@ -1,0 +1,13 @@
+{
+  "code": "600752",
+  "name": "*ST哈慈",
+  "latest_close": 0.81,
+  "kalman_price": 0.755855520236652,
+  "particle_price": 0.8128668493677161,
+  "market_state": 2,
+  "ensemble_forecast": 0.7948000000000002,
+  "forecast_change_pct": -1.88,
+  "confidence": 0.85,
+  "analysis_date": "2005-04-29",
+  "forecast_date": "2005-05-02"
+}

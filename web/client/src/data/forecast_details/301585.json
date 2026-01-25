@@ -1,0 +1,13 @@
+{
+  "code": "301585",
+  "name": "蓝宇股份",
+  "latest_close": 31.02,
+  "kalman_price": 30.94969925273622,
+  "particle_price": 30.993272328896374,
+  "market_state": 0,
+  "ensemble_forecast": 30.7668,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

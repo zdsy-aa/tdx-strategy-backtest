@@ -1,0 +1,13 @@
+{
+  "code": "605268",
+  "name": "王力安防",
+  "latest_close": 10.65,
+  "kalman_price": 10.554264105868608,
+  "particle_price": 10.641307733351601,
+  "market_state": 1,
+  "ensemble_forecast": 10.6401,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

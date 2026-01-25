@@ -1,0 +1,13 @@
+{
+  "code": "300435",
+  "name": "中泰股份",
+  "latest_close": 29.8,
+  "kalman_price": 28.377784004603143,
+  "particle_price": 26.02562239902158,
+  "market_state": 1,
+  "ensemble_forecast": 27.764799999999983,
+  "forecast_change_pct": -6.83,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

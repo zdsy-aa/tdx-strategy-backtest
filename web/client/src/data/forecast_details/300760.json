@@ -1,0 +1,13 @@
+{
+  "code": "300760",
+  "name": "迈瑞医疗",
+  "latest_close": 207.6,
+  "kalman_price": 205.33979502419206,
+  "particle_price": 207.6629787038417,
+  "market_state": 2,
+  "ensemble_forecast": 209.20829999999998,
+  "forecast_change_pct": 0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

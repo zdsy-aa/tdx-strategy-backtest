@@ -1,0 +1,13 @@
+{
+  "code": "301399",
+  "name": "英特科技",
+  "latest_close": 20.61,
+  "kalman_price": 20.13134700778928,
+  "particle_price": 20.42094726595138,
+  "market_state": 1,
+  "ensemble_forecast": 20.39720000000001,
+  "forecast_change_pct": -1.03,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600209",
+  "name": "退市罗顿",
+  "latest_close": 1.06,
+  "kalman_price": 1.1279269051761103,
+  "particle_price": 1.075766518031382,
+  "market_state": 1,
+  "ensemble_forecast": 1.055000000000001,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2022-06-15",
+  "forecast_date": "2022-06-16"
+}

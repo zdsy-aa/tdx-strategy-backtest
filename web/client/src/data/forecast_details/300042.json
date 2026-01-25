@@ -1,0 +1,13 @@
+{
+  "code": "300042",
+  "name": "朗科科技",
+  "latest_close": 28.25,
+  "kalman_price": 28.59050248204975,
+  "particle_price": 28.294254498071346,
+  "market_state": 0,
+  "ensemble_forecast": 27.74899999999999,
+  "forecast_change_pct": -1.77,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

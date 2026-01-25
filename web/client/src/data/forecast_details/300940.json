@@ -1,0 +1,13 @@
+{
+  "code": "300940",
+  "name": "南极光",
+  "latest_close": 29.87,
+  "kalman_price": 30.33424815328627,
+  "particle_price": 29.936512087567177,
+  "market_state": 0,
+  "ensemble_forecast": 29.528900000000007,
+  "forecast_change_pct": -1.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

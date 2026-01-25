@@ -1,0 +1,13 @@
+{
+  "code": "300259",
+  "name": "新天科技",
+  "latest_close": 4.63,
+  "kalman_price": 4.608503843303757,
+  "particle_price": 4.605558985637696,
+  "market_state": 0,
+  "ensemble_forecast": 4.619900000000001,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

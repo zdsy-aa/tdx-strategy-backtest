@@ -1,0 +1,13 @@
+{
+  "code": "605377",
+  "name": "华旺科技",
+  "latest_close": 8.44,
+  "kalman_price": 8.41427204105701,
+  "particle_price": 8.455369297836103,
+  "market_state": 0,
+  "ensemble_forecast": 8.501499999999998,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300480",
+  "name": "光力科技",
+  "latest_close": 18.52,
+  "kalman_price": 18.72490713672138,
+  "particle_price": 18.58064934816948,
+  "market_state": 2,
+  "ensemble_forecast": 18.313,
+  "forecast_change_pct": -1.12,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

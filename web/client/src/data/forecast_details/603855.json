@@ -1,0 +1,13 @@
+{
+  "code": "603855",
+  "name": "华荣股份",
+  "latest_close": 19.87,
+  "kalman_price": 19.92331369381651,
+  "particle_price": 19.885096209045905,
+  "market_state": 0,
+  "ensemble_forecast": 19.741000000000003,
+  "forecast_change_pct": -0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

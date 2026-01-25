@@ -1,0 +1,13 @@
+{
+  "code": "600824",
+  "name": "益民集团",
+  "latest_close": 4.78,
+  "kalman_price": 4.717149241153071,
+  "particle_price": 4.781965449152352,
+  "market_state": 1,
+  "ensemble_forecast": 4.772900000000002,
+  "forecast_change_pct": -0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

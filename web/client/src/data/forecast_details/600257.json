@@ -1,0 +1,13 @@
+{
+  "code": "600257",
+  "name": "大湖股份",
+  "latest_close": 7.09,
+  "kalman_price": 7.230118866412282,
+  "particle_price": 7.090107309443749,
+  "market_state": 2,
+  "ensemble_forecast": 7.0597999999999965,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

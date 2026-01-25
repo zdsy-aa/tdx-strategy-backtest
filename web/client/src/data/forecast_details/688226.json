@@ -1,0 +1,13 @@
+{
+  "code": "688226",
+  "name": "威腾电气",
+  "latest_close": 38.51,
+  "kalman_price": 38.33373842377038,
+  "particle_price": 38.300588052249154,
+  "market_state": 2,
+  "ensemble_forecast": 38.3287,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

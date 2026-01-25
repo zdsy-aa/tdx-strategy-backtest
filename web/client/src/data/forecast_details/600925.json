@@ -1,0 +1,13 @@
+{
+  "code": "600925",
+  "name": "苏能股份",
+  "latest_close": 4.63,
+  "kalman_price": 4.629898427067355,
+  "particle_price": 4.6301677316635015,
+  "market_state": 0,
+  "ensemble_forecast": 4.619099999999998,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002398",
+  "name": "垒知集团",
+  "latest_close": 5.89,
+  "kalman_price": 5.777982094873798,
+  "particle_price": 5.880408284678148,
+  "market_state": 0,
+  "ensemble_forecast": 5.9173,
+  "forecast_change_pct": 0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

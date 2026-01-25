@@ -1,0 +1,13 @@
+{
+  "code": "300443",
+  "name": "金雷股份",
+  "latest_close": 29.43,
+  "kalman_price": 29.851771117594968,
+  "particle_price": 29.59623040216557,
+  "market_state": 0,
+  "ensemble_forecast": 29.240000000000013,
+  "forecast_change_pct": -0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

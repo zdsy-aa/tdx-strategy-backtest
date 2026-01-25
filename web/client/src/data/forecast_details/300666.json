@@ -1,0 +1,13 @@
+{
+  "code": "300666",
+  "name": "江丰电子",
+  "latest_close": 113.62,
+  "kalman_price": 113.43120165128838,
+  "particle_price": 93.17532843315647,
+  "market_state": 0,
+  "ensemble_forecast": 111.5961,
+  "forecast_change_pct": -1.78,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

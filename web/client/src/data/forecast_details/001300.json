@@ -1,0 +1,13 @@
+{
+  "code": "001300",
+  "name": "三柏硕",
+  "latest_close": 17.28,
+  "kalman_price": 17.03754140794904,
+  "particle_price": 17.237956899131465,
+  "market_state": 0,
+  "ensemble_forecast": 16.913100000000004,
+  "forecast_change_pct": -2.12,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

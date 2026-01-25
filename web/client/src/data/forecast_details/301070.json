@@ -1,0 +1,13 @@
+{
+  "code": "301070",
+  "name": "开勒股份",
+  "latest_close": 62.06,
+  "kalman_price": 62.87156962907914,
+  "particle_price": 62.077318619594934,
+  "market_state": 0,
+  "ensemble_forecast": 61.561400000000006,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

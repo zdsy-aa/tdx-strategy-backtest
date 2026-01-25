@@ -1,0 +1,13 @@
+{
+  "code": "002288",
+  "name": "*ST超华",
+  "latest_close": 0.37,
+  "kalman_price": 0.36448872409109107,
+  "particle_price": 0.36672968192672245,
+  "market_state": 1,
+  "ensemble_forecast": 0.41069999999999984,
+  "forecast_change_pct": 11.0,
+  "confidence": 0.65,
+  "analysis_date": "2024-06-26",
+  "forecast_date": "2024-06-27"
+}

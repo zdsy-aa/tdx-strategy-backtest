@@ -1,0 +1,13 @@
+{
+  "code": "002731",
+  "name": "萃华珠宝",
+  "latest_close": 12.86,
+  "kalman_price": 12.678164737537234,
+  "particle_price": 12.858882712068905,
+  "market_state": 0,
+  "ensemble_forecast": 12.983799999999992,
+  "forecast_change_pct": 0.96,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

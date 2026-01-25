@@ -3,10 +3,11 @@
   "name": "金花股份",
   "latest_close": 7.91,
   "kalman_price": 7.8811344848106515,
-  "particle_price": 7.897715618832498,
-  "market_state": 2,
-  "ensemble_forecast": 7.885800000000006,
-  "forecast_change_pct": -0.31,
+  "particle_price": 7.935959115772112,
+  "market_state": 1,
+  "ensemble_forecast": 7.877700000000002,
+  "forecast_change_pct": -0.41,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

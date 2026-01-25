@@ -1,0 +1,13 @@
+{
+  "code": "000827",
+  "name": "*ST长兴",
+  "latest_close": 1.08,
+  "kalman_price": 1.0918585252315665,
+  "particle_price": 1.094613985354565,
+  "market_state": 1,
+  "ensemble_forecast": 1.1218000000000001,
+  "forecast_change_pct": 3.87,
+  "confidence": 0.85,
+  "analysis_date": "2005-04-28",
+  "forecast_date": "2005-04-29"
+}

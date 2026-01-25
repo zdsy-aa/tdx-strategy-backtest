@@ -1,0 +1,13 @@
+{
+  "code": "002474",
+  "name": "榕基软件",
+  "latest_close": 10.53,
+  "kalman_price": 10.486050846579246,
+  "particle_price": 10.513929576977484,
+  "market_state": 2,
+  "ensemble_forecast": 10.2123,
+  "forecast_change_pct": -3.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

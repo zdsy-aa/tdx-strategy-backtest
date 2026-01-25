@@ -1,0 +1,13 @@
+{
+  "code": "002633",
+  "name": "申科股份",
+  "latest_close": 16.3,
+  "kalman_price": 16.109409304196955,
+  "particle_price": 16.262054348456225,
+  "market_state": 0,
+  "ensemble_forecast": 16.3159,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

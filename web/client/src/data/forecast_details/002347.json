@@ -1,0 +1,13 @@
+{
+  "code": "002347",
+  "name": "泰尔股份",
+  "latest_close": 12.35,
+  "kalman_price": 13.15276780247705,
+  "particle_price": 12.490400468169772,
+  "market_state": 0,
+  "ensemble_forecast": 12.673399999999992,
+  "forecast_change_pct": 2.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

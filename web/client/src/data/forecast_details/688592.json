@@ -1,0 +1,13 @@
+{
+  "code": "688592",
+  "name": "司南导航",
+  "latest_close": 46.81,
+  "kalman_price": 47.36550377250297,
+  "particle_price": 43.062518411938555,
+  "market_state": 0,
+  "ensemble_forecast": 46.05349999999999,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

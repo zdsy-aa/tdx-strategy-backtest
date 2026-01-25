@@ -1,0 +1,13 @@
+{
+  "code": "002660",
+  "name": "茂硕电源",
+  "latest_close": 9.41,
+  "kalman_price": 9.38351264195516,
+  "particle_price": 9.410811649212226,
+  "market_state": 0,
+  "ensemble_forecast": 9.372899999999994,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688347",
+  "name": "华虹公司",
+  "latest_close": 121.26,
+  "kalman_price": 124.74830865886327,
+  "particle_price": 81.13010138732422,
+  "market_state": 2,
+  "ensemble_forecast": 122.0105,
+  "forecast_change_pct": 0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

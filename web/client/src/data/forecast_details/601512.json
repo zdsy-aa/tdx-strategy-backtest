@@ -1,0 +1,13 @@
+{
+  "code": "601512",
+  "name": "中新集团",
+  "latest_close": 9.82,
+  "kalman_price": 9.907713014150461,
+  "particle_price": 9.831190263010631,
+  "market_state": 0,
+  "ensemble_forecast": 9.672,
+  "forecast_change_pct": -1.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

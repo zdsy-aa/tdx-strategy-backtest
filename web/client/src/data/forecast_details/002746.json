@@ -1,0 +1,13 @@
+{
+  "code": "002746",
+  "name": "仙坛股份",
+  "latest_close": 6.14,
+  "kalman_price": 6.1146364166498595,
+  "particle_price": 6.151752603060822,
+  "market_state": 1,
+  "ensemble_forecast": 6.082600000000003,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

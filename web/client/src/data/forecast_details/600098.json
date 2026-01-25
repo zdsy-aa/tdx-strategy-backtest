@@ -3,10 +3,11 @@
   "name": "广州发展",
   "latest_close": 6.65,
   "kalman_price": 6.627848359107638,
-  "particle_price": 6.641273011070788,
+  "particle_price": 6.64732480052012,
   "market_state": 0,
-  "ensemble_forecast": 6.577800000000001,
-  "forecast_change_pct": -1.09,
-  "confidence": 0.85,
-  "analysis_date": "2026-01-13"
+  "ensemble_forecast": 6.5949,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

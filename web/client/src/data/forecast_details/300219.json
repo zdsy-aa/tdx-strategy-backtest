@@ -1,0 +1,13 @@
+{
+  "code": "300219",
+  "name": "鸿利智汇",
+  "latest_close": 7.39,
+  "kalman_price": 7.39242207737778,
+  "particle_price": 7.39002365207609,
+  "market_state": 0,
+  "ensemble_forecast": 7.306500000000001,
+  "forecast_change_pct": -1.13,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

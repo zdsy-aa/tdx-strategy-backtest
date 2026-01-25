@@ -1,0 +1,13 @@
+{
+  "code": "601211",
+  "name": "国泰海通",
+  "latest_close": 21.18,
+  "kalman_price": 21.137662557345777,
+  "particle_price": 21.119854673824197,
+  "market_state": 2,
+  "ensemble_forecast": 20.855500000000006,
+  "forecast_change_pct": -1.53,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

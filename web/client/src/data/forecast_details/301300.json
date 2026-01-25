@@ -1,0 +1,13 @@
+{
+  "code": "301300",
+  "name": "远翔新材",
+  "latest_close": 44.07,
+  "kalman_price": 44.09941558028849,
+  "particle_price": 44.07155333494136,
+  "market_state": 1,
+  "ensemble_forecast": 43.76790000000002,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

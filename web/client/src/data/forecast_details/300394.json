@@ -1,0 +1,13 @@
+{
+  "code": "300394",
+  "name": "天孚通信",
+  "latest_close": 193.33,
+  "kalman_price": 190.0172486209767,
+  "particle_price": 81.40402056443344,
+  "market_state": 0,
+  "ensemble_forecast": 191.3313999999998,
+  "forecast_change_pct": -1.03,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

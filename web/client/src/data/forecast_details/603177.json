@@ -1,0 +1,13 @@
+{
+  "code": "603177",
+  "name": "德创环保",
+  "latest_close": 11.47,
+  "kalman_price": 11.444310934298862,
+  "particle_price": 11.435699819041176,
+  "market_state": 0,
+  "ensemble_forecast": 11.475899999999998,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

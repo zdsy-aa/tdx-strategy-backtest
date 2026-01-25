@@ -1,0 +1,13 @@
+{
+  "code": "000545",
+  "name": "金浦钛业",
+  "latest_close": 3.13,
+  "kalman_price": 3.1371267239593568,
+  "particle_price": 3.129906199954087,
+  "market_state": 0,
+  "ensemble_forecast": 3.1228000000000007,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

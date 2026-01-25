@@ -1,0 +1,13 @@
+{
+  "code": "301590",
+  "name": "优优绿能",
+  "latest_close": 189.28,
+  "kalman_price": 190.83482287878147,
+  "particle_price": 172.05667553258687,
+  "market_state": 1,
+  "ensemble_forecast": 188.88100000000017,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

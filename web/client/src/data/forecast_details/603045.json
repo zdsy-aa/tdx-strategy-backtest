@@ -1,0 +1,13 @@
+{
+  "code": "603045",
+  "name": "福达合金",
+  "latest_close": 23.01,
+  "kalman_price": 22.10753402621743,
+  "particle_price": 21.459349674019006,
+  "market_state": 2,
+  "ensemble_forecast": 23.175200000000004,
+  "forecast_change_pct": 0.72,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

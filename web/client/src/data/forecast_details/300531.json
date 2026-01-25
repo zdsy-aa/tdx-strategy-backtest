@@ -1,0 +1,13 @@
+{
+  "code": "300531",
+  "name": "优博讯",
+  "latest_close": 18.44,
+  "kalman_price": 18.29094168217728,
+  "particle_price": 18.4081606322174,
+  "market_state": 0,
+  "ensemble_forecast": 18.33840000000001,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

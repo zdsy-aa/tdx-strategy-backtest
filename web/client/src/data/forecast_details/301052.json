@@ -1,0 +1,13 @@
+{
+  "code": "301052",
+  "name": "果麦文化",
+  "latest_close": 44.93,
+  "kalman_price": 42.87072181790726,
+  "particle_price": 39.85959523676713,
+  "market_state": 0,
+  "ensemble_forecast": 43.776900000000005,
+  "forecast_change_pct": -2.57,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

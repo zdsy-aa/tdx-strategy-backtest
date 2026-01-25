@@ -1,0 +1,13 @@
+{
+  "code": "603956",
+  "name": "威派格",
+  "latest_close": 6.96,
+  "kalman_price": 6.938979315215038,
+  "particle_price": 6.9529447472842,
+  "market_state": 0,
+  "ensemble_forecast": 6.876600000000007,
+  "forecast_change_pct": -1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

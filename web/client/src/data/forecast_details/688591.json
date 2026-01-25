@@ -1,0 +1,13 @@
+{
+  "code": "688591",
+  "name": "泰凌微",
+  "latest_close": 46.8,
+  "kalman_price": 46.55968824744047,
+  "particle_price": 46.75142921640718,
+  "market_state": 2,
+  "ensemble_forecast": 46.125299999999996,
+  "forecast_change_pct": -1.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

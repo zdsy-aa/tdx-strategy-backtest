@@ -1,0 +1,13 @@
+{
+  "code": "300415",
+  "name": "伊之密",
+  "latest_close": 27.06,
+  "kalman_price": 27.231361156570035,
+  "particle_price": 27.053584332279602,
+  "market_state": 2,
+  "ensemble_forecast": 26.94560000000001,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

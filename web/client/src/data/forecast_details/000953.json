@@ -1,0 +1,13 @@
+{
+  "code": "000953",
+  "name": "河化股份",
+  "latest_close": 7.32,
+  "kalman_price": 7.286163808916923,
+  "particle_price": 7.299133462329774,
+  "market_state": 0,
+  "ensemble_forecast": 7.414599999999998,
+  "forecast_change_pct": 1.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

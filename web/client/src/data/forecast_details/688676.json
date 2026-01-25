@@ -1,0 +1,13 @@
+{
+  "code": "688676",
+  "name": "金盘科技",
+  "latest_close": 84.1,
+  "kalman_price": 83.59721707232536,
+  "particle_price": 84.33477313488368,
+  "market_state": 0,
+  "ensemble_forecast": 82.7378,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

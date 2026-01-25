@@ -1,0 +1,13 @@
+{
+  "code": "301116",
+  "name": "益客食品",
+  "latest_close": 11.31,
+  "kalman_price": 11.149166775029993,
+  "particle_price": 11.27032848564108,
+  "market_state": 0,
+  "ensemble_forecast": 11.147600000000004,
+  "forecast_change_pct": -1.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

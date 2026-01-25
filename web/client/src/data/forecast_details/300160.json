@@ -1,0 +1,13 @@
+{
+  "code": "300160",
+  "name": "秀强股份",
+  "latest_close": 5.7,
+  "kalman_price": 5.660844537787347,
+  "particle_price": 5.68483772963478,
+  "market_state": 1,
+  "ensemble_forecast": 5.656700000000001,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002195",
+  "name": "岩山科技",
+  "latest_close": 11.0,
+  "kalman_price": 10.944349053817337,
+  "particle_price": 10.879381678826748,
+  "market_state": 0,
+  "ensemble_forecast": 11.647199999999998,
+  "forecast_change_pct": 5.88,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

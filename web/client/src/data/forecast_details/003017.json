@@ -1,0 +1,13 @@
+{
+  "code": "003017",
+  "name": "大洋生物",
+  "latest_close": 31.2,
+  "kalman_price": 31.322114276191403,
+  "particle_price": 31.18966401261087,
+  "market_state": 1,
+  "ensemble_forecast": 31.341100000000015,
+  "forecast_change_pct": 0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

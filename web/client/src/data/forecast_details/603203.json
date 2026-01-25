@@ -1,0 +1,13 @@
+{
+  "code": "603203",
+  "name": "快克智能",
+  "latest_close": 36.15,
+  "kalman_price": 36.22633430721599,
+  "particle_price": 36.15029670794806,
+  "market_state": 0,
+  "ensemble_forecast": 36.18150000000005,
+  "forecast_change_pct": 0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601728",
+  "name": "中国电信",
+  "latest_close": 6.35,
+  "kalman_price": 6.300238424213242,
+  "particle_price": 6.320751619190706,
+  "market_state": 0,
+  "ensemble_forecast": 6.3074,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

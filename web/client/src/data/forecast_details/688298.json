@@ -1,0 +1,13 @@
+{
+  "code": "688298",
+  "name": "东方生物",
+  "latest_close": 25.4,
+  "kalman_price": 25.221513350910666,
+  "particle_price": 25.339342664636433,
+  "market_state": 1,
+  "ensemble_forecast": 25.625499999999988,
+  "forecast_change_pct": 0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

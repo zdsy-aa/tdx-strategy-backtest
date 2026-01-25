@@ -1,0 +1,13 @@
+{
+  "code": "300319",
+  "name": "麦捷科技",
+  "latest_close": 12.4,
+  "kalman_price": 12.357667319220273,
+  "particle_price": 12.399737653809028,
+  "market_state": 2,
+  "ensemble_forecast": 12.146300000000004,
+  "forecast_change_pct": -2.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

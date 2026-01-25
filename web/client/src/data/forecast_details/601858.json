@@ -1,0 +1,13 @@
+{
+  "code": "601858",
+  "name": "中国科传",
+  "latest_close": 22.0,
+  "kalman_price": 20.52278404033952,
+  "particle_price": 19.098332388139585,
+  "market_state": 2,
+  "ensemble_forecast": 21.76659999999999,
+  "forecast_change_pct": -1.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

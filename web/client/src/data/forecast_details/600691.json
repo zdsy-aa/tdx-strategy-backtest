@@ -1,0 +1,13 @@
+{
+  "code": "600691",
+  "name": "潞化科技",
+  "latest_close": 3.04,
+  "kalman_price": 3.0838083535147707,
+  "particle_price": 3.048801452392958,
+  "market_state": 2,
+  "ensemble_forecast": 3.0175999999999994,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

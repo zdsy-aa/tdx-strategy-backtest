@@ -1,0 +1,13 @@
+{
+  "code": "301066",
+  "name": "万事利",
+  "latest_close": 23.22,
+  "kalman_price": 22.074359127892855,
+  "particle_price": 21.13118645339768,
+  "market_state": 1,
+  "ensemble_forecast": 22.029700000000002,
+  "forecast_change_pct": -5.13,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

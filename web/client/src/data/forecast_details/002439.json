@@ -1,0 +1,13 @@
+{
+  "code": "002439",
+  "name": "启明星辰",
+  "latest_close": 15.33,
+  "kalman_price": 15.095211662322171,
+  "particle_price": 15.221309737935254,
+  "market_state": 0,
+  "ensemble_forecast": 15.301699999999997,
+  "forecast_change_pct": -0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

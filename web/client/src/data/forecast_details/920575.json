@@ -1,0 +1,13 @@
+{
+  "code": "920575",
+  "name": "康乐卫士",
+  "latest_close": 9.24,
+  "kalman_price": 8.904962445535148,
+  "particle_price": 9.17778744869969,
+  "market_state": 1,
+  "ensemble_forecast": 9.624300000000005,
+  "forecast_change_pct": 4.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

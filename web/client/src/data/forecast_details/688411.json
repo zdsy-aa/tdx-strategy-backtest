@@ -1,0 +1,13 @@
+{
+  "code": "688411",
+  "name": "海博思创",
+  "latest_close": 225.13,
+  "kalman_price": 227.12617902160525,
+  "particle_price": 100.57287198767716,
+  "market_state": 1,
+  "ensemble_forecast": 226.722,
+  "forecast_change_pct": 0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000756",
+  "name": "新华制药",
+  "latest_close": 16.07,
+  "kalman_price": 16.01041765520096,
+  "particle_price": 16.050689008310705,
+  "market_state": 1,
+  "ensemble_forecast": 16.178800000000013,
+  "forecast_change_pct": 0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

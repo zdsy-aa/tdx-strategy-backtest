@@ -1,0 +1,13 @@
+{
+  "code": "603393",
+  "name": "新天然气",
+  "latest_close": 27.72,
+  "kalman_price": 27.711602243326247,
+  "particle_price": 27.719281956964878,
+  "market_state": 0,
+  "ensemble_forecast": 27.468000000000014,
+  "forecast_change_pct": -0.91,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

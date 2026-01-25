@@ -1,0 +1,13 @@
+{
+  "code": "688258",
+  "name": "卓易信息",
+  "latest_close": 139.0,
+  "kalman_price": 123.89376520446075,
+  "particle_price": 67.82315133704388,
+  "market_state": 2,
+  "ensemble_forecast": 123.84190000000001,
+  "forecast_change_pct": -10.91,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

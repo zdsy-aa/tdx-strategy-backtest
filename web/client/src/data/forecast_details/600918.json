@@ -1,0 +1,13 @@
+{
+  "code": "600918",
+  "name": "中泰证券",
+  "latest_close": 6.73,
+  "kalman_price": 6.699821724576133,
+  "particle_price": 6.726535909671839,
+  "market_state": 1,
+  "ensemble_forecast": 6.708499999999998,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

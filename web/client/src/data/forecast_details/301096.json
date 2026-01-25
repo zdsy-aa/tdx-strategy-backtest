@@ -1,0 +1,13 @@
+{
+  "code": "301096",
+  "name": "百诚医药",
+  "latest_close": 59.65,
+  "kalman_price": 59.93299048379897,
+  "particle_price": 59.621947148238874,
+  "market_state": 2,
+  "ensemble_forecast": 61.68030000000002,
+  "forecast_change_pct": 3.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

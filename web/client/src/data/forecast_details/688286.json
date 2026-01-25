@@ -1,0 +1,13 @@
+{
+  "code": "688286",
+  "name": "敏芯股份",
+  "latest_close": 82.25,
+  "kalman_price": 82.7094733395763,
+  "particle_price": 82.16717635661111,
+  "market_state": 0,
+  "ensemble_forecast": 81.41569999999997,
+  "forecast_change_pct": -1.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

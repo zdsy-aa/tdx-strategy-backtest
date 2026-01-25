@@ -1,0 +1,13 @@
+{
+  "code": "688428",
+  "name": "诺诚健华-U",
+  "latest_close": 22.4,
+  "kalman_price": 22.000853777680984,
+  "particle_price": 22.293244298581854,
+  "market_state": 1,
+  "ensemble_forecast": 22.607299999999995,
+  "forecast_change_pct": 0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

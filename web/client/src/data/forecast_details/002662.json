@@ -1,0 +1,13 @@
+{
+  "code": "002662",
+  "name": "峰璟股份",
+  "latest_close": 3.96,
+  "kalman_price": 3.946456127527458,
+  "particle_price": 3.9502752200175073,
+  "market_state": 0,
+  "ensemble_forecast": 3.988899999999999,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

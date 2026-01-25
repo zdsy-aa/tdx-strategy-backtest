@@ -1,0 +1,13 @@
+{
+  "code": "601083",
+  "name": "锦江航运",
+  "latest_close": 11.49,
+  "kalman_price": 11.418755445449623,
+  "particle_price": 11.470547187440776,
+  "market_state": 2,
+  "ensemble_forecast": 11.476199999999999,
+  "forecast_change_pct": -0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

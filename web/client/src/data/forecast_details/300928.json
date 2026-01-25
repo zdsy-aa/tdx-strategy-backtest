@@ -1,0 +1,13 @@
+{
+  "code": "300928",
+  "name": "华安鑫创",
+  "latest_close": 33.15,
+  "kalman_price": 32.46396581296303,
+  "particle_price": 32.56403150458344,
+  "market_state": 0,
+  "ensemble_forecast": 32.7373,
+  "forecast_change_pct": -1.24,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

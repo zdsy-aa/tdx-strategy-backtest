@@ -1,0 +1,13 @@
+{
+  "code": "300125",
+  "name": "*ST聆达",
+  "latest_close": 7.51,
+  "kalman_price": 7.480465211342025,
+  "particle_price": 7.502147744211807,
+  "market_state": 2,
+  "ensemble_forecast": 7.330999999999996,
+  "forecast_change_pct": -2.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

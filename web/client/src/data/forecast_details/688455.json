@@ -1,0 +1,13 @@
+{
+  "code": "688455",
+  "name": "科捷智能",
+  "latest_close": 21.38,
+  "kalman_price": 21.02500350533891,
+  "particle_price": 21.30003443465929,
+  "market_state": 0,
+  "ensemble_forecast": 21.11930000000003,
+  "forecast_change_pct": -1.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

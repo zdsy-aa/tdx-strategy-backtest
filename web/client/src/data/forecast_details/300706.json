@@ -1,0 +1,13 @@
+{
+  "code": "300706",
+  "name": "阿石创",
+  "latest_close": 37.4,
+  "kalman_price": 37.689363824891444,
+  "particle_price": 37.417491166130574,
+  "market_state": 0,
+  "ensemble_forecast": 36.57510000000001,
+  "forecast_change_pct": -2.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

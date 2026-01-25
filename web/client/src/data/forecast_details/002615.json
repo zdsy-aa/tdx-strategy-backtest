@@ -1,0 +1,13 @@
+{
+  "code": "002615",
+  "name": "哈尔斯",
+  "latest_close": 7.72,
+  "kalman_price": 7.6701843484445975,
+  "particle_price": 7.705780028544611,
+  "market_state": 1,
+  "ensemble_forecast": 7.715300000000001,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

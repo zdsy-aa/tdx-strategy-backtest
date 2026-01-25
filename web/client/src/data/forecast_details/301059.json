@@ -1,0 +1,13 @@
+{
+  "code": "301059",
+  "name": "金三江",
+  "latest_close": 12.62,
+  "kalman_price": 12.542325960122696,
+  "particle_price": 12.610881310880199,
+  "market_state": 2,
+  "ensemble_forecast": 12.723000000000004,
+  "forecast_change_pct": 0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

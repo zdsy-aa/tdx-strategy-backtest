@@ -1,0 +1,13 @@
+{
+  "code": "300977",
+  "name": "深圳瑞捷",
+  "latest_close": 19.6,
+  "kalman_price": 19.199367313844444,
+  "particle_price": 19.31582913794567,
+  "market_state": 1,
+  "ensemble_forecast": 21.319100000000013,
+  "forecast_change_pct": 8.77,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

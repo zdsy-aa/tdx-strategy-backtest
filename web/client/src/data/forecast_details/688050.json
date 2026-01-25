@@ -1,0 +1,13 @@
+{
+  "code": "688050",
+  "name": "爱博医疗",
+  "latest_close": 65.05,
+  "kalman_price": 64.72064154558385,
+  "particle_price": 64.88394473731934,
+  "market_state": 2,
+  "ensemble_forecast": 65.95729999999998,
+  "forecast_change_pct": 1.39,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

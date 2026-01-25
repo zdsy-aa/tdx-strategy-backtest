@@ -1,0 +1,13 @@
+{
+  "code": "688155",
+  "name": "先惠技术",
+  "latest_close": 72.22,
+  "kalman_price": 71.96788593353051,
+  "particle_price": 60.97798149760172,
+  "market_state": 1,
+  "ensemble_forecast": 72.85840000000006,
+  "forecast_change_pct": 0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

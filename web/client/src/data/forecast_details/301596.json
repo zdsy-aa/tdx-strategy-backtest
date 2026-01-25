@@ -1,0 +1,13 @@
+{
+  "code": "301596",
+  "name": "瑞迪智驱",
+  "latest_close": 78.7,
+  "kalman_price": 78.9190750963777,
+  "particle_price": 78.60683055734191,
+  "market_state": 1,
+  "ensemble_forecast": 78.07729999999998,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

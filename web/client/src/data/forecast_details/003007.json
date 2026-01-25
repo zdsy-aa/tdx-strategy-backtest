@@ -1,0 +1,13 @@
+{
+  "code": "003007",
+  "name": "直真科技",
+  "latest_close": 52.34,
+  "kalman_price": 47.76074349228464,
+  "particle_price": 36.90696679161962,
+  "market_state": 0,
+  "ensemble_forecast": 49.35770000000003,
+  "forecast_change_pct": -5.7,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

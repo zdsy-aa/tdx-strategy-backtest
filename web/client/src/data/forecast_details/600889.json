@@ -1,0 +1,13 @@
+{
+  "code": "600889",
+  "name": "南京化纤",
+  "latest_close": 16.05,
+  "kalman_price": 16.438727569907343,
+  "particle_price": 16.088411134033294,
+  "market_state": 2,
+  "ensemble_forecast": 15.99029999999999,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

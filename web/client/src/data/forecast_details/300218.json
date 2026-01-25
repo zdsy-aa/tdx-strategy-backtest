@@ -1,0 +1,13 @@
+{
+  "code": "300218",
+  "name": "安利股份",
+  "latest_close": 16.72,
+  "kalman_price": 16.70054805543601,
+  "particle_price": 16.717959559357976,
+  "market_state": 1,
+  "ensemble_forecast": 16.505699999999987,
+  "forecast_change_pct": -1.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

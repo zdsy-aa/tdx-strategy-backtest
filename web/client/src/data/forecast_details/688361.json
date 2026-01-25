@@ -1,0 +1,13 @@
+{
+  "code": "688361",
+  "name": "中科飞测",
+  "latest_close": 179.77,
+  "kalman_price": 182.03873561207172,
+  "particle_price": 107.20968424012176,
+  "market_state": 2,
+  "ensemble_forecast": 177.73590000000002,
+  "forecast_change_pct": -1.13,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

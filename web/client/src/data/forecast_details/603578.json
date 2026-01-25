@@ -1,0 +1,13 @@
+{
+  "code": "603578",
+  "name": "三星新材",
+  "latest_close": 12.63,
+  "kalman_price": 12.322612231744142,
+  "particle_price": 12.55460679507297,
+  "market_state": 0,
+  "ensemble_forecast": 12.524200000000008,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

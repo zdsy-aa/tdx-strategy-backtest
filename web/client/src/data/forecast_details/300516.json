@@ -1,0 +1,13 @@
+{
+  "code": "300516",
+  "name": "久之洋",
+  "latest_close": 80.0,
+  "kalman_price": 85.35929504881794,
+  "particle_price": 48.55667906729387,
+  "market_state": 0,
+  "ensemble_forecast": 80.29990000000004,
+  "forecast_change_pct": 0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

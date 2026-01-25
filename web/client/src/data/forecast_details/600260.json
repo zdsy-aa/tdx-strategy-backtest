@@ -1,0 +1,13 @@
+{
+  "code": "600260",
+  "name": "*ST凯乐",
+  "latest_close": 0.47,
+  "kalman_price": 0.46803428271288583,
+  "particle_price": 0.47661729331044767,
+  "market_state": 1,
+  "ensemble_forecast": 0.48899999999999966,
+  "forecast_change_pct": 4.04,
+  "confidence": 0.85,
+  "analysis_date": "2023-02-02",
+  "forecast_date": "2023-02-03"
+}

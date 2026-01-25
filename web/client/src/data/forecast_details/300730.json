@@ -1,0 +1,13 @@
+{
+  "code": "300730",
+  "name": "科创信息",
+  "latest_close": 14.38,
+  "kalman_price": 14.147665398043008,
+  "particle_price": 14.353499796863645,
+  "market_state": 2,
+  "ensemble_forecast": 14.444800000000003,
+  "forecast_change_pct": 0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

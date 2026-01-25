@@ -1,0 +1,13 @@
+{
+  "code": "920992",
+  "name": "中科美菱",
+  "latest_close": 18.7,
+  "kalman_price": 18.428244885742405,
+  "particle_price": 18.619898907128423,
+  "market_state": 2,
+  "ensemble_forecast": 19.31459999999998,
+  "forecast_change_pct": 3.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

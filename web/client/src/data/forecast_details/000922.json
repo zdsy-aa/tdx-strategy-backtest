@@ -1,0 +1,13 @@
+{
+  "code": "000922",
+  "name": "佳电股份",
+  "latest_close": 14.32,
+  "kalman_price": 14.421099117981559,
+  "particle_price": 14.354465949342305,
+  "market_state": 0,
+  "ensemble_forecast": 13.884,
+  "forecast_change_pct": -3.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

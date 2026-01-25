@@ -1,0 +1,13 @@
+{
+  "code": "600627",
+  "name": "上电股份",
+  "latest_close": 28.01,
+  "kalman_price": 27.69174335662135,
+  "particle_price": 27.887965829282496,
+  "market_state": 0,
+  "ensemble_forecast": 27.668900000000008,
+  "forecast_change_pct": -1.22,
+  "confidence": 0.85,
+  "analysis_date": "2008-11-12",
+  "forecast_date": "2008-11-13"
+}

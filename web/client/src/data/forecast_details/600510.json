@@ -1,0 +1,13 @@
+{
+  "code": "600510",
+  "name": "黑牡丹",
+  "latest_close": 8.46,
+  "kalman_price": 8.630811277655305,
+  "particle_price": 8.478969418097678,
+  "market_state": 0,
+  "ensemble_forecast": 8.506199999999993,
+  "forecast_change_pct": 0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

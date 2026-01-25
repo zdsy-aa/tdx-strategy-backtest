@@ -1,0 +1,13 @@
+{
+  "code": "300016",
+  "name": "北陆药业",
+  "latest_close": 9.25,
+  "kalman_price": 9.282217049531646,
+  "particle_price": 9.234092754331671,
+  "market_state": 0,
+  "ensemble_forecast": 9.872100000000001,
+  "forecast_change_pct": 6.73,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

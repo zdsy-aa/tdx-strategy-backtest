@@ -1,0 +1,13 @@
+{
+  "code": "603357",
+  "name": "设计总院",
+  "latest_close": 8.26,
+  "kalman_price": 8.251831260457015,
+  "particle_price": 8.270660583245508,
+  "market_state": 1,
+  "ensemble_forecast": 8.301599999999995,
+  "forecast_change_pct": 0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

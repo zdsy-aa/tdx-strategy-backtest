@@ -1,0 +1,13 @@
+{
+  "code": "002591",
+  "name": "恒大高新",
+  "latest_close": 7.23,
+  "kalman_price": 7.011642664679863,
+  "particle_price": 7.199711172043863,
+  "market_state": 0,
+  "ensemble_forecast": 7.114799999999992,
+  "forecast_change_pct": -1.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

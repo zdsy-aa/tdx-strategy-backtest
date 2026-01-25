@@ -1,0 +1,13 @@
+{
+  "code": "688362",
+  "name": "甬矽电子",
+  "latest_close": 41.66,
+  "kalman_price": 42.463591544114,
+  "particle_price": 35.041801648060314,
+  "market_state": 0,
+  "ensemble_forecast": 40.852700000000034,
+  "forecast_change_pct": -1.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-15",
+  "forecast_date": "2026-01-16"
+}

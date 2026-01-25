@@ -1,0 +1,13 @@
+{
+  "code": "301107",
+  "name": "瑜欣电子",
+  "latest_close": 28.73,
+  "kalman_price": 28.760575334773225,
+  "particle_price": 28.715571775949893,
+  "market_state": 2,
+  "ensemble_forecast": 28.497699999999995,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

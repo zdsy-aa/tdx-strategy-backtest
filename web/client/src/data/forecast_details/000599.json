@@ -1,0 +1,13 @@
+{
+  "code": "000599",
+  "name": "青岛双星",
+  "latest_close": 6.23,
+  "kalman_price": 6.272392015293059,
+  "particle_price": 6.230524638869552,
+  "market_state": 0,
+  "ensemble_forecast": 6.164300000000005,
+  "forecast_change_pct": -1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

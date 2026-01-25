@@ -1,0 +1,13 @@
+{
+  "code": "001213",
+  "name": "中铁特货",
+  "latest_close": 4.11,
+  "kalman_price": 4.095381012693747,
+  "particle_price": 4.1317095374832515,
+  "market_state": 1,
+  "ensemble_forecast": 4.094800000000003,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

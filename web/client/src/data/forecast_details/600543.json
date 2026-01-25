@@ -1,0 +1,13 @@
+{
+  "code": "600543",
+  "name": "莫高股份",
+  "latest_close": 5.55,
+  "kalman_price": 5.514918282946506,
+  "particle_price": 5.539516295009549,
+  "market_state": 1,
+  "ensemble_forecast": 5.5601,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

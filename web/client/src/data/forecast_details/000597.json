@@ -1,0 +1,13 @@
+{
+  "code": "000597",
+  "name": "东北制药",
+  "latest_close": 5.39,
+  "kalman_price": 5.361968851563263,
+  "particle_price": 5.375872343134472,
+  "market_state": 1,
+  "ensemble_forecast": 5.4001,
+  "forecast_change_pct": 0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688371",
+  "name": "菲沃泰",
+  "latest_close": 20.04,
+  "kalman_price": 20.258407079773875,
+  "particle_price": 20.034161760219963,
+  "market_state": 2,
+  "ensemble_forecast": 19.799499999999995,
+  "forecast_change_pct": -1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

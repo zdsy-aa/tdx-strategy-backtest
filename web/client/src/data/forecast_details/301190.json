@@ -1,0 +1,13 @@
+{
+  "code": "301190",
+  "name": "善水科技",
+  "latest_close": 22.18,
+  "kalman_price": 22.158651784607496,
+  "particle_price": 22.151804108709182,
+  "market_state": 0,
+  "ensemble_forecast": 22.189599999999988,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

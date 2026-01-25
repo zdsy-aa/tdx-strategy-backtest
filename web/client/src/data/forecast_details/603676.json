@@ -1,0 +1,13 @@
+{
+  "code": "603676",
+  "name": "卫信康",
+  "latest_close": 11.17,
+  "kalman_price": 11.155289650199506,
+  "particle_price": 11.16865131270219,
+  "market_state": 0,
+  "ensemble_forecast": 11.160299999999998,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

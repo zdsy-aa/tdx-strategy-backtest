@@ -1,0 +1,13 @@
+{
+  "code": "002518",
+  "name": "科士达",
+  "latest_close": 50.64,
+  "kalman_price": 50.1742312290637,
+  "particle_price": 50.609187049212714,
+  "market_state": 0,
+  "ensemble_forecast": 48.69500000000002,
+  "forecast_change_pct": -3.84,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

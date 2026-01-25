@@ -1,0 +1,13 @@
+{
+  "code": "600189",
+  "name": "泉阳泉",
+  "latest_close": 7.11,
+  "kalman_price": 7.0458736512071685,
+  "particle_price": 7.117670650792645,
+  "market_state": 0,
+  "ensemble_forecast": 7.2325,
+  "forecast_change_pct": 1.72,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

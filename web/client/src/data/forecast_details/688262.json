@@ -1,0 +1,13 @@
+{
+  "code": "688262",
+  "name": "国芯科技",
+  "latest_close": 32.0,
+  "kalman_price": 32.849716187166685,
+  "particle_price": 32.229185640130275,
+  "market_state": 0,
+  "ensemble_forecast": 31.74279999999997,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

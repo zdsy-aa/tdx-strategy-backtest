@@ -1,0 +1,13 @@
+{
+  "code": "688187",
+  "name": "时代电气",
+  "latest_close": 51.7,
+  "kalman_price": 51.876763110006,
+  "particle_price": 51.68504025241317,
+  "market_state": 0,
+  "ensemble_forecast": 50.61339999999999,
+  "forecast_change_pct": -2.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

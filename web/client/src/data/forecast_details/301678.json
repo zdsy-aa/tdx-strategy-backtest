@@ -1,0 +1,13 @@
+{
+  "code": "301678",
+  "name": "新恒汇",
+  "latest_close": 68.91,
+  "kalman_price": 69.44827921142208,
+  "particle_price": 69.02909486440608,
+  "market_state": 2,
+  "ensemble_forecast": 68.74689999999998,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920208",
+  "name": "青矩技术",
+  "latest_close": 26.4,
+  "kalman_price": 25.56870787902467,
+  "particle_price": 25.496420653923447,
+  "market_state": 1,
+  "ensemble_forecast": 25.980899999999988,
+  "forecast_change_pct": -1.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

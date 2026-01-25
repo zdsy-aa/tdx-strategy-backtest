@@ -1,0 +1,13 @@
+{
+  "code": "300654",
+  "name": "世纪天鸿",
+  "latest_close": 11.36,
+  "kalman_price": 10.933639060601452,
+  "particle_price": 11.234003972405034,
+  "market_state": 1,
+  "ensemble_forecast": 11.571300000000003,
+  "forecast_change_pct": 1.86,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

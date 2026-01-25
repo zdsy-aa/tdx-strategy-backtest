@@ -1,0 +1,13 @@
+{
+  "code": "603288",
+  "name": "海天味业",
+  "latest_close": 38.16,
+  "kalman_price": 38.03513534641819,
+  "particle_price": 38.149679024843394,
+  "market_state": 0,
+  "ensemble_forecast": 38.059700000000014,
+  "forecast_change_pct": -0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000968",
+  "name": "蓝焰控股",
+  "latest_close": 6.95,
+  "kalman_price": 6.956394076275968,
+  "particle_price": 6.9475088918642145,
+  "market_state": 0,
+  "ensemble_forecast": 6.894699999999998,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

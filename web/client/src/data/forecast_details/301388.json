@@ -1,0 +1,13 @@
+{
+  "code": "301388",
+  "name": "欣灵电气",
+  "latest_close": 32.0,
+  "kalman_price": 31.827331229068587,
+  "particle_price": 31.951077352240894,
+  "market_state": 0,
+  "ensemble_forecast": 31.889300000000002,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

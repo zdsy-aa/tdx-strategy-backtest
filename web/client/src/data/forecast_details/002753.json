@@ -1,0 +1,13 @@
+{
+  "code": "002753",
+  "name": "永东股份",
+  "latest_close": 7.18,
+  "kalman_price": 7.1815047128474365,
+  "particle_price": 7.185743757185622,
+  "market_state": 2,
+  "ensemble_forecast": 7.190500000000006,
+  "forecast_change_pct": 0.15,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

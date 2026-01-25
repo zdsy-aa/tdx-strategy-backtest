@@ -1,0 +1,13 @@
+{
+  "code": "301636",
+  "name": "泽润新能",
+  "latest_close": 50.21,
+  "kalman_price": 50.32837185444962,
+  "particle_price": 50.24516895799318,
+  "market_state": 0,
+  "ensemble_forecast": 49.37500000000001,
+  "forecast_change_pct": -1.66,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

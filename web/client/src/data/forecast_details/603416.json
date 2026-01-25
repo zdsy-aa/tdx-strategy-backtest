@@ -1,0 +1,13 @@
+{
+  "code": "603416",
+  "name": "信捷电气",
+  "latest_close": 63.78,
+  "kalman_price": 62.628733019921945,
+  "particle_price": 55.55094046649635,
+  "market_state": 0,
+  "ensemble_forecast": 62.371899999999975,
+  "forecast_change_pct": -2.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

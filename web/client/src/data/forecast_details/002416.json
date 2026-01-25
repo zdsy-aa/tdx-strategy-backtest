@@ -1,0 +1,13 @@
+{
+  "code": "002416",
+  "name": "爱施德",
+  "latest_close": 13.58,
+  "kalman_price": 13.400181185955665,
+  "particle_price": 13.551742616753542,
+  "market_state": 2,
+  "ensemble_forecast": 13.350900000000001,
+  "forecast_change_pct": -1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

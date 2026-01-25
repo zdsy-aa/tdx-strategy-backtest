@@ -1,0 +1,13 @@
+{
+  "code": "002280",
+  "name": "ST联络",
+  "latest_close": 0.37,
+  "kalman_price": 0.36412562620000677,
+  "particle_price": 0.3653649977271167,
+  "market_state": 0,
+  "ensemble_forecast": 0.4093999999999998,
+  "forecast_change_pct": 10.65,
+  "confidence": 0.65,
+  "analysis_date": "2024-06-26",
+  "forecast_date": "2024-06-27"
+}

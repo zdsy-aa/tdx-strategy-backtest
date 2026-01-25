@@ -3,10 +3,11 @@
   "name": "林海股份",
   "latest_close": 10.49,
   "kalman_price": 10.421021310441745,
-  "particle_price": 10.471763656362615,
+  "particle_price": 10.482641504795689,
   "market_state": 0,
-  "ensemble_forecast": 10.501799999999998,
-  "forecast_change_pct": 0.11,
+  "ensemble_forecast": 10.4936,
+  "forecast_change_pct": 0.03,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

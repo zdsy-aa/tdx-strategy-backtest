@@ -1,0 +1,13 @@
+{
+  "code": "600423",
+  "name": "柳化股份",
+  "latest_close": 3.71,
+  "kalman_price": 3.7131535830953237,
+  "particle_price": 3.7089555263281095,
+  "market_state": 2,
+  "ensemble_forecast": 3.697400000000002,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920089",
+  "name": "禾昌聚合",
+  "latest_close": 20.17,
+  "kalman_price": 20.011178283113427,
+  "particle_price": 20.163568012221774,
+  "market_state": 1,
+  "ensemble_forecast": 20.01520000000002,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

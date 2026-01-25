@@ -1,0 +1,13 @@
+{
+  "code": "001201",
+  "name": "东瑞股份",
+  "latest_close": 14.74,
+  "kalman_price": 14.729913670938917,
+  "particle_price": 14.740540720123967,
+  "market_state": 2,
+  "ensemble_forecast": 14.713899999999997,
+  "forecast_change_pct": -0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

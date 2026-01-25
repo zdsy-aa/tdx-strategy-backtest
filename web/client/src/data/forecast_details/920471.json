@@ -1,0 +1,13 @@
+{
+  "code": "920471",
+  "name": "美邦科技",
+  "latest_close": 13.77,
+  "kalman_price": 13.500587857231729,
+  "particle_price": 13.708969661535148,
+  "market_state": 2,
+  "ensemble_forecast": 13.818699999999994,
+  "forecast_change_pct": 0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

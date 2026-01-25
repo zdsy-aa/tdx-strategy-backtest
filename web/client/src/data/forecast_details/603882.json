@@ -1,0 +1,13 @@
+{
+  "code": "603882",
+  "name": "金域医学",
+  "latest_close": 36.91,
+  "kalman_price": 34.87651364923376,
+  "particle_price": 30.373119532719244,
+  "market_state": 2,
+  "ensemble_forecast": 36.86200000000003,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603278",
+  "name": "大业股份",
+  "latest_close": 15.95,
+  "kalman_price": 16.488055136374967,
+  "particle_price": 15.916314618909588,
+  "market_state": 0,
+  "ensemble_forecast": 15.625200000000016,
+  "forecast_change_pct": -2.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

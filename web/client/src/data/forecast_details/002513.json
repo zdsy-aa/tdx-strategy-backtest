@@ -1,0 +1,13 @@
+{
+  "code": "002513",
+  "name": "蓝丰生化",
+  "latest_close": 7.09,
+  "kalman_price": 7.063135570328993,
+  "particle_price": 7.093818530723471,
+  "market_state": 1,
+  "ensemble_forecast": 6.966000000000003,
+  "forecast_change_pct": -1.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

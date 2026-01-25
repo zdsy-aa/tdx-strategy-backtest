@@ -1,0 +1,13 @@
+{
+  "code": "603156",
+  "name": "养元饮品",
+  "latest_close": 32.35,
+  "kalman_price": 32.3544786420279,
+  "particle_price": 32.05315046804919,
+  "market_state": 2,
+  "ensemble_forecast": 32.049799999999955,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

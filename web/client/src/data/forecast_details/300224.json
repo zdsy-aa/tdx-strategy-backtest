@@ -1,0 +1,13 @@
+{
+  "code": "300224",
+  "name": "正海磁材",
+  "latest_close": 16.46,
+  "kalman_price": 16.359787642412602,
+  "particle_price": 16.42529566759198,
+  "market_state": 2,
+  "ensemble_forecast": 15.870900000000004,
+  "forecast_change_pct": -3.58,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

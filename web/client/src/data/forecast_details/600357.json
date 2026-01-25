@@ -1,0 +1,13 @@
+{
+  "code": "600357",
+  "name": "承德钒钛",
+  "latest_close": 7.3,
+  "kalman_price": 7.420719736962145,
+  "particle_price": 7.299735034395845,
+  "market_state": 2,
+  "ensemble_forecast": 7.169599999999998,
+  "forecast_change_pct": -1.79,
+  "confidence": 0.85,
+  "analysis_date": "2009-12-15",
+  "forecast_date": "2009-12-16"
+}

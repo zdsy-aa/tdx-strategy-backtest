@@ -1,0 +1,13 @@
+{
+  "code": "600223",
+  "name": "福瑞达",
+  "latest_close": 7.53,
+  "kalman_price": 7.475640488219472,
+  "particle_price": 7.515160408721554,
+  "market_state": 0,
+  "ensemble_forecast": 7.494300000000006,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

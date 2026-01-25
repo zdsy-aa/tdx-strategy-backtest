@@ -1,0 +1,13 @@
+{
+  "code": "002258",
+  "name": "利尔化学",
+  "latest_close": 14.15,
+  "kalman_price": 14.136185491421092,
+  "particle_price": 14.144952277154463,
+  "market_state": 0,
+  "ensemble_forecast": 13.800299999999993,
+  "forecast_change_pct": -2.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002761",
+  "name": "浙江建投",
+  "latest_close": 8.71,
+  "kalman_price": 8.714846690663926,
+  "particle_price": 8.725618896139807,
+  "market_state": 0,
+  "ensemble_forecast": 8.682100000000004,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

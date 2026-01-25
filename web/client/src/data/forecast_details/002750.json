@@ -1,0 +1,13 @@
+{
+  "code": "002750",
+  "name": "龙津退",
+  "latest_close": 0.57,
+  "kalman_price": 0.5626749741154389,
+  "particle_price": 0.5568726127018706,
+  "market_state": 2,
+  "ensemble_forecast": 0.5776000000000007,
+  "forecast_change_pct": 1.33,
+  "confidence": 0.85,
+  "analysis_date": "2025-06-26",
+  "forecast_date": "2025-06-27"
+}

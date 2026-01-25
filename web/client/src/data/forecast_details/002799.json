@@ -1,0 +1,13 @@
+{
+  "code": "002799",
+  "name": "环球印务",
+  "latest_close": 9.47,
+  "kalman_price": 9.24678790222525,
+  "particle_price": 9.43177682763498,
+  "market_state": 2,
+  "ensemble_forecast": 9.581499999999995,
+  "forecast_change_pct": 1.18,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

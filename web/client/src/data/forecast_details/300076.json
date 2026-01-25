@@ -1,0 +1,13 @@
+{
+  "code": "300076",
+  "name": "GQY视讯",
+  "latest_close": 8.07,
+  "kalman_price": 8.133245025801335,
+  "particle_price": 8.054422202523865,
+  "market_state": 0,
+  "ensemble_forecast": 8.189100000000002,
+  "forecast_change_pct": 1.48,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

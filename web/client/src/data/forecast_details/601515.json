@@ -1,0 +1,13 @@
+{
+  "code": "601515",
+  "name": "衢州东峰",
+  "latest_close": 4.3,
+  "kalman_price": 4.279963371867462,
+  "particle_price": 4.3039941511589515,
+  "market_state": 0,
+  "ensemble_forecast": 4.2711999999999986,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

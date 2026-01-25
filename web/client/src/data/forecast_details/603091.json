@@ -1,0 +1,13 @@
+{
+  "code": "603091",
+  "name": "众鑫股份",
+  "latest_close": 74.0,
+  "kalman_price": 74.3634158776684,
+  "particle_price": 76.10999030948184,
+  "market_state": 1,
+  "ensemble_forecast": 74.42189999999997,
+  "forecast_change_pct": 0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

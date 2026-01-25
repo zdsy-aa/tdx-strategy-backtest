@@ -1,0 +1,13 @@
+{
+  "code": "920132",
+  "name": "泰鹏智能",
+  "latest_close": 16.72,
+  "kalman_price": 16.49515805240898,
+  "particle_price": 16.68717941863754,
+  "market_state": 2,
+  "ensemble_forecast": 17.265599999999992,
+  "forecast_change_pct": 3.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

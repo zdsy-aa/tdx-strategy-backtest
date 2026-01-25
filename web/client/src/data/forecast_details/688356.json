@@ -1,0 +1,13 @@
+{
+  "code": "688356",
+  "name": "键凯科技",
+  "latest_close": 96.96,
+  "kalman_price": 97.43485168344642,
+  "particle_price": 82.4886907069036,
+  "market_state": 1,
+  "ensemble_forecast": 96.58720000000008,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

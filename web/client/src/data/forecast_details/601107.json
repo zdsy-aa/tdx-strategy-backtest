@@ -1,0 +1,13 @@
+{
+  "code": "601107",
+  "name": "四川成渝",
+  "latest_close": 6.06,
+  "kalman_price": 6.040631759151698,
+  "particle_price": 6.054773657111213,
+  "market_state": 0,
+  "ensemble_forecast": 6.0322000000000005,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

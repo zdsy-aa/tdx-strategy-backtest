@@ -1,0 +1,13 @@
+{
+  "code": "002421",
+  "name": "达实智能",
+  "latest_close": 3.11,
+  "kalman_price": 3.036870849026039,
+  "particle_price": 3.0986831613437307,
+  "market_state": 0,
+  "ensemble_forecast": 3.107100000000001,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

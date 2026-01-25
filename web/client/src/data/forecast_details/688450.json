@@ -1,0 +1,13 @@
+{
+  "code": "688450",
+  "name": "光格科技",
+  "latest_close": 30.13,
+  "kalman_price": 29.59765692204006,
+  "particle_price": 30.105203994755914,
+  "market_state": 2,
+  "ensemble_forecast": 29.93870000000002,
+  "forecast_change_pct": -0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

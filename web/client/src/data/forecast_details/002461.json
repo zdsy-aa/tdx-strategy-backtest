@@ -1,0 +1,13 @@
+{
+  "code": "002461",
+  "name": "珠江啤酒",
+  "latest_close": 9.52,
+  "kalman_price": 9.469099800162722,
+  "particle_price": 9.504024388456417,
+  "market_state": 2,
+  "ensemble_forecast": 9.464899999999995,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

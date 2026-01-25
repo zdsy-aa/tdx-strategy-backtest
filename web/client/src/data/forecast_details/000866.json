@@ -1,0 +1,13 @@
+{
+  "code": "000866",
+  "name": "扬子石化",
+  "latest_close": 13.71,
+  "kalman_price": 13.784027584643011,
+  "particle_price": 13.727227478746588,
+  "market_state": 0,
+  "ensemble_forecast": 13.828399999999988,
+  "forecast_change_pct": 0.86,
+  "confidence": 0.95,
+  "analysis_date": "2006-04-06",
+  "forecast_date": "2006-04-07"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603998",
+  "name": "方盛制药",
+  "latest_close": 11.67,
+  "kalman_price": 11.67840739718773,
+  "particle_price": 11.66571396509073,
+  "market_state": 0,
+  "ensemble_forecast": 11.681400000000004,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

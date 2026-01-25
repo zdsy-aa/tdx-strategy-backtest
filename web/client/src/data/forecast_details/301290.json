@@ -1,0 +1,13 @@
+{
+  "code": "301290",
+  "name": "东星医疗",
+  "latest_close": 26.71,
+  "kalman_price": 26.62221892535943,
+  "particle_price": 26.679137054659698,
+  "market_state": 0,
+  "ensemble_forecast": 26.686000000000014,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

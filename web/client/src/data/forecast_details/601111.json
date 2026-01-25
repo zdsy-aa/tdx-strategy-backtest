@@ -1,0 +1,13 @@
+{
+  "code": "601111",
+  "name": "中国国航",
+  "latest_close": 8.88,
+  "kalman_price": 8.94195392814927,
+  "particle_price": 8.886984024514739,
+  "market_state": 2,
+  "ensemble_forecast": 8.863000000000003,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

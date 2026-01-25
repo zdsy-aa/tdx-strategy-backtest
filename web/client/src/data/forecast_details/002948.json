@@ -1,0 +1,13 @@
+{
+  "code": "002948",
+  "name": "青岛银行",
+  "latest_close": 4.42,
+  "kalman_price": 4.4062073400177475,
+  "particle_price": 4.428022543689048,
+  "market_state": 2,
+  "ensemble_forecast": 4.406799999999998,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

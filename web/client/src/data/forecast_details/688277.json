@@ -1,0 +1,13 @@
+{
+  "code": "688277",
+  "name": "天智航-U",
+  "latest_close": 18.68,
+  "kalman_price": 18.474012281315808,
+  "particle_price": 18.559328037675865,
+  "market_state": 0,
+  "ensemble_forecast": 18.748499999999996,
+  "forecast_change_pct": 0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

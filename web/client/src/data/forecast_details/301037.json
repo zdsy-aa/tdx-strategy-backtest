@@ -1,0 +1,13 @@
+{
+  "code": "301037",
+  "name": "保立佳",
+  "latest_close": 14.79,
+  "kalman_price": 14.695478025505562,
+  "particle_price": 14.774847349715209,
+  "market_state": 0,
+  "ensemble_forecast": 14.819899999999995,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

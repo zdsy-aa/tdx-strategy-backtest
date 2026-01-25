@@ -1,0 +1,13 @@
+{
+  "code": "002856",
+  "name": "美芝股份",
+  "latest_close": 14.37,
+  "kalman_price": 13.562251659272977,
+  "particle_price": 13.84532593672719,
+  "market_state": 2,
+  "ensemble_forecast": 14.316200000000002,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

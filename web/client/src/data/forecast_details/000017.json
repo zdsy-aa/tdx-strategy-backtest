@@ -1,0 +1,13 @@
+{
+  "code": "000017",
+  "name": "深中华A",
+  "latest_close": 8.07,
+  "kalman_price": 7.930634314246376,
+  "particle_price": 8.053567438146779,
+  "market_state": 2,
+  "ensemble_forecast": 7.9408,
+  "forecast_change_pct": -1.6,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

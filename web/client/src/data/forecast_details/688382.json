@@ -1,0 +1,13 @@
+{
+  "code": "688382",
+  "name": "益方生物-U",
+  "latest_close": 32.5,
+  "kalman_price": 32.51405821662207,
+  "particle_price": 32.38640317983067,
+  "market_state": 1,
+  "ensemble_forecast": 32.25510000000001,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

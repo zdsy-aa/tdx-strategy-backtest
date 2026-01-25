@@ -1,0 +1,13 @@
+{
+  "code": "688244",
+  "name": "永信至诚",
+  "latest_close": 26.79,
+  "kalman_price": 26.568284543044907,
+  "particle_price": 26.652191387805107,
+  "market_state": 2,
+  "ensemble_forecast": 26.195600000000013,
+  "forecast_change_pct": -2.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

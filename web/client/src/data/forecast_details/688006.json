@@ -1,0 +1,13 @@
+{
+  "code": "688006",
+  "name": "杭可科技",
+  "latest_close": 32.17,
+  "kalman_price": 32.265436250403674,
+  "particle_price": 31.999175549299885,
+  "market_state": 0,
+  "ensemble_forecast": 31.4194,
+  "forecast_change_pct": -2.33,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

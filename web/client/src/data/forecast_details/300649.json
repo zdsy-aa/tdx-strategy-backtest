@@ -1,0 +1,13 @@
+{
+  "code": "300649",
+  "name": "杭州园林",
+  "latest_close": 14.66,
+  "kalman_price": 14.566664190630805,
+  "particle_price": 14.656697907194658,
+  "market_state": 1,
+  "ensemble_forecast": 14.6537,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

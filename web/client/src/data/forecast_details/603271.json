@@ -1,0 +1,13 @@
+{
+  "code": "603271",
+  "name": "永杰新材",
+  "latest_close": 41.13,
+  "kalman_price": 41.11252173709866,
+  "particle_price": 41.13854322355103,
+  "market_state": 0,
+  "ensemble_forecast": 41.10820000000003,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300028",
+  "name": "金亚退",
+  "latest_close": 0.29,
+  "kalman_price": 0.28788071517528363,
+  "particle_price": 0.2852592835333967,
+  "market_state": 0,
+  "ensemble_forecast": 0.2960999999999996,
+  "forecast_change_pct": 2.1,
+  "confidence": 0.85,
+  "analysis_date": "2020-07-31",
+  "forecast_date": "2020-08-03"
+}

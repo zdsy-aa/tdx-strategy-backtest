@@ -1,0 +1,13 @@
+{
+  "code": "300978",
+  "name": "东箭科技",
+  "latest_close": 12.63,
+  "kalman_price": 12.470470603251709,
+  "particle_price": 12.582175835436926,
+  "market_state": 1,
+  "ensemble_forecast": 12.422199999999993,
+  "forecast_change_pct": -1.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

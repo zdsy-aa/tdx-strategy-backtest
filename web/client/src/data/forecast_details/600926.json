@@ -1,0 +1,13 @@
+{
+  "code": "600926",
+  "name": "杭州银行",
+  "latest_close": 15.36,
+  "kalman_price": 15.397937144690994,
+  "particle_price": 15.363239928036743,
+  "market_state": 0,
+  "ensemble_forecast": 15.774099999999986,
+  "forecast_change_pct": 2.7,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688728",
+  "name": "格科微",
+  "latest_close": 16.25,
+  "kalman_price": 16.190515114525425,
+  "particle_price": 16.22751950777713,
+  "market_state": 0,
+  "ensemble_forecast": 16.017700000000012,
+  "forecast_change_pct": -1.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

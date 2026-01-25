@@ -1,0 +1,13 @@
+{
+  "code": "600901",
+  "name": "江苏金租",
+  "latest_close": 6.19,
+  "kalman_price": 6.181518317066784,
+  "particle_price": 6.178343343923487,
+  "market_state": 2,
+  "ensemble_forecast": 6.192800000000006,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

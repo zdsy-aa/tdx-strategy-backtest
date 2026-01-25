@@ -1,0 +1,13 @@
+{
+  "code": "603082",
+  "name": "北自科技",
+  "latest_close": 37.6,
+  "kalman_price": 37.565351251316095,
+  "particle_price": 37.58301774217559,
+  "market_state": 1,
+  "ensemble_forecast": 37.3599,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

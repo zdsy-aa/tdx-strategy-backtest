@@ -1,0 +1,13 @@
+{
+  "code": "300755",
+  "name": "华致酒行",
+  "latest_close": 17.71,
+  "kalman_price": 17.585933636928583,
+  "particle_price": 17.729428775788243,
+  "market_state": 2,
+  "ensemble_forecast": 17.49879999999998,
+  "forecast_change_pct": -1.19,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

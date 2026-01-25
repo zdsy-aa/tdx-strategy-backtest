@@ -1,0 +1,13 @@
+{
+  "code": "600392",
+  "name": "盛和资源",
+  "latest_close": 23.8,
+  "kalman_price": 23.45067999969101,
+  "particle_price": 23.655795960636276,
+  "market_state": 2,
+  "ensemble_forecast": 23.25139999999998,
+  "forecast_change_pct": -2.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

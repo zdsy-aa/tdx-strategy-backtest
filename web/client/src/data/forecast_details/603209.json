@@ -1,0 +1,13 @@
+{
+  "code": "603209",
+  "name": "兴通股份",
+  "latest_close": 15.38,
+  "kalman_price": 15.164448447523005,
+  "particle_price": 15.3360587607727,
+  "market_state": 1,
+  "ensemble_forecast": 15.297099999999999,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

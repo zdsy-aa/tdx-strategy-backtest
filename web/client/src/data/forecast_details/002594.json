@@ -1,0 +1,13 @@
+{
+  "code": "002594",
+  "name": "比亚迪",
+  "latest_close": 98.35,
+  "kalman_price": 97.37643383850482,
+  "particle_price": 96.88718919479912,
+  "market_state": 0,
+  "ensemble_forecast": 97.41070000000008,
+  "forecast_change_pct": -0.96,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

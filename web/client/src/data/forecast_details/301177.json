@@ -1,0 +1,13 @@
+{
+  "code": "301177",
+  "name": "迪阿股份",
+  "latest_close": 30.4,
+  "kalman_price": 30.093103784401315,
+  "particle_price": 30.231200690401785,
+  "market_state": 0,
+  "ensemble_forecast": 30.271300000000014,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

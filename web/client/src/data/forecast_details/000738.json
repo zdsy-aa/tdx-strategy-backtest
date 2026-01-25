@@ -1,0 +1,13 @@
+{
+  "code": "000738",
+  "name": "航发控制",
+  "latest_close": 22.6,
+  "kalman_price": 22.98727919061252,
+  "particle_price": 22.680025172241695,
+  "market_state": 1,
+  "ensemble_forecast": 22.142999999999986,
+  "forecast_change_pct": -2.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

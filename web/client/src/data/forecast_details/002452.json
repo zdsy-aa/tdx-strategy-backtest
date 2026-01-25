@@ -1,0 +1,13 @@
+{
+  "code": "002452",
+  "name": "长高电新",
+  "latest_close": 8.57,
+  "kalman_price": 8.650288958875368,
+  "particle_price": 8.58542285498735,
+  "market_state": 0,
+  "ensemble_forecast": 8.5869,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

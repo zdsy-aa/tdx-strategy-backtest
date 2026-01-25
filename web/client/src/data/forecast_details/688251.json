@@ -1,0 +1,13 @@
+{
+  "code": "688251",
+  "name": "井松智能",
+  "latest_close": 27.18,
+  "kalman_price": 27.113242973100636,
+  "particle_price": 27.231495174487076,
+  "market_state": 0,
+  "ensemble_forecast": 27.237699999999997,
+  "forecast_change_pct": 0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

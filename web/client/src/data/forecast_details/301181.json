@@ -1,0 +1,13 @@
+{
+  "code": "301181",
+  "name": "标榜股份",
+  "latest_close": 44.62,
+  "kalman_price": 44.62537839069783,
+  "particle_price": 44.42572459578142,
+  "market_state": 2,
+  "ensemble_forecast": 44.08019999999994,
+  "forecast_change_pct": -1.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

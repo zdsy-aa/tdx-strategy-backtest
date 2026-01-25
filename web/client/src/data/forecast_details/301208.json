@@ -1,0 +1,13 @@
+{
+  "code": "301208",
+  "name": "中亦科技",
+  "latest_close": 40.45,
+  "kalman_price": 39.963807980207044,
+  "particle_price": 40.3487885878889,
+  "market_state": 2,
+  "ensemble_forecast": 39.72469999999999,
+  "forecast_change_pct": -1.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

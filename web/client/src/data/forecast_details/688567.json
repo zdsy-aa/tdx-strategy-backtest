@@ -1,0 +1,13 @@
+{
+  "code": "688567",
+  "name": "孚能科技",
+  "latest_close": 15.88,
+  "kalman_price": 15.916282170136759,
+  "particle_price": 15.84612497959171,
+  "market_state": 2,
+  "ensemble_forecast": 15.638099999999993,
+  "forecast_change_pct": -1.52,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

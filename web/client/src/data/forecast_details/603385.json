@@ -1,0 +1,13 @@
+{
+  "code": "603385",
+  "name": "惠达卫浴",
+  "latest_close": 6.83,
+  "kalman_price": 6.774295819242825,
+  "particle_price": 6.814525027844637,
+  "market_state": 2,
+  "ensemble_forecast": 6.877899999999999,
+  "forecast_change_pct": 0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

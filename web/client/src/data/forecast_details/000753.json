@@ -1,0 +1,13 @@
+{
+  "code": "000753",
+  "name": "漳州发展",
+  "latest_close": 7.63,
+  "kalman_price": 7.675573329960636,
+  "particle_price": 7.636901500185674,
+  "market_state": 2,
+  "ensemble_forecast": 7.468799999999995,
+  "forecast_change_pct": -2.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

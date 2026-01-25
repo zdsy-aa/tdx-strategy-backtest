@@ -1,0 +1,13 @@
+{
+  "code": "001395",
+  "name": "亚联机械",
+  "latest_close": 43.5,
+  "kalman_price": 43.189193323563295,
+  "particle_price": 43.472656273857666,
+  "market_state": 0,
+  "ensemble_forecast": 43.77539999999999,
+  "forecast_change_pct": 0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600631",
+  "name": "百联股份",
+  "latest_close": 15.35,
+  "kalman_price": 15.351618594699135,
+  "particle_price": 15.34797428731743,
+  "market_state": 0,
+  "ensemble_forecast": 15.393499999999992,
+  "forecast_change_pct": 0.28,
+  "confidence": 0.95,
+  "analysis_date": "2011-08-04",
+  "forecast_date": "2011-08-05"
+}

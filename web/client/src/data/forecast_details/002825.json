@@ -1,0 +1,13 @@
+{
+  "code": "002825",
+  "name": "纳尔股份",
+  "latest_close": 11.49,
+  "kalman_price": 11.420655753409093,
+  "particle_price": 11.50420244108622,
+  "market_state": 1,
+  "ensemble_forecast": 11.392999999999999,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

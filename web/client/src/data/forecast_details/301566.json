@@ -1,0 +1,13 @@
+{
+  "code": "301566",
+  "name": "达利凯普",
+  "latest_close": 21.51,
+  "kalman_price": 21.281122877154942,
+  "particle_price": 21.47220526591346,
+  "market_state": 2,
+  "ensemble_forecast": 21.044600000000013,
+  "forecast_change_pct": -2.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

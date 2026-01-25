@@ -1,0 +1,13 @@
+{
+  "code": "002300",
+  "name": "太阳电缆",
+  "latest_close": 9.36,
+  "kalman_price": 9.409829964188681,
+  "particle_price": 9.396142517559419,
+  "market_state": 0,
+  "ensemble_forecast": 9.018699999999995,
+  "forecast_change_pct": -3.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "001390",
+  "name": "古麒绒材",
+  "latest_close": 24.82,
+  "kalman_price": 24.843934818352754,
+  "particle_price": 24.811024108388573,
+  "market_state": 0,
+  "ensemble_forecast": 24.72189999999999,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

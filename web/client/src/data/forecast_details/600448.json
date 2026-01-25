@@ -1,0 +1,13 @@
+{
+  "code": "600448",
+  "name": "华纺股份",
+  "latest_close": 3.2,
+  "kalman_price": 3.19785452706561,
+  "particle_price": 3.2076707652120375,
+  "market_state": 0,
+  "ensemble_forecast": 3.2063,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

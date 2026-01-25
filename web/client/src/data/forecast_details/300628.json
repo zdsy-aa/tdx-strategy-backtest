@@ -1,0 +1,13 @@
+{
+  "code": "300628",
+  "name": "亿联网络",
+  "latest_close": 37.1,
+  "kalman_price": 36.55025880581507,
+  "particle_price": 36.970050996725305,
+  "market_state": 2,
+  "ensemble_forecast": 36.9909,
+  "forecast_change_pct": -0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

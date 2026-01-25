@@ -1,0 +1,13 @@
+{
+  "code": "300226",
+  "name": "上海钢联",
+  "latest_close": 28.22,
+  "kalman_price": 27.493815180424285,
+  "particle_price": 26.367602821600112,
+  "market_state": 2,
+  "ensemble_forecast": 28.201000000000008,
+  "forecast_change_pct": -0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

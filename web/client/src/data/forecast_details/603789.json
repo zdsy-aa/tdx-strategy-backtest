@@ -1,0 +1,13 @@
+{
+  "code": "603789",
+  "name": "*ST星农",
+  "latest_close": 5.57,
+  "kalman_price": 5.601611497284597,
+  "particle_price": 5.561951118042297,
+  "market_state": 2,
+  "ensemble_forecast": 5.577099999999997,
+  "forecast_change_pct": 0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

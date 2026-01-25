@@ -1,0 +1,13 @@
+{
+  "code": "300449",
+  "name": "汉邦高科",
+  "latest_close": 7.71,
+  "kalman_price": 7.612367107218955,
+  "particle_price": 7.696194680673594,
+  "market_state": 2,
+  "ensemble_forecast": 7.660599999999997,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

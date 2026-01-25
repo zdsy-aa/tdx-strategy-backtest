@@ -1,0 +1,13 @@
+{
+  "code": "688200",
+  "name": "华峰测控",
+  "latest_close": 217.0,
+  "kalman_price": 213.52189072110914,
+  "particle_price": 172.51696238527995,
+  "market_state": 1,
+  "ensemble_forecast": 211.42120000000014,
+  "forecast_change_pct": -2.57,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

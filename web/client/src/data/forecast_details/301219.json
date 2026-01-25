@@ -1,0 +1,13 @@
+{
+  "code": "301219",
+  "name": "腾远钴业",
+  "latest_close": 70.0,
+  "kalman_price": 70.10634747752724,
+  "particle_price": 69.91812934190199,
+  "market_state": 0,
+  "ensemble_forecast": 68.75389999999999,
+  "forecast_change_pct": -1.78,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

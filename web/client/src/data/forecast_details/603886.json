@@ -1,0 +1,13 @@
+{
+  "code": "603886",
+  "name": "元祖股份",
+  "latest_close": 13.88,
+  "kalman_price": 13.679063406602378,
+  "particle_price": 13.829683818742074,
+  "market_state": 0,
+  "ensemble_forecast": 13.734200000000005,
+  "forecast_change_pct": -1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002831",
+  "name": "裕同科技",
+  "latest_close": 26.85,
+  "kalman_price": 26.867096978191622,
+  "particle_price": 26.860523496957324,
+  "market_state": 2,
+  "ensemble_forecast": 26.350099999999983,
+  "forecast_change_pct": -1.86,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

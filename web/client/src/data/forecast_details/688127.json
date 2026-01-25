@@ -1,0 +1,13 @@
+{
+  "code": "688127",
+  "name": "蓝特光学",
+  "latest_close": 42.29,
+  "kalman_price": 41.344316560507586,
+  "particle_price": 40.1757821489726,
+  "market_state": 0,
+  "ensemble_forecast": 41.1721,
+  "forecast_change_pct": -2.64,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

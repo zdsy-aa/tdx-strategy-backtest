@@ -1,0 +1,13 @@
+{
+  "code": "600117",
+  "name": "西宁特钢",
+  "latest_close": 2.94,
+  "kalman_price": 2.9409208154052995,
+  "particle_price": 2.957035360670845,
+  "market_state": 0,
+  "ensemble_forecast": 2.9263,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

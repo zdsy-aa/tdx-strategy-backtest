@@ -1,0 +1,13 @@
+{
+  "code": "300833",
+  "name": "浩洋股份",
+  "latest_close": 42.79,
+  "kalman_price": 42.412974226018235,
+  "particle_price": 42.72475164237644,
+  "market_state": 2,
+  "ensemble_forecast": 42.159600000000026,
+  "forecast_change_pct": -1.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

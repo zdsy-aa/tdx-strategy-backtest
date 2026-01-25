@@ -1,0 +1,13 @@
+{
+  "code": "000681",
+  "name": "视觉中国",
+  "latest_close": 30.79,
+  "kalman_price": 28.807339980022856,
+  "particle_price": 24.805999592260235,
+  "market_state": 2,
+  "ensemble_forecast": 30.70479999999999,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

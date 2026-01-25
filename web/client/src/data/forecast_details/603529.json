@@ -1,0 +1,13 @@
+{
+  "code": "603529",
+  "name": "爱玛科技",
+  "latest_close": 30.21,
+  "kalman_price": 30.178303658021218,
+  "particle_price": 30.171116831420825,
+  "market_state": 2,
+  "ensemble_forecast": 30.22270000000002,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688729",
+  "name": "屹唐股份",
+  "latest_close": 26.07,
+  "kalman_price": 26.435815643740703,
+  "particle_price": 26.074935323395767,
+  "market_state": 0,
+  "ensemble_forecast": 26.016499999999997,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

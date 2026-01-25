@@ -1,0 +1,13 @@
+{
+  "code": "300211",
+  "name": "*ST亿通",
+  "latest_close": 9.06,
+  "kalman_price": 9.272652522334681,
+  "particle_price": 9.064496273367535,
+  "market_state": 2,
+  "ensemble_forecast": 9.0774,
+  "forecast_change_pct": 0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

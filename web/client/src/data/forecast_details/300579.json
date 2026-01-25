@@ -1,0 +1,13 @@
+{
+  "code": "300579",
+  "name": "数字认证",
+  "latest_close": 33.83,
+  "kalman_price": 33.58863557046984,
+  "particle_price": 33.5730236034835,
+  "market_state": 0,
+  "ensemble_forecast": 33.32079999999999,
+  "forecast_change_pct": -1.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

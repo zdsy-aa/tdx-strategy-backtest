@@ -1,0 +1,13 @@
+{
+  "code": "920003",
+  "name": "中诚咨询",
+  "latest_close": 33.5,
+  "kalman_price": 33.336386584577006,
+  "particle_price": 33.476345093273316,
+  "market_state": 0,
+  "ensemble_forecast": 33.638199999999955,
+  "forecast_change_pct": 0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300672",
+  "name": "国科微",
+  "latest_close": 121.5,
+  "kalman_price": 117.46514450518548,
+  "particle_price": 97.64667519425836,
+  "market_state": 0,
+  "ensemble_forecast": 116.70739999999995,
+  "forecast_change_pct": -3.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

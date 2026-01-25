@@ -1,0 +1,13 @@
+{
+  "code": "300969",
+  "name": "恒帅股份",
+  "latest_close": 133.13,
+  "kalman_price": 136.27603282361173,
+  "particle_price": 97.57895594574903,
+  "market_state": 0,
+  "ensemble_forecast": 132.81749999999994,
+  "forecast_change_pct": -0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

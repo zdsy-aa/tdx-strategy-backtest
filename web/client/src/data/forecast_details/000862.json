@@ -1,0 +1,13 @@
+{
+  "code": "000862",
+  "name": "银星能源",
+  "latest_close": 5.99,
+  "kalman_price": 5.994492879655916,
+  "particle_price": 6.00497113755594,
+  "market_state": 0,
+  "ensemble_forecast": 5.9517999999999995,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

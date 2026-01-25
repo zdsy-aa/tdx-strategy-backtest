@@ -1,0 +1,13 @@
+{
+  "code": "605003",
+  "name": "众望布艺",
+  "latest_close": 31.39,
+  "kalman_price": 30.70673230577757,
+  "particle_price": 30.168425786254687,
+  "market_state": 0,
+  "ensemble_forecast": 30.509700000000013,
+  "forecast_change_pct": -2.8,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

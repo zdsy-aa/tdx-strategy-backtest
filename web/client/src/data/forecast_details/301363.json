@@ -1,0 +1,13 @@
+{
+  "code": "301363",
+  "name": "美好医疗",
+  "latest_close": 35.8,
+  "kalman_price": 39.19269569041237,
+  "particle_price": 24.462144732186154,
+  "market_state": 0,
+  "ensemble_forecast": 36.181600000000046,
+  "forecast_change_pct": 1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

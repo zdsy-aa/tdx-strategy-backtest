@@ -1,0 +1,13 @@
+{
+  "code": "601375",
+  "name": "中原证券",
+  "latest_close": 4.45,
+  "kalman_price": 4.405920930308851,
+  "particle_price": 4.455377197109566,
+  "market_state": 0,
+  "ensemble_forecast": 4.404899999999997,
+  "forecast_change_pct": -1.01,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

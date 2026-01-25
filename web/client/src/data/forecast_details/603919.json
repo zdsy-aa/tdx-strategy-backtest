@@ -1,0 +1,13 @@
+{
+  "code": "603919",
+  "name": "金徽酒",
+  "latest_close": 20.71,
+  "kalman_price": 20.70919287959579,
+  "particle_price": 20.672510743706574,
+  "market_state": 1,
+  "ensemble_forecast": 20.467099999999995,
+  "forecast_change_pct": -1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

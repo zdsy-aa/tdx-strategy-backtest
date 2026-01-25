@@ -1,0 +1,13 @@
+{
+  "code": "300632",
+  "name": "光莆股份",
+  "latest_close": 15.37,
+  "kalman_price": 15.592438390392347,
+  "particle_price": 15.381147497388753,
+  "market_state": 2,
+  "ensemble_forecast": 15.235299999999997,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

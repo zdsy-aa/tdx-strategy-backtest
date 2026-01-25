@@ -1,0 +1,13 @@
+{
+  "code": "000897",
+  "name": "津滨发展",
+  "latest_close": 2.3,
+  "kalman_price": 2.295193392963385,
+  "particle_price": 2.29201322308987,
+  "market_state": 2,
+  "ensemble_forecast": 2.296700000000001,
+  "forecast_change_pct": -0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

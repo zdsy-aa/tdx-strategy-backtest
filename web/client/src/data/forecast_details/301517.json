@@ -1,0 +1,13 @@
+{
+  "code": "301517",
+  "name": "陕西华达",
+  "latest_close": 76.3,
+  "kalman_price": 75.37589542452307,
+  "particle_price": 53.34801782299639,
+  "market_state": 0,
+  "ensemble_forecast": 74.82440000000005,
+  "forecast_change_pct": -1.93,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

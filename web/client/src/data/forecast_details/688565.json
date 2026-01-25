@@ -1,0 +1,13 @@
+{
+  "code": "688565",
+  "name": "力源科技",
+  "latest_close": 12.18,
+  "kalman_price": 12.107603905824465,
+  "particle_price": 12.165833171728318,
+  "market_state": 1,
+  "ensemble_forecast": 12.136099999999999,
+  "forecast_change_pct": -0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

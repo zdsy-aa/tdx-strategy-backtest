@@ -1,0 +1,13 @@
+{
+  "code": "920060",
+  "name": "万源通",
+  "latest_close": 33.91,
+  "kalman_price": 33.572046505393885,
+  "particle_price": 33.86978393400403,
+  "market_state": 1,
+  "ensemble_forecast": 33.8248,
+  "forecast_change_pct": -0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

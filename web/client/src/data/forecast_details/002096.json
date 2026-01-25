@@ -1,0 +1,13 @@
+{
+  "code": "002096",
+  "name": "易普力",
+  "latest_close": 13.37,
+  "kalman_price": 13.365797339200354,
+  "particle_price": 13.367140372995246,
+  "market_state": 2,
+  "ensemble_forecast": 13.363699999999984,
+  "forecast_change_pct": -0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

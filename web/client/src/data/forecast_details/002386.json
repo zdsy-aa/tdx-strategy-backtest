@@ -1,0 +1,13 @@
+{
+  "code": "002386",
+  "name": "天原股份",
+  "latest_close": 5.55,
+  "kalman_price": 5.5534472675787585,
+  "particle_price": 5.555226147682267,
+  "market_state": 0,
+  "ensemble_forecast": 5.5738,
+  "forecast_change_pct": 0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

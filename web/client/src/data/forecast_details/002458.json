@@ -1,0 +1,13 @@
+{
+  "code": "002458",
+  "name": "益生股份",
+  "latest_close": 9.14,
+  "kalman_price": 8.997296355277454,
+  "particle_price": 9.10294183905037,
+  "market_state": 0,
+  "ensemble_forecast": 9.146999999999995,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600463",
+  "name": "空港股份",
+  "latest_close": 11.09,
+  "kalman_price": 11.073760048247857,
+  "particle_price": 11.094241721095582,
+  "market_state": 2,
+  "ensemble_forecast": 10.9334,
+  "forecast_change_pct": -1.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

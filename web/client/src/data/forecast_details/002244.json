@@ -1,0 +1,13 @@
+{
+  "code": "002244",
+  "name": "滨江集团",
+  "latest_close": 10.18,
+  "kalman_price": 10.200834738710398,
+  "particle_price": 10.186817007834543,
+  "market_state": 0,
+  "ensemble_forecast": 10.188099999999995,
+  "forecast_change_pct": 0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

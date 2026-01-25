@@ -1,0 +1,13 @@
+{
+  "code": "600146",
+  "name": "退市环球",
+  "latest_close": 0.21,
+  "kalman_price": 0.21894591532575877,
+  "particle_price": 0.2186695737672772,
+  "market_state": 0,
+  "ensemble_forecast": 0.22360000000000033,
+  "forecast_change_pct": 6.48,
+  "confidence": 0.75,
+  "analysis_date": "2022-06-23",
+  "forecast_date": "2022-06-24"
+}

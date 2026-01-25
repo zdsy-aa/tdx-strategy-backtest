@@ -1,0 +1,13 @@
+{
+  "code": "600772",
+  "name": "S*ST龙昌",
+  "latest_close": 1.29,
+  "kalman_price": 1.2973265101909262,
+  "particle_price": 1.3094779430586743,
+  "market_state": 0,
+  "ensemble_forecast": 1.2861999999999998,
+  "forecast_change_pct": -0.29,
+  "confidence": 0.95,
+  "analysis_date": "2006-08-31",
+  "forecast_date": "2006-09-01"
+}

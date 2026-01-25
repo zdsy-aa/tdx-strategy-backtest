@@ -1,0 +1,13 @@
+{
+  "code": "600128",
+  "name": "苏豪弘业",
+  "latest_close": 11.22,
+  "kalman_price": 11.185985165798305,
+  "particle_price": 11.218625352168946,
+  "market_state": 2,
+  "ensemble_forecast": 10.998999999999999,
+  "forecast_change_pct": -1.97,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

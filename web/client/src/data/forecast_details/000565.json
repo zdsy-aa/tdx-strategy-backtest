@@ -1,0 +1,13 @@
+{
+  "code": "000565",
+  "name": "渝三峡Ａ",
+  "latest_close": 7.73,
+  "kalman_price": 7.528703479507219,
+  "particle_price": 7.7083263568465155,
+  "market_state": 0,
+  "ensemble_forecast": 7.492500000000002,
+  "forecast_change_pct": -3.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

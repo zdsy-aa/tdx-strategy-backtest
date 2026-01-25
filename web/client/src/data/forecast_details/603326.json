@@ -1,0 +1,13 @@
+{
+  "code": "603326",
+  "name": "我乐家居",
+  "latest_close": 8.97,
+  "kalman_price": 8.869424188867772,
+  "particle_price": 8.952972564460847,
+  "market_state": 1,
+  "ensemble_forecast": 9.007000000000001,
+  "forecast_change_pct": 0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

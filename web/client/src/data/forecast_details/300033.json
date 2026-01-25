@@ -1,0 +1,13 @@
+{
+  "code": "300033",
+  "name": "同花顺",
+  "latest_close": 389.0,
+  "kalman_price": 370.994173651167,
+  "particle_price": 143.8563619399084,
+  "market_state": 2,
+  "ensemble_forecast": 385.81190000000015,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

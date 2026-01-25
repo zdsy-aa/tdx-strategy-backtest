@@ -1,0 +1,13 @@
+{
+  "code": "300342",
+  "name": "天银机电",
+  "latest_close": 47.03,
+  "kalman_price": 41.871833915794994,
+  "particle_price": 28.482432848357668,
+  "market_state": 0,
+  "ensemble_forecast": 43.758500000000055,
+  "forecast_change_pct": -6.96,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

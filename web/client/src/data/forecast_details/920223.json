@@ -1,0 +1,13 @@
+{
+  "code": "920223",
+  "name": "荣亿精密",
+  "latest_close": 23.65,
+  "kalman_price": 23.29353701052896,
+  "particle_price": 23.624704360263248,
+  "market_state": 2,
+  "ensemble_forecast": 23.553299999999993,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002643",
+  "name": "万润股份",
+  "latest_close": 15.73,
+  "kalman_price": 15.681377969897841,
+  "particle_price": 15.718907715743708,
+  "market_state": 2,
+  "ensemble_forecast": 15.600700000000002,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

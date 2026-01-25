@@ -1,0 +1,13 @@
+{
+  "code": "688698",
+  "name": "伟创电气",
+  "latest_close": 101.12,
+  "kalman_price": 98.09708547938025,
+  "particle_price": 78.99960841690869,
+  "market_state": 0,
+  "ensemble_forecast": 98.15980000000003,
+  "forecast_change_pct": -2.93,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

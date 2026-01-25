@@ -1,0 +1,13 @@
+{
+  "code": "002837",
+  "name": "英维克",
+  "latest_close": 99.01,
+  "kalman_price": 98.03283329116688,
+  "particle_price": 61.066430537579066,
+  "market_state": 1,
+  "ensemble_forecast": 98.97960000000012,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

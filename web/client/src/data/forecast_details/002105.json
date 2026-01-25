@@ -1,0 +1,13 @@
+{
+  "code": "002105",
+  "name": "信隆健康",
+  "latest_close": 7.42,
+  "kalman_price": 7.301484602116774,
+  "particle_price": 7.420521284431484,
+  "market_state": 1,
+  "ensemble_forecast": 7.423700000000004,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

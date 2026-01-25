@@ -1,0 +1,13 @@
+{
+  "code": "603153",
+  "name": "上海建科",
+  "latest_close": 17.63,
+  "kalman_price": 17.652552583521352,
+  "particle_price": 17.624014110677955,
+  "market_state": 1,
+  "ensemble_forecast": 17.4604,
+  "forecast_change_pct": -0.96,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

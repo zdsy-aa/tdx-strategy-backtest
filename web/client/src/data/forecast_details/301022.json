@@ -1,0 +1,13 @@
+{
+  "code": "301022",
+  "name": "海泰科",
+  "latest_close": 33.0,
+  "kalman_price": 32.916617027654915,
+  "particle_price": 32.98734202009331,
+  "market_state": 1,
+  "ensemble_forecast": 33.008700000000005,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

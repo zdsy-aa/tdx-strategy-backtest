@@ -1,0 +1,13 @@
+{
+  "code": "300349",
+  "name": "金卡智能",
+  "latest_close": 18.67,
+  "kalman_price": 17.503905165150012,
+  "particle_price": 16.04819984080021,
+  "market_state": 0,
+  "ensemble_forecast": 18.400199999999998,
+  "forecast_change_pct": -1.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

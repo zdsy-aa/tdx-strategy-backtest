@@ -1,0 +1,13 @@
+{
+  "code": "688109",
+  "name": "品茗科技",
+  "latest_close": 128.21,
+  "kalman_price": 128.1282674435179,
+  "particle_price": 53.68126863812478,
+  "market_state": 0,
+  "ensemble_forecast": 128.8533,
+  "forecast_change_pct": 0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688701",
+  "name": "卓锦股份",
+  "latest_close": 8.81,
+  "kalman_price": 8.539951846083504,
+  "particle_price": 8.7656123530912,
+  "market_state": 0,
+  "ensemble_forecast": 8.905199999999994,
+  "forecast_change_pct": 1.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

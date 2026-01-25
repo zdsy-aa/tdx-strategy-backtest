@@ -1,0 +1,13 @@
+{
+  "code": "002571",
+  "name": "德力股份",
+  "latest_close": 12.7,
+  "kalman_price": 13.056627598616114,
+  "particle_price": 12.710561989255261,
+  "market_state": 1,
+  "ensemble_forecast": 12.697499999999998,
+  "forecast_change_pct": -0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

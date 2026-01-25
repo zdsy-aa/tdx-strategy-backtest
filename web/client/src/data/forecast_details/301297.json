@@ -1,0 +1,13 @@
+{
+  "code": "301297",
+  "name": "富乐德",
+  "latest_close": 38.87,
+  "kalman_price": 39.138949804735816,
+  "particle_price": 38.888008887255495,
+  "market_state": 1,
+  "ensemble_forecast": 38.651300000000006,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603157",
+  "name": "退市拉夏",
+  "latest_close": 0.58,
+  "kalman_price": 0.6080318574064781,
+  "particle_price": 0.6020830281622425,
+  "market_state": 2,
+  "ensemble_forecast": 0.5611000000000004,
+  "forecast_change_pct": -3.26,
+  "confidence": 0.85,
+  "analysis_date": "2022-05-17",
+  "forecast_date": "2022-05-18"
+}

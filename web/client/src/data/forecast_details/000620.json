@@ -1,0 +1,13 @@
+{
+  "code": "000620",
+  "name": "盈新发展",
+  "latest_close": 3.11,
+  "kalman_price": 3.2512878430131655,
+  "particle_price": 3.1323115408973794,
+  "market_state": 2,
+  "ensemble_forecast": 3.0495000000000005,
+  "forecast_change_pct": -1.95,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

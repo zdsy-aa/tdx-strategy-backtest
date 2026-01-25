@@ -1,0 +1,13 @@
+{
+  "code": "300965",
+  "name": "恒宇信通",
+  "latest_close": 68.0,
+  "kalman_price": 68.90503805400544,
+  "particle_price": 67.93447377073419,
+  "market_state": 2,
+  "ensemble_forecast": 67.71149999999999,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

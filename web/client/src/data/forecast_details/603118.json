@@ -1,0 +1,13 @@
+{
+  "code": "603118",
+  "name": "共进股份",
+  "latest_close": 11.98,
+  "kalman_price": 12.006237909942326,
+  "particle_price": 11.968221596356406,
+  "market_state": 0,
+  "ensemble_forecast": 11.791900000000007,
+  "forecast_change_pct": -1.57,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

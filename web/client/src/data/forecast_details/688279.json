@@ -1,0 +1,13 @@
+{
+  "code": "688279",
+  "name": "峰岹科技",
+  "latest_close": 196.5,
+  "kalman_price": 195.57274455221588,
+  "particle_price": 177.75347672737638,
+  "market_state": 0,
+  "ensemble_forecast": 192.99530000000001,
+  "forecast_change_pct": -1.78,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

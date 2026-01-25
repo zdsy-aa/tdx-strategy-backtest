@@ -1,0 +1,13 @@
+{
+  "code": "603261",
+  "name": "*ST立航",
+  "latest_close": 27.77,
+  "kalman_price": 27.486208532827913,
+  "particle_price": 27.555074987233123,
+  "market_state": 1,
+  "ensemble_forecast": 27.25879999999998,
+  "forecast_change_pct": -1.84,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

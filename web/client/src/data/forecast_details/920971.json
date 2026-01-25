@@ -1,0 +1,13 @@
+{
+  "code": "920971",
+  "name": "天马新材",
+  "latest_close": 32.32,
+  "kalman_price": 31.886826424716205,
+  "particle_price": 31.985506662526277,
+  "market_state": 2,
+  "ensemble_forecast": 32.17389999999999,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

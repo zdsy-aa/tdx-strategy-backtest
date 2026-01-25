@@ -1,0 +1,13 @@
+{
+  "code": "300911",
+  "name": "亿田智能",
+  "latest_close": 36.58,
+  "kalman_price": 36.30945994509195,
+  "particle_price": 36.53542814611885,
+  "market_state": 1,
+  "ensemble_forecast": 36.827100000000044,
+  "forecast_change_pct": 0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

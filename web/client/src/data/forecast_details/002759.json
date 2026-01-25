@@ -1,0 +1,13 @@
+{
+  "code": "002759",
+  "name": "天际股份",
+  "latest_close": 44.03,
+  "kalman_price": 45.61085602694284,
+  "particle_price": 36.329239299397706,
+  "market_state": 2,
+  "ensemble_forecast": 42.56660000000001,
+  "forecast_change_pct": -3.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

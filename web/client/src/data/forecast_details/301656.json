@@ -1,0 +1,13 @@
+{
+  "code": "301656",
+  "name": "联合动力",
+  "latest_close": 27.15,
+  "kalman_price": 27.17880083448425,
+  "particle_price": 27.150083793050833,
+  "market_state": 0,
+  "ensemble_forecast": 26.95090000000001,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

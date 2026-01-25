@@ -1,0 +1,13 @@
+{
+  "code": "600605",
+  "name": "汇通能源",
+  "latest_close": 29.91,
+  "kalman_price": 29.901143766683102,
+  "particle_price": 29.881707915997282,
+  "market_state": 0,
+  "ensemble_forecast": 29.810299999999973,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

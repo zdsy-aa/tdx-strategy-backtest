@@ -1,0 +1,13 @@
+{
+  "code": "600439",
+  "name": "瑞贝卡",
+  "latest_close": 2.85,
+  "kalman_price": 2.8284662118940735,
+  "particle_price": 2.8507942573921574,
+  "market_state": 0,
+  "ensemble_forecast": 2.8438000000000017,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

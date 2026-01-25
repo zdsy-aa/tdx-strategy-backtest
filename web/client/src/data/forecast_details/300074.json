@@ -1,0 +1,13 @@
+{
+  "code": "300074",
+  "name": "华平股份",
+  "latest_close": 5.05,
+  "kalman_price": 4.914262727447979,
+  "particle_price": 5.034313886811379,
+  "market_state": 2,
+  "ensemble_forecast": 5.0695000000000014,
+  "forecast_change_pct": 0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

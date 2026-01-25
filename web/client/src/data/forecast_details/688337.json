@@ -1,0 +1,13 @@
+{
+  "code": "688337",
+  "name": "普源精电",
+  "latest_close": 40.58,
+  "kalman_price": 40.530731960640644,
+  "particle_price": 40.54221302492663,
+  "market_state": 2,
+  "ensemble_forecast": 40.0869,
+  "forecast_change_pct": -1.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

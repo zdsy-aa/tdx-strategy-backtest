@@ -1,0 +1,13 @@
+{
+  "code": "603063",
+  "name": "禾望电气",
+  "latest_close": 32.08,
+  "kalman_price": 32.43117057480684,
+  "particle_price": 32.29679240806538,
+  "market_state": 2,
+  "ensemble_forecast": 31.685200000000005,
+  "forecast_change_pct": -1.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

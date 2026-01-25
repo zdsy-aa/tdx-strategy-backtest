@@ -1,0 +1,13 @@
+{
+  "code": "002673",
+  "name": "西部证券",
+  "latest_close": 8.16,
+  "kalman_price": 8.099930809157886,
+  "particle_price": 8.15668512630895,
+  "market_state": 2,
+  "ensemble_forecast": 8.106300000000003,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

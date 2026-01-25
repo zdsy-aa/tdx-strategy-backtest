@@ -1,0 +1,13 @@
+{
+  "code": "301232",
+  "name": "飞沃科技",
+  "latest_close": 178.8,
+  "kalman_price": 184.43834860920546,
+  "particle_price": 54.283547374115294,
+  "market_state": 1,
+  "ensemble_forecast": 176.33579999999986,
+  "forecast_change_pct": -1.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600608",
+  "name": "*ST沪科",
+  "latest_close": 3.49,
+  "kalman_price": 3.537935874092424,
+  "particle_price": 3.5176855550598862,
+  "market_state": 0,
+  "ensemble_forecast": 3.4915,
+  "forecast_change_pct": 0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

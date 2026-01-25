@@ -1,0 +1,13 @@
+{
+  "code": "601825",
+  "name": "沪农商行",
+  "latest_close": 8.99,
+  "kalman_price": 8.966055810491369,
+  "particle_price": 8.966887760732085,
+  "market_state": 0,
+  "ensemble_forecast": 8.99799999999999,
+  "forecast_change_pct": 0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

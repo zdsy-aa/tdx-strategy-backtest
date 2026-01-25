@@ -1,0 +1,13 @@
+{
+  "code": "920010",
+  "name": "凯添燃气",
+  "latest_close": 11.88,
+  "kalman_price": 11.622579986666926,
+  "particle_price": 11.863166493746713,
+  "market_state": 2,
+  "ensemble_forecast": 11.72990000000001,
+  "forecast_change_pct": -1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

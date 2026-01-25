@@ -1,0 +1,13 @@
+{
+  "code": "301234",
+  "name": "五洲医疗",
+  "latest_close": 42.66,
+  "kalman_price": 44.02833152992161,
+  "particle_price": 43.35511925999047,
+  "market_state": 1,
+  "ensemble_forecast": 42.374899999999954,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

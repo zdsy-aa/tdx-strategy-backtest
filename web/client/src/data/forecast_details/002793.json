@@ -1,0 +1,13 @@
+{
+  "code": "002793",
+  "name": "罗欣药业",
+  "latest_close": 4.99,
+  "kalman_price": 4.961733875988683,
+  "particle_price": 4.988943215140479,
+  "market_state": 0,
+  "ensemble_forecast": 4.974299999999998,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603663",
+  "name": "三祥新材",
+  "latest_close": 36.72,
+  "kalman_price": 36.32603114210904,
+  "particle_price": 36.635565797994346,
+  "market_state": 0,
+  "ensemble_forecast": 35.4692,
+  "forecast_change_pct": -3.41,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

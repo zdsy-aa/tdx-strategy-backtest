@@ -1,0 +1,13 @@
+{
+  "code": "688689",
+  "name": "银河微电",
+  "latest_close": 29.47,
+  "kalman_price": 29.28298208112516,
+  "particle_price": 29.378132539595224,
+  "market_state": 2,
+  "ensemble_forecast": 28.839500000000015,
+  "forecast_change_pct": -2.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

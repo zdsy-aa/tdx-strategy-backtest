@@ -1,0 +1,13 @@
+{
+  "code": "603052",
+  "name": "可川科技",
+  "latest_close": 42.56,
+  "kalman_price": 43.11422507296536,
+  "particle_price": 32.64044087041808,
+  "market_state": 2,
+  "ensemble_forecast": 41.778599999999976,
+  "forecast_change_pct": -1.84,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

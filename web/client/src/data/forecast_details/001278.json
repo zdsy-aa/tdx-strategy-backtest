@@ -1,0 +1,13 @@
+{
+  "code": "001278",
+  "name": "一彬科技",
+  "latest_close": 19.62,
+  "kalman_price": 19.15443300166368,
+  "particle_price": 19.472766572762076,
+  "market_state": 0,
+  "ensemble_forecast": 19.369100000000007,
+  "forecast_change_pct": -1.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

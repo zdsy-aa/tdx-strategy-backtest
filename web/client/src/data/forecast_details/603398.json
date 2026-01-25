@@ -1,0 +1,13 @@
+{
+  "code": "603398",
+  "name": "*ST沐邦",
+  "latest_close": 8.44,
+  "kalman_price": 8.90843198214279,
+  "particle_price": 8.517943514506346,
+  "market_state": 2,
+  "ensemble_forecast": 8.181899999999999,
+  "forecast_change_pct": -3.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

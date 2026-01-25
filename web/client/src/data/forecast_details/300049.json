@@ -1,0 +1,13 @@
+{
+  "code": "300049",
+  "name": "福瑞医科",
+  "latest_close": 81.62,
+  "kalman_price": 80.38638026127346,
+  "particle_price": 71.32376789048807,
+  "market_state": 2,
+  "ensemble_forecast": 80.7717,
+  "forecast_change_pct": -1.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

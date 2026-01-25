@@ -1,0 +1,13 @@
+{
+  "code": "920395",
+  "name": "朗鸿科技",
+  "latest_close": 12.09,
+  "kalman_price": 11.961418564030808,
+  "particle_price": 12.090072152570636,
+  "market_state": 2,
+  "ensemble_forecast": 11.987799999999991,
+  "forecast_change_pct": -0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

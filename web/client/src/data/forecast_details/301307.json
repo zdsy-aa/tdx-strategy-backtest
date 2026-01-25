@@ -1,0 +1,13 @@
+{
+  "code": "301307",
+  "name": "美利信",
+  "latest_close": 34.15,
+  "kalman_price": 33.93309840890931,
+  "particle_price": 34.15138016409786,
+  "market_state": 1,
+  "ensemble_forecast": 34.212599999999995,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688717",
+  "name": "艾罗能源",
+  "latest_close": 71.3,
+  "kalman_price": 71.1147275949958,
+  "particle_price": 63.11085934941799,
+  "market_state": 0,
+  "ensemble_forecast": 68.7253,
+  "forecast_change_pct": -3.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

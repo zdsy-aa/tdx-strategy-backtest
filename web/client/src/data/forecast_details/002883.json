@@ -1,0 +1,13 @@
+{
+  "code": "002883",
+  "name": "中设股份",
+  "latest_close": 11.01,
+  "kalman_price": 10.963458624758136,
+  "particle_price": 11.024089547091606,
+  "market_state": 0,
+  "ensemble_forecast": 10.853099999999994,
+  "forecast_change_pct": -1.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

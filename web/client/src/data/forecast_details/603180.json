@@ -1,0 +1,13 @@
+{
+  "code": "603180",
+  "name": "金牌家居",
+  "latest_close": 20.38,
+  "kalman_price": 20.247830356568958,
+  "particle_price": 20.381657684234085,
+  "market_state": 2,
+  "ensemble_forecast": 20.25609999999999,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

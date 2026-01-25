@@ -1,0 +1,13 @@
+{
+  "code": "688191",
+  "name": "智洋创新",
+  "latest_close": 34.39,
+  "kalman_price": 33.07268721683611,
+  "particle_price": 31.80766801772351,
+  "market_state": 2,
+  "ensemble_forecast": 35.73160000000003,
+  "forecast_change_pct": 3.9,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

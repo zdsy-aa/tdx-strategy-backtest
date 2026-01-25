@@ -1,0 +1,13 @@
+{
+  "code": "603558",
+  "name": "健盛集团",
+  "latest_close": 11.04,
+  "kalman_price": 10.949606241635964,
+  "particle_price": 11.009086659293942,
+  "market_state": 0,
+  "ensemble_forecast": 10.989400000000005,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

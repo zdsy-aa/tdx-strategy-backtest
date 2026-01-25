@@ -1,0 +1,13 @@
+{
+  "code": "301029",
+  "name": "怡合达",
+  "latest_close": 27.53,
+  "kalman_price": 27.673980788275426,
+  "particle_price": 27.53514100421837,
+  "market_state": 2,
+  "ensemble_forecast": 27.103700000000014,
+  "forecast_change_pct": -1.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

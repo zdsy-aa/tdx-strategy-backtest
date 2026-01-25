@@ -1,0 +1,13 @@
+{
+  "code": "688550",
+  "name": "瑞联新材",
+  "latest_close": 47.31,
+  "kalman_price": 47.68086985527713,
+  "particle_price": 47.31428010633484,
+  "market_state": 0,
+  "ensemble_forecast": 46.97800000000002,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

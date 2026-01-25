@@ -1,0 +1,13 @@
+{
+  "code": "688557",
+  "name": "兰剑智能",
+  "latest_close": 38.88,
+  "kalman_price": 38.58098420681891,
+  "particle_price": 38.70197800927675,
+  "market_state": 2,
+  "ensemble_forecast": 39.98750000000005,
+  "forecast_change_pct": 2.85,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

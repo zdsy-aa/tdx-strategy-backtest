@@ -1,0 +1,13 @@
+{
+  "code": "600272",
+  "name": "开开实业",
+  "latest_close": 14.3,
+  "kalman_price": 14.196272945957759,
+  "particle_price": 14.282819702641056,
+  "market_state": 2,
+  "ensemble_forecast": 14.420399999999997,
+  "forecast_change_pct": 0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

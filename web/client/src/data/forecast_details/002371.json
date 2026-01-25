@@ -1,0 +1,13 @@
+{
+  "code": "002371",
+  "name": "北方华创",
+  "latest_close": 498.1,
+  "kalman_price": 502.64627912849454,
+  "particle_price": 261.9543649737908,
+  "market_state": 0,
+  "ensemble_forecast": 493.4363999999995,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

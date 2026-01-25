@@ -1,0 +1,13 @@
+{
+  "code": "603979",
+  "name": "金诚信",
+  "latest_close": 75.5,
+  "kalman_price": 76.05602183720123,
+  "particle_price": 75.66853936662743,
+  "market_state": 0,
+  "ensemble_forecast": 74.75299999999997,
+  "forecast_change_pct": -0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

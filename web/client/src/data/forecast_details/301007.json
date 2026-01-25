@@ -1,0 +1,13 @@
+{
+  "code": "301007",
+  "name": "德迈仕",
+  "latest_close": 37.81,
+  "kalman_price": 38.44106219570279,
+  "particle_price": 37.93729705696701,
+  "market_state": 0,
+  "ensemble_forecast": 37.472000000000044,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

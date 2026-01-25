@@ -1,0 +1,13 @@
+{
+  "code": "002358",
+  "name": "森源电气",
+  "latest_close": 5.74,
+  "kalman_price": 5.734212267651094,
+  "particle_price": 5.740242574762974,
+  "market_state": 0,
+  "ensemble_forecast": 5.683599999999999,
+  "forecast_change_pct": -0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

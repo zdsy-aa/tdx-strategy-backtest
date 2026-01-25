@@ -1,0 +1,13 @@
+{
+  "code": "000787",
+  "name": "*ST创智",
+  "latest_close": 4.58,
+  "kalman_price": 4.401244558497209,
+  "particle_price": 4.548651454164404,
+  "market_state": 1,
+  "ensemble_forecast": 4.564200000000002,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2007-04-27",
+  "forecast_date": "2007-04-30"
+}

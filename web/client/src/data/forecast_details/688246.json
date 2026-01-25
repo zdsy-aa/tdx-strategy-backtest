@@ -1,0 +1,13 @@
+{
+  "code": "688246",
+  "name": "嘉和美康",
+  "latest_close": 31.66,
+  "kalman_price": 29.411573852311115,
+  "particle_price": 24.25954431004525,
+  "market_state": 2,
+  "ensemble_forecast": 35.7998,
+  "forecast_change_pct": 13.08,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

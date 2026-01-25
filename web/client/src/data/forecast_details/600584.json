@@ -1,0 +1,13 @@
+{
+  "code": "600584",
+  "name": "长电科技",
+  "latest_close": 42.45,
+  "kalman_price": 41.67207643530016,
+  "particle_price": 39.457813142844344,
+  "market_state": 2,
+  "ensemble_forecast": 41.20230000000002,
+  "forecast_change_pct": -2.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

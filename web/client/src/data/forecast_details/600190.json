@@ -1,0 +1,13 @@
+{
+  "code": "600190",
+  "name": "退市锦港",
+  "latest_close": 0.59,
+  "kalman_price": 0.5899502040038827,
+  "particle_price": 0.6013295584988858,
+  "market_state": 2,
+  "ensemble_forecast": 0.5553000000000008,
+  "forecast_change_pct": -5.88,
+  "confidence": 0.75,
+  "analysis_date": "2025-07-18",
+  "forecast_date": "2025-07-21"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002895",
+  "name": "川恒股份",
+  "latest_close": 37.15,
+  "kalman_price": 37.495952419535655,
+  "particle_price": 37.13395198194404,
+  "market_state": 0,
+  "ensemble_forecast": 36.951400000000014,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

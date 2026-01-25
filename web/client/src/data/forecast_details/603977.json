@@ -1,0 +1,13 @@
+{
+  "code": "603977",
+  "name": "国泰集团",
+  "latest_close": 14.77,
+  "kalman_price": 14.80297026610108,
+  "particle_price": 14.792494596254993,
+  "market_state": 2,
+  "ensemble_forecast": 14.948999999999991,
+  "forecast_change_pct": 1.21,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

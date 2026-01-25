@@ -1,0 +1,13 @@
+{
+  "code": "603275",
+  "name": "众辰科技",
+  "latest_close": 48.8,
+  "kalman_price": 48.46668974814867,
+  "particle_price": 46.4043062207252,
+  "market_state": 2,
+  "ensemble_forecast": 49.04780000000001,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

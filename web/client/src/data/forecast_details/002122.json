@@ -1,0 +1,13 @@
+{
+  "code": "002122",
+  "name": "ST汇洲",
+  "latest_close": 3.07,
+  "kalman_price": 3.059115871508849,
+  "particle_price": 3.0722320554025266,
+  "market_state": 0,
+  "ensemble_forecast": 3.049600000000002,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

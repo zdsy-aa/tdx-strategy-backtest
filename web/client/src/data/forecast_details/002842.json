@@ -1,0 +1,13 @@
+{
+  "code": "002842",
+  "name": "翔鹭钨业",
+  "latest_close": 15.76,
+  "kalman_price": 15.949211351217581,
+  "particle_price": 15.768416030190913,
+  "market_state": 0,
+  "ensemble_forecast": 15.523300000000015,
+  "forecast_change_pct": -1.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

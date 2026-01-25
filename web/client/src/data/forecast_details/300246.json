@@ -1,0 +1,13 @@
+{
+  "code": "300246",
+  "name": "宝莱特",
+  "latest_close": 11.58,
+  "kalman_price": 10.174737592414555,
+  "particle_price": 9.351129825466824,
+  "market_state": 0,
+  "ensemble_forecast": 12.6976,
+  "forecast_change_pct": 9.65,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

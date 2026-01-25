@@ -1,0 +1,13 @@
+{
+  "code": "688387",
+  "name": "信科移动-U",
+  "latest_close": 16.8,
+  "kalman_price": 16.419556886326696,
+  "particle_price": 12.578575803569183,
+  "market_state": 1,
+  "ensemble_forecast": 16.380799999999986,
+  "forecast_change_pct": -2.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688202",
+  "name": "美迪西",
+  "latest_close": 72.68,
+  "kalman_price": 70.86032063536706,
+  "particle_price": 57.03916578959836,
+  "market_state": 2,
+  "ensemble_forecast": 72.3234,
+  "forecast_change_pct": -0.49,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

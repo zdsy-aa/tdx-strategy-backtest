@@ -1,0 +1,13 @@
+{
+  "code": "300065",
+  "name": "海兰信",
+  "latest_close": 23.68,
+  "kalman_price": 23.486820234284668,
+  "particle_price": 19.095004679144864,
+  "market_state": 2,
+  "ensemble_forecast": 22.233100000000004,
+  "forecast_change_pct": -6.11,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

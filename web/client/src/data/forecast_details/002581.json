@@ -1,0 +1,13 @@
+{
+  "code": "002581",
+  "name": "ST未名",
+  "latest_close": 7.7,
+  "kalman_price": 7.480825750806881,
+  "particle_price": 7.637029454476564,
+  "market_state": 2,
+  "ensemble_forecast": 7.718500000000002,
+  "forecast_change_pct": 0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

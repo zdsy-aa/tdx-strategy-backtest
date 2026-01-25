@@ -1,0 +1,13 @@
+{
+  "code": "000701",
+  "name": "厦门信达",
+  "latest_close": 6.8,
+  "kalman_price": 6.645499825238561,
+  "particle_price": 6.7774959882846755,
+  "market_state": 1,
+  "ensemble_forecast": 6.762099999999996,
+  "forecast_change_pct": -0.56,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

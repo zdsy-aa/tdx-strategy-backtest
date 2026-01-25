@@ -1,0 +1,13 @@
+{
+  "code": "002589",
+  "name": "瑞康医药",
+  "latest_close": 3.44,
+  "kalman_price": 3.3780720851043333,
+  "particle_price": 3.4310446690444385,
+  "market_state": 0,
+  "ensemble_forecast": 3.471300000000001,
+  "forecast_change_pct": 0.91,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

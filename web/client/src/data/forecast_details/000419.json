@@ -1,0 +1,13 @@
+{
+  "code": "000419",
+  "name": "通程控股",
+  "latest_close": 6.5,
+  "kalman_price": 6.438910605732828,
+  "particle_price": 6.478501118061079,
+  "market_state": 2,
+  "ensemble_forecast": 6.450899999999999,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

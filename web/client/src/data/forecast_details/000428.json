@@ -1,0 +1,13 @@
+{
+  "code": "000428",
+  "name": "华天酒店",
+  "latest_close": 3.38,
+  "kalman_price": 3.3577201507529697,
+  "particle_price": 3.371541531497233,
+  "market_state": 0,
+  "ensemble_forecast": 3.344799999999998,
+  "forecast_change_pct": -1.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

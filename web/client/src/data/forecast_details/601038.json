@@ -1,0 +1,13 @@
+{
+  "code": "601038",
+  "name": "一拖股份",
+  "latest_close": 14.01,
+  "kalman_price": 14.041924917590563,
+  "particle_price": 14.012718678668833,
+  "market_state": 1,
+  "ensemble_forecast": 13.966600000000001,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

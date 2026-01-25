@@ -1,0 +1,13 @@
+{
+  "code": "002967",
+  "name": "广电计量",
+  "latest_close": 23.39,
+  "kalman_price": 23.707384127788195,
+  "particle_price": 23.453985462697226,
+  "market_state": 1,
+  "ensemble_forecast": 23.586000000000002,
+  "forecast_change_pct": 0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

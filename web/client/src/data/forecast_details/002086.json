@@ -1,0 +1,13 @@
+{
+  "code": "002086",
+  "name": "东方海洋",
+  "latest_close": 2.4,
+  "kalman_price": 2.386868643804954,
+  "particle_price": 2.4230401642424955,
+  "market_state": 0,
+  "ensemble_forecast": 2.4016000000000024,
+  "forecast_change_pct": 0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

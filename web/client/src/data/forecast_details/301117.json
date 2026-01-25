@@ -1,0 +1,13 @@
+{
+  "code": "301117",
+  "name": "佳缘科技",
+  "latest_close": 58.0,
+  "kalman_price": 57.19933563560395,
+  "particle_price": 50.22460612334031,
+  "market_state": 1,
+  "ensemble_forecast": 61.11430000000003,
+  "forecast_change_pct": 5.37,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

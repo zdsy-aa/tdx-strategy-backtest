@@ -1,0 +1,13 @@
+{
+  "code": "601229",
+  "name": "上海银行",
+  "latest_close": 10.02,
+  "kalman_price": 9.894927502981659,
+  "particle_price": 9.995457328998844,
+  "market_state": 2,
+  "ensemble_forecast": 9.9617,
+  "forecast_change_pct": -0.58,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

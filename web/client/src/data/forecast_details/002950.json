@@ -1,0 +1,13 @@
+{
+  "code": "002950",
+  "name": "奥美医疗",
+  "latest_close": 11.73,
+  "kalman_price": 11.5223078083984,
+  "particle_price": 11.691567905485782,
+  "market_state": 0,
+  "ensemble_forecast": 12.024599999999987,
+  "forecast_change_pct": 2.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

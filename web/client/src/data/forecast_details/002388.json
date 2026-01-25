@@ -1,0 +1,13 @@
+{
+  "code": "002388",
+  "name": "新亚制程",
+  "latest_close": 6.45,
+  "kalman_price": 6.5955358432006035,
+  "particle_price": 6.457404907302163,
+  "market_state": 0,
+  "ensemble_forecast": 6.3828,
+  "forecast_change_pct": -1.04,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

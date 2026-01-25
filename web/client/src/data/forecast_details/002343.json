@@ -1,0 +1,13 @@
+{
+  "code": "002343",
+  "name": "慈文传媒",
+  "latest_close": 7.8,
+  "kalman_price": 7.618170028794847,
+  "particle_price": 7.781615549450166,
+  "market_state": 0,
+  "ensemble_forecast": 7.822399999999998,
+  "forecast_change_pct": 0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

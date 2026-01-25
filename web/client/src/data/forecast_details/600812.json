@@ -1,0 +1,13 @@
+{
+  "code": "600812",
+  "name": "华北制药",
+  "latest_close": 5.66,
+  "kalman_price": 5.643739127846085,
+  "particle_price": 5.671616828275175,
+  "market_state": 2,
+  "ensemble_forecast": 5.6936000000000035,
+  "forecast_change_pct": 0.59,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

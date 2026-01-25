@@ -1,0 +1,13 @@
+{
+  "code": "000033",
+  "name": "新都退",
+  "latest_close": 1.59,
+  "kalman_price": 1.5533092202110033,
+  "particle_price": 1.570409729774137,
+  "market_state": 1,
+  "ensemble_forecast": 1.6876999999999993,
+  "forecast_change_pct": 6.14,
+  "confidence": 0.75,
+  "analysis_date": "2017-07-06",
+  "forecast_date": "2017-07-07"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002369",
+  "name": "卓翼科技",
+  "latest_close": 9.0,
+  "kalman_price": 8.995170768904213,
+  "particle_price": 8.991950401438173,
+  "market_state": 0,
+  "ensemble_forecast": 8.869500000000002,
+  "forecast_change_pct": -1.45,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

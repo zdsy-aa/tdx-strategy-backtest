@@ -1,0 +1,13 @@
+{
+  "code": "920533",
+  "name": "骏创科技",
+  "latest_close": 30.99,
+  "kalman_price": 30.81192226052805,
+  "particle_price": 30.948692399375986,
+  "market_state": 0,
+  "ensemble_forecast": 30.905800000000017,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

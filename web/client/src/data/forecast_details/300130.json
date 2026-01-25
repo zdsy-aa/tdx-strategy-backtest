@@ -1,0 +1,13 @@
+{
+  "code": "300130",
+  "name": "新国都",
+  "latest_close": 28.43,
+  "kalman_price": 27.967532777283825,
+  "particle_price": 28.287285130844122,
+  "market_state": 0,
+  "ensemble_forecast": 28.008300000000023,
+  "forecast_change_pct": -1.48,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

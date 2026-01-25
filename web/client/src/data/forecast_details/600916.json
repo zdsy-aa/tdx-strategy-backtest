@@ -1,0 +1,13 @@
+{
+  "code": "600916",
+  "name": "中国黄金",
+  "latest_close": 8.21,
+  "kalman_price": 8.199540379566681,
+  "particle_price": 8.210450011402505,
+  "market_state": 0,
+  "ensemble_forecast": 8.262599999999997,
+  "forecast_change_pct": 0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

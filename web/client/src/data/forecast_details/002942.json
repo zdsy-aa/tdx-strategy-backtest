@@ -1,0 +1,13 @@
+{
+  "code": "002942",
+  "name": "新农股份",
+  "latest_close": 20.16,
+  "kalman_price": 20.243336296450913,
+  "particle_price": 20.16677529413293,
+  "market_state": 1,
+  "ensemble_forecast": 20.095999999999997,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

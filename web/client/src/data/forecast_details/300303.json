@@ -1,0 +1,13 @@
+{
+  "code": "300303",
+  "name": "聚飞光电",
+  "latest_close": 6.98,
+  "kalman_price": 6.997658715036632,
+  "particle_price": 6.982332483564897,
+  "market_state": 0,
+  "ensemble_forecast": 6.882199999999998,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301033",
+  "name": "迈普医学",
+  "latest_close": 73.22,
+  "kalman_price": 75.30355860513203,
+  "particle_price": 68.82141576677134,
+  "market_state": 0,
+  "ensemble_forecast": 73.76519999999996,
+  "forecast_change_pct": 0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300140",
+  "name": "节能环境",
+  "latest_close": 6.98,
+  "kalman_price": 7.030678095382057,
+  "particle_price": 6.98136934496488,
+  "market_state": 0,
+  "ensemble_forecast": 6.9,
+  "forecast_change_pct": -1.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

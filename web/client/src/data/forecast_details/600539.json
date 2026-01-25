@@ -1,0 +1,13 @@
+{
+  "code": "600539",
+  "name": "狮头股份",
+  "latest_close": 10.6,
+  "kalman_price": 10.438572934831244,
+  "particle_price": 10.57889646137099,
+  "market_state": 0,
+  "ensemble_forecast": 10.607500000000005,
+  "forecast_change_pct": 0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

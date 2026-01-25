@@ -1,0 +1,13 @@
+{
+  "code": "688399",
+  "name": "硕世生物",
+  "latest_close": 78.69,
+  "kalman_price": 77.27393145293826,
+  "particle_price": 67.7888514325277,
+  "market_state": 2,
+  "ensemble_forecast": 77.60029999999995,
+  "forecast_change_pct": -1.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

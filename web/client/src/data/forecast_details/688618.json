@@ -1,0 +1,13 @@
+{
+  "code": "688618",
+  "name": "三旺通信",
+  "latest_close": 32.06,
+  "kalman_price": 31.93967254470808,
+  "particle_price": 31.797422403199626,
+  "market_state": 1,
+  "ensemble_forecast": 31.9279,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

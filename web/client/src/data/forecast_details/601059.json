@@ -1,0 +1,13 @@
+{
+  "code": "601059",
+  "name": "信达证券",
+  "latest_close": 17.86,
+  "kalman_price": 17.818338991173658,
+  "particle_price": 17.854975424673672,
+  "market_state": 0,
+  "ensemble_forecast": 17.77799999999999,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

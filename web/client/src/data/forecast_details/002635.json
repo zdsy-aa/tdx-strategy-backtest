@@ -1,0 +1,13 @@
+{
+  "code": "002635",
+  "name": "安洁科技",
+  "latest_close": 14.16,
+  "kalman_price": 14.124834286998267,
+  "particle_price": 14.151682490119148,
+  "market_state": 0,
+  "ensemble_forecast": 14.025599999999995,
+  "forecast_change_pct": -0.95,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

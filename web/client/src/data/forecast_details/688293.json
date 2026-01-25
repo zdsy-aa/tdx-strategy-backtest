@@ -1,0 +1,13 @@
+{
+  "code": "688293",
+  "name": "奥浦迈",
+  "latest_close": 52.92,
+  "kalman_price": 52.2565836630263,
+  "particle_price": 51.92362101276558,
+  "market_state": 2,
+  "ensemble_forecast": 55.692999999999984,
+  "forecast_change_pct": 5.24,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600339",
+  "name": "中油工程",
+  "latest_close": 3.48,
+  "kalman_price": 3.4443959846664174,
+  "particle_price": 3.4734772794257833,
+  "market_state": 0,
+  "ensemble_forecast": 3.448900000000001,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300565",
+  "name": "科信技术",
+  "latest_close": 13.12,
+  "kalman_price": 13.011899870591666,
+  "particle_price": 13.113824287341343,
+  "market_state": 0,
+  "ensemble_forecast": 12.996100000000002,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

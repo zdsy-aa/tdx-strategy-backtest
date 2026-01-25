@@ -3,10 +3,11 @@
   "name": "退市济堂",
   "latest_close": 0.27,
   "kalman_price": 0.26816186890310895,
-  "particle_price": 0.2845658798866585,
-  "market_state": 0,
-  "ensemble_forecast": 0.2865000000000001,
-  "forecast_change_pct": 6.11,
+  "particle_price": 0.25248278517347356,
+  "market_state": 2,
+  "ensemble_forecast": 0.2843999999999999,
+  "forecast_change_pct": 5.33,
   "confidence": 0.75,
-  "analysis_date": "2022-06-30"
+  "analysis_date": "2022-06-30",
+  "forecast_date": "2022-07-01"
 }

@@ -1,0 +1,13 @@
+{
+  "code": "000563",
+  "name": "陕国投Ａ",
+  "latest_close": 3.58,
+  "kalman_price": 3.565971217936533,
+  "particle_price": 3.5836275887571243,
+  "market_state": 1,
+  "ensemble_forecast": 3.5618999999999996,
+  "forecast_change_pct": -0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

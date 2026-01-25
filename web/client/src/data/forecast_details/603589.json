@@ -1,0 +1,13 @@
+{
+  "code": "603589",
+  "name": "口子窖",
+  "latest_close": 30.18,
+  "kalman_price": 30.061891094505874,
+  "particle_price": 30.17784102437846,
+  "market_state": 0,
+  "ensemble_forecast": 30.019700000000004,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

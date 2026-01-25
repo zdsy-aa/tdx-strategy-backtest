@@ -1,0 +1,13 @@
+{
+  "code": "688458",
+  "name": "美芯晟",
+  "latest_close": 41.29,
+  "kalman_price": 41.26833962466935,
+  "particle_price": 41.20374639039493,
+  "market_state": 0,
+  "ensemble_forecast": 40.77350000000002,
+  "forecast_change_pct": -1.25,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

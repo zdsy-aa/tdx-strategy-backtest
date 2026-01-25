@@ -1,0 +1,13 @@
+{
+  "code": "000930",
+  "name": "中粮科技",
+  "latest_close": 5.95,
+  "kalman_price": 5.932580953104898,
+  "particle_price": 5.948391083216917,
+  "market_state": 0,
+  "ensemble_forecast": 5.881399999999998,
+  "forecast_change_pct": -1.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

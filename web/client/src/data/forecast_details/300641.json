@@ -1,0 +1,13 @@
+{
+  "code": "300641",
+  "name": "正丹股份",
+  "latest_close": 18.78,
+  "kalman_price": 18.60277251364995,
+  "particle_price": 18.71601056109437,
+  "market_state": 0,
+  "ensemble_forecast": 19.15930000000001,
+  "forecast_change_pct": 2.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

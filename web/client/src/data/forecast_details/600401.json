@@ -1,0 +1,13 @@
+{
+  "code": "600401",
+  "name": "退市海润",
+  "latest_close": 0.15,
+  "kalman_price": 0.14522389989336934,
+  "particle_price": 0.15589020153373012,
+  "market_state": 2,
+  "ensemble_forecast": 0.1456000000000002,
+  "forecast_change_pct": -2.93,
+  "confidence": 0.85,
+  "analysis_date": "2019-07-08",
+  "forecast_date": "2019-07-09"
+}

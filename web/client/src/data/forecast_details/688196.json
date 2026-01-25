@@ -1,0 +1,13 @@
+{
+  "code": "688196",
+  "name": "卓越新能",
+  "latest_close": 67.36,
+  "kalman_price": 68.12831247565715,
+  "particle_price": 56.70560167054021,
+  "market_state": 0,
+  "ensemble_forecast": 70.85030000000003,
+  "forecast_change_pct": 5.18,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

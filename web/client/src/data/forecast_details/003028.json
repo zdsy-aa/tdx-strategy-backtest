@@ -1,0 +1,13 @@
+{
+  "code": "003028",
+  "name": "振邦智能",
+  "latest_close": 30.88,
+  "kalman_price": 30.994118718819,
+  "particle_price": 30.889273536650595,
+  "market_state": 2,
+  "ensemble_forecast": 30.97499999999999,
+  "forecast_change_pct": 0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

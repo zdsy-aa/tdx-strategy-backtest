@@ -1,0 +1,13 @@
+{
+  "code": "301311",
+  "name": "昆船智能",
+  "latest_close": 19.33,
+  "kalman_price": 19.36241162369125,
+  "particle_price": 19.34475290835384,
+  "market_state": 2,
+  "ensemble_forecast": 19.257100000000012,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

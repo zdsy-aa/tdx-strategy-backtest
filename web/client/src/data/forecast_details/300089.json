@@ -1,0 +1,13 @@
+{
+  "code": "300089",
+  "name": "文化退",
+  "latest_close": 0.18,
+  "kalman_price": 0.18429496998373027,
+  "particle_price": 0.16598508103203133,
+  "market_state": 0,
+  "ensemble_forecast": 0.1991,
+  "forecast_change_pct": 10.61,
+  "confidence": 0.65,
+  "analysis_date": "2023-07-12",
+  "forecast_date": "2023-07-13"
+}

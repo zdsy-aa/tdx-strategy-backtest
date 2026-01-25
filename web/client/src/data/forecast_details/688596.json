@@ -1,0 +1,13 @@
+{
+  "code": "688596",
+  "name": "正帆科技",
+  "latest_close": 32.11,
+  "kalman_price": 33.200768960518346,
+  "particle_price": 32.59109830563463,
+  "market_state": 2,
+  "ensemble_forecast": 31.8483,
+  "forecast_change_pct": -0.82,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

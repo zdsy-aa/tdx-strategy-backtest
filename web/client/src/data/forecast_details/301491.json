@@ -1,0 +1,13 @@
+{
+  "code": "301491",
+  "name": "汉桑科技",
+  "latest_close": 58.31,
+  "kalman_price": 58.24465224922722,
+  "particle_price": 58.23643504571363,
+  "market_state": 0,
+  "ensemble_forecast": 57.86259999999999,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

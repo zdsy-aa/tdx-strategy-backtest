@@ -1,0 +1,13 @@
+{
+  "code": "603718",
+  "name": "海利生物",
+  "latest_close": 6.53,
+  "kalman_price": 6.496229774307109,
+  "particle_price": 6.510051423922175,
+  "market_state": 0,
+  "ensemble_forecast": 6.7271999999999945,
+  "forecast_change_pct": 3.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300571",
+  "name": "平治信息",
+  "latest_close": 30.67,
+  "kalman_price": 30.168743850296725,
+  "particle_price": 30.06710463811713,
+  "market_state": 0,
+  "ensemble_forecast": 30.315099999999994,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

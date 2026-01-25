@@ -1,0 +1,13 @@
+{
+  "code": "300459",
+  "name": "汤姆猫",
+  "latest_close": 5.65,
+  "kalman_price": 5.489483086206461,
+  "particle_price": 5.623352470601292,
+  "market_state": 0,
+  "ensemble_forecast": 5.586800000000002,
+  "forecast_change_pct": -1.12,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

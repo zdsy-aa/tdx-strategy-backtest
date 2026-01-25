@@ -1,0 +1,13 @@
+{
+  "code": "002820",
+  "name": "桂发祥",
+  "latest_close": 12.37,
+  "kalman_price": 12.20615052359651,
+  "particle_price": 12.360879105876373,
+  "market_state": 0,
+  "ensemble_forecast": 12.2746,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

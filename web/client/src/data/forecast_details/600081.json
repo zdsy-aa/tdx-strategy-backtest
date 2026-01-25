@@ -3,10 +3,11 @@
   "name": "东风科技",
   "latest_close": 11.96,
   "kalman_price": 11.892927867735432,
-  "particle_price": 11.951029205338727,
+  "particle_price": 11.955418042910095,
   "market_state": 2,
-  "ensemble_forecast": 11.925199999999995,
-  "forecast_change_pct": -0.29,
+  "ensemble_forecast": 11.9349,
+  "forecast_change_pct": -0.21,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

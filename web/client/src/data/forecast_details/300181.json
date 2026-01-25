@@ -1,0 +1,13 @@
+{
+  "code": "300181",
+  "name": "佐力药业",
+  "latest_close": 16.63,
+  "kalman_price": 16.4790232108228,
+  "particle_price": 16.601835776714104,
+  "market_state": 0,
+  "ensemble_forecast": 16.660399999999996,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

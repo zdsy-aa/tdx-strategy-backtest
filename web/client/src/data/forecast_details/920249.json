@@ -1,0 +1,13 @@
+{
+  "code": "920249",
+  "name": "利尔达",
+  "latest_close": 14.63,
+  "kalman_price": 14.2349707907264,
+  "particle_price": 14.504073625182581,
+  "market_state": 0,
+  "ensemble_forecast": 14.274699999999998,
+  "forecast_change_pct": -2.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

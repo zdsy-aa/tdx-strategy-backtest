@@ -1,0 +1,13 @@
+{
+  "code": "000333",
+  "name": "美的集团",
+  "latest_close": 76.97,
+  "kalman_price": 77.76202571172585,
+  "particle_price": 77.33009094082755,
+  "market_state": 0,
+  "ensemble_forecast": 76.35280000000003,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

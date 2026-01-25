@@ -1,0 +1,13 @@
+{
+  "code": "920014",
+  "name": "特瑞斯",
+  "latest_close": 12.22,
+  "kalman_price": 11.963042816780128,
+  "particle_price": 12.163459188871007,
+  "market_state": 0,
+  "ensemble_forecast": 11.227199999999993,
+  "forecast_change_pct": -8.12,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603991",
+  "name": "至正股份",
+  "latest_close": 75.21,
+  "kalman_price": 75.46985440883488,
+  "particle_price": 75.25409189226704,
+  "market_state": 0,
+  "ensemble_forecast": 73.79760000000002,
+  "forecast_change_pct": -1.88,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

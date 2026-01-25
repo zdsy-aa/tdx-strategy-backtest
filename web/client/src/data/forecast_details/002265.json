@@ -1,0 +1,13 @@
+{
+  "code": "002265",
+  "name": "建设工业",
+  "latest_close": 27.18,
+  "kalman_price": 27.550366261113975,
+  "particle_price": 27.206816980505696,
+  "market_state": 0,
+  "ensemble_forecast": 27.08590000000001,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

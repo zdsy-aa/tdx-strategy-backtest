@@ -1,0 +1,13 @@
+{
+  "code": "600992",
+  "name": "贵绳股份",
+  "latest_close": 13.84,
+  "kalman_price": 13.79892105086441,
+  "particle_price": 13.821742907193258,
+  "market_state": 2,
+  "ensemble_forecast": 13.728300000000004,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

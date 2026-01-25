@@ -1,0 +1,13 @@
+{
+  "code": "300700",
+  "name": "岱勒新材",
+  "latest_close": 12.58,
+  "kalman_price": 12.49719010430969,
+  "particle_price": 12.577827339343127,
+  "market_state": 2,
+  "ensemble_forecast": 12.31699999999999,
+  "forecast_change_pct": -2.09,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

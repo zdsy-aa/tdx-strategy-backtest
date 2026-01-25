@@ -1,0 +1,13 @@
+{
+  "code": "601155",
+  "name": "新城控股",
+  "latest_close": 14.9,
+  "kalman_price": 14.934844696888455,
+  "particle_price": 14.888592962141583,
+  "market_state": 2,
+  "ensemble_forecast": 14.728200000000001,
+  "forecast_change_pct": -1.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

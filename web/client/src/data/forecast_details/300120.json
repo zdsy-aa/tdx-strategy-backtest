@@ -1,0 +1,13 @@
+{
+  "code": "300120",
+  "name": "经纬辉开",
+  "latest_close": 8.8,
+  "kalman_price": 8.768516430106729,
+  "particle_price": 8.788125313779293,
+  "market_state": 0,
+  "ensemble_forecast": 8.779100000000001,
+  "forecast_change_pct": -0.24,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

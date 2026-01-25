@@ -1,0 +1,13 @@
+{
+  "code": "002549",
+  "name": "凯美特气",
+  "latest_close": 22.16,
+  "kalman_price": 22.696478030450592,
+  "particle_price": 22.225198123643754,
+  "market_state": 1,
+  "ensemble_forecast": 21.903400000000037,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000546",
+  "name": "金圆股份",
+  "latest_close": 6.84,
+  "kalman_price": 6.763634370448913,
+  "particle_price": 6.849361060897013,
+  "market_state": 1,
+  "ensemble_forecast": 6.846700000000004,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

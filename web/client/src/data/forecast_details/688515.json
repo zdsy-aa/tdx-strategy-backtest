@@ -1,0 +1,13 @@
+{
+  "code": "688515",
+  "name": "裕太微-U",
+  "latest_close": 114.32,
+  "kalman_price": 114.50666862595824,
+  "particle_price": 103.03546087078345,
+  "market_state": 2,
+  "ensemble_forecast": 111.63069999999999,
+  "forecast_change_pct": -2.35,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

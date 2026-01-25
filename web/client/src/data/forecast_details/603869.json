@@ -1,0 +1,13 @@
+{
+  "code": "603869",
+  "name": "ST智知",
+  "latest_close": 10.49,
+  "kalman_price": 10.547178170324297,
+  "particle_price": 10.477158349944974,
+  "market_state": 1,
+  "ensemble_forecast": 10.517299999999992,
+  "forecast_change_pct": 0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

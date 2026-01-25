@@ -1,0 +1,13 @@
+{
+  "code": "603281",
+  "name": "江瀚新材",
+  "latest_close": 29.47,
+  "kalman_price": 28.985692799204944,
+  "particle_price": 29.076652247332543,
+  "market_state": 2,
+  "ensemble_forecast": 30.26939999999999,
+  "forecast_change_pct": 2.71,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601799",
+  "name": "星宇股份",
+  "latest_close": 126.87,
+  "kalman_price": 126.36944349419147,
+  "particle_price": 124.88916180735748,
+  "market_state": 0,
+  "ensemble_forecast": 127.01339999999996,
+  "forecast_change_pct": 0.11,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

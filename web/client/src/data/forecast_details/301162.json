@@ -1,0 +1,13 @@
+{
+  "code": "301162",
+  "name": "国能日新",
+  "latest_close": 60.6,
+  "kalman_price": 59.14885288312889,
+  "particle_price": 52.982876923941475,
+  "market_state": 0,
+  "ensemble_forecast": 61.982500000000044,
+  "forecast_change_pct": 2.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603300",
+  "name": "海南华铁",
+  "latest_close": 7.98,
+  "kalman_price": 7.915588198089239,
+  "particle_price": 7.963876606263621,
+  "market_state": 0,
+  "ensemble_forecast": 7.7576,
+  "forecast_change_pct": -2.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

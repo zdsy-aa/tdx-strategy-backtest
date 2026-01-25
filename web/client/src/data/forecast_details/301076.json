@@ -1,0 +1,13 @@
+{
+  "code": "301076",
+  "name": "新瀚新材",
+  "latest_close": 48.34,
+  "kalman_price": 48.41962042064443,
+  "particle_price": 48.18068028377905,
+  "market_state": 2,
+  "ensemble_forecast": 47.726600000000005,
+  "forecast_change_pct": -1.27,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

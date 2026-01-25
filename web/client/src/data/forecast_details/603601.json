@@ -1,0 +1,13 @@
+{
+  "code": "603601",
+  "name": "再升科技",
+  "latest_close": 13.18,
+  "kalman_price": 13.423468252086783,
+  "particle_price": 13.225268169896085,
+  "market_state": 0,
+  "ensemble_forecast": 13.1545,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

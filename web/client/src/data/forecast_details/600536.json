@@ -1,0 +1,13 @@
+{
+  "code": "600536",
+  "name": "中国软件",
+  "latest_close": 49.33,
+  "kalman_price": 48.41114247812336,
+  "particle_price": 47.917845735004065,
+  "market_state": 1,
+  "ensemble_forecast": 49.022899999999964,
+  "forecast_change_pct": -0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

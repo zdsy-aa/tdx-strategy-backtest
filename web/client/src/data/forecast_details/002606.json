@@ -1,0 +1,13 @@
+{
+  "code": "002606",
+  "name": "大连电瓷",
+  "latest_close": 9.06,
+  "kalman_price": 9.085677349883431,
+  "particle_price": 9.072151915925383,
+  "market_state": 0,
+  "ensemble_forecast": 9.034199999999997,
+  "forecast_change_pct": -0.28,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

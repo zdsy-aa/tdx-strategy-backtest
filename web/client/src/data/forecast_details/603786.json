@@ -1,0 +1,13 @@
+{
+  "code": "603786",
+  "name": "科博达",
+  "latest_close": 81.0,
+  "kalman_price": 81.40653725703697,
+  "particle_price": 74.00038896523807,
+  "market_state": 1,
+  "ensemble_forecast": 79.51389999999995,
+  "forecast_change_pct": -1.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

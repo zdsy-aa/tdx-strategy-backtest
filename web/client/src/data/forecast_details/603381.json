@@ -1,0 +1,13 @@
+{
+  "code": "603381",
+  "name": "永臻股份",
+  "latest_close": 20.25,
+  "kalman_price": 20.387658626874327,
+  "particle_price": 20.263551595881697,
+  "market_state": 0,
+  "ensemble_forecast": 20.105400000000003,
+  "forecast_change_pct": -0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

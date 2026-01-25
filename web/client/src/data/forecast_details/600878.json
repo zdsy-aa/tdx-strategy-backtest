@@ -1,0 +1,13 @@
+{
+  "code": "600878",
+  "name": "*ST北科",
+  "latest_close": 2.64,
+  "kalman_price": 2.6781197509249113,
+  "particle_price": 2.649684547428795,
+  "market_state": 0,
+  "ensemble_forecast": 2.490999999999999,
+  "forecast_change_pct": -5.64,
+  "confidence": 0.75,
+  "analysis_date": "2004-04-16",
+  "forecast_date": "2004-04-19"
+}

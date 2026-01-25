@@ -1,0 +1,13 @@
+{
+  "code": "001296",
+  "name": "长江材料",
+  "latest_close": 28.3,
+  "kalman_price": 27.823288738145614,
+  "particle_price": 28.265862656822335,
+  "market_state": 1,
+  "ensemble_forecast": 27.6728,
+  "forecast_change_pct": -2.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

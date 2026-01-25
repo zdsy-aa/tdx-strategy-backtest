@@ -1,0 +1,13 @@
+{
+  "code": "603201",
+  "name": "常润股份",
+  "latest_close": 17.11,
+  "kalman_price": 17.07270093230619,
+  "particle_price": 17.097272155708374,
+  "market_state": 2,
+  "ensemble_forecast": 17.077799999999993,
+  "forecast_change_pct": -0.19,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

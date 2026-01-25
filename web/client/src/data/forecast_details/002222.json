@@ -1,0 +1,13 @@
+{
+  "code": "002222",
+  "name": "福晶科技",
+  "latest_close": 68.49,
+  "kalman_price": 67.8079318320746,
+  "particle_price": 48.926544527650755,
+  "market_state": 0,
+  "ensemble_forecast": 67.72459999999998,
+  "forecast_change_pct": -1.12,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

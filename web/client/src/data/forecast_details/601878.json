@@ -1,0 +1,13 @@
+{
+  "code": "601878",
+  "name": "浙商证券",
+  "latest_close": 11.14,
+  "kalman_price": 11.089262583075996,
+  "particle_price": 11.136359378896666,
+  "market_state": 0,
+  "ensemble_forecast": 11.110400000000004,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000880",
+  "name": "潍柴重机",
+  "latest_close": 32.14,
+  "kalman_price": 32.248305080970056,
+  "particle_price": 29.278409889360734,
+  "market_state": 2,
+  "ensemble_forecast": 32.47840000000001,
+  "forecast_change_pct": 1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

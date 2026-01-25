@@ -1,0 +1,13 @@
+{
+  "code": "688096",
+  "name": "京源环保",
+  "latest_close": 8.63,
+  "kalman_price": 8.867391301622893,
+  "particle_price": 8.656237656193944,
+  "market_state": 0,
+  "ensemble_forecast": 8.644300000000001,
+  "forecast_change_pct": 0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

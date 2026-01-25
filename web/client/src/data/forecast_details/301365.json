@@ -1,0 +1,13 @@
+{
+  "code": "301365",
+  "name": "矩阵股份",
+  "latest_close": 25.0,
+  "kalman_price": 24.460964330321424,
+  "particle_price": 24.855578880381525,
+  "market_state": 0,
+  "ensemble_forecast": 24.581800000000023,
+  "forecast_change_pct": -1.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

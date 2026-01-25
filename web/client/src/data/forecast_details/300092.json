@@ -1,0 +1,13 @@
+{
+  "code": "300092",
+  "name": "科新机电",
+  "latest_close": 17.09,
+  "kalman_price": 17.01394507412313,
+  "particle_price": 17.066390767346256,
+  "market_state": 2,
+  "ensemble_forecast": 16.321199999999997,
+  "forecast_change_pct": -4.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

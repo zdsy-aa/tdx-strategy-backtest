@@ -1,0 +1,13 @@
+{
+  "code": "605580",
+  "name": "恒盛能源",
+  "latest_close": 23.25,
+  "kalman_price": 22.56133552448142,
+  "particle_price": 23.338596663559517,
+  "market_state": 2,
+  "ensemble_forecast": 23.3743,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

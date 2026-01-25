@@ -1,0 +1,13 @@
+{
+  "code": "002077",
+  "name": "大港股份",
+  "latest_close": 15.53,
+  "kalman_price": 15.600899602900709,
+  "particle_price": 15.54547528695689,
+  "market_state": 0,
+  "ensemble_forecast": 15.281099999999991,
+  "forecast_change_pct": -1.6,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

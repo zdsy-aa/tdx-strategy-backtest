@@ -1,0 +1,13 @@
+{
+  "code": "833874",
+  "name": "泰祥股份",
+  "latest_close": 19.19,
+  "kalman_price": 18.184442903435926,
+  "particle_price": 18.822703925500885,
+  "market_state": 0,
+  "ensemble_forecast": 18.423899999999993,
+  "forecast_change_pct": -3.99,
+  "confidence": 0.85,
+  "analysis_date": "2021-11-05",
+  "forecast_date": "2021-11-08"
+}

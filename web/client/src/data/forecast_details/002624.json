@@ -1,0 +1,13 @@
+{
+  "code": "002624",
+  "name": "完美世界",
+  "latest_close": 18.02,
+  "kalman_price": 17.663446009547982,
+  "particle_price": 17.938298461002134,
+  "market_state": 0,
+  "ensemble_forecast": 17.9017,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

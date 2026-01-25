@@ -1,0 +1,13 @@
+{
+  "code": "600556",
+  "name": "天下秀",
+  "latest_close": 7.74,
+  "kalman_price": 7.776753858059808,
+  "particle_price": 7.75673332128277,
+  "market_state": 1,
+  "ensemble_forecast": 8.569599999999992,
+  "forecast_change_pct": 10.72,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

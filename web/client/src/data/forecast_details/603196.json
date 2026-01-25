@@ -1,0 +1,13 @@
+{
+  "code": "603196",
+  "name": "日播时尚",
+  "latest_close": 24.95,
+  "kalman_price": 24.701954746210845,
+  "particle_price": 24.88194437217741,
+  "market_state": 0,
+  "ensemble_forecast": 25.16769999999997,
+  "forecast_change_pct": 0.87,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

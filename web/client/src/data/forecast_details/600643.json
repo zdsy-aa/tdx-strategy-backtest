@@ -1,0 +1,13 @@
+{
+  "code": "600643",
+  "name": "爱建集团",
+  "latest_close": 5.66,
+  "kalman_price": 5.6355702335237154,
+  "particle_price": 5.664672718296422,
+  "market_state": 0,
+  "ensemble_forecast": 5.7011,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

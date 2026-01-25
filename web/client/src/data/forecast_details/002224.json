@@ -1,0 +1,13 @@
+{
+  "code": "002224",
+  "name": "三 力 士",
+  "latest_close": 4.49,
+  "kalman_price": 4.486484502640775,
+  "particle_price": 4.48018802260259,
+  "market_state": 1,
+  "ensemble_forecast": 4.496500000000001,
+  "forecast_change_pct": 0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "605337",
+  "name": "李子园",
+  "latest_close": 12.08,
+  "kalman_price": 11.982449346857509,
+  "particle_price": 12.059230258890706,
+  "market_state": 2,
+  "ensemble_forecast": 12.0755,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

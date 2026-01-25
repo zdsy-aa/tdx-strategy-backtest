@@ -1,0 +1,13 @@
+{
+  "code": "600966",
+  "name": "博汇纸业",
+  "latest_close": 6.49,
+  "kalman_price": 6.505464078775754,
+  "particle_price": 6.493319110414519,
+  "market_state": 0,
+  "ensemble_forecast": 6.4655000000000005,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

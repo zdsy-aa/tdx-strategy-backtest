@@ -1,0 +1,13 @@
+{
+  "code": "688352",
+  "name": "颀中科技",
+  "latest_close": 13.32,
+  "kalman_price": 13.351123953307473,
+  "particle_price": 13.331708826647613,
+  "market_state": 0,
+  "ensemble_forecast": 13.2148,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

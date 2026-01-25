@@ -1,0 +1,13 @@
+{
+  "code": "301218",
+  "name": "华是科技",
+  "latest_close": 25.83,
+  "kalman_price": 24.612936587245933,
+  "particle_price": 24.33605673606308,
+  "market_state": 2,
+  "ensemble_forecast": 27.776200000000017,
+  "forecast_change_pct": 7.53,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-12",
+  "forecast_date": "2026-01-13"
+}

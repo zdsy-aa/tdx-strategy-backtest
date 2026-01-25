@@ -1,0 +1,13 @@
+{
+  "code": "920002",
+  "name": "万达轴承",
+  "latest_close": 111.38,
+  "kalman_price": 110.62334727234267,
+  "particle_price": 108.90680232852985,
+  "market_state": 0,
+  "ensemble_forecast": 111.20029999999997,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

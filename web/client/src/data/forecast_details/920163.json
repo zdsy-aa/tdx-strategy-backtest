@@ -1,0 +1,13 @@
+{
+  "code": "920163",
+  "name": "方大新材",
+  "latest_close": 15.05,
+  "kalman_price": 14.792502148636554,
+  "particle_price": 15.031536911194287,
+  "market_state": 0,
+  "ensemble_forecast": 15.053999999999997,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

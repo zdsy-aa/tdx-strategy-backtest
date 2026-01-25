@@ -1,0 +1,13 @@
+{
+  "code": "603041",
+  "name": "美思德",
+  "latest_close": 12.26,
+  "kalman_price": 12.211420047456158,
+  "particle_price": 12.252925473379998,
+  "market_state": 1,
+  "ensemble_forecast": 12.329699999999997,
+  "forecast_change_pct": 0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

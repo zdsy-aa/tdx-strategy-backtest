@@ -1,0 +1,13 @@
+{
+  "code": "600560",
+  "name": "金自天正",
+  "latest_close": 16.88,
+  "kalman_price": 16.941407216527306,
+  "particle_price": 16.876790985989345,
+  "market_state": 0,
+  "ensemble_forecast": 16.762100000000018,
+  "forecast_change_pct": -0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

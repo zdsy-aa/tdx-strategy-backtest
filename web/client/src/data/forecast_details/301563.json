@@ -1,0 +1,13 @@
+{
+  "code": "301563",
+  "name": "云汉芯城",
+  "latest_close": 172.84,
+  "kalman_price": 177.58006302797003,
+  "particle_price": 129.90414316112702,
+  "market_state": 0,
+  "ensemble_forecast": 167.65919999999997,
+  "forecast_change_pct": -3.0,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

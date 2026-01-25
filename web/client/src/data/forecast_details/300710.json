@@ -1,0 +1,13 @@
+{
+  "code": "300710",
+  "name": "万隆光电",
+  "latest_close": 32.2,
+  "kalman_price": 32.53490252571135,
+  "particle_price": 32.22205375953206,
+  "market_state": 2,
+  "ensemble_forecast": 31.159200000000002,
+  "forecast_change_pct": -3.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

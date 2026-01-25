@@ -1,0 +1,13 @@
+{
+  "code": "688013",
+  "name": "天臣医疗",
+  "latest_close": 48.28,
+  "kalman_price": 47.85340468436305,
+  "particle_price": 48.19055282000128,
+  "market_state": 0,
+  "ensemble_forecast": 48.11230000000003,
+  "forecast_change_pct": -0.35,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

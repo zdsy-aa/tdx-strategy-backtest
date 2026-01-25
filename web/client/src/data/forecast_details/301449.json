@@ -1,0 +1,13 @@
+{
+  "code": "301449",
+  "name": "天溯计量",
+  "latest_close": 81.5,
+  "kalman_price": 82.18633418158927,
+  "particle_price": 82.01737494554366,
+  "market_state": 2,
+  "ensemble_forecast": 81.81070000000001,
+  "forecast_change_pct": 0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

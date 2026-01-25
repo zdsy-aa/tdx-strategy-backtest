@@ -1,0 +1,13 @@
+{
+  "code": "605288",
+  "name": "凯迪股份",
+  "latest_close": 106.22,
+  "kalman_price": 106.05915076984388,
+  "particle_price": 85.99629687596297,
+  "market_state": 0,
+  "ensemble_forecast": 100.14649999999995,
+  "forecast_change_pct": -5.72,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

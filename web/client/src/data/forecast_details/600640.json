@@ -1,0 +1,13 @@
+{
+  "code": "600640",
+  "name": "国脉文化",
+  "latest_close": 14.93,
+  "kalman_price": 14.324099365904136,
+  "particle_price": 14.753482269191908,
+  "market_state": 2,
+  "ensemble_forecast": 14.484899999999996,
+  "forecast_change_pct": -2.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

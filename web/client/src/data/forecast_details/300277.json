@@ -1,0 +1,13 @@
+{
+  "code": "300277",
+  "name": "海联讯",
+  "latest_close": 13.67,
+  "kalman_price": 13.54975911113193,
+  "particle_price": 13.66027486626325,
+  "market_state": 1,
+  "ensemble_forecast": 13.651900000000007,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

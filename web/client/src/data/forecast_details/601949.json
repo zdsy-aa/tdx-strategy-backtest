@@ -1,0 +1,13 @@
+{
+  "code": "601949",
+  "name": "中国出版",
+  "latest_close": 7.31,
+  "kalman_price": 6.955900616859395,
+  "particle_price": 7.292742296532401,
+  "market_state": 0,
+  "ensemble_forecast": 7.3199000000000005,
+  "forecast_change_pct": 0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

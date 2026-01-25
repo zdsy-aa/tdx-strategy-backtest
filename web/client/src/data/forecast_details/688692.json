@@ -1,0 +1,13 @@
+{
+  "code": "688692",
+  "name": "达梦数据",
+  "latest_close": 297.11,
+  "kalman_price": 289.2001808763197,
+  "particle_price": 232.34877636671894,
+  "market_state": 0,
+  "ensemble_forecast": 288.2442000000003,
+  "forecast_change_pct": -2.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

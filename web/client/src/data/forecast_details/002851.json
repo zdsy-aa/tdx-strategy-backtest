@@ -1,0 +1,13 @@
+{
+  "code": "002851",
+  "name": "麦格米特",
+  "latest_close": 97.06,
+  "kalman_price": 97.78155035280899,
+  "particle_price": 74.11104734684479,
+  "market_state": 1,
+  "ensemble_forecast": 96.40469999999999,
+  "forecast_change_pct": -0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

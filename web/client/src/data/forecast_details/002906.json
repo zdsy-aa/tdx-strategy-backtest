@@ -1,0 +1,13 @@
+{
+  "code": "002906",
+  "name": "华阳集团",
+  "latest_close": 32.89,
+  "kalman_price": 33.019879605894516,
+  "particle_price": 32.86558383580195,
+  "market_state": 0,
+  "ensemble_forecast": 32.280100000000004,
+  "forecast_change_pct": -1.85,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

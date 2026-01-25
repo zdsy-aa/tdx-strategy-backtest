@@ -1,0 +1,13 @@
+{
+  "code": "002697",
+  "name": "红旗连锁",
+  "latest_close": 6.47,
+  "kalman_price": 6.194099602563402,
+  "particle_price": 6.394363790288557,
+  "market_state": 0,
+  "ensemble_forecast": 6.361200000000007,
+  "forecast_change_pct": -1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

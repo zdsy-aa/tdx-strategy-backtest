@@ -1,0 +1,13 @@
+{
+  "code": "000589",
+  "name": "贵州轮胎",
+  "latest_close": 5.04,
+  "kalman_price": 5.05207550689717,
+  "particle_price": 5.036250105769972,
+  "market_state": 2,
+  "ensemble_forecast": 4.967300000000002,
+  "forecast_change_pct": -1.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

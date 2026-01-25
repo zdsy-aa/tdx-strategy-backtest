@@ -1,0 +1,13 @@
+{
+  "code": "603099",
+  "name": "长白山",
+  "latest_close": 45.41,
+  "kalman_price": 44.90812377209914,
+  "particle_price": 45.26097995869891,
+  "market_state": 1,
+  "ensemble_forecast": 45.210599999999985,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

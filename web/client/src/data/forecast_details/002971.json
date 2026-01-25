@@ -1,0 +1,13 @@
+{
+  "code": "002971",
+  "name": "和远气体",
+  "latest_close": 31.0,
+  "kalman_price": 31.395977758470167,
+  "particle_price": 31.039525158402746,
+  "market_state": 2,
+  "ensemble_forecast": 30.294900000000002,
+  "forecast_change_pct": -2.27,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

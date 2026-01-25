@@ -1,0 +1,13 @@
+{
+  "code": "603218",
+  "name": "日月股份",
+  "latest_close": 13.43,
+  "kalman_price": 13.537242978665816,
+  "particle_price": 13.45951490821177,
+  "market_state": 0,
+  "ensemble_forecast": 13.298900000000001,
+  "forecast_change_pct": -0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

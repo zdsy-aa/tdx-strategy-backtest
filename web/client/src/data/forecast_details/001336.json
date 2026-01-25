@@ -1,0 +1,13 @@
+{
+  "code": "001336",
+  "name": "楚环科技",
+  "latest_close": 25.58,
+  "kalman_price": 25.490562842470286,
+  "particle_price": 25.57714271863149,
+  "market_state": 0,
+  "ensemble_forecast": 25.560199999999995,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

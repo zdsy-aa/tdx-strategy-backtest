@@ -1,0 +1,13 @@
+{
+  "code": "300943",
+  "name": "春晖智控",
+  "latest_close": 24.01,
+  "kalman_price": 23.433974347264076,
+  "particle_price": 22.614000367799637,
+  "market_state": 0,
+  "ensemble_forecast": 23.45900000000001,
+  "forecast_change_pct": -2.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

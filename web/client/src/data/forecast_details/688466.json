@@ -1,0 +1,13 @@
+{
+  "code": "688466",
+  "name": "金科环境",
+  "latest_close": 17.12,
+  "kalman_price": 17.067628847899936,
+  "particle_price": 17.122489769996815,
+  "market_state": 2,
+  "ensemble_forecast": 16.987999999999992,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

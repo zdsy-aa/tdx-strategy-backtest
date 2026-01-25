@@ -1,0 +1,13 @@
+{
+  "code": "002893",
+  "name": "京能热力",
+  "latest_close": 11.46,
+  "kalman_price": 11.44215385376472,
+  "particle_price": 11.441664854734464,
+  "market_state": 0,
+  "ensemble_forecast": 11.367699999999997,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

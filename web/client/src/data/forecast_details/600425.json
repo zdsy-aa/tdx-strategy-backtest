@@ -1,0 +1,13 @@
+{
+  "code": "600425",
+  "name": "青松建化",
+  "latest_close": 4.29,
+  "kalman_price": 4.29748673015743,
+  "particle_price": 4.27919970635892,
+  "market_state": 0,
+  "ensemble_forecast": 4.228199999999998,
+  "forecast_change_pct": -1.44,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

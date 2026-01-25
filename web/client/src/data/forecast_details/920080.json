@@ -1,0 +1,13 @@
+{
+  "code": "920080",
+  "name": "奥美森",
+  "latest_close": 28.53,
+  "kalman_price": 28.229746154230533,
+  "particle_price": 28.439811837071836,
+  "market_state": 0,
+  "ensemble_forecast": 28.37660000000001,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

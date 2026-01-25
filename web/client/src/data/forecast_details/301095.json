@@ -1,0 +1,13 @@
+{
+  "code": "301095",
+  "name": "广立微",
+  "latest_close": 78.33,
+  "kalman_price": 77.94551204690374,
+  "particle_price": 72.27739379345671,
+  "market_state": 2,
+  "ensemble_forecast": 77.8867,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

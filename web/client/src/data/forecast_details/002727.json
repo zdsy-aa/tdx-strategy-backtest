@@ -1,0 +1,13 @@
+{
+  "code": "002727",
+  "name": "一心堂",
+  "latest_close": 13.35,
+  "kalman_price": 13.208207860432534,
+  "particle_price": 13.32999356478411,
+  "market_state": 1,
+  "ensemble_forecast": 13.337499999999993,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

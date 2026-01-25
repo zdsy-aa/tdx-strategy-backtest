@@ -1,0 +1,13 @@
+{
+  "code": "603993",
+  "name": "洛阳钼业",
+  "latest_close": 22.36,
+  "kalman_price": 22.4749429336081,
+  "particle_price": 22.33490333455136,
+  "market_state": 0,
+  "ensemble_forecast": 21.815799999999978,
+  "forecast_change_pct": -2.43,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301118",
+  "name": "恒光股份",
+  "latest_close": 25.72,
+  "kalman_price": 25.542534486576123,
+  "particle_price": 25.678517388475914,
+  "market_state": 0,
+  "ensemble_forecast": 25.948100000000014,
+  "forecast_change_pct": 0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

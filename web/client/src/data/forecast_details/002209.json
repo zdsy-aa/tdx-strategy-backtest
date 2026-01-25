@@ -1,0 +1,13 @@
+{
+  "code": "002209",
+  "name": "达 意 隆",
+  "latest_close": 16.0,
+  "kalman_price": 16.15398422686588,
+  "particle_price": 16.012692104984577,
+  "market_state": 2,
+  "ensemble_forecast": 16.0991,
+  "forecast_change_pct": 0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

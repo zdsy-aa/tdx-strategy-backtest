@@ -1,0 +1,13 @@
+{
+  "code": "000070",
+  "name": "特发信息",
+  "latest_close": 12.0,
+  "kalman_price": 12.153617551948704,
+  "particle_price": 12.031209849091596,
+  "market_state": 0,
+  "ensemble_forecast": 11.910100000000007,
+  "forecast_change_pct": -0.75,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

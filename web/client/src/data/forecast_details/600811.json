@@ -1,0 +1,13 @@
+{
+  "code": "600811",
+  "name": "*ST东方",
+  "latest_close": 0.35,
+  "kalman_price": 0.34638383006660944,
+  "particle_price": 0.34934092623879026,
+  "market_state": 2,
+  "ensemble_forecast": 0.3721000000000003,
+  "forecast_change_pct": 6.31,
+  "confidence": 0.75,
+  "analysis_date": "2025-04-14",
+  "forecast_date": "2025-04-15"
+}

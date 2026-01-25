@@ -3,10 +3,11 @@
   "name": "黄山旅游",
   "latest_close": 11.46,
   "kalman_price": 11.444348024774756,
-  "particle_price": 11.456767552438512,
+  "particle_price": 11.441093723468457,
   "market_state": 0,
-  "ensemble_forecast": 11.368300000000009,
-  "forecast_change_pct": -0.8,
+  "ensemble_forecast": 11.364100000000006,
+  "forecast_change_pct": -0.84,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

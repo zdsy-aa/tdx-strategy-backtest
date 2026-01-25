@@ -1,0 +1,13 @@
+{
+  "code": "601965",
+  "name": "中国汽研",
+  "latest_close": 17.5,
+  "kalman_price": 17.465512781866273,
+  "particle_price": 17.491137374366733,
+  "market_state": 2,
+  "ensemble_forecast": 17.32069999999999,
+  "forecast_change_pct": -1.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "601456",
+  "name": "国联民生",
+  "latest_close": 9.99,
+  "kalman_price": 9.902767294461642,
+  "particle_price": 9.973958867155762,
+  "market_state": 0,
+  "ensemble_forecast": 9.869899999999998,
+  "forecast_change_pct": -1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

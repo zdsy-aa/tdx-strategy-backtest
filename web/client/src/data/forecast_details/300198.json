@@ -1,0 +1,13 @@
+{
+  "code": "300198",
+  "name": "ST纳川",
+  "latest_close": 2.63,
+  "kalman_price": 2.598268389801968,
+  "particle_price": 2.622592929601167,
+  "market_state": 0,
+  "ensemble_forecast": 2.651299999999998,
+  "forecast_change_pct": 0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

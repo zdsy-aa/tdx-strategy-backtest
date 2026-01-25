@@ -1,0 +1,13 @@
+{
+  "code": "603605",
+  "name": "珀莱雅",
+  "latest_close": 69.82,
+  "kalman_price": 69.44890244218044,
+  "particle_price": 69.56962824429588,
+  "market_state": 0,
+  "ensemble_forecast": 69.43650000000002,
+  "forecast_change_pct": -0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

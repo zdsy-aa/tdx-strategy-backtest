@@ -1,0 +1,13 @@
+{
+  "code": "300953",
+  "name": "震裕科技",
+  "latest_close": 164.05,
+  "kalman_price": 166.13326850235978,
+  "particle_price": 111.46212216674432,
+  "market_state": 0,
+  "ensemble_forecast": 165.08390000000006,
+  "forecast_change_pct": 0.63,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

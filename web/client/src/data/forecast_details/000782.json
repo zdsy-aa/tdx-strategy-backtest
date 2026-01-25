@@ -1,0 +1,13 @@
+{
+  "code": "000782",
+  "name": "恒申新材",
+  "latest_close": 5.18,
+  "kalman_price": 5.079712150189867,
+  "particle_price": 5.170747335171053,
+  "market_state": 0,
+  "ensemble_forecast": 5.190399999999999,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

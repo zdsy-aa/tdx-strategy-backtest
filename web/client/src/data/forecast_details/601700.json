@@ -1,0 +1,13 @@
+{
+  "code": "601700",
+  "name": "风范股份",
+  "latest_close": 5.72,
+  "kalman_price": 5.785532651931198,
+  "particle_price": 5.723351099736351,
+  "market_state": 2,
+  "ensemble_forecast": 5.778699999999997,
+  "forecast_change_pct": 1.03,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300425",
+  "name": "中建环能",
+  "latest_close": 5.07,
+  "kalman_price": 5.060457535809175,
+  "particle_price": 5.087463941429875,
+  "market_state": 0,
+  "ensemble_forecast": 5.051499999999999,
+  "forecast_change_pct": -0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

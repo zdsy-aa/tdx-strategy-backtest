@@ -1,0 +1,13 @@
+{
+  "code": "000515",
+  "name": "攀渝钛业",
+  "latest_close": 15.01,
+  "kalman_price": 15.201843881524804,
+  "particle_price": 15.033742599842824,
+  "market_state": 0,
+  "ensemble_forecast": 14.979499999999996,
+  "forecast_change_pct": -0.2,
+  "confidence": 0.95,
+  "analysis_date": "2009-04-23",
+  "forecast_date": "2009-04-24"
+}

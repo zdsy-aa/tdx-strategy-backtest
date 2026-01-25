@@ -1,0 +1,13 @@
+{
+  "code": "300975",
+  "name": "商络电子",
+  "latest_close": 13.36,
+  "kalman_price": 13.52980642032253,
+  "particle_price": 13.392467404920946,
+  "market_state": 1,
+  "ensemble_forecast": 13.248399999999995,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301038",
+  "name": "深水规院",
+  "latest_close": 24.58,
+  "kalman_price": 24.35115105309962,
+  "particle_price": 24.467357679633597,
+  "market_state": 1,
+  "ensemble_forecast": 24.113700000000012,
+  "forecast_change_pct": -1.9,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

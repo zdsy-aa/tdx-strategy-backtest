@@ -1,0 +1,13 @@
+{
+  "code": "600283",
+  "name": "钱江水利",
+  "latest_close": 9.56,
+  "kalman_price": 9.577433156374694,
+  "particle_price": 9.56163957812495,
+  "market_state": 2,
+  "ensemble_forecast": 9.511899999999995,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

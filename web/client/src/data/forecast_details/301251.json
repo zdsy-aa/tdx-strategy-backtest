@@ -1,0 +1,13 @@
+{
+  "code": "301251",
+  "name": "威尔高",
+  "latest_close": 55.1,
+  "kalman_price": 54.254603738417494,
+  "particle_price": 54.17733856844993,
+  "market_state": 2,
+  "ensemble_forecast": 54.022000000000055,
+  "forecast_change_pct": -1.96,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

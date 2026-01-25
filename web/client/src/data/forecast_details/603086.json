@@ -1,0 +1,13 @@
+{
+  "code": "603086",
+  "name": "先达股份",
+  "latest_close": 8.37,
+  "kalman_price": 8.403353103235787,
+  "particle_price": 8.379841175956825,
+  "market_state": 0,
+  "ensemble_forecast": 8.4756,
+  "forecast_change_pct": 1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

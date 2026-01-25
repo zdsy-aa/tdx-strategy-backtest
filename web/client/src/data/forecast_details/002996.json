@@ -1,0 +1,13 @@
+{
+  "code": "002996",
+  "name": "顺博合金",
+  "latest_close": 7.79,
+  "kalman_price": 7.82853785348435,
+  "particle_price": 7.791847651995439,
+  "market_state": 0,
+  "ensemble_forecast": 7.7033000000000005,
+  "forecast_change_pct": -1.11,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

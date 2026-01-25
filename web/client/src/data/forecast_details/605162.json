@@ -1,0 +1,13 @@
+{
+  "code": "605162",
+  "name": "新中港",
+  "latest_close": 9.81,
+  "kalman_price": 9.339513853031999,
+  "particle_price": 9.65592065383671,
+  "market_state": 1,
+  "ensemble_forecast": 9.913299999999994,
+  "forecast_change_pct": 1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

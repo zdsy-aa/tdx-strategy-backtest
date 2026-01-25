@@ -1,0 +1,13 @@
+{
+  "code": "300994",
+  "name": "久祺股份",
+  "latest_close": 16.56,
+  "kalman_price": 16.383964096070855,
+  "particle_price": 16.54418699556227,
+  "market_state": 2,
+  "ensemble_forecast": 16.853500000000004,
+  "forecast_change_pct": 1.77,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

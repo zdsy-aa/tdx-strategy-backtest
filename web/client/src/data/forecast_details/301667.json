@@ -1,0 +1,13 @@
+{
+  "code": "301667",
+  "name": "纳百川",
+  "latest_close": 74.58,
+  "kalman_price": 75.2093128299993,
+  "particle_price": 61.60205398890638,
+  "market_state": 2,
+  "ensemble_forecast": 74.42669999999997,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

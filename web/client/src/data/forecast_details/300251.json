@@ -1,0 +1,13 @@
+{
+  "code": "300251",
+  "name": "光线传媒",
+  "latest_close": 18.03,
+  "kalman_price": 17.66556446293572,
+  "particle_price": 17.899914830035364,
+  "market_state": 1,
+  "ensemble_forecast": 18.19139999999998,
+  "forecast_change_pct": 0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

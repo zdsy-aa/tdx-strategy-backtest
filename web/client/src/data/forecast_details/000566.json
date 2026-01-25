@@ -1,0 +1,13 @@
+{
+  "code": "000566",
+  "name": "海南海药",
+  "latest_close": 7.24,
+  "kalman_price": 7.188461516511662,
+  "particle_price": 7.238146536320011,
+  "market_state": 2,
+  "ensemble_forecast": 7.2071000000000005,
+  "forecast_change_pct": -0.45,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

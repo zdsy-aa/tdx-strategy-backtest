@@ -1,0 +1,13 @@
+{
+  "code": "603071",
+  "name": "物产环能",
+  "latest_close": 13.55,
+  "kalman_price": 13.525394947124942,
+  "particle_price": 13.521041076125359,
+  "market_state": 1,
+  "ensemble_forecast": 13.563299999999991,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

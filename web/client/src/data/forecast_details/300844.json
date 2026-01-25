@@ -1,0 +1,13 @@
+{
+  "code": "300844",
+  "name": "山水比德",
+  "latest_close": 38.05,
+  "kalman_price": 38.49449821862904,
+  "particle_price": 38.06215772161725,
+  "market_state": 0,
+  "ensemble_forecast": 37.55950000000003,
+  "forecast_change_pct": -1.29,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688213",
+  "name": "思特威-W",
+  "latest_close": 97.47,
+  "kalman_price": 96.64786817372153,
+  "particle_price": 94.83681062155803,
+  "market_state": 0,
+  "ensemble_forecast": 95.7714,
+  "forecast_change_pct": -1.74,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

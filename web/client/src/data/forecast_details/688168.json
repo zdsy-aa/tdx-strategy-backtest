@@ -1,0 +1,13 @@
+{
+  "code": "688168",
+  "name": "安博通",
+  "latest_close": 80.33,
+  "kalman_price": 80.48750426999142,
+  "particle_price": 79.94665170813806,
+  "market_state": 2,
+  "ensemble_forecast": 78.13960000000003,
+  "forecast_change_pct": -2.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

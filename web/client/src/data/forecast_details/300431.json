@@ -1,0 +1,13 @@
+{
+  "code": "300431",
+  "name": "暴风退",
+  "latest_close": 0.27,
+  "kalman_price": 0.2749508608623638,
+  "particle_price": 0.24013703678945647,
+  "market_state": 1,
+  "ensemble_forecast": 0.2815,
+  "forecast_change_pct": 4.26,
+  "confidence": 0.85,
+  "analysis_date": "2020-11-09",
+  "forecast_date": "2020-11-10"
+}

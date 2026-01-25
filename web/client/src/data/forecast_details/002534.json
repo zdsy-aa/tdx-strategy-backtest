@@ -1,0 +1,13 @@
+{
+  "code": "002534",
+  "name": "西子洁能",
+  "latest_close": 16.2,
+  "kalman_price": 16.174047420800196,
+  "particle_price": 16.206669414220745,
+  "market_state": 0,
+  "ensemble_forecast": 15.879699999999996,
+  "forecast_change_pct": -1.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

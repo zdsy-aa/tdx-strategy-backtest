@@ -1,0 +1,13 @@
+{
+  "code": "002796",
+  "name": "世嘉科技",
+  "latest_close": 34.72,
+  "kalman_price": 32.289472077339774,
+  "particle_price": 28.37010196219215,
+  "market_state": 2,
+  "ensemble_forecast": 34.60539999999999,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

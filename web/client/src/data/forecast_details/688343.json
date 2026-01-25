@@ -1,0 +1,13 @@
+{
+  "code": "688343",
+  "name": "云天励飞-U",
+  "latest_close": 83.9,
+  "kalman_price": 81.63155710110215,
+  "particle_price": 77.17110681919873,
+  "market_state": 0,
+  "ensemble_forecast": 82.92839999999995,
+  "forecast_change_pct": -1.16,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

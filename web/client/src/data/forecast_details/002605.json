@@ -1,0 +1,13 @@
+{
+  "code": "002605",
+  "name": "姚记科技",
+  "latest_close": 26.84,
+  "kalman_price": 25.63440543814503,
+  "particle_price": 24.864206739068997,
+  "market_state": 0,
+  "ensemble_forecast": 26.026200000000003,
+  "forecast_change_pct": -3.03,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

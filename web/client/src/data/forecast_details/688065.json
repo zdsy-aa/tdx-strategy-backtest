@@ -1,0 +1,13 @@
+{
+  "code": "688065",
+  "name": "凯赛生物",
+  "latest_close": 56.0,
+  "kalman_price": 55.84164250775846,
+  "particle_price": 51.759417485173415,
+  "market_state": 0,
+  "ensemble_forecast": 61.68150000000007,
+  "forecast_change_pct": 10.15,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

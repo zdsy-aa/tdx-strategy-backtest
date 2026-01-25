@@ -1,0 +1,13 @@
+{
+  "code": "300733",
+  "name": "西菱动力",
+  "latest_close": 19.35,
+  "kalman_price": 19.253362308510795,
+  "particle_price": 19.353098751461268,
+  "market_state": 0,
+  "ensemble_forecast": 18.95310000000001,
+  "forecast_change_pct": -2.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

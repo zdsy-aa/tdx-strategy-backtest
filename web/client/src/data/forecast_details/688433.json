@@ -1,0 +1,13 @@
+{
+  "code": "688433",
+  "name": "华曙高科",
+  "latest_close": 74.74,
+  "kalman_price": 76.20985546364886,
+  "particle_price": 55.636175090384064,
+  "market_state": 0,
+  "ensemble_forecast": 73.33100000000002,
+  "forecast_change_pct": -1.89,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

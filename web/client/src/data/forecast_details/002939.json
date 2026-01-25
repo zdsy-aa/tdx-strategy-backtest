@@ -1,0 +1,13 @@
+{
+  "code": "002939",
+  "name": "长城证券",
+  "latest_close": 10.41,
+  "kalman_price": 10.307905981886528,
+  "particle_price": 10.407742585752866,
+  "market_state": 1,
+  "ensemble_forecast": 10.343599999999999,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

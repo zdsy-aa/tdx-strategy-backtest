@@ -1,0 +1,13 @@
+{
+  "code": "603517",
+  "name": "ST绝味",
+  "latest_close": 13.07,
+  "kalman_price": 13.06521897504365,
+  "particle_price": 13.07420481864003,
+  "market_state": 0,
+  "ensemble_forecast": 13.014899999999987,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

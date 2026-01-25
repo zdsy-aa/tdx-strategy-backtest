@@ -1,0 +1,13 @@
+{
+  "code": "603585",
+  "name": "苏利股份",
+  "latest_close": 19.33,
+  "kalman_price": 19.301589907343672,
+  "particle_price": 19.330020220791194,
+  "market_state": 2,
+  "ensemble_forecast": 19.446299999999997,
+  "forecast_change_pct": 0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

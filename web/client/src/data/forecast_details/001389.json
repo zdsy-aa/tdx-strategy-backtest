@@ -1,0 +1,13 @@
+{
+  "code": "001389",
+  "name": "广合科技",
+  "latest_close": 80.52,
+  "kalman_price": 79.86613258910648,
+  "particle_price": 80.36776450007598,
+  "market_state": 0,
+  "ensemble_forecast": 80.00500000000012,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603391",
+  "name": "力聚热能",
+  "latest_close": 62.68,
+  "kalman_price": 62.946694031713804,
+  "particle_price": 63.87865378549412,
+  "market_state": 1,
+  "ensemble_forecast": 62.9888,
+  "forecast_change_pct": 0.49,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

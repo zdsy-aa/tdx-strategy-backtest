@@ -1,0 +1,13 @@
+{
+  "code": "920547",
+  "name": "无锡晶海",
+  "latest_close": 25.13,
+  "kalman_price": 24.78360013300878,
+  "particle_price": 25.081812725021067,
+  "market_state": 0,
+  "ensemble_forecast": 25.63150000000001,
+  "forecast_change_pct": 2.0,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

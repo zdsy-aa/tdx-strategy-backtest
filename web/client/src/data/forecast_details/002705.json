@@ -1,0 +1,13 @@
+{
+  "code": "002705",
+  "name": "新宝股份",
+  "latest_close": 14.48,
+  "kalman_price": 14.325276494972679,
+  "particle_price": 14.424332573188895,
+  "market_state": 0,
+  "ensemble_forecast": 14.297200000000005,
+  "forecast_change_pct": -1.26,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

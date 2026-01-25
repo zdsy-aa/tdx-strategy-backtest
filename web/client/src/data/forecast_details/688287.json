@@ -1,0 +1,13 @@
+{
+  "code": "688287",
+  "name": "*ST观典",
+  "latest_close": 6.35,
+  "kalman_price": 6.164100468415968,
+  "particle_price": 6.323173289907833,
+  "market_state": 2,
+  "ensemble_forecast": 6.2486,
+  "forecast_change_pct": -1.6,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

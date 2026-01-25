@@ -1,0 +1,13 @@
+{
+  "code": "300962",
+  "name": "中金辐照",
+  "latest_close": 16.84,
+  "kalman_price": 16.769853958125097,
+  "particle_price": 16.829062939826393,
+  "market_state": 1,
+  "ensemble_forecast": 16.855099999999997,
+  "forecast_change_pct": 0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

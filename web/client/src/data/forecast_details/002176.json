@@ -1,0 +1,13 @@
+{
+  "code": "002176",
+  "name": "江特电机",
+  "latest_close": 10.27,
+  "kalman_price": 10.213511677503153,
+  "particle_price": 10.253677166148073,
+  "market_state": 2,
+  "ensemble_forecast": 10.2763,
+  "forecast_change_pct": 0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

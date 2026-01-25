@@ -1,0 +1,13 @@
+{
+  "code": "300631",
+  "name": "久吾高科",
+  "latest_close": 30.42,
+  "kalman_price": 30.32104172451796,
+  "particle_price": 30.408162467274835,
+  "market_state": 2,
+  "ensemble_forecast": 30.441700000000015,
+  "forecast_change_pct": 0.07,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

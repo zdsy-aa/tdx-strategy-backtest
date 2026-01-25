@@ -1,0 +1,13 @@
+{
+  "code": "300503",
+  "name": "昊志机电",
+  "latest_close": 55.72,
+  "kalman_price": 61.74326359290169,
+  "particle_price": 35.66926272222907,
+  "market_state": 2,
+  "ensemble_forecast": 59.381000000000085,
+  "forecast_change_pct": 6.57,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

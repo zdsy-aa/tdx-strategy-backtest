@@ -1,0 +1,13 @@
+{
+  "code": "605299",
+  "name": "舒华体育",
+  "latest_close": 11.81,
+  "kalman_price": 11.604817134691068,
+  "particle_price": 11.788054348205117,
+  "market_state": 2,
+  "ensemble_forecast": 11.807400000000003,
+  "forecast_change_pct": -0.02,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

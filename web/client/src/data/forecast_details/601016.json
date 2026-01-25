@@ -1,0 +1,13 @@
+{
+  "code": "601016",
+  "name": "节能风电",
+  "latest_close": 3.0,
+  "kalman_price": 2.997079386820164,
+  "particle_price": 3.0043414473024694,
+  "market_state": 1,
+  "ensemble_forecast": 2.9899000000000004,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

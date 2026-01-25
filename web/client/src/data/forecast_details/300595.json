@@ -1,0 +1,13 @@
+{
+  "code": "300595",
+  "name": "欧普康视",
+  "latest_close": 16.45,
+  "kalman_price": 16.35892092468125,
+  "particle_price": 16.431107101712293,
+  "market_state": 2,
+  "ensemble_forecast": 16.422000000000008,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

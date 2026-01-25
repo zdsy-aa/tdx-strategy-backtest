@@ -3,10 +3,11 @@
   "name": "光明肉业",
   "latest_close": 6.6,
   "kalman_price": 6.5627710711006975,
-  "particle_price": 6.595089912591852,
-  "market_state": 0,
-  "ensemble_forecast": 6.560299999999999,
-  "forecast_change_pct": -0.6,
+  "particle_price": 6.6035828716925336,
+  "market_state": 2,
+  "ensemble_forecast": 6.573099999999999,
+  "forecast_change_pct": -0.41,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

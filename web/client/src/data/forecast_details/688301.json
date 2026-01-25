@@ -1,0 +1,13 @@
+{
+  "code": "688301",
+  "name": "奕瑞科技",
+  "latest_close": 111.33,
+  "kalman_price": 110.9258929304961,
+  "particle_price": 101.21672218850337,
+  "market_state": 0,
+  "ensemble_forecast": 111.18179999999998,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

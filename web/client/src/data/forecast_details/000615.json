@@ -1,0 +1,13 @@
+{
+  "code": "000615",
+  "name": "*ST美谷",
+  "latest_close": 3.26,
+  "kalman_price": 3.255697307322201,
+  "particle_price": 3.2632390245383767,
+  "market_state": 0,
+  "ensemble_forecast": 3.389799999999998,
+  "forecast_change_pct": 3.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603132",
+  "name": "金徽股份",
+  "latest_close": 15.3,
+  "kalman_price": 15.232752693076925,
+  "particle_price": 15.291444489215644,
+  "market_state": 2,
+  "ensemble_forecast": 15.1342,
+  "forecast_change_pct": -1.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688798",
+  "name": "艾为电子",
+  "latest_close": 79.4,
+  "kalman_price": 79.65642474763432,
+  "particle_price": 79.35721704073498,
+  "market_state": 2,
+  "ensemble_forecast": 78.22910000000003,
+  "forecast_change_pct": -1.47,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300484",
+  "name": "蓝海华腾",
+  "latest_close": 19.96,
+  "kalman_price": 20.060967480774245,
+  "particle_price": 19.979687285423275,
+  "market_state": 1,
+  "ensemble_forecast": 19.774599999999992,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

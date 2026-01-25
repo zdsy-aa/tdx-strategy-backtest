@@ -1,0 +1,13 @@
+{
+  "code": "002353",
+  "name": "杰瑞股份",
+  "latest_close": 73.0,
+  "kalman_price": 72.96046252433287,
+  "particle_price": 57.79534981763616,
+  "market_state": 2,
+  "ensemble_forecast": 71.41320000000002,
+  "forecast_change_pct": -2.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300642",
+  "name": "透景生命",
+  "latest_close": 21.01,
+  "kalman_price": 20.526300461117472,
+  "particle_price": 20.852427845682872,
+  "market_state": 0,
+  "ensemble_forecast": 21.382000000000012,
+  "forecast_change_pct": 1.77,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

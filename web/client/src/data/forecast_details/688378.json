@@ -1,0 +1,13 @@
+{
+  "code": "688378",
+  "name": "奥来德",
+  "latest_close": 31.0,
+  "kalman_price": 30.92288010833748,
+  "particle_price": 30.896579896727673,
+  "market_state": 0,
+  "ensemble_forecast": 30.748200000000008,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

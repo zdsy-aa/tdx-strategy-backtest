@@ -1,0 +1,13 @@
+{
+  "code": "002781",
+  "name": "奇信退",
+  "latest_close": 0.4,
+  "kalman_price": 0.4087743479417391,
+  "particle_price": 0.3953501709407197,
+  "market_state": 0,
+  "ensemble_forecast": 0.4056999999999997,
+  "forecast_change_pct": 1.42,
+  "confidence": 0.85,
+  "analysis_date": "2023-07-04",
+  "forecast_date": "2023-07-05"
+}

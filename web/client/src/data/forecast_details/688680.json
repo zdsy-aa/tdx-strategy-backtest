@@ -1,0 +1,13 @@
+{
+  "code": "688680",
+  "name": "海优新材",
+  "latest_close": 47.0,
+  "kalman_price": 46.0498992766684,
+  "particle_price": 39.858312842071186,
+  "market_state": 2,
+  "ensemble_forecast": 47.086899999999986,
+  "forecast_change_pct": 0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

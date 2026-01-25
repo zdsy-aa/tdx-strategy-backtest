@@ -1,0 +1,13 @@
+{
+  "code": "601558",
+  "name": "退市锐电",
+  "latest_close": 0.24,
+  "kalman_price": 0.23077091598462382,
+  "particle_price": 0.23804516180671131,
+  "market_state": 1,
+  "ensemble_forecast": 0.22739999999999988,
+  "forecast_change_pct": -5.25,
+  "confidence": 0.75,
+  "analysis_date": "2020-06-23",
+  "forecast_date": "2020-06-24"
+}

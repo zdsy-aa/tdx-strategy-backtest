@@ -3,10 +3,11 @@
   "name": "凤凰光学",
   "latest_close": 22.05,
   "kalman_price": 21.84327006637307,
-  "particle_price": 21.975654831365954,
-  "market_state": 0,
-  "ensemble_forecast": 22.040699999999994,
-  "forecast_change_pct": -0.04,
+  "particle_price": 21.973224770415154,
+  "market_state": 1,
+  "ensemble_forecast": 21.99749999999998,
+  "forecast_change_pct": -0.24,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

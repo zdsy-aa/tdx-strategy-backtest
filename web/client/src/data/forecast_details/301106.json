@@ -1,0 +1,13 @@
+{
+  "code": "301106",
+  "name": "骏成科技",
+  "latest_close": 30.8,
+  "kalman_price": 30.941878760501275,
+  "particle_price": 30.803404561770847,
+  "market_state": 0,
+  "ensemble_forecast": 30.90229999999998,
+  "forecast_change_pct": 0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

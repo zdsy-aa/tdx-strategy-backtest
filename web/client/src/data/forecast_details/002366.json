@@ -1,0 +1,13 @@
+{
+  "code": "002366",
+  "name": "融发核电",
+  "latest_close": 8.41,
+  "kalman_price": 8.617590626164437,
+  "particle_price": 8.458201265938673,
+  "market_state": 2,
+  "ensemble_forecast": 8.3153,
+  "forecast_change_pct": -1.13,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

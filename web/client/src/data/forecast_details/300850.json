@@ -1,0 +1,13 @@
+{
+  "code": "300850",
+  "name": "新强联",
+  "latest_close": 42.95,
+  "kalman_price": 43.84189141357077,
+  "particle_price": 43.309095088339205,
+  "market_state": 0,
+  "ensemble_forecast": 42.49119999999997,
+  "forecast_change_pct": -1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000595",
+  "name": "*ST宝实",
+  "latest_close": 6.24,
+  "kalman_price": 6.1858096154710145,
+  "particle_price": 6.232851191641925,
+  "market_state": 0,
+  "ensemble_forecast": 6.337399999999994,
+  "forecast_change_pct": 1.56,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

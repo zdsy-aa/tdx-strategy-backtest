@@ -1,0 +1,13 @@
+{
+  "code": "688137",
+  "name": "近岸蛋白",
+  "latest_close": 42.51,
+  "kalman_price": 42.27757119235596,
+  "particle_price": 42.393265928707834,
+  "market_state": 2,
+  "ensemble_forecast": 49.8608,
+  "forecast_change_pct": 17.29,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

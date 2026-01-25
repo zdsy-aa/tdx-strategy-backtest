@@ -1,0 +1,13 @@
+{
+  "code": "300427",
+  "name": "红相股份",
+  "latest_close": 12.8,
+  "kalman_price": 12.949232054659479,
+  "particle_price": 12.812130868807827,
+  "market_state": 0,
+  "ensemble_forecast": 12.503300000000001,
+  "forecast_change_pct": -2.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

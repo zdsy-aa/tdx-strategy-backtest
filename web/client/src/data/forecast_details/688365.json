@@ -1,0 +1,13 @@
+{
+  "code": "688365",
+  "name": "光云科技",
+  "latest_close": 25.31,
+  "kalman_price": 22.26225567261925,
+  "particle_price": 17.981904005918917,
+  "market_state": 1,
+  "ensemble_forecast": 26.70559999999999,
+  "forecast_change_pct": 5.51,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

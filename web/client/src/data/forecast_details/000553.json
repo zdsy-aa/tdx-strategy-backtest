@@ -1,0 +1,13 @@
+{
+  "code": "000553",
+  "name": "安道麦A",
+  "latest_close": 5.67,
+  "kalman_price": 5.6072454498590565,
+  "particle_price": 5.676748701123032,
+  "market_state": 0,
+  "ensemble_forecast": 5.6480000000000015,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

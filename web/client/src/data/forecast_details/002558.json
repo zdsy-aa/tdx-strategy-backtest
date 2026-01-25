@@ -1,0 +1,13 @@
+{
+  "code": "002558",
+  "name": "巨人网络",
+  "latest_close": 48.91,
+  "kalman_price": 47.283811080297056,
+  "particle_price": 45.14006390955947,
+  "market_state": 0,
+  "ensemble_forecast": 48.69659999999997,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

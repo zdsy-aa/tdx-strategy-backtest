@@ -1,0 +1,13 @@
+{
+  "code": "688367",
+  "name": "工大高科",
+  "latest_close": 31.11,
+  "kalman_price": 31.317196566513292,
+  "particle_price": 31.085521649790117,
+  "market_state": 0,
+  "ensemble_forecast": 30.826,
+  "forecast_change_pct": -0.91,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

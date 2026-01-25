@@ -1,0 +1,13 @@
+{
+  "code": "600747",
+  "name": "退市大控",
+  "latest_close": 0.24,
+  "kalman_price": 0.24887241003890373,
+  "particle_price": 0.23722793586432211,
+  "market_state": 2,
+  "ensemble_forecast": 0.2445999999999998,
+  "forecast_change_pct": 1.92,
+  "confidence": 0.85,
+  "analysis_date": "2019-12-06",
+  "forecast_date": "2019-12-09"
+}

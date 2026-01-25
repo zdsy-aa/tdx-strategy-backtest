@@ -1,0 +1,13 @@
+{
+  "code": "000881",
+  "name": "中广核技",
+  "latest_close": 9.08,
+  "kalman_price": 9.201464080551647,
+  "particle_price": 9.103712214057335,
+  "market_state": 2,
+  "ensemble_forecast": 8.960199999999999,
+  "forecast_change_pct": -1.32,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

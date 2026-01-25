@@ -1,0 +1,13 @@
+{
+  "code": "300707",
+  "name": "威唐工业",
+  "latest_close": 16.97,
+  "kalman_price": 16.85689072801508,
+  "particle_price": 16.939227563416303,
+  "market_state": 1,
+  "ensemble_forecast": 16.861500000000007,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "605033",
+  "name": "美邦股份",
+  "latest_close": 20.19,
+  "kalman_price": 20.234694950421265,
+  "particle_price": 20.18133221054924,
+  "market_state": 2,
+  "ensemble_forecast": 20.04210000000001,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

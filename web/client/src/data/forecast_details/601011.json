@@ -1,0 +1,13 @@
+{
+  "code": "601011",
+  "name": "宝泰隆",
+  "latest_close": 3.44,
+  "kalman_price": 3.4422221502128507,
+  "particle_price": 3.4377262418369585,
+  "market_state": 0,
+  "ensemble_forecast": 3.4238000000000013,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

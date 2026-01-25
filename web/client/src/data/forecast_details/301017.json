@@ -1,0 +1,13 @@
+{
+  "code": "301017",
+  "name": "漱玉平民",
+  "latest_close": 16.95,
+  "kalman_price": 16.467532077465115,
+  "particle_price": 16.920157842792023,
+  "market_state": 2,
+  "ensemble_forecast": 19.02130000000001,
+  "forecast_change_pct": 12.22,
+  "confidence": 0.65,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

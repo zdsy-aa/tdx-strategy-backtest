@@ -3,10 +3,11 @@
   "name": "退市银鸽",
   "latest_close": 0.26,
   "kalman_price": 0.26058700097641735,
-  "particle_price": 0.26539110264955224,
-  "market_state": 2,
-  "ensemble_forecast": 0.25470000000000037,
-  "forecast_change_pct": -2.04,
+  "particle_price": 0.2731820487428902,
+  "market_state": 0,
+  "ensemble_forecast": 0.25570000000000037,
+  "forecast_change_pct": -1.65,
   "confidence": 0.85,
-  "analysis_date": "2020-08-20"
+  "analysis_date": "2020-08-20",
+  "forecast_date": "2020-08-21"
 }

@@ -1,0 +1,13 @@
+{
+  "code": "002364",
+  "name": "中恒电气",
+  "latest_close": 32.33,
+  "kalman_price": 31.79878622830811,
+  "particle_price": 27.973728762019945,
+  "market_state": 2,
+  "ensemble_forecast": 31.633999999999965,
+  "forecast_change_pct": -2.15,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002741",
+  "name": "光华科技",
+  "latest_close": 21.14,
+  "kalman_price": 21.36344628947094,
+  "particle_price": 21.123717560628872,
+  "market_state": 1,
+  "ensemble_forecast": 20.85289999999999,
+  "forecast_change_pct": -1.36,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

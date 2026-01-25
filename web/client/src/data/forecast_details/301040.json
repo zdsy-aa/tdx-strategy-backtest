@@ -1,0 +1,13 @@
+{
+  "code": "301040",
+  "name": "中环海陆",
+  "latest_close": 29.81,
+  "kalman_price": 30.146264515790126,
+  "particle_price": 30.066598033679956,
+  "market_state": 0,
+  "ensemble_forecast": 29.69970000000002,
+  "forecast_change_pct": -0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301373",
+  "name": "凌玮科技",
+  "latest_close": 33.88,
+  "kalman_price": 34.096346793441185,
+  "particle_price": 33.906579681993264,
+  "market_state": 0,
+  "ensemble_forecast": 33.24680000000003,
+  "forecast_change_pct": -1.87,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

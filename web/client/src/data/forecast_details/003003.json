@@ -1,0 +1,13 @@
+{
+  "code": "003003",
+  "name": "天元股份",
+  "latest_close": 13.25,
+  "kalman_price": 13.307278466219877,
+  "particle_price": 13.260257620752173,
+  "market_state": 0,
+  "ensemble_forecast": 13.322099999999994,
+  "forecast_change_pct": 0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

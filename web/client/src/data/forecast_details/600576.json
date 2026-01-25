@@ -1,0 +1,13 @@
+{
+  "code": "600576",
+  "name": "祥源文旅",
+  "latest_close": 6.58,
+  "kalman_price": 6.604974972661157,
+  "particle_price": 6.565922909879376,
+  "market_state": 1,
+  "ensemble_forecast": 6.5163,
+  "forecast_change_pct": -0.97,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

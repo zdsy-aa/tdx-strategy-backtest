@@ -1,0 +1,13 @@
+{
+  "code": "301153",
+  "name": "中科江南",
+  "latest_close": 25.38,
+  "kalman_price": 25.60403588826049,
+  "particle_price": 25.181324214830536,
+  "market_state": 2,
+  "ensemble_forecast": 25.65260000000001,
+  "forecast_change_pct": 1.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

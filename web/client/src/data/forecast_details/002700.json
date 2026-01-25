@@ -1,0 +1,13 @@
+{
+  "code": "002700",
+  "name": "万憬能源",
+  "latest_close": 6.96,
+  "kalman_price": 6.97242750595368,
+  "particle_price": 6.952402704089855,
+  "market_state": 0,
+  "ensemble_forecast": 6.9512,
+  "forecast_change_pct": -0.13,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

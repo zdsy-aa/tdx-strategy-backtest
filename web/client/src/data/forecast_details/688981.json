@@ -1,0 +1,13 @@
+{
+  "code": "688981",
+  "name": "中芯国际",
+  "latest_close": 125.06,
+  "kalman_price": 127.54958176470365,
+  "particle_price": 117.9467628285893,
+  "market_state": 2,
+  "ensemble_forecast": 123.20960000000008,
+  "forecast_change_pct": -1.48,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002578",
+  "name": "闽发铝业",
+  "latest_close": 4.45,
+  "kalman_price": 4.488567364781871,
+  "particle_price": 4.460613363933713,
+  "market_state": 2,
+  "ensemble_forecast": 4.415800000000003,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

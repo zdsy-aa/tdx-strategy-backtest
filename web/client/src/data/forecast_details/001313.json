@@ -1,0 +1,13 @@
+{
+  "code": "001313",
+  "name": "粤海饲料",
+  "latest_close": 7.28,
+  "kalman_price": 7.213907134787846,
+  "particle_price": 7.274344221645073,
+  "market_state": 0,
+  "ensemble_forecast": 7.240599999999997,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

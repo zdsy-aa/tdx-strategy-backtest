@@ -1,0 +1,13 @@
+{
+  "code": "688331",
+  "name": "荣昌生物",
+  "latest_close": 104.0,
+  "kalman_price": 97.92150425473223,
+  "particle_price": 81.4440013937394,
+  "market_state": 2,
+  "ensemble_forecast": 103.7677,
+  "forecast_change_pct": -0.22,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

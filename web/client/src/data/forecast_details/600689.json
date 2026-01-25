@@ -1,0 +1,13 @@
+{
+  "code": "600689",
+  "name": "上海三毛",
+  "latest_close": 13.73,
+  "kalman_price": 13.66116478626797,
+  "particle_price": 13.736811397775616,
+  "market_state": 0,
+  "ensemble_forecast": 13.771700000000003,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

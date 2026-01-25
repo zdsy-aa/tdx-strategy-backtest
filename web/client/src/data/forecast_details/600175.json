@@ -1,0 +1,13 @@
+{
+  "code": "600175",
+  "name": "退市美都",
+  "latest_close": 0.19,
+  "kalman_price": 0.19142286680450626,
+  "particle_price": 0.19115895997750115,
+  "market_state": 2,
+  "ensemble_forecast": 0.1881,
+  "forecast_change_pct": -1.0,
+  "confidence": 0.85,
+  "analysis_date": "2020-08-07",
+  "forecast_date": "2020-08-10"
+}

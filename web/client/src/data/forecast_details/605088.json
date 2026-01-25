@@ -1,0 +1,13 @@
+{
+  "code": "605088",
+  "name": "冠盛股份",
+  "latest_close": 36.85,
+  "kalman_price": 37.327595185099504,
+  "particle_price": 36.84141740706232,
+  "market_state": 2,
+  "ensemble_forecast": 36.17550000000003,
+  "forecast_change_pct": -1.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

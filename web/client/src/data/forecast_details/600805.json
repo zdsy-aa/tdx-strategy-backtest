@@ -1,0 +1,13 @@
+{
+  "code": "600805",
+  "name": "悦达投资",
+  "latest_close": 5.75,
+  "kalman_price": 5.713163120312334,
+  "particle_price": 5.741978523510168,
+  "market_state": 2,
+  "ensemble_forecast": 5.6218,
+  "forecast_change_pct": -2.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

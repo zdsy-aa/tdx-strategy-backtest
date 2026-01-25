@@ -1,0 +1,13 @@
+{
+  "code": "688755",
+  "name": "汉邦科技",
+  "latest_close": 42.6,
+  "kalman_price": 42.49987407749305,
+  "particle_price": 42.594440671273944,
+  "market_state": 2,
+  "ensemble_forecast": 42.24349999999998,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600836",
+  "name": "*ST易连",
+  "latest_close": 0.45,
+  "kalman_price": 0.43886314995563663,
+  "particle_price": 0.4555563949792125,
+  "market_state": 1,
+  "ensemble_forecast": 0.46080000000000043,
+  "forecast_change_pct": 2.4,
+  "confidence": 0.85,
+  "analysis_date": "2024-06-17",
+  "forecast_date": "2024-06-18"
+}

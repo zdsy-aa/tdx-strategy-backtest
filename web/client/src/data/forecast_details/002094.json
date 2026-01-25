@@ -1,0 +1,13 @@
+{
+  "code": "002094",
+  "name": "青岛金王",
+  "latest_close": 7.75,
+  "kalman_price": 7.6783802972327715,
+  "particle_price": 7.7175620117117845,
+  "market_state": 0,
+  "ensemble_forecast": 7.759000000000001,
+  "forecast_change_pct": 0.12,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

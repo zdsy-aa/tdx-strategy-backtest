@@ -1,0 +1,13 @@
+{
+  "code": "920454",
+  "name": "同心传动",
+  "latest_close": 17.18,
+  "kalman_price": 16.908443931505264,
+  "particle_price": 17.117994795512338,
+  "market_state": 2,
+  "ensemble_forecast": 17.243600000000004,
+  "forecast_change_pct": 0.37,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002519",
+  "name": "银河电子",
+  "latest_close": 10.32,
+  "kalman_price": 10.832970428439197,
+  "particle_price": 10.315641665720591,
+  "market_state": 1,
+  "ensemble_forecast": 10.278999999999996,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

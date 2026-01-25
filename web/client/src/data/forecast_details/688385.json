@@ -1,0 +1,13 @@
+{
+  "code": "688385",
+  "name": "复旦微电",
+  "latest_close": 87.49,
+  "kalman_price": 88.60974899960094,
+  "particle_price": 64.54890292736886,
+  "market_state": 0,
+  "ensemble_forecast": 87.1167,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

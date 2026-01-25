@@ -1,0 +1,13 @@
+{
+  "code": "600419",
+  "name": "天润乳业",
+  "latest_close": 9.98,
+  "kalman_price": 9.898252295539525,
+  "particle_price": 9.990536814870904,
+  "market_state": 0,
+  "ensemble_forecast": 10.00920000000001,
+  "forecast_change_pct": 0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

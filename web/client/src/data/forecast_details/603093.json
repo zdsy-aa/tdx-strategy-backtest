@@ -1,0 +1,13 @@
+{
+  "code": "603093",
+  "name": "南华期货",
+  "latest_close": 19.8,
+  "kalman_price": 19.843079944906023,
+  "particle_price": 19.779897300672772,
+  "market_state": 0,
+  "ensemble_forecast": 19.68780000000001,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

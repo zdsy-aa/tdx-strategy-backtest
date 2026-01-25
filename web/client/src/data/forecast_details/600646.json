@@ -1,0 +1,13 @@
+{
+  "code": "600646",
+  "name": "ST国嘉",
+  "latest_close": 5.35,
+  "kalman_price": 5.187280929975359,
+  "particle_price": 5.290777134900841,
+  "market_state": 0,
+  "ensemble_forecast": 5.528500000000001,
+  "forecast_change_pct": 3.34,
+  "confidence": 0.85,
+  "analysis_date": "2003-04-29",
+  "forecast_date": "2003-04-30"
+}

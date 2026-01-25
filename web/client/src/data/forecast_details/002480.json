@@ -1,0 +1,13 @@
+{
+  "code": "002480",
+  "name": "新筑股份",
+  "latest_close": 6.25,
+  "kalman_price": 6.2793415992829384,
+  "particle_price": 6.259539839602314,
+  "market_state": 1,
+  "ensemble_forecast": 6.220200000000002,
+  "forecast_change_pct": -0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

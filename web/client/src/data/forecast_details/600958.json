@@ -1,0 +1,13 @@
+{
+  "code": "600958",
+  "name": "东方证券",
+  "latest_close": 10.97,
+  "kalman_price": 10.927898743971594,
+  "particle_price": 10.953162765495588,
+  "market_state": 2,
+  "ensemble_forecast": 11.028499999999992,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

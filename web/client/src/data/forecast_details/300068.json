@@ -1,0 +1,13 @@
+{
+  "code": "300068",
+  "name": "南都电源",
+  "latest_close": 16.55,
+  "kalman_price": 16.485380390795644,
+  "particle_price": 16.52273464737064,
+  "market_state": 2,
+  "ensemble_forecast": 15.246099999999995,
+  "forecast_change_pct": -7.88,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

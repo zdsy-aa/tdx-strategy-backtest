@@ -1,0 +1,13 @@
+{
+  "code": "603182",
+  "name": "嘉华股份",
+  "latest_close": 15.62,
+  "kalman_price": 15.547270735374024,
+  "particle_price": 15.61029025065341,
+  "market_state": 2,
+  "ensemble_forecast": 15.465899999999998,
+  "forecast_change_pct": -0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

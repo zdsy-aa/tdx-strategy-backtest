@@ -1,0 +1,13 @@
+{
+  "code": "002178",
+  "name": "延华智能",
+  "latest_close": 6.79,
+  "kalman_price": 6.737339456451509,
+  "particle_price": 6.78625105358029,
+  "market_state": 1,
+  "ensemble_forecast": 6.748899999999997,
+  "forecast_change_pct": -0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

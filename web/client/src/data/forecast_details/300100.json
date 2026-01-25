@@ -1,0 +1,13 @@
+{
+  "code": "300100",
+  "name": "双林股份",
+  "latest_close": 39.85,
+  "kalman_price": 39.92172935759168,
+  "particle_price": 39.87760424109352,
+  "market_state": 1,
+  "ensemble_forecast": 39.57500000000001,
+  "forecast_change_pct": -0.69,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

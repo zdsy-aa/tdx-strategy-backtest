@@ -1,0 +1,13 @@
+{
+  "code": "603238",
+  "name": "诺邦股份",
+  "latest_close": 17.76,
+  "kalman_price": 17.69341486119353,
+  "particle_price": 17.75689270624664,
+  "market_state": 1,
+  "ensemble_forecast": 17.608100000000007,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688312",
+  "name": "燕麦科技",
+  "latest_close": 34.78,
+  "kalman_price": 34.76401972674212,
+  "particle_price": 34.7211794993175,
+  "market_state": 2,
+  "ensemble_forecast": 34.1752,
+  "forecast_change_pct": -1.74,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

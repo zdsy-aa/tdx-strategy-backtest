@@ -1,0 +1,13 @@
+{
+  "code": "301026",
+  "name": "浩通科技",
+  "latest_close": 31.75,
+  "kalman_price": 31.846965660556645,
+  "particle_price": 31.63409963029087,
+  "market_state": 2,
+  "ensemble_forecast": 30.819599999999983,
+  "forecast_change_pct": -2.93,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

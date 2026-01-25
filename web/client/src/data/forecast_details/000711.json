@@ -1,0 +1,13 @@
+{
+  "code": "000711",
+  "name": "ST京蓝",
+  "latest_close": 1.7,
+  "kalman_price": 1.6939639856479707,
+  "particle_price": 1.7014496852420644,
+  "market_state": 2,
+  "ensemble_forecast": 1.7118999999999993,
+  "forecast_change_pct": 0.7,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

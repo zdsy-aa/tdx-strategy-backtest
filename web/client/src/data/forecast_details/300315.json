@@ -1,0 +1,13 @@
+{
+  "code": "300315",
+  "name": "掌趣科技",
+  "latest_close": 5.7,
+  "kalman_price": 5.5606636362405615,
+  "particle_price": 5.67354040851921,
+  "market_state": 2,
+  "ensemble_forecast": 5.803400000000002,
+  "forecast_change_pct": 1.81,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

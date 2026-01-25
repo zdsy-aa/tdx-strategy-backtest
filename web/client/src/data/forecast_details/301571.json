@@ -1,0 +1,13 @@
+{
+  "code": "301571",
+  "name": "国科天成",
+  "latest_close": 60.66,
+  "kalman_price": 60.18483933983062,
+  "particle_price": 55.45512395738964,
+  "market_state": 1,
+  "ensemble_forecast": 59.64829999999996,
+  "forecast_change_pct": -1.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

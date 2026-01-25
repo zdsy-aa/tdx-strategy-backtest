@@ -1,0 +1,13 @@
+{
+  "code": "688719",
+  "name": "爱科赛博",
+  "latest_close": 50.0,
+  "kalman_price": 49.320167585377305,
+  "particle_price": 44.981519451264525,
+  "market_state": 2,
+  "ensemble_forecast": 48.01100000000007,
+  "forecast_change_pct": -3.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

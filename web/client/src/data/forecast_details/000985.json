@@ -1,0 +1,13 @@
+{
+  "code": "000985",
+  "name": "大庆华科",
+  "latest_close": 19.99,
+  "kalman_price": 19.765748954869743,
+  "particle_price": 19.900831454990907,
+  "market_state": 0,
+  "ensemble_forecast": 20.1896,
+  "forecast_change_pct": 1.0,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

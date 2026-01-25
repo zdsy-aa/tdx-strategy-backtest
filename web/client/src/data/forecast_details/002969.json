@@ -1,0 +1,13 @@
+{
+  "code": "002969",
+  "name": "嘉美包装",
+  "latest_close": 16.55,
+  "kalman_price": 16.351779628035587,
+  "particle_price": 12.769041731723778,
+  "market_state": 2,
+  "ensemble_forecast": 15.88969999999998,
+  "forecast_change_pct": -3.99,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603587",
+  "name": "地素时尚",
+  "latest_close": 13.15,
+  "kalman_price": 13.054699050250065,
+  "particle_price": 13.144027249540523,
+  "market_state": 2,
+  "ensemble_forecast": 13.052100000000006,
+  "forecast_change_pct": -0.74,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

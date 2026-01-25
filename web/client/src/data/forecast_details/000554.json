@@ -1,0 +1,13 @@
+{
+  "code": "000554",
+  "name": "泰山石油",
+  "latest_close": 6.77,
+  "kalman_price": 6.723500820822434,
+  "particle_price": 6.7507924909564325,
+  "market_state": 0,
+  "ensemble_forecast": 6.674100000000003,
+  "forecast_change_pct": -1.42,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

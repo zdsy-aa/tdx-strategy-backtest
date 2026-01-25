@@ -1,0 +1,13 @@
+{
+  "code": "600930",
+  "name": "华电新能",
+  "latest_close": 6.34,
+  "kalman_price": 6.335530117149679,
+  "particle_price": 6.32188231860386,
+  "market_state": 2,
+  "ensemble_forecast": 6.329200000000004,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

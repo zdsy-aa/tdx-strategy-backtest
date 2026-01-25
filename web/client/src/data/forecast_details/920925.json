@@ -1,0 +1,13 @@
+{
+  "code": "920925",
+  "name": "锦好医疗",
+  "latest_close": 26.2,
+  "kalman_price": 25.639571972753462,
+  "particle_price": 30.429814846058083,
+  "market_state": 2,
+  "ensemble_forecast": 26.3781,
+  "forecast_change_pct": 0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

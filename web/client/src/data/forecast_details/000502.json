@@ -1,0 +1,13 @@
+{
+  "code": "000502",
+  "name": "绿景退",
+  "latest_close": 0.59,
+  "kalman_price": 0.6069948453252693,
+  "particle_price": 0.5795830407134099,
+  "market_state": 2,
+  "ensemble_forecast": 0.5902,
+  "forecast_change_pct": 0.03,
+  "confidence": 0.95,
+  "analysis_date": "2022-06-24",
+  "forecast_date": "2022-06-27"
+}

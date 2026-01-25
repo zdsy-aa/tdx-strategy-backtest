@@ -1,0 +1,13 @@
+{
+  "code": "002776",
+  "name": "*ST柏龙",
+  "latest_close": 0.4,
+  "kalman_price": 0.38966372403937516,
+  "particle_price": 0.40059212363018737,
+  "market_state": 2,
+  "ensemble_forecast": 0.42569999999999986,
+  "forecast_change_pct": 6.42,
+  "confidence": 0.75,
+  "analysis_date": "2023-12-26",
+  "forecast_date": "2023-12-27"
+}

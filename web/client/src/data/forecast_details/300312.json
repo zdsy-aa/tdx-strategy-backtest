@@ -1,0 +1,13 @@
+{
+  "code": "300312",
+  "name": "邦讯退",
+  "latest_close": 0.28,
+  "kalman_price": 0.31021269976226123,
+  "particle_price": 0.29080855777485426,
+  "market_state": 2,
+  "ensemble_forecast": 0.3694000000000001,
+  "forecast_change_pct": 31.93,
+  "confidence": 0.65,
+  "analysis_date": "2022-07-01",
+  "forecast_date": "2022-07-04"
+}

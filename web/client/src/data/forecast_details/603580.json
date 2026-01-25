@@ -1,0 +1,13 @@
+{
+  "code": "603580",
+  "name": "*ST艾艾",
+  "latest_close": 16.0,
+  "kalman_price": 16.148212587617433,
+  "particle_price": 15.997774908926049,
+  "market_state": 0,
+  "ensemble_forecast": 16.116399999999988,
+  "forecast_change_pct": 0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

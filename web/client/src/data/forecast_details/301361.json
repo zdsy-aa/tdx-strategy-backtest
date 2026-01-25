@@ -1,0 +1,13 @@
+{
+  "code": "301361",
+  "name": "众智科技",
+  "latest_close": 34.91,
+  "kalman_price": 34.89717695491025,
+  "particle_price": 34.89649556921624,
+  "market_state": 0,
+  "ensemble_forecast": 34.36739999999997,
+  "forecast_change_pct": -1.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

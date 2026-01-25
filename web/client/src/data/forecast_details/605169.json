@@ -1,0 +1,13 @@
+{
+  "code": "605169",
+  "name": "洪通燃气",
+  "latest_close": 13.54,
+  "kalman_price": 13.546908874986505,
+  "particle_price": 13.542327903138078,
+  "market_state": 0,
+  "ensemble_forecast": 13.614199999999988,
+  "forecast_change_pct": 0.55,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

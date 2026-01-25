@@ -1,0 +1,13 @@
+{
+  "code": "603030",
+  "name": "全筑股份",
+  "latest_close": 2.98,
+  "kalman_price": 2.9755713047417145,
+  "particle_price": 2.9787927585376157,
+  "market_state": 1,
+  "ensemble_forecast": 2.9680999999999993,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

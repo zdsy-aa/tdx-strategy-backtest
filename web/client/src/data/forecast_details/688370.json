@@ -1,0 +1,13 @@
+{
+  "code": "688370",
+  "name": "丛麟科技",
+  "latest_close": 27.02,
+  "kalman_price": 27.058958664687516,
+  "particle_price": 26.973419165850533,
+  "market_state": 1,
+  "ensemble_forecast": 26.894899999999986,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

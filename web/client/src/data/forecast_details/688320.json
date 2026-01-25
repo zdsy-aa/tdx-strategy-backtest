@@ -1,0 +1,13 @@
+{
+  "code": "688320",
+  "name": "禾川科技",
+  "latest_close": 37.0,
+  "kalman_price": 37.09530080950026,
+  "particle_price": 36.968207072419865,
+  "market_state": 0,
+  "ensemble_forecast": 36.86000000000001,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

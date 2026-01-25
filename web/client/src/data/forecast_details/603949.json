@@ -1,0 +1,13 @@
+{
+  "code": "603949",
+  "name": "雪龙集团",
+  "latest_close": 18.8,
+  "kalman_price": 18.620525997404652,
+  "particle_price": 18.77523547981582,
+  "market_state": 1,
+  "ensemble_forecast": 18.719800000000006,
+  "forecast_change_pct": -0.43,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

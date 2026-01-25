@@ -1,0 +1,13 @@
+{
+  "code": "605296",
+  "name": "神农集团",
+  "latest_close": 28.86,
+  "kalman_price": 28.85244201156999,
+  "particle_price": 28.858402536680764,
+  "market_state": 2,
+  "ensemble_forecast": 28.553300000000004,
+  "forecast_change_pct": -1.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

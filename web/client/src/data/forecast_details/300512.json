@@ -1,0 +1,13 @@
+{
+  "code": "300512",
+  "name": "中亚股份",
+  "latest_close": 9.53,
+  "kalman_price": 9.44734431567375,
+  "particle_price": 9.537118595898578,
+  "market_state": 2,
+  "ensemble_forecast": 9.515199999999988,
+  "forecast_change_pct": -0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

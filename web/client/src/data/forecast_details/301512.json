@@ -1,0 +1,13 @@
+{
+  "code": "301512",
+  "name": "智信精密",
+  "latest_close": 46.21,
+  "kalman_price": 46.54988275456452,
+  "particle_price": 46.21076219920723,
+  "market_state": 2,
+  "ensemble_forecast": 46.61289999999996,
+  "forecast_change_pct": 0.87,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

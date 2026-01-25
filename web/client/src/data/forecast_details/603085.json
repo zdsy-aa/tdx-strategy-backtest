@@ -1,0 +1,13 @@
+{
+  "code": "603085",
+  "name": "天成自控",
+  "latest_close": 12.14,
+  "kalman_price": 12.273696945839742,
+  "particle_price": 12.152462008756494,
+  "market_state": 2,
+  "ensemble_forecast": 11.952099999999994,
+  "forecast_change_pct": -1.55,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

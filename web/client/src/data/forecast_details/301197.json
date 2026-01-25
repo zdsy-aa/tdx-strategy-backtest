@@ -1,0 +1,13 @@
+{
+  "code": "301197",
+  "name": "工大科雅",
+  "latest_close": 21.15,
+  "kalman_price": 21.085066916183944,
+  "particle_price": 21.106042076283043,
+  "market_state": 0,
+  "ensemble_forecast": 21.078600000000005,
+  "forecast_change_pct": -0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002161",
+  "name": "远 望 谷",
+  "latest_close": 7.89,
+  "kalman_price": 7.769200042992805,
+  "particle_price": 7.86037375522227,
+  "market_state": 2,
+  "ensemble_forecast": 7.798000000000002,
+  "forecast_change_pct": -1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301631",
+  "name": "壹连科技",
+  "latest_close": 103.5,
+  "kalman_price": 103.01871847985315,
+  "particle_price": 103.58230450682582,
+  "market_state": 0,
+  "ensemble_forecast": 102.71700000000004,
+  "forecast_change_pct": -0.76,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

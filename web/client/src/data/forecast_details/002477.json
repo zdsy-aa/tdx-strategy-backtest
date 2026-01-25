@@ -1,0 +1,13 @@
+{
+  "code": "002477",
+  "name": "雏鹰退",
+  "latest_close": 0.17,
+  "kalman_price": 0.1571867378367502,
+  "particle_price": 0.14492526386497998,
+  "market_state": 2,
+  "ensemble_forecast": 0.16260000000000008,
+  "forecast_change_pct": -4.35,
+  "confidence": 0.85,
+  "analysis_date": "2019-10-15",
+  "forecast_date": "2019-10-16"
+}

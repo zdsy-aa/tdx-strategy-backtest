@@ -1,0 +1,13 @@
+{
+  "code": "001228",
+  "name": "永泰运",
+  "latest_close": 26.26,
+  "kalman_price": 26.197200976336642,
+  "particle_price": 26.249417436167843,
+  "market_state": 1,
+  "ensemble_forecast": 26.251499999999993,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920856",
+  "name": "浩淼科技",
+  "latest_close": 18.0,
+  "kalman_price": 17.65278041391194,
+  "particle_price": 17.892062185597762,
+  "market_state": 1,
+  "ensemble_forecast": 16.684600000000003,
+  "forecast_change_pct": -7.31,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

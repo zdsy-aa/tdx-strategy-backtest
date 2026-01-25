@@ -1,0 +1,13 @@
+{
+  "code": "301398",
+  "name": "星源卓镁",
+  "latest_close": 58.98,
+  "kalman_price": 60.07439253365829,
+  "particle_price": 54.88562590489596,
+  "market_state": 1,
+  "ensemble_forecast": 58.751400000000004,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688793",
+  "name": "倍轻松",
+  "latest_close": 23.58,
+  "kalman_price": 23.321574247200402,
+  "particle_price": 23.563751767760007,
+  "market_state": 1,
+  "ensemble_forecast": 23.377899999999986,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

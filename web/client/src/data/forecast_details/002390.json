@@ -1,0 +1,13 @@
+{
+  "code": "002390",
+  "name": "信邦制药",
+  "latest_close": 3.33,
+  "kalman_price": 3.299531519369849,
+  "particle_price": 3.3244867664684956,
+  "market_state": 0,
+  "ensemble_forecast": 3.353699999999998,
+  "forecast_change_pct": 0.71,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

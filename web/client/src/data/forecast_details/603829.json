@@ -1,0 +1,13 @@
+{
+  "code": "603829",
+  "name": "洛凯股份",
+  "latest_close": 22.77,
+  "kalman_price": 22.67922863420661,
+  "particle_price": 22.818273329556924,
+  "market_state": 0,
+  "ensemble_forecast": 22.394199999999984,
+  "forecast_change_pct": -1.65,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002656",
+  "name": "*ST摩登",
+  "latest_close": 2.66,
+  "kalman_price": 2.6610111380954624,
+  "particle_price": 2.6828113921543744,
+  "market_state": 0,
+  "ensemble_forecast": 2.635799999999999,
+  "forecast_change_pct": -0.91,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

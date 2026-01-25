@@ -1,0 +1,13 @@
+{
+  "code": "605500",
+  "name": "森林包装",
+  "latest_close": 8.89,
+  "kalman_price": 8.856120578235421,
+  "particle_price": 8.887664992933416,
+  "market_state": 0,
+  "ensemble_forecast": 8.866600000000002,
+  "forecast_change_pct": -0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

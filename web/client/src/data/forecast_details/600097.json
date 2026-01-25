@@ -3,10 +3,11 @@
   "name": "开创国际",
   "latest_close": 11.75,
   "kalman_price": 11.7065596406775,
-  "particle_price": 11.738505571147089,
-  "market_state": 0,
-  "ensemble_forecast": 11.687299999999999,
-  "forecast_change_pct": -0.53,
+  "particle_price": 11.750712057044586,
+  "market_state": 1,
+  "ensemble_forecast": 11.6903,
+  "forecast_change_pct": -0.51,
   "confidence": 0.95,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

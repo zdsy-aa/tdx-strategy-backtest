@@ -1,0 +1,13 @@
+{
+  "code": "003041",
+  "name": "真爱美家",
+  "latest_close": 66.66,
+  "kalman_price": 63.149517970441984,
+  "particle_price": 44.697975187294276,
+  "market_state": 2,
+  "ensemble_forecast": 63.507899999999935,
+  "forecast_change_pct": -4.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

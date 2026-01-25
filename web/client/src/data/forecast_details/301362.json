@@ -1,0 +1,13 @@
+{
+  "code": "301362",
+  "name": "民爆光电",
+  "latest_close": 43.14,
+  "kalman_price": 42.85117414441127,
+  "particle_price": 43.10912536994736,
+  "market_state": 0,
+  "ensemble_forecast": 43.29390000000002,
+  "forecast_change_pct": 0.36,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

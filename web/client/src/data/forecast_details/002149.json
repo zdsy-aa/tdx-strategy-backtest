@@ -1,0 +1,13 @@
+{
+  "code": "002149",
+  "name": "西部材料",
+  "latest_close": 46.45,
+  "kalman_price": 48.518542062239305,
+  "particle_price": 22.980151763642507,
+  "market_state": 2,
+  "ensemble_forecast": 47.101200000000006,
+  "forecast_change_pct": 1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

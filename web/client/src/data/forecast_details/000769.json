@@ -1,0 +1,13 @@
+{
+  "code": "000769",
+  "name": "*ST大菲",
+  "latest_close": 0.9,
+  "kalman_price": 0.8346349499596898,
+  "particle_price": 0.8899150966746188,
+  "market_state": 2,
+  "ensemble_forecast": 0.8852999999999999,
+  "forecast_change_pct": -1.63,
+  "confidence": 0.85,
+  "analysis_date": "2005-04-29",
+  "forecast_date": "2005-05-02"
+}

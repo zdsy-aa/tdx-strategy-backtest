@@ -1,0 +1,13 @@
+{
+  "code": "600798",
+  "name": "宁波海运",
+  "latest_close": 3.61,
+  "kalman_price": 3.5966265591567725,
+  "particle_price": 3.606347484934055,
+  "market_state": 1,
+  "ensemble_forecast": 3.6205999999999987,
+  "forecast_change_pct": 0.29,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688668",
+  "name": "鼎通科技",
+  "latest_close": 108.25,
+  "kalman_price": 109.37006342973015,
+  "particle_price": 95.68019125230725,
+  "market_state": 0,
+  "ensemble_forecast": 105.5042,
+  "forecast_change_pct": -2.54,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

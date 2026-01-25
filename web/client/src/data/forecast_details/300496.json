@@ -1,0 +1,13 @@
+{
+  "code": "300496",
+  "name": "中科创达",
+  "latest_close": 82.58,
+  "kalman_price": 78.61000747367862,
+  "particle_price": 68.33405652416488,
+  "market_state": 0,
+  "ensemble_forecast": 82.7676,
+  "forecast_change_pct": 0.23,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

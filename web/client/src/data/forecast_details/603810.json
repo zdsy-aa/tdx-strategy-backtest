@@ -1,0 +1,13 @@
+{
+  "code": "603810",
+  "name": "丰山集团",
+  "latest_close": 15.77,
+  "kalman_price": 15.781388895310107,
+  "particle_price": 15.758273687503134,
+  "market_state": 2,
+  "ensemble_forecast": 15.737600000000004,
+  "forecast_change_pct": -0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

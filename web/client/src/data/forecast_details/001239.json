@@ -1,0 +1,13 @@
+{
+  "code": "001239",
+  "name": "永达股份",
+  "latest_close": 16.33,
+  "kalman_price": 16.346251915074323,
+  "particle_price": 16.33661607937126,
+  "market_state": 1,
+  "ensemble_forecast": 16.328800000000005,
+  "forecast_change_pct": -0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

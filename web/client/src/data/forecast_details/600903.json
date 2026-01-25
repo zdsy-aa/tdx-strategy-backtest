@@ -1,0 +1,13 @@
+{
+  "code": "600903",
+  "name": "贵州燃气",
+  "latest_close": 6.75,
+  "kalman_price": 6.736055163429778,
+  "particle_price": 6.730635542828355,
+  "market_state": 0,
+  "ensemble_forecast": 6.732800000000003,
+  "forecast_change_pct": -0.25,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

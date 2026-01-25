@@ -1,0 +1,13 @@
+{
+  "code": "600358",
+  "name": "ST联合",
+  "latest_close": 5.87,
+  "kalman_price": 5.921980428116268,
+  "particle_price": 5.864998089733647,
+  "market_state": 2,
+  "ensemble_forecast": 5.846199999999997,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

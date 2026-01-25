@@ -1,0 +1,13 @@
+{
+  "code": "605499",
+  "name": "东鹏饮料",
+  "latest_close": 271.0,
+  "kalman_price": 272.7633950585638,
+  "particle_price": 230.69319462630463,
+  "market_state": 1,
+  "ensemble_forecast": 270.51959999999997,
+  "forecast_change_pct": -0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

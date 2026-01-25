@@ -1,0 +1,13 @@
+{
+  "code": "000939",
+  "name": "凯迪退",
+  "latest_close": 0.14,
+  "kalman_price": 0.14015260700926616,
+  "particle_price": 0.1383752414185052,
+  "market_state": 0,
+  "ensemble_forecast": 0.1452000000000002,
+  "forecast_change_pct": 3.71,
+  "confidence": 0.85,
+  "analysis_date": "2020-12-16",
+  "forecast_date": "2020-12-17"
+}

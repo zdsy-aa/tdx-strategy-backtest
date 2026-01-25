@@ -1,0 +1,13 @@
+{
+  "code": "300441",
+  "name": "鲍斯股份",
+  "latest_close": 7.72,
+  "kalman_price": 7.74391882831334,
+  "particle_price": 7.721171134879068,
+  "market_state": 1,
+  "ensemble_forecast": 7.671800000000003,
+  "forecast_change_pct": -0.62,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

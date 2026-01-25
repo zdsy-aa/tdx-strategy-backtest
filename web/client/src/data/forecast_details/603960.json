@@ -1,0 +1,13 @@
+{
+  "code": "603960",
+  "name": "克来机电",
+  "latest_close": 20.34,
+  "kalman_price": 20.26241087012067,
+  "particle_price": 20.32737408097628,
+  "market_state": 1,
+  "ensemble_forecast": 20.304599999999997,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

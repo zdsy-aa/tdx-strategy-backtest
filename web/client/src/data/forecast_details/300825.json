@@ -1,0 +1,13 @@
+{
+  "code": "300825",
+  "name": "阿尔特",
+  "latest_close": 10.8,
+  "kalman_price": 11.02555655231812,
+  "particle_price": 10.814317635115925,
+  "market_state": 0,
+  "ensemble_forecast": 10.568400000000006,
+  "forecast_change_pct": -2.14,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

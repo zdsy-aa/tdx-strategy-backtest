@@ -1,0 +1,13 @@
+{
+  "code": "600316",
+  "name": "洪都航空",
+  "latest_close": 36.8,
+  "kalman_price": 37.800436732135196,
+  "particle_price": 36.55223983607189,
+  "market_state": 1,
+  "ensemble_forecast": 36.684599999999975,
+  "forecast_change_pct": -0.31,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

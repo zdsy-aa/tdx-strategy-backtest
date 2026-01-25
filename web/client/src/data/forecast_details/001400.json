@@ -1,0 +1,13 @@
+{
+  "code": "001400",
+  "name": "江顺科技",
+  "latest_close": 109.53,
+  "kalman_price": 109.22517332708935,
+  "particle_price": 67.54154013729433,
+  "market_state": 0,
+  "ensemble_forecast": 104.48249999999996,
+  "forecast_change_pct": -4.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

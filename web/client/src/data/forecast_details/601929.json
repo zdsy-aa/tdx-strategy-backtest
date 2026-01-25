@@ -1,0 +1,13 @@
+{
+  "code": "601929",
+  "name": "吉视传媒",
+  "latest_close": 4.0,
+  "kalman_price": 3.9236112420711167,
+  "particle_price": 3.999872280524541,
+  "market_state": 2,
+  "ensemble_forecast": 3.9783000000000004,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

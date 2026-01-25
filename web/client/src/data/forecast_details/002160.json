@@ -1,0 +1,13 @@
+{
+  "code": "002160",
+  "name": "常铝股份",
+  "latest_close": 5.71,
+  "kalman_price": 5.808118268545685,
+  "particle_price": 5.70837540585811,
+  "market_state": 0,
+  "ensemble_forecast": 5.682599999999997,
+  "forecast_change_pct": -0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

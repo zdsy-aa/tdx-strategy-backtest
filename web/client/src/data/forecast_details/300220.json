@@ -1,0 +1,13 @@
+{
+  "code": "300220",
+  "name": "金运激光",
+  "latest_close": 15.3,
+  "kalman_price": 15.166492541020446,
+  "particle_price": 15.26557079240192,
+  "market_state": 1,
+  "ensemble_forecast": 15.387300000000014,
+  "forecast_change_pct": 0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

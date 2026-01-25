@@ -1,0 +1,13 @@
+{
+  "code": "002502",
+  "name": "ST鼎龙",
+  "latest_close": 0.64,
+  "kalman_price": 0.6589051872294451,
+  "particle_price": 0.6530395914546239,
+  "market_state": 2,
+  "ensemble_forecast": 0.6725000000000005,
+  "forecast_change_pct": 5.08,
+  "confidence": 0.75,
+  "analysis_date": "2024-07-16",
+  "forecast_date": "2024-07-17"
+}

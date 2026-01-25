@@ -1,0 +1,13 @@
+{
+  "code": "300906",
+  "name": "日月明",
+  "latest_close": 35.36,
+  "kalman_price": 35.295708190619024,
+  "particle_price": 35.363789780788224,
+  "market_state": 2,
+  "ensemble_forecast": 35.71169999999999,
+  "forecast_change_pct": 0.99,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

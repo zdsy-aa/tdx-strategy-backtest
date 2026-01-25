@@ -1,0 +1,13 @@
+{
+  "code": "300257",
+  "name": "开山股份",
+  "latest_close": 14.76,
+  "kalman_price": 14.397441650899037,
+  "particle_price": 14.56423732064506,
+  "market_state": 2,
+  "ensemble_forecast": 14.605500000000006,
+  "forecast_change_pct": -1.05,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

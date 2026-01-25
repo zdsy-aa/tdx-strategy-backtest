@@ -1,0 +1,13 @@
+{
+  "code": "920768",
+  "name": "拾比佰",
+  "latest_close": 12.97,
+  "kalman_price": 12.79824470038751,
+  "particle_price": 12.916900422590508,
+  "market_state": 0,
+  "ensemble_forecast": 12.861699999999995,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

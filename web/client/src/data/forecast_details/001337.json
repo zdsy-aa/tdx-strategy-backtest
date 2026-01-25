@@ -1,0 +1,13 @@
+{
+  "code": "001337",
+  "name": "四川黄金",
+  "latest_close": 29.7,
+  "kalman_price": 29.359881174909052,
+  "particle_price": 29.626442054171488,
+  "market_state": 2,
+  "ensemble_forecast": 29.574799999999986,
+  "forecast_change_pct": -0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

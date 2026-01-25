@@ -1,0 +1,13 @@
+{
+  "code": "002191",
+  "name": "劲嘉股份",
+  "latest_close": 4.56,
+  "kalman_price": 4.3955968735037025,
+  "particle_price": 4.546815946437444,
+  "market_state": 0,
+  "ensemble_forecast": 4.551799999999998,
+  "forecast_change_pct": -0.18,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

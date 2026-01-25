@@ -1,0 +1,13 @@
+{
+  "code": "600851",
+  "name": "海欣股份",
+  "latest_close": 7.35,
+  "kalman_price": 7.384986323975724,
+  "particle_price": 7.350505415557262,
+  "market_state": 0,
+  "ensemble_forecast": 7.330500000000002,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

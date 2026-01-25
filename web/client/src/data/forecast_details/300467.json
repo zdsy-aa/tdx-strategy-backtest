@@ -1,0 +1,13 @@
+{
+  "code": "300467",
+  "name": "迅游科技",
+  "latest_close": 31.58,
+  "kalman_price": 32.04969883267913,
+  "particle_price": 31.580228911022854,
+  "market_state": 0,
+  "ensemble_forecast": 31.88799999999999,
+  "forecast_change_pct": 0.98,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

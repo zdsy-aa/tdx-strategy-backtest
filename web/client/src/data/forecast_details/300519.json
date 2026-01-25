@@ -1,0 +1,13 @@
+{
+  "code": "300519",
+  "name": "新光药业",
+  "latest_close": 15.6,
+  "kalman_price": 15.495826394042604,
+  "particle_price": 15.577630711246856,
+  "market_state": 0,
+  "ensemble_forecast": 15.694799999999988,
+  "forecast_change_pct": 0.61,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

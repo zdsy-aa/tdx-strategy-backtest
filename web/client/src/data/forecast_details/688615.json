@@ -1,0 +1,13 @@
+{
+  "code": "688615",
+  "name": "合合信息",
+  "latest_close": 309.9,
+  "kalman_price": 285.5809853882108,
+  "particle_price": 123.13314807693419,
+  "market_state": 0,
+  "ensemble_forecast": 290.0326000000003,
+  "forecast_change_pct": -6.41,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

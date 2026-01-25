@@ -1,0 +1,13 @@
+{
+  "code": "603290",
+  "name": "斯达半导",
+  "latest_close": 101.05,
+  "kalman_price": 101.4771263907534,
+  "particle_price": 99.49305339198273,
+  "market_state": 2,
+  "ensemble_forecast": 99.41439999999997,
+  "forecast_change_pct": -1.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

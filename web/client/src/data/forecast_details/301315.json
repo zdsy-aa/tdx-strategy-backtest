@@ -1,0 +1,13 @@
+{
+  "code": "301315",
+  "name": "威士顿",
+  "latest_close": 65.0,
+  "kalman_price": 62.95886441463617,
+  "particle_price": 60.4860106914956,
+  "market_state": 2,
+  "ensemble_forecast": 70.0754,
+  "forecast_change_pct": 7.81,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

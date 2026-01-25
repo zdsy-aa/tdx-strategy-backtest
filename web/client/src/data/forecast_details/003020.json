@@ -1,0 +1,13 @@
+{
+  "code": "003020",
+  "name": "立方制药",
+  "latest_close": 28.11,
+  "kalman_price": 27.915945126041375,
+  "particle_price": 28.041005513127637,
+  "market_state": 0,
+  "ensemble_forecast": 27.981999999999992,
+  "forecast_change_pct": -0.46,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

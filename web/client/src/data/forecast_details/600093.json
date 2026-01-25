@@ -3,10 +3,11 @@
   "name": "退市易见",
   "latest_close": 0.45,
   "kalman_price": 0.43725530975939253,
-  "particle_price": 0.4557219220839645,
-  "market_state": 1,
-  "ensemble_forecast": 0.45250000000000024,
-  "forecast_change_pct": 0.56,
+  "particle_price": 0.4507329150029272,
+  "market_state": 0,
+  "ensemble_forecast": 0.4500000000000003,
+  "forecast_change_pct": 0.0,
   "confidence": 0.95,
-  "analysis_date": "2022-06-16"
+  "analysis_date": "2022-06-16",
+  "forecast_date": "2022-06-17"
 }

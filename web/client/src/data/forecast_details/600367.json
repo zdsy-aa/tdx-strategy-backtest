@@ -1,0 +1,13 @@
+{
+  "code": "600367",
+  "name": "红星发展",
+  "latest_close": 18.36,
+  "kalman_price": 18.17551655757312,
+  "particle_price": 18.318083523637057,
+  "market_state": 2,
+  "ensemble_forecast": 19.632699999999996,
+  "forecast_change_pct": 6.93,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

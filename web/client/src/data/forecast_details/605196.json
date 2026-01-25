@@ -1,0 +1,13 @@
+{
+  "code": "605196",
+  "name": "华通线缆",
+  "latest_close": 34.46,
+  "kalman_price": 34.72788011651215,
+  "particle_price": 34.367552879849335,
+  "market_state": 0,
+  "ensemble_forecast": 35.40229999999999,
+  "forecast_change_pct": 2.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

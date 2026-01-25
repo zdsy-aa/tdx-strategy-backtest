@@ -1,0 +1,13 @@
+{
+  "code": "603163",
+  "name": "圣晖集成",
+  "latest_close": 73.33,
+  "kalman_price": 74.76774482191152,
+  "particle_price": 50.40489114560103,
+  "market_state": 0,
+  "ensemble_forecast": 72.28919999999998,
+  "forecast_change_pct": -1.42,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

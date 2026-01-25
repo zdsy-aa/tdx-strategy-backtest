@@ -1,0 +1,13 @@
+{
+  "code": "601611",
+  "name": "中国核建",
+  "latest_close": 18.0,
+  "kalman_price": 17.94830554099729,
+  "particle_price": 14.736462213722026,
+  "market_state": 2,
+  "ensemble_forecast": 18.203600000000016,
+  "forecast_change_pct": 1.13,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

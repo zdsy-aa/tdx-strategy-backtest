@@ -1,0 +1,13 @@
+{
+  "code": "601156",
+  "name": "东航物流",
+  "latest_close": 18.0,
+  "kalman_price": 18.01068180512577,
+  "particle_price": 17.984660129741673,
+  "market_state": 0,
+  "ensemble_forecast": 18.117099999999997,
+  "forecast_change_pct": 0.65,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

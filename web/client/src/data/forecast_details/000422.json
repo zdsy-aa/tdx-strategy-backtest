@@ -1,0 +1,13 @@
+{
+  "code": "000422",
+  "name": "湖北宜化",
+  "latest_close": 14.66,
+  "kalman_price": 14.765778895378265,
+  "particle_price": 14.659143767847624,
+  "market_state": 2,
+  "ensemble_forecast": 14.375099999999998,
+  "forecast_change_pct": -1.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

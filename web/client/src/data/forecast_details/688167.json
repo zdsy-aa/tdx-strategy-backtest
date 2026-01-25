@@ -1,0 +1,13 @@
+{
+  "code": "688167",
+  "name": "炬光科技",
+  "latest_close": 177.79,
+  "kalman_price": 184.78918779478477,
+  "particle_price": 107.35712241589655,
+  "market_state": 2,
+  "ensemble_forecast": 175.3019000000001,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

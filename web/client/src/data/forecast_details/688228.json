@@ -1,0 +1,13 @@
+{
+  "code": "688228",
+  "name": "开普云",
+  "latest_close": 214.97,
+  "kalman_price": 213.32097299127423,
+  "particle_price": 72.04958269947372,
+  "market_state": 2,
+  "ensemble_forecast": 210.1974,
+  "forecast_change_pct": -2.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

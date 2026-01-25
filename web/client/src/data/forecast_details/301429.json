@@ -1,0 +1,13 @@
+{
+  "code": "301429",
+  "name": "森泰股份",
+  "latest_close": 19.33,
+  "kalman_price": 19.11788043827773,
+  "particle_price": 19.305958339590703,
+  "market_state": 1,
+  "ensemble_forecast": 19.49559999999999,
+  "forecast_change_pct": 0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

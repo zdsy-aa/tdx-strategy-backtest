@@ -1,0 +1,13 @@
+{
+  "code": "603693",
+  "name": "江苏新能",
+  "latest_close": 12.33,
+  "kalman_price": 12.28224968520153,
+  "particle_price": 12.301102704371663,
+  "market_state": 0,
+  "ensemble_forecast": 12.296399999999991,
+  "forecast_change_pct": -0.27,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

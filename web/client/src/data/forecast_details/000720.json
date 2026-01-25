@@ -1,0 +1,13 @@
+{
+  "code": "000720",
+  "name": "新能泰山",
+  "latest_close": 3.33,
+  "kalman_price": 3.3091308277978917,
+  "particle_price": 3.3246907021621968,
+  "market_state": 2,
+  "ensemble_forecast": 3.3007,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

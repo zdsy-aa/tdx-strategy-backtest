@@ -1,0 +1,13 @@
+{
+  "code": "002145",
+  "name": "钛能化学",
+  "latest_close": 5.01,
+  "kalman_price": 5.01334364351171,
+  "particle_price": 5.001119782019692,
+  "market_state": 0,
+  "ensemble_forecast": 4.966999999999997,
+  "forecast_change_pct": -0.86,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

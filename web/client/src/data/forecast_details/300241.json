@@ -1,0 +1,13 @@
+{
+  "code": "300241",
+  "name": "瑞丰光电",
+  "latest_close": 5.86,
+  "kalman_price": 5.8305707379305085,
+  "particle_price": 5.851848786804519,
+  "market_state": 0,
+  "ensemble_forecast": 5.765500000000002,
+  "forecast_change_pct": -1.61,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000763",
+  "name": "锦州石化",
+  "latest_close": 4.22,
+  "kalman_price": 4.2212290314117995,
+  "particle_price": 4.218594638024708,
+  "market_state": 0,
+  "ensemble_forecast": 4.21690000000001,
+  "forecast_change_pct": -0.07,
+  "confidence": 0.95,
+  "analysis_date": "2005-12-14",
+  "forecast_date": "2005-12-15"
+}

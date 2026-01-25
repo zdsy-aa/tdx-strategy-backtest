@@ -1,0 +1,13 @@
+{
+  "code": "301314",
+  "name": "科瑞思",
+  "latest_close": 44.0,
+  "kalman_price": 43.42850080404368,
+  "particle_price": 43.984493122423736,
+  "market_state": 0,
+  "ensemble_forecast": 44.141899999999985,
+  "forecast_change_pct": 0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

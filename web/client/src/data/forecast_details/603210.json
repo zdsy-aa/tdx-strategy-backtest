@@ -1,0 +1,13 @@
+{
+  "code": "603210",
+  "name": "泰鸿万立",
+  "latest_close": 19.8,
+  "kalman_price": 19.850856525005877,
+  "particle_price": 19.798275887019543,
+  "market_state": 0,
+  "ensemble_forecast": 20.140900000000002,
+  "forecast_change_pct": 1.72,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

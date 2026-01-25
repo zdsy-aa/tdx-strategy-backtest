@@ -1,0 +1,13 @@
+{
+  "code": "601880",
+  "name": "辽港股份",
+  "latest_close": 1.63,
+  "kalman_price": 1.6239307047209754,
+  "particle_price": 1.6293248843421473,
+  "market_state": 0,
+  "ensemble_forecast": 1.621400000000001,
+  "forecast_change_pct": -0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

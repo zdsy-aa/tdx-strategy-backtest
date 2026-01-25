@@ -1,0 +1,13 @@
+{
+  "code": "300973",
+  "name": "立高食品",
+  "latest_close": 45.41,
+  "kalman_price": 44.6407094992844,
+  "particle_price": 45.37235977086084,
+  "market_state": 1,
+  "ensemble_forecast": 45.52589999999997,
+  "forecast_change_pct": 0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

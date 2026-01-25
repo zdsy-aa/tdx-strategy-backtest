@@ -1,0 +1,13 @@
+{
+  "code": "603889",
+  "name": "新澳股份",
+  "latest_close": 8.82,
+  "kalman_price": 8.37056384859525,
+  "particle_price": 8.69538125398924,
+  "market_state": 0,
+  "ensemble_forecast": 8.750599999999997,
+  "forecast_change_pct": -0.79,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

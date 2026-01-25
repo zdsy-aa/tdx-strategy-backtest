@@ -1,0 +1,13 @@
+{
+  "code": "300640",
+  "name": "德艺文创",
+  "latest_close": 8.28,
+  "kalman_price": 8.081795336078967,
+  "particle_price": 8.272133871423083,
+  "market_state": 0,
+  "ensemble_forecast": 8.069999999999997,
+  "forecast_change_pct": -2.54,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

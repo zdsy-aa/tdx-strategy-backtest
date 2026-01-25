@@ -1,0 +1,13 @@
+{
+  "code": "600276",
+  "name": "恒瑞医药",
+  "latest_close": 64.05,
+  "kalman_price": 63.86251030601497,
+  "particle_price": 63.92643324022011,
+  "market_state": 0,
+  "ensemble_forecast": 64.75280000000008,
+  "forecast_change_pct": 1.1,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

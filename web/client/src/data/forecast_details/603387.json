@@ -1,0 +1,13 @@
+{
+  "code": "603387",
+  "name": "基蛋生物",
+  "latest_close": 8.49,
+  "kalman_price": 8.481621721755669,
+  "particle_price": 8.483064508507558,
+  "market_state": 0,
+  "ensemble_forecast": 8.6457,
+  "forecast_change_pct": 1.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

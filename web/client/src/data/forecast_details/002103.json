@@ -1,0 +1,13 @@
+{
+  "code": "002103",
+  "name": "广博股份",
+  "latest_close": 10.16,
+  "kalman_price": 9.66121487443307,
+  "particle_price": 10.064622403599838,
+  "market_state": 1,
+  "ensemble_forecast": 10.105600000000003,
+  "forecast_change_pct": -0.54,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

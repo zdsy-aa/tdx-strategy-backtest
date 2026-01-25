@@ -1,0 +1,13 @@
+{
+  "code": "600192",
+  "name": "长城电工",
+  "latest_close": 10.13,
+  "kalman_price": 10.332725692537041,
+  "particle_price": 10.165546798606933,
+  "market_state": 1,
+  "ensemble_forecast": 10.146400000000002,
+  "forecast_change_pct": 0.16,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

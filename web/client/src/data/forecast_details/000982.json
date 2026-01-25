@@ -1,0 +1,13 @@
+{
+  "code": "000982",
+  "name": "中银绒业",
+  "latest_close": 0.17,
+  "kalman_price": 0.1530420777825595,
+  "particle_price": 0.17803562528972158,
+  "market_state": 0,
+  "ensemble_forecast": 0.19050000000000028,
+  "forecast_change_pct": 12.06,
+  "confidence": 0.65,
+  "analysis_date": "2024-06-21",
+  "forecast_date": "2024-06-24"
+}

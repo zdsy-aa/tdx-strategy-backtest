@@ -1,0 +1,13 @@
+{
+  "code": "600968",
+  "name": "海油发展",
+  "latest_close": 3.89,
+  "kalman_price": 3.877828659080572,
+  "particle_price": 3.88311532336182,
+  "market_state": 0,
+  "ensemble_forecast": 3.8884999999999996,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

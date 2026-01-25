@@ -1,0 +1,13 @@
+{
+  "code": "603711",
+  "name": "香飘飘",
+  "latest_close": 13.85,
+  "kalman_price": 13.630215092357128,
+  "particle_price": 13.817588681629394,
+  "market_state": 2,
+  "ensemble_forecast": 13.808,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

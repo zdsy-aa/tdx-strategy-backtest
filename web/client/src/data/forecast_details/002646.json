@@ -1,0 +1,13 @@
+{
+  "code": "002646",
+  "name": "天佑德酒",
+  "latest_close": 8.83,
+  "kalman_price": 8.790226137545142,
+  "particle_price": 8.830402377022537,
+  "market_state": 0,
+  "ensemble_forecast": 8.876900000000004,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

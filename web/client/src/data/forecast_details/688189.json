@@ -1,0 +1,13 @@
+{
+  "code": "688189",
+  "name": "南新制药",
+  "latest_close": 8.79,
+  "kalman_price": 8.749737606982801,
+  "particle_price": 8.781355072059807,
+  "market_state": 0,
+  "ensemble_forecast": 9.044599999999997,
+  "forecast_change_pct": 2.9,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

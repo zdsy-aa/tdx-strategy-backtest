@@ -1,0 +1,13 @@
+{
+  "code": "601068",
+  "name": "中铝国际",
+  "latest_close": 5.88,
+  "kalman_price": 5.9565316888979645,
+  "particle_price": 5.886189072259191,
+  "market_state": 0,
+  "ensemble_forecast": 5.803099999999996,
+  "forecast_change_pct": -1.31,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

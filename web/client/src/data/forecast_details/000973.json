@@ -1,0 +1,13 @@
+{
+  "code": "000973",
+  "name": "佛塑科技",
+  "latest_close": 13.46,
+  "kalman_price": 13.810611238943501,
+  "particle_price": 13.462319065351227,
+  "market_state": 1,
+  "ensemble_forecast": 13.092799999999995,
+  "forecast_change_pct": -2.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

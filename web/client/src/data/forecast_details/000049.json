@@ -1,0 +1,13 @@
+{
+  "code": "000049",
+  "name": "德赛电池",
+  "latest_close": 26.81,
+  "kalman_price": 26.814781382793228,
+  "particle_price": 26.79171024034224,
+  "market_state": 1,
+  "ensemble_forecast": 26.682899999999965,
+  "forecast_change_pct": -0.47,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

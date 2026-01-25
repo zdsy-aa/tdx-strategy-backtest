@@ -1,0 +1,13 @@
+{
+  "code": "603103",
+  "name": "横店影视",
+  "latest_close": 18.16,
+  "kalman_price": 18.455228103385803,
+  "particle_price": 18.172285710829442,
+  "market_state": 2,
+  "ensemble_forecast": 18.26890000000001,
+  "forecast_change_pct": 0.6,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

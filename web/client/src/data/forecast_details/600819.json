@@ -1,0 +1,13 @@
+{
+  "code": "600819",
+  "name": "耀皮玻璃",
+  "latest_close": 8.63,
+  "kalman_price": 8.623478349275386,
+  "particle_price": 8.620742844209405,
+  "market_state": 0,
+  "ensemble_forecast": 8.4729,
+  "forecast_change_pct": -1.82,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

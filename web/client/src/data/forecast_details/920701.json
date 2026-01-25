@@ -1,0 +1,13 @@
+{
+  "code": "920701",
+  "name": "豪声电子",
+  "latest_close": 19.01,
+  "kalman_price": 18.79917422004014,
+  "particle_price": 18.97896698887997,
+  "market_state": 0,
+  "ensemble_forecast": 18.857099999999996,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

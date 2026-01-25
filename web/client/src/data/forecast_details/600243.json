@@ -1,0 +1,13 @@
+{
+  "code": "600243",
+  "name": "*ST海华",
+  "latest_close": 4.86,
+  "kalman_price": 4.87326433307293,
+  "particle_price": 4.851257003341774,
+  "market_state": 2,
+  "ensemble_forecast": 4.857900000000003,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

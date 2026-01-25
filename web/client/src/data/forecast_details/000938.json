@@ -1,0 +1,13 @@
+{
+  "code": "000938",
+  "name": "紫光股份",
+  "latest_close": 26.37,
+  "kalman_price": 26.208032966607696,
+  "particle_price": 26.320692215446957,
+  "market_state": 0,
+  "ensemble_forecast": 25.9503,
+  "forecast_change_pct": -1.59,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

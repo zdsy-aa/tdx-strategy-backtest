@@ -1,0 +1,13 @@
+{
+  "code": "300328",
+  "name": "宜安科技",
+  "latest_close": 17.51,
+  "kalman_price": 17.493756023398728,
+  "particle_price": 17.50394607005788,
+  "market_state": 0,
+  "ensemble_forecast": 17.196100000000012,
+  "forecast_change_pct": -1.79,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

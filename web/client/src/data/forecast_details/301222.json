@@ -1,0 +1,13 @@
+{
+  "code": "301222",
+  "name": "浙江恒威",
+  "latest_close": 29.32,
+  "kalman_price": 29.053584078855877,
+  "particle_price": 29.27708778205397,
+  "market_state": 1,
+  "ensemble_forecast": 29.37759999999997,
+  "forecast_change_pct": 0.2,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

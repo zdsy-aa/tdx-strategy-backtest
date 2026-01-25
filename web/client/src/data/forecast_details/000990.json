@@ -1,0 +1,13 @@
+{
+  "code": "000990",
+  "name": "诚志股份",
+  "latest_close": 8.1,
+  "kalman_price": 8.123087645952788,
+  "particle_price": 8.095708467926794,
+  "market_state": 0,
+  "ensemble_forecast": 8.0952,
+  "forecast_change_pct": -0.06,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

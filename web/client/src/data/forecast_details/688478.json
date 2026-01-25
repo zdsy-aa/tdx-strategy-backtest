@@ -1,0 +1,13 @@
+{
+  "code": "688478",
+  "name": "晶升股份",
+  "latest_close": 38.91,
+  "kalman_price": 39.11420838109406,
+  "particle_price": 38.97604608385619,
+  "market_state": 2,
+  "ensemble_forecast": 36.9632,
+  "forecast_change_pct": -5.0,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

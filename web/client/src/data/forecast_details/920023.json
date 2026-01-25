@@ -1,0 +1,13 @@
+{
+  "code": "920023",
+  "name": "田野股份",
+  "latest_close": 4.72,
+  "kalman_price": 4.595956584480063,
+  "particle_price": 4.7188335214774275,
+  "market_state": 2,
+  "ensemble_forecast": 4.790599999999999,
+  "forecast_change_pct": 1.5,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

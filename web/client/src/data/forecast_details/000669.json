@@ -1,0 +1,13 @@
+{
+  "code": "000669",
+  "name": "ST金鸿",
+  "latest_close": 2.89,
+  "kalman_price": 2.8934496009564556,
+  "particle_price": 2.8808452818349166,
+  "market_state": 1,
+  "ensemble_forecast": 2.888699999999998,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

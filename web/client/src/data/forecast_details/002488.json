@@ -1,0 +1,13 @@
+{
+  "code": "002488",
+  "name": "金固股份",
+  "latest_close": 11.26,
+  "kalman_price": 11.152536877416084,
+  "particle_price": 11.248390443389159,
+  "market_state": 2,
+  "ensemble_forecast": 11.226699999999996,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

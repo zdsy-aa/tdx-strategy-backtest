@@ -1,0 +1,13 @@
+{
+  "code": "600472",
+  "name": "包头铝业",
+  "latest_close": 50.68,
+  "kalman_price": 50.05537327410713,
+  "particle_price": 49.66915112540002,
+  "market_state": 0,
+  "ensemble_forecast": 49.95720000000002,
+  "forecast_change_pct": -1.43,
+  "confidence": 0.85,
+  "analysis_date": "2007-12-20",
+  "forecast_date": "2007-12-21"
+}

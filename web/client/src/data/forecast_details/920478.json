@@ -1,0 +1,13 @@
+{
+  "code": "920478",
+  "name": "峆一药业",
+  "latest_close": 19.9,
+  "kalman_price": 19.48426856390068,
+  "particle_price": 19.658744877532712,
+  "market_state": 2,
+  "ensemble_forecast": 20.133200000000006,
+  "forecast_change_pct": 1.17,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

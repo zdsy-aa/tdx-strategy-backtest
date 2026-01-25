@@ -1,0 +1,13 @@
+{
+  "code": "920924",
+  "name": "广脉科技",
+  "latest_close": 24.18,
+  "kalman_price": 23.399714789353617,
+  "particle_price": 23.61021025414907,
+  "market_state": 2,
+  "ensemble_forecast": 24.05449999999999,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

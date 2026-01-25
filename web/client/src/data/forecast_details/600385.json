@@ -1,0 +1,13 @@
+{
+  "code": "600385",
+  "name": "退市金泰",
+  "latest_close": 1.09,
+  "kalman_price": 1.0705015316318616,
+  "particle_price": 1.1017710516763786,
+  "market_state": 0,
+  "ensemble_forecast": 1.1525000000000007,
+  "forecast_change_pct": 5.73,
+  "confidence": 0.75,
+  "analysis_date": "2022-06-30",
+  "forecast_date": "2022-07-01"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000031",
+  "name": "大悦城",
+  "latest_close": 2.86,
+  "kalman_price": 2.867329585296481,
+  "particle_price": 2.8647697543072037,
+  "market_state": 1,
+  "ensemble_forecast": 2.825199999999999,
+  "forecast_change_pct": -1.22,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688083",
+  "name": "中望软件",
+  "latest_close": 78.15,
+  "kalman_price": 75.49462983847398,
+  "particle_price": 69.73723762892561,
+  "market_state": 0,
+  "ensemble_forecast": 78.38380000000001,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600138",
+  "name": "中青旅",
+  "latest_close": 9.99,
+  "kalman_price": 9.905761000106436,
+  "particle_price": 9.982014274479305,
+  "market_state": 0,
+  "ensemble_forecast": 9.940000000000001,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

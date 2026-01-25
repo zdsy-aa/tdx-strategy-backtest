@@ -1,0 +1,13 @@
+{
+  "code": "300262",
+  "name": "*ST巴安",
+  "latest_close": 0.68,
+  "kalman_price": 0.7138410953862849,
+  "particle_price": 0.6542697681529598,
+  "market_state": 1,
+  "ensemble_forecast": 0.6376,
+  "forecast_change_pct": -6.24,
+  "confidence": 0.75,
+  "analysis_date": "2024-06-18",
+  "forecast_date": "2024-06-19"
+}

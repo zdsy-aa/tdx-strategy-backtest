@@ -1,0 +1,13 @@
+{
+  "code": "688002",
+  "name": "睿创微纳",
+  "latest_close": 107.21,
+  "kalman_price": 106.08941016599978,
+  "particle_price": 85.20724949093169,
+  "market_state": 2,
+  "ensemble_forecast": 105.33139999999997,
+  "forecast_change_pct": -1.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300774",
+  "name": "倍杰特",
+  "latest_close": 24.1,
+  "kalman_price": 23.777317495090124,
+  "particle_price": 22.438825330573707,
+  "market_state": 2,
+  "ensemble_forecast": 23.08949999999998,
+  "forecast_change_pct": -4.19,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

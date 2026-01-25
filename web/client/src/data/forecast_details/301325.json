@@ -1,0 +1,13 @@
+{
+  "code": "301325",
+  "name": "曼恩斯特",
+  "latest_close": 53.36,
+  "kalman_price": 53.04704018540509,
+  "particle_price": 53.18536915896508,
+  "market_state": 0,
+  "ensemble_forecast": 53.00910000000003,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

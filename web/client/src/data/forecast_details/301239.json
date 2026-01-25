@@ -1,0 +1,13 @@
+{
+  "code": "301239",
+  "name": "普瑞眼科",
+  "latest_close": 33.6,
+  "kalman_price": 33.43137244889511,
+  "particle_price": 33.55840599449759,
+  "market_state": 0,
+  "ensemble_forecast": 33.917499999999976,
+  "forecast_change_pct": 0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

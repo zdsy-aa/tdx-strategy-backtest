@@ -1,0 +1,13 @@
+{
+  "code": "300145",
+  "name": "南方泵业",
+  "latest_close": 4.61,
+  "kalman_price": 4.6416825363478535,
+  "particle_price": 4.630634630686475,
+  "market_state": 1,
+  "ensemble_forecast": 4.649399999999997,
+  "forecast_change_pct": 0.85,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

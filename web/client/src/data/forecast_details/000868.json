@@ -1,0 +1,13 @@
+{
+  "code": "000868",
+  "name": "安凯客车",
+  "latest_close": 5.05,
+  "kalman_price": 5.042114600126198,
+  "particle_price": 5.050413776168361,
+  "market_state": 0,
+  "ensemble_forecast": 5.041499999999997,
+  "forecast_change_pct": -0.17,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "301584",
+  "name": "建发致新",
+  "latest_close": 30.79,
+  "kalman_price": 30.439633512362704,
+  "particle_price": 30.767448817096287,
+  "market_state": 0,
+  "ensemble_forecast": 31.515599999999985,
+  "forecast_change_pct": 2.36,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

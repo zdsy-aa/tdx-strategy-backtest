@@ -1,0 +1,13 @@
+{
+  "code": "603270",
+  "name": "金帝股份",
+  "latest_close": 26.48,
+  "kalman_price": 26.74996557196475,
+  "particle_price": 26.50050184280023,
+  "market_state": 0,
+  "ensemble_forecast": 26.139899999999997,
+  "forecast_change_pct": -1.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

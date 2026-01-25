@@ -1,0 +1,13 @@
+{
+  "code": "002619",
+  "name": "*ST艾格",
+  "latest_close": 0.56,
+  "kalman_price": 0.5674923352323821,
+  "particle_price": 0.5641962031965139,
+  "market_state": 2,
+  "ensemble_forecast": 0.5801000000000006,
+  "forecast_change_pct": 3.59,
+  "confidence": 0.85,
+  "analysis_date": "2022-03-31",
+  "forecast_date": "2022-04-01"
+}

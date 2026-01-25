@@ -1,0 +1,13 @@
+{
+  "code": "000507",
+  "name": "珠海港",
+  "latest_close": 5.31,
+  "kalman_price": 5.285751793842087,
+  "particle_price": 5.3011147076596865,
+  "market_state": 1,
+  "ensemble_forecast": 5.302499999999998,
+  "forecast_change_pct": -0.14,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

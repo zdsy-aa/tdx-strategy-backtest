@@ -1,0 +1,13 @@
+{
+  "code": "300051",
+  "name": "琏升科技",
+  "latest_close": 7.88,
+  "kalman_price": 7.939628645338813,
+  "particle_price": 7.972904002840851,
+  "market_state": 1,
+  "ensemble_forecast": 7.540999999999998,
+  "forecast_change_pct": -4.3,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

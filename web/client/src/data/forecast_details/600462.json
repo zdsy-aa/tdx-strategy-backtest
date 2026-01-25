@@ -1,0 +1,13 @@
+{
+  "code": "600462",
+  "name": "退市九有",
+  "latest_close": 0.19,
+  "kalman_price": 0.18016519357097618,
+  "particle_price": 0.19745866513579505,
+  "market_state": 2,
+  "ensemble_forecast": 0.16060000000000013,
+  "forecast_change_pct": -15.47,
+  "confidence": 0.65,
+  "analysis_date": "2025-07-14",
+  "forecast_date": "2025-07-15"
+}

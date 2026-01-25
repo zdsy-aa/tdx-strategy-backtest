@@ -1,0 +1,13 @@
+{
+  "code": "600281",
+  "name": "华阳新材",
+  "latest_close": 6.08,
+  "kalman_price": 6.094889742828847,
+  "particle_price": 6.090209204899668,
+  "market_state": 1,
+  "ensemble_forecast": 6.035499999999996,
+  "forecast_change_pct": -0.73,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

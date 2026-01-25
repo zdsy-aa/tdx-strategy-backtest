@@ -1,0 +1,13 @@
+{
+  "code": "300784",
+  "name": "利安科技",
+  "latest_close": 52.52,
+  "kalman_price": 51.62647099080785,
+  "particle_price": 51.44493502967563,
+  "market_state": 0,
+  "ensemble_forecast": 52.05149999999997,
+  "forecast_change_pct": -0.89,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

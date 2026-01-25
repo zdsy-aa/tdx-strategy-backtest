@@ -1,0 +1,13 @@
+{
+  "code": "003025",
+  "name": "思进智能",
+  "latest_close": 14.54,
+  "kalman_price": 14.57622620180065,
+  "particle_price": 14.547143905781066,
+  "market_state": 0,
+  "ensemble_forecast": 14.482199999999999,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

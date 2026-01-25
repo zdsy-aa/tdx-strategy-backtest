@@ -1,0 +1,13 @@
+{
+  "code": "001205",
+  "name": "盛航股份",
+  "latest_close": 16.46,
+  "kalman_price": 16.380972523904962,
+  "particle_price": 16.45863542492696,
+  "market_state": 0,
+  "ensemble_forecast": 16.386800000000008,
+  "forecast_change_pct": -0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

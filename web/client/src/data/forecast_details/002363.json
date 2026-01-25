@@ -1,0 +1,13 @@
+{
+  "code": "002363",
+  "name": "隆基机械",
+  "latest_close": 10.0,
+  "kalman_price": 10.006114298578167,
+  "particle_price": 10.018091096797662,
+  "market_state": 2,
+  "ensemble_forecast": 9.905600000000003,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

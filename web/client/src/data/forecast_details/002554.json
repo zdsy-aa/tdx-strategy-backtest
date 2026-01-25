@@ -1,0 +1,13 @@
+{
+  "code": "002554",
+  "name": "惠博普",
+  "latest_close": 3.22,
+  "kalman_price": 3.20721302250115,
+  "particle_price": 3.223158587531314,
+  "market_state": 2,
+  "ensemble_forecast": 3.4283999999999986,
+  "forecast_change_pct": 6.47,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-08",
+  "forecast_date": "2026-01-09"
+}

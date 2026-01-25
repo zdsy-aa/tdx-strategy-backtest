@@ -3,10 +3,11 @@
   "name": "中直股份",
   "latest_close": 37.63,
   "kalman_price": 37.9968382365664,
-  "particle_price": 37.65660996164988,
-  "market_state": 0,
-  "ensemble_forecast": 36.89870000000003,
-  "forecast_change_pct": -1.94,
+  "particle_price": 37.749023119259384,
+  "market_state": 1,
+  "ensemble_forecast": 37.042799999999986,
+  "forecast_change_pct": -1.56,
   "confidence": 0.85,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

@@ -1,0 +1,13 @@
+{
+  "code": "002325",
+  "name": "*ST洪涛",
+  "latest_close": 0.38,
+  "kalman_price": 0.3741862879578501,
+  "particle_price": 0.37279103716590006,
+  "market_state": 2,
+  "ensemble_forecast": 0.41789999999999994,
+  "forecast_change_pct": 9.97,
+  "confidence": 0.75,
+  "analysis_date": "2024-06-28",
+  "forecast_date": "2024-07-01"
+}

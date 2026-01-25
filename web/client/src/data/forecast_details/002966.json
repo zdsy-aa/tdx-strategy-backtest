@@ -1,0 +1,13 @@
+{
+  "code": "002966",
+  "name": "苏州银行",
+  "latest_close": 8.14,
+  "kalman_price": 8.09451358122771,
+  "particle_price": 8.139671754366507,
+  "market_state": 1,
+  "ensemble_forecast": 8.183100000000001,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

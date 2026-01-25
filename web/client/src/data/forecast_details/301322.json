@@ -1,0 +1,13 @@
+{
+  "code": "301322",
+  "name": "绿通科技",
+  "latest_close": 28.54,
+  "kalman_price": 28.510401244147047,
+  "particle_price": 28.53487741927338,
+  "market_state": 0,
+  "ensemble_forecast": 28.427200000000013,
+  "forecast_change_pct": -0.4,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

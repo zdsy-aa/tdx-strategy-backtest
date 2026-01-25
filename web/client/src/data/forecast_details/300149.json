@@ -1,0 +1,13 @@
+{
+  "code": "300149",
+  "name": "睿智医药",
+  "latest_close": 12.76,
+  "kalman_price": 11.84321124718235,
+  "particle_price": 11.989635850664412,
+  "market_state": 1,
+  "ensemble_forecast": 12.7612,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

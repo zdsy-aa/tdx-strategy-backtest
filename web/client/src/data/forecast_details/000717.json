@@ -1,0 +1,13 @@
+{
+  "code": "000717",
+  "name": "中南股份",
+  "latest_close": 2.64,
+  "kalman_price": 2.6196807641969664,
+  "particle_price": 2.6314834410078505,
+  "market_state": 2,
+  "ensemble_forecast": 2.642599999999998,
+  "forecast_change_pct": 0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

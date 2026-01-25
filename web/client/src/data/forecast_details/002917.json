@@ -1,0 +1,13 @@
+{
+  "code": "002917",
+  "name": "金奥博",
+  "latest_close": 13.56,
+  "kalman_price": 13.516393493995174,
+  "particle_price": 13.54910821963364,
+  "market_state": 1,
+  "ensemble_forecast": 13.5478,
+  "forecast_change_pct": -0.09,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

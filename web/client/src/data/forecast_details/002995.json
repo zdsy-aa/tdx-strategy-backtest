@@ -1,0 +1,13 @@
+{
+  "code": "002995",
+  "name": "天地在线",
+  "latest_close": 19.17,
+  "kalman_price": 18.774826196588652,
+  "particle_price": 19.158725797878922,
+  "market_state": 2,
+  "ensemble_forecast": 19.0161,
+  "forecast_change_pct": -0.8,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

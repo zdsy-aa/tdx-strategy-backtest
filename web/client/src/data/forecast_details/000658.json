@@ -1,0 +1,13 @@
+{
+  "code": "000658",
+  "name": "ST海洋",
+  "latest_close": 4.1,
+  "kalman_price": 4.083182254239695,
+  "particle_price": 4.0991235156964025,
+  "market_state": 2,
+  "ensemble_forecast": 4.0967,
+  "forecast_change_pct": -0.08,
+  "confidence": 0.95,
+  "analysis_date": "2002-04-12",
+  "forecast_date": "2002-04-15"
+}

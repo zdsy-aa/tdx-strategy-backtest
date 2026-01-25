@@ -1,0 +1,13 @@
+{
+  "code": "002396",
+  "name": "星网锐捷",
+  "latest_close": 30.88,
+  "kalman_price": 30.57956821304297,
+  "particle_price": 30.79990934675012,
+  "market_state": 0,
+  "ensemble_forecast": 30.0013,
+  "forecast_change_pct": -2.85,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

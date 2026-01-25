@@ -1,0 +1,13 @@
+{
+  "code": "920027",
+  "name": "交大铁发",
+  "latest_close": 22.54,
+  "kalman_price": 22.394356480859095,
+  "particle_price": 22.510732506253586,
+  "market_state": 0,
+  "ensemble_forecast": 22.588100000000008,
+  "forecast_change_pct": 0.21,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

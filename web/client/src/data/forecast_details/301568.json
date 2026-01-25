@@ -1,0 +1,13 @@
+{
+  "code": "301568",
+  "name": "思泰克",
+  "latest_close": 50.57,
+  "kalman_price": 51.11081462177325,
+  "particle_price": 50.72796368458538,
+  "market_state": 2,
+  "ensemble_forecast": 48.71559999999997,
+  "forecast_change_pct": -3.67,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

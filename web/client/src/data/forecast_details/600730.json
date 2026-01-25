@@ -1,0 +1,13 @@
+{
+  "code": "600730",
+  "name": "中国高科",
+  "latest_close": 12.2,
+  "kalman_price": 12.365981637435524,
+  "particle_price": 12.218568742279063,
+  "market_state": 2,
+  "ensemble_forecast": 11.9934,
+  "forecast_change_pct": -1.69,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

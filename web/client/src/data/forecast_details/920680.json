@@ -1,0 +1,13 @@
+{
+  "code": "920680",
+  "name": "广道退",
+  "latest_close": 0.77,
+  "kalman_price": 1.027860174954632,
+  "particle_price": 0.8575304151891766,
+  "market_state": 2,
+  "ensemble_forecast": 1.1065000000000003,
+  "forecast_change_pct": 43.7,
+  "confidence": 0.65,
+  "analysis_date": "2025-12-31",
+  "forecast_date": "2026-01-01"
+}

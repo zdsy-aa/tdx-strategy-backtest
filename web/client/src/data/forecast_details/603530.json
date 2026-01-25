@@ -1,0 +1,13 @@
+{
+  "code": "603530",
+  "name": "神马电力",
+  "latest_close": 41.71,
+  "kalman_price": 42.023570106178134,
+  "particle_price": 41.70392359961995,
+  "market_state": 2,
+  "ensemble_forecast": 40.9013,
+  "forecast_change_pct": -1.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

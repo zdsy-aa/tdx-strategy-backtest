@@ -1,0 +1,13 @@
+{
+  "code": "002479",
+  "name": "富春环保",
+  "latest_close": 5.01,
+  "kalman_price": 5.00628963378662,
+  "particle_price": 4.994084180364697,
+  "market_state": 0,
+  "ensemble_forecast": 4.975900000000001,
+  "forecast_change_pct": -0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

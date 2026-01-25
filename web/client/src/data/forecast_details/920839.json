@@ -1,0 +1,13 @@
+{
+  "code": "920839",
+  "name": "万通液压",
+  "latest_close": 43.84,
+  "kalman_price": 43.96704287549654,
+  "particle_price": 43.87262118327899,
+  "market_state": 0,
+  "ensemble_forecast": 42.93600000000001,
+  "forecast_change_pct": -2.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

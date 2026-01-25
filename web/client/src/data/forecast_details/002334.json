@@ -1,0 +1,13 @@
+{
+  "code": "002334",
+  "name": "英威腾",
+  "latest_close": 9.17,
+  "kalman_price": 9.16486365240119,
+  "particle_price": 9.175256674166798,
+  "market_state": 0,
+  "ensemble_forecast": 9.066699999999999,
+  "forecast_change_pct": -1.13,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

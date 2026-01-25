@@ -1,0 +1,13 @@
+{
+  "code": "300549",
+  "name": "优德精密",
+  "latest_close": 19.09,
+  "kalman_price": 18.968105558208453,
+  "particle_price": 19.042896998489397,
+  "market_state": 1,
+  "ensemble_forecast": 18.999299999999984,
+  "forecast_change_pct": -0.48,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

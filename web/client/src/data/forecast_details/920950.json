@@ -1,0 +1,13 @@
+{
+  "code": "920950",
+  "name": "迅安科技",
+  "latest_close": 19.31,
+  "kalman_price": 18.97449366535394,
+  "particle_price": 19.304048623294534,
+  "market_state": 1,
+  "ensemble_forecast": 19.433099999999992,
+  "forecast_change_pct": 0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

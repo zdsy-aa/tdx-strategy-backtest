@@ -1,0 +1,13 @@
+{
+  "code": "002806",
+  "name": "华锋股份",
+  "latest_close": 12.49,
+  "kalman_price": 12.451396805045173,
+  "particle_price": 12.490115025221082,
+  "market_state": 2,
+  "ensemble_forecast": 12.388399999999997,
+  "forecast_change_pct": -0.81,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

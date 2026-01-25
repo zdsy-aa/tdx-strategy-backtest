@@ -1,0 +1,13 @@
+{
+  "code": "601918",
+  "name": "新集能源",
+  "latest_close": 7.03,
+  "kalman_price": 7.006520591966931,
+  "particle_price": 7.015509329971408,
+  "market_state": 1,
+  "ensemble_forecast": 6.9824,
+  "forecast_change_pct": -0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

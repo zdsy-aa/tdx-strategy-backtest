@@ -1,0 +1,13 @@
+{
+  "code": "300793",
+  "name": "佳禾智能",
+  "latest_close": 18.05,
+  "kalman_price": 18.177205750264577,
+  "particle_price": 18.05225714565452,
+  "market_state": 2,
+  "ensemble_forecast": 17.879700000000003,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

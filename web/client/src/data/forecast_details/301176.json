@@ -1,0 +1,13 @@
+{
+  "code": "301176",
+  "name": "逸豪新材",
+  "latest_close": 25.71,
+  "kalman_price": 25.46271208442199,
+  "particle_price": 25.646033586075852,
+  "market_state": 2,
+  "ensemble_forecast": 25.471099999999993,
+  "forecast_change_pct": -0.93,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

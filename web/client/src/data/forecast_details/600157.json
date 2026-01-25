@@ -1,0 +1,13 @@
+{
+  "code": "600157",
+  "name": "永泰能源",
+  "latest_close": 1.64,
+  "kalman_price": 1.661710944335011,
+  "particle_price": 1.6550392416375936,
+  "market_state": 0,
+  "ensemble_forecast": 1.6258000000000001,
+  "forecast_change_pct": -0.87,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

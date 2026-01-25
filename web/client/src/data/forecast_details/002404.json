@@ -1,0 +1,13 @@
+{
+  "code": "002404",
+  "name": "嘉欣丝绸",
+  "latest_close": 7.01,
+  "kalman_price": 6.88150770929013,
+  "particle_price": 6.993966702220413,
+  "market_state": 1,
+  "ensemble_forecast": 7.0405999999999915,
+  "forecast_change_pct": 0.44,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

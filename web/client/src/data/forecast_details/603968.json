@@ -1,0 +1,13 @@
+{
+  "code": "603968",
+  "name": "醋化股份",
+  "latest_close": 11.32,
+  "kalman_price": 11.248991241164987,
+  "particle_price": 11.303755647572027,
+  "market_state": 0,
+  "ensemble_forecast": 11.284100000000006,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

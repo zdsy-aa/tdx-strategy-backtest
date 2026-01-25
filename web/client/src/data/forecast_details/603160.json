@@ -1,0 +1,13 @@
+{
+  "code": "603160",
+  "name": "汇顶科技",
+  "latest_close": 81.48,
+  "kalman_price": 81.83505043775186,
+  "particle_price": 81.52616226882337,
+  "market_state": 2,
+  "ensemble_forecast": 80.72989999999997,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

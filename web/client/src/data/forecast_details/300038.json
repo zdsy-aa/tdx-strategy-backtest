@@ -1,0 +1,13 @@
+{
+  "code": "300038",
+  "name": "数知退",
+  "latest_close": 0.29,
+  "kalman_price": 0.3103733440157673,
+  "particle_price": 0.29273366747702334,
+  "market_state": 2,
+  "ensemble_forecast": 0.31769999999999965,
+  "forecast_change_pct": 9.55,
+  "confidence": 0.75,
+  "analysis_date": "2022-06-29",
+  "forecast_date": "2022-06-30"
+}

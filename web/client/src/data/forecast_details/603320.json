@@ -1,0 +1,13 @@
+{
+  "code": "603320",
+  "name": "迪贝电气",
+  "latest_close": 18.7,
+  "kalman_price": 18.676229182545846,
+  "particle_price": 18.687899674027637,
+  "market_state": 1,
+  "ensemble_forecast": 18.792799999999986,
+  "forecast_change_pct": 0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

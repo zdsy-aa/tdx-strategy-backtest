@@ -3,10 +3,11 @@
   "name": "新疆天业",
   "latest_close": 5.28,
   "kalman_price": 5.3503171913953524,
-  "particle_price": 5.27904838412264,
+  "particle_price": 5.271602340147535,
   "market_state": 0,
-  "ensemble_forecast": 5.194899999999995,
-  "forecast_change_pct": -1.61,
+  "ensemble_forecast": 5.205799999999995,
+  "forecast_change_pct": -1.41,
   "confidence": 0.85,
-  "analysis_date": "2026-01-13"
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
 }

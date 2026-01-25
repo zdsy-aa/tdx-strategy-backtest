@@ -1,0 +1,13 @@
+{
+  "code": "000725",
+  "name": "京东方Ａ",
+  "latest_close": 4.44,
+  "kalman_price": 4.444876086058504,
+  "particle_price": 4.432821738881689,
+  "market_state": 2,
+  "ensemble_forecast": 4.3771,
+  "forecast_change_pct": -1.42,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "920207",
+  "name": "众诚科技",
+  "latest_close": 45.77,
+  "kalman_price": 36.63207464639484,
+  "particle_price": 22.194809233266085,
+  "market_state": 1,
+  "ensemble_forecast": 41.8672,
+  "forecast_change_pct": -8.53,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

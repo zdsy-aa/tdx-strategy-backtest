@@ -1,0 +1,13 @@
+{
+  "code": "600848",
+  "name": "上海临港",
+  "latest_close": 12.02,
+  "kalman_price": 12.077471677922507,
+  "particle_price": 12.019365128090715,
+  "market_state": 0,
+  "ensemble_forecast": 11.909300000000007,
+  "forecast_change_pct": -0.92,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

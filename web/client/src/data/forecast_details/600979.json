@@ -1,0 +1,13 @@
+{
+  "code": "600979",
+  "name": "广安爱众",
+  "latest_close": 4.5,
+  "kalman_price": 4.470804812358905,
+  "particle_price": 4.4827225643352895,
+  "market_state": 2,
+  "ensemble_forecast": 4.474399999999999,
+  "forecast_change_pct": -0.57,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "688597",
+  "name": "煜邦电力",
+  "latest_close": 8.85,
+  "kalman_price": 8.835924341932142,
+  "particle_price": 8.84015231249198,
+  "market_state": 1,
+  "ensemble_forecast": 8.816400000000005,
+  "forecast_change_pct": -0.38,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

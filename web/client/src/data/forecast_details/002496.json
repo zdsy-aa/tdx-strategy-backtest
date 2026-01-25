@@ -1,0 +1,13 @@
+{
+  "code": "002496",
+  "name": "*ST辉丰",
+  "latest_close": 1.97,
+  "kalman_price": 1.9975205446761004,
+  "particle_price": 1.9664809516129442,
+  "market_state": 2,
+  "ensemble_forecast": 1.9568999999999985,
+  "forecast_change_pct": -0.66,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

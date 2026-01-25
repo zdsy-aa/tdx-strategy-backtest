@@ -1,0 +1,13 @@
+{
+  "code": "002113",
+  "name": "*ST天润",
+  "latest_close": 0.41,
+  "kalman_price": 0.4000590189011293,
+  "particle_price": 0.40656752014849457,
+  "market_state": 0,
+  "ensemble_forecast": 0.42259999999999953,
+  "forecast_change_pct": 3.07,
+  "confidence": 0.85,
+  "analysis_date": "2023-06-12",
+  "forecast_date": "2023-06-13"
+}

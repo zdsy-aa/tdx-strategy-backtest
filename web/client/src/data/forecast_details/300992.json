@@ -1,0 +1,13 @@
+{
+  "code": "300992",
+  "name": "泰福泵业",
+  "latest_close": 29.15,
+  "kalman_price": 28.93448262764318,
+  "particle_price": 28.77167191957247,
+  "market_state": 1,
+  "ensemble_forecast": 28.874800000000015,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

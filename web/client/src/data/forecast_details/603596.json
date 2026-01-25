@@ -1,0 +1,13 @@
+{
+  "code": "603596",
+  "name": "伯特利",
+  "latest_close": 55.66,
+  "kalman_price": 55.74996378278122,
+  "particle_price": 55.24874045488486,
+  "market_state": 0,
+  "ensemble_forecast": 55.19820000000001,
+  "forecast_change_pct": -0.83,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

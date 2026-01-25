@@ -1,0 +1,13 @@
+{
+  "code": "603939",
+  "name": "益丰药房",
+  "latest_close": 22.1,
+  "kalman_price": 22.045874059727662,
+  "particle_price": 22.090788953242598,
+  "market_state": 0,
+  "ensemble_forecast": 22.175699999999992,
+  "forecast_change_pct": 0.34,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

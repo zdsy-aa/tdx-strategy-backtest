@@ -1,0 +1,13 @@
+{
+  "code": "300724",
+  "name": "捷佳伟创",
+  "latest_close": 113.4,
+  "kalman_price": 107.22068933459623,
+  "particle_price": 90.54858994588297,
+  "market_state": 1,
+  "ensemble_forecast": 112.17049999999993,
+  "forecast_change_pct": -1.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "600776",
+  "name": "东方通信",
+  "latest_close": 22.95,
+  "kalman_price": 21.83398296452976,
+  "particle_price": 18.351670110796217,
+  "market_state": 1,
+  "ensemble_forecast": 24.5225,
+  "forecast_change_pct": 6.85,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

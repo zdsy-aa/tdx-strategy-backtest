@@ -1,0 +1,13 @@
+{
+  "code": "688655",
+  "name": "迅捷兴",
+  "latest_close": 19.22,
+  "kalman_price": 19.079514346687994,
+  "particle_price": 19.180325603986972,
+  "market_state": 0,
+  "ensemble_forecast": 19.507199999999997,
+  "forecast_change_pct": 1.49,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

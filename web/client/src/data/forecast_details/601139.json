@@ -1,0 +1,13 @@
+{
+  "code": "601139",
+  "name": "深圳燃气",
+  "latest_close": 6.69,
+  "kalman_price": 6.657846155346139,
+  "particle_price": 6.683197897763132,
+  "market_state": 1,
+  "ensemble_forecast": 6.656400000000004,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

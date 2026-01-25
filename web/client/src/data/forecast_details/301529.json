@@ -1,0 +1,13 @@
+{
+  "code": "301529",
+  "name": "福赛科技",
+  "latest_close": 121.45,
+  "kalman_price": 125.49412305534027,
+  "particle_price": 62.62284920451059,
+  "market_state": 0,
+  "ensemble_forecast": 121.08100000000009,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

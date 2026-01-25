@@ -1,0 +1,13 @@
+{
+  "code": "601678",
+  "name": "滨化股份",
+  "latest_close": 4.61,
+  "kalman_price": 4.643641841399715,
+  "particle_price": 4.58799718893404,
+  "market_state": 2,
+  "ensemble_forecast": 4.595099999999997,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

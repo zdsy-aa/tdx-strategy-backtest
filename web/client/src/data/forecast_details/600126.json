@@ -1,0 +1,13 @@
+{
+  "code": "600126",
+  "name": "杭钢股份",
+  "latest_close": 9.0,
+  "kalman_price": 8.869303279443752,
+  "particle_price": 8.997758029714062,
+  "market_state": 0,
+  "ensemble_forecast": 8.842100000000002,
+  "forecast_change_pct": -1.75,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

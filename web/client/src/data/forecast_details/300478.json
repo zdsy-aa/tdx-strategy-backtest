@@ -1,0 +1,13 @@
+{
+  "code": "300478",
+  "name": "杭州高新",
+  "latest_close": 27.71,
+  "kalman_price": 26.98816888679252,
+  "particle_price": 30.68542916683713,
+  "market_state": 1,
+  "ensemble_forecast": 27.637000000000004,
+  "forecast_change_pct": -0.26,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

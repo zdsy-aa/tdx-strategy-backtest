@@ -1,0 +1,13 @@
+{
+  "code": "002447",
+  "name": "晨鑫退",
+  "latest_close": 0.18,
+  "kalman_price": 0.18559606445343782,
+  "particle_price": 0.17324794935464857,
+  "market_state": 2,
+  "ensemble_forecast": 0.18939999999999999,
+  "forecast_change_pct": 5.22,
+  "confidence": 0.75,
+  "analysis_date": "2022-06-24",
+  "forecast_date": "2022-06-27"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300504",
+  "name": "天邑股份",
+  "latest_close": 15.4,
+  "kalman_price": 15.362556953853002,
+  "particle_price": 15.387483614718386,
+  "market_state": 0,
+  "ensemble_forecast": 15.30130000000001,
+  "forecast_change_pct": -0.64,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

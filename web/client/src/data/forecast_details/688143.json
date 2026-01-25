@@ -1,0 +1,13 @@
+{
+  "code": "688143",
+  "name": "长盈通",
+  "latest_close": 57.28,
+  "kalman_price": 56.107374034399484,
+  "particle_price": 49.88885242096918,
+  "market_state": 0,
+  "ensemble_forecast": 56.28789999999999,
+  "forecast_change_pct": -1.73,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

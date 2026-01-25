@@ -1,0 +1,13 @@
+{
+  "code": "301301",
+  "name": "川宁生物",
+  "latest_close": 11.09,
+  "kalman_price": 11.05396582644433,
+  "particle_price": 11.065248467816685,
+  "market_state": 1,
+  "ensemble_forecast": 12.183,
+  "forecast_change_pct": 9.86,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

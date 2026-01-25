@@ -1,0 +1,13 @@
+{
+  "code": "001216",
+  "name": "华瓷股份",
+  "latest_close": 17.6,
+  "kalman_price": 17.569838961506328,
+  "particle_price": 17.597602670340883,
+  "market_state": 0,
+  "ensemble_forecast": 17.444399999999984,
+  "forecast_change_pct": -0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

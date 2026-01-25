@@ -1,0 +1,13 @@
+{
+  "code": "600789",
+  "name": "鲁抗医药",
+  "latest_close": 9.36,
+  "kalman_price": 9.313341391794138,
+  "particle_price": 9.334120238880711,
+  "market_state": 1,
+  "ensemble_forecast": 9.331500000000007,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000519",
+  "name": "中兵红箭",
+  "latest_close": 18.93,
+  "kalman_price": 19.396550452529606,
+  "particle_price": 19.047904346375972,
+  "market_state": 1,
+  "ensemble_forecast": 18.785100000000003,
+  "forecast_change_pct": -0.77,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

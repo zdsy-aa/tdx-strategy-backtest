@@ -1,0 +1,13 @@
+{
+  "code": "002655",
+  "name": "共达电声",
+  "latest_close": 12.9,
+  "kalman_price": 12.979144603156087,
+  "particle_price": 12.912579367778461,
+  "market_state": 0,
+  "ensemble_forecast": 12.8957,
+  "forecast_change_pct": -0.03,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603175",
+  "name": "超颖电子",
+  "latest_close": 70.8,
+  "kalman_price": 72.04412709757615,
+  "particle_price": 70.69461594950158,
+  "market_state": 2,
+  "ensemble_forecast": 69.68700000000004,
+  "forecast_change_pct": -1.57,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

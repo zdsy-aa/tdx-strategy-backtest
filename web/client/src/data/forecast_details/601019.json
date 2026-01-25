@@ -1,0 +1,13 @@
+{
+  "code": "601019",
+  "name": "山东出版",
+  "latest_close": 9.12,
+  "kalman_price": 8.911702539163601,
+  "particle_price": 9.079680132346738,
+  "market_state": 0,
+  "ensemble_forecast": 8.942900000000003,
+  "forecast_change_pct": -1.94,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

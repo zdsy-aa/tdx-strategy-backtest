@@ -1,0 +1,13 @@
+{
+  "code": "301289",
+  "name": "国缆检测",
+  "latest_close": 60.1,
+  "kalman_price": 60.44135961653451,
+  "particle_price": 60.13090449085971,
+  "market_state": 0,
+  "ensemble_forecast": 58.97849999999996,
+  "forecast_change_pct": -1.87,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

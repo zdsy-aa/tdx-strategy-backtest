@@ -1,0 +1,13 @@
+{
+  "code": "300762",
+  "name": "上海瀚讯",
+  "latest_close": 48.5,
+  "kalman_price": 48.51824651654546,
+  "particle_price": 36.059279423019284,
+  "market_state": 2,
+  "ensemble_forecast": 48.120200000000004,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

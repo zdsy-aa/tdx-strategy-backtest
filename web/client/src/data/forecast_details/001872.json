@@ -1,0 +1,13 @@
+{
+  "code": "001872",
+  "name": "招商港口",
+  "latest_close": 19.35,
+  "kalman_price": 19.24716859613098,
+  "particle_price": 19.35753615881344,
+  "market_state": 0,
+  "ensemble_forecast": 19.117799999999978,
+  "forecast_change_pct": -1.2,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

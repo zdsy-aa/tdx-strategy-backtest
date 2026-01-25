@@ -1,0 +1,13 @@
+{
+  "code": "301498",
+  "name": "乖宝宠物",
+  "latest_close": 68.01,
+  "kalman_price": 67.04785230714272,
+  "particle_price": 67.02154791506139,
+  "market_state": 0,
+  "ensemble_forecast": 67.55060000000005,
+  "forecast_change_pct": -0.68,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

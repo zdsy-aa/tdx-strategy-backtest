@@ -1,0 +1,13 @@
+{
+  "code": "300955",
+  "name": "嘉亨家化",
+  "latest_close": 41.82,
+  "kalman_price": 40.434344694452676,
+  "particle_price": 39.98657013359555,
+  "market_state": 2,
+  "ensemble_forecast": 40.65070000000004,
+  "forecast_change_pct": -2.8,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

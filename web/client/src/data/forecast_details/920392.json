@@ -1,0 +1,13 @@
+{
+  "code": "920392",
+  "name": "佳合科技",
+  "latest_close": 28.47,
+  "kalman_price": 28.49397406989972,
+  "particle_price": 29.017664096784102,
+  "market_state": 1,
+  "ensemble_forecast": 28.621199999999977,
+  "forecast_change_pct": 0.53,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

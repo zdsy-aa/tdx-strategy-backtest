@@ -1,0 +1,13 @@
+{
+  "code": "000805",
+  "name": "*ST炎黄",
+  "latest_close": 1.88,
+  "kalman_price": 1.773954291615877,
+  "particle_price": 1.8581291496097996,
+  "market_state": 2,
+  "ensemble_forecast": 1.8623000000000005,
+  "forecast_change_pct": -0.94,
+  "confidence": 0.95,
+  "analysis_date": "2006-04-28",
+  "forecast_date": "2006-05-01"
+}

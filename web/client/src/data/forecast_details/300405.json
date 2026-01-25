@@ -1,0 +1,13 @@
+{
+  "code": "300405",
+  "name": "科隆股份",
+  "latest_close": 6.6,
+  "kalman_price": 6.574809325000961,
+  "particle_price": 6.608780053486486,
+  "market_state": 2,
+  "ensemble_forecast": 6.578399999999999,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

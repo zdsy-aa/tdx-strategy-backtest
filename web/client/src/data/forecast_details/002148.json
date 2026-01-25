@@ -1,0 +1,13 @@
+{
+  "code": "002148",
+  "name": "北纬科技",
+  "latest_close": 9.26,
+  "kalman_price": 9.265209073676855,
+  "particle_price": 9.261760524917953,
+  "market_state": 0,
+  "ensemble_forecast": 9.053799999999999,
+  "forecast_change_pct": -2.23,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

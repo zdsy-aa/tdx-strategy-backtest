@@ -1,0 +1,13 @@
+{
+  "code": "300947",
+  "name": "德必集团",
+  "latest_close": 21.02,
+  "kalman_price": 20.86128651565196,
+  "particle_price": 20.990287074091363,
+  "market_state": 2,
+  "ensemble_forecast": 21.571100000000012,
+  "forecast_change_pct": 2.62,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

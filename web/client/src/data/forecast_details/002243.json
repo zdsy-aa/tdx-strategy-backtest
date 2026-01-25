@@ -1,0 +1,13 @@
+{
+  "code": "002243",
+  "name": "力合科创",
+  "latest_close": 11.5,
+  "kalman_price": 11.36157012644914,
+  "particle_price": 11.477329566589056,
+  "market_state": 1,
+  "ensemble_forecast": 11.4889,
+  "forecast_change_pct": -0.1,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

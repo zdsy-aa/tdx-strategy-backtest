@@ -1,0 +1,13 @@
+{
+  "code": "600634",
+  "name": "退市富控",
+  "latest_close": 0.28,
+  "kalman_price": 0.27503830643976934,
+  "particle_price": 0.27893188216983766,
+  "market_state": 2,
+  "ensemble_forecast": 0.2823000000000001,
+  "forecast_change_pct": 0.82,
+  "confidence": 0.95,
+  "analysis_date": "2021-07-14",
+  "forecast_date": "2021-07-15"
+}

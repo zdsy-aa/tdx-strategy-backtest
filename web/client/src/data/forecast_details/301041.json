@@ -1,0 +1,13 @@
+{
+  "code": "301041",
+  "name": "金百泽",
+  "latest_close": 28.6,
+  "kalman_price": 28.511548167456027,
+  "particle_price": 28.59673924717947,
+  "market_state": 0,
+  "ensemble_forecast": 27.72260000000002,
+  "forecast_change_pct": -3.07,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

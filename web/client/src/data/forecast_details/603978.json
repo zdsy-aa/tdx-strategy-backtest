@@ -1,0 +1,13 @@
+{
+  "code": "603978",
+  "name": "深圳新星",
+  "latest_close": 26.7,
+  "kalman_price": 26.903552684017807,
+  "particle_price": 26.706070961211474,
+  "market_state": 2,
+  "ensemble_forecast": 25.9045,
+  "forecast_change_pct": -2.98,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

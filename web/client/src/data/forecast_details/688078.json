@@ -1,0 +1,13 @@
+{
+  "code": "688078",
+  "name": "龙软科技",
+  "latest_close": 29.92,
+  "kalman_price": 29.313256646663216,
+  "particle_price": 29.82275259009689,
+  "market_state": 2,
+  "ensemble_forecast": 29.8037,
+  "forecast_change_pct": -0.39,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

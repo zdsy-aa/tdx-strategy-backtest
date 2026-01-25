@@ -1,0 +1,13 @@
+{
+  "code": "301018",
+  "name": "申菱环境",
+  "latest_close": 66.38,
+  "kalman_price": 67.2792526679921,
+  "particle_price": 66.03233556184988,
+  "market_state": 0,
+  "ensemble_forecast": 64.02810000000008,
+  "forecast_change_pct": -3.54,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

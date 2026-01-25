@@ -1,0 +1,13 @@
+{
+  "code": "600555",
+  "name": "退市海创",
+  "latest_close": 0.25,
+  "kalman_price": 0.24678477539765142,
+  "particle_price": 0.25660689834615547,
+  "market_state": 2,
+  "ensemble_forecast": 0.2565000000000001,
+  "forecast_change_pct": 2.6,
+  "confidence": 0.85,
+  "analysis_date": "2022-07-06",
+  "forecast_date": "2022-07-07"
+}

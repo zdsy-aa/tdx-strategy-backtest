@@ -1,0 +1,13 @@
+{
+  "code": "300834",
+  "name": "星辉环材",
+  "latest_close": 23.65,
+  "kalman_price": 24.071498182966614,
+  "particle_price": 23.64648500373932,
+  "market_state": 2,
+  "ensemble_forecast": 23.64830000000001,
+  "forecast_change_pct": -0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

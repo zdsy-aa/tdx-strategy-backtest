@@ -1,0 +1,13 @@
+{
+  "code": "300542",
+  "name": "新晨科技",
+  "latest_close": 20.52,
+  "kalman_price": 20.27580385061813,
+  "particle_price": 20.480145535194662,
+  "market_state": 2,
+  "ensemble_forecast": 20.703999999999994,
+  "forecast_change_pct": 0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

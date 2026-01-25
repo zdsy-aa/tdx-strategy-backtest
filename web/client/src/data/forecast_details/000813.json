@@ -1,0 +1,13 @@
+{
+  "code": "000813",
+  "name": "德展健康",
+  "latest_close": 3.99,
+  "kalman_price": 3.946262928491426,
+  "particle_price": 3.996615237362487,
+  "market_state": 0,
+  "ensemble_forecast": 4.056999999999997,
+  "forecast_change_pct": 1.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

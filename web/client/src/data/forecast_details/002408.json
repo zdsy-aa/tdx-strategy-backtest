@@ -1,0 +1,13 @@
+{
+  "code": "002408",
+  "name": "齐翔腾达",
+  "latest_close": 4.93,
+  "kalman_price": 4.925998681163188,
+  "particle_price": 4.930992090719757,
+  "market_state": 2,
+  "ensemble_forecast": 4.909800000000003,
+  "forecast_change_pct": -0.41,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

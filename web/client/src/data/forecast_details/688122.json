@@ -1,0 +1,13 @@
+{
+  "code": "688122",
+  "name": "西部超导",
+  "latest_close": 95.0,
+  "kalman_price": 92.0097372059888,
+  "particle_price": 73.03899319330327,
+  "market_state": 2,
+  "ensemble_forecast": 90.19890000000005,
+  "forecast_change_pct": -5.05,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

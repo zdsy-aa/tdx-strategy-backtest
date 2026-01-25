@@ -1,0 +1,13 @@
+{
+  "code": "605050",
+  "name": "福然德",
+  "latest_close": 13.25,
+  "kalman_price": 13.466248345844491,
+  "particle_price": 13.267910829297612,
+  "market_state": 1,
+  "ensemble_forecast": 13.161100000000006,
+  "forecast_change_pct": -0.67,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

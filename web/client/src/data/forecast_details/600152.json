@@ -1,0 +1,13 @@
+{
+  "code": "600152",
+  "name": "维科技术",
+  "latest_close": 8.0,
+  "kalman_price": 7.741153474448138,
+  "particle_price": 7.949495925605713,
+  "market_state": 0,
+  "ensemble_forecast": 7.8629000000000016,
+  "forecast_change_pct": -1.71,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "002338",
+  "name": "奥普光电",
+  "latest_close": 61.28,
+  "kalman_price": 61.56852281862088,
+  "particle_price": 61.301922230552066,
+  "market_state": 1,
+  "ensemble_forecast": 60.72970000000002,
+  "forecast_change_pct": -0.9,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

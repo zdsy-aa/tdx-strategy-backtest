@@ -1,0 +1,13 @@
+{
+  "code": "601258",
+  "name": "*ST庞大",
+  "latest_close": 0.4,
+  "kalman_price": 0.3930192406454137,
+  "particle_price": 0.3936620377200067,
+  "market_state": 1,
+  "ensemble_forecast": 0.4683,
+  "forecast_change_pct": 17.07,
+  "confidence": 0.65,
+  "analysis_date": "2023-05-24",
+  "forecast_date": "2023-05-25"
+}

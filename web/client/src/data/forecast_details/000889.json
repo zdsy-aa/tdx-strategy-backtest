@@ -1,0 +1,13 @@
+{
+  "code": "000889",
+  "name": "中嘉博创",
+  "latest_close": 3.8,
+  "kalman_price": 3.647191246803715,
+  "particle_price": 3.7820015030556258,
+  "market_state": 0,
+  "ensemble_forecast": 3.7596000000000016,
+  "forecast_change_pct": -1.06,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

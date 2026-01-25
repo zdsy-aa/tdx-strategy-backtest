@@ -1,0 +1,13 @@
+{
+  "code": "300482",
+  "name": "万孚生物",
+  "latest_close": 20.82,
+  "kalman_price": 20.48831935580084,
+  "particle_price": 20.708104586580877,
+  "market_state": 2,
+  "ensemble_forecast": 20.882600000000007,
+  "forecast_change_pct": 0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

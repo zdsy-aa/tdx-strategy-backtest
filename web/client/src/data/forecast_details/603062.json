@@ -1,0 +1,13 @@
+{
+  "code": "603062",
+  "name": "麦加芯彩",
+  "latest_close": 47.93,
+  "kalman_price": 47.998746123476465,
+  "particle_price": 47.9018231048602,
+  "market_state": 2,
+  "ensemble_forecast": 48.654300000000006,
+  "forecast_change_pct": 1.51,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

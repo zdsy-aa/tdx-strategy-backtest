@@ -1,0 +1,13 @@
+{
+  "code": "603056",
+  "name": "德邦股份",
+  "latest_close": 13.85,
+  "kalman_price": 13.793165085174165,
+  "particle_price": 13.835923481449454,
+  "market_state": 1,
+  "ensemble_forecast": 13.908700000000005,
+  "forecast_change_pct": 0.42,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-09",
+  "forecast_date": "2026-01-12"
+}

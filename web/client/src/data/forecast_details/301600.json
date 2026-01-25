@@ -1,0 +1,13 @@
+{
+  "code": "301600",
+  "name": "慧翰股份",
+  "latest_close": 137.59,
+  "kalman_price": 138.50923842223224,
+  "particle_price": 129.43005998218032,
+  "market_state": 2,
+  "ensemble_forecast": 135.48860000000002,
+  "forecast_change_pct": -1.53,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

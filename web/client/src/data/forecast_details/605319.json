@@ -1,0 +1,13 @@
+{
+  "code": "605319",
+  "name": "无锡振华",
+  "latest_close": 22.01,
+  "kalman_price": 21.717344228074655,
+  "particle_price": 21.980665275633296,
+  "market_state": 0,
+  "ensemble_forecast": 22.2042,
+  "forecast_change_pct": 0.88,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

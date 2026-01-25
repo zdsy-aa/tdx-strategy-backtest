@@ -1,0 +1,13 @@
+{
+  "code": "301318",
+  "name": "维海德",
+  "latest_close": 29.77,
+  "kalman_price": 29.536666038665643,
+  "particle_price": 29.626584964323655,
+  "market_state": 0,
+  "ensemble_forecast": 29.5192,
+  "forecast_change_pct": -0.84,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

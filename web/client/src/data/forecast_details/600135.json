@@ -1,0 +1,13 @@
+{
+  "code": "600135",
+  "name": "乐凯胶片",
+  "latest_close": 11.04,
+  "kalman_price": 11.664501640074178,
+  "particle_price": 11.215940783110872,
+  "market_state": 1,
+  "ensemble_forecast": 11.556500000000002,
+  "forecast_change_pct": 4.68,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "000816",
+  "name": "智慧农业",
+  "latest_close": 3.67,
+  "kalman_price": 3.656372832460765,
+  "particle_price": 3.68510002703427,
+  "market_state": 2,
+  "ensemble_forecast": 3.6414,
+  "forecast_change_pct": -0.78,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

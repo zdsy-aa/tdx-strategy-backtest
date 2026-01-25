@@ -1,0 +1,13 @@
+{
+  "code": "603963",
+  "name": "*ST大药",
+  "latest_close": 1.18,
+  "kalman_price": 1.1743118425324333,
+  "particle_price": 1.1983480449601536,
+  "market_state": 1,
+  "ensemble_forecast": 1.2409000000000017,
+  "forecast_change_pct": 5.16,
+  "confidence": 0.75,
+  "analysis_date": "2025-02-07",
+  "forecast_date": "2025-02-10"
+}

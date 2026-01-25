@@ -1,0 +1,13 @@
+{
+  "code": "300667",
+  "name": "必创科技",
+  "latest_close": 18.78,
+  "kalman_price": 18.592778465914495,
+  "particle_price": 18.73667498923122,
+  "market_state": 2,
+  "ensemble_forecast": 18.5882,
+  "forecast_change_pct": -1.02,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603207",
+  "name": "小方制药",
+  "latest_close": 29.74,
+  "kalman_price": 29.619713785920485,
+  "particle_price": 29.70181834146444,
+  "market_state": 1,
+  "ensemble_forecast": 29.892600000000012,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

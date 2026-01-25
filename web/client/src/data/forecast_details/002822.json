@@ -1,0 +1,13 @@
+{
+  "code": "002822",
+  "name": "*ST中装",
+  "latest_close": 3.64,
+  "kalman_price": 3.7236019064710715,
+  "particle_price": 3.6596620399659843,
+  "market_state": 2,
+  "ensemble_forecast": 3.7776999999999985,
+  "forecast_change_pct": 3.78,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

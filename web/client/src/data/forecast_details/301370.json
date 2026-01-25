@@ -1,0 +1,13 @@
+{
+  "code": "301370",
+  "name": "国科恒泰",
+  "latest_close": 12.5,
+  "kalman_price": 12.435144425741788,
+  "particle_price": 12.478664431126177,
+  "market_state": 0,
+  "ensemble_forecast": 12.329799999999999,
+  "forecast_change_pct": -1.36,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

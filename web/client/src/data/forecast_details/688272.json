@@ -1,0 +1,13 @@
+{
+  "code": "688272",
+  "name": "富吉瑞",
+  "latest_close": 30.82,
+  "kalman_price": 31.63828361209496,
+  "particle_price": 30.98077417032283,
+  "market_state": 0,
+  "ensemble_forecast": 29.947699999999994,
+  "forecast_change_pct": -2.83,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

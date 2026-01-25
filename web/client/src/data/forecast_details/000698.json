@@ -1,0 +1,13 @@
+{
+  "code": "000698",
+  "name": "ST沈化",
+  "latest_close": 3.72,
+  "kalman_price": 3.7349069020439853,
+  "particle_price": 3.727525511076744,
+  "market_state": 0,
+  "ensemble_forecast": 3.708700000000002,
+  "forecast_change_pct": -0.3,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

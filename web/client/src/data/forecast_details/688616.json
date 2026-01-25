@@ -1,0 +1,13 @@
+{
+  "code": "688616",
+  "name": "西力科技",
+  "latest_close": 12.69,
+  "kalman_price": 12.574685432135333,
+  "particle_price": 12.666662862855178,
+  "market_state": 0,
+  "ensemble_forecast": 12.623400000000014,
+  "forecast_change_pct": -0.52,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

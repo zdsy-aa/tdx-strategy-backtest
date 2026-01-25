@@ -1,0 +1,13 @@
+{
+  "code": "300614",
+  "name": "百川畅银",
+  "latest_close": 12.72,
+  "kalman_price": 12.730216341122086,
+  "particle_price": 12.716418866392305,
+  "market_state": 0,
+  "ensemble_forecast": 12.596499999999999,
+  "forecast_change_pct": -0.97,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

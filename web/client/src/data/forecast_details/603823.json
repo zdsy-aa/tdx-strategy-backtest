@@ -1,0 +1,13 @@
+{
+  "code": "603823",
+  "name": "百合花",
+  "latest_close": 16.7,
+  "kalman_price": 16.179214201306984,
+  "particle_price": 16.539174696249518,
+  "market_state": 2,
+  "ensemble_forecast": 16.352099999999993,
+  "forecast_change_pct": -2.08,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "300412",
+  "name": "迦南科技",
+  "latest_close": 5.72,
+  "kalman_price": 5.705958169719532,
+  "particle_price": 5.707102509776181,
+  "market_state": 2,
+  "ensemble_forecast": 5.749399999999998,
+  "forecast_change_pct": 0.51,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

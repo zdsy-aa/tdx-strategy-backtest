@@ -1,0 +1,13 @@
+{
+  "code": "603996",
+  "name": "退市中新",
+  "latest_close": 0.36,
+  "kalman_price": 0.3693726967839644,
+  "particle_price": 0.3672211247982354,
+  "market_state": 2,
+  "ensemble_forecast": 0.3652999999999998,
+  "forecast_change_pct": 1.47,
+  "confidence": 0.85,
+  "analysis_date": "2022-05-17",
+  "forecast_date": "2022-05-18"
+}

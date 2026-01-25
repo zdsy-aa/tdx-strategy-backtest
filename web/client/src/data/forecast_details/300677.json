@@ -1,0 +1,13 @@
+{
+  "code": "300677",
+  "name": "英科医疗",
+  "latest_close": 38.42,
+  "kalman_price": 38.212660734512426,
+  "particle_price": 38.42093425397073,
+  "market_state": 0,
+  "ensemble_forecast": 38.29160000000001,
+  "forecast_change_pct": -0.33,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

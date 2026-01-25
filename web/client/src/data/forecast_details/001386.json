@@ -1,0 +1,13 @@
+{
+  "code": "001386",
+  "name": "马可波罗",
+  "latest_close": 23.16,
+  "kalman_price": 23.17639715546602,
+  "particle_price": 23.156274420139805,
+  "market_state": 2,
+  "ensemble_forecast": 22.842299999999994,
+  "forecast_change_pct": -1.37,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

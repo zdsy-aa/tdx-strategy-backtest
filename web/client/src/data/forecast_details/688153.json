@@ -1,0 +1,13 @@
+{
+  "code": "688153",
+  "name": "唯捷创芯",
+  "latest_close": 41.9,
+  "kalman_price": 41.077223194768514,
+  "particle_price": 38.67484045013142,
+  "market_state": 2,
+  "ensemble_forecast": 40.48179999999999,
+  "forecast_change_pct": -3.38,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

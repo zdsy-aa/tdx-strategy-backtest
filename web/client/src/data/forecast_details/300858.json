@@ -1,0 +1,13 @@
+{
+  "code": "300858",
+  "name": "科拓生物",
+  "latest_close": 17.5,
+  "kalman_price": 17.38778419880316,
+  "particle_price": 17.467907595528708,
+  "market_state": 0,
+  "ensemble_forecast": 17.724300000000007,
+  "forecast_change_pct": 1.28,
+  "confidence": 0.85,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

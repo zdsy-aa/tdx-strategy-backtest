@@ -1,0 +1,13 @@
+{
+  "code": "002341",
+  "name": "ST新纶",
+  "latest_close": 0.61,
+  "kalman_price": 0.6201906170162998,
+  "particle_price": 0.6288477124426107,
+  "market_state": 2,
+  "ensemble_forecast": 0.6485000000000001,
+  "forecast_change_pct": 6.31,
+  "confidence": 0.75,
+  "analysis_date": "2024-07-02",
+  "forecast_date": "2024-07-03"
+}

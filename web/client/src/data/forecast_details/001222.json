@@ -1,0 +1,13 @@
+{
+  "code": "001222",
+  "name": "源飞宠物",
+  "latest_close": 23.08,
+  "kalman_price": 22.818128293050666,
+  "particle_price": 23.073935160594193,
+  "market_state": 1,
+  "ensemble_forecast": 23.005799999999994,
+  "forecast_change_pct": -0.32,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

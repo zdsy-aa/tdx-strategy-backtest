@@ -1,0 +1,13 @@
+{
+  "code": "300286",
+  "name": "安科瑞",
+  "latest_close": 26.46,
+  "kalman_price": 26.216212803230697,
+  "particle_price": 26.280241453125893,
+  "market_state": 1,
+  "ensemble_forecast": 26.328699999999984,
+  "forecast_change_pct": -0.5,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

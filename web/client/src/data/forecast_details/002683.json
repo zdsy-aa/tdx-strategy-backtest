@@ -1,0 +1,13 @@
+{
+  "code": "002683",
+  "name": "广东宏大",
+  "latest_close": 48.82,
+  "kalman_price": 48.74516122275751,
+  "particle_price": 45.20904954394296,
+  "market_state": 1,
+  "ensemble_forecast": 48.802900000000015,
+  "forecast_change_pct": -0.04,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

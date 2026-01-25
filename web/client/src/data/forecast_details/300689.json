@@ -1,0 +1,13 @@
+{
+  "code": "300689",
+  "name": "澄天伟业",
+  "latest_close": 49.58,
+  "kalman_price": 49.857269268760774,
+  "particle_price": 48.2921641473264,
+  "market_state": 0,
+  "ensemble_forecast": 49.583400000000005,
+  "forecast_change_pct": 0.01,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "603135",
+  "name": "中重科技",
+  "latest_close": 9.53,
+  "kalman_price": 9.553029370664849,
+  "particle_price": 9.530841132048566,
+  "market_state": 0,
+  "ensemble_forecast": 9.535100000000002,
+  "forecast_change_pct": 0.05,
+  "confidence": 0.95,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}

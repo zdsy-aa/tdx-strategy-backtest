@@ -1,0 +1,13 @@
+{
+  "code": "301248",
+  "name": "杰创智能",
+  "latest_close": 41.65,
+  "kalman_price": 39.20303993734106,
+  "particle_price": 36.56798450974809,
+  "market_state": 2,
+  "ensemble_forecast": 38.314500000000045,
+  "forecast_change_pct": -8.01,
+  "confidence": 0.75,
+  "analysis_date": "2026-01-13",
+  "forecast_date": "2026-01-14"
+}
