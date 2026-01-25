@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "generated_at": "2026-01-25 22:33:03",
   "total_stocks": 5789,
   "successful": 5274,
@@ -11510,19 +11511,35 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+  "generated_at": "2026-01-25 09:37:08",
+  "total_stocks": 10,
+  "successful": 10,
+  "failed": 0,
+  "all_predictions": [
+    {
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600002",
       "name": "齐鲁石化",
       "latest_close": 10.01,
       "kalman_price": 10.061255710675287,
+<<<<<<< HEAD
       "particle_price": 10.038524030375806,
       "market_state": 1,
       "ensemble_forecast": 10.084400000000011,
       "forecast_change_pct": 0.74,
+=======
+      "particle_price": 10.021455860096944,
+      "market_state": 0,
+      "ensemble_forecast": 10.081200000000011,
+      "forecast_change_pct": 0.71,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "confidence": 0.95,
       "analysis_date": "2006-04-06",
       "forecast_date": "2006-04-07"
     },
     {
+<<<<<<< HEAD
       "code": "600774",
       "name": "汉商集团",
       "latest_close": 9.57,
@@ -14864,10 +14881,13 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600000",
       "name": "浦发银行",
       "latest_close": 11.61,
       "kalman_price": 11.511266942583283,
+<<<<<<< HEAD
       "particle_price": 11.5947444639318,
       "market_state": 0,
       "ensemble_forecast": 11.6593,
@@ -17601,12 +17621,18 @@
       "particle_price": 7.590768867477715,
       "market_state": 0,
       "ensemble_forecast": 7.606600000000001,
+=======
+      "particle_price": 11.589252530984625,
+      "market_state": 0,
+      "ensemble_forecast": 11.634999999999998,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "forecast_change_pct": 0.22,
       "confidence": 0.95,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
     },
     {
+<<<<<<< HEAD
       "code": "688004",
       "name": "博汇科技",
       "latest_close": 25.95,
@@ -22476,12 +22502,22 @@
       "particle_price": 4.757422647877652,
       "market_state": 2,
       "ensemble_forecast": 4.767799999999999,
+=======
+      "code": "600009",
+      "name": "上海机场",
+      "latest_close": 32.58,
+      "kalman_price": 32.48786729288452,
+      "particle_price": 32.55893433599555,
+      "market_state": 0,
+      "ensemble_forecast": 32.56380000000002,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "forecast_change_pct": -0.05,
       "confidence": 0.95,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
     },
     {
+<<<<<<< HEAD
       "code": "600102",
       "name": "莱钢股份",
       "latest_close": 7.1,
@@ -25303,10 +25339,13 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600004",
       "name": "白云机场",
       "latest_close": 9.48,
       "kalman_price": 9.43516524116631,
+<<<<<<< HEAD
       "particle_price": 9.474985109395286,
       "market_state": 1,
       "ensemble_forecast": 9.461599999999995,
@@ -28379,11 +28418,18 @@
       "market_state": 0,
       "ensemble_forecast": 121.08100000000009,
       "forecast_change_pct": -0.3,
+=======
+      "particle_price": 9.45994094679412,
+      "market_state": 0,
+      "ensemble_forecast": 9.469699999999996,
+      "forecast_change_pct": -0.11,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "confidence": 0.95,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
     },
     {
+<<<<<<< HEAD
       "code": "920122",
       "name": "中纺标",
       "latest_close": 35.14,
@@ -28392,6 +28438,16 @@
       "market_state": 0,
       "ensemble_forecast": 35.03459999999999,
       "forecast_change_pct": -0.3,
+=======
+      "code": "600006",
+      "name": "东风股份",
+      "latest_close": 7.3,
+      "kalman_price": 7.2587009633273745,
+      "particle_price": 7.291179306798705,
+      "market_state": 0,
+      "ensemble_forecast": 7.290200000000004,
+      "forecast_change_pct": -0.13,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "confidence": 0.95,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
@@ -28401,15 +28457,23 @@
       "name": "邯郸钢铁",
       "latest_close": 5.21,
       "kalman_price": 5.296355953586981,
+<<<<<<< HEAD
       "particle_price": 5.218052927166865,
       "market_state": 1,
       "ensemble_forecast": 5.193799999999997,
       "forecast_change_pct": -0.31,
+=======
+      "particle_price": 5.214184323885901,
+      "market_state": 1,
+      "ensemble_forecast": 5.199599999999997,
+      "forecast_change_pct": -0.2,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "confidence": 0.95,
       "analysis_date": "2009-12-15",
       "forecast_date": "2009-12-16"
     },
     {
+<<<<<<< HEAD
       "code": "600316",
       "name": "洪都航空",
       "latest_close": 36.8,
@@ -31589,12 +31653,22 @@
       "particle_price": 45.26097995869891,
       "market_state": 1,
       "ensemble_forecast": 45.210599999999985,
+=======
+      "code": "600007",
+      "name": "中国国贸",
+      "latest_close": 19.61,
+      "kalman_price": 19.654392835371095,
+      "particle_price": 19.614362596990684,
+      "market_state": 0,
+      "ensemble_forecast": 19.52329999999999,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "forecast_change_pct": -0.44,
       "confidence": 0.95,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
     },
     {
+<<<<<<< HEAD
       "code": "603220",
       "name": "中贝通信",
       "latest_close": 23.73,
@@ -42463,10 +42537,13 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600008",
       "name": "首创环保",
       "latest_close": 3.02,
       "kalman_price": 3.0135207410271323,
+<<<<<<< HEAD
       "particle_price": 3.0207233018215427,
       "market_state": 1,
       "ensemble_forecast": 2.9917999999999982,
@@ -50673,12 +50750,18 @@
       "particle_price": 8.121574433573135,
       "market_state": 0,
       "ensemble_forecast": 8.016100000000002,
+=======
+      "particle_price": 3.017354543950525,
+      "market_state": 1,
+      "ensemble_forecast": 2.9778,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "forecast_change_pct": -1.4,
       "confidence": 0.85,
       "analysis_date": "2026-01-13",
       "forecast_date": "2026-01-14"
     },
     {
+<<<<<<< HEAD
       "code": "600497",
       "name": "驰宏锌锗",
       "latest_close": 8.36,
@@ -58310,19 +58393,29 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600005",
       "name": "武钢股份",
       "latest_close": 3.69,
       "kalman_price": 3.7228687918504817,
+<<<<<<< HEAD
       "particle_price": 3.687449969399257,
       "market_state": 0,
       "ensemble_forecast": 3.6156,
       "forecast_change_pct": -2.02,
+=======
+      "particle_price": 3.695954612995069,
+      "market_state": 1,
+      "ensemble_forecast": 3.6180999999999983,
+      "forecast_change_pct": -1.95,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "confidence": 0.85,
       "analysis_date": "2017-01-23",
       "forecast_date": "2017-01-24"
     },
     {
+<<<<<<< HEAD
       "code": "603927",
       "name": "中科软",
       "latest_close": 20.77,
@@ -61222,10 +61315,13 @@
       "forecast_date": "2026-01-14"
     },
     {
+=======
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
       "code": "600003",
       "name": "ST东北高",
       "latest_close": 3.86,
       "kalman_price": 3.7949444089584756,
+<<<<<<< HEAD
       "particle_price": 3.8433297780385915,
       "market_state": 1,
       "ensemble_forecast": 3.7662999999999967,
@@ -68565,6 +68661,15 @@
       "confidence": 0.65,
       "analysis_date": "2002-04-26",
       "forecast_date": "2002-04-29"
+=======
+      "particle_price": 3.8367985757031438,
+      "market_state": 0,
+      "ensemble_forecast": 3.760999999999998,
+      "forecast_change_pct": -2.56,
+      "confidence": 0.85,
+      "analysis_date": "2009-03-13",
+      "forecast_date": "2009-03-16"
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
     }
   ]
 }

@@ -3,11 +3,19 @@
   "name": "首创环保",
   "latest_close": 3.02,
   "kalman_price": 3.0135207410271323,
+<<<<<<< HEAD
   "particle_price": 3.0207233018215427,
   "market_state": 1,
   "ensemble_forecast": 2.9917999999999982,
   "forecast_change_pct": -0.93,
   "confidence": 0.95,
+=======
+  "particle_price": 3.017354543950525,
+  "market_state": 1,
+  "ensemble_forecast": 2.9778,
+  "forecast_change_pct": -1.4,
+  "confidence": 0.85,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
   "analysis_date": "2026-01-13",
   "forecast_date": "2026-01-14"
 }

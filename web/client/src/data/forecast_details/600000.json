@@ -3,10 +3,17 @@
   "name": "浦发银行",
   "latest_close": 11.61,
   "kalman_price": 11.511266942583283,
+<<<<<<< HEAD
   "particle_price": 11.5947444639318,
   "market_state": 0,
   "ensemble_forecast": 11.6593,
   "forecast_change_pct": 0.42,
+=======
+  "particle_price": 11.589252530984625,
+  "market_state": 0,
+  "ensemble_forecast": 11.634999999999998,
+  "forecast_change_pct": 0.22,
+>>>>>>> 2948c7a7c01a29ad6ee04cc1eecb0a7089bc23dd
   "confidence": 0.95,
   "analysis_date": "2026-01-13",
   "forecast_date": "2026-01-14"
