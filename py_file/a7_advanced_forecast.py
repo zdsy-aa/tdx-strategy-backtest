@@ -388,7 +388,8 @@ def main():
     os.makedirs(web_data_dir, exist_ok=True)
     
     summary_path = os.path.join(web_data_dir, "forecast_summary.json")
-    with open(summary_path, 'w', encoding='utf-8') as f:
+    # 明确指定 newline='\n' 以确保生成 Unix (LF) 格式的 JSON 文件
+    with open(summary_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     
     details_dir = os.path.join(web_data_dir, "forecast_details")
@@ -398,7 +399,8 @@ def main():
         code = result.get('code')
         if code:
             detail_path = os.path.join(details_dir, f"{code}.json")
-            with open(detail_path, 'w', encoding='utf-8') as f:
+            # 明确指定 newline='\n' 以确保生成 Unix (LF) 格式的 JSON 文件
+            with open(detail_path, 'w', encoding='utf-8', newline='\n') as f:
                 json.dump(result, f, ensure_ascii=False, indent=2)
     
     print(f"预测结果已保存至: {web_data_dir}")
