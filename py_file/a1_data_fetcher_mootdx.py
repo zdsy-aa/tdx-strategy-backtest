@@ -7,13 +7,7 @@
 
 功能说明:
     本模块使用优化后的 mootdx 库从通达信行情服务器获取 A 股日线数据。
-    相比 AKShare，通达信接口通常更稳定且速度更快。
-
-数据来源:
-    - 通达信行情服务器 (通过 mootdx 接口)
-
-存储路径:
-    - 日线数据: /data/day/{market}/{stock_code}.csv
+    支持自动加载项目 external 目录下的 mootdx 源码。
 
 ================================================================================
 """
@@ -23,12 +17,40 @@ import sys
 import time
 import pandas as pd
 from datetime import datetime
-from mootdx.quotes import Quotes
-from mootdx.logger import logger as mootdx_logger
 import logging
 
-# 禁用 mootdx 的调试日志，保持界面整洁
-mootdx_logger.setLevel(logging.INFO)
+# ==============================================================================
+# 1. 核心：优先加载本地源码逻辑
+# ==============================================================================
+def load_local_modules():
+    """
+    自动检测并加载项目内置的模块路径
+    """
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(current_dir)
+    
+    # 1. 加载 external/mootdx
+    local_mootdx_path = os.path.join(base_dir, "external", "mootdx")
+    if os.path.exists(local_mootdx_path):
+        if local_mootdx_path not in sys.path:
+            sys.path.insert(0, local_mootdx_path)
+            
+    # 2. 加载 py_file (为了 a99_logger 等)
+    if current_dir not in sys.path:
+        sys.path.append(current_dir)
+
+load_local_modules()
+
+# 现在可以安全导入了
+try:
+    from mootdx.quotes import Quotes
+    from mootdx.logger import logger as mootdx_logger
+    # 禁用 mootdx 的调试日志
+    mootdx_logger.setLevel(logging.INFO)
+except ImportError as e:
+    print(f"[ERROR] 导入 mootdx 失败: {e}")
+    print("[INFO] 请确保项目 external/mootdx 目录下存在源码，或执行 pip install mootdx")
+    sys.exit(1)
 
 # ==============================================================================
 # 日志模块
@@ -44,12 +66,6 @@ except ImportError:
 # ==============================================================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data", "day")
-
-# ==============================================================================
-# 字段映射 (mootdx -> backtest 格式)
-# ==============================================================================
-# backtest 要求的格式：名称, 日期, 开盘, 收盘, 最高, 最低, 成交量, 成交额, 振幅, 涨跌幅, 涨跌额, 换手率
-# mootdx 返回的字段：open, close, high, low, vol, amount, datetime 等
 
 def get_market_folder(stock_code: str) -> str:
     """根据股票代码判断市场"""
@@ -74,28 +90,19 @@ class MootdxFetcher:
     def fetch_daily(self, symbol: str, name: str, offset: int = 800):
         """获取单只股票的日线数据"""
         try:
-            # frequency=9 为日线
             df = self.client.bars(symbol=symbol, frequency=9, offset=offset)
             if df is None or df.empty:
                 return None
             
-            # 转换日期格式 (mootdx 的 bars 返回的 index 通常就是 datetime)
             if 'datetime' not in df.columns:
                 df = df.reset_index()
             
             df['日期'] = pd.to_datetime(df['datetime']).dt.strftime('%Y-%m-%d')
-            
-            # 计算涨跌额和涨跌幅 (mootdx 原始数据不含这些，需要计算)
             df['涨跌额'] = df['close'].diff()
             df['涨跌幅'] = (df['涨跌额'] / df['close'].shift(1)) * 100
-            
-            # 计算振幅
             df['振幅'] = ((df['high'] - df['low']) / df['close'].shift(1)) * 100
-            
-            # 填充名称
             df['名称'] = name
             
-            # 映射列名
             column_map = {
                 'open': '开盘',
                 'close': '收盘',
@@ -106,15 +113,10 @@ class MootdxFetcher:
             }
             df = df.rename(columns=column_map)
             
-            # 换手率在行情接口中通常不直接提供，设为 0 或从其他接口获取
-            # 这里为了兼容性设为 0
             if '换手率' not in df.columns:
                 df['换手率'] = 0.0
             
-            # 整理列顺序
             expected_columns = ["名称", "日期", "开盘", "收盘", "最高", "最低", "成交量", "成交额", "振幅", "涨跌幅", "涨跌额", "换手率"]
-            
-            # 过滤掉计算产生的 NaN (第一行)
             df = df.dropna(subset=['涨跌额'])
             
             return df[expected_columns]
@@ -130,7 +132,6 @@ class MootdxFetcher:
         
         filepath = os.path.join(market_dir, f"{symbol}.csv")
         
-        # 如果文件已存在，进行合并
         if os.path.exists(filepath):
             try:
                 old_df = pd.read_csv(filepath)
