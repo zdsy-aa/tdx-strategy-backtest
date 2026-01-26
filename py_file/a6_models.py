@@ -755,6 +755,12 @@ def main():
         default=0,
         help="最大处理股票数量 (0=全部)",
     )
+    parser.add_argument(
+        "--dashboard-days",
+        type=int,
+        default=3,
+        help="仪表盘统计的最近天数 (0=全部)",
+    )
     
     args = parser.parse_args()
 
@@ -781,6 +787,7 @@ def main():
         "markets": {"bj": {"total": 0, "ok": 0, "fail": 0}, "sz": {"total": 0, "ok": 0, "fail": 0}, "sh": {"total": 0, "ok": 0, "fail": 0}},
         "counts": {"symbols_total": len(all_symbols), "symbols_ok": 0, "symbols_fail": 0},
         "top": [],
+        "dashboard_days": args.dashboard_days,
     }
     
     errors: List[Dict[str, Any]] = []
@@ -812,18 +819,27 @@ def main():
             
             # 仅将有信号的股票加入 top 列表
             if payload["score"]["final_score"] > 0:
-                top_item = {
-                    "market": market,
-                    "code": code,
-                    "name": payload["meta"]["name"],
-                    "last_date": payload["meta"]["last_date"],
-                    "final_score": payload["score"]["final_score"],
-                    "score_A": payload["score"]["score_A"],
-                    "score_B": payload["score"]["score_B"],
-                    "score_C": payload["score"]["score_C"], # 新增 score_C
-                    "signals_count": len(payload["signals"]),
-                }
-                dashboard_data["top"].append(top_item)
+                # 检查信号是否在最近 N 天内
+                last_date = pd.to_datetime(payload["meta"]["last_date"])
+                cutoff_date = None
+                if args.dashboard_days > 0:
+                    cutoff_date = datetime.utcnow() - pd.Timedelta(days=args.dashboard_days)
+                    cutoff_date = pd.to_datetime(cutoff_date)
+                
+                # 如果启用了天数限制，检查最后日期是否在范围内
+                if cutoff_date is None or last_date >= cutoff_date:
+                    top_item = {
+                        "market": market,
+                        "code": code,
+                        "name": payload["meta"]["name"],
+                        "last_date": payload["meta"]["last_date"],
+                        "final_score": payload["score"]["final_score"],
+                        "score_A": payload["score"]["score_A"],
+                        "score_B": payload["score"]["score_B"],
+                        "score_C": payload["score"]["score_C"], # 新增 score_C
+                        "signals_count": len(payload["signals"]),
+                    }
+                    dashboard_data["top"].append(top_item)
             
             logger.info("Processed %s (%s): Score=%.2f, Signals=%d", code, payload["meta"]["name"], payload["score"]["final_score"], len(payload["signals"]))
 

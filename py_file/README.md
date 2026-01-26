@@ -38,7 +38,14 @@
 | **`a2_single_strategy_backtest.py`** | **（单指标回测）** 回测六脉神剑、买卖点、缠论等。 | `--incremental` (默认), `--full`, `--strategy` |
 | **`a3_combo_strategy_backtest.py`** | **（组合策略回测）** 回测稳健型和激进型组合策略。 | `--incremental` (默认), `--full`, `--strategy` |
 
-### C. 信号分析与报告
+### C. 离线策略与预测
+
+| 脚本文件 | 主要作用 | 核心参数 |
+| :--- | :--- | :--- |
+| **`a6_models.py`** | **（离线策略）** 纯离线 CSV 处理，生成三大策略信号和仪表盘数据。 | `--dashboard-days` (默认 3), `--series-bars`, `--max-symbols` |
+| **`a7_advanced_forecast.py`** | **（高级预测）** 使用卡尔曼滤波、粒子滤波、HMM、随机森林进行预测分析。 | `--limit`, `--market` |
+
+### D. 信号分析与报告
 
 | 脚本文件 | 主要作用 | 核心参数 |
 | :--- | :--- | :--- |
@@ -46,7 +53,7 @@
 | **`a21_pattern_analyzer.py`** | 对成功案例进行多维度指标共性分析。 | `--limit` |
 | **`a5_generate_stock_reports.py`** | 生成个股详细报告及买卖点可视化数据。 | `--stock`, `--limit` |
 
-### D. 核心支撑模块
+### E. 核心支撑模块
 
 | 脚本文件 | 主要作用 |
 | :--- | :--- |
@@ -79,3 +86,40 @@ python3 a0_auto_update_daily.py --full
 - **执行环境**：请确保在 `py_file/` 目录下执行脚本，或确保 `PYTHONPATH` 包含该目录。
 - **依赖库**：运行前请确保已安装 `akshare`, `pandas`, `numpy`, `psutil` 等依赖。
 - **数据存储**：数据默认存储在项目根目录的 `data/day/` 下，回测状态记录在 `status/` 下。
+
+
+---
+
+## 5. 新增功能说明
+
+### a6_models.py - 仪表盘天数限制
+
+新增参数 `--dashboard-days` 用于限制仪表盘统计的数据范围：
+
+```bash
+# 统计最近 3 天（默认）
+python3 a6_models.py
+
+# 统计最近 7 天
+python3 a6_models.py --dashboard-days 7
+
+# 统计所有数据
+python3 a6_models.py --dashboard-days 0
+```
+
+### a1_data_fetcher_mootdx.py - 依赖集成
+
+已集成以下依赖包到 `external/` 目录：
+- `httpx`：HTTP 客户端
+- `tdxpy`：通达信数据解析
+- `tenacity`：重试装饰器（新增）
+- `mootdx`：行情接口
+
+这些依赖会在脚本运行时自动加载，无需手动安装。
+
+## 6. 注意事项
+
+- **执行环境**：请确保在 `py_file/` 目录下执行脚本，或确保 `PYTHONPATH` 包含该目录。
+- **依赖库**：运行前请确保已安装 `akshare`, `pandas`, `numpy`, `psutil` 等依赖。
+- **数据存储**：数据默认存储在项目根目录的 `data/day/` 下，回测状态记录在 `status/` 下。
+- **本地依赖**：`a1_data_fetcher_mootdx.py` 和 `a6_models.py` 使用本地源码依赖，无需额外安装。
