@@ -1,21 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
-高级股票预测脚本 (Advanced Stock Forecast)
-===========================================
+================================================================================
+高级股票预测分析模块 (a7_advanced_forecast.py)
+================================================================================
 
-功能说明：
-    使用机器学习模型预测下一交易日的价格。
-    
-    1. 卡尔曼滤波 (Kalman Filter) - 平滑价格曲线
-    2. 粒子滤波 (Particle Filter) - 预测下一时刻价格
-    3. 隐马尔可夫模型 (HMM) - 捕捉市场状态
-    4. 随机森林集成 (Random Forest Ensemble) - 综合预测
+功能说明:
+    本脚本利用多种高级算法（卡尔曼滤波、粒子滤波、隐马尔可夫模型及随机森林集成）
+    对股票的下一交易日收盘价进行预测。
 
-生成的数据文件：
-    - forecast_summary.json: 预测汇总数据（精简版）
-    - forecast_details/<code>.json: 每只股票的详细预测数据
+主要功能:
+    1. 卡尔曼滤波 (Kalman Filter)：对价格曲线进行平滑处理。
+    2. 粒子滤波 (Particle Filter)：模拟价格走势并预测下一时刻。
+    3. 隐马尔可夫模型 (HMM)：捕捉市场状态（上涨、下跌、震荡）。
+    4. 随机森林集成 (Random Forest)：综合上述特征进行最终的价格预测。
+    5. 严格计算下一交易日：自动跳过周末，确保预测日期准确。
+    6. 生成精简版 JSON：供前端 ForecastDashboard 页面展示。
 
-使用方法：
-    python3 a7_advanced_forecast.py [--limit N] [--market MARKET]
+使用方法:
+    python a7_advanced_forecast.py [options]
+    参数:
+      --limit:  限制处理的股票数量 (测试用)
+      --market: 只处理指定市场 (sh/sz/bj)
+
+依赖库:
+    pandas, numpy, filterpy, hmmlearn, scikit-learn
+
+安装命令:
+    pip install pandas numpy filterpy hmmlearn scikit-learn
+
+================================================================================
 """
 
 import pandas as pd
@@ -180,9 +195,6 @@ class AdvancedForecaster:
             
             # 严格计算下一交易日
             next_date = last_date + timedelta(days=1)
-            # 如果下一天是周六(5)，则跳到周一(+2)
-            # 如果下一天是周日(6)，则跳到周一(+1)
-            # 这种写法更严谨，确保 next_date 永远是周一至周五
             while next_date.weekday() >= 5:
                 next_date += timedelta(days=1)
 

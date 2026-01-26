@@ -1,17 +1,36 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 ================================================================================
-基于 mootdx 的日线数据下载模块 (a1_data_fetcher_mootdx.py) - 进程隔离版
+基于 mootdx 的日线数据下载模块 (a1_data_fetcher_mootdx.py)
 ================================================================================
 
-修复说明:
-    1. 彻底解决数据串扰: 
-       由于 mootdx/tdxpy 底层可能存在全局单例或线程不安全的缓存，多线程模式无法完全隔离。
-       本版本切换为【多进程 (Multiprocessing)】模式，每个进程拥有独立内存空间。
-    2. 严格数据校验: 
-       增加代码归属和数据特征校验。
-    3. 增量合并优化: 
-       支持 YYYY/MM/DD 格式的智能增量更新。
+功能说明:
+    本脚本利用 mootdx 接口抓取沪深京市场的股票日线 K 线数据。采用多进程架构
+    以彻底隔离底层库的全局状态冲突，确保数据的纯净性和准确性。
+
+主要功能:
+    1. 支持全量下载、增量更新及指定股票代码下载。
+    2. 自动计算涨跌额、涨跌幅、振幅等技术指标。
+    3. 严格的数据归属校验，防止不同股票数据串扰。
+    4. 统一输出格式为 YYYY/MM/DD 的 CSV 文件。
+    5. 默认开启 4 进程并行下载，提高效率。
+
+使用方法:
+    python a1_data_fetcher_mootdx.py [options]
+    示例:
+      全量增量更新: python a1_data_fetcher_mootdx.py --all
+      下载指定股票: python a1_data_fetcher_mootdx.py --symbol 600036,000001
+      指定日期范围: python a1_data_fetcher_mootdx.py --symbol 600036 --start 20240101 --end 20241231
+
+依赖库:
+    pandas, mootdx, tdxpy
+
+安装命令:
+    pip install pandas
+    # mootdx 和 tdxpy 已集成在项目 external 目录下，或使用:
+    pip install mootdx tdxpy
 
 ================================================================================
 """
