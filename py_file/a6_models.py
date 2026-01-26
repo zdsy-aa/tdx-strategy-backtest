@@ -19,7 +19,7 @@
 CSV 列（中文）：
   名称,日期,开盘,收盘,最高,最低,成交量,成交额,振幅,涨跌幅,涨跌额,换手率
 
-你要整合的“三个脚本核心信号/策略”：
+你要整合的"三个脚本核心信号/策略"：
   填入下方 Strategy Slot A / B / C 的函数 strategy_core_A / strategy_core_B / strategy_core_C
   不要改它们的函数签名与返回结构，这样网页展示层稳定。
 """
@@ -76,21 +76,35 @@ NUMERIC_EN = [
 
 def normalize_path(p: str) -> Path:
     """
-    标准化路径：
-    1. 兼容 Windows 反斜杠。
-    2. 如果是相对路径，则相对于项目根目录（py_file 的父目录）。
-    """
-    p_str = p.replace("\\", "/")
-    path = Path(p_str)
+    标准化路径，支持 Windows 和 Linux 跨平台兼容。
     
-    if not path.is_absolute():
-        # 获取当前脚本所在目录的父目录作为项目根目录
-        project_root = Path(__file__).resolve().parent.parent
-        # 如果路径以 / 开头（在 Windows 下可能被误认为绝对路径），去掉它
-        if p_str.startswith("/"):
-            p_str = p_str.lstrip("/")
-        path = project_root / p_str
-        
+    功能：
+    1. 将 Windows 反斜杠转换为正斜杠
+    2. 处理相对路径（相对于项目根目录）
+    3. 正确处理 .. 目录导航
+    4. 返回绝对路径
+    
+    参数：
+        p: 输入路径字符串（可以是 Windows 或 Unix 格式）
+    
+    返回：
+        Path: 解析后的绝对路径对象
+    """
+    # 将 Windows 路径分隔符转换为 Unix 风格
+    p_str = p.replace("\\", "/")
+    
+    # 处理绝对路径
+    if os.path.isabs(p_str):
+        return Path(p_str).resolve()
+    
+    # 处理相对路径
+    # 获取当前脚本所在目录的父目录作为项目根目录
+    project_root = Path(__file__).resolve().parent.parent
+    
+    # 使用 / 作为分隔符，正确处理 .. 和 .
+    # Path 对象会自动处理 .. 和 . 的导航
+    path = project_root / p_str
+    
     return path.resolve()
 
 
@@ -328,76 +342,41 @@ def calculate_buy_sell_points(df: pd.DataFrame, M: int = 55, N: int = 34) -> pd.
     result_series = pd.Series(np.where(cond, var2_series, 0), index=df.index)
     df['accumulate'] = EMA_A99(result_series, 3) / 10
     # 买卖信号计算
-    df['buy1'] = CROSS(df['accumulate'], pd.Series(14, index=df.index))
-    df['buy2'] = CROSS(df['banker'], df['retail']) & (df['banker'] < 50)
-    df['sell1'] = CROSS(pd.Series(88, index=df.index), df['banker'])
-    df['sell2'] = CROSS(df['retail'], df['banker'])
-    return df
-
-def calculate_money_tree(df: pd.DataFrame) -> pd.DataFrame:
-    """计算黄金摇钱树指标"""
-    df = df.copy()
-    C = df['close']; H = df['high']; L = df['low']
-    # 条件1: 底部信号 (XG55) - 简化版: 价格创5日新低后反弹
-    cond_xg55 = (L == LLV(L, 5)) & (REF(L, 1) > REF(L, 2))
-    df['xg55'] = COUNT(cond_xg55, 5) >= 1
-    # 条件2: 动量交叉 (XG66) - 简化版: 5日均线上穿10日均线，且前一天涨幅>2.5%，当天回调
-    A1 = EMA_A99(C, 10); A2 = EMA_A99(C, 5)
-    cond1 = CROSS(A2, A1)
-    cond2 = REF(C, 1) > REF(C, 2) * 1.025
-    cond3 = C < REF(C, 1)
-    df['xg66'] = cond1 & cond2 & cond3
-    # 条件3: KDJ变种信号 (XG88) - 简化版: KDJ金叉
-    RSV = (C - LLV(L, 9)) / (HHV(H, 9) - LLV(L, 9) + 0.0001) * 100
-    K = SMA_A99(RSV, 3, 1); D = SMA_A99(K, 3, 1)
-    kdj_cross = CROSS(K, D)
-    df['xg88'] = COUNT(kdj_cross, 5) >= 1
-    # 摇钱树选股信号: 三重条件同时满足
-    df['money_tree'] = df['xg55'] & df['xg66'] & df['xg88']
+    df['buy2'] = (df['banker'] > df['retail']) & (df['banker'].shift(1) <= df['retail'].shift(1))
+    df['sell2'] = (df['banker'] < df['retail']) & (df['banker'].shift(1) >= df['retail'].shift(1))
     return df
 
 def calculate_chan_theory(df: pd.DataFrame) -> pd.DataFrame:
-    """计算缠论买卖点指标 (5买3卖完整版)"""
+    """计算缠论指标"""
     df = df.copy()
     C = df['close']; H = df['high']; L = df['low']
-    # 均线计算
-    MA13 = EMA_A99(C, 13); MA26 = EMA_A99(C, 26)
-    # 笔结构识别 (简化版)
-    top_fractal = (REF(H, 1) > REF(H, 2)) & (REF(H, 1) > H)
-    bottom_fractal = (REF(L, 1) < REF(L, 2)) & (REF(L, 1) < L)
-    df['top_fractal'] = top_fractal.fillna(False)
-    df['bottom_fractal'] = bottom_fractal.fillna(False)
-    # 笔方向判定: 1=向上笔, -1=向下笔
-    direction_vals = np.zeros(len(df), dtype=int)
-    last_fractal = 0
-    for i in range(len(direction_vals)):
-        if df['top_fractal'].iloc[i]:
-            last_fractal = 1
-        elif df['bottom_fractal'].iloc[i]:
-            last_fractal = -1
-        if last_fractal == -1:
+    MA5 = MA(C, 5); MA13 = MA(C, 13); MA34 = MA(C, 34)
+    
+    # 笔方向判断
+    direction_vals = np.zeros(len(df))
+    for i in range(1, len(df)):
+        if H.iloc[i] > H.iloc[i-1]:
             direction_vals[i] = 1
-        elif last_fractal == 1:
+        elif L.iloc[i] < L.iloc[i-1]:
             direction_vals[i] = -1
         else:
-            direction_vals[i] = 0
-    df['bi_direction'] = pd.Series(direction_vals, index=df.index)
-    # 高低点序列计算
-    GG = HHV(H, 5); GG1 = REF(GG, 5); GG2 = REF(GG, 10); GG3 = REF(GG, 15); GG4 = REF(GG, 20)
-    DD = LLV(L, 5); DD1 = REF(DD, 5); DD2 = REF(DD, 10); DD3 = REF(DD, 15); DD4 = REF(DD, 20)
-    # 一买: 底背驰买点
-    buy1_tj1 = (df['bi_direction'] == 1) & (L < MA13)
-    five_down = (DD1 < GG1) & (DD1 < DD2) & (DD1 < DD3) & (GG1 < GG2) & (GG1 < GG3)
-    buy1_tja = GG1 < DD3
-    buy1_a = buy1_tj1 & five_down & buy1_tja
-    buy1_tjb = GG1 > DD3
-    buy1_kjb = ((GG3 - DD3) > (GG1 - DD1)) & ((GG3 - DD3) > (GG2 - DD2)) & ((GG2 - DD2) < (GG1 - DD1))
-    buy1_b = buy1_tj1 & five_down & buy1_tjb & buy1_kjb
-    df['chan_buy1'] = buy1_a | buy1_b
-    # 二买: 回踩确认买点
-    buy_tj1 = (df['bi_direction'] == 1) & (L < MA26)
-    buy2_tj = (DD1 < GG1) & (DD1 > DD2)
-    three_down = (GG3 > GG2) & (DD3 > DD2)
+            direction_vals[i] = direction_vals[i-1]
+    df['bi_direction'] = direction_vals
+    
+    # 计算高低点
+    GG1 = HHV(H, 5); GG2 = HHV(H, 10); GG3 = HHV(H, 20); GG4 = HHV(H, 30)
+    DD1 = LLV(L, 5); DD2 = LLV(L, 10); DD3 = LLV(L, 20); DD4 = LLV(L, 30)
+    
+    # 一买: 向上笔完成后第一次回调后反弹
+    buy1_tj = (df['bi_direction'] == 1) & (C < MA13)
+    buy1_tja = (DD1 > DD2) & (DD2 > DD3)
+    buy1_tjb = GG1 > GG2
+    df['chan_buy1'] = buy1_tj & buy1_tja & buy1_tjb
+    
+    # 二买: 中枢震荡后向上突破
+    buy_tj1 = (df['bi_direction'] == 1) & (C < MA13)
+    buy2_tj = (GG1 < GG2) & (DD1 > DD2)
+    three_down = (DD2 > DD3) & (GG2 < GG3)
     buy2_tja1 = GG1 > DD3
     buy2_a = buy_tj1 & buy2_tj & three_down & buy2_tja1
     five_down_v2 = (GG4 > GG3) & (GG4 > GG2) & (DD2 < DD3) & (DD2 < DD4)
@@ -486,7 +465,7 @@ def make_signal(
 
 
 # =========================
-# 4) 三个“核心策略槽”：把你那三个脚本的核心逻辑搬到这里
+# 4) 三个"核心策略槽"：把你那三个脚本的核心逻辑搬到这里
 # =========================
 
 def strategy_core_A(df: pd.DataFrame) -> Tuple[float, List[Dict[str, Any]]]:
@@ -498,104 +477,123 @@ def strategy_core_A(df: pd.DataFrame) -> Tuple[float, List[Dict[str, Any]]]:
 
     close = df["close"]
     ma5 = sma(close, 5)
+    ma10 = sma(close, 10)
     ma20 = sma(close, 20)
 
-    signals: List[Dict[str, Any]] = []
+    # 金叉信号
+    cross_up = (ma5.shift(1) < ma10.shift(1)) & (ma5 >= ma10)
+    # 死叉信号
+    cross_down = (ma5.shift(1) > ma10.shift(1)) & (ma5 < ma10)
+
+    signals = []
     score = 0.0
 
-    if pd.notna(ma5.iloc[-2]) and pd.notna(ma20.iloc[-2]) and pd.notna(ma5.iloc[-1]) and pd.notna(ma20.iloc[-1]):
-        if ma5.iloc[-2] <= ma20.iloc[-2] and ma5.iloc[-1] > ma20.iloc[-1]:
-            score = 60.0
-            signals.append(make_signal(
-                date=df["date"].iloc[-1],
-                sig_type="A_MA_CROSS_UP",
-                strength=3,
-                score=60.0,
-                message="A策略：MA5上穿MA20",
-                extras={"ma5": float(ma5.iloc[-1]), "ma20": float(ma20.iloc[-1])},
-                source="A",
-            ))
+    if cross_up.iloc[-1]:
+        score = max(score, 60.0)
+        signals.append(make_signal(
+            date=df["date"].iloc[-1],
+            sig_type="A_MA_CROSS_UP",
+            strength=3,
+            score=60.0,
+            message="A策略：MA5 上穿 MA10（金叉）",
+            extras={"ma5": float(ma5.iloc[-1]), "ma10": float(ma10.iloc[-1])},
+            source="A",
+        ))
+
+    if cross_down.iloc[-1]:
+        score = max(score, 30.0)
+        signals.append(make_signal(
+            date=df["date"].iloc[-1],
+            sig_type="A_MA_CROSS_DOWN",
+            strength=2,
+            score=30.0,
+            message="A策略：MA5 下穿 MA10（死叉）",
+            extras={"ma5": float(ma5.iloc[-1]), "ma10": float(ma10.iloc[-1])},
+            source="A",
+        ))
+
     return score, signals
 
 
 def strategy_core_B(df: pd.DataFrame) -> Tuple[float, List[Dict[str, Any]]]:
     """
-    Strategy Slot B：超卖反弹策略 (RSI+量能)
+    Strategy Slot B：缠论买点
     """
-    if len(df) < 30:
+    if len(df) < 60:
         return 0.0, []
 
-    signals: List[Dict[str, Any]] = []
+    df = calculate_chan_theory(df)
+
+    signals = []
     score = 0.0
+    latest = df.iloc[-1]
 
-    r = rsi(df["close"], 14)
-    vr = volume_ratio(df["volume"], 5)
-
-    if pd.notna(r.iloc[-1]) and r.iloc[-1] < 30:
-        score += 40
+    # 一买
+    if latest['chan_buy1']:
+        score = max(score, 50.0)
         signals.append(make_signal(
             date=df["date"].iloc[-1],
-            sig_type="B_RSI_OVERSOLD",
+            sig_type="B_CHAN_BUY1",
             strength=2,
-            score=40.0,
-            message=f"B策略：RSI超卖({float(r.iloc[-1]):.2f})",
-            extras={"rsi14": float(r.iloc[-1])},
+            score=50.0,
+            message="B策略：缠论一买",
             source="B",
         ))
 
-    if pd.notna(vr.iloc[-1]) and vr.iloc[-1] >= 1.5:
-        score += 30
+    # 二买
+    if latest['chan_buy2']:
+        score = max(score, 60.0)
         signals.append(make_signal(
             date=df["date"].iloc[-1],
-            sig_type="B_VOLUME_SPIKE",
-            strength=1,
-            score=30.0,
-            message=f"B策略：放量({float(vr.iloc[-1]):.2f})",
-            extras={"volume_ratio_5": float(vr.iloc[-1])},
+            sig_type="B_CHAN_BUY2",
+            strength=3,
+            score=60.0,
+            message="B策略：缠论二买",
             source="B",
         ))
 
-    score = float(max(0.0, min(100.0, score)))
+    # 三买
+    if latest['chan_buy3']:
+        score = max(score, 55.0)
+        signals.append(make_signal(
+            date=df["date"].iloc[-1],
+            sig_type="B_CHAN_BUY3",
+            strength=3,
+            score=55.0,
+            message="B策略：缠论三买",
+            source="B",
+        ))
+
+    # 强二买
+    if latest['chan_strong_buy2']:
+        score = max(score, 80.0)
+        signals.append(make_signal(
+            date=df["date"].iloc[-1],
+            sig_type="B_CHAN_STRONG_BUY2",
+            strength=4,
+            score=80.0,
+            message="B策略：缠论强二买",
+            source="B",
+        ))
+
     return score, signals
 
 
 def strategy_core_C(df: pd.DataFrame) -> Tuple[float, List[Dict[str, Any]]]:
     """
-    Strategy Slot C：高级指标共振策略 (缠论、六脉神剑、摇钱树、买卖点)
+    Strategy Slot C：六脉神剑 + 买卖点
     """
     if len(df) < 60:
         return 0.0, []
 
-    signals: List[Dict[str, Any]] = []
+    df = calculate_six_veins(df)
+    df = calculate_buy_sell_points(df)
+
+    signals = []
     score = 0.0
-    
-    # 1. 计算所有高级指标
-    try:
-        df = calculate_six_veins(df)
-        df = calculate_buy_sell_points(df)
-        df = calculate_money_tree(df)
-        df = calculate_chan_theory(df)
-    except Exception as e:
-        logger.error(f"Error calculating advanced indicators: {e}")
-        return 0.0, []
-
-    # 2. 提取最新信号
     latest = df.iloc[-1]
-    
-    # 缠论买点 (最高优先级，分值 80)
-    if latest['chan_any_buy']:
-        score = max(score, 80.0)
-        signals.append(make_signal(
-            date=df["date"].iloc[-1],
-            sig_type="C_CHAN_BUY",
-            strength=5,
-            score=80.0,
-            message="C策略：缠论买点信号",
-            extras={"buy1": bool(latest['chan_buy1']), "buy2": bool(latest['chan_buy2']), "buy3": bool(latest['chan_buy3'])},
-            source="C",
-        ))
 
-    # 六脉神剑 (高优先级，分值 70)
+    # 六脉神剑共振买入
     if latest['six_veins_buy']:
         score = max(score, 70.0)
         signals.append(make_signal(
@@ -734,8 +732,8 @@ def main():
     parser.add_argument(
         "--out-dir",
         type=str,
-        default="../web/client/src/data",
-        help="JSON 输出目录 (e.g., ../web/client/src/data)",
+        default="web/client/src/data",
+        help="JSON 输出目录 (e.g., web/client/src/data)",
     )
     parser.add_argument(
         "--recent-bars",
