@@ -6,7 +6,13 @@
 
 功能说明:
     本模块使用优化后的 mootdx 库从通达信行情服务器获取 A 股日线数据。
-    支持自动加载项目 external 目录下的所有依赖源码（mootdx, tdxpy, httpx 等）。
+    支持全量下载、日期范围下载、指定多代码下载。
+
+用法示例:
+    1. 下载单个股票: python a1_data_fetcher_mootdx.py --symbol 600036
+    2. 下载多个股票: python a1_data_fetcher_mootdx.py --symbol 600036,000001
+    3. 全量下载:     python a1_data_fetcher_mootdx.py --all
+    4. 日期范围:     python a1_data_fetcher_mootdx.py --symbol 600036 --start 20230101 --end 20231231
 
 ================================================================================
 """
@@ -18,6 +24,7 @@ import pandas as pd
 from datetime import datetime
 import logging
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ==============================================================================
 # 1. 核心：优先加载本地源码逻辑
@@ -32,16 +39,14 @@ def load_local_modules():
     # 1. 加载 external 目录下的所有源码包
     local_ext_path = os.path.join(base_dir, "external")
     if os.path.exists(local_ext_path):
-        # 将 external 目录加入 sys.path，这样可以直接导入其中的子文件夹作为包
         if local_ext_path not in sys.path:
             sys.path.insert(0, local_ext_path)
             
-        # 针对 mootdx 的特殊路径处理（如果它在 external/mootdx/mootdx 结构下）
+        # 针对 mootdx 的特殊路径处理
         mootdx_nested = os.path.join(local_ext_path, "mootdx")
         if os.path.exists(mootdx_nested) and mootdx_nested not in sys.path:
             sys.path.insert(0, mootdx_nested)
 
-    # 2. 加载 py_file (为了 a99_logger 等)
     if current_dir not in sys.path:
         sys.path.append(current_dir)
 
@@ -51,8 +56,7 @@ load_local_modules()
 try:
     from mootdx.quotes import Quotes
     from mootdx.logger import logger as mootdx_logger
-    # 禁用 mootdx 的调试日志
-    mootdx_logger.setLevel(logging.INFO)
+    mootdx_logger.setLevel(logging.WARNING)
 except ImportError as e:
     print(f"[ERROR] 导入失败: {e}")
     print("[INFO] 请确保项目 external 目录下存在必要的依赖源码 (mootdx, tdxpy, httpx 等)")
@@ -76,19 +80,47 @@ class MootdxFetcher:
             log(f"初始化失败: {e}", level="ERROR")
             self.client = None
 
-    def fetch_daily(self, symbol, name="未知", offset=100):
+    def get_stock_list(self):
+        """获取沪深全市场股票列表"""
+        if not self.client: return []
+        try:
+            log("正在获取全市场股票列表...")
+            # market=1 为上海, market=0 为深圳
+            sh = self.client.stocks(market=1)
+            sz = self.client.stocks(market=0)
+            
+            all_stocks = []
+            if sh is not None:
+                sh['market_type'] = 'sh'
+                all_stocks.append(sh)
+            if sz is not None:
+                sz['market_type'] = 'sz'
+                all_stocks.append(sz)
+            
+            if not all_stocks: return []
+            
+            df = pd.concat(all_stocks)
+            # 过滤掉指数和非 A 股（简单过滤，实际可根据代码规则精细化）
+            # 过滤掉退市或指数类代码 (通常 A 股为 60, 00, 30, 68, 8, 4 开头)
+            df = df[df['code'].str.startswith(('60', '00', '30', '68', '8', '4'))]
+            
+            return df[['code', 'name', 'market_type']].to_dict('records')
+        except Exception as e:
+            log(f"获取股票列表失败: {e}", level="ERROR")
+            return []
+
+    def fetch_daily(self, symbol, name="未知", offset=800, start_date=None, end_date=None):
         if not self.client:
             return None
         
         try:
+            # 获取数据
             df = self.client.bars(symbol=symbol, frequency='day', offset=offset)
             if df is not None and not df.empty:
-                # 1. 基础字段处理
                 if 'datetime' not in df.columns:
                     df = df.reset_index()
                 
-                # 2. 字段映射与计算
-                # mootdx 默认字段: datetime, open, close, high, low, vol, amount
+                # 字段映射
                 df = df.rename(columns={
                     'datetime': '日期',
                     'open': '开盘',
@@ -99,89 +131,112 @@ class MootdxFetcher:
                     'amount': '成交额'
                 })
                 
-                # 处理日期格式
-                df['日期'] = pd.to_datetime(df['日期']).dt.strftime('%Y%m%d')
+                # 处理日期
+                df['日期'] = pd.to_datetime(df['日期'])
+                
+                # 日期范围过滤
+                if start_date:
+                    start_ts = pd.to_datetime(start_date)
+                    df = df[df['日期'] >= start_ts]
+                if end_date:
+                    end_ts = pd.to_datetime(end_date)
+                    df = df[df['日期'] <= end_ts]
+                
+                if df.empty: return None
+
+                df['日期'] = df['日期'].dt.strftime('%Y%m%d')
                 df['名称'] = name
                 
-                # 3. 计算额外指标 (模仿通达信导出格式)
-                # 涨跌额 = 今日收盘 - 昨日收盘
+                # 计算指标
                 df['涨跌额'] = df['收盘'].diff()
-                # 涨跌幅 = (今日收盘 - 昨日收盘) / 昨日收盘 * 100
                 df['涨跌幅'] = (df['收盘'].diff() / df['收盘'].shift(1)) * 100
-                # 振幅 = (最高 - 最低) / 昨日收盘 * 100
                 df['振幅'] = ((df['最高'] - df['最低']) / df['收盘'].shift(1)) * 100
+                df['换手率'] = 0.0 # 默认填充
                 
-                # 换手率: mootdx 接口通常不直接提供日线换手率，如果需要精准值需从其他接口获取
-                # 这里先填充 0.0 或 NaN，或者如果有总股本可以计算
-                if 'turnover' in df.columns:
-                    df = df.rename(columns={'turnover': '换手率'})
-                else:
-                    df['换手率'] = 0.0
-                
-                # 填充 NaN (第一行 diff 会产生 NaN)
                 df = df.fillna(0.0)
                 
-                # 4. 按照要求的顺序重新排序列
-                # 要求的顺序：名称,日期,开盘,收盘,最高,最低,成交量,成交额,振幅,涨跌幅,涨跌额,换手率
+                # 排序与列选择
                 target_cols = ['名称', '日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率']
-                
-                # 确保所有目标列都存在
                 for col in target_cols:
-                    if col not in df.columns:
-                        df[col] = 0.0
+                    if col not in df.columns: df[col] = 0.0
                 
                 return df[target_cols]
             return None
         except Exception as e:
             log(f"获取 {symbol} 数据失败: {e}", level="ERROR")
-            import traceback
-            traceback.print_exc()
             return None
 
     def save_data(self, symbol, df):
-        if df is None or df.empty:
-            return
+        if df is None or df.empty: return
         
         current_dir = os.path.dirname(os.path.abspath(__file__))
         base_dir = os.path.dirname(current_dir)
         
-        # 根据代码判断市场
-        # 6/9开头为上海，其他通常为深圳或北京
-        if symbol.startswith(('6', '9')):
-            market = "sh"
-        elif symbol.startswith('8') or symbol.startswith('4'):
-            market = "bj"
-        else:
-            market = "sz"
+        if symbol.startswith(('6', '9')): market = "sh"
+        elif symbol.startswith(('8', '4')): market = "bj"
+        else: market = "sz"
             
         save_dir = os.path.join(base_dir, "data", "day", market)
-        
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
+        if not os.path.exists(save_dir): os.makedirs(save_dir)
             
         file_path = os.path.join(save_dir, f"{symbol}.csv")
-        # 写入 CSV，不包含索引
         df.to_csv(file_path, index=False, encoding='utf-8-sig')
 
+def process_task(fetcher, stock, offset, start, end):
+    code = stock['code']
+    name = stock['name']
+    df = fetcher.fetch_daily(code, name, offset=offset, start_date=start, end_date=end)
+    if df is not None:
+        fetcher.save_data(code, df)
+        return True
+    return False
+
 def main():
-    parser = argparse.ArgumentParser(description="Mootdx 数据抓取工具")
-    parser.add_argument("--symbol", type=str, help="股票代码，如 600036")
-    parser.add_argument("--name", type=str, default="未知", help="股票名称")
-    parser.add_argument("--limit", type=int, default=100, help="获取的天数")
+    parser = argparse.ArgumentParser(description="Mootdx 数据抓取工具 (增强版)")
+    parser.add_argument("--symbol", type=str, help="股票代码，支持多个逗号分隔，如 600036,000001")
+    parser.add_argument("--all", action="store_true", help="全量下载所有 A 股")
+    parser.add_argument("--start", type=str, help="开始日期 (YYYYMMDD)")
+    parser.add_argument("--end", type=str, help="结束日期 (YYYYMMDD)")
+    parser.add_argument("--limit", type=int, default=800, help="单只股票获取的最大天数 (默认 800)")
+    parser.add_argument("--workers", type=int, default=4, help="并行下载线程数 (默认 4)")
     args = parser.parse_args()
 
-    if not args.symbol:
-        log("请提供股票代码 --symbol", level="ERROR")
+    fetcher = MootdxFetcher()
+    stocks_to_download = []
+
+    if args.all:
+        stocks_to_download = fetcher.get_stock_list()
+    elif args.symbol:
+        symbols = args.symbol.split(',')
+        for s in symbols:
+            stocks_to_download.append({'code': s.strip(), 'name': '未知'})
+    else:
+        log("请提供 --symbol 或 --all 参数", level="ERROR")
         return
 
-    fetcher = MootdxFetcher()
-    df = fetcher.fetch_daily(args.symbol, args.name, offset=args.limit)
+    if not stocks_to_download:
+        log("没有需要下载的股票列表", level="WARNING")
+        return
+
+    log(f"准备下载 {len(stocks_to_download)} 只股票的数据...")
     
-    if df is not None:
-        fetcher.save_data(args.symbol, df)
-        log(f"成功下载并保存 {args.symbol} ({args.name}) 的数据，共 {len(df)} 条。")
-    else:
-        log(f"未能获取 {args.symbol} 的数据。", level="ERROR")
+    success_count = 0
+    # 使用线程池加速全量下载
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        future_to_stock = {executor.submit(process_task, fetcher, s, args.limit, args.start, args.end): s for s in stocks_to_download}
+        
+        for i, future in enumerate(as_completed(future_to_stock)):
+            stock = future_to_stock[future]
+            try:
+                if future.result():
+                    success_count += 1
+            except Exception as e:
+                log(f"处理 {stock['code']} 时发生异常: {e}", level="ERROR")
+            
+            if (i + 1) % 50 == 0 or (i + 1) == len(stocks_to_download):
+                log(f"进度: {i+1}/{len(stocks_to_download)}, 成功: {success_count}")
+
+    log(f"下载任务结束。总计: {len(stocks_to_download)}, 成功: {success_count}")
 
 if __name__ == "__main__":
     main()
