@@ -22,18 +22,31 @@ interface ForecastData {
   confidence: number;
   analysis_date: string;
   forecast_date: string;
+  // 兼容精简版字段名
+  forecast_price?: number;
 }
 
 interface SummaryData {
   generated_at: string;
-  total_stocks: number;
-  successful: number;
-  failed: number;
-  all_predictions: ForecastData[];
+  total_stocks?: number;
+  successful?: number;
+  failed?: number;
+  all_predictions?: ForecastData[];
+  // 兼容精简版字段名
+  predictions?: ForecastData[];
 }
 
 export default function ForecastDashboard() {
-  const summaryData = forecastSummaryRaw as unknown as SummaryData;
+  const summaryRaw = forecastSummaryRaw as unknown as SummaryData;
+  const summaryData = useMemo(() => {
+    return {
+      generated_at: summaryRaw.generated_at,
+      total_stocks: summaryRaw.total_stocks ?? (summaryRaw.predictions?.length || 0),
+      successful: summaryRaw.successful ?? (summaryRaw.predictions?.length || 0),
+      failed: summaryRaw.failed ?? 0,
+      all_predictions: summaryRaw.all_predictions ?? summaryRaw.predictions ?? []
+    };
+  }, [summaryRaw]);
   
   // 状态管理
   const [searchTerm, setSearchTerm] = useState("");
@@ -230,12 +243,20 @@ export default function ForecastDashboard() {
                     </TableHeader>
                     <TableBody>
                       {filteredData.slice(0, 100).map((item, idx) => (
-                        <TableRow key={idx} className="cursor-pointer hover:bg-white/5" onClick={() => setSelectedStock(item)}>
+                        <TableRow 
+                          key={idx} 
+                          className={`cursor-pointer hover:bg-white/5 transition-all ${
+                            selectedStock?.code === item.code 
+                              ? "ring-2 ring-primary ring-inset z-10" 
+                              : ""
+                          }`} 
+                          onClick={() => setSelectedStock(item)}
+                        >
                           <TableCell className="font-medium">{idx + 1}</TableCell>
                           <TableCell>{item.code}</TableCell>
                           <TableCell>{item.name}</TableCell>
                           <TableCell className="text-right font-mono">¥{item.latest_close.toFixed(2)}</TableCell>
-                          <TableCell className="text-right font-mono text-primary">¥{item.ensemble_forecast.toFixed(2)}</TableCell>
+                          <TableCell className="text-right font-mono text-primary">¥{(item.ensemble_forecast ?? item.forecast_price ?? 0).toFixed(2)}</TableCell>
                           <TableCell className="text-center">
                             <Badge variant={item.forecast_change_pct > 0 ? "default" : "secondary"} className={item.forecast_change_pct > 0 ? "bg-green-500 hover:bg-green-600" : "bg-red-500 hover:bg-red-600"}>
                               {item.forecast_change_pct > 0 ? "+" : ""}

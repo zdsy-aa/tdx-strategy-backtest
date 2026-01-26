@@ -17,10 +17,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- 生产环境将由 CI/CD 注入环境变量，本地开发或无环境变量时禁用 -->
+    <script type="module">
+      const endpoint = "%VITE_ANALYTICS_ENDPOINT%";
+      const websiteId = "%VITE_ANALYTICS_WEBSITE_ID%";
+      if (endpoint && websiteId && !endpoint.startsWith('%')) {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = `${endpoint}/umami`;
+        script.setAttribute('data-website-id', websiteId);
+        document.body.appendChild(script);
+      }
+    </script>
   </body>
 
 </html>
