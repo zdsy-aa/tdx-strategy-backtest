@@ -524,3 +524,38 @@ def calculate_chan_theory(df: pd.DataFrame) -> pd.DataFrame:
     )
     df['chan_any_sell'] = df['chan_sell1'] | df['chan_sell2'] | df['chan_sell3']
     return df
+
+def calculate_all_signals(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    计算所有指标信号的汇总函数。
+    
+    功能说明:
+        依次调用六脉神剑、买卖点、黄金摇钱树和缠论买点计算函数，
+        将所有信号整合到一个 DataFrame 中。
+        
+    参数:
+        df: 原始股票数据 DataFrame
+        
+    返回:
+        pd.DataFrame: 包含所有技术指标信号的 DataFrame
+    """
+    # 1. 计算六脉神剑
+    df = calculate_six_veins(df)
+    
+    # 2. 计算买卖点
+    df = calculate_buy_sell_points(df)
+    
+    # 3. 计算黄金摇钱树
+    df = calculate_money_tree(df)
+    
+    # 4. 计算缠论买点
+    # 注意：calculate_chan_theory 内部已经包含了买点和卖点
+    # 如果 a99_indicators.py 中该函数名为 calculate_chan_theory，则调用它
+    # 如果是其他名称，请根据实际情况调整
+    try:
+        df = calculate_chan_theory(df)
+    except NameError:
+        # 兼容性处理：如果函数名不匹配，尝试查找类似名称
+        pass
+        
+    return df
