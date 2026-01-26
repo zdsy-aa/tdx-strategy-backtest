@@ -1,1 +1,55 @@
-{}
+{
+  "generated_at": "2026-01-25 21:12:52",
+  "predictions": [
+    {
+      "code": "600002",
+      "name": "齐鲁石化",
+      "latest_close": 10.01,
+      "forecast_price": 10.08,
+      "forecast_change_pct": 0.7,
+      "confidence": 0.95,
+      "analysis_date": "2006-04-06",
+      "forecast_date": "2006-04-07"
+    },
+    {
+      "code": "600000",
+      "name": "浦发银行",
+      "latest_close": 11.61,
+      "forecast_price": 11.64,
+      "forecast_change_pct": 0.27,
+      "confidence": 0.95,
+      "analysis_date": "2026-01-13",
+      "forecast_date": "2026-01-14"
+    },
+    {
+      "code": "600004",
+      "name": "白云机场",
+      "latest_close": 9.48,
+      "forecast_price": 9.48,
+      "forecast_change_pct": -0.03,
+      "confidence": 0.95,
+      "analysis_date": "2026-01-13",
+      "forecast_date": "2026-01-14"
+    },
+    {
+      "code": "600001",
+      "name": "邯郸钢铁",
+      "latest_close": 5.21,
+      "forecast_price": 5.19,
+      "forecast_change_pct": -0.32,
+      "confidence": 0.95,
+      "analysis_date": "2009-12-15",
+      "forecast_date": "2009-12-16"
+    },
+    {
+      "code": "600003",
+      "name": "ST东北高",
+      "latest_close": 3.86,
+      "forecast_price": 3.77,
+      "forecast_change_pct": -2.41,
+      "confidence": 0.85,
+      "analysis_date": "2009-03-13",
+      "forecast_date": "2009-03-16"
+    }
+  ]
+}

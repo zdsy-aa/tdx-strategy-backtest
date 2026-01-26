@@ -676,7 +676,7 @@ export default function VisualBuyPoints() {
                     {tradePairs.map((pair, index) => {
                       const isProfit = parseFloat(pair.profitPercent) >= 0;
                       return (
-                        <tr key={index} className="border-b border-gray-800 hover:bg-gray-800 transition-colors group">
+                        <tr key={index} className="border-b border-gray-800 hover:bg-primary/5 transition-all duration-200 group cursor-pointer">
                           <td className="py-3 px-4 text-gray-300 relative">
                             <div className="absolute inset-y-0 left-0 w-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                             {index + 1}

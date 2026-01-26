@@ -177,12 +177,13 @@ class AdvancedForecaster:
             confidence = self._calculate_confidence(next_day_pred, current_close)
             
             last_date = last_row['日期']
-            # 逻辑：预测数据 CSV 中最新的数据日期 + 1天
+            
+            # 严格计算下一交易日
             next_date = last_date + timedelta(days=1)
-            # 考虑交易日，如果是周五预测周一，如果是周六预测周一
-            if next_date.weekday() == 5: # Saturday
-                next_date += timedelta(days=2)
-            elif next_date.weekday() == 6: # Sunday
+            # 如果下一天是周六(5)，则跳到周一(+2)
+            # 如果下一天是周日(6)，则跳到周一(+1)
+            # 这种写法更严谨，确保 next_date 永远是周一至周五
+            while next_date.weekday() >= 5:
                 next_date += timedelta(days=1)
 
             result = {
@@ -192,8 +193,8 @@ class AdvancedForecaster:
                 "forecast_price": round(float(next_day_pred), 2),
                 "forecast_change_pct": round(float(forecast_change_pct), 2),
                 "confidence": float(confidence),
-                "analysis_date": str(last_date.date()),
-                "forecast_date": str(next_date.date())
+                "analysis_date": last_date.strftime('%Y-%m-%d'),
+                "forecast_date": next_date.strftime('%Y-%m-%d')
             }
             
             return result

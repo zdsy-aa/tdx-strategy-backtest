@@ -341,9 +341,9 @@ export default function ModelDashboard() {
                   {filteredData.slice(0, 50).map((stock, idx) => (
                     <TableRow 
                       key={idx}
-                      className={`hover:bg-gray-50 cursor-pointer transition-all ${
+                      className={`hover:bg-primary/5 cursor-pointer transition-all duration-200 ${
                         selectedStock?.code === stock.code 
-                          ? "ring-2 ring-primary ring-inset z-10" 
+                          ? "outline-2 outline-primary outline-offset-[-2px] bg-primary/10 z-10" 
                           : ""
                       }`}
                       onClick={() => setSelectedStock(stock)}
