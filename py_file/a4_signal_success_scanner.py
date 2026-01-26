@@ -202,8 +202,9 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
         df['future_return'] = (sell_revenue - buy_cost) / buy_cost * 100
 
         records = []
-        for i in range(len(df            # 逐日检查信号
-            has_six_veins_signal = df.at[i, 'six_veins_count'] >= MIN_RED_COUNT     has_chan_signal = df.at[i, 'chan_any_buy']
+        for i in range(len(df)):            # 逐日检查信号
+            has_six_veins_signal = df.at[i, 'six_veins_count'] >= MIN_RED_COUNT
+            has_chan_signal = df.at[i, 'chan_any_buy']
             has_buy1 = bool(df.at[i, 'buy1'])
             has_buy2 = bool(df.at[i, 'buy2'])
             if has_six_veins_signal or has_chan_signal or has_buy1 or has_buy2:
@@ -214,7 +215,14 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
                     'buy1': int(has_buy1),
                     'buy2': int(has_buy2),
                     'chan_any_buy': int(has_chan_signal),
-                    'future_return': df.at[i, 'future_return']
+                    'future_return': df.at[i, 'future_return'],
+                    # 修复：添加六脉神剑的六个红色指标列
+                    'macd_red': int(df.at[i, 'macd_red']),
+                    'kdj_red': int(df.at[i, 'kdj_red']),
+                    'rsi_red': int(df.at[i, 'rsi_red']),
+                    'lwr_red': int(df.at[i, 'lwr_red']),
+                    'bbi_red': int(df.at[i, 'bbi_red']),
+                    'mtm_red': int(df.at[i, 'mtm_red'])
                 }
                 records.append(record)# 信号类型分类
                 signal_types = []

@@ -16,7 +16,7 @@
     3. 自动计算指标：合并后重新计算涨跌额、涨跌幅、振幅等技术指标。
     4. 严格的数据归属校验，防止不同股票数据串扰。
     5. 统一输出格式为 YYYY/MM/DD 的 CSV 文件。
-    6. 默认开启 4 进程并行下载，提高效率。
+    6. 默认开启 2 进程并行下载，并带有重试机制，提高稳定性。
 
 使用方法:
     python a1_data_fetcher_mootdx.py [options]
@@ -29,9 +29,7 @@
     pandas, mootdx, tdxpy
 
 安装命令:
-    pip install pandas
-    # mootdx 和 tdxpy 已集成在项目 external 目录下，或使用:
-    pip install mootdx tdxpy
+    pip install pandas mootdx tdxpy
 
 ================================================================================
 """
@@ -45,7 +43,6 @@ import logging
 import argparse
 import random
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from typing import List, Dict, Optional, Any
 
 # ==============================================================================
 # 1. 环境配置与模块加载
@@ -84,13 +81,21 @@ class MootdxFetcher:
         self._init_client()
 
     def _init_client(self):
-        try:
-            # 增加随机延迟，避免多进程同时冲击服务器
-            time.sleep(random.uniform(0.1, 0.5))
-            self.client = Quotes.factory(market='std')
-        except Exception as e:
-            log(f"初始化行情服务器失败: {e}", level="ERROR")
-            self.client = None
+        max_retries = 5
+        for attempt in range(max_retries):
+            try:
+                time.sleep(random.uniform(0.5, 1.5))
+                self.client = Quotes.factory(market='std')
+                log("初始化行情服务器成功")
+                return
+            except Exception as e:
+                wait_time = (2 ** attempt) + random.uniform(0, 1)
+                log(f"初始化行情服务器失败 (第 {attempt + 1}/{max_retries} 次): {e}. 等待 {wait_time:.2f} 秒后重试...", level="WARNING")
+                if attempt + 1 == max_retries:
+                    log(f"初始化失败次数过多，放弃该进程。", level="ERROR")
+                    self.client = None
+                else:
+                    time.sleep(wait_time)
 
     def get_stock_list(self):
         if not self.client: return []
@@ -107,7 +112,6 @@ class MootdxFetcher:
                 all_stocks.append(sz)
             if not all_stocks: return []
             df = pd.concat(all_stocks)
-            # 过滤 A 股代码
             df = df[df['code'].str.startswith(('60', '00', '30', '68', '8', '4'))]
             return df[['code', 'name', 'market_type']].to_dict('records')
         except Exception as e:
@@ -115,7 +119,6 @@ class MootdxFetcher:
             return []
 
     def get_local_info(self, symbol):
-        """获取本地文件路径及最后日期"""
         current_dir = os.path.dirname(os.path.abspath(__file__))
         base_dir = os.path.dirname(current_dir)
         market = "sh" if symbol.startswith(('6', '9')) else ("bj" if symbol.startswith(('8', '4')) else "sz")
@@ -124,7 +127,6 @@ class MootdxFetcher:
         last_date = None
         if os.path.exists(file_path):
             try:
-                # 仅读取最后一行日期
                 df = pd.read_csv(file_path, usecols=['日期'], encoding='utf-8-sig')
                 if not df.empty:
                     last_date_str = str(df['日期'].iloc[-1]).replace('/', '')
@@ -138,27 +140,36 @@ class MootdxFetcher:
         
         local_last_date, _ = self.get_local_info(symbol)
         
-        # 增量模式逻辑：
-        # 如果是增量模式，且未显式指定开始日期，且本地有数据，则从本地最后一天的后一天开始抓取
         actual_start = start_date
         if is_incremental and not actual_start and local_last_date:
             try:
                 last_dt = datetime.strptime(local_last_date, '%Y%m%d')
                 actual_start = (last_dt + timedelta(days=1)).strftime('%Y%m%d')
-                # 增量模式下，如果 offset 过大，缩减抓取长度以提高效率
                 if offset > 200:
                     offset = 200 
             except:
                 pass
 
+        df_new = None
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                df_new = self.client.bars(symbol=symbol, frequency='day', offset=offset)
+                break
+            except Exception as e:
+                wait_time = (2 ** attempt) + random.uniform(0, 1)
+                log(f"获取 {symbol} 数据失败 (第 {attempt + 1}/{max_retries} 次): {e}. 等待 {wait_time:.2f} 秒后重试...", level="WARNING")
+                if attempt + 1 < max_retries:
+                    time.sleep(wait_time)
+                else:
+                    log(f"获取 {symbol} 数据失败次数过多，放弃。", level="ERROR")
+                    return None
+        
         try:
-            df_new = self.client.bars(symbol=symbol, frequency='day', offset=offset)
-            
             if df_new is not None and not df_new.empty:
                 if 'datetime' not in df_new.columns:
                     df_new = df_new.reset_index()
                 
-                # 严格校验：只保留当前进程负责的 symbol
                 if 'code' in df_new.columns:
                     df_new = df_new[df_new['code'].astype(str) == str(symbol)].copy()
                 
@@ -170,10 +181,8 @@ class MootdxFetcher:
                 })
                 
                 df_new['日期'] = pd.to_datetime(df_new['日期'])
-                # 基础过滤：排除非法日期
                 df_new = df_new[df_new['日期'] > pd.to_datetime('1990-01-01')]
                 
-                # 日期范围过滤
                 if actual_start:
                     df_new = df_new[df_new['日期'] >= pd.to_datetime(actual_start)]
                 if end_date:
@@ -181,30 +190,24 @@ class MootdxFetcher:
                 
                 if df_new.empty: return None
 
-                # 统一格式化为 YYYY/MM/DD
                 df_new['日期'] = df_new['日期'].dt.strftime('%Y/%m/%d')
                 df_new['名称'] = name
+                df_new['代码'] = symbol
                 return df_new
             return None
         except Exception as e:
-            log(f"获取 {symbol} 数据失败: {e}", level="ERROR")
+            log(f"处理 {symbol} 数据失败: {e}", level="ERROR")
             return None
 
     def save_data(self, symbol, df_new):
-        """核心合并逻辑：读取旧数据 -> 合并新数据 -> 去重排序 -> 重算指标 -> 保存"""
         if df_new is None or df_new.empty: return
         
         _, file_path = self.get_local_info(symbol)
         
         if os.path.exists(file_path):
             try:
-                # 读取本地所有历史数据
                 df_old = pd.read_csv(file_path, encoding='utf-8-sig')
-                # 确保旧数据日期格式统一，便于合并去重
                 df_old['日期'] = pd.to_datetime(df_old['日期']).dt.strftime('%Y/%m/%d')
-                
-                # 合并新旧数据
-                # drop_duplicates 确保日期唯一，keep='last' 优先保留新下载的数据
                 df_final = pd.concat([df_old, df_new]).drop_duplicates(subset=['日期'], keep='last').sort_values('日期')
             except Exception as e:
                 log(f"合并 {symbol} 失败，为保护数据，本次不执行保存: {e}", level="ERROR")
@@ -212,14 +215,20 @@ class MootdxFetcher:
         else:
             df_final = df_new.sort_values('日期')
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        
+        # 增加数据一致性检查
+        if '代码' in df_final.columns and not df_final.empty:
+            # 检查数据中的股票代码是否与文件名中的股票代码一致
+            if not (df_final['代码'].astype(str) == str(symbol)).all():
+                log(f"数据一致性检查失败: 文件名代码 {symbol} 与数据中代码 {df_final['代码'].iloc[0]} 不匹配。", level="ERROR")
+                return
+            df_final = df_final.drop(columns=['代码']) # 检查完成后移除辅助列
 
-        # 数据清洗与数值化
         for col in ['开盘', '收盘', '最高', '最低', '成交量', '成交额']:
             df_final[col] = pd.to_numeric(df_final[col], errors='coerce')
         
         df_final = df_final.dropna(subset=['收盘'])
         
-        # 重新计算技术指标，确保合并后的连续性
         df_final['涨跌额'] = df_final['收盘'].diff()
         df_final['涨跌幅'] = (df_final['收盘'].diff() / df_final['收盘'].shift(1)) * 100
         df_final['振幅'] = ((df_final['最高'] - df_final['最低']) / df_final['收盘'].shift(1)) * 100
@@ -227,14 +236,14 @@ class MootdxFetcher:
         
         df_final = df_final.fillna(0.0)
         
-        # 严格按要求的列顺序保存
         target_cols = ['名称', '日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率']
         df_final[target_cols].to_csv(file_path, index=False, encoding='utf-8-sig')
 
 def process_single_stock(stock, offset, start, end, is_incremental):
-    """独立的进程处理函数"""
     try:
         fetcher = MootdxFetcher()
+        if fetcher.client is None:
+            return False
         df = fetcher.fetch_daily(stock['code'], stock['name'], offset, start, end, is_incremental)
         if df is not None:
             fetcher.save_data(stock['code'], df)
@@ -251,28 +260,23 @@ def main():
     parser.add_argument("--start", type=str, help="开始日期 (YYYYMMDD)")
     parser.add_argument("--end", type=str, help="结束日期 (YYYYMMDD)")
     parser.add_argument("--limit", type=int, default=None, help="获取天数限制")
-    parser.add_argument("--workers", type=int, default=4, help="并行进程数 (默认 4)")
+    parser.add_argument("--workers", type=int, default=2, help="并行进程数 (默认 2)")
     args = parser.parse_args()
 
-    # 初始化获取列表
     init_fetcher = MootdxFetcher()
+    if init_fetcher.client is None:
+        log("主进程初始化行情服务器失败，无法获取股票列表，程序退出。", level="CRITICAL")
+        return
+        
     stocks_to_download = []
     
-    # --- 参数识别逻辑修正 ---
-    # 1. 如果用户明确输入了 --start 或 --end，则一定是增量/范围模式
-    # 2. 如果用户没有输入 --limit，且没有输入 --all (即指定了 --symbol)，默认执行全量抓取
-    # 3. 如果用户输入了 --all，且没有指定日期范围，应强制执行全量下载
-    
     if args.start or args.end:
-        # 增量/范围模式
         is_incremental = True
         limit = args.limit if args.limit else 800
     elif args.all:
-        # 全量模式：抓取所有日期 (8000天)
         is_incremental = False
         limit = args.limit if args.limit else 8000
     elif args.symbol:
-        # 指定代码全量模式
         is_incremental = False
         limit = args.limit if args.limit else 8000
     else:
@@ -284,6 +288,10 @@ def main():
     elif args.symbol:
         for s in args.symbol.split(','):
             stocks_to_download.append({'code': s.strip(), 'name': '未知'})
+
+    if not stocks_to_download:
+        log("未能获取到待下载的股票列表，任务结束。", level="WARNING")
+        return
 
     log(f"启动多进程抓取 | 模式: {'增量更新' if is_incremental else '全量下载'}, 进程数: {args.workers}, 目标数: {len(stocks_to_download)}, 抓取长度: {limit}")
     

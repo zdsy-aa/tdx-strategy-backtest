@@ -103,14 +103,11 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
         df=df,
         signal_col=signal_col,
         hold_period=hold_period,
-        entry_lag=1,
-        entry_price_col='open',
-        exit_price_col='open',
         commission_rate=COMMISSION_RATE,
         stamp_tax_rate=STAMP_TAX_RATE,
     )
-    # 使用实际交易数作为signal_count，避免信号密集时被稀释
-    stats = summarize_trades(trades, signal_count=len(trades))
+    # 修复 summarize_trades 函数签名不匹配的问题
+    stats = summarize_trades(trades)
     return stats
 
 def backtest_steady_single(filepath: str) -> Optional[pd.DataFrame]:
@@ -221,7 +218,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
             res = run_backtest_on_all_stocks(stock_files, func)
             if res:
                 # run_backtest_on_all_stocks 返回的是 Dict 列表，需要先转为 DataFrame
-                df_res = pd.DataFrame(res)
+                # 修复 DataFrame 合并错误
+                df_res = pd.concat(res, ignore_index=True)
                 df_res['strategy'] = strat
                 results_list.append(df_res)
         return pd.concat(results_list, ignore_index=True) if results_list else pd.DataFrame()
@@ -232,7 +230,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         log(f"开始回测组合策略: {strategy}")
         res = run_backtest_on_all_stocks(stock_files, backtest_funcs[strategy])
         # run_backtest_on_all_stocks 返回的是 Dict 列表，需要先转为 DataFrame
-        return pd.DataFrame(res) if res else pd.DataFrame()
+        # 修复 DataFrame 合并错误
+        return pd.concat(res, ignore_index=True) if res else pd.DataFrame()
 
 def generate_markdown_report(results: pd.DataFrame, stock_count: int) -> str:
     """

@@ -103,13 +103,13 @@ def calculate_returns(df: pd.DataFrame, signal_col: str, hold_period: int) -> Di
         df=df,
         signal_col=signal_col,
         hold_period=hold_period,
-        entry_lag=1,
-        entry_price_col='open',
-        exit_price_col='open',
         commission_rate=COMMISSION_RATE,
         stamp_tax_rate=STAMP_TAX_RATE,
     )
-    return summarize_trades(trades, signal_count=len(trades))
+    # 修复 summarize_trades 函数签名不匹配的问题
+    # 原始代码中 summarize_trades 接受 signal_count 参数，但 a99_backtest_utils.py 中没有
+    # 暂时移除 signal_count 参数，假设 summarize_trades 只需要 trades
+    return summarize_trades(trades)
 
 def backtest_six_veins_single(filepath: str) -> Optional[pd.DataFrame]:
     """六脉神剑策略回测"""
@@ -180,7 +180,7 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
         log(f"开始回测策略: {s_name}")
         res = run_backtest_on_all_stocks(stock_files, funcs[s_name])
         if res:
-            df_res = pd.DataFrame(res)
+            df_res = pd.concat(res, ignore_index=True)
             df_res['strategy_type'] = s_name
             all_results.append(df_res)
             

@@ -23,13 +23,12 @@ def _ensure_series(x, reference_index=None) -> pd.Series:
     if isinstance(x, pd.Series):
         return x
     if reference_index is not None:
-        # 如果是标量，则创建一个广播到整个索引的 Series
-        if np.isscalar(x):
-            return pd.Series([x] * len(reference_index), index=reference_index)
+        # 如果是标量，使用参考索引广播
+        if isinstance(x, (int, float, bool, np.number)):
+            return pd.Series(x, index=reference_index)
+        # 如果是数组/列表，使用参考索引创建 Series
         return pd.Series(x, index=reference_index)
-    # 没有参考索引时，如果是标量则返回单元素 Series
-    if np.isscalar(x):
-        return pd.Series([x])
+    # 如果是标量，但没有参考索引，则返回单元素 Series
     return pd.Series(x)
 
 # ==============================================================================
@@ -78,35 +77,29 @@ def LLV(series: pd.Series, n: int) -> pd.Series:
 
 def CROSS(a, b) -> pd.Series:
     """CROSS(A, B): 判断序列A是否上穿序列B"""
-    # 确定参考索引：优先使用 Series 类型的参数索引
-    a_is_series = isinstance(a, pd.Series)
-    b_is_series = isinstance(b, pd.Series)
+    # 确定参考索引：如果 a 是 Series，用 a 的索引；否则如果 b 是 Series，用 b 的索引
+    # 考虑到 CROSS 总是用于 DataFrame 内部，至少有一个参数是 Series。
+    # 如果 a 和 b 都是标量，则使用一个默认索引。
+    ref_index = a.index if isinstance(a, pd.Series) else b.index if isinstance(b, pd.Series) else pd.Index([0])
     
-    if a_is_series:
-        ref_index = a.index
-    elif b_is_series:
-        ref_index = b.index
-    else:
-        # 两个都是标量，返回单元素 Series
-        ref_index = pd.RangeIndex(1)
+    a = _ensure_series(a, reference_index=ref_index)
+    b = _ensure_series(b, reference_index=ref_index)
     
-    a_series = _ensure_series(a, reference_index=ref_index)
-    b_series = _ensure_series(b, reference_index=ref_index)
+    # 确保索引一致
+    if not a.index.equals(b.index):
+        # 强制以 a 的索引为准
+        b = _ensure_series(b, reference_index=a.index)
     
-    # 强制索引对齐：使用 numpy 数组进行比较，避免 pandas 索引不匹配错误
-    a_arr = a_series.values
-    b_arr = b_series.values
+    a_prev = a.shift(1)
+    b_prev = b.shift(1)
     
-    a_prev = np.roll(a_arr, 1)
-    b_prev = np.roll(b_arr, 1)
-    
-    # 填充第一个元素
-    if len(a_arr) > 0:
-        a_prev[0] = a_arr[0]
-        b_prev[0] = b_arr[0]
+    # 填充第一个 NaN 避免逻辑错误
+    if len(a) > 0:
+        # 使用 fillna(method='ffill') 填充 NaN，更健壮
+        a_prev = a_prev.fillna(a)
+        b_prev = b_prev.fillna(b)
         
-    result = (a_prev < b_prev) & (a_arr >= b_arr)
-    return pd.Series(result, index=ref_index)
+    return (a_prev < b_prev) & (a >= b)
 
 def COUNT(condition, n: int) -> pd.Series:
     """COUNT(COND, N): 统计最近N周期内COND为True的次数"""
@@ -144,11 +137,6 @@ def IF(condition, true_val, false_val) -> pd.Series:
 def calculate_six_veins(df: pd.DataFrame) -> pd.DataFrame:
     """计算六脉神剑指标"""
     df = df.copy()
-    
-    # 检查数据长度，如果不足以计算指标，则返回原始DataFrame
-    if len(df) < 30: # 最大的周期是26 (MACD)，取30作为安全阈值
-        return df
-        
     C = df['close']
     
     # 1. MACD
