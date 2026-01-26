@@ -93,7 +93,7 @@ def convert_txt_to_csv(txt_file):
 
     if rows:
         # 将数据写入CSV文件
-        with open(csv_file_path, 'w', newline='', encoding='gbk') as csv_file:
+        with open(csv_file_path, 'w', newline='', encoding='UTF-8') as csv_file:
             writer = csv.writer(csv_file)
             writer.writerow(headers)  # 写入表头
             writer.writerows(rows)  # 写入数据行
