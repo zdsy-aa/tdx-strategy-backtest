@@ -51,7 +51,7 @@ import json
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional, Any
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import multiprocessing
 import warnings
@@ -122,12 +122,42 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
     扫描单只股票的信号，并返回信号记录DataFrame。
     """
     try:
-        df = pd.read_csv(file_path, encoding='utf-8', parse_dates=['date'])
-        # 基础列重命名
+        # 尝试多种编码读取
+        df = None
+        for enc in ['utf-8-sig', 'utf-8', 'gbk']:
+            try:
+                df = pd.read_csv(file_path, encoding=enc)
+                break
+            except Exception:
+                continue
+        if df is None:
+            log(f"无法读取CSV文件: {file_path}", level="ERROR")
+            return pd.DataFrame()
+
+        # 基础列重命名和标准化
         df.rename(columns=lambda c: c.strip().lower(), inplace=True)
+        
+        # 统一中文列名到英文小写
+        column_map = {
+            '名称': 'name', '日期': 'date', '开盘': 'open', '收盘': 'close', 
+            '最高': 'high', '最低': 'low', '成交量': 'volume', '成交额': 'amount', 
+            '振幅': 'amplitude', '涨跌幅': 'pct_chg', '涨跌额': 'chg', '换手率': 'turnover'
+        }
+        df.rename(columns=column_map, inplace=True)
+        
         if 'date' not in df.columns:
             log(f"文件缺少日期列: {file_path}", level="ERROR")
             return pd.DataFrame()
+        
+        # 确保日期列是 datetime 类型
+        df['date'] = pd.to_datetime(df['date'], errors='coerce')
+        df.dropna(subset=['date'], inplace=True)
+        
+        # 缺失列处理：确保计算指标所需的列存在
+        for col in ['open', 'high', 'low', 'close', 'volume']:
+            if col not in df.columns:
+                df[col] = 0.0
+        
         df.sort_values('date', inplace=True)
         df.reset_index(drop=True, inplace=True)
         # 数据不足以判断15日涨幅的无需扫描
@@ -138,6 +168,21 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
         df = calculate_six_veins(df)
         df = calculate_buy_sell_points(df)
         df = calculate_chan_theory(df)
+
+        # 检查指标计算是否成功，如果关键列不存在，则跳过
+        required_cols = ['six_veins_count', 'buy1', 'buy2', 'chan_buy1']
+        if not all(col in df.columns for col in required_cols):
+            log(f"文件缺少必要的指标列，可能由于数据不足: {file_path}", level="WARNING")
+            return pd.DataFrame()
+        
+        # 定义 'chan_any_buy' 信号 (假设为 chan_buy1 或 chan_buy2 或 chan_buy3)
+        # 由于 a99_indicators.py 中只计算了 chan_buy1，这里暂时使用 chan_buy1 作为“任意买点”的替代
+        # 确保 chan_buy1 存在，否则跳过
+        if 'chan_buy1' not in df.columns:
+            log(f"文件缺少 chan_buy1 列: {file_path}", level="ERROR")
+            return pd.DataFrame()
+            
+        df['chan_any_buy'] = df['chan_buy1']
 
         # 计算未来HOLDING_DAYS日的涨幅百分比
         # 统一口径：t+1日开盘买入，t+1+HOLDING_DAYS日开盘卖出
@@ -157,10 +202,8 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
         df['future_return'] = (sell_revenue - buy_cost) / buy_cost * 100
 
         records = []
-        for i in range(len(df) - HOLDING_DAYS):
-            # 逐日检查信号
-            has_six_veins_signal = df.at[i, 'six_veins_count'] >= MIN_RED_COUNT
-            has_chan_signal = df.at[i, 'chan_any_buy']
+        for i in range(len(df            # 逐日检查信号
+            has_six_veins_signal = df.at[i, 'six_veins_count'] >= MIN_RED_COUNT     has_chan_signal = df.at[i, 'chan_any_buy']
             has_buy1 = bool(df.at[i, 'buy1'])
             has_buy2 = bool(df.at[i, 'buy2'])
             if has_six_veins_signal or has_chan_signal or has_buy1 or has_buy2:
@@ -170,10 +213,10 @@ def scan_single_stock(file_path: str) -> pd.DataFrame:
                     'six_veins_count': int(df.at[i, 'six_veins_count']),
                     'buy1': int(has_buy1),
                     'buy2': int(has_buy2),
-                    'chan_any_buy': int(bool(df.at[i, 'chan_any_buy'])),
-                    'future_return': float(df.at[i, 'future_return'])
+                    'chan_any_buy': int(has_chan_signal),
+                    'future_return': df.at[i, 'future_return']
                 }
-                # 信号类型分类
+                records.append(record)# 信号类型分类
                 signal_types = []
                 if has_six_veins_signal: signal_types.append('six_veins')
                 if has_chan_signal: signal_types.append('chan_buy')

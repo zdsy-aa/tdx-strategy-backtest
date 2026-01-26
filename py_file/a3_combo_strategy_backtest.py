@@ -31,11 +31,14 @@ import sys
 import argparse
 import pandas as pd
 import numpy as np
+import json
 from datetime import datetime
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 # 添加项目路径
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(current_dir)
+sys.path.insert(0, current_dir)
 
 from a99_indicators import calculate_all_signals
 from a99_backtest_utils import (
@@ -128,8 +131,19 @@ def backtest_steady_single(filepath: str) -> Optional[pd.DataFrame]:
     if df is None:
         return None
     df = calculate_all_signals(df)
-    if df.empty or 'combo_steady' not in df.columns:
+    if df.empty:
         return None
+    
+    # 缠论任意买点 (简化为 chan_buy1)
+    df['chan_any_buy'] = df['chan_buy1'] # 假设任意买点即为 chan_buy1
+    
+    # 稳健组合条件：六脉≥4红 + 买点2 + (缠论二买或三买)
+    # 由于 a99_indicators.py 中只计算了 chan_buy1，这里暂时使用 chan_buy1 作为“缠论二买或三买”的替代
+    df['combo_steady'] = (df['six_veins_count'] >= 4) & df['buy2'] & df['chan_buy1']
+    
+    if df['combo_steady'].sum() == 0:
+        return None
+    
     # 信号：稳健组合触发点（从False变True的点）
     df['steady_sig'] = df['combo_steady'] & ~df['combo_steady'].shift(1, fill_value=False)
     results = []
@@ -165,9 +179,13 @@ def backtest_aggressive_single(filepath: str) -> Optional[pd.DataFrame]:
     df = calculate_all_signals(df)
     if df.empty:
         return None
+    
+    # 缠论任意买点 (简化为 chan_buy1)
+    df['chan_any_buy'] = df['chan_buy1'] # 假设任意买点即为 chan_buy1
+    
     # 子策略信号定义
     df['aggr1'] = ((df['six_veins_count'] >= 5) & df['buy2'])
-    df['aggr2'] = (df['six_veins_count'] == 6) & df['money_tree']
+    df['aggr2'] = (df['six_veins_count'] == 6) & df['money_tree_signal']
     df['aggr3'] = (df['six_veins_count'] == 6) & df['chan_any_buy']
     # 综合激进信号：子策略1或2或3触发
     df['aggressive_sig'] = (df['aggr1'] | df['aggr2'] | df['aggr3']) & ~(df['aggr1'] | df['aggr2'] | df['aggr3']).shift(1, fill_value=False)
@@ -202,7 +220,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
             log(f"开始回测组合策略: {strat}")
             res = run_backtest_on_all_stocks(stock_files, func)
             if res:
-                df_res = pd.concat(res, ignore_index=True)
+                # run_backtest_on_all_stocks 返回的是 Dict 列表，需要先转为 DataFrame
+                df_res = pd.DataFrame(res)
                 df_res['strategy'] = strat
                 results_list.append(df_res)
         return pd.concat(results_list, ignore_index=True) if results_list else pd.DataFrame()
@@ -212,7 +231,8 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
             return pd.DataFrame()
         log(f"开始回测组合策略: {strategy}")
         res = run_backtest_on_all_stocks(stock_files, backtest_funcs[strategy])
-        return pd.concat(res, ignore_index=True) if res else pd.DataFrame()
+        # run_backtest_on_all_stocks 返回的是 Dict 列表，需要先转为 DataFrame
+        return pd.DataFrame(res) if res else pd.DataFrame()
 
 def generate_markdown_report(results: pd.DataFrame, stock_count: int) -> str:
     """
@@ -267,7 +287,7 @@ def main():
     )
     args = parser.parse_args()
 
-    stock_files = get_all_stock_files(os.path.join(os.path.dirname(PROJECT_ROOT), 'data', 'day'))
+    stock_files = get_all_stock_files(os.path.join(PROJECT_ROOT, 'data', 'day'))
     if not stock_files:
         log("未找到股票数据文件。", level="ERROR")
         return

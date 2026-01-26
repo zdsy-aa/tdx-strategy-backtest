@@ -144,6 +144,11 @@ def IF(condition, true_val, false_val) -> pd.Series:
 def calculate_six_veins(df: pd.DataFrame) -> pd.DataFrame:
     """计算六脉神剑指标"""
     df = df.copy()
+    
+    # 检查数据长度，如果不足以计算指标，则返回原始DataFrame
+    if len(df) < 30: # 最大的周期是26 (MACD)，取30作为安全阈值
+        return df
+        
     C = df['close']
     
     # 1. MACD

@@ -45,6 +45,7 @@ import logging
 import argparse
 import random
 from concurrent.futures import ProcessPoolExecutor, as_completed
+from typing import List, Dict, Optional, Any
 
 # ==============================================================================
 # 1. 环境配置与模块加载

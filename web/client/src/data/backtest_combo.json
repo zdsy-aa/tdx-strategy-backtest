@@ -1,0 +1,12 @@
+{
+  "generate_time": "2026-01-26 04:36:02",
+  "stock_count": 7,
+  "strategies": {
+    "aggressive": {
+      "optimal_period_win": "5",
+      "win_rate": 0.0,
+      "avg_return": 0.0,
+      "trades": 0
+    }
+  }
+}
