@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-22T08:42:44.277036Z",
+  "generated_at": "2026-01-25T13:38:46.052925Z",
   "data_root": "D:\\GitHub\\tdx-strategy-backtest\\data\\day",
   "out_dir": "D:\\GitHub\\web\\client\\src\\data",
   "csv_columns_cn": [
@@ -28,13 +28,13 @@
       "fail": 0
     },
     "sh": {
-      "total": 2657,
+      "total": 2437,
       "ok": 2420,
       "fail": 0
     }
   },
   "counts": {
-    "symbols_total": 6009,
+    "symbols_total": 5789,
     "symbols_ok": 5752,
     "symbols_fail": 0
   },
