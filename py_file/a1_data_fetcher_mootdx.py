@@ -21,9 +21,9 @@
 使用方法:
     python a1_data_fetcher_mootdx.py [options]
     示例:
-      全量增量更新: python a1_data_fetcher_mootdx.py --all
-      下载指定股票: python a1_data_fetcher_mootdx.py --symbol 600036,000001
-      指定日期范围: python a1_data_fetcher_mootdx.py --symbol 600036 --start 20240101 --end 20241231
+      全量下载所有历史: python a1_data_fetcher_mootdx.py --all
+      下载指定股票全量: python a1_data_fetcher_mootdx.py --symbol 600036,000001
+      指定日期范围增量: python a1_data_fetcher_mootdx.py --symbol 600036 --start 20240101 --end 20241231
 
 依赖库:
     pandas, mootdx, tdxpy
@@ -132,21 +132,21 @@ class MootdxFetcher:
                 pass
         return last_date, file_path
 
-    def fetch_daily(self, symbol, name="未知", offset=800, start_date=None, end_date=None, is_incremental=False):
+    def fetch_daily(self, symbol, name="未知", offset=8000, start_date=None, end_date=None, is_incremental=False):
         if not self.client: return None
         
         local_last_date, _ = self.get_local_info(symbol)
         
         # 增量模式逻辑：
-        # 如果未指定开始日期，且本地有数据，则从本地最后一天的后一天开始抓取
+        # 如果是增量模式，且未显式指定开始日期，且本地有数据，则从本地最后一天的后一天开始抓取
         actual_start = start_date
         if is_incremental and not actual_start and local_last_date:
             try:
                 last_dt = datetime.strptime(local_last_date, '%Y%m%d')
                 actual_start = (last_dt + timedelta(days=1)).strftime('%Y%m%d')
-                # 增量更新通常只需要少量数据
-                if not offset or offset > 100:
-                    offset = 100 
+                # 增量模式下，如果 offset 过大，缩减抓取长度以提高效率
+                if offset > 200:
+                    offset = 200 
             except:
                 pass
 
@@ -205,7 +205,6 @@ class MootdxFetcher:
                 # 合并新旧数据
                 # drop_duplicates 确保日期唯一，keep='last' 优先保留新下载的数据
                 df_final = pd.concat([df_old, df_new]).drop_duplicates(subset=['日期'], keep='last').sort_values('日期')
-                log(f"已将新数据合并至 {symbol} 历史记录中")
             except Exception as e:
                 log(f"合并 {symbol} 失败，为保护数据，本次不执行保存: {e}", level="ERROR")
                 return
@@ -239,9 +238,7 @@ def process_single_stock(stock, offset, start, end, is_incremental):
         if df is not None:
             fetcher.save_data(stock['code'], df)
             return True
-        else:
-            # 如果没有抓取到新数据，在增量模式下是正常的
-            return False
+        return False
     except Exception as e:
         log(f"进程异常 {stock['code']}: {e}", level="ERROR")
     return False
@@ -260,26 +257,34 @@ def main():
     init_fetcher = MootdxFetcher()
     stocks_to_download = []
     
-    # 逻辑判断：如果用户提供了开始日期或没有提供 limit，默认为增量模式（尝试合并）
-    is_incremental = True if (args.start or not args.limit) else False
+    # --- 参数识别逻辑修正 ---
+    # 1. 如果用户明确输入了 --start 或 --end，则一定是增量/范围模式
+    # 2. 如果用户没有输入 --limit，且没有输入 --all (即指定了 --symbol)，默认执行全量抓取
+    # 3. 如果用户输入了 --all，且没有指定日期范围，应强制执行全量下载
     
-    # 默认抓取长度：全量抓取 4000 天，增量抓取默认 800 天（或由 offset 自动缩减）
-    limit = args.limit if args.limit else (4000 if not is_incremental else 800)
-
-    if args.all:
-        stocks_to_download = init_fetcher.get_stock_list()
+    if args.start or args.end:
+        # 增量/范围模式
+        is_incremental = True
+        limit = args.limit if args.limit else 800
+    elif args.all:
+        # 全量模式：抓取所有日期 (8000天)
+        is_incremental = False
+        limit = args.limit if args.limit else 8000
     elif args.symbol:
-        # 指定代码模式下，如果未指定日期，默认也执行全量抓取
-        if not args.start and not args.limit:
-            is_incremental = False
-            limit = 4000
-        for s in args.symbol.split(','):
-            stocks_to_download.append({'code': s.strip(), 'name': '未知'})
+        # 指定代码全量模式
+        is_incremental = False
+        limit = args.limit if args.limit else 8000
     else:
         log("请提供 --symbol 或 --all 参数", level="ERROR")
         return
 
-    log(f"启动多进程抓取 | 模式: {'增量合并' if is_incremental else '全量下载'}, 进程数: {args.workers}, 目标数: {len(stocks_to_download)}")
+    if args.all:
+        stocks_to_download = init_fetcher.get_stock_list()
+    elif args.symbol:
+        for s in args.symbol.split(','):
+            stocks_to_download.append({'code': s.strip(), 'name': '未知'})
+
+    log(f"启动多进程抓取 | 模式: {'增量更新' if is_incremental else '全量下载'}, 进程数: {args.workers}, 目标数: {len(stocks_to_download)}, 抓取长度: {limit}")
     
     success_count = 0
     with ProcessPoolExecutor(max_workers=args.workers) as executor:
