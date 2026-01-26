@@ -185,7 +185,11 @@ def IF(condition: pd.Series, true_val, false_val):
     """
     IF函数 - 条件选择函数
     """
-    return condition.apply(lambda x: true_val if x else false_val)
+    if isinstance(true_val, pd.Series) or isinstance(false_val, pd.Series):
+        # 如果是 Series，使用 where 方法以保证性能和维度正确
+        return pd.Series(np.where(condition, true_val, false_val), index=condition.index)
+    # 如果是标量，直接使用 where
+    return pd.Series(np.where(condition, true_val, false_val), index=condition.index)
 
 # ==============================================================================
 # 第二部分: 六脉神剑指标 (Six Veins Sword)
@@ -303,7 +307,9 @@ def calculate_buy_sell_points(df: pd.DataFrame, M: int = 55, N: int = 34) -> pd.
     # -------------------------------------------------------------------------
     VAR1 = (C - LLV(L, 30)) / (HHV(H, 30) - LLV(L, 30) + 0.0001) * 100
     VAR2 = SMA(VAR1, 3, 1)
-    df['accumulate'] = EMA(IF(L <= LLV(L, 30), VAR2, pd.Series(0, index=df.index)), 3) / 10
+    # 强制将 IF 结果转换为 Series，并确保 EMA 计算时维度正确
+    acc_signal = IF(L <= LLV(L, 30), VAR2, pd.Series(0, index=df.index))
+    df['accumulate'] = EMA(acc_signal, 3) / 10
     # -------------------------------------------------------------------------
     # 买卖信号计算
     # -------------------------------------------------------------------------

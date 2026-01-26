@@ -94,7 +94,15 @@ def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
         如果数据不足100条或读取失败，返回None
     """
     try:
-        df = pd.read_csv(filepath)
+        # 尝试多种编码加载数据，解决 UTF-8 和 GBK 编码冲突
+        try:
+            df = pd.read_csv(filepath, encoding='utf-8')
+        except UnicodeDecodeError:
+            try:
+                df = pd.read_csv(filepath, encoding='gbk')
+            except UnicodeDecodeError:
+                df = pd.read_csv(filepath, encoding='utf-8-sig')
+        
         # 列名映射：将中文列名转换为英文列名
         column_map = {
             '日期': 'date', '开盘': 'open', '最高': 'high', '最低': 'low', '收盘': 'close', '成交量': 'volume'
