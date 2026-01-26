@@ -149,13 +149,19 @@ def LLV(series: pd.Series, n: int) -> pd.Series:
     """
     return series.rolling(window=n, min_periods=1).min()
 
-def CROSS(a: pd.Series, b: pd.Series) -> pd.Series:
+def CROSS(a, b) -> pd.Series:
     """
     CROSS函数 - 黄金交叉判断
     
     含义: 判断序列a是否上穿序列b，是则返回True，否则False
     实现: 上穿条件为 (a_{t-1} < b_{t-1}) 且 (a_t >= b_t)
     """
+    # 确保 a 和 b 都是 Series 且索引一致
+    if not isinstance(a, pd.Series):
+        a = pd.Series(a)
+    if not isinstance(b, pd.Series):
+        b = pd.Series(b, index=a.index)
+        
     a_prev = a.shift(1, fill_value=a.iloc[0])
     b_prev = b.shift(1, fill_value=b.iloc[0])
     return (a_prev < b_prev) & (a >= b)
