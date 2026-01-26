@@ -664,20 +664,50 @@ def build_symbol_payload(
         if "name" in df.columns and df["name"].notna().any():
             name = df["name"].dropna().iloc[-1]
 
-        # 三策略分别跑
-        score_a, sig_a = strategy_core_A(df)
-        score_b, sig_b = strategy_core_B(df)
-        score_c, sig_c = strategy_core_C(df) # 新增策略 C
+    # 获取最近 3 天的信号
+    # 注意：这里的 strategy_core 函数内部目前只判断最后一行（latest = df.iloc[-1]）
+    # 我们需要修改逻辑，使其能够判断最近 N 天的信号
+    
+    # 临时修改：为了满足“最新 3 天判断策略是否出现”的需求
+    # 我们循环最近 3 天，只要任意一天出现信号即记录
+    
+    combined_sig_a = []; max_score_a = 0.0
+    combined_sig_b = []; max_score_b = 0.0
+    combined_sig_c = []; max_score_c = 0.0
+    
+    # 检查最近 3 天 (如果数据量不足 3 天则按实际天数)
+    lookback = min(3, len(df))
+    for i in range(1, lookback + 1):
+        sub_df = df.iloc[:-i+1] if i > 1 else df
+        s_a, sig_a = strategy_core_A(sub_df)
+        s_b, sig_b = strategy_core_B(sub_df)
+        s_c, sig_c = strategy_core_C(sub_df)
+        
+        # 记录信号
+        combined_sig_a.extend(sig_a)
+        combined_sig_b.extend(sig_b)
+        combined_sig_c.extend(sig_c)
+        
+        # 记录最高分 (或者根据需求累加，这里采用最高分以防重复计算同一信号)
+        max_score_a = max(max_score_a, s_a)
+        max_score_b = max(max_score_b, s_b)
+        max_score_c = max(max_score_c, s_c)
 
-        # 合并信号：按 date desc、score desc
-        all_signals = sorted(
-            sig_a + sig_b + sig_c,
-            key=lambda x: (x["date"], x["score"]),
-            reverse=True,
-        )
+    # 合并并去重信号 (按日期和类型)
+    all_signals_raw = combined_sig_a + combined_sig_b + combined_sig_c
+    seen_signals = set()
+    all_signals = []
+    for sig in all_signals_raw:
+        sig_id = (sig["date"], sig["sig_type"])
+        if sig_id not in seen_signals:
+            all_signals.append(sig)
+            seen_signals.add(sig_id)
 
-        # 综合评分：简单相加
-        final_score = score_a + score_b + score_c
+    # 按 date desc、score desc 排序
+    all_signals.sort(key=lambda x: (x["date"], x["score"]), reverse=True)
+
+    # 综合评分
+    final_score = max_score_a + max_score_b + max_score_c
 
         payload = {
             "meta": {

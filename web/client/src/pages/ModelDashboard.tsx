@@ -325,16 +325,16 @@ export default function ModelDashboard() {
             <div className="border rounded-lg overflow-x-auto">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gray-50">
-                    <TableHead className="w-20">市场</TableHead>
-                    <TableHead className="w-24">代码</TableHead>
-                    <TableHead className="w-32">名称</TableHead>
-                    <TableHead className="w-24">综合评分</TableHead>
-                    <TableHead className="w-20">MA交叉</TableHead>
-                    <TableHead className="w-20">RSI超卖</TableHead>
-                    <TableHead className="w-20">高级指标</TableHead>
-                    <TableHead className="w-32">信号强度</TableHead>
-                    <TableHead className="w-24">数据日期</TableHead>
+                  <TableRow className="bg-white/5 border-white/10">
+                    <TableHead className="w-20 text-muted-foreground font-bold">市场</TableHead>
+                    <TableHead className="w-24 text-muted-foreground font-bold">代码</TableHead>
+                    <TableHead className="w-32 text-muted-foreground font-bold">名称</TableHead>
+                    <TableHead className="w-24 text-muted-foreground font-bold">综合评分</TableHead>
+                    <TableHead className="w-20 text-muted-foreground font-bold text-center">MA交叉</TableHead>
+                    <TableHead className="w-20 text-muted-foreground font-bold text-center">RSI超卖</TableHead>
+                    <TableHead className="w-20 text-muted-foreground font-bold text-center">高级指标</TableHead>
+                    <TableHead className="w-32 text-muted-foreground font-bold text-center">信号强度</TableHead>
+                    <TableHead className="w-24 text-muted-foreground font-bold text-right">数据日期</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
