@@ -62,10 +62,8 @@ class MootdxFetcher:
         self._init_client()
 
     def _init_client(self):
-        log("正在初始化 mootdx 行情接口...")
         try:
             self.client = Quotes.factory(market='std')
-            log(f"成功连接至服务器: {self.client.bestip}")
         except Exception as e:
             log(f"初始化失败: {e}", level="ERROR")
             self.client = None
@@ -100,10 +98,12 @@ class MootdxFetcher:
         
         if os.path.exists(file_path):
             try:
-                # 仅读取最后几行以获取日期
                 df = pd.read_csv(file_path, usecols=['日期'], encoding='utf-8-sig')
                 if not df.empty:
-                    return str(df['日期'].iloc[-1]), file_path
+                    last_date_str = str(df['日期'].iloc[-1])
+                    if '/' in last_date_str:
+                        return datetime.strptime(last_date_str, '%Y/%m/%d').strftime('%Y%m%d'), file_path
+                    return last_date_str, file_path
             except Exception:
                 pass
         return None, file_path
@@ -111,16 +111,13 @@ class MootdxFetcher:
     def fetch_daily(self, symbol, name="未知", offset=800, start_date=None, end_date=None, is_incremental=False):
         if not self.client: return None
         
-        # 如果是增量模式且没有指定开始日期，尝试从本地获取
-        local_last_date, file_path = self.get_local_last_date(symbol)
+        local_last_date, _ = self.get_local_last_date(symbol)
         actual_start = start_date
         
         if is_incremental and not actual_start and local_last_date:
-            # 从本地最后日期的后一天开始
             try:
                 last_dt = datetime.strptime(local_last_date, '%Y%m%d')
                 actual_start = (last_dt + timedelta(days=1)).strftime('%Y%m%d')
-                # 增量模式下，如果最后日期已经是今天或最近交易日，offset 可以设小
                 offset = 100 
             except:
                 pass
@@ -129,10 +126,19 @@ class MootdxFetcher:
             df_new = self.client.bars(symbol=symbol, frequency='day', offset=offset)
             if df_new is not None and not df_new.empty:
                 if 'datetime' not in df_new.columns: df_new = df_new.reset_index()
+                
+                # 核心修复：显式过滤掉不属于当前 symbol 的数据
+                if 'code' in df_new.columns:
+                    df_new = df_new[df_new['code'] == symbol].copy()
+                
+                if df_new.empty: return None
+
                 df_new = df_new.rename(columns={'datetime':'日期','open':'开盘','close':'收盘','high':'最高','low':'最低','vol':'成交量','amount':'成交额'})
                 df_new['日期'] = pd.to_datetime(df_new['日期'])
                 
-                # 过滤日期
+                # 过滤掉 1970 年等异常日期
+                df_new = df_new[df_new['日期'] > pd.to_datetime('1990-01-01')]
+                
                 if actual_start:
                     df_new = df_new[df_new['日期'] >= pd.to_datetime(actual_start)]
                 if end_date:
@@ -140,11 +146,8 @@ class MootdxFetcher:
                 
                 if df_new.empty: return None
 
-                df_new['日期'] = df_new['日期'].dt.strftime('%Y%m%d')
+                df_new['日期'] = df_new['日期'].dt.strftime('%Y/%m/%d')
                 df_new['名称'] = name
-                
-                # 计算指标 (需要昨日收盘，所以如果是增量，可能需要补齐一行或在合并后计算)
-                # 为了简化，我们在保存时处理指标
                 return df_new
             return None
         except Exception as e:
@@ -154,16 +157,13 @@ class MootdxFetcher:
     def save_data(self, symbol, df_new):
         if df_new is None or df_new.empty: return
         
-        local_last_date, file_path = self.get_local_last_date(symbol)
+        _, file_path = self.get_local_last_date(symbol)
         
         if os.path.exists(file_path):
-            # 增量合并
             try:
                 df_old = pd.read_csv(file_path, encoding='utf-8-sig')
-                df_old['日期'] = df_old['日期'].astype(str)
-                df_new['日期'] = df_new['日期'].astype(str)
-                
-                # 合并并去重
+                df_old['日期'] = pd.to_datetime(df_old['日期']).dt.strftime('%Y/%m/%d')
+                df_new['日期'] = pd.to_datetime(df_new['日期']).dt.strftime('%Y/%m/%d')
                 df_final = pd.concat([df_old, df_new]).drop_duplicates(subset=['日期'], keep='last').sort_values('日期')
             except Exception as e:
                 log(f"合并 {symbol} 本地数据失败，将覆盖: {e}", level="WARNING")
@@ -172,11 +172,13 @@ class MootdxFetcher:
             df_final = df_new.sort_values('日期')
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-        # 重新计算指标以确保准确性
-        df_final['收盘'] = pd.to_numeric(df_final['收盘'])
-        df_final['最高'] = pd.to_numeric(df_final['最高'])
-        df_final['最低'] = pd.to_numeric(df_final['最低'])
+        # 确保数值类型正确
+        for col in ['开盘', '收盘', '最高', '最低', '成交量', '成交额']:
+            df_final[col] = pd.to_numeric(df_final[col], errors='coerce')
         
+        df_final = df_final.dropna(subset=['收盘'])
+        
+        # 重新计算指标
         df_final['涨跌额'] = df_final['收盘'].diff()
         df_final['涨跌幅'] = (df_final['收盘'].diff() / df_final['收盘'].shift(1)) * 100
         df_final['振幅'] = ((df_final['最高'] - df_final['最低']) / df_final['收盘'].shift(1)) * 100
@@ -189,41 +191,40 @@ class MootdxFetcher:
             
         df_final[target_cols].to_csv(file_path, index=False, encoding='utf-8-sig')
 
-def process_task(fetcher, stock, offset, start, end, is_incremental):
-    df = fetcher.fetch_daily(stock['code'], stock['name'], offset=offset, start_date=start, end_date=end, is_incremental=is_incremental)
-    if df is not None:
-        fetcher.save_data(stock['code'], df)
-        return True
+def process_task(stock, offset, start, end, is_incremental):
+    try:
+        fetcher = MootdxFetcher()
+        df = fetcher.fetch_daily(stock['code'], stock['name'], offset=offset, start_date=start, end_date=end, is_incremental=is_incremental)
+        if df is not None:
+            fetcher.save_data(stock['code'], df)
+            return True
+    except Exception as e:
+        log(f"线程处理 {stock['code']} 失败: {e}", level="ERROR")
     return False
 
 def main():
-    parser = argparse.ArgumentParser(description="Mootdx 数据抓取工具 (增量/全量优化版)")
+    parser = argparse.ArgumentParser(description="Mootdx 数据抓取工具 (彻底修复版)")
     parser.add_argument("--symbol", type=str, help="股票代码，支持多个逗号分隔")
     parser.add_argument("--all", action="store_true", help="全量下载模式")
-    parser.add_argument("--start", type=str, help="开始日期 (YYYYMMDD)，若不指定且为增量模式则自动接续")
+    parser.add_argument("--start", type=str, help="开始日期 (YYYYMMDD)")
     parser.add_argument("--end", type=str, help="结束日期 (YYYYMMDD)")
-    parser.add_argument("--limit", type=int, default=None, help="获取天数限制 (全量模式默认为 4000)")
+    parser.add_argument("--limit", type=int, default=None, help="获取天数限制")
     parser.add_argument("--workers", type=int, default=4, help="并行线程数 (默认 4)")
     args = parser.parse_args()
 
-    fetcher = MootdxFetcher()
+    initial_fetcher = MootdxFetcher()
     stocks_to_download = []
     
-    # 逻辑判断：是否为增量模式
-    # 如果指定了 --start，则视为指定日期范围的增量
-    # 如果没有指定 --start 也没有指定 --limit，且本地有文件，则自动进入接续增量
     is_incremental = True if (args.start or not args.limit) else False
-    
-    # 默认 limit 设置
     if args.limit is None:
         limit = 4000 if not is_incremental else 800
     else:
         limit = args.limit
 
     if args.all:
-        stocks_to_download = fetcher.get_stock_list()
+        stocks_to_download = initial_fetcher.get_stock_list()
     elif args.symbol:
-        is_incremental = False # 指定代码模式默认为全量抓取
+        is_incremental = False
         limit = args.limit if args.limit else 4000
         for s in args.symbol.split(','):
             stocks_to_download.append({'code': s.strip(), 'name': '未知'})
@@ -235,7 +236,7 @@ def main():
     
     success_count = 0
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
-        future_to_stock = {executor.submit(process_task, fetcher, s, limit, args.start, args.end, is_incremental): s for s in stocks_to_download}
+        future_to_stock = {executor.submit(process_task, s, limit, args.start, args.end, is_incremental): s for s in stocks_to_download}
         for i, future in enumerate(as_completed(future_to_stock)):
             if future.result(): success_count += 1
             if (i + 1) % 50 == 0 or (i + 1) == len(stocks_to_download):
