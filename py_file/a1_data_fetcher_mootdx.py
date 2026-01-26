@@ -83,15 +83,59 @@ class MootdxFetcher:
         try:
             df = self.client.bars(symbol=symbol, frequency='day', offset=offset)
             if df is not None and not df.empty:
-                # 如果 datetime 已经在列中，不要 reset_index() 否则会冲突
+                # 1. 基础字段处理
                 if 'datetime' not in df.columns:
                     df = df.reset_index()
-                # 统一列名
+                
+                # 2. 字段映射与计算
+                # mootdx 默认字段: datetime, open, close, high, low, vol, amount
+                df = df.rename(columns={
+                    'datetime': '日期',
+                    'open': '开盘',
+                    'close': '收盘',
+                    'high': '最高',
+                    'low': '最低',
+                    'vol': '成交量',
+                    'amount': '成交额'
+                })
+                
+                # 处理日期格式
+                df['日期'] = pd.to_datetime(df['日期']).dt.strftime('%Y%m%d')
                 df['名称'] = name
-                return df
+                
+                # 3. 计算额外指标 (模仿通达信导出格式)
+                # 涨跌额 = 今日收盘 - 昨日收盘
+                df['涨跌额'] = df['收盘'].diff()
+                # 涨跌幅 = (今日收盘 - 昨日收盘) / 昨日收盘 * 100
+                df['涨跌幅'] = (df['收盘'].diff() / df['收盘'].shift(1)) * 100
+                # 振幅 = (最高 - 最低) / 昨日收盘 * 100
+                df['振幅'] = ((df['最高'] - df['最低']) / df['收盘'].shift(1)) * 100
+                
+                # 换手率: mootdx 接口通常不直接提供日线换手率，如果需要精准值需从其他接口获取
+                # 这里先填充 0.0 或 NaN，或者如果有总股本可以计算
+                if 'turnover' in df.columns:
+                    df = df.rename(columns={'turnover': '换手率'})
+                else:
+                    df['换手率'] = 0.0
+                
+                # 填充 NaN (第一行 diff 会产生 NaN)
+                df = df.fillna(0.0)
+                
+                # 4. 按照要求的顺序重新排序列
+                # 要求的顺序：名称,日期,开盘,收盘,最高,最低,成交量,成交额,振幅,涨跌幅,涨跌额,换手率
+                target_cols = ['名称', '日期', '开盘', '收盘', '最高', '最低', '成交量', '成交额', '振幅', '涨跌幅', '涨跌额', '换手率']
+                
+                # 确保所有目标列都存在
+                for col in target_cols:
+                    if col not in df.columns:
+                        df[col] = 0.0
+                
+                return df[target_cols]
             return None
         except Exception as e:
             log(f"获取 {symbol} 数据失败: {e}", level="ERROR")
+            import traceback
+            traceback.print_exc()
             return None
 
     def save_data(self, symbol, df):
@@ -102,13 +146,21 @@ class MootdxFetcher:
         base_dir = os.path.dirname(current_dir)
         
         # 根据代码判断市场
-        market = "sh" if symbol.startswith(('6', '9')) else "sz"
+        # 6/9开头为上海，其他通常为深圳或北京
+        if symbol.startswith(('6', '9')):
+            market = "sh"
+        elif symbol.startswith('8') or symbol.startswith('4'):
+            market = "bj"
+        else:
+            market = "sz"
+            
         save_dir = os.path.join(base_dir, "data", "day", market)
         
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
             
         file_path = os.path.join(save_dir, f"{symbol}.csv")
+        # 写入 CSV，不包含索引
         df.to_csv(file_path, index=False, encoding='utf-8-sig')
 
 def main():
