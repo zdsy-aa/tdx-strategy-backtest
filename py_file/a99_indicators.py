@@ -23,7 +23,13 @@ def _ensure_series(x, reference_index=None) -> pd.Series:
     if isinstance(x, pd.Series):
         return x
     if reference_index is not None:
+        # 如果是标量，则创建一个广播到整个索引的 Series
+        if np.isscalar(x):
+            return pd.Series([x] * len(reference_index), index=reference_index)
         return pd.Series(x, index=reference_index)
+    # 没有参考索引时，如果是标量则返回单元素 Series
+    if np.isscalar(x):
+        return pd.Series([x])
     return pd.Series(x)
 
 # ==============================================================================
@@ -72,18 +78,35 @@ def LLV(series: pd.Series, n: int) -> pd.Series:
 
 def CROSS(a, b) -> pd.Series:
     """CROSS(A, B): 判断序列A是否上穿序列B"""
-    a = _ensure_series(a)
-    b = _ensure_series(b, reference_index=a.index)
+    # 确定参考索引：优先使用 Series 类型的参数索引
+    a_is_series = isinstance(a, pd.Series)
+    b_is_series = isinstance(b, pd.Series)
     
-    a_prev = a.shift(1)
-    b_prev = b.shift(1)
+    if a_is_series:
+        ref_index = a.index
+    elif b_is_series:
+        ref_index = b.index
+    else:
+        # 两个都是标量，返回单元素 Series
+        ref_index = pd.RangeIndex(1)
     
-    # 填充第一个 NaN 避免逻辑错误
-    if len(a) > 0:
-        a_prev.iloc[0] = a.iloc[0]
-        b_prev.iloc[0] = b.iloc[0]
+    a_series = _ensure_series(a, reference_index=ref_index)
+    b_series = _ensure_series(b, reference_index=ref_index)
+    
+    # 强制索引对齐：使用 numpy 数组进行比较，避免 pandas 索引不匹配错误
+    a_arr = a_series.values
+    b_arr = b_series.values
+    
+    a_prev = np.roll(a_arr, 1)
+    b_prev = np.roll(b_arr, 1)
+    
+    # 填充第一个元素
+    if len(a_arr) > 0:
+        a_prev[0] = a_arr[0]
+        b_prev[0] = b_arr[0]
         
-    return (a_prev < b_prev) & (a >= b)
+    result = (a_prev < b_prev) & (a_arr >= b_arr)
+    return pd.Series(result, index=ref_index)
 
 def COUNT(condition, n: int) -> pd.Series:
     """COUNT(COND, N): 统计最近N周期内COND为True的次数"""

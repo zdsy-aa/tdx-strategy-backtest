@@ -133,7 +133,11 @@ class AdvancedForecaster:
             return {"code": self.code, "error": str(e), "status": "failed"}
 
 def process_task(csv_path):
-    return AdvancedForecaster(csv_path).run()
+    try:
+        return AdvancedForecaster(csv_path).run()
+    except Exception as e:
+        code = Path(csv_path).stem
+        return {"code": code, "error": str(e), "status": "failed"}
 
 def main():
     import argparse
@@ -152,7 +156,7 @@ def main():
     
     print(f"开始预测 {len(stock_files)} 只股票...")
     with Pool(max(1, cpu_count()-1)) as pool:
-        results = pool.map(process_task, stock_files)
+        results = list(pool.imap_unordered(process_task, stock_files))
     
     successful = [r for r in results if 'error' not in r]
     successful.sort(key=lambda x: x.get('forecast_change_pct', 0), reverse=True)
