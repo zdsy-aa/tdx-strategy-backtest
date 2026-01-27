@@ -130,7 +130,7 @@ def build_symbol_payload(df: pd.DataFrame, dashboard_days: int) -> Dict[str, Any
             "market": latest.get("market", ""),
             "last_date": latest["date"].strftime("%Y-%m-%d"),
             "price": float(latest["close"]),
-            "pct_change": float(latest.get("pct_change", 0)),
+            "pct_change": float(latest.get("pct_change", 0)) if pd.notna(latest.get("pct_change", 0)) else None,
         },
         "signals": {
             "slot_a": bool(has_six_veins),
