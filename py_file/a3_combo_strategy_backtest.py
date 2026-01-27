@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -7,19 +6,21 @@
 ================================================================================
 
 【脚本功能】
-    组合策略回测系统：在单指标信号基础上构造“稳健组合/激进组合”买入条件，
+    组合策略回测系统：在单指标信号基础上构造"稳健组合/激进组合"买入条件，
     并按固定持有 N 天口径回测，输出汇总 CSV、Markdown 报告、以及前端 JSON 摘要。
+    
+    【新增功能】整合了前端数据更新功能，自动更新 strategies.json
 
-【组合策略定义（保持原脚本语义，不改变“信号口径”，仅修复统计与健壮性）】
+【组合策略定义（保持原脚本语义，不改变"信号口径"，仅修复统计与健壮性）】
     1) 稳健组合 (steady)
-        六脉神剑 >=4 红 + 买点2 + 缠论买点(当前以 chan_buy1 代替“任意缠论买点”)
+        六脉神剑 >=4 红 + 买点2 + 缠论买点(当前以 chan_buy1 代替"任意缠论买点")
 
     2) 激进组合 (aggressive)
         aggr1: 六脉 >=5 红 + 买点2
         aggr2: 六脉 ==6 红 + 摇钱树信号 money_tree_signal
         aggr3: 六脉 ==6 红 + 缠论买点(以 chan_buy1 表示)
 
-        综合信号：aggr1 OR aggr2 OR aggr3 的“触发点”(False->True)
+        综合信号：aggr1 OR aggr2 OR aggr3 的"触发点"(False->True)
 
 【数据输入要求】
     CSV 字段（与你的真实数据一致）：
@@ -30,6 +31,7 @@
     - report/total/combo_strategy_summary.csv      组合策略回测汇总（UTF-8-SIG）
     - report/total/combo_strategy_report.md       回测分析报告（Markdown）
     - web/client/src/data/backtest_combo.json     前端摘要数据（JSON）
+    - web/client/src/data/strategies.json         前端策略数据（自动更新）
 
 【使用方法】
     python3 a3_combo_strategy_backtest.py --strategy all
@@ -41,6 +43,7 @@
     - CSV字段映射与日期解析：严格按 yyyy/mm/dd，异常降级
     - 统计口径修复：报告/JSON 不再对每只股票简单均值，而是按真实 trade_count 聚合
     - 结果结构增强：每行包含 stock_code/name/hold_period 等，便于追溯
+    - 整合前端数据更新：自动更新 strategies.json，移除了原 a99 的 backtest_results.json 相关逻辑
 ================================================================================
 """
 
@@ -50,6 +53,7 @@ import argparse
 import json
 from datetime import datetime
 from typing import List, Dict, Optional
+from pathlib import Path
 
 import pandas as pd
 import numpy as np
@@ -217,7 +221,7 @@ def backtest_steady_single(filepath: str) -> Optional[pd.DataFrame]:
     if df is None or df.empty:
         return None
 
-    # 缠论“任意买点”：当前版本以 chan_buy1 表示
+    # 缠论"任意买点"：当前版本以 chan_buy1 表示
     chan_any_buy = df.get('chan_buy1', False)
     df['combo_steady'] = (df.get('six_veins_count', 0) >= 4) & df.get('buy2', False) & chan_any_buy
 
@@ -292,12 +296,12 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
 # ------------------------------------------------------------------------------
 def _aggregate_strategy_period(df: pd.DataFrame) -> Dict:
     """
-    按 trade_count 聚合，避免“逐股票均值”导致统计偏差。
+    按 trade_count 聚合，避免"逐股票均值"导致统计偏差。
     输入 df 为某个 strategy + hold_period 的多行（每行=某股票统计）。
     """
     trades = int(df['trade_count'].sum())
     wins = int(df.get('win_count', 0).sum())
-    sum_return = float(df.get('sum_return', 0).sum())  # 每行 sum_return 已是“该行所有交易收益率%之和”，可直接累加
+    sum_return = float(df.get('sum_return', 0).sum())  # 每行 sum_return 已是"该行所有交易收益率%之和"，可直接累加
     win_rate = round(wins / trades * 100, 2) if trades > 0 else 0.0
     avg_return = round(sum_return / trades, 2) if trades > 0 else 0.0
 
@@ -392,6 +396,66 @@ def generate_json_data(results: pd.DataFrame, stock_count: int) -> Dict:
     return data
 
 # ------------------------------------------------------------------------------
+# 前端数据更新（整合自 a99_update_web_data.py）
+# ------------------------------------------------------------------------------
+def update_strategies_json(combo_json_data: Dict):
+    """
+    更新前端 strategies.json 中的组合方案数据
+    整合自 a99_update_web_data.py，移除了 backtest_results.json 相关逻辑
+    """
+    BASE_DIR = Path(PROJECT_ROOT)
+    STRATEGIES_JSON_FILE = BASE_DIR / "web" / "client" / "src" / "data" / "strategies.json"
+    
+    if not STRATEGIES_JSON_FILE.exists():
+        log(f"错误: 找不到前端数据文件 {STRATEGIES_JSON_FILE}", level="WARNING")
+        return
+    
+    # 读取前端 strategies.json
+    try:
+        with open(STRATEGIES_JSON_FILE, 'r', encoding='utf-8') as f:
+            web_data = json.load(f)
+    except Exception as e:
+        log(f"读取 strategies.json 失败: {e}", level="ERROR")
+        return
+    
+    # 从 combo_json_data 中提取数据并更新组合方案
+    for strategy in web_data.get('strategies', []):
+        s_id = strategy['id']
+        # 映射组合 ID
+        mapped_id = None
+        if s_id == 'steady':
+            mapped_id = 'steady'
+        elif s_id == 'aggressive':
+            mapped_id = 'aggressive'
+        elif s_id == 'resonance':
+            mapped_id = 'resonance'  # 如果将来有共振策略
+        
+        if mapped_id and mapped_id in combo_json_data.get('strategies', {}):
+            combo_stats = combo_json_data['strategies'][mapped_id]
+            
+            # 更新总体统计
+            strategy['stats']['total'] = {
+                "winRate": combo_stats['win_rate'],
+                "avgReturn": combo_stats['avg_return'],
+                "optimalPeriod": combo_stats['optimal_period_win'] + "天",
+                "trades": combo_stats['trades']
+            }
+            
+            # 如果有年度和月度数据，也可以更新（这里暂时留空，因为 combo 数据没有生成年度月度）
+            # strategy['stats']['yearly'] = combo_stats.get('yearly', {})
+            # strategy['stats']['monthly'] = combo_stats.get('monthly', {})
+            
+            log(f"已更新组合方案: {s_id}")
+    
+    # 保存更新后的文件
+    try:
+        with open(STRATEGIES_JSON_FILE, 'w', encoding='utf-8') as f:
+            json.dump(web_data, f, ensure_ascii=False, indent=2)
+        log(f"成功更新 {STRATEGIES_JSON_FILE}")
+    except Exception as e:
+        log(f"保存 strategies.json 失败: {e}", level="ERROR")
+
+# ------------------------------------------------------------------------------
 # 主入口
 # ------------------------------------------------------------------------------
 def main():
@@ -433,6 +497,12 @@ def main():
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(json_data, f, ensure_ascii=False, indent=2)
     log(f"Web前端组合数据已保存: {json_path}")
+
+    # 更新前端 strategies.json（整合自 a99）
+    log("开始更新前端 strategies.json...")
+    update_strategies_json(json_data)
+    
+    log("组合策略回测完成！")
 
 if __name__ == "__main__":
     main()

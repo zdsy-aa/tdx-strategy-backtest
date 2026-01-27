@@ -385,6 +385,90 @@ def run_backtest(strategy: str, stock_files: List[str]) -> pd.DataFrame:
     return pd.concat(all_results, ignore_index=True) if all_results else pd.DataFrame()
 
 # ------------------------------------------------------------------------------
+# 更新前端 strategies.json（整合自 a99_update_web_data.py）
+# ------------------------------------------------------------------------------
+def update_strategies_json():
+    """
+    读取回测结果文件，将数据同步到前端 strategies.json。
+    整合自 a99_update_web_data.py 的逻辑。
+    """
+    backtest_results_file = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data', 'backtest_single.json')
+    strategies_json_file = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data', 'strategies.json')
+
+    if not os.path.exists(backtest_results_file):
+        log(f"错误: 找不到回测结果文件 {backtest_results_file}", level="WARNING")
+        return
+    if not os.path.exists(strategies_json_file):
+        log(f"错误: 找不到前端数据文件 {strategies_json_file}", level="WARNING")
+        return
+
+    # 读取回测结果 (列表格式)
+    with open(backtest_results_file, 'r', encoding='utf-8') as f:
+        backtest_list = json.load(f)
+    
+    # 转换为字典以便查找
+    backtest_data = {item['id']: item for item in backtest_list}
+
+    # 读取前端 strategies.json
+    with open(strategies_json_file, 'r', encoding='utf-8') as f:
+        web_data = json.load(f)
+
+    # 1. 更新单指标策略 (singleIndicatorStrategies)
+    for strategy in web_data.get('singleIndicatorStrategies', []):
+        s_id = strategy['id']
+        # 映射 ID
+        mapped_id = s_id
+        if s_id == 'chan_lun_2buy': 
+            mapped_id = 'chan_buy2'  # 缠论二买映射
+        if s_id == 'money_tree_buy': 
+            mapped_id = 'money_tree'  # 摇钱树映射
+        
+        if mapped_id in backtest_data:
+            res = backtest_data[mapped_id]
+            stats = res['total']
+            strategy['stats']['total'] = {
+                "winRate": stats['win_rate'],
+                "avgReturn": stats['avg_return'],
+                "optimalPeriod": res.get('optimal_period_win', "5") + "天",
+                "trades": stats['trades']
+            }
+            # 更新年度和月度数据
+            strategy['stats']['yearly'] = res.get('yearly', {})
+            strategy['stats']['monthly'] = res.get('monthly', {})
+            log(f"已更新单指标策略: {s_id}")
+
+    # 2. 更新组合方案 (strategies)
+    for strategy in web_data.get('strategies', []):
+        s_id = strategy['id']
+        # 映射组合 ID
+        mapped_id = None
+        if s_id == 'steady': 
+            mapped_id = 'combo_steady'
+        if s_id == 'aggressive': 
+            mapped_id = 'combo_aggressive'
+        if s_id == 'resonance': 
+            mapped_id = 'combo_resonance'
+        
+        if mapped_id and mapped_id in backtest_data:
+            res = backtest_data[mapped_id]
+            stats = res['total']
+            strategy['stats']['total'] = {
+                "winRate": stats['win_rate'],
+                "avgReturn": stats['avg_return'],
+                "optimalPeriod": res.get('optimal_period_win', "10") + "天",
+                "trades": stats['trades']
+            }
+            strategy['stats']['yearly'] = res.get('yearly', {})
+            strategy['stats']['monthly'] = res.get('monthly', {})
+            log(f"已更新组合方案: {s_id}")
+
+    # 保存更新后的文件
+    with open(strategies_json_file, 'w', encoding='utf-8') as f:
+        json.dump(web_data, f, ensure_ascii=False, indent=2)
+    
+    log(f"成功更新 {strategies_json_file}")
+
+# ------------------------------------------------------------------------------
 # 主入口
 # ------------------------------------------------------------------------------
 def main():
@@ -422,6 +506,9 @@ def main():
     with open(out_json, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
     log(f"前端元信息已更新: {out_json}")
+
+    # 更新 strategies.json（将回测结果同步到前端配置）
+    update_strategies_json()
 
     log("回测任务完成。")
 
