@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-01-27 13:30:54",
+  "input_file": "signal_success_cases.csv",
+  "total_cases": 408838,
+  "future_return_mean": 19.2938,
+  "future_return_median": 12.1979,
+  "forward_ret_15_mean": 19.3725,
+  "forward_ret_15_median": 12.272,
+  "signal_type_counts": {
+    "six_veins": 219752,
+    "chan_buy": 108929,
+    "buy_sell": 39040,
+    "six_veins+buy_sell": 35505,
+    "six_veins+chan_buy": 3757,
+    "chan_buy+buy_sell": 1051,
+    "six_veins+chan_buy+buy_sell": 804
+  },
+  "six_veins_count_counts": {
+    "0": 50783,
+    "1": 35379,
+    "2": 18084,
+    "3": 20565,
+    "4": 162898,
+    "5": 121129
+  }
+}

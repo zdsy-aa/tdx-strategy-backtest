@@ -1,12 +1,72 @@
 {
-  "generate_time": "2026-01-26 04:36:02",
-  "stock_count": 7,
+  "generate_time": "2026-01-27 13:10:12",
+  "stock_count": 5473,
   "strategies": {
     "aggressive": {
+      "optimal_period_win": "10",
+      "win_rate": 49.14,
+      "avg_return": 1.22,
+      "trades": 173416,
+      "signals": 174172,
+      "by_period": {
+        "5": {
+          "signal_count": 174172,
+          "trade_count": 173670,
+          "win_count": 84660,
+          "win_rate": 48.75,
+          "avg_return": 0.84,
+          "sum_return": 145853.88
+        },
+        "10": {
+          "signal_count": 174172,
+          "trade_count": 173416,
+          "win_count": 85219,
+          "win_rate": 49.14,
+          "avg_return": 1.22,
+          "sum_return": 210722.54
+        },
+        "20": {
+          "signal_count": 174172,
+          "trade_count": 172531,
+          "win_count": 84383,
+          "win_rate": 48.91,
+          "avg_return": 2.73,
+          "sum_return": 471716.9
+        }
+      }
+    },
+    "steady": {
       "optimal_period_win": "5",
-      "win_rate": 0.0,
-      "avg_return": 0.0,
-      "trades": 0
+      "win_rate": 46.41,
+      "avg_return": 0.52,
+      "trades": 4919,
+      "signals": 4930,
+      "by_period": {
+        "5": {
+          "signal_count": 4930,
+          "trade_count": 4919,
+          "win_count": 2283,
+          "win_rate": 46.41,
+          "avg_return": 0.52,
+          "sum_return": 2556.68
+        },
+        "10": {
+          "signal_count": 4930,
+          "trade_count": 4917,
+          "win_count": 2192,
+          "win_rate": 44.58,
+          "avg_return": 0.83,
+          "sum_return": 4063.74
+        },
+        "20": {
+          "signal_count": 4930,
+          "trade_count": 4903,
+          "win_count": 2172,
+          "win_rate": 44.3,
+          "avg_return": 1.43,
+          "sum_return": 6997.48
+        }
+      }
     }
   }
 }
