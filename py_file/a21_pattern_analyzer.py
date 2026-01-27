@@ -87,6 +87,8 @@ SIGNAL_ALL_FILE = os.path.join(REPORT_DIR, "all_signal_records.csv")
 
 REPORT_OUTPUT_FILE = os.path.join(REPORT_DIR, "pattern_analysis_report.csv")
 SUMMARY_OUTPUT_FILE = os.path.join(REPORT_DIR, "pattern_analysis_summary.json")
+BY_SIGNAL_OUTPUT_FILE = os.path.join(REPORT_DIR, "pattern_analysis_by_signal.json")
+WEB_BY_SIGNAL_FILE = os.path.join(WEB_DATA_DIR, "pattern_analysis_by_signal.json")
 WEB_SUMMARY_FILE = os.path.join(WEB_DATA_DIR, "pattern_analysis_summary.json")
 
 # ------------------------------------------------------------------------------
@@ -303,6 +305,43 @@ def analyze_stock_group(item: Tuple[str, List[Tuple[int, pd.Timestamp]], List[Di
     return out
 
 # ------------------------------------------------------------------------------
+# 模式分析（按信号类型）
+# ------------------------------------------------------------------------------
+def generate_by_signal_analysis(report_df: pd.DataFrame) -> Dict:
+    """按信号类型生成模式分析"""
+    by_signal = {}
+    
+    # 确保 signal_type 存在且非空
+    if 'signal_type' not in report_df.columns or report_df['signal_type'].empty:
+        return {}
+    
+    # 确保六脉神剑指标存在
+    indicator_cols = ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']
+    
+    for signal_type, signal_data in report_df.groupby('signal_type'):
+        
+        # 计算关键模式
+        key_patterns = {}
+        total_cases = len(signal_data)
+        
+        for col in indicator_cols:
+            if col in signal_data.columns:
+                # 统计红柱（True）的数量
+                true_count = signal_data[col].sum()
+                key_patterns[col.upper()] = {
+                    'true_count': int(true_count),
+                    'true_rate': round(true_count / total_cases * 100, 2) if total_cases > 0 else 0
+                }
+        
+        by_signal[signal_type] = {
+            'total_cases': int(total_cases),
+            'analyzed_cases': int(total_cases),
+            'key_patterns': key_patterns
+        }
+    
+    return by_signal
+
+# ------------------------------------------------------------------------------
 # main
 # ------------------------------------------------------------------------------
 def main():
@@ -408,6 +447,17 @@ def main():
 
     log(f"摘要已保存: {SUMMARY_OUTPUT_FILE}")
     log(f"前端摘要已更新: {WEB_SUMMARY_FILE}")
+
+    # 生成按信号类型的分析 (pattern_analysis_by_signal.json)
+    by_signal_data = generate_by_signal_analysis(report_df)
+    
+    with open(BY_SIGNAL_OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        json.dump(by_signal_data, f, ensure_ascii=False, indent=2)
+    with open(WEB_BY_SIGNAL_FILE, 'w', encoding='utf-8') as f:
+        json.dump(by_signal_data, f, ensure_ascii=False, indent=2)
+        
+    log(f"按信号类型分析已保存: {BY_SIGNAL_OUTPUT_FILE}")
+    log(f"前端按信号类型分析已更新: {WEB_BY_SIGNAL_FILE}")
 
 if __name__ == "__main__":
     main()

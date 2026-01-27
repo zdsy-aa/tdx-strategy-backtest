@@ -63,8 +63,8 @@ def main():
         run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
         # 8. 运行高级预测分析
         run_script("a7_advanced_forecast.py", "运行高级预测分析，生成预测数据")
-        # 9. 更新前端展示所需的数据文件
-        run_script("a99_update_web_data.py", "更新前端网页数据")
+        # 9. 更新前端展示所需的数据文件 (功能已合并到 a2/a3 脚本中，此处移除)
+        # run_script("a99_update_web_data.py", "更新前端网页数据")
     else:
         log("=== 增量更新模式 ===")
         # 根据提供的日期范围过滤增量数据
@@ -85,8 +85,8 @@ def main():
         run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
         # 8. 运行高级预测分析
         run_script("a7_advanced_forecast.py", "运行高级预测分析，生成预测数据")
-        # 9. 更新前端数据文件
-        run_script("a99_update_web_data.py", "更新前端网页数据")
+        # 9. 更新前端数据文件 (功能已合并到 a2/a3 脚本中，此处移除)
+        # run_script("a99_update_web_data.py", "更新前端网页数据")
 
     log("=" * 50)
     log("所有任务执行完毕")
