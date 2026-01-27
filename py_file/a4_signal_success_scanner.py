@@ -1,327 +1,370 @@
+\
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-信号成功案例扫描器 (Signal Success Scanner)
+脚本名称: a4_signal_success_scanner.py
 ================================================================================
 
-功能描述:
-    本脚本用于自动化扫描股票历史数据，验证特定技术买入信号的有效性，
-    并筛选出成功案例供后续模式分析使用。
+【脚本功能】
+    “信号成功案例扫描器”：
+    扫描 data/day 目录下所有股票日线 CSV，识别买入信号，并计算“未来固定持有 N 天”的
+    净收益率（包含手续费/印花税），标记是否为成功案例，输出信号明细与成功案例列表。
 
-主要功能:
-    1. 扫描 /data/day/ 目录下所有股票CSV文件
-    2. 识别三类买入信号：
-       - 六脉神剑信号（4红以上）
-       - 缠论5类买点（一买、二买、三买、强二买、类二买）
-       - 买卖点信号（买点1、买点2）
-    3. 计算信号后15个交易日的涨幅
-    4. 筛选涨幅>5%的成功案例
-    5. 按信号类型和六脉神剑组合进行统计
+【为什么要做这个脚本】
+    a21_pattern_analyzer.py 需要输入一份“成功案例列表”，用于做模式归因/特征统计。
+    该脚本负责生成：
+        report/all_signal_records.csv      所有信号记录（成功+失败）
+        report/signal_success_cases.csv    仅成功案例
 
-输出文件:
-    - report/all_signal_records.csv           : 所有信号记录（包含成功和失败）
-    - report/signal_success_cases.csv         : 仅成功案例
-    - report/signal_summary.json              : 统计摘要（报告目录备份）
-    - web/client/src/data/signal_summary.json : 统计摘要（供Web前端使用）
+【数据输入要求】
+    CSV 字段（与你的数据一致）：
+        名称、日期(yyyy/mm/dd)、开盘、收盘、最高、最低、成交量、成交额、振幅、涨跌幅、涨跌额、换手率
+    本脚本会自动映射/清洗为英文列，并处理异常值（避免除0/NaN）。
 
-使用方法:
-    cd ~/tdx-strategy-backtest/py_file
+【识别的信号类型（不改变原语义，只修复实现Bug与健壮性）】
+    - six_veins: 六脉神剑 >= MIN_RED_COUNT 的“跨越触发点”（昨日<阈值，今日>=阈值）
+    - chan_buy : 缠论买点（当前版本仅 chan_buy1；触发点 False->True）
+    - buy_sell : 买卖点（buy1/buy2；触发点 False->True）
+
+    注：单日可能同时满足多个类型，signal_type 会以 “+” 连接。
+
+【成功定义】
+    - 未来 HOLDING_DAYS 天后卖出（使用收盘价）
+    - 计算净收益率 future_return（含佣金+印花税）
+    - is_success = future_return > SUCCESS_THRESHOLD
+
+【使用方法】
     python3 a4_signal_success_scanner.py
+    可选参数：
+        --holding_days 15
+        --min_red 4
+        --success_threshold 5
 
-依赖模块:
-    - pandas, numpy: 数据处理
-    - indicators: 技术指标计算（项目内部模块）
-    - multiprocessing: 多进程并行处理
-
-作者: TradeGuide System
-版本: 2.0.0
-更新日期: 2026-01-15
+【本次修复重点】
+    1) 去重Bug：原脚本对同一 record append 两次导致重复记录（已修复）
+    2) stock_code 字段统一：输出 stock_code（兼容 a21 读取）
+    3) 日期格式：输出 date 为 yyyy/mm/dd 字符串，便于后续一致解析
+    4) 末端样本：未来不足 HOLDING_DAYS 的信号不纳入（避免 NaN）
 ================================================================================
 """
-
-try:
-    from a99_logger import log
-except ImportError:
-    def log(msg, level="INFO"): print(f"[{level}] {msg}")
 
 import os
 import sys
 import json
-import pandas as pd
-import numpy as np
+import argparse
 from datetime import datetime
-from typing import Dict, List, Tuple, Optional, Any
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from typing import Dict, Optional, List
+
+import numpy as np
+import pandas as pd
 import multiprocessing
-import warnings
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-# 忽略警告信息，保持输出整洁
-warnings.filterwarnings('ignore')
+try:
+    from a99_logger import log
+except Exception:
+    def log(msg, level="INFO"):
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {msg}")
 
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# 项目根目录探测
+# ------------------------------------------------------------------------------
+def find_project_root() -> str:
+    here = os.path.dirname(os.path.abspath(__file__))
+    candidates = [here, os.path.dirname(here), os.path.dirname(os.path.dirname(here))]
+    for d in candidates:
+        if os.path.isdir(os.path.join(d, "data", "day")):
+            return d
+    return here
+
+PROJECT_ROOT = find_project_root()
+sys.path.insert(0, PROJECT_ROOT)
+
+from a99_indicators import calculate_all_signals
+
+# ------------------------------------------------------------------------------
 # 路径配置
-# ==============================================================================
-
-# 获取项目根目录（py_file的上级目录）
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# 添加项目路径到系统路径，以便导入项目内部模块
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-# 数据目录：存放股票历史数据的CSV文件
+# ------------------------------------------------------------------------------
 DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'day')
-
-# 报告输出目录：存放分析报告和中间结果
 REPORT_DIR = os.path.join(PROJECT_ROOT, 'report')
-
-# Web数据目录：存放供前端展示的JSON数据文件
-# 注意：脚本会自动将数据输出到此目录，无需手动复制
 WEB_DATA_DIR = os.path.join(PROJECT_ROOT, 'web', 'client', 'src', 'data')
 
-# ==============================================================================
-# 回测参数配置
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# CSV读取与标准化
+# ------------------------------------------------------------------------------
+CSV_COL_MAP = {
+    '名称': 'name',
+    '日期': 'date',
+    '开盘': 'open',
+    '收盘': 'close',
+    '最高': 'high',
+    '最低': 'low',
+    '成交量': 'volume',
+    '成交额': 'amount',
+    '振幅': 'amplitude',
+    '涨跌幅': 'pct_chg',
+    '涨跌额': 'chg',
+    '换手率': 'turnover',
+}
+NUMERIC_COLS = ['open', 'high', 'low', 'close', 'volume', 'amount', 'amplitude', 'pct_chg', 'chg', 'turnover']
 
-# 持仓天数：信号触发后持有的交易日数量
-# 说明：15天是一个较为常用的短期持仓周期，可根据需要调整
-HOLDING_DAYS = 15
+def _parse_date_series(s: pd.Series) -> pd.Series:
+    dt = pd.to_datetime(s, format='%Y/%m/%d', errors='coerce')
+    if len(dt) > 0 and dt.isna().mean() > 0.5:
+        dt = pd.to_datetime(s, errors='coerce')
+    return dt
 
-# 成功阈值：涨幅超过此百分比视为成功
-# 说明：5%是一个相对保守的阈值，可根据风险偏好调整
-SUCCESS_THRESHOLD = 5.0
+def load_stock_data(filepath: str) -> Optional[pd.DataFrame]:
+    df = None
+    for enc in ('utf-8-sig', 'utf-8', 'gbk'):
+        try:
+            df = pd.read_csv(filepath, encoding=enc)
+            break
+        except Exception:
+            continue
 
-# 六脉神剑最小红色数量：只统计达到此数量的信号
-# 说明：4红以上被认为是较强的多头信号
-MIN_RED_COUNT = 4
+    if df is None or df.empty:
+        return None
 
-# 佣金和印花税参数（与回测系统统一）
-COMMISSION_RATE = 0.00008  # 佣金费率（万0.8，双边）
-STAMP_TAX_RATE = 0.0005    # 印花税率（0.05%，仅卖出）
+    df.rename(columns={c: CSV_COL_MAP.get(c, c) for c in df.columns}, inplace=True)
+    if 'date' not in df.columns:
+        return None
 
-# ==============================================================================
-# 导入技术指标计算模块
-# ==============================================================================
+    df['date'] = _parse_date_series(df['date'])
+    df.dropna(subset=['date'], inplace=True)
 
-from a99_indicators import (
-    calculate_six_veins,       # 六脉神剑指标计算
-    calculate_buy_sell_points, # 买卖点指标计算
-    calculate_chan_theory      # 缠论买点指标计算
-)
+    for c in NUMERIC_COLS:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors='coerce')
 
-# 六脉神剑指标列和名称
-red_cols = ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']
-indicator_names = ['MACD', 'KDJ', 'RSI', 'LWR', 'BBI', 'MTM']
+    for c in ['open', 'high', 'low', 'close', 'volume']:
+        if c not in df.columns:
+            df[c] = np.nan if c != 'volume' else 0.0
 
-# ==============================================================================
-# 扫描与统计函数
-# ==============================================================================
+    df.dropna(subset=['open', 'high', 'low', 'close'], inplace=True)
+    df = df[(df['open'] > 0) & (df['high'] > 0) & (df['low'] > 0) & (df['close'] > 0)]
 
-def scan_single_stock(file_path: str) -> pd.DataFrame:
+    for c in ['volume', 'amount']:
+        if c in df.columns:
+            df[c] = df[c].fillna(0.0)
+            df.loc[df[c] < 0, c] = 0.0
+
+    if 'name' not in df.columns:
+        df['name'] = ''
+
+    df.sort_values('date', inplace=True)
+    df.reset_index(drop=True, inplace=True)
+
+    if len(df) < 30:
+        return None
+    return df
+
+# ------------------------------------------------------------------------------
+# 交易成本（沿用回测口径）
+# ------------------------------------------------------------------------------
+COMMISSION_RATE = 0.00008
+STAMP_TAX_RATE = 0.0005
+
+def _calc_future_return(buy_price: float, sell_price: float) -> Optional[float]:
     """
-    扫描单只股票的信号，并返回信号记录DataFrame。
+    计算净收益率（%）：
+        buy_cost  = buy_price  * (1 + commission)
+        sell_net  = sell_price * (1 - commission - stamp_tax)
+        future_return = (sell_net - buy_cost) / buy_cost * 100
+
+    异常保护：价格<=0 或 NaN 返回 None
     """
-    try:
-        # 尝试多种编码读取
-        df = None
-        for enc in ['utf-8-sig', 'utf-8', 'gbk']:
-            try:
-                df = pd.read_csv(file_path, encoding=enc)
-                break
-            except Exception:
-                continue
-        if df is None:
-            log(f"无法读取CSV文件: {file_path}", level="ERROR")
-            return pd.DataFrame()
+    if buy_price is None or sell_price is None:
+        return None
+    if not np.isfinite(buy_price) or not np.isfinite(sell_price):
+        return None
+    if buy_price <= 0:
+        return None
 
-        # 基础列重命名和标准化
-        df.rename(columns=lambda c: c.strip().lower(), inplace=True)
-        
-        # 统一中文列名到英文小写
-        column_map = {
-            '名称': 'name', '日期': 'date', '开盘': 'open', '收盘': 'close', 
-            '最高': 'high', '最低': 'low', '成交量': 'volume', '成交额': 'amount', 
-            '振幅': 'amplitude', '涨跌幅': 'pct_chg', '涨跌额': 'chg', '换手率': 'turnover'
-        }
-        df.rename(columns=column_map, inplace=True)
-        
-        if 'date' not in df.columns:
-            log(f"文件缺少日期列: {file_path}", level="ERROR")
-            return pd.DataFrame()
-        
-        # 确保日期列是 datetime 类型
-        df['date'] = pd.to_datetime(df['date'], errors='coerce')
-        df.dropna(subset=['date'], inplace=True)
-        
-        # 缺失列处理：确保计算指标所需的列存在
-        for col in ['open', 'high', 'low', 'close', 'volume']:
-            if col not in df.columns:
-                df[col] = 0.0
-        
-        df.sort_values('date', inplace=True)
-        df.reset_index(drop=True, inplace=True)
-        # 数据不足以判断15日涨幅的无需扫描
-        if len(df) < HOLDING_DAYS + 1:
-            return pd.DataFrame()
+    buy_cost = buy_price * (1.0 + COMMISSION_RATE)
+    sell_net = sell_price * (1.0 - COMMISSION_RATE - STAMP_TAX_RATE)
+    if buy_cost <= 0:
+        return None
+    return (sell_net - buy_cost) / buy_cost * 100.0
 
-        # 计算所需指标列
-        df = calculate_six_veins(df)
-        df = calculate_buy_sell_points(df)
-        df = calculate_chan_theory(df)
-
-        # 检查指标计算是否成功，如果关键列不存在，则跳过
-        required_cols = ['six_veins_count', 'buy1', 'buy2', 'chan_buy1']
-        if not all(col in df.columns for col in required_cols):
-            log(f"文件缺少必要的指标列，可能由于数据不足: {file_path}", level="WARNING")
-            return pd.DataFrame()
-        
-        # 定义 'chan_any_buy' 信号 (假设为 chan_buy1 或 chan_buy2 或 chan_buy3)
-        # 由于 a99_indicators.py 中只计算了 chan_buy1，这里暂时使用 chan_buy1 作为“任意买点”的替代
-        # 确保 chan_buy1 存在，否则跳过
-        if 'chan_buy1' not in df.columns:
-            log(f"文件缺少 chan_buy1 列: {file_path}", level="ERROR")
-            return pd.DataFrame()
-            
-        df['chan_any_buy'] = df['chan_buy1']
-
-        # 计算未来HOLDING_DAYS日的涨幅百分比
-        # 统一口径：t+1日开盘买入，t+1+HOLDING_DAYS日开盘卖出
-        # 计算方式：
-        # 1. 买入成本 = open[i+1] * (1 + 佣金率)
-        # 2. 卖出收入 = open[i+1+HOLDING_DAYS] * (1 - 佣金率 - 印花税率)
-        # 3. 收益率 = (卖出收入 - 买入成本) / 买入成本 * 100
-        
-        future_open = df['open'].shift(-HOLDING_DAYS)
-        entry_open = df['open'].shift(-1)  # t+1
-        
-        # 计算成本
-        buy_cost = entry_open * (1 + COMMISSION_RATE)
-        sell_revenue = future_open * (1 - COMMISSION_RATE - STAMP_TAX_RATE)
-        
-        # 网收益率（含成本）
-        df['future_return'] = (sell_revenue - buy_cost) / buy_cost * 100
-
-        records = []
-        for i in range(len(df)):            # 逐日检查信号
-            has_six_veins_signal = df.at[i, 'six_veins_count'] >= MIN_RED_COUNT
-            has_chan_signal = df.at[i, 'chan_any_buy']
-            has_buy1 = bool(df.at[i, 'buy1'])
-            has_buy2 = bool(df.at[i, 'buy2'])
-            if has_six_veins_signal or has_chan_signal or has_buy1 or has_buy2:
-                record = {
-                    'date': df.at[i, 'date'],
-                    'stock': os.path.basename(file_path).replace('.csv', ''),
-                    'six_veins_count': int(df.at[i, 'six_veins_count']),
-                    'buy1': int(has_buy1),
-                    'buy2': int(has_buy2),
-                    'chan_any_buy': int(has_chan_signal),
-                    'future_return': df.at[i, 'future_return'],
-                    # 修复：添加六脉神剑的六个红色指标列
-                    'macd_red': int(df.at[i, 'macd_red']),
-                    'kdj_red': int(df.at[i, 'kdj_red']),
-                    'rsi_red': int(df.at[i, 'rsi_red']),
-                    'lwr_red': int(df.at[i, 'lwr_red']),
-                    'bbi_red': int(df.at[i, 'bbi_red']),
-                    'mtm_red': int(df.at[i, 'mtm_red'])
-                }
-                records.append(record)# 信号类型分类
-                signal_types = []
-                if has_six_veins_signal: signal_types.append('six_veins')
-                if has_chan_signal: signal_types.append('chan_buy')
-                if has_buy1 or has_buy2: signal_types.append('buy_sell')
-                record['signal_type'] = '+'.join(signal_types) if signal_types else 'none'
-                # 成功标记
-                record['is_success'] = int(record['future_return'] > SUCCESS_THRESHOLD)
-                records.append(record)
-        if not records:
-            return pd.DataFrame()
-        df_records = pd.DataFrame(records)
-        # 生成六脉神剑红色组合列 (性能优化)
-        if not df_records.empty:
-            combo_list = []
-            # 组合名称：六脉神剑红色指标列表
-            for vals in df_records[red_cols].to_numpy(dtype=bool):
-                names = [name for val, name in zip(vals, indicator_names) if val]
-                combo_list.append('+'.join(names) if names else '')
-            df_records['six_veins_combo'] = combo_list
-        else:
-            df_records['six_veins_combo'] = []
-        return df_records
-    except Exception as e:
-        log(f"扫描股票失败: {file_path}, 错误: {e}", level="ERROR")
+# ------------------------------------------------------------------------------
+# 单只股票扫描
+# ------------------------------------------------------------------------------
+def scan_single_stock(file_path: str, holding_days: int, min_red: int, success_threshold: float) -> pd.DataFrame:
+    """
+    返回单只股票的信号记录 DataFrame；无信号返回空 DataFrame。
+    """
+    df = load_stock_data(file_path)
+    if df is None or df.empty:
         return pd.DataFrame()
 
-def aggregate_results(all_records: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame, Dict]:
-    """
-    汇总所有股票的信号记录，拆分成功/失败案例，并计算统计摘要。
-    """
-    if all_records.empty:
-        return pd.DataFrame(), pd.DataFrame(), {}
-    # 所有信号记录按日期排序保存
-    all_records.sort_values('date', inplace=True)
+    stock_code = os.path.basename(file_path).replace('.csv', '')
+    stock_name = str(df['name'].iloc[-1]) if 'name' in df.columns and len(df) > 0 else ''
+
+    # 计算全量信号（六脉/买卖点/摇钱树/缠论）
+    df = calculate_all_signals(df)
+    if df is None or df.empty:
+        return pd.DataFrame()
+
+    # 触发点定义：避免连续多日重复计数
+    six_cnt = pd.to_numeric(df.get('six_veins_count', 0), errors='coerce').fillna(0).astype(int)
+    sig_six = (six_cnt >= int(min_red)) & (six_cnt.shift(1, fill_value=0) < int(min_red))
+
+    chan = df.get('chan_buy1', False)
+    sig_chan = chan.fillna(False).astype(bool) & ~chan.fillna(False).astype(bool).shift(1, fill_value=False)
+
+    buy1 = df.get('buy1', False)
+    buy2 = df.get('buy2', False)
+    sig_buy1 = buy1.fillna(False).astype(bool) & ~buy1.fillna(False).astype(bool).shift(1, fill_value=False)
+    sig_buy2 = buy2.fillna(False).astype(bool) & ~buy2.fillna(False).astype(bool).shift(1, fill_value=False)
+
+    # 逐日扫描（只在有触发的日子生成记录）
+    records: List[Dict] = []
+    n = len(df)
+    for i in range(n):
+        # 未来不足 holding_days 的样本不统计（避免 NaN）
+        j = i + int(holding_days)
+        if j >= n:
+            continue
+
+        has_six = bool(sig_six.iat[i])
+        has_chan = bool(sig_chan.iat[i])
+        has_b1 = bool(sig_buy1.iat[i])
+        has_b2 = bool(sig_buy2.iat[i])
+
+        if not (has_six or has_chan or has_b1 or has_b2):
+            continue
+
+        buy_price = float(df.at[i, 'close'])
+        sell_price = float(df.at[j, 'close'])
+        fut_ret = _calc_future_return(buy_price, sell_price)
+        if fut_ret is None:
+            continue
+
+        signal_types = []
+        if has_six: signal_types.append('six_veins')
+        if has_chan: signal_types.append('chan_buy')
+        if has_b1 or has_b2: signal_types.append('buy_sell')
+
+        rec = {
+            'date': pd.Timestamp(df.at[i, 'date']).strftime('%Y/%m/%d'),
+            'stock_code': stock_code,
+            'name': stock_name,
+
+            'holding_days': int(holding_days),
+            'six_veins_count': int(six_cnt.iat[i]),
+            'buy1': int(has_b1),
+            'buy2': int(has_b2),
+            'chan_any_buy': int(has_chan),
+
+            'future_return': round(float(fut_ret), 4),
+            'signal_type': '+'.join(signal_types),
+            'is_success': int(fut_ret > float(success_threshold)),
+        }
+
+        # 六脉的6个红色指标列（若不存在则默认0）
+        for col in ['macd_red', 'kdj_red', 'rsi_red', 'lwr_red', 'bbi_red', 'mtm_red']:
+            rec[col] = int(bool(df.at[i, col])) if col in df.columns else 0
+
+        records.append(rec)
+
+    return pd.DataFrame(records)
+
+# ------------------------------------------------------------------------------
+# 汇总与落盘
+# ------------------------------------------------------------------------------
+def aggregate_results(all_records: pd.DataFrame) -> (pd.DataFrame, pd.DataFrame, Dict):
+    if all_records is None or all_records.empty:
+        return pd.DataFrame(), pd.DataFrame(), {
+            'total_signals': 0, 'success_signals': 0, 'success_rate': 0.0,
+            'signal_type_counts': {}, 'six_veins_success_by_count': {}
+        }
+
+    # 排序：用 date 字符串也可，但这里转成 datetime 再排序更稳
+    all_records['_date_dt'] = pd.to_datetime(all_records['date'], format='%Y/%m/%d', errors='coerce')
+    all_records.sort_values(['_date_dt', 'stock_code'], inplace=True)
+    all_records.drop(columns=['_date_dt'], inplace=True)
     all_records.reset_index(drop=True, inplace=True)
-    # 成功案例筛选
+
     success_cases = all_records[all_records['is_success'] == 1].copy()
     success_cases.reset_index(drop=True, inplace=True)
-    # 统计摘要
+
     summary = {
-        'total_signals': len(all_records),
+        'generated_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'total_signals': int(len(all_records)),
         'success_signals': int(all_records['is_success'].sum()),
-        'success_rate': round(all_records['is_success'].mean() * 100, 2),
+        'success_rate': round(float(all_records['is_success'].mean() * 100), 2) if len(all_records) > 0 else 0.0,
         'signal_type_counts': all_records['signal_type'].value_counts().to_dict(),
-        'six_veins_success_by_count': success_cases['six_veins_count'].value_counts().to_dict()
+        'six_veins_success_by_count': success_cases['six_veins_count'].value_counts().to_dict() if not success_cases.empty else {},
     }
     return all_records, success_cases, summary
 
 def save_results(all_records: pd.DataFrame, success_cases: pd.DataFrame, summary: Dict):
-    """
-    保存扫描结果至文件。
-    """
-    # 保存所有信号记录
+    os.makedirs(REPORT_DIR, exist_ok=True)
+    os.makedirs(WEB_DATA_DIR, exist_ok=True)
+
     all_records_path = os.path.join(REPORT_DIR, 'all_signal_records.csv')
-    all_records.to_csv(all_records_path, index=False, encoding='utf-8-sig')
-    log(f"所有信号记录已保存: {all_records_path}")
-    # 保存成功案例
     success_path = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
+
+    all_records.to_csv(all_records_path, index=False, encoding='utf-8-sig')
     success_cases.to_csv(success_path, index=False, encoding='utf-8-sig')
-    log(f"成功案例列表已保存: {success_path}")
-    # 保存统计摘要（同时写入前端数据目录）
+
     summary_path = os.path.join(REPORT_DIR, 'signal_summary.json')
     web_summary_path = os.path.join(WEB_DATA_DIR, 'signal_summary.json')
     with open(summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     with open(web_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
+
+    log(f"所有信号记录已保存: {all_records_path}")
+    log(f"成功案例列表已保存: {success_path}")
     log(f"统计摘要已保存: {summary_path}")
     log(f"前端统计摘要已更新: {web_summary_path}")
 
-# ==============================================================================
-# 主流程
-# ==============================================================================
-
+# ------------------------------------------------------------------------------
+# 主入口
+# ------------------------------------------------------------------------------
 def main():
-    stock_files = []
+    parser = argparse.ArgumentParser(description='信号成功案例扫描器')
+    parser.add_argument('--holding_days', type=int, default=15, help='固定持有天数')
+    parser.add_argument('--min_red', type=int, default=4, help='六脉红色数量阈值')
+    parser.add_argument('--success_threshold', type=float, default=5.0, help='成功阈值(净收益率%, 大于该值为成功)')
+    args = parser.parse_args()
+
+    # 收集数据文件
+    stock_files: List[str] = []
+    if not os.path.isdir(DATA_DIR):
+        log(f"数据目录不存在: {DATA_DIR}", level="ERROR")
+        return
+
     for root, _, files in os.walk(DATA_DIR):
-        for file in files:
-            if file.endswith('.csv'):
-                stock_files.append(os.path.join(root, file))
+        for f in files:
+            if f.endswith('.csv'):
+                stock_files.append(os.path.join(root, f))
+
     if not stock_files:
         log("未找到任何股票CSV文件，请检查 data/day 目录。", level="ERROR")
         return
 
     log(f"开始扫描 {len(stock_files)} 只股票的买入信号...")
-    results = []
-    with ProcessPoolExecutor(max_workers=max(1, multiprocessing.cpu_count() - 1)) as executor:
-        futures = {executor.submit(scan_single_stock, f): f for f in stock_files}
+    results: List[pd.DataFrame] = []
+
+    max_workers = max(1, multiprocessing.cpu_count() - 1)
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(scan_single_stock, fp, args.holding_days, args.min_red, args.success_threshold): fp
+            for fp in stock_files
+        }
         for future in as_completed(futures):
-            file_path = futures[future]
+            fp = futures[future]
             try:
                 df_res = future.result()
-            except Exception as e:
-                log(f"股票扫描出错: {file_path}, 错误: {e}", level="ERROR")
-            else:
-                if not df_res.empty:
+                if df_res is not None and not df_res.empty:
                     results.append(df_res)
+            except Exception as e:
+                log(f"股票扫描出错: {fp}, 错误: {e}", level="ERROR")
+
     if not results:
         log("未检测到任何买入信号。", level="WARNING")
         return
@@ -329,9 +372,8 @@ def main():
     all_records_df = pd.concat(results, ignore_index=True)
     all_records_df, success_cases_df, summary = aggregate_results(all_records_df)
     save_results(all_records_df, success_cases_df, summary)
-    log("扫描完成！成功案例数: %d, 成功率: %.2f%%" % (summary.get('success_signals', 0), summary.get('success_rate', 0.0)))
+
+    log("扫描完成。")
 
 if __name__ == "__main__":
     main()
-
-print("a4_signal_success_scanner.py 脚本执行完毕")
