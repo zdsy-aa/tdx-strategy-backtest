@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-01-27 13:26:27",
+  "total_signals": 2083410,
+  "success_signals": 655750,
+  "success_rate": 31.47,
+  "signal_type_counts": {
+    "six_veins": 1112016,
+    "chan_buy": 566377,
+    "buy_sell": 193584,
+    "six_veins+buy_sell": 180068,
+    "six_veins+chan_buy": 21145,
+    "chan_buy+buy_sell": 5738,
+    "six_veins+chan_buy+buy_sell": 4482
+  },
+  "six_veins_success_by_count": {
+    "4": 263565,
+    "5": 193970,
+    "0": 81271,
+    "1": 56037,
+    "3": 32023,
+    "2": 28884
+  }
+}
