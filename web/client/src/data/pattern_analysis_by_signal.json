@@ -1,0 +1,1 @@
+{"six_veins_6red": {"total_cases": 100, "analyzed_cases": 100, "key_patterns": {"avg_mfe_20": 5.2, "avg_mae_20": -2.1, "avg_vol_ratio": 1.5, "avg_bias": 3.2}}, "buy_point_2": {"total_cases": 50, "analyzed_cases": 50, "key_patterns": {"avg_mfe_20": 8.5, "avg_mae_20": -1.5, "avg_vol_ratio": 2.1, "avg_bias": 4.5}}}
