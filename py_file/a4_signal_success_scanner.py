@@ -304,10 +304,27 @@ def save_results(all_records: pd.DataFrame, success_cases: pd.DataFrame, summary
     os.makedirs(REPORT_DIR, exist_ok=True)
     os.makedirs(WEB_DATA_DIR, exist_ok=True)
 
-    all_records_path = os.path.join(REPORT_DIR, 'all_signal_records.csv')
+    # 导入切片工具
+    try:
+        from a99_csv_chunker import split_csv_by_size, cleanup_old_chunks
+    except ImportError:
+        log("无法导入 a99_csv_chunker，将使用传统方式保存", level="WARNING")
+        all_records_path = os.path.join(REPORT_DIR, 'all_signal_records.csv')
+        all_records.to_csv(all_records_path, index=False, encoding='utf-8-sig')
+    else:
+        # 先保存到临时文件
+        temp_path = os.path.join(REPORT_DIR, 'all_signal_records_temp.csv')
+        all_records.to_csv(temp_path, index=False, encoding='utf-8-sig')
+        
+        # 清理旧切片
+        cleanup_old_chunks(REPORT_DIR, 'all_signal_records')
+        
+        # 切片保存
+        chunk_files = split_csv_by_size(temp_path, REPORT_DIR, 'all_signal_records', max_size_mb=40)
+        os.remove(temp_path)
+        log(f"all_signal_records 已切片为 {len(chunk_files)} 个文件")
+    
     success_path = os.path.join(REPORT_DIR, 'signal_success_cases.csv')
-
-    all_records.to_csv(all_records_path, index=False, encoding='utf-8-sig')
     success_cases.to_csv(success_path, index=False, encoding='utf-8-sig')
 
     summary_path = os.path.join(REPORT_DIR, 'signal_summary.json')
@@ -317,7 +334,7 @@ def save_results(all_records: pd.DataFrame, success_cases: pd.DataFrame, summary
     with open(web_summary_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
-    log(f"所有信号记录已保存: {all_records_path}")
+    log(f"所有信号记录已保存到 {REPORT_DIR}")
     log(f"成功案例列表已保存: {success_path}")
     log(f"统计摘要已保存: {summary_path}")
     log(f"前端统计摘要已更新: {web_summary_path}")

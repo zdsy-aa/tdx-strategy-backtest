@@ -352,20 +352,43 @@ def main():
         results = list(pool.imap_unordered(process_task, stock_files))
 
     successful = [r for r in results if r.get('status') == 'ok']
+    failed = [r for r in results if r.get('status') != 'ok']
     successful.sort(key=lambda x: x.get('forecast_change_pct', 0.0), reverse=True)
 
     out_path = PROJECT_ROOT / 'web' / 'client' / 'src' / 'data' / 'forecast_summary.json'
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # 构建前端期望的数据结构
     payload = {
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "total_stocks": len(results),
+        "successful": len(successful),
+        "failed": len(failed),
         "dependencies": {
             "filterpy": _HAS_FILTERPY,
             "hmmlearn": _HAS_HMMLEARN,
             "sklearn": _HAS_SKLEARN
         },
-        "predictions": successful
+        "all_predictions": successful,
+        "predictions": successful  # 保持兼容性
     }
+    
+    # 处理 NaN 值
+    def sanitize_value(v):
+        if isinstance(v, float) and (np.isnan(v) or np.isinf(v)):
+            return None
+        return v
+    
+    def sanitize_dict(d):
+        if isinstance(d, dict):
+            return {k: sanitize_dict(v) for k, v in d.items()}
+        elif isinstance(d, list):
+            return [sanitize_dict(item) for item in d]
+        else:
+            return sanitize_value(d)
+    
+    payload = sanitize_dict(payload)
+    
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 

@@ -18,6 +18,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from collections import defaultdict
 
 import numpy as np
 import pandas as pd
@@ -57,15 +58,25 @@ def normalize_path(p: str) -> Path:
     return (project_root / p_str).resolve()
 
 def _to_jsonable(x: Any) -> Any:
-    """将数据转换为 JSON 可序列化格式。"""
-    if x is None: return None
-    if isinstance(x, (str, int, float, bool)): return x
-    if isinstance(x, (np.integer,)): return int(x)
-    if isinstance(x, (np.floating,)): return float(x)
-    if isinstance(x, (np.ndarray,)): return x.tolist()
-    if isinstance(x, (pd.Timestamp, datetime)): return x.isoformat()
-    if isinstance(x, dict): return {str(k): _to_jsonable(v) for k, v in x.items()}
-    if isinstance(x, (list, tuple)): return [_to_jsonable(v) for v in x]
+    """将数据转换为 JSON 可序列化格式，处理 NaN 和 Inf。"""
+    if x is None:
+        return None
+    if isinstance(x, (str, bool)):
+        return x
+    if isinstance(x, (int, np.integer)):
+        return int(x)
+    if isinstance(x, (float, np.floating)):
+        if np.isnan(x) or np.isinf(x):
+            return None
+        return float(x)
+    if isinstance(x, (np.ndarray,)):
+        return x.tolist()
+    if isinstance(x, (pd.Timestamp, datetime)):
+        return x.isoformat()
+    if isinstance(x, dict):
+        return {str(k): _to_jsonable(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [_to_jsonable(v) for v in x]
     return str(x)
 
 # =========================
@@ -81,9 +92,11 @@ def read_day_csv(csv_path: Path, code: str, market: str) -> Optional[pd.DataFram
             try:
                 df = pd.read_csv(csv_path, encoding=enc)
                 break
-            except: continue
+            except:
+                continue
         
-        if df is None: return None
+        if df is None:
+            return None
         
         # 映射列名
         df.columns = [str(c).strip() for c in df.columns]
@@ -102,7 +115,7 @@ def read_day_csv(csv_path: Path, code: str, market: str) -> Optional[pd.DataFram
         return None
 
 def build_symbol_payload(df: pd.DataFrame, dashboard_days: int) -> Dict[str, Any]:
-    """计算指标并生成单只股票的详细数据。"""
+    """计算指标并生成单只股票的详细数据（前端期望格式）。"""
     # 1. 计算所有指标
     df = calculate_six_veins(df)
     df = calculate_buy_sell_points(df)
@@ -122,23 +135,28 @@ def build_symbol_payload(df: pd.DataFrame, dashboard_days: int) -> Dict[str, Any
     # 策略 C: 摇钱树或缠论
     has_special = recent_df['money_tree_signal'].any() or recent_df['chan_buy1'].any()
     
-    # 4. 构建返回结构
+    # 计算各策略得分
+    score_A = 60 if has_six_veins else 0
+    score_B = 70 if has_buy_sell else 0
+    score_C = 80 if has_special else 0
+    final_score = score_A + score_B + score_C
+    
+    # 统计信号数量
+    signals_count = int(has_six_veins) + int(has_buy_sell) + int(has_special)
+    
+    # 4. 构建返回结构（匹配前端期望）
     return {
-        "info": {
-            "code": latest.get("stock_code", ""),
-            "name": latest.get("name", ""),
-            "market": latest.get("market", ""),
-            "last_date": latest["date"].strftime("%Y-%m-%d"),
-            "price": float(latest["close"]),
-            "pct_change": float(latest.get("pct_change", 0)) if pd.notna(latest.get("pct_change", 0)) else None,
-        },
-        "signals": {
-            "slot_a": bool(has_six_veins),
-            "slot_b": bool(has_buy_sell),
-            "slot_c": bool(has_special),
-            "score": int(recent_df['six_veins_count'].max()),
-            "strength": "High" if recent_df['six_veins_count'].max() >= 5 else "Normal"
-        }
+        "market": latest.get("market", ""),
+        "code": latest.get("stock_code", ""),
+        "name": latest.get("name", ""),
+        "last_date": latest["date"].strftime("%Y-%m-%d"),
+        "final_score": final_score,
+        "score_A": score_A,
+        "score_B": score_B,
+        "score_C": score_C,
+        "signals_count": signals_count,
+        "price": float(latest["close"]) if pd.notna(latest["close"]) else None,
+        "pct_change": float(latest.get("pct_change", 0)) if pd.notna(latest.get("pct_change", 0)) else None,
     }
 
 def main():
@@ -152,26 +170,50 @@ def main():
     
     all_symbols = []
     count = 0
+    market_stats = defaultdict(lambda: {"total": 0, "ok": 0, "fail": 0})
     
     for market in ["sh", "sz", "bj"]:
         m_dir = data_root / market
-        if not m_dir.exists(): continue
+        if not m_dir.exists():
+            continue
         
         for csv_file in m_dir.glob("*.csv"):
-            if args.limit > 0 and count >= args.limit: break
+            if args.limit > 0 and count >= args.limit:
+                break
             
             df = read_day_csv(csv_file, csv_file.stem, market)
             if df is not None and len(df) >= 30:
                 payload = build_symbol_payload(df, args.dashboard_days)
                 all_symbols.append(payload)
+                
+                # 统计市场数据
+                market_stats[market]["total"] += 1
+                if payload["final_score"] > 0:
+                    market_stats[market]["ok"] += 1
+                else:
+                    market_stats[market]["fail"] += 1
+                
                 count += 1
-                if count % 100 == 0: logger.info(f"已处理 {count} 只股票")
+                if count % 100 == 0:
+                    logger.info(f"已处理 {count} 只股票")
     
-    # 保存汇总数据
+    # 按 final_score 降序排序
+    all_symbols.sort(key=lambda x: x["final_score"], reverse=True)
+    
+    # 统计总数
+    total_ok = sum(s["final_score"] > 0 for s in all_symbols)
+    total_fail = len(all_symbols) - total_ok
+    
+    # 构建前端期望的数据结构
     dashboard_data = {
-        "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "total_count": len(all_symbols),
-        "symbols": all_symbols
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "markets": dict(market_stats),
+        "counts": {
+            "symbols_total": len(all_symbols),
+            "symbols_ok": total_ok,
+            "symbols_fail": total_fail
+        },
+        "top": all_symbols
     }
     
     os.makedirs(out_root, exist_ok=True)
@@ -179,6 +221,8 @@ def main():
         json.dump(_to_jsonable(dashboard_data), f, ensure_ascii=False, indent=2)
         
     logger.info(f"生成完毕，共 {len(all_symbols)} 只股票数据。")
+    logger.info(f"市场统计: {dict(market_stats)}")
+    logger.info(f"信号统计: OK={total_ok}, FAIL={total_fail}")
 
 if __name__ == "__main__":
     main()

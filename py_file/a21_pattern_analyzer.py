@@ -348,12 +348,26 @@ def main():
     os.makedirs(REPORT_DIR, exist_ok=True)
     os.makedirs(WEB_DATA_DIR, exist_ok=True)
 
-    input_path = SIGNAL_SUCCESS_FILE if os.path.exists(SIGNAL_SUCCESS_FILE) else SIGNAL_ALL_FILE
-    if not os.path.exists(input_path):
-        log("未找到输入文件：report/signal_success_cases.csv 或 report/all_signal_records.csv", level="ERROR")
-        return
-
-    df = pd.read_csv(input_path, encoding='utf-8-sig')
+    # 尝试读取成功案例文件
+    if os.path.exists(SIGNAL_SUCCESS_FILE):
+        df = pd.read_csv(SIGNAL_SUCCESS_FILE, encoding='utf-8-sig')
+        input_path = SIGNAL_SUCCESS_FILE
+    else:
+        # 尝试合并切片文件
+        try:
+            from a99_csv_chunker import merge_csv_chunks
+            df = merge_csv_chunks(REPORT_DIR, 'all_signal_records')
+            if df is None:
+                log("未找到输入文件：report/signal_success_cases.csv 或 report/all_signal_records 切片", level="ERROR")
+                return
+            input_path = SIGNAL_ALL_FILE
+        except ImportError:
+            log("无法导入 a99_csv_chunker，尝试读取单一文件", level="WARNING")
+            if not os.path.exists(SIGNAL_ALL_FILE):
+                log("未找到输入文件：report/signal_success_cases.csv 或 report/all_signal_records.csv", level="ERROR")
+                return
+            df = pd.read_csv(SIGNAL_ALL_FILE, encoding='utf-8-sig')
+            input_path = SIGNAL_ALL_FILE
 
     # 列兼容：stock 或 stock_code
     if 'stock_code' not in df.columns and 'stock' in df.columns:

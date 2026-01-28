@@ -13,7 +13,6 @@ import AIOptimizer from "./pages/AIOptimizer";
 import CustomStrategy from "./pages/CustomStrategy";
 import Reports from "./pages/Reports";
 import ReportDetail from "./pages/ReportDetail";
-import VisualBuyPoints from "./pages/VisualBuyPoints";
 import AnalysisReport from "./pages/AnalysisReport";
 import ModelDashboard from "./pages/ModelDashboard";
 import ForecastDashboard from "./pages/ForecastDashboard";
@@ -30,7 +29,6 @@ function Router() {
       <Route path="/custom-strategy" component={CustomStrategy} />
       <Route path="/reports" component={Reports} />
       <Route path="/report-detail" component={ReportDetail} />
-      <Route path="/visual-buy-points" component={VisualBuyPoints} />
       <Route path="/analysis-report" component={AnalysisReport} />
       <Route path="/model-dashboard" component={ModelDashboard} />
       <Route path="/forecast-dashboard" component={ForecastDashboard} />
