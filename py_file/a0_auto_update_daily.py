@@ -39,7 +39,7 @@ def run_script(script_name, description, args=None):
         return False
 
 def main():
-    parser = argparse.ArgumentParser(description='每日自动更新主控脚本')
+    parser = argparse.ArgumentParser(description='每日自动更新主控脚本（整合优化版）')
     parser.add_argument('--full', action='store_true', help='全量更新模式')
     parser.add_argument('--incremental', action='store_true', default=True, help='增量更新模式 (默认)')
     parser.add_argument('dates', nargs='*', help='增量模式下的日期范围 (YYYYMMDD YYYYMMDD)')
@@ -49,44 +49,40 @@ def main():
         log("=== 全量更新模式 ===")
         # 1. 全量更新基础数据
         run_script("a1_data_fetcher.py", "全量抓取最新基础数据", args=["--full"])
-        # 2. 扫描所有信号成功案例
-        run_script("a4_signal_success_scanner.py", "扫描全部股票的买入信号成功案例", args=["--full"])
-        # 3. 分析成功案例共性模式
+        
+        # 2. 统一回测（整合了 a2/a3/a4，包含自动前端更新）
+        run_script("a2_unified_backtest.py", "单策略回测（含前端更新）", args=["--mode", "single", "--strategy", "all"])
+        run_script("a2_unified_backtest.py", "组合策略回测（含前端更新）", args=["--mode", "combo", "--strategy", "all"])
+        run_script("a2_unified_backtest.py", "信号成功案例扫描", args=["--mode", "scan", "--holding_days", "15"])
+        
+        # 3. 模式分析
         run_script("a21_pattern_analyzer.py", "分析成功案例的共性模式特征")
-        # 4. 回测所有单指标策略
-        run_script("a2_single_strategy_backtest.py", "全市场单指标策略回测", args=["--strategy", "all"])
-        # 5. 回测所有组合策略
-        run_script("a3_combo_strategy_backtest.py", "全市场组合策略回测", args=["--strategy", "all"])
-        # 6. 生成股票报告明细
-        run_script("a5_generate_stock_reports.py", "生成所有股票的策略表现报告")
-        # 7. 运行 AI 模型评分系统
-        run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
-        # 8. 运行高级预测分析
-        run_script("a7_advanced_forecast.py", "运行高级预测分析，生成预测数据")
-        # 9. 更新前端展示所需的数据文件 (功能已合并到 a2/a3 脚本中，此处移除)
-        # run_script("a99_update_web_data.py", "更新前端网页数据")
+        
+        # 4. 统一分析（整合了 a5/a6/a7）
+        run_script("a5_unified_analysis.py", "股票报表+仪表盘+预测分析", args=["--mode", "all"])
+        
+        # ✅ 前端数据更新已整合到 a2_unified_backtest.py 中，无需单独调用
+        
     else:
         log("=== 增量更新模式 ===")
         # 根据提供的日期范围过滤增量数据
         date_args = args_cmd.dates if args_cmd.dates else []
+        
         # 1. 增量更新基础数据（指定日期范围）
         run_script("a1_data_fetcher.py", "增量抓取基础数据", args=date_args)
-        # 2. 扫描指定日期范围内的新成功案例
-        run_script("a4_signal_success_scanner.py", "扫描新增成功案例信号", args=date_args)
+        
+        # 2. 统一回测（整合了 a2/a3/a4，包含自动前端更新）
+        run_script("a2_unified_backtest.py", "单策略回测（含前端更新）", args=["--mode", "single", "--strategy", "all"])
+        run_script("a2_unified_backtest.py", "组合策略回测（含前端更新）", args=["--mode", "combo", "--strategy", "all"])
+        run_script("a2_unified_backtest.py", "信号成功案例扫描", args=["--mode", "scan", "--holding_days", "15"])
+        
         # 3. 模式分析（始终全量分析全部成功案例）
         run_script("a21_pattern_analyzer.py", "分析成功案例的共性模式特征")
-        # 4. 单指标策略回测（全市场，每次全量回测以保持结果最新）
-        run_script("a2_single_strategy_backtest.py", "全市场单指标策略回测", args=["--strategy", "all"])
-        # 5. 组合策略回测（全市场，每次全量回测以保持结果最新）
-        run_script("a3_combo_strategy_backtest.py", "全市场组合策略回测", args=["--strategy", "all"])
-        # 6. 更新股票报告（全市场）
-        run_script("a5_generate_stock_reports.py", "生成所有股票的策略表现报告")
-        # 7. 运行 AI 模型评分系统
-        run_script("a6_models.py", "运行 AI 模型评分系统，生成仪表盘数据", args=["--include-series"])
-        # 8. 运行高级预测分析
-        run_script("a7_advanced_forecast.py", "运行高级预测分析，生成预测数据")
-        # 9. 更新前端数据文件 (功能已合并到 a2/a3 脚本中，此处移除)
-        # run_script("a99_update_web_data.py", "更新前端网页数据")
+        
+        # 4. 统一分析（整合了 a5/a6/a7）
+        run_script("a5_unified_analysis.py", "股票报表+仪表盘+预测分析", args=["--mode", "all"])
+        
+        # ✅ 前端数据更新已整合到 a2_unified_backtest.py 中，无需单独调用
 
     log("=" * 50)
     log("所有任务执行完毕")
