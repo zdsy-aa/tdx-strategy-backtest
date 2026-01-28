@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/strategies", label: "指标方案", icon: Layers },
     { href: "/backtest", label: "回测数据", icon: BarChart2 },
     { href: "/report-detail", label: "报告明细", icon: Table2 },
-    { href: "/visual-buy-points", label: "可视化买点", icon: TrendingUp },
+
     { href: "/analysis-report", label: "分析报告", icon: BarChart3 },
     { href: "/model-dashboard", label: "模型仪表盘", icon: Zap },
     { href: "/forecast-dashboard", label: "预测数据", icon: LineChart },

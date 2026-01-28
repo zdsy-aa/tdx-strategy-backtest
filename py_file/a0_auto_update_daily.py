@@ -60,6 +60,9 @@ def main():
         
         # 4. 统一分析（整合了 a5/a6/a7）
         run_script("a5_unified_analysis.py", "股票报表+仪表盘+预测分析", args=["--mode", "all"])
+
+        # 5. 更新前端策略汇总数据
+        run_script("a99_update_strategies.py", "更新前端 strategies.json 汇总数据")
         
         # ✅ 前端数据更新已整合到 a2_unified_backtest.py 中，无需单独调用
         
@@ -81,6 +84,9 @@ def main():
         
         # 4. 统一分析（整合了 a5/a6/a7）
         run_script("a5_unified_analysis.py", "股票报表+仪表盘+预测分析", args=["--mode", "all"])
+
+        # 5. 更新前端策略汇总数据
+        run_script("a99_update_strategies.py", "更新前端 strategies.json 汇总数据")
         
         # ✅ 前端数据更新已整合到 a2_unified_backtest.py 中，无需单独调用
 
