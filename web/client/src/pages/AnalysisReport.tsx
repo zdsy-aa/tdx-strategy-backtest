@@ -21,7 +21,7 @@ import {
 
 // 导入分析数据
 import signalSummaryData from "@/data/signal_summary.json";
-import patternSummaryData from "@/data/pattern_summary.json";
+import patternSummaryData from "@/data/pattern_analysis_summary.json";
 import patternBySignalData from "@/data/pattern_analysis_by_signal.json";
 
 // 类型定义

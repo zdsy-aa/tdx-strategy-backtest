@@ -1,107 +1,62 @@
-# 股票策略回测与分析系统 (Stock Strategy Backtest & Analysis System)
+# TDX Strategy Backtest - 通达信策略回测与分析系统
 
-这是一个基于 Python 和 React 的全栈股票量化系统，旨在为A股投资者提供一个从数据获取、策略回测到模式分析的完整解决方案。系统不仅能够验证技术指标策略的历史表现，还能深入挖掘成功信号背后的共性特征，为策略优化提供数据支持。
+这是一个基于 Python 和 React 构建的专业级股票策略回测与可视化分析系统。系统旨在帮助投资者通过量化手段验证通达信指标策略的有效性，并提供深度的模式归因分析。
 
----
+## 🚀 核心功能
 
-## 🚀 系统核心功能
+- **全自动数据流**：集成 `mootdx` 接口，支持沪深京全市场 A 股数据的全量下载与增量更新。
+- **统一回测引擎**：支持单指标、多指标组合回测，自动计算胜率、盈亏比、最大回撤等核心指标。
+- **深度模式分析**：对成功案例进行“回看归因”，分析信号触发时的成交量、均线偏离、波动率等共性特征。
+- **智能预测评分**：内置仪表盘评分系统与基于线性回归的短期趋势预测模型。
+- **现代化可视化**：基于 React + TailwindCSS + ShadcnUI 构建的响应式前端界面，直观展示回测报表与分析结果。
 
-| 功能模块 | 描述 |
-| :--- | :--- |
-| **数据中心** | - **全量/增量下载**：通过 `data_fetcher.py` 获取A股所有股票的历史日线数据，并支持每日增量更新。<br>- **自动管理**：自动识别并跳过长期停牌或无交易的股票，提高更新效率。 |
-| **策略回测** | - **单指标策略**：整合了六脉神剑、买卖点、缠论买点等多种基础策略，通过 `single_strategy_backtest.py` 一键回测。<br>- **组合策略**：提供稳健型和激进型两种组合策略，通过 `combo_strategy_backtest.py` 进行回测，寻找更优的信号组合。 |
-| **信号分析** | - **成功案例扫描**：`signal_success_scanner.py` 自动扫描所有股票，识别指定买入信号，并验证其在未来15个交易日的表现。<br>- **模式识别**：`pattern_analyzer.py` 对涨幅超过5%的成功案例进行深度分析，挖掘其在MACD, KDJ, BOLL, RSI等11种常用指标以及道氏、威科夫理论上的共性特征。 |
-| **Web可视化** | - **前端框架**：基于 React, TypeScript 和 TailwindCSS 构建的现代化Web界面。<br>- **数据展示**：将所有回测和分析结果以图表和表格形式清晰展示，包括策略对比、信号统计和模式分析报告。 |
+## 📂 项目结构
 
----
-
-## 📊 网页与脚本的自动化联动
-
-新版系统实现了**完全自动化**的数据流转，Python脚本的输出会**直接生成**到Web前端所需的数据目录中，无需任何手动复制操作。运行回测或分析脚本后，只需刷新网页即可看到最新结果。
-
-| 网页板块 | 展示内容 | 数据来源 (自动生成) | 生成脚本 | 脚本作用 |
-| :--- | :--- | :--- | :--- | :--- |
-| **单指标回测** | 六脉神剑、买卖点、缠论等策略表现 | `web/client/src/data/backtest_single.json` | `single_strategy_backtest.py` | 执行所有单指标策略的全量回测，并按胜率和收益排名。 |
-| **组合策略回测** | 稳健型、激进型组合策略表现 | `web/client/src/data/backtest_combo.json` | `combo_strategy_backtest.py` | 执行两种核心组合策略的回测，寻找最佳策略配置。 |
-| **分析报告** | 成功信号的统计与共性特征分析 | `web/client/src/data/signal_summary.json`<br>`web/client/src/data/pattern_summary.json`<br>`web/client/src/data/pattern_analysis_by_signal.json` | `signal_success_scanner.py`<br>`pattern_analyzer.py` | 扫描并分析成功信号，生成多维度统计报告。 |
-
-> **重要提示**：在启动Web服务前，请务必至少运行一次相关Python脚本以生成初始数据文件，否则页面可能无法正常显示。
-
----
-
-## 📂 核心脚本说明 (`py_file/` 目录)
-
-经过重构，脚本结构更加清晰，功能更加集中。
-
-### 1. 数据获取
-*   **`a1_data_fetcher.py`**
-    *   **作用**：A股日线数据下载与管理模块。
-    *   **核心命令**：
-        *   `python a1_data_fetcher.py --full`: 首次使用时，下载所有A股历史数据。
-        *   `python a1_data_fetcher.py --today`: 每日收盘后，增量更新当天数据。
-        *   `python a1_data_fetcher.py --date 20250101 20250404`: 下载指定日期范围的数据。
-
-### 2. 策略回测 (Backtesting)
-*   **`a2_single_strategy_backtest.py`**
-    *   **作用**：回测各类**单指标策略**，支持增量模式。
-    *   **核心命令**：
-        *   `python a2_single_strategy_backtest.py`: 默认增量回测（仅处理更新过的股票）。
-        *   `python a2_single_strategy_backtest.py --full`: 强制全量回测。
-*   **`a3_combo_strategy_backtest.py`**
-    *   **作用**：回测**组合策略**，支持增量模式。
-    *   **核心命令**：
-        *   `python a3_combo_strategy_backtest.py`: 默认增量回测。
-        *   `python a3_combo_strategy_backtest.py --full`: 强制全量回测。
-
-### 3. 自动化主控
-*   **`a0_auto_update_daily.py`**
-    *   **作用**：一键完成数据下载、回测、分析和Web同步。
-    *   **核心命令**：
-        *   `python a0_auto_update_daily.py`: 增量更新当日数据并回测。
-        *   `python a0_auto_update_daily.py 20250101 20250404`: 下载指定日期范围数据并增量回测。
-        *   `python a0_auto_update_daily.py --full`: 全量下载并全量回测。
-
-### 3. 信号分析 (Analysis)
-*   **`signal_success_scanner.py`**
-    *   **作用**：扫描全市场股票，寻找成功的买入信号案例。
-    *   **核心命令**：`python signal_success_scanner.py`
-*   **`pattern_analyzer.py`**
-    *   **作用**：对成功案例进行深度分析，挖掘共性模式。
-    *   **核心命令**：`python pattern_analyzer.py`
-
-### 4. 基础模块
-*   **`indicators.py`**：定义了所有技术指标（MACD, KDJ, RSI, 缠论等）的计算函数。
-*   **`backtest_utils.py`**：提供多进程、结果汇总等回测通用工具函数。
-
----
+```text
+├── py_file/                # Python 核心脚本
+│   ├── a0_auto_update_daily.py    # 每日自动更新主控脚本
+│   ├── a1_data_fetcher_mootdx.py  # 数据抓取模块
+│   ├── a2_unified_backtest.py     # 统一回测与数据同步引擎
+│   ├── a21_pattern_analyzer.py    # 模式特征分析引擎
+│   └── a5_unified_analysis.py     # 综合报表与预测引擎
+├── data/                   # 股票基础数据 (CSV)
+├── report/                 # 回测与分析生成的本地报表
+├── web/                    # 前端可视化项目 (React)
+└── docs/                   # 项目详细文档
+```
 
 ## 🛠️ 快速开始
 
-详细的安装、配置和运行步骤，请参考项目根目录下的 **[部署与使用手册.md](./部署与使用手册.md)**。
+### 1. 环境准备
+确保已安装 Python 3.10+ 和 Node.js 18+。
 
----
+```bash
+# 安装 Python 依赖
+pip install pandas numpy mootdx scikit-learn
 
-## 📝 目录结构
-
+# 安装前端依赖
+cd web/client
+pnpm install
 ```
-tdx-strategy-backtest/
-├── data/                     # 存放股票历史数据 (CSV格式)
-│   └── day/
-├── py_file/                  # Python 核心代码
-│   ├── data_fetcher.py             # 数据下载脚本
-│   ├── single_strategy_backtest.py # 单指标回测
-│   ├── combo_strategy_backtest.py  # 组合策略回测
-│   ├── signal_success_scanner.py   # 信号成功案例扫描
-│   ├── pattern_analyzer.py         # 成功案例模式分析
-│   ├── indicators.py             # 技术指标库
-│   └── backtest_utils.py           # 回测工具库
-├── web/                      # Web 前端代码 (React + TS)
-│   ├── client/
-│   │   └── src/
-│   │       └── data/         # 存放 Python 生成的 JSON 数据 (自动更新)
-│   └── ...
-├── report/                   # 存放详细的分析报告 (Markdown, CSV)
-├── 部署与使用手册.md         # 详细的安装、配置和操作手册
-├── 开发说明文档.md           # 系统设计、模块功能等开发者文档
-└── README.md                 # 本文档
+
+### 2. 一键更新数据
+运行主控脚本，完成从数据下载到分析的全流程：
+
+```bash
+python3 py_file/a0_auto_update_daily.py --full  # 首次运行使用全量模式
 ```
+
+### 3. 启动可视化界面
+```bash
+cd web/client
+pnpm dev
+```
+
+## 📖 详细文档
+
+- [使用手册](./使用手册.md)：如何配置策略与查看报表。
+- [项目部署手册](./项目部署手册.md)：本地及云端部署指南。
+- [开发说明文档](./开发说明文档.md)：系统架构与二次开发指南。
+
+## ⚖️ 免责声明
+本系统仅供量化研究与学习使用，不构成任何投资建议。股市有风险，入市需谨慎。
