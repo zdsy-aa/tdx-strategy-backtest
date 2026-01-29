@@ -472,6 +472,7 @@ def main():
         
     log(f"按信号类型分析已保存: {BY_SIGNAL_OUTPUT_FILE}")
     log(f"前端按信号类型分析已更新: {WEB_BY_SIGNAL_FILE}")
+    log(f"脚本执行完毕！！！")
 
 if __name__ == "__main__":
     main()
