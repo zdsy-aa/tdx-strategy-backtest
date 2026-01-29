@@ -2,23 +2,30 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-脚本名称: a2_unified_backtest.py (完整整合版)
+脚本名称: a2_unified_backtest.py (完整整合版 v2.0)
 ================================================================================
 
 【脚本功能】
-    统一回测与信号扫描引擎，整合了以下三个模块的完整功能：
+    统一回测与信号扫描引擎，整合了以下四个模块的完整功能：
     1. 单策略回测 (a2_single_strategy_backtest.py)：验证单个技术指标的胜率
     2. 组合策略回测 (a3_combo_strategy_backtest.py)：验证多指标共振的表现
     3. 信号成功案例扫描 (a4_signal_success_scanner.py)：扫描全市场当前符合信号的股票
+    4. 前端数据更新 (a99_update_strategies.py)：自动更新 strategies.json ✅ 新增
+
+【整合说明】
+    ✅ a2_single_strategy_backtest.py    - 100% 整合
+    ✅ a3_combo_strategy_backtest.py     - 100% 整合
+    ✅ a4_signal_success_scanner.py      - 100% 整合
+    ✅ a99_update_strategies.py          - 100% 整合 (WebDataUpdater 类)
 
 【生成的前端JSON文件】
-    - strategies.json          (策略配置与统计，自动更新)
+    - strategies.json          (策略配置与统计，自动更新) ⭐
     - backtest_single.json     (单指标回测元信息)
     - backtest_combo.json      (组合策略回测元信息)
     - signal_summary.json      (信号扫描汇总统计)
 
 【使用方法】
-    # 运行所有模式 (默认)
+    # 运行所有模式 (默认) - 推荐
     python3 a2_unified_backtest.py
     
     # 单独运行某个模式
@@ -38,15 +45,27 @@
     - report/signal_success_cases.csv           (成功案例记录)
     
     JSON 数据:
-    - web/client/src/data/strategies.json       (前端策略数据)
+    - web/client/public/data/strategies.json    (前端策略数据 - 主要位置) ⭐
+    - web/client/src/data/strategies.json       (前端策略数据 - 备份位置)
     - web/client/src/data/backtest_single.json
     - web/client/src/data/backtest_combo.json
     - web/client/src/data/signal_summary.json
 
 【设计优势】
     - 高性能：利用多进程并行计算
-    - 完整整合：三大模块的所有核心功能
+    - 完整整合：四大模块的所有核心功能
     - 自动化：回测完成后自动更新前端数据
+    - 双位置保存：strategies.json 同时保存到 public/data 和 src/data
+
+【更新日志】
+    v2.0 - 2026-01-28
+    - 整合 a99_update_strategies.py 功能
+    - 优化 WebDataUpdater 类，完全兼容原始逻辑
+    - 支持 strategies 和 comboStrategies 两种字段名
+    - 增强 ID 映射逻辑（six_veins_6red -> four_red_plus）
+    
+    v1.0 - 2026-01-28
+    - 初始版本：整合 a2, a3, a4 三个脚本
 ================================================================================
 """
 
@@ -631,20 +650,40 @@ def aggregate_scan_results(all_records: pd.DataFrame) -> (pd.DataFrame, pd.DataF
 # ==============================================================================
 
 class WebDataUpdater:
-    """前端数据自动更新器"""
+    """
+    前端数据自动更新器
+    
+    功能说明：
+    - 整合了 a99_update_strategies.py 的所有功能
+    - 从回测CSV汇总文件自动更新 strategies.json
+    - 支持单指标策略和组合策略的统计更新
+    - 自动保存到 public/data 和 src/data 两个位置
+    """
     
     def __init__(self, project_root: str):
         self.project_root = project_root
         self.web_data_dir = WEB_DATA_DIR
         self.public_data_dir = PUBLIC_DATA_DIR
         
-        # 优先使用 public 目录
+        # 优先使用 public 目录（持久化位置）
         self.strategies_file = os.path.join(self.public_data_dir, "strategies.json")
         if not os.path.exists(self.strategies_file):
+            # 降级到 src/data 目录
             self.strategies_file = os.path.join(self.web_data_dir, "strategies.json")
+            if not os.path.exists(self.strategies_file):
+                log(f"警告: 找不到 strategies.json 模板文件", level="WARNING")
     
     def update_strategies_from_csv(self):
-        """从 CSV 汇总文件更新 strategies.json"""
+        """
+        从 CSV 汇总文件更新 strategies.json
+        
+        整合自 a99_update_strategies.py 的核心逻辑：
+        1. 读取单指标回测汇总 (single_strategy_summary.csv)
+        2. 读取组合策略回测汇总 (combo_strategy_summary.csv)
+        3. 按持有期聚合统计数据
+        4. 更新 strategies.json 的统计字段
+        5. 保存到 public/data 和 src/data 两个位置
+        """
         single_csv = os.path.join(REPORT_TOTAL_DIR, "single_strategy_summary.csv")
         combo_csv = os.path.join(REPORT_TOTAL_DIR, "combo_strategy_summary.csv")
         
@@ -652,39 +691,50 @@ class WebDataUpdater:
             log(f"错误: 找不到 strategies.json 模板文件 {self.strategies_file}", level="ERROR")
             return
 
+        # 加载现有的 strategies.json
         with open(self.strategies_file, 'r', encoding='utf-8') as f:
             web_data = json.load(f)
 
-        # 1. 更新单指标策略
+        # =====================================================================
+        # 1. 更新单指标策略 (singleIndicatorStrategies)
+        # =====================================================================
         if os.path.exists(single_csv):
             log(f"正在从 {single_csv} 更新单指标策略...")
             df_single = pd.read_csv(single_csv)
             
-            # ID映射
+            # ID映射: 前端ID -> 脚本策略名
+            # 注意：six_veins_6red 在脚本中实际是 four_red_plus
             id_map = {
-                "macd_red": "macd_red", "kdj_red": "kdj_red", "rsi_red": "rsi_red",
-                "lwr_red": "lwr_red", "bbi_red": "bbi_red", "mtm_red": "mtm_red",
-                "four_red_plus": "four_red_plus",
-                "buy1": "buy1", "buy2": "buy2",
+                "six_veins_6red": "four_red_plus",  # 重要映射
+                "buy_point_1": "buy1",
+                "buy_point_2": "buy2",
                 "chan_buy1": "chan_buy1",
+                "macd_red": "macd_red",
+                "kdj_red": "kdj_red",
+                "rsi_red": "rsi_red",
+                "lwr_red": "lwr_red",
+                "bbi_red": "bbi_red",
+                "mtm_red": "mtm_red"
             }
             
             for strategy in web_data.get('singleIndicatorStrategies', []):
                 s_id = strategy['id']
-                matched_name = id_map.get(s_id, s_id)
+                script_name = id_map.get(s_id, s_id)
                 
-                df_strat = df_single[df_single['strategy'] == matched_name]
+                df_strat = df_single[df_single['strategy'] == script_name]
                 if df_strat.empty:
                     continue
                 
-                # 按持有期汇总
+                # 按持有期汇总统计
                 summary_by_period = {}
                 for period, df_p in df_strat.groupby('hold_period'):
                     trades = int(df_p['trade_count'].sum())
                     wins = int(df_p['win_count'].sum())
                     sum_ret = float(df_p['sum_return'].sum())
+                    
                     win_rate = round(wins / trades * 100, 2) if trades > 0 else 0.0
                     avg_ret = round(sum_ret / trades, 2) if trades > 0 else 0.0
+                    
                     summary_by_period[str(int(period))] = {
                         "winRate": f"{win_rate}%",
                         "avgReturn": f"{avg_ret}%",
@@ -693,40 +743,48 @@ class WebDataUpdater:
                 
                 if not summary_by_period:
                     continue
-                    
+                
+                # 寻找最优周期（以胜率为准）
                 best_period = max(summary_by_period.keys(), 
                                  key=lambda k: float(summary_by_period[k]['winRate'].replace('%', '')))
                 best_stats = summary_by_period[best_period]
+                
+                # 更新策略统计
                 strategy['stats']['total'] = {
                     "winRate": best_stats['winRate'],
                     "avgReturn": best_stats['avgReturn'],
                     "optimalPeriod": f"{best_period}天",
                     "trades": best_stats['trades']
                 }
-                log(f"已更新单指标策略: {s_id}")
+                log(f"已更新单指标策略: {s_id} (最优周期: {best_period}天, 胜率: {best_stats['winRate']})")
 
-        # 2. 更新组合策略
+        # =====================================================================
+        # 2. 更新组合策略 (strategies 或 comboStrategies)
+        # =====================================================================
         if os.path.exists(combo_csv):
             log(f"正在从 {combo_csv} 更新组合策略...")
             df_combo = pd.read_csv(combo_csv)
             
-            combo_id_map = {"steady": "steady", "aggressive": "aggressive"}
+            # 支持两种可能的字段名
+            combo_strategies_list = web_data.get('comboStrategies', web_data.get('strategies', []))
             
-            for strategy in web_data.get('comboStrategies', []):
+            for strategy in combo_strategies_list:
                 s_id = strategy['id']
-                matched_name = combo_id_map.get(s_id, s_id)
                 
-                df_strat = df_combo[df_combo['strategy'] == matched_name]
+                df_strat = df_combo[df_combo['strategy'] == s_id]
                 if df_strat.empty:
                     continue
                 
+                # 按持有期汇总统计
                 summary_by_period = {}
                 for period, df_p in df_strat.groupby('hold_period'):
                     trades = int(df_p['trade_count'].sum())
                     wins = int(df_p['win_count'].sum())
                     sum_ret = float(df_p['sum_return'].sum())
+                    
                     win_rate = round(wins / trades * 100, 2) if trades > 0 else 0.0
                     avg_ret = round(sum_ret / trades, 2) if trades > 0 else 0.0
+                    
                     summary_by_period[str(int(period))] = {
                         "winRate": f"{win_rate}%",
                         "avgReturn": f"{avg_ret}%",
@@ -735,25 +793,30 @@ class WebDataUpdater:
                 
                 if not summary_by_period:
                     continue
-                    
+                
+                # 寻找最优周期（以胜率为准）
                 best_period = max(summary_by_period.keys(),
                                  key=lambda k: float(summary_by_period[k]['winRate'].replace('%', '')))
                 best_stats = summary_by_period[best_period]
+                
+                # 更新策略统计
                 strategy['stats']['total'] = {
                     "winRate": best_stats['winRate'],
                     "avgReturn": best_stats['avgReturn'],
                     "optimalPeriod": f"{best_period}天",
                     "trades": best_stats['trades']
                 }
-                log(f"已更新组合策略: {s_id}")
+                log(f"已更新组合策略: {s_id} (最优周期: {best_period}天, 胜率: {best_stats['winRate']})")
 
-        # 3. 保存到两个位置
+        # =====================================================================
+        # 3. 保存到两个位置（与 a99_update_strategies.py 一致）
+        # =====================================================================
         os.makedirs(self.web_data_dir, exist_ok=True)
         os.makedirs(self.public_data_dir, exist_ok=True)
         
         target_files = [
-            os.path.join(self.public_data_dir, "strategies.json"),
-            os.path.join(self.web_data_dir, "strategies.json")
+            os.path.join(self.public_data_dir, "strategies.json"),  # 优先保存位置
+            os.path.join(self.web_data_dir, "strategies.json")       # 备份位置
         ]
         
         for target in target_files:
